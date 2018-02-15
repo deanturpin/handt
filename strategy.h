@@ -1,9 +1,9 @@
 #ifndef STRATEGY
 #define STRATEGY
 
-#include <vector>
-#include <string>
 #include <numeric>
+#include <string>
+#include <vector>
 
 namespace lft {
 
@@ -11,7 +11,6 @@ namespace lft {
 class snooper {
 
 public:
-
   // The name of this strategy will be reported in the logs
   const std::string name = "snooper";
 
@@ -33,7 +32,6 @@ public:
   bool sell(const double position) const { return spot / position > threshold; }
 
 protected:
-
   // The prices upon which we shall make our decisions
   const std::vector<double> prices;
 
@@ -55,7 +53,6 @@ public:
     spot = prices.back();
   }
 };
-
 }
 
 #endif
