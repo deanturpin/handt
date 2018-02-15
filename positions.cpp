@@ -3,7 +3,16 @@
 #include <sstream>
 #include <fstream>
 #include <iterator>
-#include "strategy.h"
+// #include "strategy.h"
+//
+struct strategy {
+
+  const std::string name = "always";
+  const double threshold = 1.1;
+  bool buy(const std::vector<double> &p) { return true; }
+  bool sell(const double &a, const double &b) { return true; }
+
+};
 
 int main() {
 
@@ -31,12 +40,12 @@ int main() {
          std::back_inserter(prices));
 
     // Create a strategy
-    lft::snooper strategy(prices);
+    strategy s;
 
     // And test it
-    std::cout << coin << " " << strategy.name << "\n";
-    std::cout << "buy\t" << std::boolalpha << strategy.buy() << "\n";
-    std::cout << "sell\t" << std::boolalpha << strategy.sell(10000.0) << "\n";
+    std::cout << coin << " " << s.name << "\n";
+    std::cout << "buy\t" << std::boolalpha << s.buy(prices) << "\n";
+    std::cout << "sell\t" << std::boolalpha << s.sell(9000, 10000.0) << "\n";
   }
   }
 

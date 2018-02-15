@@ -6,6 +6,8 @@
 #include <numeric>
 
 namespace lft {
+
+// The original snooper
 class snooper {
 
 public:
@@ -30,7 +32,7 @@ public:
   // Time to sell
   bool sell(const double position) const { return spot / position > threshold; }
 
-private:
+protected:
 
   // The prices upon which we shall make our decisions
   const std::vector<double> prices;
@@ -41,6 +43,19 @@ private:
   // The current spot
   double spot;
 };
+
+// A snooper with higher expections
+class snooper_grande : public snooper {
+
+public:
+  const std::string name = "snooper_grande";
+  const double threshold = 1.1;
+
+  explicit snooper_grande(const std::vector<double> p) : prices(p) {
+    spot = prices.back();
+  }
+};
+
 }
 
 #endif
