@@ -4,14 +4,23 @@
 #include <fstream>
 #include <iterator>
 // #include "strategy.h"
-//
-struct strategy {
 
+struct strategy {
   const std::string name = "always";
   const double threshold = 1.1;
   bool buy(const std::vector<double> &p) { return true; }
   bool sell(const double &a, const double &b) { return true; }
+};
 
+struct never : strategy {
+  const std::string name = "never";
+  bool buy(const std::vector<double> &p) { return false; }
+  bool sell(const double &a, const double &b) { return false; }
+};
+
+struct neversell : strategy {
+  const std::string name = "neversell";
+  bool sell(const double &a, const double &b) { return false; }
 };
 
 int main() {
@@ -40,7 +49,7 @@ int main() {
          std::back_inserter(prices));
 
     // Create a strategy
-    strategy s;
+    neversell s;
 
     // And test it
     std::cout << coin << " " << s.name << "\n";
