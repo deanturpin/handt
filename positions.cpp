@@ -2,33 +2,63 @@
 #include <vector>
 #include <sstream>
 #include <fstream>
+#include <numeric>
 #include <iterator>
 // #include "strategy.h"
 
 struct strategy {
   const std::string name = "always";
   const double threshold = 1.1;
-  bool buy(const std::vector<double> &p) { return true; }
-  bool sell(const double &a, const double &b) { return true; }
+  bool buy() { return true; }
+  bool sell() { return true; }
 };
 
-struct never : strategy {
-  const std::string name = "never";
-  bool buy(const std::vector<double> &p) { return false; }
-  bool sell(const double &a, const double &b) { return false; }
+// struct never : strategy {
+//   const std::string name = "never";
+//   bool buy(const std::vector<double> &p) { return false; }
+//   bool sell(const double &a, const double &b) { return false; }
+// };
+// 
+// struct neversell : strategy {
+//   const std::string name = "neversell";
+//   bool sell(const double &a, const double &b) { return false; }
+// };
+// 
+// struct random : strategy {
+//   const std::string name = "random";
+//   bool buy(const std::vector<double> &p) { return false; }
+//   bool sell(const double &a, const double &b) { return false; }
+// };
+
+// SNOOPER
+// Trigger when spot is 5% below average for the period
+// Don't track to bottom (could fall to zero)
+// Sell when spot is 5% above lowest price
+struct snooper : strategy {
+  const std::string name = "snooper";
+  const double threshold = 1.05;
+  bool buy(const std::vector<double> &p) {
+    const double spot = p.back();
+    const double average =
+        std::accumulate(p.cbegin(), p.cend(), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; }) /
+        p.size();
+    return average / spot > threshold;
+  }
+
+  bool sell(const double &spot, const double &position) {
+    return spot / position > threshold;
+  }
 };
 
-struct neversell : strategy {
-  const std::string name = "neversell";
-  bool sell(const double &a, const double &b) { return false; }
+// SNOOPER GRANDE
+// Like SNOOPER but 10%
+struct snooper_grande : snooper {
+  const std::string name = "snooper_grande";
+  const double threshold = 1.10;
 };
 
 int main() {
-
-  // Price file structure is one currency per line, a coin name followed by a
-  // series of values
-  // coin1 1 2 3 3 4 5 6
-  // coin2 2 3 3
 
   // Read some prices
   std::ifstream in("prices.csv");
@@ -49,10 +79,10 @@ int main() {
          std::back_inserter(prices));
 
     // Create a strategy
-    neversell s;
+    snooper_grande s;
 
     // And test it
-    std::cout << coin << " " << s.name << "\n";
+    std::cout << coin << " " << s.name << " " << prices.size() << "\n";
     std::cout << "buy\t" << std::boolalpha << s.buy(prices) << "\n";
     std::cout << "sell\t" << std::boolalpha << s.sell(9000, 10000.0) << "\n";
   }
