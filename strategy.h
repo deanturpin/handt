@@ -1,11 +1,11 @@
 #ifndef STRATEGY
 #define STRATEGY
 
+#include <iostream>
+#include <istream>
 #include <numeric>
 #include <string>
 #include <vector>
-#include <iostream>
-#include <istream>
 
 // SNOOPER
 // Trigger when spot is 10% below average for the period
@@ -77,29 +77,16 @@ struct position {
   str duration = "duration";
 
   // Streaming out
-  friend std::ostream& operator<< (std::ostream& os, const position& p) {
-    return os
-      << p.name << " "
-      << p.buy_time << " "
-      << p.sell_time << " "
-      << p.duration << " "
-      << p.buy_price << " "
-      << p.sell_price << " "
-      << p.yield << " "
-      << p.strategy << "\n";
+  friend std::ostream &operator<<(std::ostream &os, const position &p) {
+    return os << p.name << " " << p.buy_time << " " << p.sell_time << " "
+              << p.duration << " " << p.buy_price << " " << p.sell_price << " "
+              << p.yield << " " << p.strategy << "\n";
   }
 
   // Streaming in
-  friend std::istream& operator>> (std::istream& is, position& p) {
-    return is
-      >> p.name
-      >> p.buy_time
-      >> p.sell_time
-      >> p.duration
-      >> p.buy_price
-      >> p.sell_price
-      >> p.yield
-      >> p.strategy;
+  friend std::istream &operator>>(std::istream &is, position &p) {
+    return is >> p.name >> p.buy_time >> p.sell_time >> p.duration >>
+           p.buy_price >> p.sell_price >> p.yield >> p.strategy;
   }
 };
 
