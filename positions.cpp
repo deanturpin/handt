@@ -1,19 +1,13 @@
 #include "strategy.h"
+#include "utils.h"
 #include <algorithm>
-#include <chrono>
 #include <fstream>
-#include <iomanip>
-#include <iterator>
 #include <map>
 #include <numeric>
 #include <sstream>
 #include <vector>
 
-// Proto
-std::map<std::string, std::vector<double>> get_prices();
-
-// Create a timestamp
-std::string timestamp();
+// Let's trade
 int main() {
 
   // Get some recent prices
@@ -35,6 +29,13 @@ int main() {
   }
 
   std::cout << positions.size() << " positions read\n";
+
+  // TODO
+  // Don't go for prices and add positions.
+  // Process open positions, and search for prices (mark "noprices" in the sell
+  // price if there are none - good if an exchange has gone down)
+  // Remove the processed coins and then create new position for whatever's
+  // remaining.
 
   // Consolidate existing and new positions
   for (const auto &coin : prices) {
@@ -58,14 +59,6 @@ int main() {
         positions.push_back(pos);
         std::cout << name << " buy@ " << spot << "\n";
       }
-
-    // else if (strat.sell(std::stod(it->buy_price), spot)) {
-      // std::cout << name << " sell@ " << spot << "\n";
-    // }
-
-    // Otherwise update the spot price
-    // else
-      // it->sell_price = std::to_string(spot);
   }
 
   // Consider cashing in each position
@@ -79,49 +72,4 @@ int main() {
     out << p;
 
   std::cout << positions.size() << " positions written\n";
-}
-
-// Get prices and return a container full of them
-std::map<std::string, std::vector<double>> get_prices() {
-  std::map<std::string, std::vector<double>> prices;
-
-  // Read some prices
-  std::ifstream in("prices.csv");
-  if (in.good()) {
-
-    // The first item is the coin name
-    std::string coin;
-    while (in >> coin) {
-
-      // The remainder of the line contains values
-      std::string line;
-      std::getline(in, line);
-      std::stringstream ss(line);
-
-      // Extract values into a container
-      std::vector<double> p;
-      copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
-           std::back_inserter(p));
-
-      prices.insert(std::make_pair(coin, p));
-    }
-  }
-
-  return prices;
-}
-
-// Turn right now into a string timestamp
-std::string timestamp() {
-
-  // Get now
-  using namespace std::chrono;
-  using clock = std::chrono::system_clock;
-  const auto now = clock::now();
-
-  // Create a date string
-  const auto in_time_t = clock::to_time_t(now);
-  std::stringstream date;
-  date << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
-
-  return date.str();
 }
