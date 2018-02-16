@@ -22,7 +22,7 @@ int main() {
   std::cout << prices.size() << " prices read\n";
 
   // Create a strategy
-  always s;
+  always strat;
 
   // Read in current buys
   std::vector<position> positions;
@@ -36,27 +36,33 @@ int main() {
 
   std::cout << positions.size() << " positions read\n";
 
-  // Test strategy on each coin
+  // Consolidate existing and new positions
   for (const auto &coin : prices) {
 
     const std::string name = coin.first;
     const double spot = coin.second.back();
 
     // Do we already hold a position on this currency?
-    auto it = std::find_if(positions.cbegin(), positions.cend(),
+    auto it = std::find_if(positions.begin(), positions.end(),
                            [&name](const auto &p) { return p.name == name; });
 
-    // If not buy?
-    if (it == positions.cend())
-      if (s.buy(coin.second)) {
-        struct position pos({name, std::to_string(spot), timestamp(), s.name});
+    // If not perhaps we buy
+    if (it == positions.end()) {
+      if (strat.buy(coin.second)) {
+        struct position pos({name, std::to_string(spot), timestamp(), strat.name});
         positions.push_back(pos);
-
-        // Or do we... sell?
-        // else if (s.sell(position, spot))
-        // std::cout << "\tsell\n";
       }
+    }
+
+    // Otherwise update the spot price
+    else
+      it->sell_price = std::to_string(spot);
   }
+
+  // Consider cashing in each position
+  for (const auto &p : positions)
+    if (strat.sell(std::stod(p.buy_price), std::stod(p.buy_price)))
+      std::cout << p.name << " sell@ " << p.sell_price << "\n";
 
   // Write out buys
   std::ofstream out(buys);
