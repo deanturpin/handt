@@ -17,19 +17,28 @@ std::map<std::string, std::vector<double>> get_prices();
 // position?
 struct position {
 
-  std::string name = "maybe";
-  std::string buy_price = "maybe";
-  std::string sell_price = "maybe";
-  std::string time = "maybe";
-  std::string yield = "maybe";
+  // These are set by initialiser
+  std::string name = "name";
+  std::string buy_price = "buy_price";
+  std::string buy_time = "buy_time";
+  std::string strategy = "strategy";
+
+  // These are defaulted
+  std::string sell_time = "sell_time";
+  std::string sell_price = "sell_price";
+  std::string yield = "yield";
+  std::string duration = "duration";
 
   friend std::ostream& operator<< (std::ostream& os, const position& p) {
     return os
-      << p.time << " "
       << p.name << " "
+      << p.buy_time << " "
+      << p.sell_time << " "
+      << p.duration << " "
       << p.buy_price << " "
       << p.sell_price << " "
-      << p.yield;
+      << p.yield << " "
+      << p.strategy;
   }
 };
 
@@ -39,9 +48,6 @@ int main() {
 
   // Get some recent prices
   auto prices = get_prices();
-
-  // Read current position
-  // TODO
 
   // Create a strategy
   always s;
@@ -54,26 +60,20 @@ int main() {
     const std::string name = coin.first;
     const double spot = coin.second.back();
 
-    std::cout << name << "\n";
     const double position = 100000.1;
 
     // Do we buy?
     if (s.buy(coin.second)) {
-      struct position pos({name, std::to_string(spot), timestamp()});
+      struct position pos({name, std::to_string(spot), timestamp(), s.name});
       positions.push_back(pos);
     }
 
     // Or do we... sell?
-    else if (s.sell(position, spot))
-      std::cout << "\tsell\n";
-
-    // Or stay as we are
-    else
-      std::cout << "\tnothing\n";
+    // else if (s.sell(position, spot))
+      // std::cout << "\tsell\n";
   }
 
   // Write out positions
-  std::cout << "POSITIONS\n";
   for (const auto & p : positions)
     std::cout << p << "\n";
 }
@@ -107,53 +107,19 @@ std::map<std::string, std::vector<double>> get_prices() {
   return prices;
 }
 
-/*
-struct trade {
-  std::string name = "blah";
-  std::string buy_time = "TBD"; //chrono
-  std::string sell_time = "TBD";
-  double buy = 0.0;
-  double sell = 0.0;
-
-  friend std::ostream& operator<<(std::ostream& os, const trade& t) {
-    return os
-      << t.name << " "
-      << t.buy_time << " "
-      << t.sell_time << " "
-      << t.buy << " "
-      << t.sell;
-  }
-};
-
-struct trade2 {
-
-  std::map<std::string, std::string> stats {
-    {"name", "undefined"},
-    {"buy_time", "undefined"},
-    {"sell_time", "undefined"},
-    {"buy", "undefined"},
-    {"sell", "undefined"},
-  };
-
-  friend std::ostream& operator<<(std::ostream& os, const trade2& t) {
-
-    for (const auto &s : t.stats)
-      os << s.second << " ";
-
-    return os;
-  }
-};
-*/
-
+// Turn right now into a string timestamp
 std::string timestamp() {
-    using namespace std::chrono;
-    using clock = std::chrono::system_clock;
-    const auto now = clock::now();
 
-    // Create a date string
-    const auto in_time_t = clock::to_time_t(now);
-    std::stringstream date;
-    date << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
-    return date.str();
+  // Get now
+  using namespace std::chrono;
+  using clock = std::chrono::system_clock;
+  const auto now = clock::now();
+
+  // Create a date string
+  const auto in_time_t = clock::to_time_t(now);
+  std::stringstream date;
+  date << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
+
+  return date.str();
 }
 
