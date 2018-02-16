@@ -22,8 +22,8 @@ struct strategy {
     return average / spot > threshold;
   }
 
-  bool sell(const double &spot, const double &position) const {
-    return spot / position > threshold;
+  bool sell(const double &buy, const double &sell) const {
+    return sell / buy > threshold;
   }
 };
 

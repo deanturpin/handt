@@ -26,9 +26,6 @@ struct trade {
 
 int main() {
 
-  trade t;
-  std::cout << t << "\n";
-
   // Read some prices
   std::ifstream in("prices.csv");
   if (in.good()) {
@@ -50,10 +47,20 @@ int main() {
       // Create a strategy
       snooper_grande s;
 
-      std::cout << coin << " " << prices.size() << " " << s.name << " " <<
-        s.threshold << "\n" << "buy\t" << std::boolalpha << s.buy(prices) <<
-        "\n" << "sell\t" << std::boolalpha << s.sell(9000, 10000.0) << "\n";
+      std::cout << coin << "\n";
+
+      const double buy = 0.1;
+      const double sell = prices.back();
+
+      // Check if we hold a position
+      if (buy > 0.0) {
+        if (s.sell(buy, sell))
+          std::cout << "sell\n";
       }
+      // Otherwise consider buying
+      else if (s.buy(prices))
+        std::cout << "buy\n";
+    }
     }
 
   // Nothing to do
