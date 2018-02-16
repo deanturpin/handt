@@ -5,6 +5,7 @@
 #include <numeric>
 #include <sstream>
 #include <vector>
+#include <map>
 #include "strategy.h"
 
 struct trade {
@@ -24,10 +25,31 @@ struct trade {
   }
 };
 
+struct trade2 {
+
+  std::map<std::string, std::string> stats {
+    {"name", "undefined"},
+    {"buy_time", "undefined"},
+    {"sell_time", "undefined"},
+    {"buy", "undefined"},
+    {"sell", "undefined"},
+  };
+
+  friend std::ostream& operator<<(std::ostream& os, const trade2& t) {
+
+    for (const auto &s : t.stats)
+      os << s.second << " ";
+
+    return os;
+  }
+};
+
 int main() {
 
-  // Read some prices
+  std::map<std::string, std::vector<double>> prices;
   std::ifstream in("prices.csv");
+
+  // Read some prices
   if (in.good()) {
 
     // The first item is the coin name
@@ -40,30 +62,34 @@ int main() {
       std::stringstream ss(line);
 
       // Extract values into a container
-      std::vector<double> prices;
+      std::vector<double> p;
       copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
-           std::back_inserter(prices));
+           std::back_inserter(p));
 
-      // Create a strategy
-      snooper_grande s;
-
-      std::cout << coin << "\n";
-
-      const double buy = 0.1;
-      const double sell = prices.back();
-
-      // Check if we hold a position
-      if (buy > 0.0) {
-        if (s.sell(buy, sell))
-          std::cout << "sell\n";
-      }
-      // Otherwise consider buying
-      else if (s.buy(prices))
-        std::cout << "buy\n";
+      prices.insert(std::make_pair(coin, p));
     }
-    }
+  }
 
-  // Nothing to do
-  else
-    std::cout << "no prices\n";
+  // Create a strategy
+  snooper_grande s;
+
+  // Test strategy on each coin
+  for (const auto &coin : prices) {
+
+    std::cout << coin.first << "\n";
+    const double position = 100000.1;
+    const double spot = coin.second.back();
+
+    // Do we buy?
+    if (s.buy(coin.second))
+      std::cout << "\tbuy\n";
+
+    // Or do we... sell?
+    else if (s.sell(position, spot))
+      std::cout << "\tsell\n";
+
+    // Or stay as we are
+    else
+      std::cout << "\tnothing\n";
+  }
 }
