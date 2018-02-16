@@ -1,4 +1,5 @@
 #include <fstream>
+#include <istream>
 #include <iostream>
 #include <iterator>
 #include <numeric>
@@ -6,7 +7,32 @@
 #include <vector>
 #include "strategy.h"
 
+struct trade {
+  std::string name = "blah";
+  std::string buy_time = "TBD"; //chrono
+  std::string sell_time = "TBD";
+  double buy = 0.0;
+  double sell = 0.0;
+
+  friend std::ostream& operator<<(std::ostream& os, const trade& t) {
+    return os
+      << t.name << " "
+      << t.buy_time << " "
+      << t.sell_time << " "
+      << t.buy << " "
+      << t.sell;
+  }
+
+  // friend std::istream& operator>>(std::istream& is, const trade& t) {
+  //   // is >> t.name;
+  //   return is;
+  // }
+};
+
 int main() {
+
+  trade t;
+  std::cout << t << "\n";
 
   // Read some prices
   std::ifstream in("prices.csv");
