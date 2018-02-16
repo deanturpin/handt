@@ -5,54 +5,40 @@
 #include <string>
 #include <vector>
 
-namespace lft {
-
-// The original snooper
-class snooper {
-
-public:
-  // The name of this strategy will be reported in the logs
+// SNOOPER
+// Trigger when spot is 10% below average for the period
+// Don't track to bottom (could fall to zero)
+// Sell when spot is 10% above lowest price
+struct strategy {
+  // strategy(){}
   const std::string name = "snooper";
-
-  // We can only create this strategy if we supply some prices
-  explicit snooper(const std::vector<double> p) : prices(p) {
-    spot = prices.back();
-  }
-
-  // Time to buy
-  bool buy() const {
+  const double threshold = 1.1;
+  bool buy(const std::vector<double> &p) const {
+    const double spot = p.back();
     const double average =
-        std::accumulate(prices.cbegin(), prices.cend(), 0.0,
+        std::accumulate(p.cbegin(), p.cend(), 0.0,
                         [](auto &sum, auto &i) { return sum + i; }) /
-        prices.size();
+        p.size();
     return average / spot > threshold;
   }
 
-  // Time to sell
-  bool sell(const double position) const { return spot / position > threshold; }
-
-protected:
-  // The prices upon which we shall make our decisions
-  const std::vector<double> prices;
-
-  // The threshold at which we make our decisions
-  const double threshold = 1.05;
-
-  // The current spot
-  double spot;
-};
-
-// A snooper with higher expections
-class snooper_grande : public snooper {
-
-public:
-  const std::string name = "snooper_grande";
-  const double threshold = 1.1;
-
-  explicit snooper_grande(const std::vector<double> p) : prices(p) {
-    spot = prices.back();
+  bool sell(const double &spot, const double &position) const {
+    return spot / position > threshold;
   }
 };
-}
+
+// SNOOPER GRANDE
+// Like SNOOPER but 15%
+struct snooper_grande : strategy {
+  const std::string name = "snooper_grande";
+  const double threshold = 1.15;
+};
+
+// SNOOPER PEQUENO
+// Like SNOOPER but 5%
+struct snooper_pequeno : strategy {
+  const std::string name = "snooper_pequeno";
+  const double threshold = 1.15;
+};
 
 #endif
