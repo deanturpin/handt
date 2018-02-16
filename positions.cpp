@@ -8,6 +8,7 @@
 #include <map>
 #include "strategy.h"
 
+/*
 struct trade {
   std::string name = "blah";
   std::string buy_time = "TBD"; //chrono
@@ -43,6 +44,7 @@ struct trade2 {
     return os;
   }
 };
+*/
 
 int main() {
 
@@ -69,6 +71,8 @@ int main() {
       prices.insert(std::make_pair(coin, p));
     }
   }
+
+  // Read current positions
 
   // Create a strategy
   snooper_grande s;
