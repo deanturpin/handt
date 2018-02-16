@@ -4,6 +4,8 @@
 #include <numeric>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <istream>
 
 // SNOOPER
 // Trigger when spot is 10% below average for the period

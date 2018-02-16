@@ -1,14 +1,13 @@
+#include "strategy.h"
+#include <algorithm>
+#include <chrono>
 #include <fstream>
 #include <iomanip>
-#include <chrono>
-#include <istream>
-#include <iostream>
 #include <iterator>
+#include <map>
 #include <numeric>
 #include <sstream>
 #include <vector>
-#include <map>
-#include "strategy.h"
 
 // Proto
 std::map<std::string, std::vector<double>> get_prices();
@@ -20,6 +19,8 @@ int main() {
   // Get some recent prices
   auto prices = get_prices();
 
+  std::cout << prices.size() << " prices read\n";
+
   // Create a strategy
   always s;
 
@@ -27,10 +28,10 @@ int main() {
   std::vector<position> positions;
   const std::string buys = "buys.txt";
   std::ifstream in(buys);
-  while (in.good()) {
+  if (in.good()) {
     position p;
-    in >> p;
-    positions.emplace_back(p);
+    while (in >> p)
+      positions.emplace_back(p);
   }
 
   std::cout << positions.size() << " positions read\n";
@@ -41,21 +42,28 @@ int main() {
     const std::string name = coin.first;
     const double spot = coin.second.back();
 
-    // Do we buy?
-    if (s.buy(coin.second)) {
-      struct position pos({name, std::to_string(spot), timestamp(), s.name});
-      positions.push_back(pos);
-    }
+    // Do we already hold a position on this currency?
+    auto it = std::find_if(positions.cbegin(), positions.cend(),
+                           [&name](const auto &p) { return p.name == name; });
 
-    // Or do we... sell?
-    // else if (s.sell(position, spot))
-      // std::cout << "\tsell\n";
+    // If not buy?
+    if (it == positions.cend())
+      if (s.buy(coin.second)) {
+        struct position pos({name, std::to_string(spot), timestamp(), s.name});
+        positions.push_back(pos);
+
+        // Or do we... sell?
+        // else if (s.sell(position, spot))
+        // std::cout << "\tsell\n";
+      }
   }
 
   // Write out buys
   std::ofstream out(buys);
-  for (const auto & p : positions)
+  for (const auto &p : positions)
     out << p;
+
+  std::cout << positions.size() << " positions written\n";
 }
 
 // Get prices and return a container full of them
@@ -102,4 +110,3 @@ std::string timestamp() {
 
   return date.str();
 }
-
