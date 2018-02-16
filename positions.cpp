@@ -31,6 +31,7 @@ struct position {
   str yield = "yield";
   str duration = "duration";
 
+  // Streaming out
   friend std::ostream& operator<< (std::ostream& os, const position& p) {
     return os
       << p.name << " "
@@ -43,6 +44,7 @@ struct position {
       << p.strategy;
   }
 
+  // Streaming in
   friend std::istream& operator>> (std::istream& is, position& p) {
     return is
       >> p.name
@@ -74,8 +76,6 @@ int main() {
     const std::string name = coin.first;
     const double spot = coin.second.back();
 
-    const double position = 100000.1;
-
     // Do we buy?
     if (s.buy(coin.second)) {
       struct position pos({name, std::to_string(spot), timestamp(), s.name});
@@ -88,8 +88,9 @@ int main() {
   }
 
   // Write out positions
+  std::ofstream out("buy.txt");
   for (const auto & p : positions)
-    std::cout << p << "\n";
+    out << p << "\n";
 }
 
 // Get prices and return a container full of them
