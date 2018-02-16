@@ -10,53 +10,8 @@
 #include <map>
 #include "strategy.h"
 
+// Proto
 std::map<std::string, std::vector<double>> get_prices();
-
-// Struggled for a while how to handle a no position. Zero is the first choice
-// but zero also represents a complete fail. Perhaps that also represents a no
-// position? All state is stored in a text file so it makes sense to handle it
-// so.
-struct position {
-
-  // These are set by initialiser
-  using str = std::string;
-  str name = "name";
-  str buy_price = "buy_price";
-  str buy_time = "buy_time";
-  str strategy = "strategy";
-
-  // These are defaulted
-  str sell_time = "sell_time";
-  str sell_price = "sell_price";
-  str yield = "yield";
-  str duration = "duration";
-
-  // Streaming out
-  friend std::ostream& operator<< (std::ostream& os, const position& p) {
-    return os
-      << p.name << " "
-      << p.buy_time << " "
-      << p.sell_time << " "
-      << p.duration << " "
-      << p.buy_price << " "
-      << p.sell_price << " "
-      << p.yield << " "
-      << p.strategy;
-  }
-
-  // Streaming in
-  friend std::istream& operator>> (std::istream& is, position& p) {
-    return is
-      >> p.name
-      >> p.buy_time
-      >> p.sell_time
-      >> p.duration
-      >> p.buy_price
-      >> p.sell_price
-      >> p.yield
-      >> p.strategy;
-  }
-};
 
 // Create a timestamp
 std::string timestamp();
@@ -68,7 +23,17 @@ int main() {
   // Create a strategy
   always s;
 
+  // Read in current buys
   std::vector<position> positions;
+  const std::string buys = "buys.txt";
+  std::ifstream in(buys);
+  while (in.good()) {
+    position p;
+    in >> p;
+    positions.emplace_back(p);
+  }
+
+  std::cout << positions.size() << " positions read\n";
 
   // Test strategy on each coin
   for (const auto &coin : prices) {
@@ -87,10 +52,10 @@ int main() {
       // std::cout << "\tsell\n";
   }
 
-  // Write out positions
-  std::ofstream out("buy.txt");
+  // Write out buys
+  std::ofstream out(buys);
   for (const auto & p : positions)
-    out << p << "\n";
+    out << p;
 }
 
 // Get prices and return a container full of them
