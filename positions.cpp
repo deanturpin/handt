@@ -22,11 +22,6 @@ struct trade {
       << t.buy << " "
       << t.sell;
   }
-
-  // friend std::istream& operator>>(std::istream& is, const trade& t) {
-  //   // is >> t.name;
-  //   return is;
-  // }
 };
 
 int main() {
