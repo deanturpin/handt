@@ -10,7 +10,6 @@
 // Don't track to bottom (could fall to zero)
 // Sell when spot is 10% above lowest price
 struct strategy {
-  // strategy(){}
   const std::string name = "snooper";
   const double threshold = 1.1;
   bool buy(const std::vector<double> &p) const {
@@ -22,9 +21,17 @@ struct strategy {
     return average / spot > threshold;
   }
 
-  bool sell(const double &buy, const double &sell) const {
-    return sell / buy > threshold;
+  bool sell(const double &position, const double &spot) const {
+    return spot / position > threshold;
   }
+};
+
+// ALWAYS
+// Always buy, always sell
+struct always : strategy {
+  const std::string name = "always";
+  bool buy(const std::vector<double> &p) const { return true; }
+  bool sell(const double &position, const double &spot) const { return true; }
 };
 
 // SNOOPER GRANDE

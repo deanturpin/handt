@@ -1,4 +1,6 @@
 #include <fstream>
+#include <iomanip>
+#include <chrono>
 #include <istream>
 #include <iostream>
 #include <iterator>
@@ -7,6 +9,103 @@
 #include <vector>
 #include <map>
 #include "strategy.h"
+
+std::map<std::string, std::vector<double>> get_prices();
+
+// Struggled for a while how to handle a no position. Zero is the first choice
+// but zero also represents a complete fail. Perhaps that also represents a no
+// position?
+struct position {
+
+  std::string name = "maybe";
+  std::string buy_price = "maybe";
+  std::string sell_price = "maybe";
+  std::string time = "maybe";
+  std::string yield = "maybe";
+
+  friend std::ostream& operator<< (std::ostream& os, const position& p) {
+    return os
+      << p.time << " "
+      << p.name << " "
+      << p.buy_price << " "
+      << p.sell_price << " "
+      << p.yield;
+  }
+};
+
+// Create a timestamp
+std::string timestamp();
+int main() {
+
+  // Get some recent prices
+  auto prices = get_prices();
+
+  // Read current position
+  // TODO
+
+  // Create a strategy
+  always s;
+
+  std::vector<position> positions;
+
+  // Test strategy on each coin
+  for (const auto &coin : prices) {
+
+    const std::string name = coin.first;
+    const double spot = coin.second.back();
+
+    std::cout << name << "\n";
+    const double position = 100000.1;
+
+    // Do we buy?
+    if (s.buy(coin.second)) {
+      struct position pos({name, std::to_string(spot), timestamp()});
+      positions.push_back(pos);
+    }
+
+    // Or do we... sell?
+    else if (s.sell(position, spot))
+      std::cout << "\tsell\n";
+
+    // Or stay as we are
+    else
+      std::cout << "\tnothing\n";
+  }
+
+  // Write out positions
+  std::cout << "POSITIONS\n";
+  for (const auto & p : positions)
+    std::cout << p << "\n";
+}
+
+// Get prices and return a container full of them
+std::map<std::string, std::vector<double>> get_prices() {
+  std::map<std::string, std::vector<double>> prices;
+
+  // Read some prices
+  std::ifstream in("prices.csv");
+  if (in.good()) {
+
+    // The first item is the coin name
+    std::string coin;
+    while (in >> coin) {
+
+      // The remainder of the line contains values
+      std::string line;
+      std::getline(in, line);
+      std::stringstream ss(line);
+
+      // Extract values into a container
+      std::vector<double> p;
+      copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
+           std::back_inserter(p));
+
+      prices.insert(std::make_pair(coin, p));
+    }
+  }
+
+  return prices;
+}
 
 /*
 struct trade {
@@ -46,54 +145,15 @@ struct trade2 {
 };
 */
 
-int main() {
+std::string timestamp() {
+    using namespace std::chrono;
+    using clock = std::chrono::system_clock;
+    const auto now = clock::now();
 
-  std::map<std::string, std::vector<double>> prices;
-  std::ifstream in("prices.csv");
-
-  // Read some prices
-  if (in.good()) {
-
-    // The first item is the coin name
-    std::string coin;
-    while (in >> coin) {
-
-      // The remainder of the line contains values
-      std::string line;
-      std::getline(in, line);
-      std::stringstream ss(line);
-
-      // Extract values into a container
-      std::vector<double> p;
-      copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
-           std::back_inserter(p));
-
-      prices.insert(std::make_pair(coin, p));
-    }
-  }
-
-  // Read current positions
-
-  // Create a strategy
-  snooper_grande s;
-
-  // Test strategy on each coin
-  for (const auto &coin : prices) {
-
-    std::cout << coin.first << "\n";
-    const double position = 100000.1;
-    const double spot = coin.second.back();
-
-    // Do we buy?
-    if (s.buy(coin.second))
-      std::cout << "\tbuy\n";
-
-    // Or do we... sell?
-    else if (s.sell(position, spot))
-      std::cout << "\tsell\n";
-
-    // Or stay as we are
-    else
-      std::cout << "\tnothing\n";
-  }
+    // Create a date string
+    const auto in_time_t = clock::to_time_t(now);
+    std::stringstream date;
+    date << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
+    return date.str();
 }
+
