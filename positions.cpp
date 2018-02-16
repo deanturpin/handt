@@ -46,23 +46,32 @@ int main() {
     auto it = std::find_if(positions.begin(), positions.end(),
                            [&name](const auto &p) { return p.name == name; });
 
-    // If not perhaps we buy
-    if (it == positions.end()) {
+    // If we don't hold a position then consider creating one
+    if (it == positions.end())
       if (strat.buy(coin.second)) {
-        struct position pos({name, std::to_string(spot), timestamp(), strat.name});
+        struct position pos;
+        pos.name = name;
+        pos.buy_price = std::to_string(spot);
+        pos.buy_time = timestamp();
+        pos.strategy = strat.name;
+
         positions.push_back(pos);
+        std::cout << name << " buy@ " << spot << "\n";
       }
-    }
+
+    // else if (strat.sell(std::stod(it->buy_price), spot)) {
+      // std::cout << name << " sell@ " << spot << "\n";
+    // }
 
     // Otherwise update the spot price
-    else
-      it->sell_price = std::to_string(spot);
+    // else
+      // it->sell_price = std::to_string(spot);
   }
 
   // Consider cashing in each position
-  for (const auto &p : positions)
-    if (strat.sell(std::stod(p.buy_price), std::stod(p.buy_price)))
-      std::cout << p.name << " sell@ " << p.sell_price << "\n";
+  // for (const auto &p : positions)
+  //   if (strat.sell(std::stod(p.buy_price), std::stod(p.buy_price)))
+  //     std::cout << p.name << " sell@ " << p.sell_price << "\n";
 
   // Write out buys
   std::ofstream out(buys);
