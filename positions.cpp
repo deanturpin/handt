@@ -14,20 +14,22 @@ std::map<std::string, std::vector<double>> get_prices();
 
 // Struggled for a while how to handle a no position. Zero is the first choice
 // but zero also represents a complete fail. Perhaps that also represents a no
-// position?
+// position? All state is stored in a text file so it makes sense to handle it
+// so.
 struct position {
 
   // These are set by initialiser
-  std::string name = "name";
-  std::string buy_price = "buy_price";
-  std::string buy_time = "buy_time";
-  std::string strategy = "strategy";
+  using str = std::string;
+  str name = "name";
+  str buy_price = "buy_price";
+  str buy_time = "buy_time";
+  str strategy = "strategy";
 
   // These are defaulted
-  std::string sell_time = "sell_time";
-  std::string sell_price = "sell_price";
-  std::string yield = "yield";
-  std::string duration = "duration";
+  str sell_time = "sell_time";
+  str sell_price = "sell_price";
+  str yield = "yield";
+  str duration = "duration";
 
   friend std::ostream& operator<< (std::ostream& os, const position& p) {
     return os
@@ -39,6 +41,18 @@ struct position {
       << p.sell_price << " "
       << p.yield << " "
       << p.strategy;
+  }
+
+  friend std::istream& operator>> (std::istream& is, position& p) {
+    return is
+      >> p.name
+      >> p.buy_time
+      >> p.sell_time
+      >> p.duration
+      >> p.buy_price
+      >> p.sell_price
+      >> p.yield
+      >> p.strategy;
   }
 };
 
