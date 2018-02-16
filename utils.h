@@ -1,12 +1,12 @@
 #ifndef UTILS
 #define UTILS
 
-#include <map>
 #include <chrono>
-#include <sstream>
-#include <iterator>
 #include <fstream>
 #include <iomanip>
+#include <iterator>
+#include <map>
+#include <sstream>
 
 // Prototypes
 std::map<std::string, std::vector<double>> get_prices();
@@ -29,7 +29,7 @@ std::map<std::string, std::vector<double>> get_prices() {
       std::getline(in, line);
       std::stringstream ss(line);
 
-      // Extract values into a container
+      // Extract values and add to the map
       std::vector<double> p;
       copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
            std::back_inserter(p));
@@ -41,10 +41,10 @@ std::map<std::string, std::vector<double>> get_prices() {
   return prices;
 }
 
-// Turn right now into a string timestamp
+// Get the time right now and turn it into a human-readable string
 std::string timestamp() {
 
-  // Get now
+  // Get time now
   using namespace std::chrono;
   using clock = std::chrono::system_clock;
   const auto now = clock::now();
