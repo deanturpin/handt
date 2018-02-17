@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git="https://github.com/deanturpin/trading_strategies"
+
 cat <<!
 <!DOCTYPE html>
 
@@ -13,14 +15,24 @@ body { font-family: sans-serif; }
 </style>
 
 <title>LFT</title>
+<p id="disclaimer"> History is no indicator of future performance. Don"t invest
+what you can"t afford to lose. Prices fetched generated periodically using the
+<a href="https://www.cryptocompare.com/api/"
+target="blah">CryptoCompare&nbsp;API</a>. See the source on <a
+href="$git" target="blah">GitHub</a>.</p>
 
-<h1>BUYS</h1>
+<h2>BUYS</h2>
 <pre>
 $(cat buys.csv)
 </pre>
 
-<h1>SELLS</h1>
+<h2>SELLS</h2>
 <pre>
 $(cat sells.csv)
+</pre>
+
+<h2>git log</h2>
+<pre>
+$(git log -n 5 --oneline)
 </pre>
 !
