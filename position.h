@@ -2,7 +2,6 @@
 #define POSITION
 
 #include <istream>
-#include <iomanip>
 #include <ostream>
 #include <string>
 
@@ -23,8 +22,8 @@ struct position {
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
     return os << std::fixed << p.buy_time << " " << p.sell_time << " " << p.name
-              << "\t" << std::setprecision(0) << p.yield << "\t" << p.duration << " " << p.buy_price
-              << " " << std::setprecision(6) << p.sell_price << " " << p.exchange << " " << p.strategy
+              << "\t" << p.yield << "\t" << p.duration << " " << p.buy_price
+              << " " << p.sell_price << " " << p.exchange << " " << p.strategy
               << "\n";
   }
 
