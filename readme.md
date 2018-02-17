@@ -10,3 +10,14 @@ feature is useful until you use it.
 
 Splitting the design into trading and graphics much easier to reason about and
 aligns with the MCV design pattern.
+
+# C++
+The C++ can be built with any C++11 compliant compiler (gcc, clang). The code
+confirms to LLVM's coding standard by virtue of periodic passes of
+```clang-format``` over the source.
+
+# Web server
+```cron``` is used to schedule builds on a Linux web server. The project is
+periodically pulled from GitHub, compiled from clean and if successful copied
+into the web root. The main site is generated from the master branch, there's
+also a beta site which is generated from the current dev branch.

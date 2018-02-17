@@ -3,27 +3,32 @@
 import json
 import requests
 
-coin = "ETH"
-url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
-    + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
+# Get coins
+coins = []
+c = open("coins.csv")
+for coin in c:
+    coins.append(coin.rstrip())
 
-prices = requests.get(url).json();
+for coin in coins:
+    url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
+        + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
 
-if prices:
-    if prices["Response"] == "Error":
-        print("0 0 0 0")
-    else:
-        p = []
-        for spot in prices["Data"]:
+    prices = requests.get(url).json();
 
-            pivot = (float(spot["low"])
-                + float(spot["close"])
-                + float(spot["high"])) / 3
+    if prices:
+        if prices["Response"] == "Error":
+            print("0 0 0 0")
+        else:
+            p = []
+            for spot in prices["Data"]:
 
-            p.append(pivot)
+                pivot = (float(spot["low"])
+                    + float(spot["close"])
+                    + float(spot["high"])) / 3
 
-        print(coin, end=" ")
-        for val in p:
-            print(val, end=" ")
-        print()
+                p.append(pivot)
 
+            print(coin, end=" ")
+            for val in p:
+                print(val, end=" ")
+            print()

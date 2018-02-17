@@ -14,7 +14,7 @@ int main() {
   std::cout << prices.size() << " prices read\n";
 
   // Create a strategy
-  always strat;
+  strategy strat;
 
   // Read in current buys
   std::vector<position> positions;
@@ -53,6 +53,7 @@ int main() {
         pos.buy_price = pos.sell_price = std::to_string(spot);
         pos.buy_time = timestamp();
         pos.strategy = strat.name;
+        pos.yield = 100.0 * std::stod(pos.sell_price) / std::stod(pos.buy_price);
 
         positions.push_back(pos);
         std::cout << name << " buy@ " << spot << "\n";

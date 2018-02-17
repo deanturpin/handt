@@ -11,17 +11,14 @@
 // so.
 struct position {
 
-  // These are set by initialiser
   using str = std::string;
   str name = "name";
   str buy_price = "buy_price";
   str buy_time = "buy_time";
   str strategy = "strategy";
-
-  // These are defaulted
   str sell_time = "sell_time";
   str sell_price = "sell_price";
-  str yield = "yield";
+  double yield = 0.0;
   str duration = "duration";
   str exchange = "cryptocompare";
 
