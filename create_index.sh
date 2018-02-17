@@ -9,7 +9,7 @@ cat <<!
 
 <meta charset="UTF-8">
 <meta name="robots" content="index,follow" />
-<meta http-equiv="refresh" content="60" />
+<meta http-equiv="refresh" content="30" />
 <link rel=icon href="favicon.ico" sizes="any">
 
 <style>
