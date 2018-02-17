@@ -20,12 +20,12 @@ what you can"t afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the source on <a href="$git" target="blah">GitHub</a>.</p>
 
-<h2>BUYS</h2>
+<h2>Current positions</h2>
 <pre>
 $(cat buys.csv)
 </pre>
 
-<h2>SELLS</h2>
+<h2>Complete trades</h2>
 <pre>
 $(cat sells.csv)
 </pre>
