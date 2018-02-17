@@ -1,4 +1,4 @@
-all: source prices
+all: source prices trades
 
 # All the C++ source files
 source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -7,6 +7,9 @@ source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 prices: prices.csv
 prices.csv: coins.csv
 	./exchange.py
+
+trades: trade.o prices
+	./$<
 
 cc=g++
 

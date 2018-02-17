@@ -13,41 +13,46 @@ int main() {
 
   std::cout << prices.size() << " prices read\n";
 
-  // Create a strategy
-  strategy strat;
-
-  // Read in current buys
+  // Read in current positions
   std::vector<position> positions;
-  const std::string buys = "buys.csv";
-  std::ifstream in(buys);
+  const std::string buy_file = "buys.csv";
+  std::ifstream in(buy_file);
   if (in.good()) {
     position p;
     while (in >> p)
       positions.emplace_back(p);
   }
 
-  std::cout << positions.size() << " positions read\n";
+  // Create some containers to hold the results
+  std::vector<position> buys, sells;
 
-  // TODO
-  // Don't go for prices and add positions.
-  // Process open positions, and search for prices (mark "noprices" in the sell
-  // price if there are none - good if an exchange has gone down)
-  // Remove the processed coins and then create new position for whatever's
-  // remaining.
+  // Create a strategy
+  strategy strat;
+
+  // Review all open positions
+  for (const auto &p : positions)
+    if (strat.sell(p.buy_price, p.sell_price))
+      sells.push_back(p);
+    else
+      buys.push_back(p);
+
+  std::cout << positions.size() << " positions read\n";
 
   // Consolidate existing and new positions
   for (const auto &coin : prices) {
 
     const std::string name = coin.first;
     const double spot = coin.second.back();
+    const auto series = coin.second;
 
     // Do we already hold a position on this currency?
     auto it = std::find_if(positions.begin(), positions.end(),
                            [&name](const auto &p) { return p.name == name; });
 
-    // If we don't hold a position then consider creating one
+    // If we don't hold a position in this currency then create one for
+    // consideration
     if (it == positions.end())
-      if (strat.buy(coin.second)) {
+      if (strat.buy(series)) {
         struct position pos;
         pos.name = name;
         pos.buy_price = spot;
@@ -61,15 +66,17 @@ int main() {
       }
   }
 
-  // Consider cashing in each position
-  // for (const auto &p : positions)
-  //   if (strat.sell(std::stod(p.buy_price), std::stod(p.buy_price)))
-  //     std::cout << p.name << " sell@ " << p.sell_price << "\n";
+  // Trading session is complete, write out buys and sells
+  std::ofstream out(buy_file);
+  for (const auto &p : buys)
+    out << p;
+  out.close();
 
-  // Write out buys
-  std::ofstream out(buys);
-  for (const auto &p : positions)
+  std::cout << buys.size() << " buys written\n";
+
+  out.open("sells.csv");
+  for (const auto &p : sells)
     out << p;
 
-  std::cout << positions.size() << " positions written\n";
+  std::cout << sells.size() << " sells written\n";
 }
