@@ -57,8 +57,6 @@ int main() {
     }
   }
 
-  std::cout << positions.size() << " positions read\n";
-
   // Consolidate existing and new positions
   for (const auto &coin : prices) {
 
@@ -87,17 +85,14 @@ int main() {
       }
   }
 
-  // Trading session is complete, write out buys and sells
+  // Trading session is complete, write out buys
   std::ofstream out(buy_file);
   for (const auto &p : buys)
     out << p;
   out.close();
 
-  std::cout << buys.size() << " buys written\n";
-
+  // Append sells lest we forget
   out.open("sells.csv", std::ios::app);
   for (const auto &p : sells)
     out << p;
-
-  std::cout << sells.size() << " sells written\n";
 }
