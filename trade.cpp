@@ -50,10 +50,11 @@ int main() {
       if (strat.buy(coin.second)) {
         struct position pos;
         pos.name = name;
-        pos.buy_price = pos.sell_price = std::to_string(spot);
+        pos.buy_price = spot;
+        pos.sell_price = spot;
         pos.buy_time = timestamp();
         pos.strategy = strat.name;
-        pos.yield = 100.0 * std::stod(pos.sell_price) / std::stod(pos.buy_price);
+        pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
         positions.push_back(pos);
         std::cout << name << " buy@ " << spot << "\n";

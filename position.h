@@ -13,11 +13,11 @@ struct position {
 
   using str = std::string;
   str name = "name";
-  str buy_price = "buy_price";
   str buy_time = "buy_time";
-  str strategy = "strategy";
   str sell_time = "sell_time";
-  str sell_price = "sell_price";
+  double buy_price = 0.0;
+  double sell_price = 0.0;
+  str strategy = "strategy";
   double yield = 0.0;
   str duration = "duration";
   str exchange = "cryptocompare";
