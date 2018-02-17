@@ -75,11 +75,16 @@ int main() {
       if (strat.buy(series)) {
         struct position pos;
         pos.name = name;
-        pos.buy_price = spot;
-        pos.sell_price = spot;
-        pos.buy_time = timestamp();
+
+        // Initialise buy and sell to same price
+        pos.buy_price = pos.sell_price = spot;
+
         pos.strategy = strat.name;
         pos.yield = 100.0 * pos.sell_price / pos.buy_price;
+
+        // Initialise timestamps to the same time, sell will be updated each
+        // time it is reviewed
+        pos.buy_time = pos.sell_time = timestamp();
 
         buys.push_back(pos);
       }
