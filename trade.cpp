@@ -25,7 +25,7 @@ int main() {
   std::vector<position> buys, sells;
 
   // Create a strategy
-  strategy strat;
+  snooper_pequeno strat;
 
   // Review all open positions
   for (const auto &p : positions) {
