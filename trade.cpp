@@ -40,13 +40,15 @@ int main() {
 
     if (it != prices.end()) {
 
+      const auto &series = it->second;
+
       // Update position with latest info
       _p.sell_price = it->second.back();
       _p.sell_time = timestamp();
       _p.yield = 100.0 * _p.sell_price / _p.buy_price;
 
       // Check if it's good to sell, otherwise push it back onto the buy list
-      if (strat.sell(_p.buy_price, _p.sell_price))
+      if (strat.sell(series, _p.buy_price))
         sells.push_back(_p);
       else
         buys.push_back(_p);

@@ -23,8 +23,9 @@ struct strategy {
     return average / spot > threshold;
   }
 
-  bool sell(const double &position, const double &spot) const {
-    return spot / position > threshold;
+  bool sell(const std::vector<double> &series, const double &buy) const {
+    const auto sell = series.back();
+    return sell / buy > threshold;
   }
 };
 
