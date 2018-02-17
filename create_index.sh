@@ -2,6 +2,7 @@
 
 git="https://github.com/deanturpin/trading_strategies"
 date=$(date --utc)
+coins=$(cat coins.csv | wc -l)
 
 cat <<!
 <!DOCTYPE html>
@@ -13,7 +14,6 @@ cat <<!
 
 <style>
 body { font-family: sans-serif; }
-p#pagegen { font-size: 75%; }
 </style>
 
 <title>LFT</title>
@@ -22,7 +22,7 @@ what you can"t afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the source on <a href="$git" target="blah">GitHub</a>.</p>
 
-<p id="pagegen">Page generated $date. </p>
+<p id="pagegen">Processed $coins coins. Page generated $date. </p>
 
 <h2>Open</h2>
 <pre>
