@@ -11,8 +11,6 @@ int main() {
   // Get some recent prices
   auto prices = get_prices();
 
-  std::cout << prices.size() << " prices read\n";
-
   // Read in current positions
   std::vector<position> positions;
   const std::string buy_file = "buys.csv";
@@ -27,14 +25,37 @@ int main() {
   std::vector<position> buys, sells;
 
   // Create a strategy
-  strategy strat;
+  always strat;
 
   // Review all open positions
-  for (const auto &p : positions)
-    if (strat.sell(p.buy_price, p.sell_price))
-      sells.push_back(p);
-    else
-      buys.push_back(p);
+  for (const auto &p : positions) {
+
+    // Create a copy of the position
+    auto _p = p;
+
+    // Try to find some prices for this currency
+    auto it = std::find_if(prices.begin(), prices.end(),
+                           [&_p](const auto &coin)
+                           { return coin.first == _p.name; });
+
+    if (it != prices.end()) {
+
+      // Update position with latest
+      _p.sell_price = it->second.back();
+      _p.sell_time = timestamp();
+      _p.yield = 100.0 * _p.sell_price / _p.buy_price;
+
+      // Check if it's good to sell, otherwise push it back onto the buy list
+      if (strat.sell(_p.buy_price, _p.sell_price))
+        sells.push_back(_p);
+      else
+        buys.push_back(_p);
+    }
+    else {
+      _p.sell_price = -1;
+      buys.push_back(_p);
+    }
+  }
 
   std::cout << positions.size() << " positions read\n";
 
@@ -49,9 +70,10 @@ int main() {
     auto it = std::find_if(positions.begin(), positions.end(),
                            [&name](const auto &p) { return p.name == name; });
 
-    // If we don't hold a position in this currency then create one for
-    // consideration
+    // Check we don't already hold a position in this currency
     if (it == positions.end())
+
+      // If not consider creating one
       if (strat.buy(series)) {
         struct position pos;
         pos.name = name;
@@ -61,8 +83,7 @@ int main() {
         pos.strategy = strat.name;
         pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-        positions.push_back(pos);
-        std::cout << name << " buy@ " << spot << "\n";
+        buys.push_back(pos);
       }
   }
 
@@ -74,7 +95,7 @@ int main() {
 
   std::cout << buys.size() << " buys written\n";
 
-  out.open("sells.csv");
+  out.open("sells.csv", std::ios::app);
   for (const auto &p : sells)
     out << p;
 

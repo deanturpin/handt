@@ -12,7 +12,6 @@ trades: trade.o prices
 	./$<
 
 cc=g++
-
 %.o: %.cpp
 	$(cc) -Wall -Wextra -pedantic -std=c++14 -o $@ $<
 
