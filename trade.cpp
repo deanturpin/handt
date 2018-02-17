@@ -34,9 +34,9 @@ int main() {
     auto _p = p;
 
     // Try to find some prices for this currency
-    auto it = std::find_if(prices.begin(), prices.end(),
-                           [&_p](const auto &coin)
-                           { return coin.first == _p.name; });
+    auto it =
+        std::find_if(prices.begin(), prices.end(),
+                     [&_p](const auto &coin) { return coin.first == _p.name; });
 
     if (it != prices.end()) {
 
@@ -50,8 +50,7 @@ int main() {
         sells.push_back(_p);
       else
         buys.push_back(_p);
-    }
-    else {
+    } else {
       _p.sell_price = -1;
       buys.push_back(_p);
     }

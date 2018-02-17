@@ -1,9 +1,9 @@
 #ifndef POSITION
 #define POSITION
 
-#include <string>
 #include <istream>
 #include <ostream>
+#include <string>
 
 // A stucture to represent a trade
 struct position {
@@ -21,15 +21,16 @@ struct position {
 
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
-    return os << p.buy_time << " " << p.sell_time << " " << p.name << "\t" <<
-      p.yield << "\t" << p.duration << " " << p.buy_price << " " << p.sell_price
-      << " " << p.exchange << " " << p.strategy << "\n";
+    return os << std::fixed << p.buy_time << " " << p.sell_time << " " << p.name
+              << "\t" << p.yield << "\t" << p.duration << " " << p.buy_price
+              << " " << p.sell_price << " " << p.exchange << " " << p.strategy
+              << "\n";
   }
 
   // Streaming in
   friend std::istream &operator>>(std::istream &is, position &p) {
-    return is >> p.buy_time >> p.sell_time >> p.name >> p.yield >>
-           p.duration >> p.buy_price >> p.sell_price >> p.exchange >> p.strategy;
+    return is >> p.buy_time >> p.sell_time >> p.name >> p.yield >> p.duration >>
+           p.buy_price >> p.sell_price >> p.exchange >> p.strategy;
   }
 };
 
