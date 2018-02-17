@@ -1,3 +1,4 @@
+#include "position.h"
 #include "strategy.h"
 #include "utils.h"
 #include <algorithm>
@@ -52,7 +53,7 @@ int main() {
       if (strat.buy(coin.second)) {
         struct position pos;
         pos.name = name;
-        pos.buy_price = std::to_string(spot);
+        pos.buy_price = pos.sell_price = std::to_string(spot);
         pos.buy_time = timestamp();
         pos.strategy = strat.name;
 
