@@ -3,9 +3,6 @@
 #include "utils.h"
 #include <algorithm>
 #include <fstream>
-#include <map>
-#include <numeric>
-#include <sstream>
 #include <vector>
 
 // Let's trade
