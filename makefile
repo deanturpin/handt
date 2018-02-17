@@ -12,6 +12,8 @@ trades: trade.o prices
 	./$<
 
 index: index.html
+
+.PHONY: index.html
 index.html: trades
 	./create_index.sh > index.html
 
@@ -20,4 +22,4 @@ cc=g++
 	$(cc) -Wall -Wextra -pedantic -std=c++14 -o $@ $<
 
 clean:
-	rm -f prices.csv *.o *.html
+	rm -f prices.csv *.o
