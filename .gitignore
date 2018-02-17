@@ -1,4 +1,3 @@
 *.o
 *.swp
-buys.txt
-sells.txt
+*.csv

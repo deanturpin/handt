@@ -18,7 +18,7 @@ int main() {
 
   // Read in current buys
   std::vector<position> positions;
-  const std::string buys = "buys.txt";
+  const std::string buys = "buys.csv";
   std::ifstream in(buys);
   if (in.good()) {
     position p;

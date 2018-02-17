@@ -5,6 +5,7 @@ source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 # Fetch the prices from the exchanges
 prices: prices.csv
+prices.csv: coins.csv
 	./exchange.py
 
 cc=g++
@@ -13,5 +14,4 @@ cc=g++
 	$(cc) -Wall -Wextra -pedantic -std=c++14 -o $@ $<
 
 clean:
-	rm -f buys.txt
-	rm *.o
+	rm -f prices.csv *.o
