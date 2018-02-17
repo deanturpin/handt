@@ -1,4 +1,4 @@
-all: source prices trades
+all: source prices trades index
 
 # All the C++ source files
 source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -11,9 +11,13 @@ prices.csv: coins.csv
 trades: trade.o prices
 	./$<
 
+index: index.html
+index.html: trades
+	./create_index.sh > index.html
+
 cc=g++
 %.o: %.cpp
 	$(cc) -Wall -Wextra -pedantic -std=c++14 -o $@ $<
 
 clean:
-	rm -f prices.csv *.o
+	rm -f prices.csv *.o *.html

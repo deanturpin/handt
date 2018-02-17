@@ -40,7 +40,7 @@ int main() {
 
     if (it != prices.end()) {
 
-      // Update position with latest
+      // Update position with latest info
       _p.sell_price = it->second.back();
       _p.sell_time = timestamp();
       _p.yield = 100.0 * _p.sell_price / _p.buy_price;
