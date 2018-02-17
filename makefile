@@ -1,6 +1,11 @@
+all: source prices
 
-all: source
+# All the C++ source files
 source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+
+# Fetch the prices from the exchanges
+prices: prices.csv
+	./exchange.py
 
 cc=g++
 
