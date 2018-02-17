@@ -22,7 +22,7 @@ struct position {
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
     return os << p.buy_time << " " << p.sell_time << " " << p.name << "\t" <<
-      p.yield << " " << p.duration << " " << p.buy_price << " " << p.sell_price
+      p.yield << "\t" << p.duration << " " << p.buy_price << " " << p.sell_price
       << " " << p.exchange << " " << p.strategy << "\n";
   }
 
