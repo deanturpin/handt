@@ -54,7 +54,14 @@ struct snooper_grande : strategy {
 // Like SNOOPER but 5%
 struct snooper_pequeno : strategy {
   const std::string name = "snooper_pequeno";
-  const double threshold = 1.15;
+  const double threshold = 1.05;
+};
+
+// SNOOPEROO
+// Like SNOOPER but 2%
+struct snooperoo: strategy {
+  const std::string name = "snooperoo";
+  const double threshold = 1.02;
 };
 
 #endif
