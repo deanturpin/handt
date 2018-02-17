@@ -5,10 +5,7 @@
 #include <istream>
 #include <ostream>
 
-// Struggled for a while how to handle a no position. Zero is the first choice
-// but zero also represents a complete fail. Perhaps that also represents a no
-// position? All state is stored in a text file so it makes sense to handle it
-// so.
+// A stucture to represent a trade
 struct position {
 
   using str = std::string;
