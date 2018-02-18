@@ -13,7 +13,7 @@
 // Sell when spot is 10% above lowest price
 struct strategy {
   const std::string name = "snooper";
-  const double threshold = 1.1;
+  const double threshold = 1.15;
   bool buy(const std::vector<double> &p) const {
     const double spot = p.back();
     const double average =
