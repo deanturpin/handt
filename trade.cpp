@@ -12,8 +12,9 @@
 #include <vector>
 
 struct strategy {
-  std::string name {"dive10"};
-  double threshold {1.1};
+
+  const std::string name {"dive10"};
+  const double threshold {1.1};
 
   // BUY
   std::function<bool(const std::vector<double> &p)>
