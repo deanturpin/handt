@@ -41,5 +41,4 @@ for coin in coins:
 
         # Failed to get prices to just write a null entry
         else:
-            print(prices)
             p.write(coin + " -1\n")
