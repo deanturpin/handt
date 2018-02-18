@@ -11,6 +11,11 @@ feature is useful until you use it.
 Splitting the design into trading and graphics much easier to reason about and
 aligns with the MCV design pattern.
 
+# Exchanges
+Coinbase and CryptoCompare - whilst intuitively it seems you should be fetching
+prices often, Coinbase and CryptoCompare don't appear to publish updates more
+often than once per minute.
+
 # C++
 The C++ can be built with any C++11 compliant compiler (gcc, clang). The code
 confirms to LLVM's coding standard by virtue of periodic passes of
