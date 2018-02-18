@@ -4,9 +4,42 @@
 #include <algorithm>
 #include <fstream>
 #include <vector>
+#include <functional>
+
+struct blah {
+  std::string name {"blahblah"};
+  double threshold {1.1};
+
+  // BUY
+  std::function<bool(const std::vector<double> &p)>
+    buy = [&](const auto &p){
+    const double spot = p.back();
+    const double average =
+        std::accumulate(p.cbegin(), p.cend(), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; }) /
+        p.size();
+    return average / spot > threshold;
+    };
+
+  // SELL
+  std::function<bool(const std::vector<double> &series, const double &buy_price)>
+    sell = [&](const auto &series, const auto &buy_price)
+         {
+
+           // if (buy(series))
+             // return false;
+
+           const auto sell_price = series.back();
+           return sell_price / buy_price > threshold;
+         };
+};
 
 // Let's trade
 int main() {
+
+  // std::vector<blah> strats = {blah(), blah({"blah2", 1.2})};
+  // for (const auto &s : strats)
+    // std::cout << s.name << " " << s.threshold << "\n";
 
   // Get some recent prices
   auto prices = get_prices();
@@ -25,7 +58,7 @@ int main() {
   std::vector<position> buys, sells;
 
   // Create a strategy
-  snooper_pequeno strat;
+  blah strat({"blah5", 1.05});
 
   // Review all open positions
   for (const auto &p : positions) {
