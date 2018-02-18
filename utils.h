@@ -7,6 +7,7 @@
 #include <iterator>
 #include <map>
 #include <sstream>
+#include <vector>
 
 // Prototypes
 std::map<std::string, std::vector<double>> get_prices();

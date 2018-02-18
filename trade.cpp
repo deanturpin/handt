@@ -1,13 +1,18 @@
-#include "position.h"
-#include "strategy.h"
 #include "utils.h"
+#include "position.h"
 #include <algorithm>
 #include <fstream>
 #include <vector>
 #include <functional>
+#include <iostream>
+#include <istream>
+#include <numeric>
+#include <string>
+#include <functional>
+#include <vector>
 
-struct blah {
-  std::string name {"blahblah"};
+struct strategy {
+  std::string name {"dive10"};
   double threshold {1.1};
 
   // BUY
@@ -37,10 +42,6 @@ struct blah {
 // Let's trade
 int main() {
 
-  // std::vector<blah> strats = {blah(), blah({"blah2", 1.2})};
-  // for (const auto &s : strats)
-    // std::cout << s.name << " " << s.threshold << "\n";
-
   // Get some recent prices
   auto prices = get_prices();
 
@@ -58,7 +59,7 @@ int main() {
   std::vector<position> buys, sells;
 
   // Create a strategy
-  blah strat({"blah5", 1.05});
+  strategy strat;
 
   // Review all open positions
   for (const auto &p : positions) {
