@@ -12,8 +12,6 @@ trades: trade.o prices
 	./$<
 
 index: index.html
-
-.PHONY: index.html
 index.html: trades
 	./create_index.sh > index.html
 
@@ -23,3 +21,6 @@ cc=g++
 
 clean:
 	rm -f prices.csv *.o
+
+cron:
+	while :; do make clean all; sleep 2m; done

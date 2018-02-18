@@ -13,7 +13,7 @@
 
 struct strategy {
 
-  const std::string name {"dive10"};
+  const std::string name {"strategy10"};
   const double threshold {1.1};
 
   // BUY
@@ -32,9 +32,11 @@ struct strategy {
     sell = [&](const auto &series, const auto &buy_price)
          {
 
-           // if (buy(series))
-             // return false;
+           // If there's still a buy on then hang on
+           if (buy(series))
+             return false;
 
+           // Otherwise check if we're happy with the return
            const auto sell_price = series.back();
            return sell_price / buy_price > threshold;
          };
