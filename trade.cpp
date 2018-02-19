@@ -82,6 +82,8 @@ int main() {
   // Review all open positions
   for (const auto &p : positions) {
 
+    // std::cout << p.name << " holding\n";
+
     // Create a copy of the position
     auto _p = p;
 
@@ -110,7 +112,7 @@ int main() {
         else
           buys.push_back(_p);
 
-        std::cout << strat_it->name << " strat found\n";
+        // std::cout << strat_it->name << " strat found\n";
       }
 
       // No strategy
@@ -125,47 +127,57 @@ int main() {
     }
   }
 
-  // Consolidate existing and new positions
+  // Consolidate existing position and look for new ones
   for (const auto &coin : prices) {
+    for (const auto &strat : strategies) {
 
-    const std::string name = coin.first;
-    const double spot = coin.second.back();
-    const auto series = coin.second;
+      const std::string name = coin.first;
+      const double spot = coin.second.back();
+      const auto series = coin.second;
 
-    // Do we already hold a position on this currency?
-    auto it = std::find_if(positions.begin(), positions.end(),
-                           [&name](const auto &p) { return p.name == name; });
+      // Check if we already hold a position on this currency with the current
+      // strategy
+      auto it = std::find_if(
+        positions.begin(), positions.end(), [&name, &strat](const auto &p) {
+        return p.name == name && p.strategy == strat.name;
+        });
 
-    // Check we don't already hold a position in this currency
-    if (it == positions.end())
+      // Check we don't already hold a position in this currency, if not
+      // consider creating one
+      if (it == positions.end())
+        if (strat.buy(series)) {
+          struct position pos;
+          pos.name = name;
 
-      // If not consider creating one
-      if (strat.buy(series)) {
-        struct position pos;
-        pos.name = name;
+          // Initialise buy and sell to same price
+          pos.buy_price = pos.sell_price = spot;
 
-        // Initialise buy and sell to same price
-        pos.buy_price = pos.sell_price = spot;
+          pos.strategy = strat.name;
+          pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-        pos.strategy = strat.name;
-        pos.yield = 100.0 * pos.sell_price / pos.buy_price;
+          // Initialise timestamps to the same time, sell will be updated each
+          // time it is reviewed
+          pos.buy_time = pos.sell_time = timestamp();
 
-        // Initialise timestamps to the same time, sell will be updated each
-        // time it is reviewed
-        pos.buy_time = pos.sell_time = timestamp();
-
-        buys.push_back(pos);
-      }
+          buys.push_back(pos);
+        }
+    }
   }
 
   // Trading session is complete, write out buys
   std::ofstream out(buy_file);
-  for (const auto &p : buys)
+  std::cout << buys.size() << " buys\n";
+  for (const auto &p : buys) {
     out << p;
+    std::cout << p;
+  }
   out.close();
 
   // Append sells lest we forget
   out.open("sells.csv", std::ios::app);
-  for (const auto &p : sells)
+  std::cout << sells.size() << " sells\n";
+  for (const auto &p : sells) {
     out << p;
+    std::cout << p;
+  }
 }
