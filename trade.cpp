@@ -29,8 +29,8 @@ struct strategy {
       sell = [&](const auto &series, const auto &buy_price) {
 
         // If there's still a buy on then hang on
-        if (buy(series))
-          return false;
+        // if (buy(series))
+          // return false;
 
         // Otherwise check if we're happy with the return
         const auto sell_price = series.back();
@@ -89,6 +89,7 @@ int main() {
   }
 
   std::cout << positions.size() << " positions\n";
+
   // Review all open positions
   for (auto &p: positions) {
 
@@ -103,16 +104,17 @@ int main() {
                      { return coin.first == pos.name; });
 
     if (it != prices.end()) {
-      std::cout << pos.name << " prices found\n";
+      // std::cout << pos.name << " prices found\n";
       // Update position with latest info
       pos.sell_price = it->second.back();
       pos.sell_time = timestamp();
       pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
       // Find the strategy for this position
-      std::cout << pos.strategy << " searching... \n";
+      // std::cout << pos.strategy << " searching... \n";
 
-      static auto strat_it = find_if(strategies.cbegin(), strategies.cend(),
+      static auto strat_it = strategies.cbegin();
+      find_if(strategies.cbegin(), strategies.cend(),
                               [&pos](const auto &s) {
                               return pos.strategy == s.name;
                               });
@@ -120,7 +122,7 @@ int main() {
       // Found strategy, review position
       if (strat_it != strategies.cend()) {
 
-        std::cout << strat_it->name << " strat found\n";
+        // std::cout << strat_it->name << " strat found\n";
 
         const auto &series = it->second;
 
@@ -131,12 +133,12 @@ int main() {
 
       // No strategy
       else {
-        std::cout << strat_it->name << " strat not found\n";
+        // std::cout << strat_it->name << " strat not found\n";
         pos.notes = "undefxx";
         buys.push_back(pos);
       }
     } else {
-      std::cout << pos.name << " prices not found\n";
+      // std::cout << pos.name << " prices not found\n";
       pos.notes = "noprices";
       buys.push_back(pos);
     }
