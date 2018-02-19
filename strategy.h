@@ -1,17 +1,17 @@
 #ifndef STRATEGY
 #define STRATEGY
 
+#include <functional>
 #include <iostream>
 #include <istream>
 #include <numeric>
 #include <string>
-#include <functional>
 #include <vector>
 
 struct strategy {
 
-  std::string name {"strategy"};
-  double threshold {1.1};
+  std::string name{"strategy"};
+  double threshold{1.1};
 
   // BUY
   bool buy(const std::vector<double> &p) const {
@@ -50,21 +50,21 @@ struct strategy {
 //     return true;
 //   }
 // };
-// 
+//
 // // SNOOPER GRANDE
 // // Like SNOOPER but 15%
 // struct snooper_grande : strategy {
 //   const std::string name = "snooper_grande";
 //   const double threshold = 1.15;
 // };
-// 
+//
 // // SNOOPER PEQUENO
 // // Like SNOOPER but 5%
 // struct snooper_pequeno : strategy {
 //   const std::string name = "snooper_pequeno";
 //   const double threshold = 1.05;
 // };
-// 
+//
 // // SNOOPEROO
 // // Like SNOOPER but 2%
 // struct snooperoo : strategy {
