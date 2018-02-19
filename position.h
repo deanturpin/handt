@@ -6,7 +6,7 @@
 #include <string>
 
 // A stucture to represent a trade
-struct position {
+struct trade_position {
 
   using str = std::string;
   str name = "name";
@@ -19,14 +19,14 @@ struct position {
   str notes = "default";
 
   // Streaming out
-  friend std::ostream &operator<<(std::ostream &os, const position &p) {
+  friend std::ostream &operator<<(std::ostream &os, const trade_position &p) {
     return os << std::fixed << p.buy_time << " " << p.sell_time << " " << p.name
               << "\t" << p.yield << "\t" << p.strategy << " " << p.notes << " "
               << p.buy_price << " " << p.sell_price << "\n";
   }
 
   // Streaming in
-  friend std::istream &operator>>(std::istream &is, position &p) {
+  friend std::istream &operator>>(std::istream &is, trade_position &p) {
     return is >> p.buy_time >> p.sell_time >> p.name >> p.yield >> p.strategy >>
            p.notes >> p.buy_price >> p.sell_price;
   }

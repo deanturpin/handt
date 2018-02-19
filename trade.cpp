@@ -11,7 +11,7 @@
 
 struct strategy {
 
-  std::string name{"turbo_20"};
+  std::string name = "turbo_20";
 
   // BUY
   std::function<bool(const std::vector<double> &p)> buy = [&](const auto &p) {
@@ -44,12 +44,12 @@ int main() {
   std::vector<strategy> strategies;
   {
     // Original and best
-    auto s1 = strategy();
+    strategy s1;
     strategies.push_back(s1);
 
     {
       // Init
-      auto jk = s1;
+      strategy jk;
       jk.name = "jkrise10";
 
       // Buy
@@ -64,75 +64,81 @@ int main() {
 
       // Sell
       jk.sell = [&](const auto &series, const auto &buy_price) {
-        // Otherwise check if we're happy with the return
-        const auto sell_price = series.back();
-        return sell_price / buy_price > 1.1;
+        return series.back() / buy_price > 1.1;
       };
 
       strategies.push_back(jk);
     }
   }
 
+  std::cout << strategies.size() << " strategies initialised\n";
+
   // Get some recent prices
   auto prices = get_prices();
 
-  // Read in current positions
-  std::vector<position> positions;
+  // Containers for initial and ultimate positions
+  std::vector<trade_position> positions;
+  std::vector<trade_position> buys, sells;
+
   const std::string buy_file = "buys.csv";
   std::ifstream in(buy_file);
   if (in.good()) {
-    position p;
+    trade_position p;
     while (in >> p)
-      positions.emplace_back(p);
+      positions.push_back(p);
   }
 
-  // Create containers to hold the results
-  std::vector<position> buys, sells;
-
+  std::cout << positions.size() << " positions\n";
   // Review all open positions
-  for (const auto &p : positions) {
+  for (auto &p: positions) {
 
     // Create a copy of the position
-    auto _p = p;
+    auto &pos = p;
+
+    // std::cout << pos.name << "\n";
 
     // Try to find some prices for this currency
     auto it =
-        std::find_if(prices.begin(), prices.end(),
-                     [&_p](const auto &coin) { return coin.first == _p.name; });
+        std::find_if(prices.begin(), prices.end(), [&pos](const auto &coin)
+                     { return coin.first == pos.name; });
 
     if (it != prices.end()) {
+      std::cout << pos.name << " prices found\n";
       // Update position with latest info
-      _p.sell_price = it->second.back();
-      _p.sell_time = timestamp();
-      _p.yield = 100.0 * _p.sell_price / _p.buy_price;
+      pos.sell_price = it->second.back();
+      pos.sell_time = timestamp();
+      pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
       // Find the strategy for this position
-      auto strat_it =
-          find_if(strategies.cbegin(), strategies.cend(),
-                  [&_p](const auto &str) { return _p.strategy == str.name; });
+      std::cout << pos.strategy << " searching... \n";
+
+      static auto strat_it = find_if(strategies.cbegin(), strategies.cend(),
+                              [&pos](const auto &s) {
+                              return pos.strategy == s.name;
+                              });
 
       // Found strategy, review position
       if (strat_it != strategies.cend()) {
 
-        // Check if it's good to sell, otherwise push it back onto the buy list
-        if (strat_it->sell(it->second, _p.buy_price))
-          sells.push_back(_p);
-        else
-          buys.push_back(_p);
+        std::cout << strat_it->name << " strat found\n";
 
-        // std::cout << strat_it->name << " strat found\n";
+        const auto &series = it->second;
+
+        // Check if it's good to sell, otherwise push it back onto the buy list
+        strat_it->sell(series, pos.buy_price) ?
+          sells.push_back(pos) : buys.push_back(pos);
       }
 
       // No strategy
       else {
-        // std::cout << _p.strategy << " strat not found\n";
-        _p.notes = "undefxx";
-        buys.push_back(_p);
+        std::cout << strat_it->name << " strat not found\n";
+        pos.notes = "undefxx";
+        buys.push_back(pos);
       }
     } else {
-      // _p.sell_price = -1;
-      _p.notes = "noprices";
-      buys.push_back(_p);
+      std::cout << pos.name << " prices not found\n";
+      pos.notes = "noprices";
+      buys.push_back(pos);
     }
   }
 
@@ -155,7 +161,7 @@ int main() {
       // consider creating one
       if (it == positions.end()) {
         if (strat.buy(series)) {
-          struct position pos;
+          trade_position pos;
           pos.name = name;
 
           // Initialise buy and sell to same price
@@ -174,17 +180,16 @@ int main() {
     }
   }
 
-  // Trading session is complete, write out buys
+  // Trading session is complete, write out current positions sorted by yield
   std::ofstream out(buy_file);
   std::sort(buys.begin(), buys.end(), [](const auto &a, const auto &b){
               return a.yield < b.yield;
             });
-  for (const auto &p : buys)
-    out << p;
+
+  for (const auto &p : buys) out << p;
   out.close();
 
-  // Append sells lest we forget
+  // And append our successes
   out.open("sells.csv", std::ios::app);
-  for (const auto &p : sells)
-    out << p;
+  for (const auto &p : sells) out << p;
 }

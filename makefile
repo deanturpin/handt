@@ -1,23 +1,21 @@
-all: source prices trades index
+all: source trades index.html
 
 # All the C++ source files
 source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 # Fetch the prices from the exchanges
-prices: prices.csv
 prices.csv: coins.csv
 	./exchange.py
 
-trades: trade.o prices
+trades: trade.o prices.csv
 	./$<
 
-index: index.html
 index.html: trades
 	./create_index.sh > index.html
 
 cc=g++
 %.o: %.cpp
-	$(cc) -Wall -Wextra -pedantic -std=c++14 -o $@ $<
+	$(cc) -g -Wall -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 clean:
 	rm -f prices.csv *.o
