@@ -24,3 +24,6 @@ clean:
 
 cron:
 	while :; do make clean all; sleep 2m; done
+
+clear:
+	rm -r buys.csv sells.csv

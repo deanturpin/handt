@@ -13,8 +13,8 @@
 
 struct strategy {
 
-  const std::string name {"strategy10"};
-  const double threshold {1.1};
+  std::string name {"turbo10"};
+  double threshold {1.1};
 
   // BUY
   std::function<bool(const std::vector<double> &p)>
@@ -45,6 +45,30 @@ struct strategy {
 // Let's trade
 int main() {
 
+  std::vector<strategy> strategies;
+  {
+    // Original and best
+    auto s1 = strategy();
+    strategies.push_back(s1);
+
+    // Like the original but don't hold if there's a buy on
+    auto s2 = strategy({"turbo10a"});
+    s2.sell = [&](const auto &series, const auto &buy_price) {
+      const auto sell_price = series.back();
+      return sell_price / buy_price > s2.threshold;
+    };
+    strategies.push_back(s2);
+
+    // Like strategy10 but larger yield
+    auto s3 = s1;
+    s3.name = "turbo20";
+    s3.threshold = 1.2;
+    strategies.push_back(s3);
+  }
+
+  for (const auto &s : strategies)
+    std::cout << s.name << " " << s.threshold << "\n";
+
   // Get some recent prices
   auto prices = get_prices();
 
@@ -62,7 +86,12 @@ int main() {
   std::vector<position> buys, sells;
 
   // Create a strategy
-  strategy strat;
+  strategy &strat = strategies.front();
+  // strat.name = "strategy10a";
+  // strat.sell = [&](const auto &series, const auto &buy_price) {
+  //   const auto sell_price = series.back();
+  //   return sell_price / buy_price > strat.threshold;
+  // };
 
   // Review all open positions
   for (const auto &p : positions) {
@@ -84,11 +113,26 @@ int main() {
       _p.sell_time = timestamp();
       _p.yield = 100.0 * _p.sell_price / _p.buy_price;
 
-      // Check if it's good to sell, otherwise push it back onto the buy list
-      if (strat.sell(series, _p.buy_price))
-        sells.push_back(_p);
-      else
-        buys.push_back(_p);
+      // Find the strategy for this position
+      auto strat_it = find_if(strategies.cbegin(), strategies.cend(),
+                              [&_p](const auto & str){
+                                return _p.strategy == str.name;
+                              });
+
+      if (strat_it != strategies.cend()) {
+        // // Check if it's good to sell, otherwise push it back onto the buy list
+        // if (strat.sell(series, _p.buy_price))
+        //   sells.push_back(_p);
+        // else
+        //   buys.push_back(_p);
+        std::cout << strat_it->name << " found\n";
+      }
+
+      else {
+        std::cout << _p.name << " not found\n";
+        // _p.notes = "nostrat";
+        // buys.push_back(_p);
+      }
     } else {
       _p.sell_price = -1;
       buys.push_back(_p);
