@@ -71,8 +71,6 @@ int main() {
     }
   }
 
-  std::cout << strategies.size() << " strategies initialised\n";
-
   // Get some recent prices
   auto prices = get_prices();
 
@@ -88,15 +86,11 @@ int main() {
       positions.push_back(p);
   }
 
-  std::cout << positions.size() << " positions\n";
-
   // Review all open positions
   for (auto &p: positions) {
 
     // Create a copy of the position
     auto &pos = p;
-
-    // std::cout << pos.name << "\n";
 
     // Try to find some prices for this currency
     auto it =
@@ -104,14 +98,15 @@ int main() {
                      { return coin.first == pos.name; });
 
     if (it != prices.end()) {
-      // std::cout << pos.name << " prices found\n";
+
+      pos.notes = "okprices";
+
       // Update position with latest info
       pos.sell_price = it->second.back();
       pos.sell_time = timestamp();
       pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
       // Find the strategy for this position
-      // std::cout << pos.strategy << " searching... \n";
 
       static auto strat_it = strategies.cbegin();
       find_if(strategies.cbegin(), strategies.cend(),
@@ -121,9 +116,6 @@ int main() {
 
       // Found strategy, review position
       if (strat_it != strategies.cend()) {
-
-        // std::cout << strat_it->name << " strat found\n";
-
         const auto &series = it->second;
 
         // Check if it's good to sell, otherwise push it back onto the buy list
@@ -133,12 +125,10 @@ int main() {
 
       // No strategy
       else {
-        // std::cout << strat_it->name << " strat not found\n";
-        pos.notes = "undefxx";
+        pos.notes = "undefine";
         buys.push_back(pos);
       }
     } else {
-      // std::cout << pos.name << " prices not found\n";
       pos.notes = "noprices";
       buys.push_back(pos);
     }

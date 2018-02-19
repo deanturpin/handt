@@ -15,7 +15,6 @@ cat <<!
 <style>
 body { font-family: sans-serif; }
 p#disclaimer { width: 50%; }
-h2 { font-size: 50%; }
 </style>
 
 <title>LFT</title>
@@ -26,12 +25,12 @@ the source on <a href="$git" target="blah">GitHub</a>.</p>
 
 <p id="pagegen">Processed $coins coins. Page generated $date. </p>
 
-<h2>Open</h2>
+<h2>BUY</h2>
 <pre>
 $(cat buys.csv)
 </pre>
 
-<h2>Closed</h2>
+<h2>SELL</h2>
 <pre>
 $(cat sells.csv)
 </pre>
