@@ -48,7 +48,7 @@ int main() {
     strategies.push_back(s1);
 
     {
-      // Init
+      // Buy if the spot is a percentage above the average for the period
       strategy jk;
       jk.name = "jkrise10";
 
@@ -60,6 +60,34 @@ int main() {
                           [](auto &sum, auto &i) { return sum + i; }) /
           p.size();
         return spot / average > 1.1;
+      };
+
+      // Sell
+      jk.sell = [&](const auto &series, const auto &buy_price) {
+        return series.back() / buy_price > 1.1;
+      };
+
+      strategies.push_back(jk);
+    }
+
+    {
+      strategy jk;
+      jk.name = "jkstep20";
+
+      // Buy
+      jk.buy = [&](const auto &p) {
+
+        const unsigned long mid = p.size() / 2;
+
+        const double back =
+          std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; });
+
+        const double front =
+          std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; });
+
+        return front / back > 1.2;
       };
 
       // Sell
