@@ -11,8 +11,7 @@
 
 struct strategy {
 
-  std::string name{"turbo_10"};
-  double threshold{1.1};
+  std::string name{"turbo_20"};
 
   // BUY
   std::function<bool(const std::vector<double> &p)> buy = [&](const auto &p) {
@@ -21,7 +20,7 @@ struct strategy {
         std::accumulate(p.cbegin(), p.cend(), 0.0,
                         [](auto &sum, auto &i) { return sum + i; }) /
         p.size();
-    return average / spot > threshold;
+    return average / spot > 1.2;
   };
 
   // SELL
@@ -35,7 +34,7 @@ struct strategy {
 
         // Otherwise check if we're happy with the return
         const auto sell_price = series.back();
-        return sell_price / buy_price > threshold;
+        return sell_price / buy_price > 1.1;
       };
 };
 
@@ -48,19 +47,30 @@ int main() {
     auto s1 = strategy();
     strategies.push_back(s1);
 
-    // Like the original but don't hold if there's a buy on
-    // auto s2 = strategy({"turbo10a"});
-    // s2.sell = [&](const auto &series, const auto &buy_price) {
-    //   const auto sell_price = series.back();
-    //   return sell_price / buy_price > s2.threshold;
-    // };
-    // strategies.push_back(s2);
+    {
+      // Init
+      auto jk = s1;
+      jk.name = "jkrise10";
 
-    // Like strategy10 but larger yield
-    auto s3 = s1;
-    s3.name = "turbo_20";
-    s3.threshold = 1.2;
-    strategies.push_back(s3);
+      // Buy
+      jk.buy = [&](const auto &p) {
+        const double spot = p.back();
+        const double average =
+          std::accumulate(p.cbegin(), p.cend(), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; }) /
+          p.size();
+        return spot / average > 1.1;
+      };
+
+      // Sell
+      jk.sell = [&](const auto &series, const auto &buy_price) {
+        // Otherwise check if we're happy with the return
+        const auto sell_price = series.back();
+        return sell_price / buy_price > 1.1;
+      };
+
+      strategies.push_back(jk);
+    }
   }
 
   // Get some recent prices
@@ -81,8 +91,6 @@ int main() {
 
   // Review all open positions
   for (const auto &p : positions) {
-
-    // std::cout << p.name << " holding\n";
 
     // Create a copy of the position
     auto _p = p;
@@ -118,11 +126,12 @@ int main() {
       // No strategy
       else {
         // std::cout << _p.strategy << " strat not found\n";
-        _p.notes = "undefixx";
+        _p.notes = "undefxx";
         buys.push_back(_p);
       }
     } else {
-      _p.sell_price = -1;
+      // _p.sell_price = -1;
+      _p.notes = "noprices";
       buys.push_back(_p);
     }
   }
@@ -144,7 +153,7 @@ int main() {
 
       // Check we don't already hold a position in this currency, if not
       // consider creating one
-      if (it == positions.end())
+      if (it == positions.end()) {
         if (strat.buy(series)) {
           struct position pos;
           pos.name = name;
@@ -161,23 +170,21 @@ int main() {
 
           buys.push_back(pos);
         }
+      }
     }
   }
 
   // Trading session is complete, write out buys
   std::ofstream out(buy_file);
-  std::cout << buys.size() << " buys\n";
-  for (const auto &p : buys) {
+  std::sort(buys.begin(), buys.end(), [](const auto &a, const auto &b){
+              return a.yield < b.yield;
+            });
+  for (const auto &p : buys)
     out << p;
-    std::cout << p;
-  }
   out.close();
 
   // Append sells lest we forget
   out.open("sells.csv", std::ios::app);
-  std::cout << sells.size() << " sells\n";
-  for (const auto &p : sells) {
+  for (const auto &p : sells)
     out << p;
-    std::cout << p;
-  }
 }
