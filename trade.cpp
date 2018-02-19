@@ -87,11 +87,6 @@ int main() {
 
   // Create a strategy
   strategy &strat = strategies.front();
-  // strat.name = "strategy10a";
-  // strat.sell = [&](const auto &series, const auto &buy_price) {
-  //   const auto sell_price = series.back();
-  //   return sell_price / buy_price > strat.threshold;
-  // };
 
   // Review all open positions
   for (const auto &p : positions) {
@@ -119,19 +114,23 @@ int main() {
                                 return _p.strategy == str.name;
                               });
 
+      // Found strategy, review position
       if (strat_it != strategies.cend()) {
-        // // Check if it's good to sell, otherwise push it back onto the buy list
-        // if (strat.sell(series, _p.buy_price))
-        //   sells.push_back(_p);
-        // else
-        //   buys.push_back(_p);
-        std::cout << strat_it->name << " found\n";
+
+        // Check if it's good to sell, otherwise push it back onto the buy list
+        if (strat.sell(series, _p.buy_price))
+          sells.push_back(_p);
+        else
+          buys.push_back(_p);
+
+        std::cout << strat_it->name << " strat found\n";
       }
 
+      // No strategy
       else {
-        std::cout << _p.name << " not found\n";
-        // _p.notes = "nostrat";
-        // buys.push_back(_p);
+        std::cout << _p.strategy << " strat not found\n";
+        _p.notes = "undefined";
+        buys.push_back(_p);
       }
     } else {
       _p.sell_price = -1;
