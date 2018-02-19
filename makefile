@@ -25,3 +25,6 @@ cron:
 
 clear:
 	rm -r buys.csv sells.csv
+
+tidy:
+	rm -f prices.csv

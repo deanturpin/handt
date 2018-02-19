@@ -27,11 +27,6 @@ struct strategy {
   std::function<bool(const std::vector<double> &series,
                      const double &buy_price)>
       sell = [&](const auto &series, const auto &buy_price) {
-
-        // If there's still a buy on then hang on
-        // if (buy(series))
-          // return false;
-
         // Otherwise check if we're happy with the return
         const auto sell_price = series.back();
         return sell_price / buy_price > 1.1;
@@ -88,6 +83,69 @@ int main() {
                           [](auto &sum, auto &i) { return sum + i; });
 
         return front / back > 1.2;
+      };
+
+      // Sell
+      jk.sell = [&](const auto &series, const auto &buy_price) {
+        return series.back() / buy_price > 1.1;
+      };
+
+      strategies.push_back(jk);
+    }
+
+    {
+      strategy jk;
+      jk.name = "bigcap20";
+
+      // Buy
+      jk.buy = [&](const auto &p) {
+
+        if (p.back() < 10)
+          return false;
+
+        const unsigned long mid = p.size() / 2;
+
+        const double back =
+          std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; });
+
+        const double front =
+          std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; });
+
+        return front / back > 1.15;
+      };
+
+      // Sell
+      jk.sell = [&](const auto &series, const auto &buy_price) {
+        return series.back() / buy_price > 1.1;
+      };
+
+      strategies.push_back(jk);
+    }
+
+    {
+      // Ski slope shape, no small caps
+      strategy jk;
+      jk.name = "skisun05";
+
+      jk.buy = [&](const auto &p) {
+
+        if (p.back() < 10)
+          return false;
+
+        const unsigned long mid = p.size() / 2;
+
+        const double back =
+          std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; });
+
+        const double front =
+          std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; });
+
+        const auto spot = p.back();
+        return (back / front > 1.15 && spot / front > 1.05);
       };
 
       // Sell
