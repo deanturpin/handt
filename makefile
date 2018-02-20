@@ -1,4 +1,4 @@
-all: source trades index.html
+all: source trades index.html summary.csv
 
 # All the C++ source files
 source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -6,6 +6,9 @@ source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 # Fetch the prices from the exchanges
 prices.csv: coins.csv
 	./exchange.py
+
+summary.csv: summary.o trades
+	./$< > $@
 
 trades: trade.o prices.csv
 	./$<
