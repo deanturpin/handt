@@ -207,6 +207,8 @@ int main() {
       // Sell
       jk.sell = [&](const auto &series, const auto &buy_price) {
 
+        static_cast<void>(buy_price);
+
         const unsigned long mid = series.size() / 2;
         const double short_average =
             std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
