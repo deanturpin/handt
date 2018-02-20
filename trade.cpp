@@ -18,7 +18,7 @@ struct strategy {
     const double spot = p.back();
     const double average =
         std::accumulate(p.cbegin(), p.cend(), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
+                        [](auto &sum, const auto &i) { return sum + i; }) /
         p.size();
     return average / spot > 1.2;
   };

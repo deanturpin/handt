@@ -1,6 +1,7 @@
 #include <map>
 #include <fstream>
 #include <iostream>
+#include <numeric>
 #include <string>
 #include <vector>
 #include "position.h"
@@ -22,26 +23,44 @@ auto get_positions(const std::string file) {
 int main() {
 
   // Get the buys
-  auto positions = get_positions("buys.csv");
+  const auto buys = get_positions("buys.csv");
+  std::cout << buys.size() << " buys\n";
 
-  // Append the sells
-  auto sells = get_positions("sells.csv");
-  positions.insert(std::end(positions), std::begin(sells), std::end(sells));
+  // Get the sells
+  const auto sells = get_positions("sells.csv");
+  std::cout << sells.size() << " sells\n\n";
 
-  // Sum the sell prices
-  std::map<std::string, double> coins;
-  double in, out;
-  for (const auto &p : positions) {
-    coins[p.name] += p.sell_price;
+  // Consolidate all positions
+  auto all = buys;
+  all.insert(std::end(all), std::begin(sells), std::end(sells));
 
-    // Each position implies an investment
-    in += 100;
+  // Close all positions
+  std::map<std::string, double> ins, outs;
+  for (const auto &pos : all) {
 
-    // Sum of all the investments
-    out += p.yield;
+    const auto name = pos.strategy;
+    const auto yield = pos.sell_price;
+
+    ins[name] += 100.0;
+    outs[name] += yield;
   }
 
-  std::cout << in << " in\n";
-  std::cout << out << " out\n";
-  std::cout << 100.0 * out / in << " %\n";
+  const double in_sum = std::accumulate(ins.cbegin(), ins.cend(), 0.0, []
+                                        (auto sum, const auto &i){
+                                          return sum + i.second;
+                                        });
+
+  const double out_sum = std::accumulate(outs.cbegin(), outs.cend(), 0.0, []
+                                        (auto sum, const auto &i){
+                                          return sum + i.second;
+                                        });
+
+  std::cout << "IN " << in_sum << "\n";
+  for (const auto &i : ins) {
+    const std::string strategy = i.first;
+    const auto in = ins[strategy];
+    const auto out = outs[strategy];
+
+    std::cout << strategy << "\t" << in << "\t" << out << "\n";
+  }
 }
