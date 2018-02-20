@@ -27,7 +27,7 @@ the source on <a href="$git" target="blah">GitHub</a>.</p>
 
 <h2>Summary</h2>
 <pre>
-$(file=summary.csv; [[ -e $file ]] && cat -n $file)
+$(file=summary.csv; [[ -e $file ]] && cat $file)
 </pre>
 
 <h2>Buy</h2>
