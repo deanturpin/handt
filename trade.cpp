@@ -195,6 +195,40 @@ int main() {
     }
 
     {
+      // Ski slope shape, no small caps
+      strategy jk;
+      jk.name = "skisun20";
+
+      jk.buy = [&](const auto &p) {
+
+        if (p.back() < 10)
+          return false;
+
+        const unsigned long mid = p.size() / 2;
+
+        const double back =
+            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+
+        const double front =
+            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+
+        const auto spot = p.back();
+        return (back / front > 1.20 && spot / front > 1.05);
+      };
+
+      // Sell
+      jk.sell = [&](const auto &series, const auto &buy_price) {
+        return series.back() / buy_price > 1.1;
+      };
+
+      strategies.push_back(jk);
+    }
+
+    {
       strategy jk;
       jk.name = "jklongav";
 
