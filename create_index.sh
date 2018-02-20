@@ -13,7 +13,6 @@ cat <<!
 
 <style>
 body { font-family: sans-serif; }
-p#disclaimer { width: 50%; }
 </style>
 
 <title>LFT</title>
