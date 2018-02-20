@@ -323,7 +323,7 @@ int main() {
 
       // Update position with latest info
       pos.sell_price = it->second.back();
-      pos.sell_time = timestamp();
+      pos.duration = timestamp() - pos.timestamp;
       pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
       // Find the strategy for this position
@@ -382,7 +382,8 @@ int main() {
 
           // Initialise timestamps to the same time, sell will be updated each
           // time it is reviewed
-          pos.buy_time = pos.sell_time = timestamp();
+          pos.timestamp = timestamp();
+          pos.duration = 1;
 
           buys.push_back(pos);
         }
