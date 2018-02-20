@@ -107,11 +107,11 @@ int main() {
 
         const double back =
             std::accumulate(p.cbegin(), std::next(p.cbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
 
         const double front =
             std::accumulate(p.crbegin(), std::next(p.crbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
 
         return front / back > 1.20;
       };
@@ -138,11 +138,11 @@ int main() {
 
         const double back =
             std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
 
         const double front =
             std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
 
         return front / back > 1.10;
       };
@@ -169,11 +169,11 @@ int main() {
 
         const double back =
             std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
 
         const double front =
             std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
 
         const auto spot = p.back();
         return (back / front > 1.10 && spot / front > 1.05);
@@ -196,10 +196,11 @@ int main() {
         const unsigned long mid = series.size() / 2;
         const double short_average =
             std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
         const double long_average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
+            std::accumulate(series.cbegin(), series.cend(), 0.0, [](auto &sum,
+                                                                    auto &i) {
+                            return sum + i; }) / series.size();
 
         return short_average > long_average;
       };
