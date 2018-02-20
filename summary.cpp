@@ -1,28 +1,34 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
+#include "position.h"
 
 int main() {
 
-  std::string line;
+  std::vector<trade_position> positions;
 
   // Get closed positions
   {
-    unsigned long line_count = 0;
-    std::ifstream sells("sells.csv");
-    if (sells.good())
-      while (getline(sells, line))
-        ++line_count;
-    std::cout << line_count << " sells\n";
+    std::ifstream in("sells.csv");
+    if (in.good()) {
+      trade_position p;
+      while (in >> p)
+        positions.push_back(p);
+    }
   }
+
+  std::cout << positions.size() << " positions\n";
 
   // Get open positions
   {
-    unsigned long line_count = 0;
-    std::ifstream buys("buys.csv");
-    if (buys.good())
-      while (getline(buys, line))
-        ++line_count;
-    std::cout << line_count << " buys\n";
+    std::ifstream in("buys.csv");
+    if (in.good()) {
+      trade_position p;
+      while (in >> p)
+        positions.push_back(p);
+    }
   }
+
+  std::cout << positions.size() << " positions\n";
 }
