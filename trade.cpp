@@ -251,9 +251,6 @@ int main() {
               return std::accumulate(start, end, 0.0) / filter_length;
             });
 
-        std::copy(raverage.cbegin(), raverage.cend(),
-                  std::ostream_iterator<double>(std::cout, " "));
-
         return series.back() / raverage.back() > 1.05;
       };
 
