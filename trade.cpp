@@ -5,6 +5,7 @@
 #include <functional>
 #include <iostream>
 #include <istream>
+#include <iterator>
 #include <numeric>
 #include <string>
 #include <vector>
@@ -219,6 +220,28 @@ int main() {
                             [](auto &sum, auto &i) { return sum + i; });
 
         return short_average < long_average;
+      };
+
+      strategies.push_back(jk);
+    }
+    {
+      strategy jk;
+      jk.name = "rolav10a";
+
+      jk.buy = [&](const auto &series) {
+
+        const unsigned long filter_length = 10;
+        const auto start = series.cbegin();
+        const auto end = std::prev(series.cend(), filter_length);
+        const auto length = series.size() - filter_length;
+
+        std::vector<double> raverage;
+        std::transform(start, end, std::back_inserter(raverage),
+                            [](const auto &i) {
+                            return 10;
+                            });
+
+        return series.back() / raverage.back() > 1.05;
       };
 
       strategies.push_back(jk);
