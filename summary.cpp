@@ -21,30 +21,27 @@ auto get_positions(const std::string file) {
 
 int main() {
 
-  // Get closed positions
-  {
-    const auto positions = get_positions("buys.csv");
-    std::cout << positions.size() << " buys\n";
+  // Get the buys
+  auto positions = get_positions("buys.csv");
 
-    // Sum the sell prices
-    std::map<std::string, double> coins;
-    double in, out;
-    for (const auto &p : positions) {
-      coins[p.name] += p.sell_price;
+  // Append the sells
+  auto sells = get_positions("sells.csv");
+  positions.insert(std::end(positions), std::begin(sells), std::end(sells));
 
-      out += p.yield;
-      in += 100;
-    }
+  // Sum the sell prices
+  std::map<std::string, double> coins;
+  double in, out;
+  for (const auto &p : positions) {
+    coins[p.name] += p.sell_price;
 
-    // std::cout << "gross return\n";
-    // for (const auto &c : coins)
-      // std::cout << c.first << "\t" << c.second << "\n";
+    // Each position implies an investment
+    in += 100;
+
+    // Sum of all the investments
+    out += p.yield;
   }
 
-
-  // Get open positions
-  {
-    const auto positions = get_positions("sells.csv");
-    std::cout << positions.size() << " sells\n";
-  }
+  std::cout << in << " in\n";
+  std::cout << out << " out\n";
+  std::cout << 100.0 * out / in << " %\n";
 }
