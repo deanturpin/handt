@@ -29,6 +29,11 @@ href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>.
 $(file=summary.csv; [[ -e $file ]] && cat $file)
 </pre>
 
+<h2>Change log</h2>
+<pre>
+$(git log -n 5 --oneline)
+</pre>
+
 <h2>Buy</h2>
 <pre>
 $(file=buys.csv; [[ -e $file ]] && cat -n $file)
@@ -37,10 +42,5 @@ $(file=buys.csv; [[ -e $file ]] && cat -n $file)
 <h2>Sell</h2>
 <pre>
 $(file=sells.csv; [[ -e $file ]] && cat -n $file)
-</pre>
-
-<h2>git log</h2>
-<pre>
-$(git log -n 5 --oneline)
 </pre>
 !
