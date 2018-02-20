@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "position.h"
+#include "utils.h"
 
 auto get_positions(const std::string file) {
 
@@ -22,13 +23,17 @@ auto get_positions(const std::string file) {
 
 int main() {
 
+  // Get the coins
+  const auto prices = get_prices();
+  std::cout << prices.size() << " coins analysed\n";
+
   // Get the buys
   const auto buys = get_positions("buys.csv");
-  std::cout << buys.size() << " buys\n";
+  std::cout << buys.size() << " positions held\n";
 
   // Get the sells
   const auto sells = get_positions("sells.csv");
-  std::cout << sells.size() << " sells\n\n";
+  std::cout << sells.size() << " complete transactions\n\n";
 
   // Consolidate all positions
   auto all = buys;
