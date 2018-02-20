@@ -125,6 +125,37 @@ int main() {
     }
 
     {
+      strategy jk;
+      jk.name = "bigcap10";
+
+      // Buy
+      jk.buy = [&](const auto &p) {
+
+        if (p.back() < 10)
+          return false;
+
+        const unsigned long mid = p.size() / 2;
+
+        const double back =
+            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+
+        const double front =
+            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+
+        return front / back > 1.10;
+      };
+
+      // Sell
+      jk.sell = [&](const auto &series, const auto &buy_price) {
+        return series.back() / buy_price > 1.1;
+      };
+
+      strategies.push_back(jk);
+    }
+
+    {
       // Ski slope shape, no small caps
       strategy jk;
       jk.name = "skisun05";

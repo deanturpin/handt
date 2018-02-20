@@ -48,7 +48,7 @@ int main() {
   }
 
   // Individual strategy performance
-  std::cout << "STRATEGY\tIN\tOUT\tRETURN\n";
+  std::cout << "STRATEGY\tIN\tOUT\tRETURN (fees not included)\n";
   for (const auto &i : ins) {
     const std::string strategy = i.first;
     const double in = ins[strategy];
