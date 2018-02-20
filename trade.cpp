@@ -75,12 +75,12 @@ int main() {
         const unsigned long mid = p.size() / 2;
 
         const double back =
-          std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; });
+            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
 
         const double front =
-          std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; });
+            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
 
         return front / back > 1.2;
       };
@@ -106,12 +106,12 @@ int main() {
         const unsigned long mid = p.size() / 2;
 
         const double back =
-          std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; });
+            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
 
         const double front =
-          std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; });
+            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
 
         return front / back > 1.15;
       };
@@ -137,12 +137,12 @@ int main() {
         const unsigned long mid = p.size() / 2;
 
         const double back =
-          std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; });
+            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
 
         const double front =
-          std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; });
+            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
 
         const auto spot = p.back();
         return (back / front > 1.15 && spot / front > 1.05);
@@ -173,15 +173,16 @@ int main() {
   }
 
   // Review all open positions
-  for (auto &p: positions) {
+  for (auto &p : positions) {
 
     // Create a copy of the position
     auto &pos = p;
 
     // Try to find some prices for this currency
     auto it =
-        std::find_if(prices.begin(), prices.end(), [&pos](const auto &coin)
-                     { return coin.first == pos.name; });
+        std::find_if(prices.begin(), prices.end(), [&pos](const auto &coin) {
+          return coin.first == pos.name;
+        });
 
     if (it != prices.end()) {
 
@@ -196,17 +197,15 @@ int main() {
 
       static auto strat_it = strategies.cbegin();
       find_if(strategies.cbegin(), strategies.cend(),
-                              [&pos](const auto &s) {
-                              return pos.strategy == s.name;
-                              });
+              [&pos](const auto &s) { return pos.strategy == s.name; });
 
       // Found strategy, review position
       if (strat_it != strategies.cend()) {
         const auto &series = it->second;
 
         // Check if it's good to sell, otherwise push it back onto the buy list
-        strat_it->sell(series, pos.buy_price) ?
-          sells.push_back(pos) : buys.push_back(pos);
+        strat_it->sell(series, pos.buy_price) ? sells.push_back(pos)
+                                              : buys.push_back(pos);
       }
 
       // No strategy
@@ -231,9 +230,9 @@ int main() {
       // Check if we already hold a position on this currency with the current
       // strategy
       auto it = std::find_if(
-        positions.begin(), positions.end(), [&name, &strat](const auto &p) {
-        return p.name == name && p.strategy == strat.name;
-        });
+          positions.begin(), positions.end(), [&name, &strat](const auto &p) {
+            return p.name == name && p.strategy == strat.name;
+          });
 
       // Check we don't already hold a position in this currency, if not
       // consider creating one
@@ -260,14 +259,15 @@ int main() {
 
   // Trading session is complete, write out current positions sorted by yield
   std::ofstream out(buy_file);
-  std::sort(buys.begin(), buys.end(), [](const auto &a, const auto &b){
-              return a.yield < b.yield;
-            });
+  std::sort(buys.begin(), buys.end(),
+            [](const auto &a, const auto &b) { return a.yield < b.yield; });
 
-  for (const auto &p : buys) out << p;
+  for (const auto &p : buys)
+    out << p;
   out.close();
 
   // And append our successes
   out.open("sells.csv", std::ios::app);
-  for (const auto &p : sells) out << p;
+  for (const auto &p : sells)
+    out << p;
 }
