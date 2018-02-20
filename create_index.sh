@@ -25,12 +25,17 @@ the source on <a href="$git" target="blah">GitHub</a>.</p>
 
 <p id="pagegen">Processed $coins coins. Page generated $date. </p>
 
-<h2>BUY</h2>
+<h2>Summary</h2>
+<pre>
+$(cat summary.csv)
+</pre>
+
+<h2>Buy</h2>
 <pre>
 $(cat buys.csv)
 </pre>
 
-<h2>SELL</h2>
+<h2>Sell</h2>
 <pre>
 $(cat sells.csv)
 </pre>
