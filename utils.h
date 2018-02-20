@@ -9,10 +9,6 @@
 #include <sstream>
 #include <vector>
 
-// Prototypes
-std::map<std::string, std::vector<double>> get_prices();
-std::string timestamp();
-
 // Get prices and return a container full of them
 std::map<std::string, std::vector<double>> get_prices() {
   std::map<std::string, std::vector<double>> prices;
@@ -43,19 +39,15 @@ std::map<std::string, std::vector<double>> get_prices() {
 }
 
 // Get the time right now and turn it into a human-readable string
-std::string timestamp() {
+double timestamp() {
 
-  // Get time now
   using namespace std::chrono;
   using clock = std::chrono::system_clock;
   const auto now = clock::now();
+  const auto epoch = static_cast<unsigned long>(
+    duration_cast<seconds>(now.time_since_epoch()).count());
 
-  // Create a date string
-  const auto in_time_t = clock::to_time_t(now);
-  std::stringstream date;
-  date << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
-
-  return date.str();
+  return epoch;
 }
 
 #endif

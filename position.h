@@ -10,8 +10,8 @@ struct trade_position {
 
   using str = std::string;
   str name = "name";
-  str buy_time = "buy_time";
-  str sell_time = "sell_time";
+  unsigned long buy_time = 0;
+  unsigned long sell_time = 0;
   double buy_price = 0.0;
   double sell_price = 0.0;
   str strategy = "strategy";

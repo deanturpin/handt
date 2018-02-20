@@ -105,12 +105,10 @@ int main() {
           return false;
 
         const unsigned long mid = p.size() / 2;
-
         const double back =
             std::accumulate(p.cbegin(), std::next(p.cbegin(), mid), 0.0,
                             [](auto &sum, auto &i) { return sum + i; }) /
             mid;
-
         const double front =
             std::accumulate(p.crbegin(), std::next(p.crbegin(), mid), 0.0,
                             [](auto &sum, auto &i) { return sum + i; }) /
