@@ -27,17 +27,17 @@ the source on <a href="$git" target="blah">GitHub</a>.</p>
 
 <h2>Summary</h2>
 <pre>
-$(cat summary.csv)
+$(file=summary.csv; [[ -e $file ]] && cat -n $file)
 </pre>
 
 <h2>Buy</h2>
 <pre>
-$(cat buys.csv)
+$(file=buys.csv; [[ -e $file ]] && cat -n $file)
 </pre>
 
 <h2>Sell</h2>
 <pre>
-$(cat sells.csv)
+$(file=sells.csv; [[ -e $file ]] && cat -n $file)
 </pre>
 
 <h2>git log</h2>
