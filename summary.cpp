@@ -42,12 +42,9 @@ int main() {
   // Close all positions
   std::map<std::string, double> ins, outs;
   for (const auto &pos : all) {
-
-    const auto name = pos.strategy;
-    const auto yield = pos.sell_price;
-
-    ins[name] += 100.0;
-    outs[name] += yield;
+    const auto strategy = pos.strategy;
+    ins[strategy] += 100.0;
+    outs[strategy] += pos.yield;
   }
 
   // Individual strategy performance
