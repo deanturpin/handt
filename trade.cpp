@@ -52,9 +52,9 @@ int main() {
       jk.buy = [&](const auto &p) {
         const double spot = p.back();
         const double average =
-          std::accumulate(p.cbegin(), p.cend(), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; }) /
-          p.size();
+            std::accumulate(p.cbegin(), p.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            p.size();
         return spot / average > 1.1;
       };
 
@@ -108,11 +108,13 @@ int main() {
 
         const double back =
             std::accumulate(p.cbegin(), std::next(p.cbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
 
         const double front =
             std::accumulate(p.crbegin(), std::next(p.crbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
 
         return front / back > 1.20;
       };
@@ -139,11 +141,13 @@ int main() {
 
         const double back =
             std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
 
         const double front =
             std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
 
         return front / back > 1.10;
       };
@@ -170,11 +174,13 @@ int main() {
 
         const double back =
             std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
 
         const double front =
             std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
 
         const auto spot = p.back();
         return (back / front > 1.10 && spot / front > 1.05);
@@ -197,11 +203,12 @@ int main() {
         const unsigned long mid = series.size() / 2;
         const double short_average =
             std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
         const double long_average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0, [](auto &sum,
-                                                                    auto &i) {
-                            return sum + i; }) / series.size();
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            series.size();
 
         return short_average > long_average;
       };
@@ -225,6 +232,7 @@ int main() {
       strategies.push_back(jk);
     }
     {
+      // Construct rolling average series, buy if significant excursion
       strategy jk;
       jk.name = "rolav10a";
 
@@ -236,10 +244,15 @@ int main() {
         const auto length = series.size() - filter_length;
 
         std::vector<double> raverage;
-        std::transform(start, end, std::back_inserter(raverage),
-                            [](const auto &i) {
-                            return 10;
-                            });
+        std::transform(
+            start, end, std::back_inserter(raverage), [&length](const auto &i) {
+              const auto start = &i;
+              const auto end = std::next(&i, filter_length);
+              return std::accumulate(start, end, 0.0) / filter_length;
+            });
+
+        std::copy(raverage.cbegin(), raverage.cend(),
+                  std::ostream_iterator<double>(std::cout, " "));
 
         return series.back() / raverage.back() > 1.05;
       };
