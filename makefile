@@ -1,4 +1,4 @@
-all: source trades index.html summary.csv
+all: source trades summary.csv index.html
 
 # All the C++ source files
 source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
