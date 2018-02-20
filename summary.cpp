@@ -45,22 +45,30 @@ int main() {
     outs[name] += yield;
   }
 
+  // Individual strategy performance
+  std::cout << "STRATEGY\tIN\tOUT\tRETURN\n";
+  for (const auto &i : ins) {
+    const std::string strategy = i.first;
+    const double in = ins[strategy];
+    const double out = outs[strategy];
+    const double yield = 100.0 * out / in;
+
+    std::cout << strategy << "\t"
+      << in << "\t" << out << "\t" << yield << " %\n";
+  }
+
+  // Overall performance
   const double in_sum = std::accumulate(ins.cbegin(), ins.cend(), 0.0, []
                                         (auto sum, const auto &i){
-                                          return sum + i.second;
+                                        return sum + i.second;
                                         });
 
   const double out_sum = std::accumulate(outs.cbegin(), outs.cend(), 0.0, []
                                         (auto sum, const auto &i){
-                                          return sum + i.second;
+                                        return sum + i.second;
                                         });
 
-  std::cout << "IN " << in_sum << "\n";
-  for (const auto &i : ins) {
-    const std::string strategy = i.first;
-    const auto in = ins[strategy];
-    const auto out = outs[strategy];
-
-    std::cout << strategy << "\t" << in << "\t" << out << "\n";
-  }
+  const double overall_yield = 100.0 * out_sum / in_sum;
+  std::cout << "\n\t\t" << in_sum << "\t" << out_sum << "\t"
+    << overall_yield << " %\n";
 }
