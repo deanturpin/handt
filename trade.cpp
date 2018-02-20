@@ -75,11 +75,11 @@ int main() {
         const unsigned long mid = p.size() / 2;
 
         const double back =
-            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+            std::accumulate(p.cbegin(), std::next(p.cbegin(), mid), 0.0,
                             [](auto &sum, auto &i) { return sum + i; });
 
         const double front =
-            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+            std::accumulate(p.crbegin(), std::next(p.crbegin(), mid), 0.0,
                             [](auto &sum, auto &i) { return sum + i; });
 
         return front / back > 1.2;
@@ -106,14 +106,14 @@ int main() {
         const unsigned long mid = p.size() / 2;
 
         const double back =
-            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
+            std::accumulate(p.cbegin(), std::next(p.cbegin(), mid), 0.0,
                             [](auto &sum, auto &i) { return sum + i; });
 
         const double front =
-            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
+            std::accumulate(p.crbegin(), std::next(p.crbegin(), mid), 0.0,
                             [](auto &sum, auto &i) { return sum + i; });
 
-        return front / back > 1.15;
+        return front / back > 1.20;
       };
 
       // Sell
@@ -182,6 +182,40 @@ int main() {
       // Sell
       jk.sell = [&](const auto &series, const auto &buy_price) {
         return series.back() / buy_price > 1.1;
+      };
+
+      strategies.push_back(jk);
+    }
+
+    {
+      strategy jk;
+      jk.name = "jklongav";
+
+      jk.buy = [&](const auto &series) {
+
+        const unsigned long mid = series.size() / 2;
+        const double short_average =
+            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+        const double long_average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+
+        return short_average > long_average;
+      };
+
+      // Sell
+      jk.sell = [&](const auto &series, const auto &buy_price) {
+
+        const unsigned long mid = series.size() / 2;
+        const double short_average =
+            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+        const double long_average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+
+        return short_average < long_average;
       };
 
       strategies.push_back(jk);
