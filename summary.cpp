@@ -36,7 +36,8 @@ int main() {
   }
 
   // Individual strategy performance
-  std::cout << "STRATEGY\t$ IN\t\t$ OUT\t\tDURATION (hrs)\tRETURN (fees not included)\n\n";
+  std::cout << "STRATEGY\t$ IN\t\t$ OUT\t\tDURATION (hrs)\t% RETURN (fees not "
+               "included)\n\n";
   for (const auto &i : ins) {
     const std::string strategy = i.first;
     const double in = ins[strategy];
@@ -44,8 +45,8 @@ int main() {
     const double yield = 100.0 * out / in;
     const double hours = (durations[strategy] / trades[strategy]) / 3600;
 
-    std::cout << strategy << std::fixed << "\t" << in << "\t" << out << "\t" << hours << "\t"
-      << yield << " %\n";
+    std::cout << strategy << std::fixed << "\t" << in << "\t" << out << "\t"
+              << hours << "\t" << yield << "\n";
   }
 
   // Overall performance
@@ -58,6 +59,6 @@ int main() {
                       [](auto sum, const auto &i) { return sum + i.second; });
 
   const double overall_yield = 100.0 * out_sum / in_sum;
-  std::cout << "\n\t\t" << in_sum << "\t" << out_sum << "\t\t\t" << overall_yield
-            << " %\n";
+  std::cout << "\nTOTAL\t\t" << in_sum << "\t" << out_sum << "\t\t\t"
+            << overall_yield << "\n";
 }

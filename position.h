@@ -19,9 +19,10 @@ struct trade_position {
 
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const trade_position &p) {
-    return os << std::fixed << " " << p.name << "\t" << p.yield << "\t" <<
-      p.strategy << " " << p.notes << " " << p.buy_price << " " << p.sell_price
-      << " " << p.timestamp << " " << p.duration << "\n";
+    return os << std::fixed << " " << p.name << "\t" << p.yield << "\t"
+              << p.strategy << " " << p.notes << " " << p.buy_price << " "
+              << p.sell_price << " " << p.timestamp << " " << p.duration
+              << "\n";
   }
 
   // Streaming in
