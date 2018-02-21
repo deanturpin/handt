@@ -297,16 +297,15 @@ int main() {
       jk.buy = [&](const auto &series) {
 
         const unsigned long mid = series.size() / 2;
-        const double short_average =
+        const double recent_average =
             std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-        const double long_average =
+                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+        const double distant_average =
             std::accumulate(series.cbegin(), series.cend(), 0.0,
                             [](auto &sum, auto &i) { return sum + i; }) /
             series.size();
 
-        return short_average > long_average;
+        return recent_average > distant_average;
       };
 
       // Sell
