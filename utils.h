@@ -1,6 +1,7 @@
 #ifndef UTILS
 #define UTILS
 
+#include "position.h"
 #include <chrono>
 #include <fstream>
 #include <iomanip>
