@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <numeric>
-#include <unordered_map>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -26,7 +26,7 @@ int main() {
   all.insert(std::end(all), std::begin(sells), std::end(sells));
 
   // Close all positions
-  std::unordered_map<std::string, double> ins, outs, durations, trades;
+  std::map<std::string, double> ins, outs, durations, trades;
   for (const auto &pos : all) {
     const auto strategy = pos.strategy;
     ins[strategy] += 100.0;
