@@ -14,11 +14,11 @@ int main() {
   std::cout << prices.size() << " coins analysed\n";
 
   // Get the buys
-  const auto buys = get_positions("buys.csv");
+  const std::vector<trade_position> buys(get_positions("buys.csv"));
   std::cout << buys.size() << " positions held\n";
 
   // Get the sells
-  const auto sells = get_positions("sells.csv");
+  const std::vector<trade_position> sells(get_positions("sells.csv"));
   std::cout << sells.size() << " complete transactions\n\n";
 
   // Consolidate all positions
@@ -48,7 +48,7 @@ int main() {
               << out << "\t" << hours << "\n";
   }
 
-  // Overall performance
+  // Strategy summary
   const double in_sum =
       std::accumulate(ins.cbegin(), ins.cend(), 0.0,
                       [](auto sum, const auto &i) { return sum + i.second; });
@@ -61,4 +61,7 @@ int main() {
   std::cout << "\nTOTAL    " << overall_yield << "\t" << in_sum << "\t"
             << out_sum << "\t\t\t"
             << "\n";
+
+  // Individual coin performance
+  // std::map<std::string, std::vector<double>>;
 }
