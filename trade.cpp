@@ -289,6 +289,31 @@ int main() {
       strategies.push_back(jk);
     }
     {
+      // Construct rolling average series, buy if significant excursion
+      strategy jk;
+      jk.name = "rolav20a";
+
+      jk.buy = [&](const auto &series) {
+
+        const unsigned long filter_length = 20;
+        const auto start = series.cbegin();
+        const auto end = std::prev(series.cend(), filter_length);
+        const auto length = series.size() - filter_length;
+
+        std::vector<double> raverage;
+        std::transform(
+            start, end, std::back_inserter(raverage), [&length](const auto &i) {
+              const auto start = &i;
+              const auto end = std::next(&i, filter_length);
+              return std::accumulate(start, end, 0.0) / filter_length;
+            });
+
+        return series.back() / raverage.back() > 1.05;
+      };
+
+      strategies.push_back(jk);
+    }
+    {
       // Buy if the spot exceeds the recent max significantly
       strategy kos;
       kos.name = "koskos10";
