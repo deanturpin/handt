@@ -2,8 +2,8 @@
 #include "utils.h"
 #include <fstream>
 #include <iostream>
-#include <numeric>
 #include <map>
+#include <numeric>
 #include <string>
 #include <vector>
 

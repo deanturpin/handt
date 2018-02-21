@@ -22,20 +22,20 @@ int main() {
     std::function<bool(const std::vector<double> &p)> buy = [&](const auto &p) {
       const double spot = p.back();
       const double average =
-        std::accumulate(p.cbegin(), p.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        p.size();
+          std::accumulate(p.cbegin(), p.cend(), 0.0,
+                          [](auto &sum, const auto &i) { return sum + i; }) /
+          p.size();
       return average / spot > 1.2;
     };
 
     // SELL
     std::function<bool(const std::vector<double> &series,
                        const double &buy_price)>
-      sell = [&](const auto &series, const auto &buy_price) {
-        // Otherwise check if we're happy with the return
-        const auto sell_price = series.back();
-        return sell_price / buy_price > 1.1;
-      };
+        sell = [&](const auto &series, const auto &buy_price) {
+          // Otherwise check if we're happy with the return
+          const auto sell_price = series.back();
+          return sell_price / buy_price > 1.1;
+        };
   };
 
   // Define some strategies by creating the template and then overriding
@@ -60,9 +60,9 @@ int main() {
 
         // Buy if the spot is significantly above the average
         const double average =
-          std::accumulate(p.cbegin(), p.cend(), 0.0,
-                          [](auto &sum, const auto &i) { return sum + i; }) /
-          p.size();
+            std::accumulate(p.cbegin(), p.cend(), 0.0,
+                            [](auto &sum, const auto &i) { return sum + i; }) /
+            p.size();
         return average / spot > 1.2;
       };
 
@@ -95,9 +95,9 @@ int main() {
 
         // Buy if the spot is significantly above the average
         const double average =
-          std::accumulate(p.cbegin(), p.cend(), 0.0,
-                          [](auto &sum, const auto &i) { return sum + i; }) /
-          p.size();
+            std::accumulate(p.cbegin(), p.cend(), 0.0,
+                            [](auto &sum, const auto &i) { return sum + i; }) /
+            p.size();
         return average / spot > 1.1;
       };
 
@@ -299,7 +299,8 @@ int main() {
         const unsigned long mid = series.size() / 2;
         const double recent_average =
             std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) / mid;
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
         const double distant_average =
             std::accumulate(series.cbegin(), series.cend(), 0.0,
                             [](auto &sum, auto &i) { return sum + i; }) /
