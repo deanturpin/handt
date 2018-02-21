@@ -292,6 +292,28 @@ int main() {
 
     {
       strategy jk;
+      jk.name = "jklonga3";
+
+      jk.buy = [&](const auto &series) {
+
+        const unsigned long mid = series.size() / 3;
+        const double recent_average =
+            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+        const double distant_average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            series.size();
+
+        return recent_average > distant_average;
+      };
+
+      strategies.push_back(jk);
+    }
+
+    {
+      strategy jk;
       jk.name = "jklongav";
 
       jk.buy = [&](const auto &series) {
@@ -307,22 +329,6 @@ int main() {
             series.size();
 
         return recent_average > distant_average;
-      };
-
-      // Sell
-      jk.sell = [&](const auto &series, const auto &buy_price) {
-
-        static_cast<void>(buy_price);
-
-        const unsigned long mid = series.size() / 2;
-        const double short_average =
-            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
-        const double long_average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
-
-        return short_average < long_average;
       };
 
       strategies.push_back(jk);
