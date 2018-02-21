@@ -288,6 +288,20 @@ int main() {
 
       strategies.push_back(jk);
     }
+    {
+      // Buy if the spot exceeds the recent max significantly
+      strategy kos;
+      kos.name = "koskos10";
+
+      kos.buy = [&](const auto &series) {
+        const double high = *std::max_element(series.cbegin(), series.cend());
+        const double spot = series.back();
+
+        return spot / high > 1.1;
+      };
+
+      strategies.push_back(kos);
+    }
   }
 
   // Get some recent prices
