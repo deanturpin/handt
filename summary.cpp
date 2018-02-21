@@ -7,20 +7,6 @@
 #include <string>
 #include <vector>
 
-auto get_positions(const std::string file) {
-
-  std::vector<trade_position> positions;
-
-  std::ifstream in(file);
-  if (in.good()) {
-    trade_position p;
-    while (in >> p)
-      positions.push_back(p);
-  }
-
-  return positions;
-}
-
 int main() {
 
   // Get the coins
@@ -40,23 +26,26 @@ int main() {
   all.insert(std::end(all), std::begin(sells), std::end(sells));
 
   // Close all positions
-  std::map<std::string, double> ins, outs;
+  std::map<std::string, double> ins, outs, durations, trades;
   for (const auto &pos : all) {
     const auto strategy = pos.strategy;
     ins[strategy] += 100.0;
     outs[strategy] += pos.yield;
+    durations[strategy] += pos.duration;
+    ++trades[strategy];
   }
 
   // Individual strategy performance
-  std::cout << "STRATEGY\tIN\tOUT\tRETURN (fees not included)\n\n";
+  std::cout << "STRATEGY\tIN\tOUT\tHOURS\tRETURN (fees not included)\n\n";
   for (const auto &i : ins) {
     const std::string strategy = i.first;
     const double in = ins[strategy];
     const double out = outs[strategy];
     const double yield = 100.0 * out / in;
+    const double hours = (durations[strategy] / trades[strategy]) / 3600;
 
-    std::cout << strategy << "\t" << in << "\t" << out << "\t" << yield
-              << " %\n";
+    std::cout << strategy << std::fixed << "\t" << in << "\t" << out << "\t" << hours << "\t"
+      << yield << " %\n";
   }
 
   // Overall performance
@@ -69,6 +58,6 @@ int main() {
                       [](auto sum, const auto &i) { return sum + i.second; });
 
   const double overall_yield = 100.0 * out_sum / in_sum;
-  std::cout << "\n\t\t" << in_sum << "\t" << out_sum << "\t" << overall_yield
+  std::cout << "\n\t\t" << in_sum << "\t" << out_sum << "\t\t\t" << overall_yield
             << " %\n";
 }

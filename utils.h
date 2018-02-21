@@ -9,6 +9,21 @@
 #include <sstream>
 #include <vector>
 
+// Get positions from a file
+auto get_positions(const std::string file) {
+
+  std::vector<trade_position> positions;
+
+  std::ifstream in(file);
+  if (in.good()) {
+    trade_position p;
+    while (in >> p)
+      positions.push_back(p);
+  }
+
+  return positions;
+}
+
 // Get prices and return a container full of them
 std::map<std::string, std::vector<double>> get_prices() {
   std::map<std::string, std::vector<double>> prices;
@@ -45,7 +60,7 @@ double timestamp() {
   using clock = std::chrono::system_clock;
   const auto now = clock::now();
   const auto epoch = static_cast<unsigned long>(
-    duration_cast<seconds>(now.time_since_epoch()).count());
+      duration_cast<seconds>(now.time_since_epoch()).count());
 
   return epoch;
 }
