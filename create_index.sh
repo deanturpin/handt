@@ -19,7 +19,7 @@ body { font-family: sans-serif; }
 <p id="disclaimer">History is no indicator of future performance. Don"t invest
 what you can"t afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>.
-</p>
+Strategies are run over the set of coins every two minutes.</p>
 
 <p id="pagegen">Page generated $date. </p>
 
