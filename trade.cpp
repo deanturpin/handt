@@ -383,6 +383,7 @@ int main() {
 
       strategies.push_back(jk);
     }
+
     {
       // Buy if the spot exceeds the recent max significantly
       strategy kos;
@@ -396,6 +397,22 @@ int main() {
       };
 
       strategies.push_back(kos);
+    }
+
+    {
+      // Buy if the spot exceeds the recent max significantly
+      strategy zim;
+      zim.name = "zimzimma";
+
+      zim.buy = [&](const auto &series) {
+        double trend = 0.0;
+        for(auto i = series.cbegin(); i != std::prev(series.cend()); ++i)
+          trend += (*i < *std::next(i) ? 1.0 : -1.0);
+
+        return trend > series.size() * .75;
+      };
+
+      strategies.push_back(zim);
     }
   }
 

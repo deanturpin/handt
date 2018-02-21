@@ -1,7 +1,8 @@
 all: source trades summary.csv index.html
 
 # All the C++ source files
-source: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+source:
+	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 # Fetch the prices from the exchanges
 prices.csv: coins.csv
