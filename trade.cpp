@@ -68,6 +68,18 @@ int main() {
 
       strategies.push_back(nino);
     }
+    {
+      strategy nino;
+      nino.name = "manualxx";
+
+      // Manual buy
+      nino.buy = [&](const auto &p) {
+        static_cast<void>(p);
+        return false;
+      };
+
+      strategies.push_back(nino);
+    }
 
     {
       // Buy if the spot is a percentage above the average for the period
@@ -403,12 +415,12 @@ int main() {
     auto &pos = p;
 
     // Try to find some prices for this currency
-    auto it =
-        std::find_if(prices.begin(), prices.end(), [&pos](const auto &coin) {
+    const auto it =
+        std::find_if(prices.cbegin(), prices.cend(), [&pos](const auto &coin) {
           return coin.first == pos.name;
         });
 
-    if (it != prices.end()) {
+    if (it != prices.cend()) {
 
       pos.notes = "okprices";
 
@@ -453,14 +465,14 @@ int main() {
 
       // Check if we already hold a position on this currency with the current
       // strategy
-      auto it = std::find_if(
-          positions.begin(), positions.end(), [&name, &strat](const auto &p) {
+      const auto it = std::find_if(
+          positions.cbegin(), positions.cend(), [&name, &strat](const auto &p) {
             return p.name == name && p.strategy == strat.name;
           });
 
       // Check we don't already hold a position in this currency, if not
       // consider creating one
-      if (it == positions.end()) {
+      if (it == positions.cend()) {
         if (strat.buy(series)) {
           trade_position pos;
           pos.name = name;
