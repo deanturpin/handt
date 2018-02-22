@@ -151,6 +151,21 @@ struct jk : public turbo {
   };
 };
 
+struct jk_step : public turbo {
+  std::string name() const override { return "jkstep20"; }
+  std::string keywords() const override { return "average"; }
+  bool buy(const std::vector<double> &series) const override {
+        const unsigned long mid = series.size() / 2;
+        const double back =
+            std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+        const double front =
+            std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; });
+        return front / back > 1.2;
+  }
+};
+
 // Create strategy library
 std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<turbo>(),
@@ -161,6 +176,7 @@ std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<nino_max>(),
     std::make_shared<manual_buy>(),
     std::make_shared<jk>(),
+    std::make_shared<jk_step>(),
 };
 }
 
@@ -175,33 +191,6 @@ int main() {
 #if 0
 
 
-    {
-      strategy jk;
-      jk.name = "jkstep20";
-
-      // Buy
-      jk.buy = [&](const auto &p) {
-
-        const unsigned long mid = p.size() / 2;
-
-        const double back =
-            std::accumulate(p.cbegin(), std::next(p.cbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
-
-        const double front =
-            std::accumulate(p.crbegin(), std::next(p.crbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
-
-        return front / back > 1.2;
-      };
-
-      // Sell
-      jk.sell = [&](const auto &series, const auto &buy_price) {
-        return series.back() / buy_price > 1.1;
-      };
-
-      strategies.push_back(jk);
-    }
 
     {
       strategy jk;
