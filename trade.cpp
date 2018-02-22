@@ -52,8 +52,7 @@ struct turbo : public strategy {
 struct zimzimma : public turbo {
   std::string name() const override { return "zimzimma"; }
   std::string keywords() const override { return "average"; }
-  bool sell(const std::vector<double> &series,
-            const double &buy_price) const override {
+  bool buy(const std::vector<double> &series) const override {
     double trend = 0.0;
     for (auto i = series.cbegin(); i != std::prev(series.cend()); ++i)
       trend += (*i < *std::next(i) ? 1.0 : -1.0);
@@ -61,9 +60,42 @@ struct zimzimma : public turbo {
   };
 };
 
+// Kos
+struct kos : public turbo {
+  std::string name() const override { return "kossages"; }
+  std::string keywords() const override { return "peak"; }
+  bool buy(const std::vector<double> &series) const override {
+    const double high = *std::max_element(series.cbegin(), series.cend());
+    const double spot = series.back();
+    return spot / high > 1.1;
+  }
+};
+
+// Nino
+struct nino : public turbo {
+  std::string name() const override { return "nino1000"; }
+  std::string keywords() const override { return "spike"; }
+  bool buy(const std::vector<double> &series) const override {
+        // Don't consider small value coins
+        const double spot = series.back();
+        if (spot < 10)
+          return false;
+
+        // Buy if the spot is significantly above the average
+        const double average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, const auto &i) { return sum + i; }) /
+            series.size();
+        return average / spot > 1.2;
+  }
+};
+
 // Create strategy library
 std::vector<std::shared_ptr<strategy>> strategy_library{
-    std::make_shared<turbo>(), std::make_shared<zimzimma>(),
+    std::make_shared<turbo>(),
+    std::make_shared<zimzimma>(),
+    std::make_shared<kos>(),
+    std::make_shared<nino>(),
 };
 }
 
@@ -76,30 +108,6 @@ int main() {
     std::cout << s->name() << "\n";
 
 #if 0
-  // A template strategy
-  struct strategy {
-
-    std::string name = "turbo_20";
-
-    // BUY
-    std::function<bool(const std::vector<double> &p)> buy = [&](const auto &p) {
-      const double spot = p.back();
-      const double average =
-          std::accumulate(p.cbegin(), p.cend(), 0.0,
-                          [](auto &sum, const auto &i) { return sum + i; }) /
-          p.size();
-      return average / spot > 1.2;
-    };
-
-    // SELL
-    std::function<bool(const std::vector<double> &series,
-                       const double &buy_price)>
-        sell = [&](const auto &series, const auto &buy_price) {
-          // Otherwise check if we're happy with the return
-          const auto sell_price = series.back();
-          return sell_price / buy_price > 1.1;
-        };
-  };
 
   // Define some strategies by creating the template and then overriding
   // accordingly
@@ -447,20 +455,6 @@ int main() {
       strategies.push_back(jk);
     }
 
-    {
-      // Buy if the spot exceeds the recent max significantly
-      strategy kos;
-      kos.name = "koskos10";
-
-      kos.buy = [&](const auto &series) {
-        const double high = *std::max_element(series.cbegin(), series.cend());
-        const double spot = series.back();
-
-        return spot / high > 1.1;
-      };
-
-      strategies.push_back(kos);
-    }
 
   }
 #endif
