@@ -14,6 +14,8 @@
 // The top level base class
 struct strategy2 {
 
+  // strategy2() = default;
+
   // A strategy needs a unique name
   const std::string name = "undefined";
 
@@ -29,14 +31,15 @@ struct strategy2 {
 struct turbo : public strategy2 {
   const std::string name = "turbo_20";
 
+  // turbo() = default;
+
   bool buy(const std::vector<double> &series) const override {
-
-      const double spot = series.back();
-
       const double average =
           std::accumulate(series.cbegin(), series.cend(), 0.0,
                           [](auto &sum, const auto &i) { return sum + i; }) /
           series.size();
+
+      const double spot = series.back();
       return average / spot > 1.2;
     }
 
@@ -47,21 +50,15 @@ struct turbo : public strategy2 {
     };
 };
 
-// struct turbonew : public turbo {
-//   const std::string name = "turbonew";
-//   const double threshold = 2.1;
-//   void buy() const override { std::cout << "turbonew buy << " << threshold << "\n"; }
-// };
-
-std::vector<std::shared_ptr<strategy2>> strats {
-  std::shared_ptr<strategy2>(new turbo()),
-  // std::shared_ptr<strategy2>(new turbonew())
+struct turbooo : public turbo {
+  const std::string name = "turbooo";
 };
 
-// std::vector<std::shared_ptr<strategy2>> strats2 {
-  // std::shared_ptr<strategy2>(new turbo()),
-  // std::shared_ptr<strategy2>(new turbonew())
-// };
+// Create strategy library
+std::vector<std::shared_ptr<strategy2>> strats {
+  std::make_shared<turbo>(),
+  std::make_shared<turbooo>(),
+};
 
 // Let's trade
 int main() {
