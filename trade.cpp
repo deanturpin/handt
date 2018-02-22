@@ -4,14 +4,70 @@
 #include <fstream>
 #include <functional>
 #include <iostream>
+#include <memory>
 #include <istream>
 #include <iterator>
 #include <numeric>
 #include <string>
 #include <vector>
 
+// The top level base class
+struct strategy2 {
+
+  // A strategy needs a unique name
+  const std::string name = "undefined";
+
+  // A lengthy description
+  const std::string description = "undefined";
+
+  // And buy and sell routines that take a series of prices and return an
+  // action: buy or sell
+  virtual bool buy(const std::vector<double> &) const = 0;
+  virtual bool sell(const std::vector<double> &, const double &) const = 0;
+};
+
+struct turbo : public strategy2 {
+  const std::string name = "turbo_20";
+
+  bool buy(const std::vector<double> &series) const override {
+
+      const double spot = series.back();
+
+      const double average =
+          std::accumulate(series.cbegin(), series.cend(), 0.0,
+                          [](auto &sum, const auto &i) { return sum + i; }) /
+          series.size();
+      return average / spot > 1.2;
+    }
+
+    // SELL
+    bool sell(const std::vector<double> &series, const double &buy_price) const override {
+      const auto sell_price = series.back();
+      return sell_price / buy_price > 1.1;
+    };
+};
+
+// struct turbonew : public turbo {
+//   const std::string name = "turbonew";
+//   const double threshold = 2.1;
+//   void buy() const override { std::cout << "turbonew buy << " << threshold << "\n"; }
+// };
+
+std::vector<std::shared_ptr<strategy2>> strats {
+  std::shared_ptr<strategy2>(new turbo()),
+  // std::shared_ptr<strategy2>(new turbonew())
+};
+
+// std::vector<std::shared_ptr<strategy2>> strats2 {
+  // std::shared_ptr<strategy2>(new turbo()),
+  // std::shared_ptr<strategy2>(new turbonew())
+// };
+
 // Let's trade
 int main() {
+
+  for (const auto &s : strats)
+    s->buy({1, 2, 3, 4});
 
   // A template strategy
   struct strategy {
