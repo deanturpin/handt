@@ -71,6 +71,16 @@ struct kos : public turbo {
   }
 };
 
+// Manual buy and auto exit
+struct manual_buy : public turbo {
+  std::string name() const override { return "manualxx"; }
+  std::string keywords() const override { return "manual"; }
+  bool buy(const std::vector<double> &series) const override {
+    static_cast<void>(series);
+    return false;
+  }
+};
+
 // Nino
 struct nino : public turbo {
   std::string name() const override { return "nino1000"; }
@@ -90,12 +100,67 @@ struct nino : public turbo {
   }
 };
 
+struct nino_min : public nino {
+  std::string name() const override { return "nino1001"; }
+  bool buy(const std::vector<double> &series) const override {
+        // Don't consider small value coins
+        const double spot = series.back();
+        if (spot < 10)
+          return false;
+
+        // Buy if the spot is significantly above the average
+        const double average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, const auto &i) { return sum + i; }) /
+            series.size();
+        return average / spot > 1.1;
+  }
+};
+
+struct nino_max : public nino {
+  std::string name() const override { return "nino1003"; }
+  bool buy(const std::vector<double> &series) const override {
+        // Don't consider small value coins
+        const double spot = series.back();
+        if (spot < 10)
+          return false;
+
+        // Buy if the spot is significantly above the average
+        const double average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, const auto &i) { return sum + i; }) /
+            series.size();
+        return average / spot > 1.3;
+  }
+};
+
+struct jk : public turbo {
+  std::string name() const override { return "jkrise10"; }
+  std::string keywords() const override { return "average"; }
+  bool buy(const std::vector<double> &series) const override {
+        const double average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            series.size();
+        const double spot = series.back();
+        return spot / average > 1.1;
+  }
+  virtual bool sell(const std::vector<double> &series,
+                    const double &buy_price) const override {
+        return series.back() / buy_price > 1.1;
+  };
+};
+
 // Create strategy library
 std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<turbo>(),
     std::make_shared<zimzimma>(),
     std::make_shared<kos>(),
     std::make_shared<nino>(),
+    std::make_shared<nino_min>(),
+    std::make_shared<nino_max>(),
+    std::make_shared<manual_buy>(),
+    std::make_shared<jk>(),
 };
 }
 
@@ -109,93 +174,6 @@ int main() {
 
 #if 0
 
-  // Define some strategies by creating the template and then overriding
-  // accordingly
-  std::vector<strategy> _strategies;
-  {
-    // Original and best
-    strategy s1;
-    strategies.push_back(s1);
-
-    {
-      // Buy if the spot is a percentage above the average for the period
-      strategy nino;
-      nino.name = "nino1000";
-
-      // Buy
-      nino.buy = [&](const auto &p) {
-        // Don't consider small value coins
-        const double spot = p.back();
-        if (spot < 10)
-          return false;
-
-        // Buy if the spot is significantly above the average
-        const double average =
-            std::accumulate(p.cbegin(), p.cend(), 0.0,
-                            [](auto &sum, const auto &i) { return sum + i; }) /
-            p.size();
-        return average / spot > 1.2;
-      };
-
-      strategies.push_back(nino);
-    }
-    {
-      strategy nino;
-      nino.name = "manualxx";
-
-      // Manual buy
-      nino.buy = [&](const auto &p) {
-        static_cast<void>(p);
-        return false;
-      };
-
-      strategies.push_back(nino);
-    }
-
-    {
-      // Buy if the spot is a percentage above the average for the period
-      strategy nino;
-      nino.name = "nino1001";
-
-      // Buy
-      nino.buy = [&](const auto &p) {
-        // Don't consider small value coins
-        const double spot = p.back();
-        if (spot < 10)
-          return false;
-
-        // Buy if the spot is significantly above the average
-        const double average =
-            std::accumulate(p.cbegin(), p.cend(), 0.0,
-                            [](auto &sum, const auto &i) { return sum + i; }) /
-            p.size();
-        return average / spot > 1.1;
-      };
-
-      strategies.push_back(nino);
-    }
-    {
-      // Buy if the spot is a percentage above the average for the period
-      strategy jk;
-      jk.name = "jkrise10";
-
-      // Buy
-      jk.buy = [&](const auto &p) {
-        const double spot = p.back();
-        const double average =
-            std::accumulate(p.cbegin(), p.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            p.size();
-        return spot / average > 1.1;
-      };
-
-      // Sell
-      jk.sell = [&](const auto &series, const auto &buy_price) {
-        return series.back() / buy_price > 1.1;
-      };
-
-      strategies.push_back(jk);
-    }
 
     {
       strategy jk;
