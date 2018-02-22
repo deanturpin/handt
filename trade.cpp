@@ -70,11 +70,12 @@ std::vector<std::shared_ptr<strategy>> strategy_library{
 // Let's trade
 int main() {
 
-  const auto &str = lft::strategy_library;
+  const auto &strategies = lft::strategy_library;
 
-  for (const auto &s : str)
+  for (const auto &s : strategies)
     std::cout << s->name() << "\n";
 
+#if 0
   // A template strategy
   struct strategy {
 
@@ -102,7 +103,7 @@ int main() {
 
   // Define some strategies by creating the template and then overriding
   // accordingly
-  std::vector<strategy> strategies;
+  std::vector<strategy> _strategies;
   {
     // Original and best
     strategy s1;
@@ -462,6 +463,7 @@ int main() {
     }
 
   }
+#endif
 
   // Get some recent prices
   auto prices = get_prices();
@@ -503,14 +505,14 @@ int main() {
 
       static auto strat_it = strategies.cbegin();
       find_if(strategies.cbegin(), strategies.cend(),
-              [&pos](const auto &s) { return pos.strategy == s.name; });
+              [&pos](const auto &s) { return pos.strategy == s->name(); });
 
       // Found strategy, review position
       if (strat_it != strategies.cend()) {
         const auto &series = it->second;
 
         // Check if it's good to sell, otherwise push it back onto the buy list
-        strat_it->sell(series, pos.buy_price) ? sells.push_back(pos)
+        (*strat_it)->sell(series, pos.buy_price) ? sells.push_back(pos)
                                               : buys.push_back(pos);
       }
 
@@ -537,20 +539,20 @@ int main() {
       // strategy
       const auto it = std::find_if(
           positions.cbegin(), positions.cend(), [&name, &strat](const auto &p) {
-            return p.name == name && p.strategy == strat.name;
+            return p.name == name && p.strategy == strat->name();
           });
 
       // Check we don't already hold a position in this currency, if not
       // consider creating one
       if (it == positions.cend()) {
-        if (strat.buy(series)) {
+        if (strat->buy(series)) {
           trade_position pos;
           pos.name = name;
 
           // Initialise buy and sell to same price
           pos.buy_price = pos.sell_price = spot;
 
-          pos.strategy = strat.name;
+          pos.strategy = strat->name();
           pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
           // Initialise timestamps to the same time, sell will be updated each
