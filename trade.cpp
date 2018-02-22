@@ -1,26 +1,26 @@
+// #include "strategy.h"
 #include "position.h"
 #include "utils.h"
 #include <algorithm>
 #include <fstream>
-#include <functional>
 #include <iostream>
-#include <memory>
 #include <istream>
 #include <iterator>
+#include <memory>
 #include <numeric>
 #include <string>
 #include <vector>
 
-// The top level base class
-struct strategy2 {
+namespace lft {
 
-  // strategy2() = default;
+// The top level base class
+struct strategy {
 
   // A strategy needs a unique name
-  const std::string name = "undefined";
+  virtual std::string name() const { return "undefined"; }
 
   // A lengthy description
-  const std::string description = "undefined";
+  virtual std::string keywords() const { return "strategy"; }
 
   // And buy and sell routines that take a series of prices and return an
   // action: buy or sell
@@ -28,43 +28,52 @@ struct strategy2 {
   virtual bool sell(const std::vector<double> &, const double &) const = 0;
 };
 
-struct turbo : public strategy2 {
-  const std::string name = "turbo_20";
-
-  // turbo() = default;
-
+struct turbo : public strategy {
+  std::string name() const override { return "turbo_20"; }
+  std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
-      const double average =
-          std::accumulate(series.cbegin(), series.cend(), 0.0,
-                          [](auto &sum, const auto &i) { return sum + i; }) /
-          series.size();
+    const double spot = series.back();
+    const double average =
+        std::accumulate(series.cbegin(), series.cend(), 0.0,
+                        [](auto &sum, const auto &i) { return sum + i; }) /
+        series.size();
+    return average / spot > 1.2;
+  }
 
-      const double spot = series.back();
-      return average / spot > 1.2;
-    }
-
-    // SELL
-    bool sell(const std::vector<double> &series, const double &buy_price) const override {
-      const auto sell_price = series.back();
-      return sell_price / buy_price > 1.1;
-    };
+  virtual bool sell(const std::vector<double> &series,
+                    const double &buy_price) const override {
+    // Otherwise check if we're happy with the return
+    const auto sell_price = series.back();
+    return sell_price / buy_price > 1.1;
+  };
 };
 
-struct turbooo : public turbo {
-  const std::string name = "turbooo";
+// Zim zimma
+struct zimzimma : public turbo {
+  std::string name() const override { return "zimzimma"; }
+  std::string keywords() const override { return "average"; }
+  bool sell(const std::vector<double> &series,
+            const double &buy_price) const override {
+    double trend = 0.0;
+    for (auto i = series.cbegin(); i != std::prev(series.cend()); ++i)
+      trend += (*i < *std::next(i) ? 1.0 : -1.0);
+    return trend > series.size() * .75;
+  };
 };
 
 // Create strategy library
-std::vector<std::shared_ptr<strategy2>> strats {
-  std::make_shared<turbo>(),
-  std::make_shared<turbooo>(),
+std::vector<std::shared_ptr<strategy>> strategy_library{
+    std::make_shared<turbo>(), std::make_shared<zimzimma>(),
 };
+}
 
 // Let's trade
 int main() {
 
-  for (const auto &s : strats)
-    s->buy({1, 2, 3, 4});
+  const auto &str = lft::strategy_library;
+
+  for (const auto &s : str)
+    std::cout << s->name() << "\n";
 
   // A template strategy
   struct strategy {
@@ -452,21 +461,6 @@ int main() {
       strategies.push_back(kos);
     }
 
-    {
-      // Buy if the spot exceeds the recent max significantly
-      strategy zim;
-      zim.name = "zimzimma";
-
-      zim.buy = [&](const auto &series) {
-        double trend = 0.0;
-        for(auto i = series.cbegin(); i != std::prev(series.cend()); ++i)
-          trend += (*i < *std::next(i) ? 1.0 : -1.0);
-
-        return trend > series.size() * .75;
-      };
-
-      strategies.push_back(zim);
-    }
   }
 
   // Get some recent prices
