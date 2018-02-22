@@ -166,6 +166,60 @@ struct jk_step : public turbo {
   }
 };
 
+struct bigcap : public turbo {
+  std::string name() const override { return "bigcap20"; }
+  std::string keywords() const override { return "average"; }
+  virtual double threshold() const { return 1.2; }
+  bool buy(const std::vector<double> &series) const override {
+        const double spot = series.back();
+        if (spot < 10)
+          return false;
+
+        const unsigned long mid = series.size() / 2;
+        const double back =
+            std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+        const double front =
+            std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+
+        return front / back > threshold();
+      };
+  };
+
+struct bigcap_low : public bigcap {
+  std::string name() const override { return "bigcap10"; }
+  double threshold() const override { return 1.1; }
+  };
+
+struct rolling_average : public turbo {
+  virtual unsigned long filter_length() const { return 20UL; }
+  std::string name() const override { return "rolav20a"; }
+  bool buy(const std::vector<double> &series) const override {
+        const auto start = series.cbegin();
+        const auto end = std::prev(series.cend(), filter_length());
+        // const auto length = series.size() - filter_length();
+        const auto filt = filter_length();
+        std::vector<double> raverage;
+        std::transform(
+            start, end, std::back_inserter(raverage), [&filt](const auto &i) {
+              const auto start = &i;
+              const auto end = std::next(&i, filt);
+              return std::accumulate(start, end, 0.0) / filt;
+            });
+
+        return series.back() / raverage.back() > 1.05;
+      };
+  };
+
+// Rolling average over fewer points
+struct rolling_average_short : public rolling_average {
+std::string name() const override { return "rolav10a"; }
+unsigned long filter_length() const override { return 10UL; }
+};
+
 // Create strategy library
 std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<turbo>(),
@@ -177,6 +231,9 @@ std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<manual_buy>(),
     std::make_shared<jk>(),
     std::make_shared<jk_step>(),
+    std::make_shared<bigcap>(),
+    std::make_shared<rolling_average>(),
+    std::make_shared<rolling_average_short>(),
 };
 }
 
@@ -190,75 +247,6 @@ int main() {
 
 #if 0
 
-
-
-    {
-      strategy jk;
-      jk.name = "bigcap20";
-
-      // Buy
-      jk.buy = [&](const auto &p) {
-
-        // Don't consider small value coins
-        const double spot = p.back();
-        if (spot < 10)
-          return false;
-
-        const unsigned long mid = p.size() / 2;
-        const double back =
-            std::accumulate(p.cbegin(), std::next(p.cbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-        const double front =
-            std::accumulate(p.crbegin(), std::next(p.crbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-
-        return front / back > 1.20;
-      };
-
-      // Sell
-      jk.sell = [&](const auto &series, const auto &buy_price) {
-        return series.back() / buy_price > 1.1;
-      };
-
-      strategies.push_back(jk);
-    }
-
-    {
-      strategy jk;
-      jk.name = "bigcap10";
-
-      // Buy
-      jk.buy = [&](const auto &p) {
-
-        if (p.back() < 10)
-          return false;
-
-        const unsigned long mid = p.size() / 2;
-
-        // Calculate average of first half
-        const double back =
-            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-
-        // Calculate average of second half
-        const double front =
-            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-
-        return front / back > 1.10;
-      };
-
-      // Sell
-      jk.sell = [&](const auto &series, const auto &buy_price) {
-        return series.back() / buy_price > 1.1;
-      };
-
-      strategies.push_back(jk);
-    }
 
     {
       // Ski slope shape, no small caps
@@ -367,56 +355,6 @@ int main() {
             series.size();
 
         return recent_average > distant_average;
-      };
-
-      strategies.push_back(jk);
-    }
-    {
-      // Construct rolling average series, buy if significant excursion
-      strategy jk;
-      jk.name = "rolav10a";
-
-      jk.buy = [&](const auto &series) {
-
-        const unsigned long filter_length = 10;
-        const auto start = series.cbegin();
-        const auto end = std::prev(series.cend(), filter_length);
-        const auto length = series.size() - filter_length;
-
-        std::vector<double> raverage;
-        std::transform(
-            start, end, std::back_inserter(raverage), [&length](const auto &i) {
-              const auto start = &i;
-              const auto end = std::next(&i, filter_length);
-              return std::accumulate(start, end, 0.0) / filter_length;
-            });
-
-        return series.back() / raverage.back() > 1.05;
-      };
-
-      strategies.push_back(jk);
-    }
-    {
-      // Construct rolling average series, buy if significant excursion
-      strategy jk;
-      jk.name = "rolav20a";
-
-      jk.buy = [&](const auto &series) {
-
-        const unsigned long filter_length = 20;
-        const auto start = series.cbegin();
-        const auto end = std::prev(series.cend(), filter_length);
-        const auto length = series.size() - filter_length;
-
-        std::vector<double> raverage;
-        std::transform(
-            start, end, std::back_inserter(raverage), [&length](const auto &i) {
-              const auto start = &i;
-              const auto end = std::next(&i, filter_length);
-              return std::accumulate(start, end, 0.0) / filter_length;
-            });
-
-        return series.back() / raverage.back() > 1.05;
       };
 
       strategies.push_back(jk);
