@@ -28,6 +28,7 @@ struct strategy {
 
 struct turbo : public strategy {
   std::string name() const override { return "turbo_20"; }
+  virtual double threshold() const { return 1.2; }
   std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
     const double spot = series.back();
@@ -35,7 +36,7 @@ struct turbo : public strategy {
         std::accumulate(series.cbegin(), series.cend(), 0.0,
                         [](auto &sum, const auto &i) { return sum + i; }) /
         series.size();
-    return average / spot > 1.2;
+    return average / spot > threshold();
   }
 
   virtual bool sell(const std::vector<double> &series,
@@ -44,6 +45,16 @@ struct turbo : public strategy {
     const auto sell_price = series.back();
     return sell_price / buy_price > 1.1;
   };
+};
+
+struct turbo_short : public turbo {
+  std::string name() const override { return "turbo_10"; }
+  virtual double threshold() const { return 1.1; }
+};
+
+struct turbo_long : public turbo {
+  std::string name() const override { return "turbo_30"; }
+  virtual double threshold() const { return 1.3; }
 };
 
 // Sim simma
@@ -282,6 +293,8 @@ struct average_compare4 : public turbo {
 // Create strategy library
 const std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<turbo>(),
+    std::make_shared<turbo_short>(),
+    std::make_shared<turbo_long>(),
     std::make_shared<simsimma>(),
     std::make_shared<kos>(),
     std::make_shared<nino>(),
