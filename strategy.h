@@ -259,6 +259,11 @@ struct ski_sunday_low : public ski_sunday {
   double threshold() const override { return 1.1; }
 };
 
+struct ski_sunday_vlow : public ski_sunday {
+  std::string name() const override { return "skisun05"; }
+  double threshold() const override { return 1.05; }
+};
+
 // Average comparison
 struct average_compare : public turbo {
   std::string name() const override { return "jklongav"; }
@@ -309,6 +314,7 @@ const std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<rolling_average_short>(),
     std::make_shared<ski_sunday>(),
     std::make_shared<ski_sunday_low>(),
+    std::make_shared<ski_sunday_vlow>(),
     std::make_shared<average_compare>(),
     std::make_shared<average_compare3>(),
     std::make_shared<average_compare4>(),
