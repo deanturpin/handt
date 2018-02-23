@@ -16,7 +16,9 @@ int main() {
   // Get the coins
   const auto prices = get_prices();
   std::cout << strategies.size() << " strategies have the opportunity to trade "
-    << prices.size() << " coins every two minutes = " << strategies.size() * prices.size() * 30 * 24 << " decisions per day\n";
+    << prices.size() << " coins every two minutes\n";
+  std::cout << strategies.size() * prices.size() * 30 * 24
+    << " decisions per day\n";
 
   // Get the buys
   const std::vector<trade_position> buys(get_positions("buys.csv"));
