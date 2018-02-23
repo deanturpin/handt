@@ -220,6 +220,67 @@ std::string name() const override { return "rolav10a"; }
 unsigned long filter_length() const override { return 10UL; }
 };
 
+// Ski slope profiles
+struct ski_sunday : public bigcap {
+  std::string name() const override { return "skisun20"; }
+  virtual double threshold() const { return 1.2; }
+  bool buy(const std::vector<double> &series) const override {
+        if (series.back() < 10)
+          return false;
+
+        const unsigned long mid = series.size() / 2;
+
+        const double back =
+            std::accumulate(series.begin(), std::next(series.begin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+
+        const double front =
+            std::accumulate(series.rbegin(), std::next(series.rbegin(), mid), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+
+        const auto spot = series.back();
+        return (back / front > threshold() && spot / front > 1.05);
+      };
+  };
+
+struct ski_sunday_low : public ski_sunday {
+  std::string name() const override { return "skisun10"; }
+  double threshold() const override { return 1.1; }
+};
+
+// Average comparison
+struct average_compare : public turbo {
+  std::string name() const override { return "jklongav"; }
+  virtual unsigned long ratio() const { return 2; }
+  bool buy(const std::vector<double> &series) const override {
+    {
+        const unsigned long mid = series.size() / ratio();
+        const double recent_average =
+            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            mid;
+        const double distant_average =
+            std::accumulate(series.cbegin(), series.cend(), 0.0,
+                            [](auto &sum, auto &i) { return sum + i; }) /
+            series.size();
+
+        return recent_average > distant_average;
+    }
+  }
+};
+
+struct average_compare3 : public turbo {
+  std::string name() const override { return "jklonga3"; }
+  virtual unsigned long ratio() const { return 3; }
+};
+
+struct average_compare4 : public turbo {
+  std::string name() const override { return "jklonga4"; }
+  virtual unsigned long ratio() const { return 3; }
+};
+
 // Create strategy library
 std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<turbo>(),
@@ -232,8 +293,14 @@ std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<jk>(),
     std::make_shared<jk_step>(),
     std::make_shared<bigcap>(),
+    std::make_shared<bigcap_low>(),
     std::make_shared<rolling_average>(),
     std::make_shared<rolling_average_short>(),
+    std::make_shared<ski_sunday>(),
+    std::make_shared<ski_sunday_low>(),
+    std::make_shared<average_compare>(),
+    std::make_shared<average_compare3>(),
+    std::make_shared<average_compare4>(),
 };
 }
 
@@ -244,125 +311,6 @@ int main() {
 
   for (const auto &s : strategies)
     std::cout << s->name() << "\n";
-
-#if 0
-
-
-    {
-      // Ski slope shape, no small caps
-      strategy jk;
-      jk.name = "skisun05";
-
-      jk.buy = [&](const auto &p) {
-
-        if (p.back() < 10)
-          return false;
-
-        const unsigned long mid = p.size() / 2;
-
-        const double back =
-            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-
-        const double front =
-            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-
-        const auto spot = p.back();
-        return (back / front > 1.10 && spot / front > 1.05);
-      };
-
-      // Sell
-      jk.sell = [&](const auto &series, const auto &buy_price) {
-        return series.back() / buy_price > 1.1;
-      };
-
-      strategies.push_back(jk);
-    }
-
-    {
-      // Ski slope shape, no small caps
-      strategy jk;
-      jk.name = "skisun20";
-
-      jk.buy = [&](const auto &p) {
-
-        if (p.back() < 10)
-          return false;
-
-        const unsigned long mid = p.size() / 2;
-
-        const double back =
-            std::accumulate(p.begin(), std::next(p.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-
-        const double front =
-            std::accumulate(p.rbegin(), std::next(p.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-
-        const auto spot = p.back();
-        return (back / front > 1.20 && spot / front > 1.05);
-      };
-
-      // Sell
-      jk.sell = [&](const auto &series, const auto &buy_price) {
-        return series.back() / buy_price > 1.1;
-      };
-
-      strategies.push_back(jk);
-    }
-
-    {
-      strategy jk;
-      jk.name = "jklonga3";
-
-      jk.buy = [&](const auto &series) {
-
-        const unsigned long mid = series.size() / 3;
-        const double recent_average =
-            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-        const double distant_average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            series.size();
-
-        return recent_average > distant_average;
-      };
-
-      strategies.push_back(jk);
-    }
-
-    {
-      strategy jk;
-      jk.name = "jklongav";
-
-      jk.buy = [&](const auto &series) {
-
-        const unsigned long mid = series.size() / 2;
-        const double recent_average =
-            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-        const double distant_average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            series.size();
-
-        return recent_average > distant_average;
-      };
-
-      strategies.push_back(jk);
-    }
-
-
-  }
-#endif
 
   // Get some recent prices
   auto prices = get_prices();
