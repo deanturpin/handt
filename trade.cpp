@@ -309,8 +309,8 @@ int main() {
 
   const auto &strategies = lft::strategy_library;
 
-  for (const auto &s : strategies)
-    std::cout << s->name() << "\n";
+  // for (const auto &s : strategies)
+    // std::cout << s->name() << "\n";
 
   // Get some recent prices
   auto prices = get_prices();
