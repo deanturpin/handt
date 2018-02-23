@@ -27,6 +27,11 @@ href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>.</p>
 $(file=summary.csv; [[ -e $file ]] && cat $file)
 </pre>
 
+<h2>Coinbase</h2>
+<pre>
+$(grep -h -E '\<ETH\>|\<BTC\>|\<BCH\>|\<LTC\>' buys.csv sells.csv || echo none)
+</pre>
+
 <h2>Change log</h2>
 <pre>
 $(git log -n 5 --oneline)
