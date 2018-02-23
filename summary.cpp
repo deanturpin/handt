@@ -23,7 +23,7 @@ int main() {
 
   // Get the sells
   const std::vector<trade_position> sells(get_positions("sells.csv"));
-  std::cout << sells.size() << " complete transactions\n\n";
+  std::cout << sells.size() << " complete trades\n\n";
 
   // Consolidate all positions
   auto all = buys;
