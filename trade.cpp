@@ -48,9 +48,9 @@ struct turbo : public strategy {
   };
 };
 
-// Zim zimma
-struct zimzimma : public turbo {
-  std::string name() const override { return "zimzimma"; }
+// Sim simma
+struct simsimma : public turbo {
+  std::string name() const override { return "simsimma"; }
   std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
     double trend = 0.0;
@@ -284,7 +284,7 @@ struct average_compare4 : public turbo {
 // Create strategy library
 std::vector<std::shared_ptr<strategy>> strategy_library{
     std::make_shared<turbo>(),
-    std::make_shared<zimzimma>(),
+    std::make_shared<simsimma>(),
     std::make_shared<kos>(),
     std::make_shared<nino>(),
     std::make_shared<nino_min>(),
