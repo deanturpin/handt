@@ -1,10 +1,10 @@
 #ifndef LFT_STRATEGY
 #define LFT_STRATEGY
 
+#include <algorithm>
 #include <iostream>
 #include <istream>
 #include <memory>
-#include <algorithm>
 #include <numeric>
 #include <string>
 #include <vector>
@@ -84,51 +84,51 @@ struct nino : public turbo {
   std::string name() const override { return "nino1000"; }
   std::string keywords() const override { return "spike"; }
   bool buy(const std::vector<double> &series) const override {
-        // Don't consider small value coins
-        const double spot = series.back();
-        if (spot < 10)
-          return false;
+    // Don't consider small value coins
+    const double spot = series.back();
+    if (spot < 10)
+      return false;
 
-        // Buy if the spot is significantly above the average
-        const double average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, const auto &i) { return sum + i; }) /
-            series.size();
-        return average / spot > 1.2;
+    // Buy if the spot is significantly above the average
+    const double average =
+        std::accumulate(series.cbegin(), series.cend(), 0.0,
+                        [](auto &sum, const auto &i) { return sum + i; }) /
+        series.size();
+    return average / spot > 1.2;
   }
 };
 
 struct nino_min : public nino {
   std::string name() const override { return "nino1001"; }
   bool buy(const std::vector<double> &series) const override {
-        // Don't consider small value coins
-        const double spot = series.back();
-        if (spot < 10)
-          return false;
+    // Don't consider small value coins
+    const double spot = series.back();
+    if (spot < 10)
+      return false;
 
-        // Buy if the spot is significantly above the average
-        const double average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, const auto &i) { return sum + i; }) /
-            series.size();
-        return average / spot > 1.1;
+    // Buy if the spot is significantly above the average
+    const double average =
+        std::accumulate(series.cbegin(), series.cend(), 0.0,
+                        [](auto &sum, const auto &i) { return sum + i; }) /
+        series.size();
+    return average / spot > 1.1;
   }
 };
 
 struct nino_max : public nino {
   std::string name() const override { return "nino1003"; }
   bool buy(const std::vector<double> &series) const override {
-        // Don't consider small value coins
-        const double spot = series.back();
-        if (spot < 10)
-          return false;
+    // Don't consider small value coins
+    const double spot = series.back();
+    if (spot < 10)
+      return false;
 
-        // Buy if the spot is significantly above the average
-        const double average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, const auto &i) { return sum + i; }) /
-            series.size();
-        return average / spot > 1.3;
+    // Buy if the spot is significantly above the average
+    const double average =
+        std::accumulate(series.cbegin(), series.cend(), 0.0,
+                        [](auto &sum, const auto &i) { return sum + i; }) /
+        series.size();
+    return average / spot > 1.3;
   }
 };
 
@@ -136,16 +136,16 @@ struct jk : public turbo {
   std::string name() const override { return "jkrise10"; }
   std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
-        const double average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            series.size();
-        const double spot = series.back();
-        return spot / average > 1.1;
+    const double average =
+        std::accumulate(series.cbegin(), series.cend(), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; }) /
+        series.size();
+    const double spot = series.back();
+    return spot / average > 1.1;
   }
   virtual bool sell(const std::vector<double> &series,
                     const double &buy_price) const override {
-        return series.back() / buy_price > 1.1;
+    return series.back() / buy_price > 1.1;
   };
 };
 
@@ -153,14 +153,14 @@ struct jk_step : public turbo {
   std::string name() const override { return "jkstep20"; }
   std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
-        const unsigned long mid = series.size() / 2;
-        const double back =
-            std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
-        const double front =
-            std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; });
-        return front / back > 1.2;
+    const unsigned long mid = series.size() / 2;
+    const double back =
+        std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; });
+    const double front =
+        std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; });
+    return front / back > 1.2;
   }
 };
 
@@ -169,53 +169,53 @@ struct bigcap : public turbo {
   std::string keywords() const override { return "average"; }
   virtual double threshold() const { return 1.2; }
   bool buy(const std::vector<double> &series) const override {
-        const double spot = series.back();
-        if (spot < 10)
-          return false;
+    const double spot = series.back();
+    if (spot < 10)
+      return false;
 
-        const unsigned long mid = series.size() / 2;
-        const double back =
-            std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-        const double front =
-            std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
+    const unsigned long mid = series.size() / 2;
+    const double back =
+        std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; }) /
+        mid;
+    const double front =
+        std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; }) /
+        mid;
 
-        return front / back > threshold();
-      };
+    return front / back > threshold();
   };
+};
 
 struct bigcap_low : public bigcap {
   std::string name() const override { return "bigcap10"; }
   double threshold() const override { return 1.1; }
-  };
+};
 
 struct rolling_average : public turbo {
   virtual unsigned long filter_length() const { return 20UL; }
   std::string name() const override { return "rolav20a"; }
   bool buy(const std::vector<double> &series) const override {
-        const auto start = series.cbegin();
-        const auto end = std::prev(series.cend(), filter_length());
-        // const auto length = series.size() - filter_length();
-        const auto filt = filter_length();
-        std::vector<double> raverage;
-        std::transform(
-            start, end, std::back_inserter(raverage), [&filt](const auto &i) {
-              const auto start = &i;
-              const auto end = std::next(&i, filt);
-              return std::accumulate(start, end, 0.0) / filt;
-            });
+    const auto start = series.cbegin();
+    const auto end = std::prev(series.cend(), filter_length());
+    // const auto length = series.size() - filter_length();
+    const auto filt = filter_length();
+    std::vector<double> raverage;
+    std::transform(start, end, std::back_inserter(raverage),
+                   [&filt](const auto &i) {
+                     const auto start = &i;
+                     const auto end = std::next(&i, filt);
+                     return std::accumulate(start, end, 0.0) / filt;
+                   });
 
-        return series.back() / raverage.back() > 1.05;
-      };
+    return series.back() / raverage.back() > 1.05;
   };
+};
 
 // Rolling average over fewer points
 struct rolling_average_short : public rolling_average {
-std::string name() const override { return "rolav10a"; }
-unsigned long filter_length() const override { return 10UL; }
+  std::string name() const override { return "rolav10a"; }
+  unsigned long filter_length() const override { return 10UL; }
 };
 
 // Ski slope profiles
@@ -223,25 +223,25 @@ struct ski_sunday : public bigcap {
   std::string name() const override { return "skisun20"; }
   virtual double threshold() const { return 1.2; }
   bool buy(const std::vector<double> &series) const override {
-        if (series.back() < 10)
-          return false;
+    if (series.back() < 10)
+      return false;
 
-        const unsigned long mid = series.size() / 2;
+    const unsigned long mid = series.size() / 2;
 
-        const double back =
-            std::accumulate(series.begin(), std::next(series.begin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
+    const double back =
+        std::accumulate(series.begin(), std::next(series.begin(), mid), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; }) /
+        mid;
 
-        const double front =
-            std::accumulate(series.rbegin(), std::next(series.rbegin(), mid), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
+    const double front =
+        std::accumulate(series.rbegin(), std::next(series.rbegin(), mid), 0.0,
+                        [](auto &sum, auto &i) { return sum + i; }) /
+        mid;
 
-        const auto spot = series.back();
-        return (back / front > threshold() && spot / front > 1.05);
-      };
+    const auto spot = series.back();
+    return (back / front > threshold() && spot / front > 1.05);
   };
+};
 
 struct ski_sunday_low : public ski_sunday {
   std::string name() const override { return "skisun10"; }
@@ -254,17 +254,17 @@ struct average_compare : public turbo {
   virtual unsigned long ratio() const { return 2; }
   bool buy(const std::vector<double> &series) const override {
     {
-        const unsigned long mid = series.size() / ratio();
-        const double recent_average =
-            std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            mid;
-        const double distant_average =
-            std::accumulate(series.cbegin(), series.cend(), 0.0,
-                            [](auto &sum, auto &i) { return sum + i; }) /
-            series.size();
+      const unsigned long mid = series.size() / ratio();
+      const double recent_average =
+          std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; }) /
+          mid;
+      const double distant_average =
+          std::accumulate(series.cbegin(), series.cend(), 0.0,
+                          [](auto &sum, auto &i) { return sum + i; }) /
+          series.size();
 
-        return recent_average > distant_average;
+      return recent_average > distant_average;
     }
   }
 };

@@ -1,4 +1,5 @@
 #include "position.h"
+#include "strategy.h"
 #include "utils.h"
 #include <fstream>
 #include <iostream>
@@ -8,6 +9,9 @@
 #include <vector>
 
 int main() {
+
+  // Get the strategies
+  const auto &strategies = lft::strategy_library;
 
   // Get the coins
   const auto prices = get_prices();
@@ -25,8 +29,17 @@ int main() {
   auto all = buys;
   all.insert(std::end(all), std::begin(sells), std::end(sells));
 
-  // Close all positions
+  // Initialise results with all strategies
   std::map<std::string, double> ins, outs, durations, trades;
+  for (const auto &strategy : strategies) {
+    const auto name = strategy->name();
+    ins[name] = 0.0;
+    outs[name] = 0.0;
+    durations[name] = 0.0;
+    trades[name] = 0.0;
+  }
+
+  // Close all positions
   for (const auto &pos : all) {
     const auto strategy = pos.strategy;
     ins[strategy] += 100.0;
@@ -41,8 +54,10 @@ int main() {
     const std::string strategy = i.first;
     const double in = ins[strategy];
     const double out = outs[strategy];
-    const double yield = 100.0 * out / in;
-    const double hours = (durations[strategy] / trades[strategy]) / 3600;
+    const double yield = 100.0 * out / (in > 0 ? in : 1);
+    const double hours =
+        (durations[strategy] / (trades[strategy] > 0 ? trades[strategy] : 1)) /
+        3600;
 
     std::cout << strategy << std::fixed << " " << yield << "\t" << in << "\t"
               << out << "\t" << hours << "\n";

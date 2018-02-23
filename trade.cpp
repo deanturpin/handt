@@ -1,5 +1,5 @@
-#include "strategy.h"
 #include "position.h"
+#include "strategy.h"
 #include "utils.h"
 #include <fstream>
 #include <iostream>
@@ -64,7 +64,7 @@ int main() {
 
         // Check if it's good to sell, otherwise push it back onto the buy list
         (*strat_it)->sell(series, pos.buy_price) ? sells.push_back(pos)
-                                              : buys.push_back(pos);
+                                                 : buys.push_back(pos);
       }
 
       // No strategy
