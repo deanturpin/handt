@@ -21,9 +21,8 @@ int main() {
 
   // Containers for initial and ultimate positions
   std::vector<trade_position> positions;
-  std::vector<trade_position> buys, sells;
 
-  const std::string buy_file = "buys.csv";
+  const std::string buy_file = "positions.csv";
   std::ifstream in(buy_file);
   if (in.good()) {
     trade_position p;
@@ -31,54 +30,53 @@ int main() {
       positions.push_back(p);
   }
 
-  // Review all open positions
-  for (auto &p : positions) {
+  // Review all existing positions
+  for (auto &pos : positions) {
 
-    // Create a copy of the position
-    auto &pos = p;
+    // Review all open positions
+    if (pos.open) {
 
-    // Try to find some prices for this currency
-    const auto it =
-        std::find_if(prices.cbegin(), prices.cend(), [&pos](const auto &coin) {
-          return coin.first == pos.name;
-        });
+      // Try to find some prices for this currency
+      const auto it =
+          std::find_if(prices.cbegin(), prices.cend(), [&pos](const auto &coin) {
+            return coin.first == pos.name;
+          });
 
-    if (it != prices.cend()) {
+      if (it != prices.cend()) {
 
-      pos.notes = "okprices";
+        pos.notes = "okprices";
 
-      // Update position with latest info
-      pos.sell_price = it->second.back();
-      pos.duration = timestamp() - pos.timestamp;
-      pos.yield = 100.0 * pos.sell_price / pos.buy_price;
+        // Update position with latest info
+        pos.sell_price = it->second.back();
+        pos.duration = timestamp() - pos.timestamp;
+        pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-      // Find the strategy for this position
+        // Find the strategy for this position
+        static auto strat_it = strategies.cbegin();
+        find_if(strategies.cbegin(), strategies.cend(),
+                [&pos](const auto &s) { return pos.strategy == s->name(); });
 
-      static auto strat_it = strategies.cbegin();
-      find_if(strategies.cbegin(), strategies.cend(),
-              [&pos](const auto &s) { return pos.strategy == s->name(); });
+        // Found strategy, review position
+        if (strat_it != strategies.cend()) {
+          const auto &series = it->second;
 
-      // Found strategy, review position
-      if (strat_it != strategies.cend()) {
-        const auto &series = it->second;
+          // Check if it's good to sell, otherwise push it back onto the buy list
+          if((*strat_it)->sell(series, pos.buy_price))
+            pos.open = false;
+        }
 
-        // Check if it's good to sell, otherwise push it back onto the buy list
-        (*strat_it)->sell(series, pos.buy_price) ? sells.push_back(pos)
-                                                 : buys.push_back(pos);
-      }
+        // No strategy
+        else {
+          pos.notes = "undefine";
+        }
 
-      // No strategy
-      else {
-        pos.notes = "undefine";
-        buys.push_back(pos);
-      }
-    } else {
-      pos.notes = "noprices";
-      buys.push_back(pos);
+      // Couldn't find any prices for this coin
+      } else
+        pos.notes = "noprices";
     }
   }
 
-  // Consolidate existing position and look for new ones
+  // Look for new positions
   for (const auto &coin : prices) {
     for (const auto &strat : strategies) {
 
@@ -86,16 +84,14 @@ int main() {
       const double spot = coin.second.back();
       const auto series = coin.second;
 
-      // Check if we already hold a position on this currency with the current
-      // strategy
+      // Check if we already hold a position with the current strategy
       const auto it = std::find_if(
           positions.cbegin(), positions.cend(), [&name, &strat](const auto &p) {
             return p.name == name && p.strategy == strat->name();
           });
 
-      // Check we don't already hold a position in this currency, if not
-      // consider creating one
-      if (it == positions.cend()) {
+      // If not consider creating one
+      if (it == positions.cend())
         if (strat->buy(series)) {
           trade_position pos;
           pos.name = name;
@@ -110,24 +106,19 @@ int main() {
           // time it is reviewed
           pos.timestamp = timestamp();
           pos.duration = 1;
+          pos.open = true;
 
-          buys.push_back(pos);
+          positions.push_back(pos);
         }
-      }
     }
   }
 
   // Trading session is complete, write out current positions sorted by yield
   std::ofstream out(buy_file);
-  std::sort(buys.begin(), buys.end(),
-            [](const auto &a, const auto &b) { return a.yield < b.yield; });
+  std::sort(positions.begin(), positions.end(),
+            [](const auto &a, const auto &b) { return a.yield > b.yield; });
 
-  for (const auto &p : buys)
+  for (const auto &p : positions)
     out << p;
   out.close();
-
-  // And append our successes
-  out.open("sells.csv", std::ios::app);
-  for (const auto &p : sells)
-    out << p;
 }

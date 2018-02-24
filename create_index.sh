@@ -29,12 +29,12 @@ $(file=summary.csv; [[ -e $file ]] && cat $file)
 
 <h2>Coinbase</h2>
 <pre>
-$(grep -h -E '\<ETH\>|\<BTC\>|\<BCH\>|\<LTC\>' buys.csv sells.csv || echo none)
+$(grep -h -E '\<ETH\>|\<BTC\>|\<BCH\>|\<LTC\>' positions.csv || echo none)
 </pre>
 
 <h2>Poloniex</h2>
 <pre>
-$(grep -h -E '\<ETH\>|\<BTC\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<NXT\>|\<ZEC\>|\<DASH\>|\<REP\>' buys.csv sells.csv || echo none)
+$(grep -h -E '\<ETH\>|\<BTC\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<NXT\>|\<ZEC\>|\<DASH\>|\<REP\>' positions.csv || echo none)
 </pre>
 
 <h2>Change log</h2>
@@ -42,13 +42,8 @@ $(grep -h -E '\<ETH\>|\<BTC\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<
 $(git log -n 5 --oneline)
 </pre>
 
-<h2>Buy</h2>
+<h2>Positions</h2>
 <pre>
-$(file=buys.csv; [[ -e $file ]] && cat -n $file)
-</pre>
-
-<h2>Sell</h2>
-<pre>
-$(file=sells.csv; [[ -e $file ]] && cat -n $file)
+$(file=positions.csv; [[ -e $file ]] && cat -n $file)
 </pre>
 !

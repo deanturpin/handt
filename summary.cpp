@@ -20,17 +20,9 @@ int main() {
   std::cout << strategies.size() * prices.size() * 30 * 24
     << " decisions per day\n";
 
-  // Get the buys
-  const std::vector<trade_position> buys(get_positions("buys.csv"));
-  std::cout << buys.size() << " positions held\n";
-
-  // Get the sells
-  const std::vector<trade_position> sells(get_positions("sells.csv"));
-  std::cout << sells.size() << " complete trades\n\n";
-
-  // Consolidate all positions
-  auto all = sells;
-  all.insert(std::end(all), std::begin(sells), std::end(sells));
+  // Get the positions
+  const std::vector<trade_position> positions(get_positions("positions.csv"));
+  std::cout << positions.size() << " positions\n\n";
 
   // Initialise results with all strategies
   std::map<std::string, double> ins, outs, durations, trades;
@@ -43,7 +35,7 @@ int main() {
   }
 
   // Close all positions
-  for (const auto &pos : all) {
+  for (const auto &pos : positions) {
     const auto strategy = pos.strategy;
     ins[strategy] += 100.0;
     outs[strategy] += pos.yield;
