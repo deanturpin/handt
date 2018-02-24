@@ -15,7 +15,7 @@ struct trade_position {
   double sell_price = 0.0;
   std::string strategy = "strategy";
   double yield = 0.0;
-  std::string notes = "default";
+  std::string notes = "NEWTRADE";
   bool open = false;
 
   // Streaming out

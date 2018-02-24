@@ -28,7 +28,7 @@ clean:
 	rm -f prices.csv *.o
 
 cron:
-	while :; do make tidy all alert; sleep 2m; done
+	while :; do make tidy all alert; sleep 20s; done
 
 tidy:
 	rm -f prices.csv

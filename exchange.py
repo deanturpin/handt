@@ -3,8 +3,10 @@
 import json
 import requests
 
-# batch_size = 20
-# index = open("index.txt")
+batch_size = 200
+coinindex = open("coinindex.txt")
+index = int(coinindex.read())
+coinindex.close();
 
 # Get the list of coins we're interested in
 coins = []
@@ -12,8 +14,20 @@ c = open("coins.csv")
 for coin in c:
     coins.append(coin.rstrip())
 
+# Put a subset of coins in the wallet
+wallet = []
+for x in range(0, batch_size):
+    wallet.append(coins[index])
+    index += 1
+    if index > len(coins):
+        index = 0
+
+# Write the index back
+coinindex = open("coinindex.txt", "w")
+coinindex.write(str(index))
+
 # Fetch prices for each coin
-for coin in coins:
+for coin in wallet:
     url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
         + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
 
