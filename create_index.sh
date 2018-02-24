@@ -22,7 +22,7 @@ href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>.</p>
 
 <h2>Summary</h2>
 <pre>
-$(date)
+$(date --utc)
 $(file=summary.csv; [[ -e $file ]] && cat $file)
 </pre>
 
