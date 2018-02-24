@@ -71,7 +71,4 @@ int main() {
   std::cout << "\nTOTAL    " << overall_yield << "\t" << in_sum << "\t"
             << out_sum << "\t\t\t"
             << "\n";
-
-  // Individual coin performance
-  // std::map<std::string, std::vector<double>>;
 }
