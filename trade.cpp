@@ -115,7 +115,7 @@ int main() {
   // Trading session is complete, write out current positions sorted by yield
   std::ofstream out(buy_file);
   std::sort(positions.begin(), positions.end(),
-            [](const auto &a, const auto &b) { return a.yield > b.yield; });
+            [](const auto &a, const auto &b) { return a.yield < b.yield; });
 
   for (const auto &p : positions)
     out << p;

@@ -3,14 +3,14 @@
 import json
 import requests
 
+# batch_size = 20
+# index = open("index.txt")
+
 # Get the list of coins we're interested in
 coins = []
 c = open("coins.csv")
 for coin in c:
     coins.append(coin.rstrip())
-
-# A place to store the results
-# p = open("prices.csv", "w")
 
 # Fetch prices for each coin
 for coin in coins:
