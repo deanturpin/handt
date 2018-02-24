@@ -30,8 +30,5 @@ clean:
 cron:
 	while :; do make tidy all alert; sleep 2m; done
 
-clear:
-	rm -r buys.csv sells.csv
-
 tidy:
 	rm -f prices.csv
