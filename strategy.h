@@ -22,6 +22,7 @@ struct strategy {
   virtual bool sell(const std::vector<double> &, const double &) const = 0;
 };
 
+// TURBO - buy if spot is significantly above average for whole period
 struct turbo : public strategy {
   std::string name() const override { return "turbo_20"; }
   virtual double threshold() const { return 1.2; }
@@ -36,9 +37,8 @@ struct turbo : public strategy {
 
   virtual bool sell(const std::vector<double> &series,
                     const double &buy_price) const override {
-    // Otherwise check if we're happy with the return
     const auto sell_price = series.back();
-    return sell_price / buy_price > 1.1;
+    return sell_price / buy_price > threshold();
   };
 };
 
@@ -82,56 +82,24 @@ struct manual_buy : public turbo {
   }
 };
 
-// Nino
+// NINO - don't consider small value coins
 struct nino : public turbo {
   std::string name() const override { return "nino1000"; }
+  virtual double threshold() const { return 1.2; }
   bool buy(const std::vector<double> &series) const override {
-    // Don't consider small value coins
     const double spot = series.back();
-    if (spot < 10)
-      return false;
-
-    // Buy if the spot is significantly above the average
-    const double average =
-        std::accumulate(series.cbegin(), series.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        series.size();
-    return average / spot > 1.2;
+    return spot < 10 ? false : turbo::buy(series);
   }
 };
 
 struct nino_min : public nino {
   std::string name() const override { return "nino1001"; }
-  bool buy(const std::vector<double> &series) const override {
-    // Don't consider small value coins
-    const double spot = series.back();
-    if (spot < 10)
-      return false;
-
-    // Buy if the spot is significantly above the average
-    const double average =
-        std::accumulate(series.cbegin(), series.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        series.size();
-    return average / spot > 1.1;
-  }
+  virtual double threshold() const { return 1.1; }
 };
 
 struct nino_max : public nino {
   std::string name() const override { return "nino1003"; }
-  bool buy(const std::vector<double> &series) const override {
-    // Don't consider small value coins
-    const double spot = series.back();
-    if (spot < 10)
-      return false;
-
-    // Buy if the spot is significantly above the average
-    const double average =
-        std::accumulate(series.cbegin(), series.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        series.size();
-    return average / spot > 1.3;
-  }
+  virtual double threshold() const { return 1.3; }
 };
 
 struct jk : public turbo {

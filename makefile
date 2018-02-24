@@ -29,7 +29,7 @@ clean:
 	echo 0 > coinindex.txt
 
 cron:
-	while :; do make tidy all; sleep 20s; done
+	while :; do make tidy all; sleep 1m; done
 
 tidy:
 	rm -f coins.csv
