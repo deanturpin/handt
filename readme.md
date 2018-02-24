@@ -10,6 +10,20 @@ confirms to LLVM's coding standard by virtue of periodic passes of
 
 See the [trading engine](trade.cpp).
 
+# Strategies
+The strategy library is implemented as a vector of classes derived from a pure
+virtual base class. A subclass must implement the two methods but further
+derieved classes need only override what is necessary to implememt the strategy.
+
+```cpp
+struct strategy {
+
+  virtual std::string name() const { return "undefined"; }
+  virtual bool buy(const std::vector<double> &) const = 0;
+  virtual bool sell(const std::vector<double> &, const double &) const = 0;
+};
+```
+
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
 periodically pulled from GitHub, compiled from clean and if successful copied
