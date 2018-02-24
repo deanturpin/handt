@@ -64,11 +64,11 @@ int main() {
             pos.open = false;
         }
         else
-          pos.notes = "undefine";
+          pos.notes = "no_strat";
 
       // Couldn't find any prices for this coin
       } else
-        pos.notes = "no_price";
+        pos.notes = "noupdate";
 
     } else
         pos.notes = "isclosed";
