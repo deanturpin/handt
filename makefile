@@ -20,9 +20,6 @@ trades: trade.o prices.csv
 index.html: trades
 	./create_index.sh > index.html
 
-alert: alert.o
-	./$<
-
 cc=g++
 %.o: %.cpp
 	$(cc) -O3 -Wall -Wextra -pedantic -std=gnu++14 -o $@ $<
@@ -32,7 +29,7 @@ clean:
 	echo 0 > coinindex.txt
 
 cron:
-	while :; do make tidy all alert; sleep 20s; done
+	while :; do make tidy all; sleep 20s; done
 
 tidy:
 	rm -f coins.csv
