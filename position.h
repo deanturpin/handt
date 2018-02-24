@@ -29,9 +29,9 @@ struct trade_position {
 
   // Streaming in
   friend std::istream &operator>>(std::istream &is, trade_position &p) {
-    return is >> p.name >> p.yield >> p.strategy >> p.notes >> p.buy_price >>
-           p.sell_price >> p.timestamp >> p.duration >> std::boolalpha >>
-           p.open;
+    return is >> std::setprecision(10) >> p.name >> p.yield >> p.strategy >>
+           p.notes >> p.buy_price >> p.sell_price >> p.timestamp >>
+           p.duration >> std::boolalpha >> p.open;
   }
 };
 
