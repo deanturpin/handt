@@ -17,11 +17,7 @@ struct strategy {
   // A strategy needs a unique name
   virtual std::string name() const { return "undefined"; }
 
-  // A lengthy description
-  virtual std::string keywords() const { return "strategy"; }
-
-  // And buy and sell routines that take a series of prices and return an
-  // action: buy or sell
+  // Routines that take a series of prices and return an action
   virtual bool buy(const std::vector<double> &) const = 0;
   virtual bool sell(const std::vector<double> &, const double &) const = 0;
 };
@@ -29,7 +25,6 @@ struct strategy {
 struct turbo : public strategy {
   std::string name() const override { return "turbo_20"; }
   virtual double threshold() const { return 1.2; }
-  std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
     const double spot = series.back();
     const double average =
@@ -60,7 +55,6 @@ struct turbo_long : public turbo {
 // Sim simma
 struct simsimma : public turbo {
   std::string name() const override { return "simsimma"; }
-  std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
     double trend = 0.0;
     for (auto i = series.cbegin(); i != std::prev(series.cend()); ++i)
@@ -72,7 +66,6 @@ struct simsimma : public turbo {
 // Kos
 struct kos : public turbo {
   std::string name() const override { return "kossages"; }
-  std::string keywords() const override { return "peak"; }
   bool buy(const std::vector<double> &series) const override {
     const double high = *std::max_element(series.cbegin(), series.cend());
     const double spot = series.back();
@@ -83,7 +76,6 @@ struct kos : public turbo {
 // Manual buy and auto exit
 struct manual_buy : public turbo {
   std::string name() const override { return "manualxx"; }
-  std::string keywords() const override { return "manual"; }
   bool buy(const std::vector<double> &series) const override {
     static_cast<void>(series);
     return false;
@@ -93,7 +85,6 @@ struct manual_buy : public turbo {
 // Nino
 struct nino : public turbo {
   std::string name() const override { return "nino1000"; }
-  std::string keywords() const override { return "spike"; }
   bool buy(const std::vector<double> &series) const override {
     // Don't consider small value coins
     const double spot = series.back();
@@ -145,7 +136,6 @@ struct nino_max : public nino {
 
 struct jk : public turbo {
   std::string name() const override { return "jkrise10"; }
-  std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
     const double average =
         std::accumulate(series.cbegin(), series.cend(), 0.0,
@@ -162,7 +152,6 @@ struct jk : public turbo {
 
 struct jk_step : public turbo {
   std::string name() const override { return "jkstep20"; }
-  std::string keywords() const override { return "average"; }
   bool buy(const std::vector<double> &series) const override {
     const unsigned long mid = series.size() / 2;
     const double back =
@@ -177,7 +166,6 @@ struct jk_step : public turbo {
 
 struct bigcap : public turbo {
   std::string name() const override { return "bigcap20"; }
-  std::string keywords() const override { return "average"; }
   virtual double threshold() const { return 1.2; }
   bool buy(const std::vector<double> &series) const override {
     const double spot = series.back();
