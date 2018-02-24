@@ -11,6 +11,7 @@ for coin in c:
 
 # A place to store the results
 p = open("prices.csv", "w")
+errors = open("errors.txt", "w")
 
 # Fetch prices for each coin
 for coin in coins:
@@ -42,3 +43,5 @@ for coin in coins:
         # Failed to get prices to just write a null entry
         # else:
             # p.write(coin + " -1\n")
+        else:
+            errors.write(prices)

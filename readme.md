@@ -1,7 +1,7 @@
 The code is designed to run periodically on a web server. Therefore, between
 runs, state must be saved. Positions are stored in a temporary text file
-```buys.txt```. Reads and writes are facilitated by operator<< and operator>>
-overloads.
+```positions.csv```. Reads and writes are facilitated by operator<< and
+operator>> overloads.
 
 The first incarnation of this project was centered around the graphical
 elements. But once it started generating trades automatically I found myself
@@ -14,7 +14,13 @@ aligns with the MCV design pattern.
 # Exchanges
 Coinbase and CryptoCompare - whilst intuitively it seems you should be fetching
 prices often, Coinbase and CryptoCompare don't appear to publish updates more
-often than once per minute.
+of ten than once per minute.
+
+# API
+```bash
+curl
+'https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=USD&limit=168&aggregate=1&e=CCCAGG'
+```
 
 # C++
 The C++ can be built with any C++11 compliant compiler (gcc, clang). The code
