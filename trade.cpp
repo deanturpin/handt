@@ -17,7 +17,7 @@ int main() {
   const auto &strategies = lft::strategy_library;
 
   // Get some recent prices
-  auto prices = get_prices();
+  const auto prices = get_prices();
 
   // Read in current positions
   std::vector<trade_position> positions;
@@ -43,9 +43,8 @@ int main() {
 
       if (it != prices.cend()) {
 
-        pos.notes = "ok_price";
-
         // Update position with latest info
+        pos.notes = "ok_price";
         pos.sell_price = it->second.back();
         pos.duration = timestamp() - pos.timestamp;
         pos.yield = 100.0 * pos.sell_price / pos.buy_price;
@@ -58,8 +57,7 @@ int main() {
         // Review position if we've found the strategy
         if (strat_it != strategies.cend()) {
 
-          // Check if it's good to sell, otherwise push it back onto the buy
-          // list
+          // Check if it's good to sell
           const auto &series = it->second;
           if ((*strat_it)->sell(series, pos.buy_price)) {
             pos.open = false;
@@ -76,32 +74,32 @@ int main() {
 
   // Look for new positions
   for (const auto &coin : prices) {
-    for (const auto &strat : strategies) {
+    for (const auto &strategy : strategies) {
 
       const std::string name = coin.first;
       const double spot = coin.second.back();
       const auto series = coin.second;
 
       // Check if we already hold a position with the current strategy
-      const auto it = std::find_if(
-          positions.cbegin(), positions.cend(), [&name, &strat](const auto &p) {
-            return p.name == name && p.strategy == strat->name();
-          });
+      const auto it = std::find_if(positions.cbegin(), positions.cend(),
+                                   [&name, &strategy](const auto &p) {
+                                     return p.name == name &&
+                                            p.strategy == strategy->name();
+                                   });
 
       // If not consider creating one
       if (it == positions.cend())
-        if (strat->buy(series)) {
+        if (strategy->buy(series)) {
           trade_position pos;
           pos.name = name;
 
           // Initialise buy and sell to same price
           pos.buy_price = pos.sell_price = spot;
 
-          pos.strategy = strat->name();
+          pos.strategy = strategy->name();
           pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-          // Initialise timestamps to the same time, sell will be updated each
-          // time it is reviewed
+          // Initialise timestamp, sell price updated each time it is reviewed
           pos.timestamp = timestamp();
           pos.duration = 1;
           pos.open = true;
