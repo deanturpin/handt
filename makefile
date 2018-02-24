@@ -6,7 +6,7 @@ source:
 
 # Fetch the prices from the exchanges
 prices.csv: coins.csv
-	./exchange.py
+	./exchange.py > $@
 
 summary.csv: summary.o trades
 	./$< > $@

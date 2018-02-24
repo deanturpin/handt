@@ -10,8 +10,7 @@ for coin in c:
     coins.append(coin.rstrip())
 
 # A place to store the results
-p = open("prices.csv", "w")
-errors = open("errors.txt", "w")
+# p = open("prices.csv", "w")
 
 # Fetch prices for each coin
 for coin in coins:
@@ -19,7 +18,8 @@ for coin in coins:
         + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
 
     # Check the response is a good one
-    prices = requests.get(url).json();
+    r = requests.get(url)
+    prices = r.json();
     if prices:
 
         # Check the reply was good and extract the prices
@@ -35,13 +35,7 @@ for coin in coins:
 
                 series.append(pivot)
 
-            p.write(coin + " ")
+            print(coin, end=" ")
             for val in series:
-                p.write("%f " % val)
-            p.write("\n")
-
-        # Failed to get prices to just write a null entry
-        # else:
-            # p.write(coin + " -1\n")
-        else:
-            errors.write(prices)
+                print(val, end=" ")
+            print()
