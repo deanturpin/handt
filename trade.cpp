@@ -52,20 +52,19 @@ int main() {
         pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
         // Find the strategy for this position
-        static auto strat_it = strategies.cbegin();
+        const auto strat_it = strategies.cbegin();
         find_if(strategies.cbegin(), strategies.cend(),
                 [&pos](const auto &s) { return pos.strategy == s->name(); });
 
-        // Found strategy, review position
+        // Review position if we've found the strategy
         if (strat_it != strategies.cend()) {
-          const auto &series = it->second;
-
           // Check if it's good to sell, otherwise push it back onto the buy list
+          const auto &series = it->second;
           if((*strat_it)->sell(series, pos.buy_price))
             pos.open = false;
         }
 
-        // No strategy
+        // Couldn't find the strategy
         else {
           pos.notes = "undefine";
         }
