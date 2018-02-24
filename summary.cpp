@@ -29,7 +29,7 @@ int main() {
   std::cout << sells.size() << " complete trades\n\n";
 
   // Consolidate all positions
-  auto all = buys;
+  auto all = sells;
   // all.insert(std::end(all), std::begin(sells), std::end(sells));
 
   // Initialise results with all strategies
