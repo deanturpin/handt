@@ -28,6 +28,8 @@ coinindex.write(str(index))
 
 # Fetch prices for each coin
 for coin in wallet:
+
+    # Construct URL
     url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
         + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
 

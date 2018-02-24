@@ -83,7 +83,7 @@ int main() {
       const auto series = coin.second;
 
       // Check if we already hold a position with the current strategy
-      const auto it = std::find_if(
+      static auto it = std::find_if(
           positions.cbegin(), positions.cend(), [&name, &strat](const auto &p) {
             return p.name == name && p.strategy == strat->name();
           });
