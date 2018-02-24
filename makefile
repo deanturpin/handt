@@ -1,4 +1,4 @@
-all: source trades summary.csv index.html
+all: coins.csv source trades summary.csv index.html
 
 # All the C++ source files
 source:
@@ -7,6 +7,9 @@ source:
 # Fetch the prices from the exchanges
 prices.csv: coins.csv
 	./exchange.py > $@
+
+coins.csv:
+	./all_coins.py > $@
 
 summary.csv: summary.o trades
 	./$< > $@
@@ -32,4 +35,4 @@ cron:
 	while :; do make tidy all alert; sleep 20s; done
 
 tidy:
-	rm -f prices.csv
+	rm -f coins.csv
