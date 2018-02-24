@@ -32,6 +32,11 @@ $(file=summary.csv; [[ -e $file ]] && cat $file)
 $(grep -h -E '\<ETH\>|\<BTC\>|\<BCH\>|\<LTC\>' buys.csv sells.csv || echo none)
 </pre>
 
+<h2>Poloniex</h2>
+<pre>
+$(grep -h -E '\<ETH\>|\<BTC\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<NXT\>|\<ZEC\>|\<DASH\>|\<REP\>' buys.csv sells.csv || echo none)
+</pre>
+
 <h2>Change log</h2>
 <pre>
 $(git log -n 5 --oneline)
