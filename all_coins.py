@@ -7,5 +7,6 @@ url = "https://min-api.cryptocompare.com/data/all/coinlist"
 r = requests.get(url)
 prices = r.json();
 
-for c in prices["Data"]:
-    print(c)
+for coin in prices["Data"]:
+    if prices["Data"][coin]["IsTrading"] == True:
+        print(coin)
