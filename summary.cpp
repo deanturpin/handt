@@ -30,7 +30,7 @@ int main() {
 
   // Consolidate all positions
   auto all = sells;
-  // all.insert(std::end(all), std::begin(sells), std::end(sells));
+  all.insert(std::end(all), std::begin(sells), std::end(sells));
 
   // Initialise results with all strategies
   std::map<std::string, double> ins, outs, durations, trades;
