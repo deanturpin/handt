@@ -18,7 +18,8 @@ body { font-family: sans-serif; }
 <h1>Have a nice day trader</h1>
 <p id="disclaimer">History is no indicator of future performance. Don't invest
 what you can"t afford to lose. Prices fetched periodically from <a
-href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>.</p>
+href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
+the source on <a href="$git" target="blah">GitHub</a>.</p>
 
 <h2>Summary</h2>
 <pre>

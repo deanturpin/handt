@@ -19,11 +19,11 @@ int main() {
   // Get some recent prices
   auto prices = get_prices();
 
-  // Containers for initial and ultimate positions
+  // Read in current positions
   std::vector<trade_position> positions;
+  const std::string positions_file = "positions.csv";
 
-  const std::string buy_file = "positions.csv";
-  std::ifstream in(buy_file);
+  std::ifstream in(positions_file);
   if (in.good()) {
     trade_position p;
     while (in >> p)
@@ -37,10 +37,9 @@ int main() {
     if (pos.open) {
 
       // Try to find some prices for this currency
-      const auto it =
-          std::find_if(prices.cbegin(), prices.cend(), [&pos](const auto &coin) {
-            return coin.first == pos.name;
-          });
+      const auto it = std::find_if(
+          prices.cbegin(), prices.cend(),
+          [&pos](const auto &coin) { return coin.first == pos.name; });
 
       if (it != prices.cend()) {
 
@@ -58,20 +57,21 @@ int main() {
 
         // Review position if we've found the strategy
         if (strat_it != strategies.cend()) {
-          // Check if it's good to sell, otherwise push it back onto the buy list
+
+          // Check if it's good to sell, otherwise push it back onto the buy
+          // list
           const auto &series = it->second;
-          if((*strat_it)->sell(series, pos.buy_price))
+          if ((*strat_it)->sell(series, pos.buy_price)) {
             pos.open = false;
-        }
-        else
+            pos.notes = "isclosed";
+          }
+        } else
           pos.notes = "no_strat";
 
-      // Couldn't find any prices for this coin
+        // Couldn't find any prices for this coin
       } else
         pos.notes = "noupdate";
-
-    } else
-        pos.notes = "isclosed";
+    }
   }
 
   // Look for new positions
@@ -83,7 +83,7 @@ int main() {
       const auto series = coin.second;
 
       // Check if we already hold a position with the current strategy
-      static auto it = std::find_if(
+      const auto it = std::find_if(
           positions.cbegin(), positions.cend(), [&name, &strat](const auto &p) {
             return p.name == name && p.strategy == strat->name();
           });
@@ -111,12 +111,12 @@ int main() {
     }
   }
 
-  // Trading session is complete, write out current positions sorted by yield
-  std::ofstream out(buy_file);
+  // Trading session is complete, sort all positions prior to storing
   std::sort(positions.begin(), positions.end(),
             [](const auto &a, const auto &b) { return a.yield > b.yield; });
 
-  for (const auto &p : positions)
-    out << p;
-  out.close();
+  // Write current positions out
+  std::ofstream out(positions_file);
+  for (const auto &pos : positions)
+    out << pos;
 }

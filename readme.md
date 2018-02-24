@@ -4,7 +4,7 @@ runs, state must be saved. Positions are stored in a temporary text file
 operator>> overloads. See the [position structure](position.h).
 
 # C++
-The C++ can be built with any C++11 compliant compiler (gcc, clang). The code
+The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
 confirms to LLVM's coding standard by virtue of periodic passes of
 ```clang-format``` over the source.
 
