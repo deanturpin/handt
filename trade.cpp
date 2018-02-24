@@ -44,7 +44,7 @@ int main() {
 
       if (it != prices.cend()) {
 
-        pos.notes = "okprices";
+        pos.notes = "ok_price";
 
         // Update position with latest info
         pos.sell_price = it->second.back();
@@ -71,7 +71,7 @@ int main() {
 
       // Couldn't find any prices for this coin
       } else
-        pos.notes = "noprices";
+        pos.notes = "no_price";
     }
   }
 
