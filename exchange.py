@@ -3,7 +3,7 @@
 import json
 import requests
 
-batch_size = 200
+batch_size = 80
 coinindex = open("coinindex.txt")
 index = int(coinindex.read())
 coinindex.close();
