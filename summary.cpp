@@ -23,12 +23,11 @@ int main() {
   std::cout << positions.size() << " positions\n\n";
 
   // Initialise results with all strategies
-  std::map<std::string, double> ins, outs, durations, trades;
+  std::map<std::string, double> ins, outs, trades;
   for (const auto &strategy : strategies) {
     const auto name = strategy->name();
     ins[name] = 0.0;
     outs[name] = 0.0;
-    durations[name] = 0.0;
     trades[name] = 0.0;
   }
 
@@ -37,23 +36,19 @@ int main() {
     const auto strategy = pos.strategy;
     ins[strategy] += 100.0;
     outs[strategy] += pos.yield;
-    durations[strategy] += pos.duration;
     ++trades[strategy];
   }
 
   // Individual strategy performance
-  std::cout << "STRATEGY % RETURN\t$ IN\t\t$ OUT\t\tDURATION (hrs)\t \n\n";
+  std::cout << "STRATEGY % RETURN\t$ IN\t\t$ OUT\n\n";
   for (const auto &i : ins) {
     const std::string strategy = i.first;
     const double in = ins[strategy];
     const double out = outs[strategy];
     const double yield = 100.0 * out / (in > 0 ? in : 1);
-    const double hours =
-        (durations[strategy] / (trades[strategy] > 0 ? trades[strategy] : 1)) /
-        3600;
 
     std::cout << strategy << std::fixed << " " << yield << "\t" << in << "\t"
-              << out << "\t" << hours << "\n";
+              << out << "\n";
   }
 
   // Strategy summary
