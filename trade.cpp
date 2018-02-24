@@ -63,16 +63,15 @@ int main() {
           if((*strat_it)->sell(series, pos.buy_price))
             pos.open = false;
         }
-
-        // Couldn't find the strategy
-        else {
+        else
           pos.notes = "undefine";
-        }
 
       // Couldn't find any prices for this coin
       } else
         pos.notes = "no_price";
-    }
+
+    } else
+        pos.notes = "isclosed";
   }
 
   // Look for new positions
