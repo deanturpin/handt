@@ -51,7 +51,7 @@ int main() {
 
         // Find the strategy for this position
         static auto strat_it = strategies.cbegin();
-        find_if(strategies.cbegin(), strategies.cend(),
+        strat_it = find_if(strategies.cbegin(), strategies.cend(),
                 [&pos](const auto &s) { return pos.strategy == s->name(); });
 
         // Review position if we've found the strategy
@@ -74,11 +74,17 @@ int main() {
 
   // Look for new positions
   for (const auto &coin : prices) {
-    for (const auto &strategy : strategies) {
 
-      const std::string name = coin.first;
-      const double spot = coin.second.back();
-      const auto series = coin.second;
+    const std::string name = coin.first;
+    const double spot = coin.second.back();
+    const auto series = coin.second;
+
+    // Don't bother looking if there's not much to go on
+    if (series.size() < 50)
+      continue;
+
+    // Assess viability of a trade for each strategy
+    for (const auto &strategy : strategies) {
 
       // Check if we already hold a position with the current strategy
       const auto it = std::find_if(positions.cbegin(), positions.cend(),
