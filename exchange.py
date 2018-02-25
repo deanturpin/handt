@@ -19,6 +19,9 @@ c = open("coins.csv")
 for coin in c:
     coins.append(coin.rstrip())
 
+if index > len(coins):
+    index = 0
+
 # Put a subset of coins in the wallet
 wallet = []
 for x in range(0, batch_size):
