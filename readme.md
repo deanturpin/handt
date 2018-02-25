@@ -6,7 +6,7 @@ confirms to LLVM's coding standard by virtue of periodic passes of
 # Strategies
 The strategy library is implemented as a vector of classes derived from a pure
 virtual base class. A subclass must implement the two methods but further
-derieved classes need only override what is necessary to implememt the strategy.
+derived classes need only override what is necessary to implememt the strategy.
 
 ```cpp
 struct strategy {
@@ -18,7 +18,8 @@ struct strategy {
 ```
 
 As the the code is designed to run periodically on a web server, between runs
-state must be saved. Positions are read and written to a temporary text file.
+state must be saved. Positions are read and written to a temporary text file
+using operator>> and operator<<.
 
 ```cpp
 #ifndef POSITION
