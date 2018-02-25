@@ -24,8 +24,8 @@ the documentation on <a href="$git" target="blah">GitHub</a>.</p>
 <h2>Summary</h2>
 <pre>
 $date
-$(file=coins.csv; [[ -e $file ]] && echo $(cat $file | wc -l) coins)
-$(file=summary.csv; [[ -e $file ]] && cat $file)
+$(echo Index $(cat coinindex.txt) of $(cat coins.csv | wc -l) coins)
+$(cat summary.csv)
 </pre>
 
 <h2>Coinbase</h2>
