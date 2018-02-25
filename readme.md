@@ -10,8 +10,8 @@ derived classes need only override what is necessary to implememt the strategy.
 
 ```cpp
 struct strategy {
-
   virtual std::string name() const { return "undefined"; }
+
   virtual bool buy(const std::vector<double> &) const = 0;
   virtual bool sell(const std::vector<double> &, const double &) const = 0;
 };
