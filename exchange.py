@@ -4,9 +4,14 @@ import json
 import requests
 
 batch_size = 80
-coinindex = open("coinindex.txt")
-index = int(coinindex.read())
-coinindex.close();
+index = 0
+
+try:
+    coinindex = open("coinindex.txt")
+    index = int(coinindex.read())
+    coinindex.close();
+except Exception as e:
+    do = "nothing"
 
 # Get the list of coins we're interested in
 coins = []
@@ -33,25 +38,29 @@ for coin in wallet:
     url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
         + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
 
-    # Check the response is a good one
-    r = requests.get(url)
-    prices = r.json();
-    if prices:
+    try:
+        # Check the response is a good one
+        r = requests.get(url)
+        prices = r.json();
+        if prices:
 
-        # Check the reply was good and extract the prices
-        if prices["Response"] != "Error":
-            series = []
-            for spot in prices["Data"]:
+            # Check the reply was good and extract the prices
+            if prices["Response"] != "Error":
+                series = []
+                for spot in prices["Data"]:
 
-                # The pivot is the average of three of the prices
-                # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
-                pivot = (float(spot["low"])
-                    + float(spot["close"])
-                    + float(spot["high"])) / 3
+                    # The pivot is the average of three of the prices
+                    # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
+                    pivot = (float(spot["low"])
+                        + float(spot["close"])
+                        + float(spot["high"])) / 3
 
-                series.append(pivot)
+                    series.append(pivot)
 
-            print(coin, end=" ")
-            for val in series:
-                print(val, end=" ")
-            print()
+                print(coin, end=" ")
+                for val in series:
+                    print(val, end=" ")
+                print()
+
+    except Exception:
+        do = "nothing"

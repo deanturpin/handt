@@ -22,7 +22,7 @@ index.html: trades
 
 cc=g++
 %.o: %.cpp
-	$(cc) -O3 -Wall -Wextra -pedantic -std=gnu++14 -o $@ $<
+	$(cc) -O3 -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 clean:
 	rm -f prices.csv *.o
