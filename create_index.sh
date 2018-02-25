@@ -24,7 +24,7 @@ the documentation on <a href="$git" target="blah">GitHub</a>.</p>
 <h2>Summary</h2>
 <pre>
 $date
-$(echo Index $(cat coinindex.txt) of $(cat coins.csv | wc -l) coins)
+$(echo Index $(cat coinindex.txt) into $(cat coins.csv | wc -l) coins)
 $(cat summary.csv)
 </pre>
 
