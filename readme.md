@@ -1,5 +1,24 @@
-The code is designed to run periodically on a web server. Therefore, between
-runs, state must be saved. Positions are stored in a temporary text file.
+# C++
+The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
+confirms to LLVM's coding standard by virtue of periodic passes of
+```clang-format``` over the source.
+
+# Strategies
+The strategy library is implemented as a vector of classes derived from a pure
+virtual base class. A subclass must implement the two methods but further
+derieved classes need only override what is necessary to implememt the strategy.
+
+```cpp
+struct strategy {
+
+  virtual std::string name() const { return "undefined"; }
+  virtual bool buy(const std::vector<double> &) const = 0;
+  virtual bool sell(const std::vector<double> &, const double &) const = 0;
+};
+```
+
+As the the code is designed to run periodically on a web server, between runs
+state must be saved. Positions are read and written to a temporary text file.
 
 ```cpp
 #ifndef POSITION
@@ -40,25 +59,6 @@ struct trade_position {
 };
 
 #endif
-```
-
-# C++
-The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
-confirms to LLVM's coding standard by virtue of periodic passes of
-```clang-format``` over the source.
-
-# Strategies
-The strategy library is implemented as a vector of classes derived from a pure
-virtual base class. A subclass must implement the two methods but further
-derieved classes need only override what is necessary to implememt the strategy.
-
-```cpp
-struct strategy {
-
-  virtual std::string name() const { return "undefined"; }
-  virtual bool buy(const std::vector<double> &) const = 0;
-  virtual bool sell(const std::vector<double> &, const double &) const = 0;
-};
 ```
 
 # Web server
