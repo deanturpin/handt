@@ -51,8 +51,9 @@ int main() {
 
         // Find the strategy for this position
         static auto strat_it = strategies.cbegin();
-        strat_it = find_if(strategies.cbegin(), strategies.cend(),
-                [&pos](const auto &s) { return pos.strategy == s->name(); });
+        strat_it = find_if(
+            strategies.cbegin(), strategies.cend(),
+            [&pos](const auto &s) { return pos.strategy == s->name(); });
 
         // Review position if we've found the strategy
         if (strat_it != strategies.cend()) {
