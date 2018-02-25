@@ -50,7 +50,7 @@ int main() {
         pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
         // Find the strategy for this position
-        const auto strat_it = strategies.cbegin();
+        static auto strat_it = strategies.cbegin();
         find_if(strategies.cbegin(), strategies.cend(),
                 [&pos](const auto &s) { return pos.strategy == s->name(); });
 
