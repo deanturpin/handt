@@ -30,12 +30,12 @@ $(cat summary.csv)
 
 <h2>Coinbase</h2>
 <pre>
-$(grep -h -E '\<ETH\>|\<BTC\>|\<BCH\>|\<LTC\>' positions.csv || echo none)
+$(grep -I -E '\<ETH\>|\<BTC\>|\<BCH\>|\<LTC\>' positions.csv || echo none)
 </pre>
 
 <h2>Poloniex</h2>
 <pre>
-$(grep -h -E '\<ETH\>|\<BTC\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<NXT\>|\<ZEC\>|\<DASH\>|\<REP\>' positions.csv || echo none)
+$(grep -I -E '\<ETH\>|\<BTC\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<NXT\>|\<ZEC\>|\<DASH\>|\<REP\>' positions.csv || echo none)
 </pre>
 
 <h2>Change log</h2>
@@ -45,6 +45,6 @@ $(git log -n 5 --oneline)
 
 <h2>Positions</h2>
 <pre>
-$(file=positions.csv; [[ -e $file ]] && cat -n $file)
+$(cat -n positions.csv)
 </pre>
 !
