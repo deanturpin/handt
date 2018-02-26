@@ -12,48 +12,58 @@
 namespace lft {
 
 // The top level base class
+// A strategy needs a unique name, a description and a buy method
 struct strategy {
-
-  // A strategy needs a unique name
-  virtual std::string name() const { return "undefined"; }
-
-  // Routines that take a series of prices and return an action
+  virtual std::string description() const = 0;
+  virtual std::string name() const = 0;
   virtual bool buy(const std::vector<double> &) const = 0;
-  virtual bool sell(const std::vector<double> &, const double &) const = 0;
 };
 
-// TURBO - buy if spot is significantly above average for whole period
-struct turbo : public strategy {
-  std::string name() const override { return "turbo_20"; }
-  virtual double threshold() const { return 1.2; }
+////////////////////////////////////////////////////////////////////////////////
+// AVERAGE
+////////////////////////////////////////////////////////////////////////////////
+
+struct spot_average : public strategy {
+
+  std::string description() const override { return
+    "Buy when the spot is higher than the average for the period"; }
+
+  std::string name() const override { return "spot_average"; }
+  virtual double threshold() const { return 1.1; }
+
   bool buy(const std::vector<double> &series) const override {
-    const double spot = series.back();
     const double average =
         std::accumulate(series.cbegin(), series.cend(), 0.0,
                         [](auto &sum, const auto &i) { return sum + i; }) /
         series.size();
+
+    const double spot = series.back();
     return average / spot > threshold();
   }
-
-  virtual bool sell(const std::vector<double> &series,
-                    const double &buy_price) const override {
-    const auto sell_price = series.back();
-    return sell_price / buy_price > threshold();
-  };
 };
 
-struct turbo_short : public turbo {
-  std::string name() const override { return "turbo_10"; }
-  virtual double threshold() const { return 1.1; }
+struct average_medium : public spot_average {
+  std::string name() const override { return "spot_average_m"; }
+  virtual double threshold() const { return 1.2; }
 };
 
-struct turbo_long : public turbo {
-  std::string name() const override { return "turbo_30"; }
+struct average_large : public spot_average {
+  std::string name() const override { return "spot_average_l"; }
   virtual double threshold() const { return 1.3; }
 };
 
-// Sim simma
-struct simsimma : public turbo {
+struct average_xl : public spot_average {
+  std::string name() const override { return "spot_average_xl"; }
+  virtual double threshold() const { return 1.4; }
+};
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// SIM SIMMA
+// Buy when the prices are mostly ascending
+////////////////////////////////////////////////////////////////////////////////
+
+struct simsimma : public average {
   std::string name() const override { return "simsimma"; }
   bool buy(const std::vector<double> &series) const override {
     double trend = 0.0;
@@ -63,8 +73,11 @@ struct simsimma : public turbo {
   };
 };
 
-// Kos
-struct kos : public turbo {
+////////////////////////////////////////////////////////////////////////////////
+// KOSOVICH
+////////////////////////////////////////////////////////////////////////////////
+
+struct kosovich : public average {
   std::string name() const override { return "kossages"; }
   bool buy(const std::vector<double> &series) const override {
     const double high = *std::max_element(series.cbegin(), series.cend());
@@ -112,10 +125,6 @@ struct jk : public turbo {
     const double spot = series.back();
     return spot / average > 1.1;
   }
-  virtual bool sell(const std::vector<double> &series,
-                    const double &buy_price) const override {
-    return series.back() / buy_price > 1.1;
-  };
 };
 
 struct jk_step : public turbo {
@@ -132,13 +141,14 @@ struct jk_step : public turbo {
   }
 };
 
-struct bigcap : public turbo {
-  std::string name() const override { return "bigcap20"; }
+struct bisect : public turbo {
+  std::string name() const override { return "bisect20"; }
   virtual double threshold() const { return 1.2; }
   bool buy(const std::vector<double> &series) const override {
     const double spot = series.back();
-    if (spot < 10)
-      return false;
+
+    // if (spot < 10)
+      // return false;
 
     const unsigned long mid = series.size() / 2;
     const double back =
@@ -165,7 +175,6 @@ struct rolling_average : public turbo {
   bool buy(const std::vector<double> &series) const override {
     const auto start = series.cbegin();
     const auto end = std::prev(series.cend(), filter_length());
-    // const auto length = series.size() - filter_length();
     const auto filt = filter_length();
     std::vector<double> raverage;
     std::transform(start, end, std::back_inserter(raverage),
@@ -186,24 +195,19 @@ struct rolling_average_short : public rolling_average {
 };
 
 // Ski slope profiles
-struct ski_sunday : public bigcap {
+struct ski_sunday : public turbo {
   std::string name() const override { return "skisun20"; }
   virtual double threshold() const { return 1.2; }
   bool buy(const std::vector<double> &series) const override {
-    if (series.back() < 10)
-      return false;
 
     const unsigned long mid = series.size() / 2;
-
     const double back =
         std::accumulate(series.begin(), std::next(series.begin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
-        mid;
+                        [](auto &s, auto &i) { return s + i; }) / mid;
 
     const double front =
         std::accumulate(series.rbegin(), std::next(series.rbegin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
-        mid;
+                        [](auto &s, auto &i) { return s + i; }) / mid;
 
     const auto spot = series.back();
     return (back / front > threshold() && spot / front > 1.05);
@@ -253,28 +257,39 @@ struct average_compare4 : public turbo {
 
 // Create strategy library
 const std::vector<std::shared_ptr<strategy>> strategy_library{
-    std::make_shared<turbo>(),
-    std::make_shared<turbo_short>(),
-    std::make_shared<turbo_long>(),
-    std::make_shared<simsimma>(),
-    std::make_shared<kos>(),
-    std::make_shared<nino>(),
-    std::make_shared<nino_min>(),
-    std::make_shared<nino_max>(),
-    std::make_shared<manual_buy>(),
-    std::make_shared<jk>(),
-    std::make_shared<jk_step>(),
-    std::make_shared<bigcap>(),
-    std::make_shared<bigcap_low>(),
-    std::make_shared<rolling_average>(),
-    std::make_shared<rolling_average_short>(),
-    std::make_shared<ski_sunday>(),
-    std::make_shared<ski_sunday_low>(),
-    std::make_shared<ski_sunday_vlow>(),
-    std::make_shared<average_compare>(),
-    std::make_shared<average_compare3>(),
-    std::make_shared<average_compare4>(),
+    // std::make_shared<turbo>(),
+    // std::make_shared<turbo_short>(),
+    // std::make_shared<turbo_long>(),
+    // std::make_shared<simsimma>(),
+    // std::make_shared<kos>(),
+    // std::make_shared<nino>(),
+    // std::make_shared<nino_min>(),
+    // std::make_shared<nino_max>(),
+    // std::make_shared<manual_buy>(),
+    // std::make_shared<jk>(),
+    // std::make_shared<jk_step>(),
+    // std::make_shared<bigcap>(),
+    // std::make_shared<bigcap_low>(),
+    // std::make_shared<rolling_average>(),
+    // std::make_shared<rolling_average_short>(),
+    // std::make_shared<ski_sunday>(),
+    // std::make_shared<ski_sunday_low>(),
+    // std::make_shared<ski_sunday_vlow>(),
+    // std::make_shared<average_compare>(),
+    // std::make_shared<average_compare3>(),
+    // std::make_shared<average_compare4>(),
 };
+
+*/
+
+// Create strategy library
+const std::vector<std::shared_ptr<strategy>> strategy_library{
+  std::make_unique<spot_average>(),
+  std::make_unique<average_medium>(),
+  std::make_unique<average_large>(),
+  std::make_unique<average_xl>(),
+};
+
 }
 
 #endif

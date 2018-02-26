@@ -49,23 +49,11 @@ int main() {
         pos.duration = timestamp() - pos.timestamp;
         pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-        // Find the strategy for this position
-        static auto strat_it = strategies.cbegin();
-        strat_it = find_if(
-            strategies.cbegin(), strategies.cend(),
-            [&pos](const auto &s) { return pos.strategy == s->name(); });
-
-        // Review position if we've found the strategy
-        if (strat_it != strategies.cend()) {
-
-          // Check if it's good to sell
-          const auto &series = it->second;
-          if ((*strat_it)->sell(series, pos.buy_price)) {
-            pos.open = false;
-            pos.notes = "isclosed";
-          }
-        } else
-          pos.notes = "no_strat";
+        // Check if it's good to sell
+        if (pos.sell_price / pos.buy_price > 1.1) {
+          pos.open = false;
+          pos.notes = "isclosed";
+        }
 
         // Couldn't find any prices for this coin
       } else
@@ -80,8 +68,12 @@ int main() {
     const double spot = coin.second.back();
     const auto series = coin.second;
 
-    // Don't bother looking if there's not much to go on
+    // Don't bother looking if there are too few prices
     if (series.size() < 50)
+      continue;
+
+    // Don't bother looking if the coin is low value
+    if (series.back() < 1.0)
       continue;
 
     // Assess viability of a trade for each strategy
