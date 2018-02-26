@@ -76,6 +76,9 @@ int main() {
     if (series.back() < 1.0)
       continue;
 
+    // TODO - transform strat lib into list of buys
+    // validate params in wrapper routine before passing to algo
+
     // Assess viability of a trade for each strategy
     for (const auto &strategy : strategies) {
 
