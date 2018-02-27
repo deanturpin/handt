@@ -138,13 +138,13 @@ int main() {
   std::ifstream pass("results.txt");
   if (pass.good()) {
 
+    std::cout << results.str();
+
     std::stringstream previous;
     previous << pass.rdbuf();
 
     if (results.str() != previous.str())
-      std::cout << "Test fail\n";
-
-    std::cout << results.str();
+      std::cout << "TEST FAIL\n";
   }
   else
     std::cout << "Couldn't find test results\n";
