@@ -33,6 +33,11 @@ std::string ski_jump2(const std::vector<double> s, const double &t) {
       "ski_jump" + std::to_string(t) : "";
 }
 
+// ALWAYS
+std::string always_buy(const std::vector<double> s, const double &t) {
+  return "always_buy";
+}
+
 // Strategy library
 const std::vector<
 std::function<
@@ -41,42 +46,52 @@ std::string(std::vector<double>, double)>
 
   spot_average2,
     ski_jump2,
+    always_buy,
 };
 
 }
 
 #include <iostream>
 #include <algorithm>
+#include <iterator>
 
 // Don't need to search for strategy
+//
+
+void dump_series(const std::vector<double> s) {
+  std::copy(s.cbegin(), s.cend(), std::ostream_iterator<double>(std::cout, ","));
+  std::cout << "\n";
+}
 
 int main() {
 
   // Create a series of prices
-  std::vector<double> series(100);
-  std::iota(series.begin(), series.end(), 0);
+  std::vector<double> series(10);
+  std::iota(series.begin(), series.end(), 100);
 
   // Thresholds
-  const std::vector<double> thresholds {7, 5, 4, 3, 2};
+  const std::vector<double> thresholds {1.05, 1.1, 1.2, 1.3};
 
   // Ascending
+  dump_series(series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds)
       std::cout << std::quoted(buy(series, t)) << "\n";
 
   // Descending
-  std::sort(series.begin(), series.end());
+  std::reverse(series.begin(), series.end());
+  dump_series(series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds)
       std::cout << std::quoted(buy(series, t)) << "\n";
 
   // Spot is peak
   std::fill(series.begin(), series.end(), 1.0);
-  series.back() = 10.0;
+  series.back() = 1000.0;
 
+  dump_series(series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds)
       std::cout << std::quoted(buy(series, t)) << "\n";
 
-  std::cout << series.back() << " spot\n";
 }
