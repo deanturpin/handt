@@ -6,53 +6,84 @@
 
 namespace lft {
 
-// The parameters for a buy routine
+// Parameteric shortcuts
 using result = std::pair<std::string, bool>;
 using series = const std::vector<double> &;
 using threshold = const double &;
 
-// Internal routines
-double calculate_average(series s) {
+// INTERNAL ROUTINES
 
+double AVERAGE(series s) {
   return s.size() > 0.0 ?
     std::accumulate(s.cbegin(), s.cend(), 0.0,
                       [](auto &sum, const auto &i) { return sum + i; }) /
       s.size() : 0.0;
 }
 
+double LEADING(series s) {
+
+  // Find the mid point of the series
+  const unsigned long mid_point = s.size() / 2;
+
+  return mid_point > 0.0 ?
+    std::accumulate(s.crbegin(), std::next(s.crend(), mid_point), 0.0,
+                    [](auto &sum, const auto &i) { return sum + i; }) / mid_point
+    : 0.0;
+}
+
+double TRAILING(series s) {
+
+  // Find the mid point of the series
+  const unsigned long mid_point = s.size() / 2;
+
+  return mid_point > 0.0 ?
+    std::accumulate(s.cbegin(), std::next(s.cend(), mid_point), 0.0,
+                    [](auto &sum, const auto &i) { return sum + i; }) / mid_point
+    : 0.0;
+}
+
+std::string NAME(const std::string n, threshold t){
+  return n + "-" + std::to_string(t);
+}
+
+double SPOT(series s){
+  return s.back();
+}
+
+// STRATEGIES
 
 // A dipping strategy
 result dipping(series s, threshold t) {
-  const double average = calculate_average(s);
-  const double spot = s.back();
-
-  return result("dipping" + std::to_string(t), average / spot > t);
+  const std::string name = NAME("dipping", t);
+  const bool execute = AVERAGE(s) / SPOT(s) > t;
+  return result(name, execute);
 }
 
 // A rising strategy
 result rising(series s, threshold t) {
-
-  const double spot = s.back();
-  const double average = calculate_average(s);
-
-  return result("rising" + std::to_string(t), spot / average > t);
+  const auto name = NAME("rising", t);
+  const bool execute = SPOT(s) / AVERAGE(s) > t;
+  return result(name, execute);
 }
 
+// A stepping strategy
+result stepping(series s, threshold t) {
+  const auto name = NAME("stepping", t);
+  const bool trigger = TRAILING(s) / LEADING(s) > t;
+  return result(name, trigger);
+}
 
 // A dipping strategy with a kick up at the end
 result jumping(series s, threshold &t) {
-
-  const bool dipper = dipping(s, t).second;
-  const double spot = s.back();
-  const double average = calculate_average(s);
-  const std::string name = "jumping" + std::to_string(t);
-
-  return result(name, dipper && spot / average > t);
+  const std::string name = NAME("jumping", t);
+  const bool step = stepping(s, t).second;
+  const bool execute = step && SPOT(s) / LEADING(s) > t;
+  return result(name, execute);
 }
 
 // Strategy library
 const std::vector<std::function<result(series, threshold)>> strategy_library{
-    dipping, rising, jumping,
+    dipping, rising, jumping, stepping
 };
 }
 
@@ -89,7 +120,7 @@ int main() {
   std::iota(series.begin(), series.end(), 50);
 
   // Thresholds
-  const std::vector<double> thresholds{1.05, 1.1, 1.2, 1.3};
+  const std::vector<double> thresholds{1.05, 1.1, 1.2};
 
   std::stringstream results;
   std::copy(thresholds.cbegin(), thresholds.cend(),
@@ -111,7 +142,7 @@ int main() {
       results << r.first << "\t" << std::boolalpha << r.second << "\n";
     }
 
-  series.back() = 1000.0;
+  series.back() = series.front() + 1;
   results << dump_series("Spot is max value", series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds) {
