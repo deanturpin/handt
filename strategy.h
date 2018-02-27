@@ -25,8 +25,9 @@ struct strategy {
 
 struct spot_average : public strategy {
 
-  std::string description() const override { return
-    "Buy when the spot is higher than the average for the period"; }
+  std::string description() const override {
+    return "Buy when the spot is higher than the average for the period";
+  }
 
   std::string name() const override { return "spot_average"; }
   virtual double threshold() const { return 1.1; }
@@ -284,12 +285,9 @@ const std::vector<std::shared_ptr<strategy>> strategy_library{
 
 // Create strategy library
 const std::vector<std::shared_ptr<strategy>> strategy_library{
-  std::make_unique<spot_average>(),
-  std::make_unique<average_medium>(),
-  std::make_unique<average_large>(),
-  std::make_unique<average_xl>(),
+    std::make_unique<spot_average>(), std::make_unique<average_medium>(),
+    std::make_unique<average_large>(), std::make_unique<average_xl>(),
 };
-
 }
 
 #endif

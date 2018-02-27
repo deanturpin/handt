@@ -1,79 +1,64 @@
-#include <vector>
-#include <sstream>
 #include <functional>
-#include <numeric>
 #include <iomanip>
+#include <numeric>
+#include <sstream>
+#include <vector>
 
 namespace lft {
 
+// The parameters for a buy routine
 using result = std::pair<std::string, bool>;
 using series = const std::vector<double> &;
 using threshold = const double &;
 
-result dipper(series s, threshold t) {
-    const double average =
-        std::accumulate(s.cbegin(), s.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        s.size();
+// Internal routines
+double calculate_average(series s) {
 
-    const double spot = s.back();
-
-    return result(
-      "dipper" + std::to_string(t),
-      average / spot > t
-      );
+  return s.size() > 0.0 ?
+    std::accumulate(s.cbegin(), s.cend(), 0.0,
+                      [](auto &sum, const auto &i) { return sum + i; }) /
+      s.size() : 0.0;
 }
 
-result riser(series s, threshold t) {
-    const double average =
-        std::accumulate(s.cbegin(), s.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        s.size();
 
-    const double spot = s.back();
+// A dipping strategy
+result dipping(series s, threshold t) {
+  const double average = calculate_average(s);
+  const double spot = s.back();
 
-    return result(
-      "riser" + std::to_string(t),
-      spot / average > t
-      );
+  return result("dipping" + std::to_string(t), average / spot > t);
 }
 
-result ski_jump(series s, threshold &t) {
+// A rising strategy
+result rising(series s, threshold t) {
 
-    const unsigned long mid = s.size() / 2;
-    const double back =
-        std::accumulate(s.begin(), std::next(s.begin(), mid), 0.0,
-                        [](auto &s, auto &i) { return s + i; }) / mid;
+  const double spot = s.back();
+  const double average = calculate_average(s);
 
-    const double front =
-        std::accumulate(s.rbegin(), std::next(s.rbegin(), mid), 0.0,
-                        [](auto &s, auto &i) { return s + i; }) / mid;
+  return result("rising" + std::to_string(t), spot / average > t);
+}
 
 
-    const double spot = s.back();
+// A dipping strategy with a kick up at the end
+result jumping(series s, threshold &t) {
 
-    return result(
-      "skijump" + std::to_string(t),
-      back / front > t && spot / front > 1.05
-      );
+  const bool dipper = dipping(s, t).second;
+  const double spot = s.back();
+  const double average = calculate_average(s);
+  const std::string name = "jumping" + std::to_string(t);
+
+  return result(name, dipper && spot / average > t);
 }
 
 // Strategy library
-const std::vector<
-std::function<
-std::pair<std::string, bool>(std::vector<double>, double)>
-> strategy_library{
-
-  dipper,
-  riser,
-  ski_jump,
+const std::vector<std::function<result(series, threshold)>> strategy_library{
+    dipping, rising, jumping,
 };
-
 }
 
-#include <iostream>
-#include <fstream>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
 #include <iterator>
 
 // Don't need to search for strategy
@@ -82,9 +67,9 @@ std::pair<std::string, bool>(std::vector<double>, double)>
 std::string dump_series(const std::string title, std::vector<double> s) {
 
   const double average =
-    std::accumulate(s.cbegin(), s.cend(), 0.0,
-                    [](auto &sum, const auto &i) { return sum + i; }) /
-    s.size();
+      std::accumulate(s.cbegin(), s.cend(), 0.0,
+                      [](auto &sum, const auto &i) { return sum + i; }) /
+      s.size();
 
   // Dump series stats
   std::stringstream ss;
@@ -104,10 +89,11 @@ int main() {
   std::iota(series.begin(), series.end(), 50);
 
   // Thresholds
-  const std::vector<double> thresholds {1.05, 1.1, 1.2, 1.3};
+  const std::vector<double> thresholds{1.05, 1.1, 1.2, 1.3};
 
   std::stringstream results;
-  std::copy(thresholds.cbegin(), thresholds.cend(), std::ostream_iterator<double>(results, ","));
+  std::copy(thresholds.cbegin(), thresholds.cend(),
+            std::ostream_iterator<double>(results, ","));
   results << " thresholds\n";
 
   results << dump_series("Ascending series", series);
@@ -133,19 +119,5 @@ int main() {
       results << r.first << "\t" << std::boolalpha << r.second << "\n";
     }
 
-
-  // Open the previous results and compare
-  std::ifstream pass("results.txt");
-  if (pass.good()) {
-
-    std::cout << results.str();
-
-    std::stringstream previous;
-    previous << pass.rdbuf();
-
-    if (results.str() != previous.str())
-      std::cout << "TEST FAIL\n";
-  }
-  else
-    std::cout << "Couldn't find test results\n";
+  std::cout << results.str();
 }
