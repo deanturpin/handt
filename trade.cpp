@@ -1,8 +1,9 @@
 #include "position.h"
-#include "strategy.h"
+#include "strategy2.h"
 #include "utils.h"
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 #include <istream>
 #include <iterator>
 #include <memory>
@@ -62,6 +63,7 @@ int main() {
   }
 
   // Look for new positions
+  decltype(positions) new_positions;
   for (const auto &coin : prices) {
 
     const std::string name = coin.first;
@@ -77,28 +79,33 @@ int main() {
       continue;
 
     // TODO - transform strat lib into list of buys
-    // validate params in wrapper routine before passing to algo
 
     // Assess viability of a trade for each strategy
-    for (const auto &strategy : strategies) {
+    for (const auto &buy : strategies) {
 
-      // Check if we already hold a position with the current strategy
-      const auto it = std::find_if(positions.cbegin(), positions.cend(),
-                                   [&name, &strategy](const auto &p) {
-                                     return p.name == name &&
-                                            p.strategy == strategy->name();
-                                   });
+      // If the strategy returns positively then check if we already hold a
+      // position
+      const auto s = buy(series, 1.2);
+      const auto strategy = s.first;
+      const bool exec = s.second;
 
-      // If not consider creating one
-      if (it == positions.cend())
-        if (strategy->buy(series)) {
+      if (exec) {
+
+        // Try to find a matching existing position
+        const auto it = std::find_if(positions.cbegin(), positions.cend(),
+                                [&name, &strategy](const auto &p) {
+                                return p.name == name &&
+                                p.strategy == strategy;
+                                });
+
+        if (it == positions.cend()) {
           trade_position pos;
           pos.name = name;
 
           // Initialise buy and sell to same price
           pos.buy_price = pos.sell_price = spot;
 
-          pos.strategy = strategy->name();
+          pos.strategy = strategy;
           pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
           // Initialise timestamp, sell price updated each time it is reviewed
@@ -106,10 +113,16 @@ int main() {
           pos.duration = 1;
           pos.open = true;
 
-          positions.push_back(pos);
+          new_positions.push_back(pos);
         }
+      }
     }
   }
+
+  std::cout << positions.size() << " existing position\n";
+  std::cout << new_positions.size() << " new position\n";
+
+  std::copy(new_positions.cbegin(), new_positions.cend(), std::back_inserter(positions));
 
   // Trading session is complete, sort all positions prior to storing
   std::sort(positions.begin(), positions.end(),
