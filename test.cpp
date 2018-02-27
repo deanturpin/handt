@@ -1,9 +1,9 @@
 #include <vector>
+#include <sstream>
 #include <functional>
 #include <numeric>
 #include <iomanip>
 
-#include <iostream>
 namespace lft {
 
 using result = std::pair<std::string, bool>;
@@ -61,9 +61,9 @@ result riser(series &s, threshold &t) {
 // }
 // 
 // ALWAYS
-result always_buy(series &s, threshold &t) {
-  return result("always_buy", true);
-}
+// result always_buy(series &s, threshold &t) {
+//   return result("always_buy", true);
+// }
 
 // Strategy library
 const std::vector<
@@ -86,9 +86,19 @@ std::pair<std::string, bool>(std::vector<double>, double)>
 // Don't need to search for strategy
 //
 
-void dump_series(const std::vector<double> s) {
-  std::copy(s.cbegin(), s.cend(), std::ostream_iterator<double>(std::cout, ","));
-  std::cout << "\n";
+std::string dump_series(const std::vector<double> s) {
+
+    const double average =
+        std::accumulate(s.cbegin(), s.cend(), 0.0,
+                        [](auto &sum, const auto &i) { return sum + i; }) /
+        s.size();
+
+  std::stringstream ss;
+  std::copy(s.cbegin(), s.cend(), std::ostream_iterator<double>(ss, ","));
+  ss << "\n";
+  ss << average << " average\n";
+
+  return ss.str();
 }
 
 int main() {
@@ -100,30 +110,34 @@ int main() {
   // Thresholds
   const std::vector<double> thresholds {1.05, 1.1, 1.2, 1.3};
 
-  // Ascending
-  dump_series(series);
+  std::stringstream results;
+  std::copy(thresholds.cbegin(), thresholds.cend(), std::ostream_iterator<double>(results, ","));
+  results << " thresholds\n";
+
+  results << "ASCENDING\n" << dump_series(series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds) {
       const auto r = buy(series, t);
-      std::cout << r.first << "\t" << std::boolalpha << r.second << "\n";
+      results << r.first << "\t" << std::boolalpha << r.second << "\n";
     }
 
-  // Descending
   std::reverse(series.begin(), series.end());
-  dump_series(series);
+  results << "DESCENDING\n" << dump_series(series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds) {
       const auto r = buy(series, t);
-      std::cout << r.first << "\t" << std::boolalpha << r.second << "\n";
+      results << r.first << "\t" << std::boolalpha << r.second << "\n";
     }
 
-  // // Spot is peak
-  // std::fill(series.begin(), series.end(), 1.0);
-  // series.back() = 1000.0;
+  std::fill(series.begin(), series.end(), 1.0);
+  series.back() = 1000.0;
 
-  // dump_series(series);
-  // for (const auto &buy : lft::strategy_library)
-  //   for (const auto &t : thresholds)
-  //     std::cout << std::quoted(buy(series, t)) << "\n";
+  results << "SPOT IS PEAK\n" << dump_series(series);
+  for (const auto &buy : lft::strategy_library)
+    for (const auto &t : thresholds) {
+      const auto r = buy(series, t);
+      results << r.first << "\t" << std::boolalpha << r.second << "\n";
+    }
 
+  std::cout << results.str();
 }
