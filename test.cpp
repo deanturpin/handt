@@ -86,17 +86,20 @@ std::pair<std::string, bool>(std::vector<double>, double)>
 // Don't need to search for strategy
 //
 
-std::string dump_series(const std::vector<double> s) {
+std::string dump_series(const std::string title, std::vector<double> s) {
 
-    const double average =
-        std::accumulate(s.cbegin(), s.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        s.size();
+  const double average =
+    std::accumulate(s.cbegin(), s.cend(), 0.0,
+                    [](auto &sum, const auto &i) { return sum + i; }) /
+    s.size();
 
+  // Dump series stats
   std::stringstream ss;
+  ss << "\n" << title << "\n";
   std::copy(s.cbegin(), s.cend(), std::ostream_iterator<double>(ss, ","));
   ss << "\n";
-  ss << average << " average\n";
+  ss << average << " average, ";
+  ss << s.back() << " spot\n";
 
   return ss.str();
 }
@@ -114,7 +117,7 @@ int main() {
   std::copy(thresholds.cbegin(), thresholds.cend(), std::ostream_iterator<double>(results, ","));
   results << " thresholds\n";
 
-  results << "ASCENDING\n" << dump_series(series);
+  results << dump_series("Ascending series", series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds) {
       const auto r = buy(series, t);
@@ -122,17 +125,15 @@ int main() {
     }
 
   std::reverse(series.begin(), series.end());
-  results << "DESCENDING\n" << dump_series(series);
+  results << dump_series("Descending series", series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds) {
       const auto r = buy(series, t);
       results << r.first << "\t" << std::boolalpha << r.second << "\n";
     }
 
-  std::fill(series.begin(), series.end(), 1.0);
   series.back() = 1000.0;
-
-  results << "SPOT IS PEAK\n" << dump_series(series);
+  results << dump_series("Spot is max value", series);
   for (const auto &buy : lft::strategy_library)
     for (const auto &t : thresholds) {
       const auto r = buy(series, t);
