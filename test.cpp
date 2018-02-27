@@ -7,19 +7,16 @@
 namespace lft {
 
 using result = std::pair<std::string, bool>;
-using series = const std::vector<double>;
-using threshold = const double;
+using series = const std::vector<double> &;
+using threshold = const double &;
 
-result dipper(series &s, threshold &t) {
+result dipper(series s, threshold t) {
     const double average =
         std::accumulate(s.cbegin(), s.cend(), 0.0,
                         [](auto &sum, const auto &i) { return sum + i; }) /
         s.size();
 
     const double spot = s.back();
-
-    // std::cout << average << "\n";
-    // std::cout << average / spot << "\n";
 
     return result(
       "dipper" + std::to_string(t),
@@ -27,7 +24,7 @@ result dipper(series &s, threshold &t) {
       );
 }
 
-result riser(series &s, threshold &t) {
+result riser(series s, threshold t) {
     const double average =
         std::accumulate(s.cbegin(), s.cend(), 0.0,
                         [](auto &sum, const auto &i) { return sum + i; }) /
@@ -35,35 +32,31 @@ result riser(series &s, threshold &t) {
 
     const double spot = s.back();
 
-    // std::cout << average << "\n";
-    // std::cout << spot / average << "\n";
-
     return result(
       "riser" + std::to_string(t),
       spot / average > t
       );
 }
 
-// SKI JUMP
-// std::string ski_jump(const std::vector<double> s, const double &t) {
-//     const unsigned long mid = s.size() / 2;
-//     const double back =
-//         std::accumulate(s.begin(), std::next(s.begin(), mid), 0.0,
-//                         [](auto &s, auto &i) { return s + i; }) / mid;
-// 
-//     const double front =
-//         std::accumulate(s.rbegin(), std::next(s.rbegin(), mid), 0.0,
-//                         [](auto &s, auto &i) { return s + i; }) / mid;
-// 
-//     const auto spot = s.back();
-//     return back / front > t && spot / front > 1.05 ?
-//       "ski_jump" + std::to_string(t) : "";
-// }
-// 
-// ALWAYS
-// result always_buy(series &s, threshold &t) {
-//   return result("always_buy", true);
-// }
+result ski_jump(series s, threshold &t) {
+
+    const unsigned long mid = s.size() / 2;
+    const double back =
+        std::accumulate(s.begin(), std::next(s.begin(), mid), 0.0,
+                        [](auto &s, auto &i) { return s + i; }) / mid;
+
+    const double front =
+        std::accumulate(s.rbegin(), std::next(s.rbegin(), mid), 0.0,
+                        [](auto &s, auto &i) { return s + i; }) / mid;
+
+
+    const double spot = s.back();
+
+    return result(
+      "skijump" + std::to_string(t),
+      back / front > t && spot / front > 1.05
+      );
+}
 
 // Strategy library
 const std::vector<
@@ -73,13 +66,13 @@ std::pair<std::string, bool>(std::vector<double>, double)>
 
   dipper,
   riser,
-    // ski_jump,
-    // always_buy,
+  ski_jump,
 };
 
 }
 
 #include <iostream>
+#include <fstream>
 #include <algorithm>
 #include <iterator>
 
@@ -140,5 +133,19 @@ int main() {
       results << r.first << "\t" << std::boolalpha << r.second << "\n";
     }
 
-  std::cout << results.str();
+
+  // Open the previous results and compare
+  std::ifstream pass("results.txt");
+  if (pass.good()) {
+
+    std::stringstream previous;
+    previous << pass.rdbuf();
+
+    if (results.str() != previous.str())
+      std::cout << "Test fail\n";
+
+    std::cout << results.str();
+  }
+  else
+    std::cout << "Couldn't find test results\n";
 }
