@@ -32,7 +32,7 @@ int main() {
   std::iota(series.begin(), series.end(), 50);
 
   // Thresholds
-  const std::vector<double> thresholds{1.05, 1.1, 1.2};
+  const std::vector<double> thresholds{1.05, 1.1, 1.2, 1.3};
 
   std::stringstream results;
   std::copy(thresholds.cbegin(), thresholds.cend(),
