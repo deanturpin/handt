@@ -10,12 +10,9 @@
 
 int main() {
 
-  // Get the strategies
-  const auto &strategies = lft::strategy_library;
-
   // Get the coins
   const auto prices = get_prices();
-  std::cout << strategies.size() << " strategies\n";
+  // std::cout << strategies.size() << " strategies\n";
   std::cout << prices.size() << " coins updated in the last minute\n";
 
   // Get the positions
@@ -24,16 +21,6 @@ int main() {
 
   // Initialise results with all strategies
   std::map<std::string, double> ins, outs, trades;
-  // for (const auto &buy : strategies) {
-
-  //   // Invoke strategy with a bad deal to get name
-  //   for (const auto &t : lft::thresholds) {
-  //     const std::string name = buy({0}, t).first;
-  //     ins[name] = 0.0;
-  //     outs[name] = 0.0;
-  //     trades[name] = 0.0;
-  //   }
-  // }
 
   // Close all positions
   for (const auto &pos : positions) {
@@ -51,7 +38,7 @@ int main() {
     const double out = outs[strategy];
     const double yield = 100.0 * out / (in > 0 ? in : 1);
 
-    std::cout << strategy << "\t" << std::fixed << " " << yield << "\t" << in
+    std::cout << strategy << "\t" << std::fixed << yield << "\t" << in
               << "\t" << out << "\n";
   }
 
@@ -65,7 +52,7 @@ int main() {
                       [](auto sum, const auto &i) { return sum + i.second; });
 
   const double overall_yield = 100.0 * out_sum / in_sum;
-  std::cout << "\nTOTAL    " << overall_yield << "\t" << in_sum << "\t"
+  std::cout << "\nTOTAL\t\t\t" << overall_yield << "\t" << in_sum << "\t"
             << out_sum << "\t\t\t"
             << "\n";
 }

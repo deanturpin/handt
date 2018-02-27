@@ -14,8 +14,6 @@ using std::accumulate;
 using std::next;
 using std::to_string;
 
-const vector<double> thresholds {1.05, 1.1, 1.2, 1.3, 1.4};
-
 // Parameteric shortcuts
 using result = pair<string, bool>;
 using series = const vector<double> &;
@@ -105,7 +103,24 @@ string NAME(const string n, threshold t) { return n + "-" + to_string(t); }
 
 double SPOT(series s) { return s.back(); }
 
-// Strategy library
-const vector<std::function<result(series, threshold)>> strategy_library{
+vector<string> run_strategies(series s) {
+
+  const vector<double> thresholds {1.05, 1.1, 1.2, 1.3, 1.4};
+
+  // Strategy library
+  const vector<std::function<result(series, threshold)>> strategy_library{
     crashing, spiking, jumping, stepping};
+
+  vector<string> trades;
+  for (const auto &buy : strategy_library)
+    for (const auto &t : thresholds) {
+      const auto b = buy(s, t);
+
+      if (b.second)
+        trades.push_back(b.first);
+    }
+
+  return trades;
+}
+
 }

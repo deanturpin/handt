@@ -14,9 +14,6 @@
 // Let's trade
 int main() {
 
-  // Get the strategies
-  const auto &strategies = lft::strategy_library;
-
   // Get some recent prices
   const auto prices = get_prices();
 
@@ -78,43 +75,34 @@ int main() {
     if (series.back() < 1.0)
       continue;
 
-    // Assess viability of a trade for each strategy
-    for (const auto &buy : strategies) {
+    // Test all strategies with this series
+    const auto buys = lft::run_strategies(series);
 
-      // If the strategy returns positively then check if we already hold a
-      // position, repeat for multiple thresholds
-      for (const auto &threshold : lft::thresholds) {
+    // Review results
+    for (const auto &strategy : buys) {
 
-        const auto decision = buy(series, threshold);
-        const std::string strategy = decision.first;
-        const bool execute = decision.second;
+      // Try to find a matching existing position
+      const auto it =
+        std::find_if(positions.cbegin(), positions.cend(),
+                     [&name, &strategy](const auto &p) {
+                     return p.name == name && p.strategy == strategy;
+                     });
 
-        if (execute) {
+      // If there isn't one create a position with current price
+      if (it == positions.cend()) {
 
-          // Try to find a matching existing position
-          const auto it =
-              std::find_if(positions.cbegin(), positions.cend(),
-                           [&name, &strategy](const auto &p) {
-                             return p.name == name && p.strategy == strategy;
-                           });
+        trade_position pos;
+        pos.name = name;
+        pos.buy_price = pos.sell_price = spot;
+        pos.strategy = strategy;
+        pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-          // If there isn't one create a position with current price
-          if (it == positions.cend()) {
+        // Initialise timestamp, sell price updated each time it is reviewed
+        pos.timestamp = timestamp();
+        pos.duration = 1;
+        pos.open = true;
 
-            trade_position pos;
-            pos.name = name;
-            pos.buy_price = pos.sell_price = spot;
-            pos.strategy = strategy;
-            pos.yield = 100.0 * pos.sell_price / pos.buy_price;
-
-            // Initialise timestamp, sell price updated each time it is reviewed
-            pos.timestamp = timestamp();
-            pos.duration = 1;
-            pos.open = true;
-
-            new_positions.push_back(pos);
-          }
-        }
+        new_positions.push_back(pos);
       }
     }
   }

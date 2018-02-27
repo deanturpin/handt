@@ -28,36 +28,30 @@ int main() {
   std::vector<double> series(20);
   std::iota(series.begin(), series.end(), 50);
 
-  // Thresholds
-  const std::vector<double> thresholds{1.05, 1.1, 1.2, 1.3};
-
   std::stringstream results;
-  std::copy(thresholds.cbegin(), thresholds.cend(),
-            std::ostream_iterator<double>(results, ","));
-  results << " thresholds\n";
 
-  results << dump_series("Ascending series", series);
-  for (const auto &buy : lft::strategy_library)
-    for (const auto &t : thresholds) {
-      const auto r = buy(series, t);
-      results << r.first << "\t" << std::boolalpha << r.second << "\n";
-    }
+  {
+    results << dump_series("Ascending series", series);
+    const auto buys = lft::run_strategies(series);
+    for (const auto &buy : buys)
+      results << buy << "\n";
+  }
 
-  std::reverse(series.begin(), series.end());
-  results << dump_series("Descending series", series);
-  for (const auto &buy : lft::strategy_library)
-    for (const auto &t : thresholds) {
-      const auto r = buy(series, t);
-      results << r.first << "\t" << std::boolalpha << r.second << "\n";
-    }
+  {
+    std::reverse(series.begin(), series.end());
+    results << dump_series("Descending series", series);
+    const auto buys = lft::run_strategies(series);
+    for (const auto &buy : buys)
+      results << buy << "\n";
+  }
 
-  series.back() = series.front() + 1;
-  results << dump_series("Spot is max value", series);
-  for (const auto &buy : lft::strategy_library)
-    for (const auto &t : thresholds) {
-      const auto r = buy(series, t);
-      results << r.first << "\t" << std::boolalpha << r.second << "\n";
-    }
+  {
+    series.back() = series.front() + 1;
+    results << dump_series("Spot is max value", series);
+    const auto buys = lft::run_strategies(series);
+    for (const auto &buy : buys)
+      results << buy << "\n";
+  }
 
   std::cout << results.str();
 }
