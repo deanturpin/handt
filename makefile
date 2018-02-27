@@ -31,5 +31,9 @@ clean:
 cron:
 	while :; do make tidy all; sleep 1m; done
 
+autotest: test.o
+	./$< > results2.txt
+	diff results.txt results2.txt
+
 tidy:
 	rm -f coins.csv
