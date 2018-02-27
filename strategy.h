@@ -14,6 +14,8 @@ using std::accumulate;
 using std::next;
 using std::to_string;
 
+const vector<double> thresholds {1.05, 1.1, 1.2, 1.3, 1.4};
+
 // Parameteric shortcuts
 using result = pair<string, bool>;
 using series = const vector<double> &;

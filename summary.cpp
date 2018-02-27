@@ -27,11 +27,12 @@ int main() {
   for (const auto &buy : strategies) {
 
     // Invoke strategy with a bad deal to get name
-    const std::string name = buy({0}, 0).first;
-
-    ins[name] = 0.0;
-    outs[name] = 0.0;
-    trades[name] = 0.0;
+    for (const auto &t : lft::thresholds) {
+      const std::string name = buy({0}, t).first;
+      ins[name] = 0.0;
+      outs[name] = 0.0;
+      trades[name] = 0.0;
+    }
   }
 
   // Close all positions

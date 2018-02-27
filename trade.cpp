@@ -83,7 +83,7 @@ int main() {
 
       // If the strategy returns positively then check if we already hold a
       // position, repeat for multiple thresholds
-      for (const auto &threshold : {1.05, 1.1, 1.2, 1.3, 1.4}) {
+      for (const auto &threshold : lft::thresholds) {
 
         const auto decision = buy(series, threshold);
         const std::string strategy = decision.first;
