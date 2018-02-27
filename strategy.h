@@ -19,46 +19,14 @@ using result = pair<string, bool>;
 using series = const vector<double> &;
 using threshold = const double &;
 
-// INTERNAL ROUTINES
+// Helper routines to define strategies
+double SPOT(series);
+double AVERAGE(series);
+double LEADING(series);
+double TRAILING(series);
+string NAME(const string, threshold t);
 
-double AVERAGE(series s) {
-  return s.size() > 0.0 ?
-    accumulate(s.cbegin(), s.cend(), 0.0,
-                      [](auto &sum, const auto &i) { return sum + i; }) /
-      s.size() : 0.0;
-}
-
-double LEADING(series s) {
-
-  // Find the mid point of the series
-  const unsigned long mid_point = s.size() / 2;
-
-  return mid_point > 0.0 ?
-    accumulate(s.crbegin(), next(s.crend(), mid_point), 0.0,
-                    [](auto &sum, const auto &i) { return sum + i; }) / mid_point
-    : 0.0;
-}
-
-double TRAILING(series s) {
-
-  // Find the mid point of the series
-  const unsigned long mid_point = s.size() / 2;
-
-  return mid_point > 0.0 ?
-    accumulate(s.cbegin(), next(s.cend(), mid_point), 0.0,
-                    [](auto &sum, const auto &i) { return sum + i; }) / mid_point
-    : 0.0;
-}
-
-string NAME(const string n, threshold t){
-  return n + "-" + to_string(t);
-}
-
-double SPOT(series s){
-  return s.back();
-}
-
-// STRATEGIES
+// Strategies
 
 // |xxxxxxx |
 // |xxxxxxx |
@@ -100,8 +68,42 @@ result jumping(series s, threshold &t) {
   return result(name, exec);
 }
 
+// Implementation of helper routines
+double AVERAGE(series s) {
+  return s.size() > 0.0
+             ? accumulate(s.cbegin(), s.cend(), 0.0,
+                          [](auto &sum, const auto &i) { return sum + i; }) /
+                   s.size()
+             : 0.0;
+}
+
+double LEADING(series s) {
+
+  // Find the mid point of the series
+  const unsigned long mid_point = s.size() / 2;
+  return mid_point > 0.0
+             ? accumulate(s.crbegin(), next(s.crend(), mid_point), 0.0,
+                          [](auto &sum, const auto &i) { return sum + i; }) /
+                   mid_point
+             : 0.0;
+}
+
+double TRAILING(series s) {
+
+  // Find the mid point of the series
+  const unsigned long mid_point = s.size() / 2;
+  return mid_point > 0.0
+             ? accumulate(s.cbegin(), next(s.cend(), mid_point), 0.0,
+                          [](auto &sum, const auto &i) { return sum + i; }) /
+                   mid_point
+             : 0.0;
+}
+
+string NAME(const string n, threshold t) { return n + "-" + to_string(t); }
+
+double SPOT(series s) { return s.back(); }
+
 // Strategy library
 const vector<std::function<result(series, threshold)>> strategy_library{
-    crashing, spiking, jumping, stepping
-};
+    crashing, spiking, jumping, stepping};
 }

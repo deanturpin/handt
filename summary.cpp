@@ -24,8 +24,11 @@ int main() {
 
   // Initialise results with all strategies
   std::map<std::string, double> ins, outs, trades;
-  for (const auto &strategy : strategies) {
-    const auto name = strategy->name();
+  for (const auto &buy : strategies) {
+
+    // Invoke strategy with a bad deal to get name
+    const std::string name = buy({0}, 0).first;
+
     ins[name] = 0.0;
     outs[name] = 0.0;
     trades[name] = 0.0;
@@ -40,15 +43,15 @@ int main() {
   }
 
   // Individual strategy performance
-  std::cout << "STRATEGY % RETURN\t$ IN\t\t$ OUT\n\n";
+  std::cout << "STRATEGY\t\t% RETURN\t$ IN\t\t$ OUT\n\n";
   for (const auto &i : ins) {
     const std::string strategy = i.first;
     const double in = ins[strategy];
     const double out = outs[strategy];
     const double yield = 100.0 * out / (in > 0 ? in : 1);
 
-    std::cout << strategy << std::fixed << " " << yield << "\t" << in << "\t"
-              << out << "\n";
+    std::cout << strategy << "\t" << std::fixed << " " << yield << "\t" << in
+              << "\t" << out << "\n";
   }
 
   // Strategy summary

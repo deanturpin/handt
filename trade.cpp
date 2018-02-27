@@ -1,9 +1,9 @@
 #include "position.h"
 #include "strategy.h"
 #include "utils.h"
+#include <algorithm>
 #include <fstream>
 #include <iostream>
-#include <algorithm>
 #include <istream>
 #include <iterator>
 #include <memory>
@@ -92,11 +92,11 @@ int main() {
         if (execute) {
 
           // Try to find a matching existing position
-          const auto it = std::find_if(positions.cbegin(), positions.cend(),
-                                       [&name, &strategy](const auto &p) {
-                                       return p.name == name &&
-                                       p.strategy == strategy;
-                                       });
+          const auto it =
+              std::find_if(positions.cbegin(), positions.cend(),
+                           [&name, &strategy](const auto &p) {
+                             return p.name == name && p.strategy == strategy;
+                           });
 
           // If there isn't one create a position with current price
           if (it == positions.cend()) {
@@ -123,7 +123,8 @@ int main() {
   std::cout << new_positions.size() << " new position\n";
 
   // Append new positions to existing
-  std::copy(new_positions.cbegin(), new_positions.cend(), std::back_inserter(positions));
+  std::copy(new_positions.cbegin(), new_positions.cend(),
+            std::back_inserter(positions));
 
   // Trading session is complete, sort all positions prior to storing
   std::sort(positions.begin(), positions.end(),

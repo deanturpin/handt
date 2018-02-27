@@ -1,11 +1,8 @@
-#include "strategy2.h"
+#include "strategy.h"
 #include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <iterator>
-
-// Don't need to search for strategy
-//
 
 std::string dump_series(const std::string title, std::vector<double> s) {
 
