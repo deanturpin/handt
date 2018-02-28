@@ -51,7 +51,7 @@ int main() {
       std::accumulate(outs.cbegin(), outs.cend(), 0.0,
                       [](auto sum, const auto &i) { return sum + i.second; });
 
-  const double overall_yield = 100.0 * out_sum / in_sum;
+  const double overall_yield = 100.0 * out_sum / (in_sum > 0.0 ? in_sum : 1.0);
   std::cout << "\nTOTAL\t\t\t" << overall_yield << "\t" << in_sum << "\t"
             << out_sum << "\t\t\t"
             << "\n";
