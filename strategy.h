@@ -172,17 +172,17 @@ vector<string> run_strategies(series s) {
 
   // Strats that take thresholds
   const vector<double> thresholds{1.05, 1.1, 1.2, 1.3, 1.4};
-  const vector<std::function<result(series, threshold)>> strategy_library1{
+  const vector<std::function<result(series, threshold)>> lib1{
       crashing,      spiking,     jumping,  stepping_up,
       stepping_down, steady_rise, kosovich, rolling_average};
 
   // Strats that take ratios
   const vector<double> ratios{1, 2, 3, 4};
-  const vector<std::function<result(series, threshold)>> strategy_library2{
+  const vector<std::function<result(series, threshold)>> lib2{
       average_compare, average_inter};
 
   vector<string> trades;
-  for (const auto &buy : strategy_library1)
+  for (const auto &buy : lib1)
     for (const auto &t : thresholds) {
       const auto b = buy(s, t);
 
@@ -190,7 +190,7 @@ vector<string> run_strategies(series s) {
         trades.push_back(b.first);
     }
 
-  for (const auto &buy : strategy_library2)
+  for (const auto &buy : lib2)
     for (const auto &t : ratios) {
       const auto b = buy(s, t);
 
