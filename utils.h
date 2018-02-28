@@ -12,9 +12,7 @@
 
 // Get positions from a file
 auto get_positions(const std::string file) {
-
   std::vector<trade_position> positions;
-
   std::ifstream in(file);
   if (in.good()) {
     trade_position p;
@@ -26,11 +24,12 @@ auto get_positions(const std::string file) {
 }
 
 // Get prices and return a container full of them
-std::map<std::string, std::vector<double>> get_prices() {
+std::map<std::string, std::vector<double>> get_prices(const std::string file =
+                                                      "prices.csv") {
   std::map<std::string, std::vector<double>> prices;
 
   // Read some prices
-  std::ifstream in("prices.csv");
+  std::ifstream in(file);
   if (in.good()) {
 
     // The first item is the coin name
