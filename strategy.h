@@ -4,6 +4,7 @@
 #include <numeric>
 #include <sstream>
 #include <vector>
+#include <random>
 
 namespace lft {
 
@@ -115,6 +116,15 @@ result kosovich(series s, param p) {
   return result(name, exec);
 }
 
+result random_decision(series s, param p) {
+  const auto name = NAME("f5f5f5f5f5...", p);
+  std::default_random_engine generator;
+  std::uniform_real_distribution<double> distribution(0.0, p);
+  const double dice_roll = distribution(generator); 
+  const bool exec = dice_roll < 1.0;
+  return result(name, exec);
+}
+
 // Implementation of helper routines
 double AVERAGE(series s) {
   return s.size() > 0.0
@@ -158,7 +168,7 @@ vector<string> run_strategies(series s) {
   const vector<double> thresholds{5.0, 10.0, 20.0, 30.0, 40.0};
   library lib1{
       flicking_down, flicking_up, ski_jumping, stepping_up,
-      stepping_down, steady_rising, kosovich, rolling_average};
+      stepping_down, steady_rising, kosovich, rolling_average, random_decision};
 
   vector<string> trades;
   for (const auto &buy : lib1)
