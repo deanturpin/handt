@@ -29,14 +29,14 @@ string NAME(const string, threshold t);
 
 // Strategies
 
-result crashing(series s, threshold t) {
-  const auto name = NAME("crashing", t);
+result flicking_down(series s, threshold t) {
+  const auto name = NAME("flicking_down", t);
   const bool exec = AVERAGE(s) / SPOT(s) > t;
   return result(name, exec);
 }
 
-result spiking(series s, threshold t) {
-  const auto name = NAME("spiking", t);
+result flicking_up(series s, threshold t) {
+  const auto name = NAME("flicking_up", t);
   const bool exec = SPOT(s) / AVERAGE(s) > t;
   return result(name, exec);
 }
@@ -92,14 +92,14 @@ result average_compare(series s, threshold t) {
   return result(name, exec);
 }
 
-result jumping(series s, threshold t) {
-  const auto name = NAME("jumping", t);
-  const bool exec = stepping_down(s, t).second && spiking(s, t).second;
+result ski_jumping(series s, threshold t) {
+  const auto name = NAME("ski_jumping", t);
+  const bool exec = stepping_down(s, t).second && flicking_up(s, t).second;
   return result(name, exec);
 }
 
-result steady_rise(series s, threshold t) {
-  const auto name = NAME("steady_rise", t);
+result steady_rising(series s, threshold t) {
+  const auto name = NAME("steady_rising", t);
   double trend = 0.0;
   for (auto i = s.cbegin(); i != std::prev(s.cend()); ++i)
     trend += (*i < *std::next(i) ? 1.0 : -1.0);
@@ -137,7 +137,10 @@ double DISTANT_AVERAGE(series s) {
   return AVERAGE(subset);
 }
 
-string NAME(const string n, threshold t) { return to_string(t) + "-" + n; }
+string NAME(const string n, threshold t) {
+  return to_string(t).substr(0, 4) + "_" + n;
+}
+
 double SPOT(series s) { return s.back(); }
 
 // Entry point into the library, returns a list of the strategy names that
@@ -147,13 +150,8 @@ vector<string> run_strategies(series s) {
   // Strats that take thresholds
   const vector<double> thresholds{1.05, 1.1, 1.2, 1.3, 1.4};
   const vector<std::function<result(series, threshold)>> lib1{
-      crashing,      spiking,     jumping,  stepping_up,
-      stepping_down, steady_rise, kosovich, rolling_average};
-
-  // Strats that take ratios
-  const vector<double> ratios{1, 2, 3, 4};
-  const vector<std::function<result(series, threshold)>> lib2{
-      average_compare, average_inter};
+      flicking_down, flicking_up, ski_jumping, stepping_up,
+      stepping_down, steady_rising, kosovich, rolling_average};
 
   vector<string> trades;
   for (const auto &buy : lib1)
@@ -163,6 +161,11 @@ vector<string> run_strategies(series s) {
       if (b.second)
         trades.push_back(b.first);
     }
+
+  // Strats that take ratios
+  const vector<double> ratios{1, 2, 3, 4};
+  const vector<std::function<result(series, threshold)>> lib2{average_compare,
+                                                              average_inter};
 
   for (const auto &buy : lib2)
     for (const auto &t : ratios) {
