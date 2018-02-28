@@ -67,8 +67,8 @@ result rolling_average(series s, param p) {
 
 result average_inter(series s, param p) {
   const auto name = NAME("average_inter", p);
-  const unsigned long filter1 = 10 * p;
-  const unsigned long filter2 = 20 * p;
+  const unsigned long filter1 = 5.0 * p;
+  const unsigned long filter2 = 10.0 * p;
 
   // Average with a small window
   const double short_average =
@@ -166,7 +166,7 @@ vector<string> run_strategies(series s) {
   using library = const vector<std::function<result(series, param)>>;
 
   // Strategies that take thresholds (in percent)
-  const vector<double> thresholds{5.0, 10.0, 20.0, 30.0, 40.0};
+  const vector<double> thresholds {10.0};
   library lib1{
       flicking_down, flicking_up, ski_jumping, stepping_up,
       stepping_down, steady_rising, kosovich, rolling_average, random_decision};
@@ -181,7 +181,7 @@ vector<string> run_strategies(series s) {
     }
 
   // Strategies that take ratios
-  const vector<double> ratios{1, 2, 3, 4};
+  const vector<double> ratios {2.0};
   library lib2{average_compare, average_inter};
 
   for (const auto &buy : lib2)
