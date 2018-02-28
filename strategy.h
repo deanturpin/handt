@@ -23,8 +23,8 @@ using threshold = const double &;
 // Helper routines to define strategies
 double SPOT(series);
 double AVERAGE(series);
-double LEADING(series);
-double TRAILING(series);
+double RECENT_AVERAGE(series);
+double DISTANT_AVERAGE(series);
 string NAME(const string, threshold t);
 
 // Strategies
@@ -55,13 +55,13 @@ result spiking(series s, threshold t) {
 // |xxxxxxxx|
 result stepping_up(series s, threshold t) {
   const auto name = NAME("stepping_up", t);
-  const bool exec = TRAILING(s) / LEADING(s) > t;
+  const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > t;
   return result(name, exec);
 }
 
 result stepping_down(series s, threshold t) {
   const auto name = NAME("stepping_down", t);
-  const bool exec = LEADING(s) / TRAILING(s) > t;
+  const bool exec = DISTANT_AVERAGE(s) / RECENT_AVERAGE(s) > t;
   return result(name, exec);
 }
 
@@ -143,8 +143,8 @@ double AVERAGE(series s) {
              : 0.0;
 }
 
-// TODO - rename to RECENT
-double LEADING(series s) {
+// Average of the most recent half of the series
+double RECENT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
   return mid_point > 0.0
              ? accumulate(s.crbegin(), next(s.crbegin(), mid_point), 0.0,
@@ -153,7 +153,8 @@ double LEADING(series s) {
              : 0.0;
 }
 
-double TRAILING(series s) {
+// Average of the oldest half of the series
+double DISTANT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
   return mid_point > 0.0
              ? accumulate(s.cbegin(), next(s.cbegin(), mid_point), 0.0,
