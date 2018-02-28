@@ -38,8 +38,8 @@ int main() {
     const double out = outs[strategy];
     const double yield = 100.0 * out / (in > 0 ? in : 1);
 
-    std::cout << strategy << "\t" << std::fixed << yield << "\t" << in
-              << "\t" << out << "\n";
+    std::cout << strategy << "\t" << std::fixed << yield << "\t" << in << "\t"
+              << out << "\n";
   }
 
   // Strategy summary

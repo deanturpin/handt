@@ -1,8 +1,8 @@
+#include <algorithm>
 #include <functional>
 #include <iomanip>
 #include <numeric>
 #include <sstream>
-#include <algorithm>
 #include <vector>
 
 namespace lft {
@@ -68,50 +68,37 @@ result stepping_down(series s, threshold t) {
 result rolling_average(series s, threshold t) {
   const auto name = NAME("roll_average", t);
   const unsigned long length = 10;
+  const double average =
+      std::accumulate(s.crbegin(), next(s.crend(), length), 0.0) / length;
 
-  // Start from the beginning
-  const auto start = s.cbegin();
-
-  // End a filter length from the end
-  const auto end = std::prev(s.cend(), length);
-
-  vector<double> raverage;
-  std::transform(start, end, std::back_inserter(raverage),
-                 [&length](const auto &i) {
-                 const auto start = &i;
-                 const auto end = std::next(&i, length);
-                 return std::accumulate(start, end, 0.0) / length;
-                 });
-
-  const bool exec = SPOT(s) / raverage.back() > t;
+  const bool exec = SPOT(s) / average > t;
   return result(name, exec);
 }
 
 result average_inter(series s, threshold t) {
   const auto name = NAME("average_inter", t);
-
   const unsigned long filter1 = 10 * t;
   const unsigned long filter2 = 20 * t;
 
-  const double short_average = 
-    std::accumulate(s.crbegin(), next(s.crbegin(), filter1), 0.0) / filter1;
+  // Average with a small window
+  const double short_average =
+      std::accumulate(s.crbegin(), next(s.crbegin(), filter1), 0.0) / filter1;
 
-  const double long_average = 
-    std::accumulate(s.crbegin(), next(s.crbegin(), filter2), 0.0) / filter2;
+  // Average with a longer window
+  const double long_average =
+      std::accumulate(s.crbegin(), next(s.crbegin(), filter2), 0.0) / filter2;
 
   const bool exec = short_average > long_average;
   return result(name, exec);
 }
 
 result average_compare(series s, threshold t) {
-
   const auto name = NAME("average_comp", t);
-
   const unsigned long ratio = s.size() / t;
   const double recent_average =
-    std::accumulate(s.crbegin(), std::next(s.crbegin(), ratio), 0.0,
-                    [](auto &sum, auto &i) { return sum + i; }) /
-    ratio;
+      std::accumulate(s.crbegin(), std::next(s.crbegin(), ratio), 0.0,
+                      [](auto &sum, auto &i) { return sum + i; }) /
+      ratio;
 
   const bool exec = recent_average > AVERAGE(s);
   return result(name, exec);
@@ -158,8 +145,6 @@ double AVERAGE(series s) {
 
 // TODO - rename to RECENT
 double LEADING(series s) {
-
-  // Find the mid point of the series
   const unsigned long mid_point = s.size() / 2;
   return mid_point > 0.0
              ? accumulate(s.crbegin(), next(s.crbegin(), mid_point), 0.0,
@@ -169,8 +154,6 @@ double LEADING(series s) {
 }
 
 double TRAILING(series s) {
-
-  // Find the mid point of the series
   const unsigned long mid_point = s.size() / 2;
   return mid_point > 0.0
              ? accumulate(s.cbegin(), next(s.cbegin(), mid_point), 0.0,
@@ -180,24 +163,22 @@ double TRAILING(series s) {
 }
 
 string NAME(const string n, threshold t) { return to_string(t) + "-" + n; }
-
 double SPOT(series s) { return s.back(); }
 
+// Entry point into the library, returns a list of the strategy names that
+// reported "buy" for the prices given
 vector<string> run_strategies(series s) {
 
   // Strats that take thresholds
-  const vector<double> thresholds {1.05, 1.1, 1.2, 1.3, 1.4};
+  const vector<double> thresholds{1.05, 1.1, 1.2, 1.3, 1.4};
   const vector<std::function<result(series, threshold)>> strategy_library1{
-    crashing, spiking, jumping, stepping_up, stepping_down, steady_rise,
-    kosovich, rolling_average
-  };
+      crashing,      spiking,     jumping,  stepping_up,
+      stepping_down, steady_rise, kosovich, rolling_average};
 
   // Strats that take ratios
-  const vector<double> ratios {1, 2, 3, 4};
+  const vector<double> ratios{1, 2, 3, 4};
   const vector<std::function<result(series, threshold)>> strategy_library2{
-    average_compare,
-    average_inter
-  };
+      average_compare, average_inter};
 
   vector<string> trades;
   for (const auto &buy : strategy_library1)
@@ -218,5 +199,4 @@ vector<string> run_strategies(series s) {
 
   return trades;
 }
-
 }

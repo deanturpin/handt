@@ -83,10 +83,10 @@ int main() {
 
       // Try to find a matching existing position
       const auto it =
-        std::find_if(positions.cbegin(), positions.cend(),
-                     [&name, &strategy](const auto &p) {
-                     return p.name == name && p.strategy == strategy;
-                     });
+          std::find_if(positions.cbegin(), positions.cend(),
+                       [&name, &strategy](const auto &p) {
+                         return p.name == name && p.strategy == strategy;
+                       });
 
       // If there isn't one create a position with current price
       if (it == positions.cend()) {
