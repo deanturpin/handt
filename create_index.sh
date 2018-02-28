@@ -13,6 +13,7 @@ cat <<!
 
 <style>
 body { font-family: sans-serif; }
+h1 { visibility: hidden; }
 </style>
 
 <title>HANDT</title>
@@ -30,14 +31,9 @@ $(echo Index $(cat coinindex.txt) into $(cat coins.csv | wc -l) coins)
 $(cat summary.csv)
 </pre>
 
-<h2>Coinbase</h2>
+<h2>Coinbase / Poloniex</h2>
 <pre>
-$(grep -I -E '\<ETH\>|\<BTC\>|\<BCH\>|\<LTC\>' positions.csv)
-</pre>
-
-<h2>Poloniex</h2>
-<pre>
-$(grep -I -E '\<ETH\>|\<BTC\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<NXT\>|\<ZEC\>|\<DASH\>|\<REP\>' positions.csv)
+$(grep -I -E '\<ETH\>|\<BTC\>|\<BCH\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<STR\>|\<NXT\>|\<ZEC\>|\<DASH\>|\<REP\>' positions.csv)
 </pre>
 
 <h2>Change log</h2>

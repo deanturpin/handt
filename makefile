@@ -22,7 +22,7 @@ index.html: trades
 
 cc=g++
 %.o: %.cpp
-	$(cc) -O3 -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
+	$(cc) -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 clean:
 	rm -f prices.csv *.o
@@ -30,6 +30,10 @@ clean:
 
 cron:
 	while :; do make tidy all; sleep 1m; done
+
+autotest: test.o
+	./$< > results2.txt
+	@diff results.txt results2.txt
 
 tidy:
 	rm -f coins.csv

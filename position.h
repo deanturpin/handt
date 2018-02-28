@@ -22,18 +22,17 @@ struct trade_position {
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const trade_position &p) {
     os.precision(10);
-    return os << std::fixed << " " << p.name << "\t"
-              << p.yield << "\t" << p.strategy << " " << p.notes << " "
-              << p.buy_price << " " << p.sell_price << " " << p.timestamp << " "
-              << p.duration << " " << std::boolalpha << p.open << "\n";
+    return os << std::fixed << " " << p.name << "\t" << p.yield << "\t"
+              << p.strategy << "\t" << p.notes << " " << p.buy_price << " "
+              << p.sell_price << " " << p.timestamp << " " << p.duration << " "
+              << std::boolalpha << p.open << "\n";
   }
 
   // Streaming in
   friend std::istream &operator>>(std::istream &is, trade_position &p) {
-    is.precision(10);
-    return is >> p.name >> p.yield >> p.strategy >>
-           p.notes >> p.buy_price >> p.sell_price >> p.timestamp >>
-           p.duration >> std::boolalpha >> p.open;
+    return is >> p.name >> p.yield >> p.strategy >> p.notes >> p.buy_price >>
+           p.sell_price >> p.timestamp >> p.duration >> std::boolalpha >>
+           p.open;
   }
 };
 

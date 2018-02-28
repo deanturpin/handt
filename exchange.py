@@ -24,11 +24,12 @@ if index > len(coins):
 
 # Put a subset of coins in the wallet
 wallet = []
-for x in range(0, batch_size):
-    wallet.append(coins[index])
-    index += 1
-    if index >= len(coins):
-        index = 0
+if len(coins):
+    for x in range(0, batch_size):
+        wallet.append(coins[index])
+        index += 1
+        if index >= len(coins):
+            index = 0
 
 # Write the index back
 coinindex = open("coinindex.txt", "w")

@@ -76,3 +76,61 @@ CryptoCompare don't publish updates more often than once per minute.
 curl
 'https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=USD&limit=168&aggregate=1&e=CCCAGG'
 ```
+
+# Heading towards a language for defining strategies
+The current strategy definition makes use of a library of techniques.
+```cpp
+result stepping_up(series s, param p) { 
+  const auto name = NAME("stepping_up", p);
+  const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > THRESHOLD(p);
+  return result(name, exec);
+}
+```
+
+Which isn't too far removed from a strategy definition language.
+```
+name = "stepping_up"
+exec = RECENT_AVERAGE / DISTANT_AVERAGE > THRESHOLD
+```
+
+
+# Coinbase only
+After a few days of Coinbase only trading
+```
+21 strategies have the opportunity to trade 4 coins every two minutes
+60480 decisions per day
+20 positions held
+1 complete trades
+
+STRATEGY % RETURN       $ IN            $ OUT           DURATION (hrs)   
+
+bigcap10 89.425145      400.000000      357.700581      99.199931
+bigcap20 0.000000       0.000000        0.000000        0.000000
+jklonga3 0.000000       0.000000        0.000000        0.000000
+jklonga4 0.000000       0.000000        0.000000        0.000000
+jklongav 92.104356      500.000000      460.521780      91.036667
+jkrise10 87.207315      400.000000      348.829259      69.887500
+jkstep20 0.000000       0.000000        0.000000        0.000000
+kossages 0.000000       0.000000        0.000000        0.000000
+manualxx 0.000000       0.000000        0.000000        0.000000
+nino1000 0.000000       0.000000        0.000000        0.000000
+nino1001 0.000000       0.000000        0.000000        0.000000
+nino1003 0.000000       0.000000        0.000000        0.000000
+rolav10a 86.881881      300.000000      260.645642      42.194722
+rolav20a 88.248806      400.000000      352.995225      56.104236
+simsimma 0.000000       0.000000        0.000000        0.000000
+skisun05 94.082333      100.000000      94.082333       10.166667
+skisun10 0.000000       0.000000        0.000000        0.000000
+skisun20 0.000000       0.000000        0.000000        0.000000
+turbo_10 0.000000       0.000000        0.000000        0.000000
+turbo_20 0.000000       0.000000        0.000000        0.000000
+turbo_30 0.000000       0.000000        0.000000        0.000000
+
+TOTAL    89.274991      2100.000000     1874.774820                     
+```
+
+```
+ BTC    110.203179      jklongav okprices 10537.010000 11612.120000 1519410962
+ 302640
+ ```
+

@@ -1,6 +1,7 @@
 #include "position.h"
 #include "strategy.h"
 #include "utils.h"
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <istream>
@@ -12,9 +13,6 @@
 
 // Let's trade
 int main() {
-
-  // Get the strategies
-  const auto &strategies = lft::strategy_library;
 
   // Get some recent prices
   const auto prices = get_prices();
@@ -49,23 +47,11 @@ int main() {
         pos.duration = timestamp() - pos.timestamp;
         pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-        // Find the strategy for this position
-        static auto strat_it = strategies.cbegin();
-        strat_it = find_if(
-            strategies.cbegin(), strategies.cend(),
-            [&pos](const auto &s) { return pos.strategy == s->name(); });
-
-        // Review position if we've found the strategy
-        if (strat_it != strategies.cend()) {
-
-          // Check if it's good to sell
-          const auto &series = it->second;
-          if ((*strat_it)->sell(series, pos.buy_price)) {
-            pos.open = false;
-            pos.notes = "isclosed";
-          }
-        } else
-          pos.notes = "no_strat";
+        // Check if it's good to sell
+        if (pos.sell_price / pos.buy_price > 1.1) {
+          pos.open = false;
+          pos.notes = "isclosed";
+        }
 
         // Couldn't find any prices for this coin
       } else
@@ -74,47 +60,56 @@ int main() {
   }
 
   // Look for new positions
+  decltype(positions) new_positions;
   for (const auto &coin : prices) {
 
     const std::string name = coin.first;
     const double spot = coin.second.back();
     const auto series = coin.second;
 
-    // Don't bother looking if there's not much to go on
+    // Don't bother looking if there are too few prices
     if (series.size() < 50)
       continue;
 
-    // Assess viability of a trade for each strategy
-    for (const auto &strategy : strategies) {
+    // Don't bother looking if the coin is low value
+    if (series.back() < 1.0)
+      continue;
 
-      // Check if we already hold a position with the current strategy
-      const auto it = std::find_if(positions.cbegin(), positions.cend(),
-                                   [&name, &strategy](const auto &p) {
-                                     return p.name == name &&
-                                            p.strategy == strategy->name();
-                                   });
+    // Test all strategies with this series
+    const auto buys = lft::run_strategies(series);
 
-      // If not consider creating one
-      if (it == positions.cend())
-        if (strategy->buy(series)) {
-          trade_position pos;
-          pos.name = name;
+    // Review results
+    for (const auto &strategy : buys) {
 
-          // Initialise buy and sell to same price
-          pos.buy_price = pos.sell_price = spot;
+      // Try to find a matching existing position
+      const auto it =
+          std::find_if(positions.cbegin(), positions.cend(),
+                       [&name, &strategy](const auto &p) {
+                         return p.name == name && p.strategy == strategy;
+                       });
 
-          pos.strategy = strategy->name();
-          pos.yield = 100.0 * pos.sell_price / pos.buy_price;
+      // If there isn't one create a position with current price
+      if (it == positions.cend()) {
 
-          // Initialise timestamp, sell price updated each time it is reviewed
-          pos.timestamp = timestamp();
-          pos.duration = 1;
-          pos.open = true;
+        trade_position pos;
+        pos.name = name;
+        pos.buy_price = pos.sell_price = spot;
+        pos.strategy = strategy;
+        pos.yield = 100.0 * pos.sell_price / pos.buy_price;
 
-          positions.push_back(pos);
-        }
+        // Initialise timestamp, sell price updated each time it is reviewed
+        pos.timestamp = timestamp();
+        pos.duration = 1;
+        pos.open = true;
+
+        new_positions.push_back(pos);
+      }
     }
   }
+
+  // Append new positions to existing
+  std::copy(new_positions.cbegin(), new_positions.cend(),
+            std::back_inserter(positions));
 
   // Trading session is complete, sort all positions prior to storing
   std::sort(positions.begin(), positions.end(),

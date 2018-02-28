@@ -1,280 +1,186 @@
-#ifndef LFT_STRATEGY
-#define LFT_STRATEGY
-
 #include <algorithm>
-#include <iostream>
-#include <istream>
-#include <memory>
+#include <functional>
+#include <iomanip>
 #include <numeric>
-#include <string>
+#include <sstream>
 #include <vector>
 
 namespace lft {
 
-// The top level base class
-struct strategy {
+// STD shortcuts
+using std::string;
+using std::pair;
+using std::vector;
+using std::accumulate;
+using std::next;
+using std::to_string;
 
-  // A strategy needs a unique name
-  virtual std::string name() const { return "undefined"; }
+// Parameteric shortcuts
+using result = pair<string, bool>;
+using series = const vector<double> &;
+using param = const double &;
 
-  // Routines that take a series of prices and return an action
-  virtual bool buy(const std::vector<double> &) const = 0;
-  virtual bool sell(const std::vector<double> &, const double &) const = 0;
-};
+// Helper routines to define strategies
+double SPOT(series);
+double AVERAGE(series);
+double RECENT_AVERAGE(series);
+double DISTANT_AVERAGE(series);
+double THRESHOLD(param);
+string NAME(const string, param p);
 
-// TURBO - buy if spot is significantly above average for whole period
-struct turbo : public strategy {
-  std::string name() const override { return "turbo_20"; }
-  virtual double threshold() const { return 1.2; }
-  bool buy(const std::vector<double> &series) const override {
-    const double spot = series.back();
-    const double average =
-        std::accumulate(series.cbegin(), series.cend(), 0.0,
-                        [](auto &sum, const auto &i) { return sum + i; }) /
-        series.size();
-    return average / spot > threshold();
-  }
+// Strategies
 
-  virtual bool sell(const std::vector<double> &series,
-                    const double &buy_price) const override {
-    const auto sell_price = series.back();
-    return sell_price / buy_price > threshold();
-  };
-};
-
-struct turbo_short : public turbo {
-  std::string name() const override { return "turbo_10"; }
-  virtual double threshold() const { return 1.1; }
-};
-
-struct turbo_long : public turbo {
-  std::string name() const override { return "turbo_30"; }
-  virtual double threshold() const { return 1.3; }
-};
-
-// Sim simma
-struct simsimma : public turbo {
-  std::string name() const override { return "simsimma"; }
-  bool buy(const std::vector<double> &series) const override {
-    double trend = 0.0;
-    for (auto i = series.cbegin(); i != std::prev(series.cend()); ++i)
-      trend += (*i < *std::next(i) ? 1.0 : -1.0);
-    return trend > series.size() * .75;
-  };
-};
-
-// Kos
-struct kos : public turbo {
-  std::string name() const override { return "kossages"; }
-  bool buy(const std::vector<double> &series) const override {
-    const double high = *std::max_element(series.cbegin(), series.cend());
-    const double spot = series.back();
-    return spot / high > 1.1;
-  }
-};
-
-// Manual buy and auto exit
-struct manual_buy : public turbo {
-  std::string name() const override { return "manualxx"; }
-  bool buy(const std::vector<double> &series) const override {
-    static_cast<void>(series);
-    return false;
-  }
-};
-
-// NINO - don't consider small value coins
-struct nino : public turbo {
-  std::string name() const override { return "nino1000"; }
-  virtual double threshold() const { return 1.2; }
-  bool buy(const std::vector<double> &series) const override {
-    const double spot = series.back();
-    return spot < 10 ? false : turbo::buy(series);
-  }
-};
-
-struct nino_min : public nino {
-  std::string name() const override { return "nino1001"; }
-  virtual double threshold() const { return 1.1; }
-};
-
-struct nino_max : public nino {
-  std::string name() const override { return "nino1003"; }
-  virtual double threshold() const { return 1.3; }
-};
-
-struct jk : public turbo {
-  std::string name() const override { return "jkrise10"; }
-  bool buy(const std::vector<double> &series) const override {
-    const double average =
-        std::accumulate(series.cbegin(), series.cend(), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
-        series.size();
-    const double spot = series.back();
-    return spot / average > 1.1;
-  }
-  virtual bool sell(const std::vector<double> &series,
-                    const double &buy_price) const override {
-    return series.back() / buy_price > 1.1;
-  };
-};
-
-struct jk_step : public turbo {
-  std::string name() const override { return "jkstep20"; }
-  bool buy(const std::vector<double> &series) const override {
-    const unsigned long mid = series.size() / 2;
-    const double back =
-        std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; });
-    const double front =
-        std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; });
-    return front / back > 1.2;
-  }
-};
-
-struct bigcap : public turbo {
-  std::string name() const override { return "bigcap20"; }
-  virtual double threshold() const { return 1.2; }
-  bool buy(const std::vector<double> &series) const override {
-    const double spot = series.back();
-    if (spot < 10)
-      return false;
-
-    const unsigned long mid = series.size() / 2;
-    const double back =
-        std::accumulate(series.cbegin(), std::next(series.cbegin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
-        mid;
-    const double front =
-        std::accumulate(series.crbegin(), std::next(series.crbegin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
-        mid;
-
-    return front / back > threshold();
-  };
-};
-
-struct bigcap_low : public bigcap {
-  std::string name() const override { return "bigcap10"; }
-  double threshold() const override { return 1.1; }
-};
-
-struct rolling_average : public turbo {
-  virtual unsigned long filter_length() const { return 20UL; }
-  std::string name() const override { return "rolav20a"; }
-  bool buy(const std::vector<double> &series) const override {
-    const auto start = series.cbegin();
-    const auto end = std::prev(series.cend(), filter_length());
-    // const auto length = series.size() - filter_length();
-    const auto filt = filter_length();
-    std::vector<double> raverage;
-    std::transform(start, end, std::back_inserter(raverage),
-                   [&filt](const auto &i) {
-                     const auto start = &i;
-                     const auto end = std::next(&i, filt);
-                     return std::accumulate(start, end, 0.0) / filt;
-                   });
-
-    return series.back() / raverage.back() > 1.05;
-  };
-};
-
-// Rolling average over fewer points
-struct rolling_average_short : public rolling_average {
-  std::string name() const override { return "rolav10a"; }
-  unsigned long filter_length() const override { return 10UL; }
-};
-
-// Ski slope profiles
-struct ski_sunday : public bigcap {
-  std::string name() const override { return "skisun20"; }
-  virtual double threshold() const { return 1.2; }
-  bool buy(const std::vector<double> &series) const override {
-    if (series.back() < 10)
-      return false;
-
-    const unsigned long mid = series.size() / 2;
-
-    const double back =
-        std::accumulate(series.begin(), std::next(series.begin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
-        mid;
-
-    const double front =
-        std::accumulate(series.rbegin(), std::next(series.rbegin(), mid), 0.0,
-                        [](auto &sum, auto &i) { return sum + i; }) /
-        mid;
-
-    const auto spot = series.back();
-    return (back / front > threshold() && spot / front > 1.05);
-  };
-};
-
-struct ski_sunday_low : public ski_sunday {
-  std::string name() const override { return "skisun10"; }
-  double threshold() const override { return 1.1; }
-};
-
-struct ski_sunday_vlow : public ski_sunday {
-  std::string name() const override { return "skisun05"; }
-  double threshold() const override { return 1.05; }
-};
-
-// Average comparison
-struct average_compare : public turbo {
-  std::string name() const override { return "jklongav"; }
-  virtual unsigned long ratio() const { return 2; }
-  bool buy(const std::vector<double> &series) const override {
-    {
-      const unsigned long mid = series.size() / ratio();
-      const double recent_average =
-          std::accumulate(std::next(series.cbegin(), mid), series.cend(), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; }) /
-          mid;
-      const double distant_average =
-          std::accumulate(series.cbegin(), series.cend(), 0.0,
-                          [](auto &sum, auto &i) { return sum + i; }) /
-          series.size();
-
-      return recent_average > distant_average;
-    }
-  }
-};
-
-struct average_compare3 : public turbo {
-  std::string name() const override { return "jklonga3"; }
-  virtual unsigned long ratio() const { return 3; }
-};
-
-struct average_compare4 : public turbo {
-  std::string name() const override { return "jklonga4"; }
-  virtual unsigned long ratio() const { return 3; }
-};
-
-// Create strategy library
-const std::vector<std::shared_ptr<strategy>> strategy_library{
-    std::make_shared<turbo>(),
-    std::make_shared<turbo_short>(),
-    std::make_shared<turbo_long>(),
-    std::make_shared<simsimma>(),
-    std::make_shared<kos>(),
-    std::make_shared<nino>(),
-    std::make_shared<nino_min>(),
-    std::make_shared<nino_max>(),
-    std::make_shared<manual_buy>(),
-    std::make_shared<jk>(),
-    std::make_shared<jk_step>(),
-    std::make_shared<bigcap>(),
-    std::make_shared<bigcap_low>(),
-    std::make_shared<rolling_average>(),
-    std::make_shared<rolling_average_short>(),
-    std::make_shared<ski_sunday>(),
-    std::make_shared<ski_sunday_low>(),
-    std::make_shared<ski_sunday_vlow>(),
-    std::make_shared<average_compare>(),
-    std::make_shared<average_compare3>(),
-    std::make_shared<average_compare4>(),
-};
+result flicking_down(series s, param p) {
+  const auto name = NAME("flicking_down", p);
+  const bool exec = AVERAGE(s) / SPOT(s) > THRESHOLD(p);
+  return result(name, exec);
 }
 
-#endif
+result flicking_up(series s, param p) {
+  const auto name = NAME("flicking_up", p);
+  const bool exec = SPOT(s) / AVERAGE(s) > THRESHOLD(p);
+  return result(name, exec);
+}
+
+result stepping_up(series s, param p) {
+  const auto name = NAME("stepping_up", p);
+  const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > THRESHOLD(p);
+  return result(name, exec);
+}
+
+result stepping_down(series s, param p) {
+  const auto name = NAME("stepping_down", p);
+  const bool exec = DISTANT_AVERAGE(s) / RECENT_AVERAGE(s) > THRESHOLD(p);
+  return result(name, exec);
+}
+
+result rolling_average(series s, param p) {
+  const auto name = NAME("roll_average", p);
+  const unsigned long length = 10;
+  const double average =
+      std::accumulate(s.crbegin(), next(s.crend(), length), 0.0) / length;
+
+  const bool exec = SPOT(s) / average > THRESHOLD(p);
+  return result(name, exec);
+}
+
+result average_inter(series s, param p) {
+  const auto name = NAME("average_inter", p);
+  const unsigned long filter1 = 10 * p;
+  const unsigned long filter2 = 20 * p;
+
+  // Average with a small window
+  const double short_average =
+      std::accumulate(s.crbegin(), next(s.crbegin(), filter1), 0.0) / filter1;
+
+  // Average with a longer window
+  const double long_average =
+      std::accumulate(s.crbegin(), next(s.crbegin(), filter2), 0.0) / filter2;
+
+  const bool exec = short_average > long_average;
+  return result(name, exec);
+}
+
+result average_compare(series s, param p) {
+  const auto name = NAME("average_comp", p);
+  const unsigned long ratio = s.size() / p;
+  const double recent_average =
+      std::accumulate(s.crbegin(), std::next(s.crbegin(), ratio), 0.0,
+                      [](auto &sum, auto &i) { return sum + i; }) /
+      ratio;
+
+  const bool exec = recent_average > AVERAGE(s);
+  return result(name, exec);
+}
+
+result ski_jumping(series s, param p) {
+  const auto name = NAME("ski_jumping", p);
+  const bool exec = stepping_down(s, p).second && flicking_up(s, p).second;
+  return result(name, exec);
+}
+
+result steady_rising(series s, param p) {
+  const auto name = NAME("steady_rising", p);
+  double trend = 0.0;
+  for (auto i = s.cbegin(); i != std::prev(s.cend()); ++i)
+    trend += (*i < *std::next(i) ? 1.0 : -1.0);
+  const bool exec = trend > s.size() * .75;
+  return result(name, exec);
+}
+
+result kosovich(series s, param p) {
+  const auto name = NAME("kosovich", p);
+  const double high = *std::max_element(s.cbegin(), s.cend());
+  const bool exec = SPOT(s) / high > THRESHOLD(p);
+  return result(name, exec);
+}
+
+// Implementation of helper routines
+double AVERAGE(series s) {
+  return s.size() > 0.0
+             ? accumulate(s.cbegin(), s.cend(), 0.0,
+                          [](auto &sum, const auto &i) { return sum + i; }) /
+                   s.size()
+             : 0.0;
+}
+
+// Average of the most recent half of the series
+double RECENT_AVERAGE(series s) {
+  const unsigned long mid_point = s.size() / 2;
+  vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
+  return AVERAGE(subset);
+}
+
+// Average of the oldest half of the series
+double DISTANT_AVERAGE(series s) {
+  const unsigned long mid_point = s.size() / 2;
+  vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
+  return AVERAGE(subset);
+}
+
+string NAME(const string n, param p) {
+  return to_string(p).substr(0, 4) + "_" + n;
+}
+
+double THRESHOLD(param p) {
+  return (100.0 + p) / 100.0;
+}
+
+double SPOT(series s) { return s.back(); }
+
+// Entry point into the library, returns a list of the strategy names that
+// reported "buy" for the prices given
+vector<string> run_strategies(series s) {
+
+  using library = const vector<std::function<result(series, param)>>;
+
+  // Strategies that take thresholds (in percent)
+  const vector<double> thresholds{5.0, 10.0, 20.0, 30.0, 40.0};
+  library lib1{
+      flicking_down, flicking_up, ski_jumping, stepping_up,
+      stepping_down, steady_rising, kosovich, rolling_average};
+
+  vector<string> trades;
+  for (const auto &buy : lib1)
+    for (const auto &t : thresholds) {
+      const auto b = buy(s, t);
+
+      if (b.second)
+        trades.push_back(b.first);
+    }
+
+  // Strategies that take ratios
+  const vector<double> ratios{1, 2, 3, 4};
+  library lib2{average_compare, average_inter};
+
+  for (const auto &buy : lib2)
+    for (const auto &t : ratios) {
+      const auto b = buy(s, t);
+
+      if (b.second)
+        trades.push_back(b.first);
+    }
+
+  return trades;
+}
+}
