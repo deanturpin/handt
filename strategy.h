@@ -117,6 +117,7 @@ result kosovich(series s, param p) {
 }
 
 result random_decision(series s, param p) {
+  static_cast<void>(s);
   const auto name = NAME("f5f5f5f5f5...", p);
   std::default_random_engine generator;
   std::uniform_real_distribution<double> distribution(0.0, p);
