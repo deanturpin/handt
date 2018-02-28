@@ -87,6 +87,22 @@ result rolling_average(series s, threshold t) {
   return result(name, exec);
 }
 
+result average_inter(series s, threshold t) {
+  const auto name = NAME("average_inter", t);
+
+  const unsigned long filter1 = 10 * t;
+  const unsigned long filter2 = 20 * t;
+
+  const double short_average = 
+    std::accumulate(s.crbegin(), next(s.crbegin(), filter1), 0.0) / filter1;
+
+  const double long_average = 
+    std::accumulate(s.crbegin(), next(s.crbegin(), filter2), 0.0) / filter2;
+
+  const bool exec = short_average > long_average;
+  return result(name, exec);
+}
+
 result average_compare(series s, threshold t) {
 
   const auto name = NAME("average_comp", t);
@@ -177,9 +193,10 @@ vector<string> run_strategies(series s) {
   };
 
   // Strats that take ratios
-  const vector<double> ratios {2, 3, 4};
+  const vector<double> ratios {1, 2, 3, 4};
   const vector<std::function<result(series, threshold)>> strategy_library2{
-    average_compare
+    average_compare,
+    average_inter
   };
 
   vector<string> trades;
