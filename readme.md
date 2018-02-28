@@ -76,3 +76,20 @@ CryptoCompare don't publish updates more often than once per minute.
 curl
 'https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=USD&limit=168&aggregate=1&e=CCCAGG'
 ```
+
+# Heading towards a language for defining strategies
+The current strategy definition makes use of a library of techniques.
+```cpp
+result stepping_up(series s, param p) { 
+  const auto name = NAME("stepping_up", p);
+  const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > THRESHOLD(p);
+  return result(name, exec);
+}
+```
+
+Which isn't too far removed from a strategy definition language.
+```
+name = "stepping_up"
+exec = RECENT_AVERAGE / DISTANT_AVERAGE > THRESHOLD
+```
+

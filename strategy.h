@@ -18,55 +18,56 @@ using std::to_string;
 // Parameteric shortcuts
 using result = pair<string, bool>;
 using series = const vector<double> &;
-using threshold = const double &;
+using param = const double &;
 
 // Helper routines to define strategies
 double SPOT(series);
 double AVERAGE(series);
 double RECENT_AVERAGE(series);
 double DISTANT_AVERAGE(series);
-string NAME(const string, threshold t);
+double THRESHOLD(param);
+string NAME(const string, param p);
 
 // Strategies
 
-result flicking_down(series s, threshold t) {
-  const auto name = NAME("flicking_down", t);
-  const bool exec = AVERAGE(s) / SPOT(s) > t;
+result flicking_down(series s, param p) {
+  const auto name = NAME("flicking_down", p);
+  const bool exec = AVERAGE(s) / SPOT(s) > THRESHOLD(p);
   return result(name, exec);
 }
 
-result flicking_up(series s, threshold t) {
-  const auto name = NAME("flicking_up", t);
-  const bool exec = SPOT(s) / AVERAGE(s) > t;
+result flicking_up(series s, param p) {
+  const auto name = NAME("flicking_up", p);
+  const bool exec = SPOT(s) / AVERAGE(s) > THRESHOLD(p);
   return result(name, exec);
 }
 
-result stepping_up(series s, threshold t) {
-  const auto name = NAME("stepping_up", t);
-  const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > t;
+result stepping_up(series s, param p) {
+  const auto name = NAME("stepping_up", p);
+  const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > THRESHOLD(p);
   return result(name, exec);
 }
 
-result stepping_down(series s, threshold t) {
-  const auto name = NAME("stepping_down", t);
-  const bool exec = DISTANT_AVERAGE(s) / RECENT_AVERAGE(s) > t;
+result stepping_down(series s, param p) {
+  const auto name = NAME("stepping_down", p);
+  const bool exec = DISTANT_AVERAGE(s) / RECENT_AVERAGE(s) > THRESHOLD(p);
   return result(name, exec);
 }
 
-result rolling_average(series s, threshold t) {
-  const auto name = NAME("roll_average", t);
+result rolling_average(series s, param p) {
+  const auto name = NAME("roll_average", p);
   const unsigned long length = 10;
   const double average =
       std::accumulate(s.crbegin(), next(s.crend(), length), 0.0) / length;
 
-  const bool exec = SPOT(s) / average > t;
+  const bool exec = SPOT(s) / average > THRESHOLD(p);
   return result(name, exec);
 }
 
-result average_inter(series s, threshold t) {
-  const auto name = NAME("average_inter", t);
-  const unsigned long filter1 = 10 * t;
-  const unsigned long filter2 = 20 * t;
+result average_inter(series s, param p) {
+  const auto name = NAME("average_inter", p);
+  const unsigned long filter1 = 10 * p;
+  const unsigned long filter2 = 20 * p;
 
   // Average with a small window
   const double short_average =
@@ -80,9 +81,9 @@ result average_inter(series s, threshold t) {
   return result(name, exec);
 }
 
-result average_compare(series s, threshold t) {
-  const auto name = NAME("average_comp", t);
-  const unsigned long ratio = s.size() / t;
+result average_compare(series s, param p) {
+  const auto name = NAME("average_comp", p);
+  const unsigned long ratio = s.size() / p;
   const double recent_average =
       std::accumulate(s.crbegin(), std::next(s.crbegin(), ratio), 0.0,
                       [](auto &sum, auto &i) { return sum + i; }) /
@@ -92,14 +93,14 @@ result average_compare(series s, threshold t) {
   return result(name, exec);
 }
 
-result ski_jumping(series s, threshold t) {
-  const auto name = NAME("ski_jumping", t);
-  const bool exec = stepping_down(s, t).second && flicking_up(s, t).second;
+result ski_jumping(series s, param p) {
+  const auto name = NAME("ski_jumping", p);
+  const bool exec = stepping_down(s, p).second && flicking_up(s, p).second;
   return result(name, exec);
 }
 
-result steady_rising(series s, threshold t) {
-  const auto name = NAME("steady_rising", t);
+result steady_rising(series s, param p) {
+  const auto name = NAME("steady_rising", p);
   double trend = 0.0;
   for (auto i = s.cbegin(); i != std::prev(s.cend()); ++i)
     trend += (*i < *std::next(i) ? 1.0 : -1.0);
@@ -107,10 +108,10 @@ result steady_rising(series s, threshold t) {
   return result(name, exec);
 }
 
-result kosovich(series s, threshold t) {
-  const auto name = NAME("kosovich", t);
+result kosovich(series s, param p) {
+  const auto name = NAME("kosovich", p);
   const double high = *std::max_element(s.cbegin(), s.cend());
-  const bool exec = SPOT(s) / high > t;
+  const bool exec = SPOT(s) / high > THRESHOLD(p);
   return result(name, exec);
 }
 
@@ -137,8 +138,12 @@ double DISTANT_AVERAGE(series s) {
   return AVERAGE(subset);
 }
 
-string NAME(const string n, threshold t) {
-  return to_string(t).substr(0, 4) + "_" + n;
+string NAME(const string n, param p) {
+  return to_string(p).substr(0, 4) + "_" + n;
+}
+
+double THRESHOLD(param p) {
+  return (100.0 + p) / 100.0;
 }
 
 double SPOT(series s) { return s.back(); }
@@ -147,9 +152,11 @@ double SPOT(series s) { return s.back(); }
 // reported "buy" for the prices given
 vector<string> run_strategies(series s) {
 
-  // Strats that take thresholds
-  const vector<double> thresholds{1.05, 1.1, 1.2, 1.3, 1.4};
-  const vector<std::function<result(series, threshold)>> lib1{
+  using library = const vector<std::function<result(series, param)>>;
+
+  // Strategies that take thresholds (in percent)
+  const vector<double> thresholds{5.0, 10.0, 20.0, 30.0, 40.0};
+  library lib1{
       flicking_down, flicking_up, ski_jumping, stepping_up,
       stepping_down, steady_rising, kosovich, rolling_average};
 
@@ -162,10 +169,9 @@ vector<string> run_strategies(series s) {
         trades.push_back(b.first);
     }
 
-  // Strats that take ratios
+  // Strategies that take ratios
   const vector<double> ratios{1, 2, 3, 4};
-  const vector<std::function<result(series, threshold)>> lib2{average_compare,
-                                                              average_inter};
+  library lib2{average_compare, average_inter};
 
   for (const auto &buy : lib2)
     for (const auto &t : ratios) {
