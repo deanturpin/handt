@@ -29,30 +29,18 @@ string NAME(const string, threshold t);
 
 // Strategies
 
-// |xxxxxxx |
-// |xxxxxxx |
-// |xxxxxxx |
-// |xxxxxxxx|
 result crashing(series s, threshold t) {
   const auto name = NAME("crashing", t);
   const bool exec = AVERAGE(s) / SPOT(s) > t;
   return result(name, exec);
 }
 
-// |       x|
-// |       x|
-// |       x|
-// |xxxxxxxx|
 result spiking(series s, threshold t) {
   const auto name = NAME("spiking", t);
   const bool exec = SPOT(s) / AVERAGE(s) > t;
   return result(name, exec);
 }
 
-// |xxxx    |
-// |xxxx    |
-// |xxxxxxxx|
-// |xxxxxxxx|
 result stepping_up(series s, threshold t) {
   const auto name = NAME("stepping_up", t);
   const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > t;
@@ -104,20 +92,12 @@ result average_compare(series s, threshold t) {
   return result(name, exec);
 }
 
-// |xxxx   x|
-// |xxxx   x|
-// |xxxxxxxx|
-// |xxxxxxxx|
 result jumping(series s, threshold t) {
   const auto name = NAME("jumping", t);
   const bool exec = stepping_down(s, t).second && spiking(s, t).second;
   return result(name, exec);
 }
 
-// |      xx|
-// |    xxxx|
-// |  xxxxxx|
-// |xxxxxxxx|
 result steady_rise(series s, threshold t) {
   const auto name = NAME("steady_rise", t);
   double trend = 0.0;
@@ -146,21 +126,15 @@ double AVERAGE(series s) {
 // Average of the most recent half of the series
 double RECENT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
-  return mid_point > 0.0
-             ? accumulate(s.crbegin(), next(s.crbegin(), mid_point), 0.0,
-                          [](auto &sum, const auto &i) { return sum + i; }) /
-                   mid_point
-             : 0.0;
+  vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
+  return AVERAGE(subset);
 }
 
 // Average of the oldest half of the series
 double DISTANT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
-  return mid_point > 0.0
-             ? accumulate(s.cbegin(), next(s.cbegin(), mid_point), 0.0,
-                          [](auto &sum, const auto &i) { return sum + i; }) /
-                   mid_point
-             : 0.0;
+  vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
+  return AVERAGE(subset);
 }
 
 string NAME(const string n, threshold t) { return to_string(t) + "-" + n; }
