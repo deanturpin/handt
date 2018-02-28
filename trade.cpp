@@ -107,9 +107,6 @@ int main() {
     }
   }
 
-  std::cout << positions.size() << " existing position\n";
-  std::cout << new_positions.size() << " new position\n";
-
   // Append new positions to existing
   std::copy(new_positions.cbegin(), new_positions.cend(),
             std::back_inserter(positions));
