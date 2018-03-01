@@ -23,13 +23,16 @@ int main() {
         std::find_if(prices.cbegin(), prices.cend(),
                      [symbol](const auto p) { return p.first == symbol; });
 
+    if (it != prices.cend())
+      std::cout << symbol << " found\n";
+
     return it != prices.cend() ? it->second : std::vector<double>();
   };
 
   // Update positions
   std::decay_t<decltype(positions)> update;
   std::transform(positions.cbegin(), positions.cend(),
-                 std::back_inserter(update), [&find_prices](const auto p) {
+                 std::back_inserter(update), [&find_prices, &out](const auto p) {
 
                    // Create a copy of the position
                    std::decay_t<decltype(p)> pos = p;
@@ -37,19 +40,21 @@ int main() {
                    // If we've found some prices then update the position and
                    // return it
                    const auto q = find_prices(p.name);
-                   if (!q.empty())
+                   if (!q.empty()) {
                      pos.sell_price = q.back();
+                     out << p.name << " found update\n";
+                    }
 
                    return pos;
                  });
 
   // Print
-  // out << prices.size() << " prices\n";
-  // out << positions.size() << " original positions\n";
-  // out << updated.size() << " updated positions\n";
+  out << prices.size() << " prices\n";
+  out << positions.size() << " original positions\n";
+  out << update.size() << " updated positions\n";
   //
-  for (const auto p : update)
-    out << p;
+  // for (const auto p : update)
+    // out << p;
 
   std::cout << out.str();
 }

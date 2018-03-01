@@ -1,5 +1,5 @@
 # all: coins.csv source trades summary.csv index.html
-all: source symbols.csv prices.csv strategies.csv
+all: symbols.csv prices.csv prospects.csv
 
 # All the C++ source files
 source:
@@ -13,7 +13,11 @@ symbols.csv: symbols.py
 prices.csv: prices.py symbols.csv
 	./$< > $@
 
-strategies.csv: strategies.o prices.csv
+prospects.csv: prospects.o prices.csv
+	./$< > $@
+
+# Update existing positions
+update.csv: update.o prices.csv
 	./$< > $@
 
 # trades: trade.o prices.csv

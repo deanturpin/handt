@@ -15,7 +15,7 @@ except Exception as e:
 
 # Get the list of coins we're interested in
 coins = []
-c = open("coins.csv")
+c = open("symbols.csv")
 for coin in c:
     coins.append(coin.rstrip())
 
