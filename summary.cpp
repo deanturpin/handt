@@ -16,7 +16,7 @@ int main() {
   std::cout << prices.size() << " coins updated in the last minute\n";
 
   // Get the positions
-  const std::vector<trade_position> positions(get_positions("positions.csv"));
+  const auto positions = get_positions();
   std::cout << positions.size() << " positions\n\n";
 
   // Initialise results with all strategies

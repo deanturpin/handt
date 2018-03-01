@@ -5,6 +5,9 @@ to the processing chain. Can easily test each stage in isolation. Enforcing a
 simply interface between modules enforces a clean design (no complex
 structures passed around).
 
+This approach may make the interface harder to change (with is not necessarily a bad
+thing) but it does make reasoning about each module much easier.
+
 The strategy module takes the list of coins/prices and emits a line for each
 currency that has triggered a buy: coin name, price and list of a matching
 strategies.
@@ -21,11 +24,18 @@ prices.cpp -> prices.csv
 * Get prices from CryptoCompare
 * Filter small value coins and bad prices
 
+## update.cpp
+* Update current positions with recent prices
+
 ## strategy.cpp
 * Run strategies
 
 ## positions.cpp
+* Takes the outcome of new strategies
 * Consolidate existing and new positions
+
+## execute.cpp
+* Execute chosen symbols on an exchange
 
 ## close.cpp
 * Consider closing each position

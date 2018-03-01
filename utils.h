@@ -11,7 +11,7 @@
 #include <vector>
 
 // Get positions from a file
-auto get_positions(const std::string file) {
+auto get_positions(const std::string file = "positions.csv") {
   std::vector<trade_position> positions;
   std::ifstream in(file);
   if (in.good()) {
