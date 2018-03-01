@@ -1,24 +1,29 @@
-all: coins.csv source trades summary.csv index.html
+# all: coins.csv source trades summary.csv index.html
+all: source symbols.csv prices.csv strategies.csv
 
 # All the C++ source files
 source:
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
-# Fetch the prices from the exchanges
-prices.csv: coins.csv
-	./exchange.py > $@
-
-coins.csv:
-	./all_coins.py > $@
-
-summary.csv: summary.o trades
+# Get the currency list
+symbols.csv: symbols.py
 	./$< > $@
 
-trades: trade.o prices.csv
-	./$<
+# Fetch the prices from the exchanges
+prices.csv: prices.py symbols.csv
+	./$< > $@
 
-index.html: trades
-	./create_index.sh > index.html
+strategies.csv: strategies.o prices.csv
+	./$< > $@
+
+# trades: trade.o prices.csv
+# 	./$<
+# 
+# summary.csv: summary.o trades
+# 	./$< > $@
+# 
+# index.html: trades
+# 	./create_index.sh > index.html
 
 cc=g++
 %.o: %.cpp

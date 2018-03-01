@@ -1,15 +1,40 @@
+
+# Modular design
+Each module reads the result of running the previous and emits its contribution
+to the processing chain. Can easily test each stage in isolation. Enforcing a
+simply interface between modules enforces a clean design (no complex
+structures passed around).
+
+The strategy module takes the list of coins/prices and emits a line for each
+currency that has triggered a buy: coin name, price and list of a matching
+strategies.
+
 ```
 <file.cpp> -> <file.csv>
 prices.cpp -> prices.csv
 ```
 
-# Modular design
-Each module reads the result of running the previous and emits its contribution
-to the processing chain.
+## symbols.py
+* Get symbol list from CryptoCompare all coins list
 
-The strategy module takes the list of coins/prices and emits a line for each
-currency that has triggered a buy: coin name, price and list of a matching
-strategies.
+## prices.py
+* Get prices from CryptoCompare
+* Filter small value coins and bad prices
+
+## strategy.cpp
+* Run strategies
+
+## positions.cpp
+* Consolidate existing and new positions
+
+## close.cpp
+* Consider closing each position
+
+## summary.cpp
+* Summarise trades so far
+
+## render.sh
+* Render HTML page of summary
 
 ```
 SPK 0.3205666667 10.0_flicking_down 2.00_average_comp 

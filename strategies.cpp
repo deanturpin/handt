@@ -193,8 +193,7 @@ vector<string> run_strategies(series s) {
 int main() {
 
   // Get some example prices
-  const std::map<std::string, std::vector<double>>  prices =
-    get_prices("example.csv");
+  const auto prices = get_prices();
 
   // A place for the results
   std::stringstream results;
