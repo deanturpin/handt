@@ -6,49 +6,27 @@ simply interface between modules enforces a clean design (no complex
 structures passed around).
 
 This approach may make the interface harder to change (with is not necessarily a bad
-thing) but it does make reasoning about each module much easier.
+thing) but it does make reasoning about each module much easier. A module can
+even be ported to a different language so long as the interface is honoured.
 
 The strategy module takes the list of coins/prices and emits a line for each
 currency that has triggered a buy: coin name, price and list of a matching
 strategies.
 
 ```
-<file.cpp> -> <file.csv>
-prices.cpp -> prices.csv
+<file.cpp> > <file.csv>
+prices.cpp > prices.csv
 ```
 
-## Symbols
-* Get symbol list from CryptoCompare all coins list
-
-## Prices
-* Get prices from CryptoCompare
-* Filter small value coins and bad prices
-
-## Refresh
-* Update current positions with recent prices
-* Write copy of positions with updates applied
-
-## Review
-* Review and close existing positions
-
-## Prospects
-* Run strategies
-
-## positions.cpp
-* Takes the outcome of new strategies
-* Consolidate existing and new positions
-
-## execute.cpp
-* Execute chosen symbols on an exchange
-
-## close.cpp
-* Consider closing each position
-
-## summary.cpp
-* Summarise trades so far
-
-## render.sh
-* Render HTML page of summary
+* Fetch all SYMBOLS from CryptoCompare
+* Fetch PRICES for symbols
+* REFRESH current positions with recent prices
+* REVIEW and close existing positions
+* Calculate PROSPECTS by executing strategy library
+* CONSOLIDATE reviewed positions and new prospects
+* EXECUTE chosen trades on an exchange
+* Create SUMMARY of trades in this period
+* RENDER report
 
 ```
 SPK 0.3205666667 10.0_flicking_down 2.00_average_comp 
