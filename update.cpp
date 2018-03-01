@@ -1,7 +1,7 @@
 #include "utils.h"
+#include <algorithm>
 #include <iostream>
 #include <sstream>
-#include <algorithm>
 #include <type_traits>
 
 int main() {
@@ -9,6 +9,7 @@ int main() {
   // Configure debug
   std::stringstream out;
   out.precision(10);
+  out << std::boolalpha;
 
   // Get recent prices (not necessarily for all positions)
   const auto prices = get_prices();
@@ -16,16 +17,39 @@ int main() {
   // Get current positions (not necessarily for all prices)
   const auto positions = get_positions();
 
+  auto find_prices = [&prices](const std::string symbol) {
+
+    const auto it =
+        std::find_if(prices.cbegin(), prices.cend(),
+                     [symbol](const auto p) { return p.first == symbol; });
+
+    return it != prices.cend() ? it->second : std::vector<double>();
+  };
+
   // Update positions
-  std::decay_t<decltype(positions)> updated;
+  std::decay_t<decltype(positions)> update;
   std::transform(positions.cbegin(), positions.cend(),
-                 std::back_inserter(updated), [](const auto &p){
-                    return p;
+                 std::back_inserter(update), [&find_prices](const auto p) {
+
+                   // Create a copy of the position
+                   std::decay_t<decltype(p)> pos = p;
+
+                   // If we've found some prices then update the position and
+                   // return it
+                   const auto q = find_prices(p.name);
+                   if (!q.empty())
+                     pos.sell_price = q.back();
+
+                   return pos;
                  });
 
   // Print
-  out << prices.size() << " prices\n";
-  out << positions.size() << " original positions\n";
-  out << updated.size() << " updated positions\n";
+  // out << prices.size() << " prices\n";
+  // out << positions.size() << " original positions\n";
+  // out << updated.size() << " updated positions\n";
+  //
+  for (const auto p : update)
+    out << p;
+
   std::cout << out.str();
 }

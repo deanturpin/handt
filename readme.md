@@ -26,6 +26,7 @@ prices.cpp -> prices.csv
 
 ## update.cpp
 * Update current positions with recent prices
+* Write copy of positions with updates applied
 
 ## strategy.cpp
 * Run strategies

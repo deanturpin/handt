@@ -24,8 +24,8 @@ auto get_positions(const std::string file = "positions.csv") {
 }
 
 // Get prices and return a container full of them
-std::map<std::string, std::vector<double>> get_prices(const std::string file =
-                                                      "prices.csv") {
+std::map<std::string, std::vector<double>>
+get_prices(const std::string file = "prices.csv") {
   std::map<std::string, std::vector<double>> prices;
 
   // Read some prices
