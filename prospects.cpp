@@ -1,7 +1,8 @@
 #include "strategy.h"
 #include "utils.h"
-#include <fstream>
-#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 
 // STD shortcuts
 using std::string;
@@ -188,6 +189,8 @@ vector<string> run_strategies(series s) {
   return trades;
 }
 
+#include <iostream>
+#include <sstream>
 int main() {
 
   // Get some example prices

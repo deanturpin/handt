@@ -49,12 +49,12 @@ int main() {
                  });
 
   // Print
-  out << prices.size() << " prices\n";
-  out << positions.size() << " original positions\n";
-  out << update.size() << " updated positions\n";
+  // out << prices.size() << " prices\n";
+  // out << positions.size() << " original positions\n";
+  // out << update.size() << " updated positions\n";
   //
-  // for (const auto p : update)
-    // out << p;
+  for (const auto p : update)
+    out << p;
 
   std::cout << out.str();
 }

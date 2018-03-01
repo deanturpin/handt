@@ -17,18 +17,21 @@ strategies.
 prices.cpp -> prices.csv
 ```
 
-## symbols.py
+## Symbols
 * Get symbol list from CryptoCompare all coins list
 
-## prices.py
+## Prices
 * Get prices from CryptoCompare
 * Filter small value coins and bad prices
 
-## update.cpp
+## Refresh
 * Update current positions with recent prices
 * Write copy of positions with updates applied
 
-## strategy.cpp
+## Review
+* Review and close existing positions
+
+## Prospects
 * Run strategies
 
 ## positions.cpp

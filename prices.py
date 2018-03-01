@@ -3,7 +3,7 @@
 import json
 import requests
 
-batch_size = 80
+batch_size = 10
 index = 0
 
 try:
