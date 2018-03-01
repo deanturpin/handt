@@ -1,6 +1,7 @@
 #include "utils.h"
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 #include <type_traits>
 
 int main() {
@@ -17,13 +18,10 @@ int main() {
 
   // Update positions
   std::decay_t<decltype(positions)> updated;
-  for (const auto &p : positions) {
-    const auto name = p.name;
-    const auto spot = p.sell_price;
-    const auto strategy = p.strategy;
-    out << name << "\t" << spot << "\t" << strategy << "\n";
-    updated.push_back(p);
-  }
+  std::transform(positions.cbegin(), positions.cend(),
+                 std::back_inserter(updated), [](const auto &p){
+                    return p;
+                 });
 
   // Print
   out << prices.size() << " prices\n";
