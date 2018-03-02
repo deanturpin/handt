@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
-#include <type_traits>
+// #include <type_traits>
 
 int main() {
 
@@ -20,7 +20,7 @@ int main() {
       p.open = false;
 
   for (const auto position : positions)
-    out << position;
+    out << position << "\n";
 
   std::cout << out.str();
 }

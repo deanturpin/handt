@@ -38,7 +38,7 @@ struct position {
     return os << std::fixed << p.name << "\t" << p.yield << "\t"
               << p.strategy << "\t" << p.notes << " " << p.buy_price << " "
               << p.sell_price << " " << p.timestamp << " " 
-              << std::boolalpha << p.open << "\n";
+              << std::boolalpha << p.open;
   }
 
   // Streaming in

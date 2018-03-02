@@ -29,6 +29,10 @@ stats:
 positions.csv:
 	cp consolidate.csv positions.csv
 
+update:
+	rm -f prices.csv # refresh.csv review.csv
+	make
+
 # summary.csv: summary.o trades
 # 	./$< > $@
 # 

@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
-#include <type_traits>
+// #include <type_traits>
 
 int main() {
 
@@ -45,7 +45,7 @@ int main() {
                  });
 
   for (const auto position : update)
-    out << position;
+    out << position << "\n";
 
   std::cout << out.str();
 }
