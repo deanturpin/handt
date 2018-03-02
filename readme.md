@@ -24,8 +24,7 @@ prices.cpp > prices.csv
 * REVIEW and close existing positions
 * Calculate PROSPECTS by executing strategy library
 * CONSOLIDATE reviewed positions and new prospects
-* EXECUTE chosen trades on an exchange
-* Create SUMMARY of trades in this period
+* Create SUMMARY of trades for this period
 * RENDER report
 
 ```

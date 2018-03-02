@@ -49,3 +49,6 @@ clean:
 
 cron:
 	watch -d -n 60 make --silent update stats
+
+docs:
+	dot -T svg doc/handt.dot > doc/handt.svg
