@@ -41,9 +41,4 @@ $(grep -I -E '\<ETH\>|\<BTC\>|\<BCH\>|\<ETC\>|\<XRP\>|\<LTC\>|\<BCH\>|\<XMR\>|\<
 <pre>
 $(git log -n 5 --oneline)
 </pre>
-
-<h2>Positions</h2>
-<pre>
-$(cat -n positions.csv)
-</pre>
 !
