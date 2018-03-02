@@ -29,7 +29,7 @@ $date
 $(echo Index $(cat coinindex.txt) into $(cat symbols.csv | wc -l) coins)
 $(cat summary.csv)
 
-$(wc -l *.csv)
+$(ls -rt *.csv | while read file; do wc -l $file; done)
 </pre>
 
 <h2>Coinbase / Poloniex</h2>

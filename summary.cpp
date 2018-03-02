@@ -26,19 +26,16 @@ int main() {
   // Close all positions
   for (const auto &position : positions)
     strategies[position.strategy].push_back(position.sell_price /
-                                       position.buy_price);
+                                            position.buy_price);
 
   // Individual strategy performance
   out << "STRATEGY\t\t POS\t% RETURN\n\n";
   for (const auto &i : strategies) {
-    const std::string strategy = i.first;
-    const unsigned long count = i.second.size();
     const double yield =
         100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-        count;
+        i.second.size();
 
-    out << strategy << "\t" << std::setw(4) << count << "\t" << yield
-              << "\n";
+    out << i.first << "\t" << std::setw(4) << count << "\t" << yield << "\n";
   }
 
   std::cout << out.str();
