@@ -2,14 +2,14 @@
 #define LFT_POSITION
 
 #include <chrono>
+#include <fstream>
 #include <iomanip>
 #include <istream>
-#include <ostream>
-#include <fstream>
 #include <iterator>
 #include <map>
-#include <vector>
+#include <ostream>
 #include <string>
+#include <vector>
 
 namespace handt {
 

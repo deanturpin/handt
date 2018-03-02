@@ -24,6 +24,7 @@ prospects.csv: prospects.o prices.csv
 
 consolidate.csv: consolidate.o review.csv prospects.csv
 	./$< > $@
+	$(shell grep false consolidate.csv > closed.csv)
 
 stats:
 	wc -l *.csv

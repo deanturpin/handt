@@ -50,11 +50,11 @@ int main() {
   for (const auto &prospect : prospects) {
     for (const auto &strategy : prospect.strategies) {
 
-      // Check if we already hold a position with this currency/strategy
+      // Check if we already hold an open position with this currency/strategy
       const auto symbol = prospect.symbol;
       const auto it = std::find_if(
           refresh.cbegin(), refresh.cend(), [&symbol, &strategy](const auto p) {
-            return p.symbol == symbol && p.strategy == strategy;
+            return p.open && p.symbol == symbol && p.strategy == strategy;
           });
 
       // Create a position if we don't already hold one
@@ -70,10 +70,10 @@ int main() {
   }
 
   for (const auto &p : refresh)
-      out << p << "\n";
+    out << p << "\n";
 
   for (const auto &p : positions)
-      out << p << "\n";
+    out << p << "\n";
 
   std::cout << out.str();
 }
