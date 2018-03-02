@@ -1,39 +1,54 @@
-all: coins.csv source trades summary.csv index.html
+all: source review.csv prospects.csv consolidate.csv positions.csv index.html
 
 # All the C++ source files
 source:
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
-# Fetch the prices from the exchanges
-prices.csv: coins.csv
-	./exchange.py > $@
-
-coins.csv:
-	./all_coins.py > $@
-
-summary.csv: summary.o trades
+symbols.csv: symbols.py
 	./$< > $@
 
-trades: trade.o prices.csv
-	./$<
+prices.csv: prices.py symbols.csv
+	./$< > $@
 
-index.html: trades
+refresh.csv: refresh.o prices.csv
+	./$< > $@
+	rm -f positions.csv
+
+review.csv: review.o refresh.csv
+	./$< > $@
+
+prospects.csv: prospects.o prices.csv
+	./$< > $@
+
+consolidate.csv: consolidate.o review.csv prospects.csv
+	./$< > $@
+	$(shell grep false consolidate.csv > closed.csv)
+
+stats:
+	wc -l *.csv
+
+positions.csv:
+	cp consolidate.csv positions.csv
+
+update:
+	rm -f prices.csv
+	make
+
+summary.csv: summary.o consolidate.csv
+	./$< > $@
+
+index.html: summary.csv
 	./create_index.sh > index.html
 
-cc=g++
+cc=clang++
 %.o: %.cpp
-	$(cc) -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
+	$(cc) -I include -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 clean:
-	rm -f prices.csv *.o
-	echo 0 > coinindex.txt
+	rm -f *.o
 
 cron:
-	while :; do make tidy all; sleep 1m; done
+	watch -d -n 60 make --silent update stats
 
-autotest: test.o
-	./$< > results2.txt
-	@diff results.txt results2.txt
-
-tidy:
-	rm -f coins.csv
+docs:
+	dot -T svg doc/handt.dot > doc/handt.svg

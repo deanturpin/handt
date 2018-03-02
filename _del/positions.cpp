@@ -19,7 +19,7 @@ int main() {
 
   // Read in current positions
   std::vector<trade_position> positions;
-  const std::string positions_file = "positions.csv";
+  const std::string positions_file("positions.csv");
 
   std::ifstream in(positions_file);
   if (in.good()) {
@@ -115,8 +115,11 @@ int main() {
   std::sort(positions.begin(), positions.end(),
             [](const auto &a, const auto &b) { return a.yield > b.yield; });
 
-  // Write current positions out
-  std::ofstream out(positions_file);
+  // // Write current positions out
+  // std::ofstream out(positions_file);
+  // for (const auto &pos : positions)
+  //   out << pos;
+
   for (const auto &pos : positions)
-    out << pos;
+    std::cout << pos;
 }

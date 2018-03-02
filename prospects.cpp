@@ -1,12 +1,8 @@
+#include "strategy.h"
+#include "utils.h"
 #include <algorithm>
-#include <functional>
-#include <iomanip>
-#include <numeric>
-#include <sstream>
+#include <string>
 #include <vector>
-#include <random>
-
-namespace lft {
 
 // STD shortcuts
 using std::string;
@@ -121,7 +117,7 @@ result random_decision(series s, param p) {
   const auto name = NAME("f5f5f5f5f5...", p);
   std::default_random_engine generator;
   std::uniform_real_distribution<double> distribution(0.0, p);
-  const double dice_roll = distribution(generator); 
+  const double dice_roll = distribution(generator);
   const bool exec = dice_roll < 1.0;
   return result(name, exec);
 }
@@ -153,9 +149,7 @@ string NAME(const string n, param p) {
   return to_string(p).substr(0, 4) + "_" + n;
 }
 
-double THRESHOLD(param p) {
-  return (100.0 + p) / 100.0;
-}
+double THRESHOLD(param p) { return (100.0 + p) / 100.0; }
 
 double SPOT(series s) { return s.back(); }
 
@@ -166,10 +160,10 @@ vector<string> run_strategies(series s) {
   using library = const vector<std::function<result(series, param)>>;
 
   // Strategies that take thresholds (in percent)
-  const vector<double> thresholds {10.0};
-  library lib1{
-      flicking_down, flicking_up, ski_jumping, stepping_up,
-      stepping_down, steady_rising, kosovich, rolling_average, random_decision};
+  const vector<double> thresholds{10.0};
+  library lib1{flicking_down, flicking_up,     ski_jumping,
+               stepping_up,   stepping_down,   steady_rising,
+               kosovich,      rolling_average, random_decision};
 
   vector<string> trades;
   for (const auto &buy : lib1)
@@ -181,7 +175,7 @@ vector<string> run_strategies(series s) {
     }
 
   // Strategies that take ratios
-  const vector<double> ratios {2.0};
+  const vector<double> ratios{2.0};
   library lib2{average_compare, average_inter};
 
   for (const auto &buy : lib2)
@@ -194,4 +188,33 @@ vector<string> run_strategies(series s) {
 
   return trades;
 }
+
+#include <iostream>
+#include <sstream>
+int main() {
+
+  // Get some example prices
+  const auto prices = get_prices();
+
+  // A place for the results
+  std::stringstream results;
+  results.precision(10);
+
+  // Test strategies on each series
+  for (const auto &p : prices) {
+
+    const auto &name = p.first;
+    const auto &series = p.second;
+    const auto spot = series.back();
+
+    const auto buys = run_strategies(series);
+    if (!buys.empty()) {
+      results << name << "\t" << spot << " ";
+      for (const auto &buy : buys)
+        results << buy << " ";
+      results << "\n";
+    }
+  }
+
+  std::cout << results.str();
 }
