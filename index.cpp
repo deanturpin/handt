@@ -61,7 +61,7 @@ target="blah">GitHub</a>.</p>
         100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
         count;
 
-    out << i.first << "\t" << std::setw(4) << count << "\t" << yield << "\n";
+    out << i.first << "\t" << count << "\t" << yield << "\n";
   }
 
   out << "<pre>\n";
