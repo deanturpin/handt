@@ -31,9 +31,10 @@ int main() {
   // Individual strategy performance
   out << "STRATEGY\t\t POS\t% RETURN\n\n";
   for (const auto &i : strategies) {
+    const unsigned long count = i.second.size();
     const double yield =
         100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-        i.second.size();
+        count;
 
     out << i.first << "\t" << std::setw(4) << count << "\t" << yield << "\n";
   }
