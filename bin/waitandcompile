@@ -1,0 +1,17 @@
+#!/bin/bash
+
+[[ $# == 0 ]] && echo "Usage: $0 <file to watch>" && exit -1
+
+echo Wait for $1
+
+base=${1%.*}
+
+echo Using standard ${std:-c++1y}
+
+while :; do
+	
+	inotifywait -qe modify $base.cpp
+	clear
+
+	clang++ -I include -Weverything -std=${std:-c++1y} -Wc++98-c++11-compat-pedantic -Wno-c++98-compat -o $base.o $base.cpp && echo && time ./$base.o
+done
