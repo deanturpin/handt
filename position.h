@@ -1,39 +1,54 @@
-#ifndef POSITION
-#define POSITION
+#ifndef LFT_POSITION
+#define LFT_POSITION
 
 #include <iomanip>
 #include <istream>
 #include <ostream>
+#include <chrono>
 #include <string>
 
+namespace lft {
+
+double seconds_since_epoch() {
+
+  using namespace std::chrono;
+  using clock = std::chrono::system_clock;
+  const auto now = clock::now();
+  const auto epoch = static_cast<unsigned long>(
+      duration_cast<seconds>(now.time_since_epoch()).count());
+
+  return epoch;
+}
+
 // A stucture to represent a trade
-struct trade_position {
+struct position {
 
   std::string name = "name";
-  unsigned long timestamp = 0;
-  unsigned long duration = 0;
+  unsigned long timestamp = seconds_since_epoch();
   double buy_price = 0.0;
   double sell_price = 0.0;
   std::string strategy = "strategy";
-  double yield = 0.0;
+  double yield = 100.0;
   std::string notes = "NEWTRADE";
-  bool open = false;
+  bool open = true;
 
   // Streaming out
-  friend std::ostream &operator<<(std::ostream &os, const trade_position &p) {
+  friend std::ostream &operator<<(std::ostream &os, const position &p) {
     os.precision(10);
-    return os << std::fixed << " " << p.name << "\t" << p.yield << "\t"
+    return os << std::fixed << p.name << "\t" << p.yield << "\t"
               << p.strategy << "\t" << p.notes << " " << p.buy_price << " "
-              << p.sell_price << " " << p.timestamp << " " << p.duration << " "
+              << p.sell_price << " " << p.timestamp << " " 
               << std::boolalpha << p.open << "\n";
   }
 
   // Streaming in
-  friend std::istream &operator>>(std::istream &is, trade_position &p) {
+  friend std::istream &operator>>(std::istream &is, position &p) {
     return is >> p.name >> p.yield >> p.strategy >> p.notes >> p.buy_price >>
-           p.sell_price >> p.timestamp >> p.duration >> std::boolalpha >>
+           p.sell_price >> p.timestamp >> std::boolalpha >>
            p.open;
   }
 };
+
+}
 
 #endif

@@ -5,6 +5,8 @@
 #include <sstream>
 #include <vector>
 
+// A prospect has a name, an initial price and a list of strategies that
+// triggered the prospect
 struct prospect {
   std::string name;
   double spot;
@@ -12,21 +14,10 @@ struct prospect {
 
   friend std::istream &operator>>(std::istream &is, prospect &p) {
     is >> p.name >> p.spot;
-
     std::copy(std::istream_iterator<std::string>(is),
          std::istream_iterator<std::string>(),
          std::back_inserter(p.strategies));
-
     return is;
-  }
-
-  friend std::ostream &operator<<(std::ostream &os, prospect &p) {
-    os << p.name << p.spot;
-
-    std::copy(p.strategies.cbegin(), p.strategies.cend(),
-              std::ostream_iterator<std::string>(os, " "));
-
-    return os;
   }
 };
 
@@ -50,25 +41,19 @@ int main() {
     }
   }
 
-  out << prospects.size() << " prospects\n";
-  for (const auto p : prospects)
-    out << p.name << "\n";
-
   // Create postion for each propsect
+  for (const auto prospect : prospects) {
+    for (const auto strategy : prospect.strategies) {
 
+      // Initialise position with prospect details
+      lft::position position;
+      position.name = prospect.name;
+      position.strategy = strategy;
+      position.buy_price = position.sell_price = prospect.spot;
 
-  // Get current positions (not necessarily for all prices)
-  // const auto positions = get_positions("refresh.csv");
-
-  // out << positions.size() << " reviewed positions\n";
-
-  // Close any positions
-  // for (auto p : positions)
-  //   if (p.sell_price / p.buy_price > 1.1)
-  //     p.open = false;
-
-  // for (const auto p : positions)
-  //   out << p;
+      out << position;
+    }
+  }
 
   std::cout << out.str();
 }
