@@ -3,7 +3,7 @@
 import json
 import requests
 
-batch_size = 10
+batch_size = 80
 index = 0
 
 try:
@@ -32,8 +32,8 @@ if len(coins):
             index = 0
 
 # Write the index back
-# coinindex = open("coinindex.txt", "w")
-# coinindex.write(str(index))
+coinindex = open("coinindex.txt", "w")
+coinindex.write(str(index))
 
 # Fetch prices for each coin
 for coin in wallet:
