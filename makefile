@@ -1,4 +1,4 @@
-all: review.csv prospects.csv consolidate.csv stats positions.csv
+all: source review.csv prospects.csv consolidate.csv stats positions.csv
 
 # All the C++ source files
 source:
@@ -30,7 +30,7 @@ positions.csv:
 	cp consolidate.csv positions.csv
 
 update:
-	rm -f prices.csv # refresh.csv review.csv
+	rm -f prices.csv
 	make
 
 # summary.csv: summary.o trades
@@ -44,10 +44,7 @@ cc=clang++
 	$(cc) -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 clean:
-	rm -f *.csv *.o
+	rm -f *.o
 
 cron:
-	while :; do make tidy all; sleep 1m; done
-
-tidy:
-	rm -f coins.csv
+	watch -d -n 60 make --silent update
