@@ -1,4 +1,3 @@
-
 # Modular design
 Each module reads the result of running the previous and emits its contribution
 to the processing chain. Can easily test each stage in isolation. Enforcing a

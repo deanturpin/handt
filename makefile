@@ -39,8 +39,9 @@ update:
 summary.csv: summary.o consolidate.csv
 	./$< > $@
 
-index.html: summary.csv
-	./create_index.sh > index.html
+index.html: index.o summary.csv
+	./$< > $@
+	./create_index.sh >> $@
 
 clean:
 	rm -f *.o
