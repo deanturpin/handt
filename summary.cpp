@@ -25,7 +25,7 @@ int main() {
   for (const auto &pos : positions) {
     const auto strategy = pos.strategy;
     ins[strategy] += 100.0;
-    outs[strategy] += pos.yield;
+    outs[strategy] += 100.0 * pos.sell_price / pos.buy_price;
     ++trades[strategy];
   }
 
