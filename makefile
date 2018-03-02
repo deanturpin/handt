@@ -40,7 +40,7 @@ summary.csv: summary.o consolidate.csv
 index.html: summary.csv
 	./create_index.sh > index.html
 
-cc=clang++
+cc=g++
 %.o: %.cpp
 	$(cc) -I include -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
