@@ -23,9 +23,6 @@ int main() {
         std::find_if(prices.cbegin(), prices.cend(),
                      [symbol](const auto p) { return p.first == symbol; });
 
-    if (it != prices.cend())
-      std::cout << symbol << " found\n";
-
     return it != prices.cend() ? it->second : std::vector<double>();
   };
 
@@ -43,19 +40,14 @@ int main() {
                    const auto q = find_prices(p.name);
                    if (!q.empty()) {
                      pos.sell_price = q.back();
-                     out << p.name << " found update\n";
+                     pos.notes = "updateok";
                    }
 
                    return pos;
                  });
 
-  // Print
-  // out << prices.size() << " prices\n";
-  // out << positions.size() << " original positions\n";
-  // out << update.size() << " updated positions\n";
-  //
-  for (const auto p : update)
-    out << p;
+  for (const auto position : update)
+    out << position;
 
   std::cout << out.str();
 }
