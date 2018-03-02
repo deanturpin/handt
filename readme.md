@@ -13,19 +13,7 @@ The strategy module takes the list of coins/prices and emits a line for each
 currency that has triggered a buy: coin name, price and list of a matching
 strategies.
 
-```
-<file.cpp> > <file.csv>
-prices.cpp > prices.csv
-```
-
-* Fetch all SYMBOLS from CryptoCompare
-* Fetch PRICES for symbols
-* REFRESH current positions with recent prices
-* REVIEW and close existing positions
-* Calculate PROSPECTS by executing strategy library
-* CONSOLIDATE reviewed positions and new prospects
-* Create SUMMARY of trades for this period
-* RENDER report
+![](doc/handt.svg)
 
 ```
 SPK 0.3205666667 10.0_flicking_down 2.00_average_comp 
