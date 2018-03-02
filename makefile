@@ -24,6 +24,7 @@ consolidate.csv: consolidate.o review.csv prospects.csv
 
 stats:
 	@wc -l *.csv
+	cp consolidate.csv positions.csv
 
 # summary.csv: summary.o trades
 # 	./$< > $@
