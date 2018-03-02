@@ -32,7 +32,8 @@ int main() {
   // Update positions
   std::decay_t<decltype(positions)> update;
   std::transform(positions.cbegin(), positions.cend(),
-                 std::back_inserter(update), [&find_prices, &out](const auto p) {
+                 std::back_inserter(update),
+                 [&find_prices, &out](const auto p) {
 
                    // Create a copy of the position
                    std::decay_t<decltype(p)> pos = p;
@@ -43,7 +44,7 @@ int main() {
                    if (!q.empty()) {
                      pos.sell_price = q.back();
                      out << p.name << " found update\n";
-                    }
+                   }
 
                    return pos;
                  });

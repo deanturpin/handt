@@ -1,54 +1,47 @@
 #include "position.h"
-#include <iostream>
-#include <sstream>
-#include <iterator>
-#include <vector>
 #include <fstream>
+#include <iostream>
+#include <iterator>
+#include <sstream>
+#include <vector>
+
+struct prospect {
+  std::string name;
+  double spot;
+  std::vector<std::string> strategies;
+
+  friend std::istream &operator>>(std::istream &is, prospect &p) {
+    is >> p.name >> p.spot;
+
+    std::copy(std::istream_iterator<std::string>(is),
+         std::istream_iterator<std::string>(),
+         std::back_inserter(p.strategies));
+
+    return is;
+  }
+};
 
 int main() {
 
+  // Debug config
   std::stringstream out;
   out.precision(10);
   out << std::boolalpha;
 
-  out << "get review\n";
-
-  // std::ifstream in("review.csv");
-
-  // if (in.good()) {
-  //   out << "review good\n";
-
-  //   std::string line;
-  //   if (in >> line)
-  //     out << line;
-  //   else
-  //     out << "no line";
-  // }
-
+  // Process prospects
   std::ifstream in("prospects.csv");
-
+  std::vector<prospect> prospects;
   if (in.good()) {
-    out << "review good\n";
-
     std::string line;
     while (getline(in, line)) {
-
-      // Get the header
       std::stringstream ss(line);
-      std::string symbol;
-      double spot;
-      ss >> symbol >> spot;
-
-      // Get the matching strategies
-      std::vector<std::string> strategies;
-      copy(std::istream_iterator<std::string>(ss),
-           std::istream_iterator<std::string>(),
-                                  std::back_inserter(strategies));
-
-      out << symbol << " " << spot << " "
-        << strategies.size () << " strategies\n";
+      prospect p;
+      ss >> p;
+      prospects.push_back(p);
     }
   }
+
+  out << prospects.size() << " prospects\n";
 
   // Create postion for each propsect
 

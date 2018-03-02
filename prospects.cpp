@@ -1,8 +1,8 @@
 #include "strategy.h"
 #include "utils.h"
+#include <algorithm>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 // STD shortcuts
 using std::string;
