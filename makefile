@@ -22,6 +22,7 @@ prospects.csv: prospects.o prices.csv
 
 consolidate.csv: consolidate.o review.csv prospects.csv
 	./$< > $@
+	$(shell grep false consolidate.csv > closed.csv)
 
 stats:
 	@wc -l *.csv
@@ -41,7 +42,7 @@ update:
 
 cc=clang++
 %.o: %.cpp
-	$(cc) -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
+	$(cc) -I include -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 clean:
 	rm -f *.o
