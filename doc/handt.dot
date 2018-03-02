@@ -15,5 +15,5 @@ digraph {
   "REVIEW and close existing positions"
     -> "CONSOLIDATE reviewed positions and new prospects"
     -> "Create SUMMARY of trades for this period"
-    -> "RENDER report"
+    -> "RENDER report (web page)"
 }

@@ -79,13 +79,13 @@
 <path fill="none" stroke="black" d="M349.336,-143.697C349.336,-135.983 349.336,-126.712 349.336,-118.112"/>
 <polygon fill="black" stroke="black" points="352.836,-118.104 349.336,-108.104 345.836,-118.104 352.836,-118.104"/>
 </g>
-<!-- RENDER report -->
-<g id="node8" class="node"><title>RENDER report</title>
-<ellipse fill="none" stroke="black" cx="349.336" cy="-18" rx="73.387" ry="18"/>
-<text text-anchor="middle" x="349.336" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">RENDER report</text>
+<!-- RENDER report (web page) -->
+<g id="node8" class="node"><title>RENDER report (web page)</title>
+<ellipse fill="none" stroke="black" cx="349.336" cy="-18" rx="119.679" ry="18"/>
+<text text-anchor="middle" x="349.336" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">RENDER report (web page)</text>
 </g>
-<!-- Create SUMMARY of trades for this period&#45;&gt;RENDER report -->
-<g id="edge8" class="edge"><title>Create SUMMARY of trades for this period&#45;&gt;RENDER report</title>
+<!-- Create SUMMARY of trades for this period&#45;&gt;RENDER report (web page) -->
+<g id="edge8" class="edge"><title>Create SUMMARY of trades for this period&#45;&gt;RENDER report (web page)</title>
 <path fill="none" stroke="black" d="M349.336,-71.6966C349.336,-63.9827 349.336,-54.7125 349.336,-46.1124"/>
 <polygon fill="black" stroke="black" points="352.836,-46.1043 349.336,-36.1043 345.836,-46.1044 352.836,-46.1043"/>
 </g>
