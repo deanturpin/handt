@@ -48,21 +48,21 @@ int main() {
 
   // Create postion for each propsect
   std::decay_t<decltype(refresh)> positions;
-  for (const auto prospect : prospects) {
-    for (const auto strategy : prospect.strategies) {
+  for (const auto &prospect : prospects) {
+    for (const auto &strategy : prospect.strategies) {
 
       // Check if we already hold a position with this currency/strategy
       const auto symbol = prospect.symbol;
       const auto it = std::find_if(
           refresh.cbegin(), refresh.cend(), [&symbol, &strategy](const auto p) {
-            return p.name == symbol && p.strategy == strategy;
+            return p.symbol == symbol && p.strategy == strategy;
           });
 
       // Create a position if we don't already hold one
       if (it == refresh.cend()) {
         // Initialise position with prospect details
         lft::position position;
-        position.name = prospect.symbol;
+        position.symbol = prospect.symbol;
         position.strategy = strategy;
         position.buy_price = position.sell_price = prospect.spot;
         positions.push_back(position);
@@ -70,7 +70,7 @@ int main() {
     }
   }
 
-  for (const auto p : {refresh, positions})
+  for (const auto &p : {refresh, positions})
     for (const auto q : p)
       out << q << "\n";
 

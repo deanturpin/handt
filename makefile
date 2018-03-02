@@ -1,8 +1,11 @@
 all: source review.csv prospects.csv consolidate.csv positions.csv index.html
 
-# All the C++ source files
 source:
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+
+cc=g++
+%.o: %.cpp
+	$(cc) -I include -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 symbols.csv: symbols.py
 	./$< > $@
@@ -38,10 +41,6 @@ summary.csv: summary.o consolidate.csv
 
 index.html: summary.csv
 	./create_index.sh > index.html
-
-cc=g++
-%.o: %.cpp
-	$(cc) -I include -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 clean:
 	rm -f *.o

@@ -35,7 +35,7 @@ int main() {
 
                    // If we've found some prices then update the position and
                    // return it
-                   const auto q = find_prices(p.name);
+                   const auto q = find_prices(p.symbol);
                    if (!q.empty()) {
                      pos.sell_price = q.back();
                      pos.notes = "refreshd";
