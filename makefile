@@ -1,4 +1,4 @@
-all: source review.csv prospects.csv consolidate.csv positions.csv index.html
+all: source review.csv prospects.csv consolidate.csv index.html endofsession
 
 source:
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -15,7 +15,6 @@ prices.csv: prices.py symbols.csv
 
 refresh.csv: refresh.o prices.csv
 	./$< > $@
-	rm -f positions.csv
 
 review.csv: review.o refresh.csv
 	./$< > $@
@@ -29,17 +28,14 @@ consolidate.csv: consolidate.o review.csv prospects.csv
 stats:
 	wc -l *.csv
 
-positions.csv:
+endofsession:
 	cp consolidate.csv positions.csv
 
 update:
 	rm -f prices.csv
 	make
 
-summary.csv: summary.o consolidate.csv
-	./$< > $@
-
-index.html: index.o summary.csv
+index.html: index.o consolidate.csv
 	./$< > $@
 	./create_index.sh >> $@
 

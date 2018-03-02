@@ -42,8 +42,8 @@ int main() {
     }
   }
 
-  // Get current refreshed positions
-  const auto refresh = handt::get_positions("refresh.csv");
+  // Get current reviewed positions
+  const auto refresh = handt::get_positions("review.csv");
 
   // Create postion for each propsect
   std::decay_t<decltype(refresh)> positions;
@@ -69,9 +69,11 @@ int main() {
     }
   }
 
-  for (const auto &p : {refresh, positions})
-    for (const auto q : p)
-      out << q << "\n";
+  for (const auto &p : refresh)
+      out << p << "\n";
+
+  for (const auto &p : positions)
+      out << p << "\n";
 
   std::cout << out.str();
 }
