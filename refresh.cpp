@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "handt.h"
 #include <algorithm>
 #include <iostream>
 #include <sstream>
@@ -12,10 +12,10 @@ int main() {
   out << std::boolalpha;
 
   // Get recent prices (not necessarily for all positions)
-  const auto prices = get_prices();
+  const auto prices = handt::get_prices();
 
   // Get current positions (not necessarily for all prices)
-  const auto positions = get_positions();
+  const auto positions = handt::get_positions();
 
   auto find_prices = [&prices](const std::string symbol) {
     const auto it =

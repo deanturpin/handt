@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "handt.h"
 #include <algorithm>
 #include <iostream>
 #include <sstream>
@@ -12,7 +12,7 @@ int main() {
   out << std::boolalpha;
 
   // Get current positions (not necessarily for all prices)
-  auto positions = get_positions("refresh.csv");
+  auto positions = handt::get_positions("refresh.csv");
 
   // Close any positions
   for (auto &p : positions)

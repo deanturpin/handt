@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "handt.h"
 #include <iostream>
 #include <map>
 #include <numeric>
@@ -14,11 +14,11 @@ int main() {
   out << std::fixed;
 
   // Get the coins
-  const auto prices = get_prices();
+  const auto prices = handt::get_prices();
   out << prices.size() << " coins updated in the last minute\n";
 
   // Get the positions
-  const auto positions = get_positions("consolidate.csv");
+  const auto positions = handt::get_positions("consolidate.csv");
   out << positions.size() << " positions\n\n";
 
   std::map<std::string, std::vector<double>> strategies;

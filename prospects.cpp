@@ -190,14 +190,14 @@ vector<string> run_strategies(series s) {
   return trades;
 }
 
-#include "utils.h"
+#include "handt.h"
 #include <iostream>
 #include <sstream>
 
 int main() {
 
   // Get some example prices
-  const auto prices = get_prices();
+  const auto prices = handt::get_prices();
 
   // A place for the results
   std::stringstream results;

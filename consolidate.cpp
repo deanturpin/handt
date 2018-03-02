@@ -1,5 +1,4 @@
 #include "handt.h"
-#include "utils.h"
 #include <algorithm>
 #include <fstream>
 #include <iostream>
@@ -44,7 +43,7 @@ int main() {
   }
 
   // Get current refreshed positions
-  const auto refresh = get_positions("refresh.csv");
+  const auto refresh = handt::get_positions("refresh.csv");
 
   // Create postion for each propsect
   std::decay_t<decltype(refresh)> positions;

@@ -5,7 +5,7 @@ source:
 
 cc=g++
 %.o: %.cpp
-	$(cc) -I include -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
+	$(cc) -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
 
 symbols.csv: symbols.py
 	./$< > $@
