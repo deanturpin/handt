@@ -1,4 +1,4 @@
-all: review.csv prospects.csv stats
+all: review.csv prospects.csv consolidate.csv stats
 
 # All the C++ source files
 source:
@@ -19,9 +19,8 @@ review.csv: review.o refresh.csv
 prospects.csv: prospects.o prices.csv
 	./$< > $@
 
-# consolidate.csv: consolidate.o review.csv prospects.csv
-	# ./$< > $@
-	#
+consolidate.csv: consolidate.o review.csv prospects.csv
+	./$< > $@
 
 stats:
 	@wc -l *.csv
@@ -38,14 +37,9 @@ cc=clang++
 
 clean:
 	rm -f *.csv *.o
-	# echo 0 > coinindex.txt
 
 cron:
 	while :; do make tidy all; sleep 1m; done
-
-autotest: test.o
-	./$< > results2.txt
-	@diff results.txt results2.txt
 
 tidy:
 	rm -f coins.csv
