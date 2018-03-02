@@ -1,4 +1,4 @@
-all: source review.csv prospects.csv consolidate.csv stats positions.csv index.html
+all: source review.csv prospects.csv consolidate.csv positions.csv index.html
 
 # All the C++ source files
 source:
@@ -48,4 +48,4 @@ clean:
 	rm -f *.o
 
 cron:
-	watch -d -n 60 make --silent update
+	watch -d -n 60 make --silent update stats
