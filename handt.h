@@ -13,7 +13,7 @@
 
 namespace handt {
 
-double seconds_since_epoch() {
+unsigned long seconds_since_epoch() {
 
   using namespace std::chrono;
   using clock = std::chrono::system_clock;

@@ -1,7 +1,7 @@
+#include "handt.h"
 #include <algorithm>
 #include <functional>
 #include <numeric>
-#include <random>
 #include <string>
 #include <vector>
 
@@ -116,10 +116,7 @@ result kosovich(series s, param p) {
 result random_decision(series s, param p) {
   static_cast<void>(s);
   const auto name = NAME("f5f5f5f5f5...", p);
-  std::default_random_engine generator;
-  std::uniform_real_distribution<double> distribution(0.0, p);
-  const double dice_roll = distribution(generator);
-  const bool exec = dice_roll < 1.0;
+  const bool exec = handt::seconds_since_epoch() % 5 == 0;
   return result(name, exec);
 }
 
