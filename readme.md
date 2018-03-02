@@ -15,21 +15,6 @@ strategies.
 
 ![](doc/handt.svg)
 
-```
-SPK 0.3205666667 10.0_flicking_down 2.00_average_comp 
-STA 0.9531 10.0_flicking_down 10.0_stepping_down 2.00_average_inter 
-TEC 0.1317666667 10.0_flicking_up 10.0_stepping_up 2.00_average_comp
-2.00_average_inter 
-TX  1.09 10.0_stepping_down 2.00_average_comp 2.00_average_inter 
-UIS 0.04105666667 10.0_stepping_up 2.00_average_inter 
-UNC 0.0001058666667 10.0_stepping_down 2.00_average_comp 2.00_average_inter 
-URO 0.06262333333 2.00_average_inter 
-VIRAL 0.03136 10.0_stepping_down 
-VSX 0.03706666667 10.0_stepping_down 
-X2  0.00025 10.0_flicking_down 10.0_stepping_up 
-ZCC 0.3705666667 10.0_stepping_up 2.00_average_comp 2.00_average_inter 
-ZEN 38.01 2.00_average_comp 
-```
 
 # C++
 The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
@@ -111,7 +96,6 @@ Which isn't too far removed from a strategy definition language.
 name = "stepping_up"
 exec = RECENT_AVERAGE / DISTANT_AVERAGE > THRESHOLD
 ```
-
 
 # Coinbase only
 After a few days of Coinbase only trading

@@ -6,16 +6,14 @@ digraph {
     -> "Fetch PRICES for symbols"
     -> "REFRESH current positions with recent prices"
     -> "REVIEW and close existing positions"
+
+  "Fetch PRICES for symbols"
     -> "Calculate PROSPECTS by executing strategy library"
     -> "CONSOLIDATE reviewed positions and new prospects"
-    -> "Create SUMMARY of trades for this period"
-    -> "RENDER report"
 
   // Consolidate takes review and new
   "REVIEW and close existing positions"
     -> "CONSOLIDATE reviewed positions and new prospects"
-
-  // Consolidated trades feeds back into refresh
-  "CONSOLIDATE reviewed positions and new prospects"
-    -> "REFRESH current positions with recent prices"
+    -> "Create SUMMARY of trades for this period"
+    -> "RENDER report"
 }
