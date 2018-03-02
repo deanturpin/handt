@@ -16,8 +16,9 @@ int main() {
 
   // Close any positions
   for (auto &p : positions)
-    if (p.sell_price / p.buy_price > 1.10)
-      p.open = false;
+    if (p.buy_price > 0)
+      if (p.sell_price / p.buy_price > 1.10)
+        p.open = false;
 
   for (const auto position : positions)
     out << position << "\n";
