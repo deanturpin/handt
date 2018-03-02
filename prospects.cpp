@@ -1,6 +1,7 @@
-#include "strategy.h"
-#include "utils.h"
 #include <algorithm>
+#include <functional>
+#include <numeric>
+#include <random>
 #include <string>
 #include <vector>
 
@@ -189,8 +190,10 @@ vector<string> run_strategies(series s) {
   return trades;
 }
 
+#include "utils.h"
 #include <iostream>
 #include <sstream>
+
 int main() {
 
   // Get some example prices
