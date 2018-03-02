@@ -1,4 +1,4 @@
-all: source review.csv prospects.csv consolidate.csv stats positions.csv
+all: source review.csv prospects.csv consolidate.csv stats positions.csv index.html
 
 # All the C++ source files
 source:
@@ -25,7 +25,7 @@ consolidate.csv: consolidate.o review.csv prospects.csv
 	$(shell grep false consolidate.csv > closed.csv)
 
 stats:
-	@wc -l *.csv
+	wc -l *.csv
 
 positions.csv:
 	cp consolidate.csv positions.csv
@@ -34,11 +34,11 @@ update:
 	rm -f prices.csv
 	make
 
-# summary.csv: summary.o trades
-# 	./$< > $@
-# 
-# index.html: trades
-# 	./create_index.sh > index.html
+summary.csv: summary.o consolidate.csv
+	./$< > $@
+
+index.html: summary.csv
+	./create_index.sh > index.html
 
 cc=clang++
 %.o: %.cpp

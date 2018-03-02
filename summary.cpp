@@ -12,11 +12,10 @@ int main() {
 
   // Get the coins
   const auto prices = get_prices();
-  // std::cout << strategies.size() << " strategies\n";
   std::cout << prices.size() << " coins updated in the last minute\n";
 
   // Get the positions
-  const auto positions = get_positions();
+  const auto positions = get_positions("consolidate.csv");
   std::cout << positions.size() << " positions\n\n";
 
   // Initialise results with all strategies

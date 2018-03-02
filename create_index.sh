@@ -26,8 +26,10 @@ the documentation on <a href="$git" target="blah">GitHub</a>.</p>
 <h2>Summary</h2>
 <pre>
 $date
-$(echo Index $(cat coinindex.txt) into $(cat coins.csv | wc -l) coins)
+$(echo Index $(cat coinindex.txt) into $(cat symbols.csv | wc -l) coins)
 $(cat summary.csv)
+
+$(wc -l *.csv)
 </pre>
 
 <h2>Coinbase / Poloniex</h2>
