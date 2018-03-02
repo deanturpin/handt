@@ -1,4 +1,4 @@
-#include "position.h"
+#include "handt.h"
 #include "utils.h"
 #include <algorithm>
 #include <fstream>
@@ -61,7 +61,7 @@ int main() {
       // Create a position if we don't already hold one
       if (it == refresh.cend()) {
         // Initialise position with prospect details
-        lft::position position;
+        handt::position position;
         position.symbol = prospect.symbol;
         position.strategy = strategy;
         position.buy_price = position.sell_price = prospect.spot;

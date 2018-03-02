@@ -1,7 +1,7 @@
 #ifndef UTILS
 #define UTILS
 
-#include "position.h"
+#include "../handt.h"
 #include <fstream>
 #include <iomanip>
 #include <iterator>
@@ -11,10 +11,10 @@
 
 // Get positions from a file
 auto get_positions(const std::string file = "positions.csv") {
-  std::vector<lft::position> positions;
+  std::vector<handt::position> positions;
   std::ifstream in(file);
   if (in.good()) {
-    lft::position p;
+    handt::position p;
     while (in >> p)
       positions.push_back(p);
   }
