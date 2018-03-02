@@ -19,6 +19,15 @@ struct prospect {
 
     return is;
   }
+
+  friend std::ostream &operator<<(std::ostream &os, prospect &p) {
+    os << p.name << p.spot;
+
+    std::copy(p.strategies.cbegin(), p.strategies.cend(),
+              std::ostream_iterator<std::string>(os, " "));
+
+    return os;
+  }
 };
 
 int main() {
@@ -42,6 +51,8 @@ int main() {
   }
 
   out << prospects.size() << " prospects\n";
+  for (const auto p : prospects)
+    out << p.name << "\n";
 
   // Create postion for each propsect
 
