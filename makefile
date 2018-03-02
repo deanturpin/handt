@@ -1,4 +1,4 @@
-all: review.csv prospects.csv consolidate.csv stats
+all: review.csv prospects.csv consolidate.csv stats positions.csv
 
 # All the C++ source files
 source:
@@ -12,6 +12,7 @@ prices.csv: prices.py symbols.csv
 
 refresh.csv: refresh.o prices.csv
 	./$< > $@
+	rm -f positions.csv
 
 review.csv: review.o refresh.csv
 	./$< > $@
@@ -24,6 +25,8 @@ consolidate.csv: consolidate.o review.csv prospects.csv
 
 stats:
 	@wc -l *.csv
+
+positions.csv:
 	cp consolidate.csv positions.csv
 
 # summary.csv: summary.o trades

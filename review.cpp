@@ -12,17 +12,15 @@ int main() {
   out << std::boolalpha;
 
   // Get current positions (not necessarily for all prices)
-  const auto positions = get_positions("refresh.csv");
-
-  // out << positions.size() << " reviewed positions\n";
+  auto positions = get_positions("refresh.csv");
 
   // Close any positions
-  for (auto p : positions)
-    if (p.sell_price / p.buy_price > 1.1)
+  for (auto &p : positions)
+    if (p.sell_price / p.buy_price > 1.10)
       p.open = false;
 
-  for (const auto p : positions)
-    out << p;
+  for (const auto position : positions)
+    out << position;
 
   std::cout << out.str();
 }
