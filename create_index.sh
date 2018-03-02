@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git="https://deanturpin.github.io/trading_strategies/"
+git="https://deanturpin.github.io/handt/"
 date=$(date --utc)
 
 cat <<!
