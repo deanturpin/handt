@@ -1,9 +1,9 @@
 #include "position.h"
 #include "utils.h"
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <iterator>
-#include <algorithm>
 #include <sstream>
 #include <vector>
 
@@ -17,8 +17,8 @@ struct prospect {
   friend std::istream &operator>>(std::istream &is, prospect &p) {
     is >> p.symbol >> p.spot;
     std::copy(std::istream_iterator<std::string>(is),
-         std::istream_iterator<std::string>(),
-         std::back_inserter(p.strategies));
+              std::istream_iterator<std::string>(),
+              std::back_inserter(p.strategies));
     return is;
   }
 };
@@ -53,12 +53,10 @@ int main() {
 
       // Check if we already hold a position with this currency/strategy
       const auto symbol = prospect.symbol;
-      const auto it = std::find_if(refresh.cbegin(), refresh.cend(),
-                                   [&symbol, &strategy](const auto p){
-                                      return
-                                      p.name == symbol
-                                      && p.strategy == strategy;
-                                   });
+      const auto it = std::find_if(
+          refresh.cbegin(), refresh.cend(), [&symbol, &strategy](const auto p) {
+            return p.name == symbol && p.strategy == strategy;
+          });
 
       // Create a position if we don't already hold one
       if (it == refresh.cend()) {

@@ -18,41 +18,23 @@ int main() {
   const auto positions = get_positions("consolidate.csv");
   std::cout << positions.size() << " positions\n\n";
 
-  // Initialise results with all strategies
-  std::map<std::string, double> ins, outs, trades;
+  std::map<std::string, std::vector<double>> yield;
 
   // Close all positions
-  for (const auto &pos : positions) {
-    const auto strategy = pos.strategy;
-    ins[strategy] += 100.0;
-    outs[strategy] += 100.0 * pos.sell_price /
-      pos.buy_price > 0 ? pos.buy_price : 100;
-    ++trades[strategy];
-  }
+  for (const auto &position : positions)
+    yield[position.strategy].push_back(position.sell_price /
+                                       position.buy_price);
 
   // Individual strategy performance
-  std::cout << "STRATEGY\t\t% RETURN\t$ IN\t\t$ OUT\n\n";
-  for (const auto &i : ins) {
+  std::cout << "STRATEGY\t\tPOS\t% RETURN\n\n";
+  for (const auto &i : yield) {
     const std::string strategy = i.first;
-    const double in = ins[strategy];
-    const double out = outs[strategy];
-    const double yield = 100.0 * out / (in > 0 ? in : 1);
+    const unsigned long positions = i.second.size();
+    const double yield =
+        100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
+        positions;
 
-    std::cout << strategy << "\t" << std::fixed << yield << "\t" << in << "\t"
-              << out << "\n";
+    std::cout << strategy << "\t" << std::fixed << positions << "\t" << yield
+              << "\n";
   }
-
-  // Strategy summary
-  const double in_sum =
-      std::accumulate(ins.cbegin(), ins.cend(), 0.0,
-                      [](auto sum, const auto &i) { return sum + i.second; });
-
-  const double out_sum =
-      std::accumulate(outs.cbegin(), outs.cend(), 0.0,
-                      [](auto sum, const auto &i) { return sum + i.second; });
-
-  const double overall_yield = 100.0 * out_sum / (in_sum > 0.0 ? in_sum : 1.0);
-  std::cout << "\nTOTAL\t\t\t" << overall_yield << "\t" << in_sum << "\t"
-            << out_sum << "\t\t\t"
-            << "\n";
 }

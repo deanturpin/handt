@@ -1,10 +1,10 @@
 #ifndef LFT_POSITION
 #define LFT_POSITION
 
+#include <chrono>
 #include <iomanip>
 #include <istream>
 #include <ostream>
-#include <chrono>
 #include <string>
 
 namespace lft {
@@ -34,20 +34,17 @@ struct position {
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
     os.precision(10);
-    return os << std::fixed << p.name << "\t"
-              << p.strategy << "\t" << p.notes << " " << p.buy_price << " "
-              << p.sell_price << " " << p.timestamp << " " 
-              << std::boolalpha << p.open;
+    return os << std::fixed << p.name << "\t" << p.strategy << "\t" << p.notes
+              << " " << p.buy_price << " " << p.sell_price << " " << p.timestamp
+              << " " << std::boolalpha << p.open;
   }
 
   // Streaming in
   friend std::istream &operator>>(std::istream &is, position &p) {
     return is >> p.name >> p.strategy >> p.notes >> p.buy_price >>
-           p.sell_price >> p.timestamp >> std::boolalpha >>
-           p.open;
+           p.sell_price >> p.timestamp >> std::boolalpha >> p.open;
   }
 };
-
 }
 
 #endif
