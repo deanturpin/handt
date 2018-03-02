@@ -15,7 +15,6 @@ strategies.
 
 ![](doc/handt.svg)
 
-
 # C++
 The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
 confirms to LLVM's coding standard by virtue of periodic passes of
@@ -24,47 +23,6 @@ confirms to LLVM's coding standard by virtue of periodic passes of
 As the the code is designed to run periodically on a web server, between runs
 state must be saved. Positions are read and written to a temporary text file
 using operator>> and operator<<.
-
-```cpp
-#ifndef POSITION
-#define POSITION
-
-#include <iomanip>
-#include <istream>
-#include <ostream>
-#include <string>
-
-// A stucture to represent a trade
-struct trade_position {
-
-  std::string name = "name";
-  unsigned long timestamp = 0;
-  unsigned long duration = 0;
-  double buy_price = 0.0;
-  double sell_price = 0.0;
-  std::string strategy = "strategy";
-  double yield = 0.0;
-  std::string notes = "NEWTRADE";
-  bool open = false;
-
-  // Streaming out
-  friend std::ostream &operator<<(std::ostream &os, const trade_position &p) {
-    return os << std::fixed << std::setprecision(10) << " " << p.name << "\t"
-              << p.yield << "\t" << p.strategy << " " << p.notes << " "
-              << p.buy_price << " " << p.sell_price << " " << p.timestamp << " "
-              << p.duration << " " << std::boolalpha << p.open << "\n";
-  }
-
-  // Streaming in
-  friend std::istream &operator>>(std::istream &is, trade_position &p) {
-    return is >> std::setprecision(10) >> p.name >> p.yield >> p.strategy >>
-           p.notes >> p.buy_price >> p.sell_price >> p.timestamp >>
-           p.duration >> std::boolalpha >> p.open;
-  }
-};
-
-#endif
-```
 
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
