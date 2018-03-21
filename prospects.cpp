@@ -187,7 +187,6 @@ vector<string> run_strategies(series s) {
   return trades;
 }
 
-#include "handt.h"
 #include <iostream>
 #include <sstream>
 
