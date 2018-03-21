@@ -23,6 +23,7 @@ int main() {
 
 <style>
 body { font-family: sans-serif; }
+h1 { visibility: hidden; }
 </style>
 
 <title>HANDT</title>
