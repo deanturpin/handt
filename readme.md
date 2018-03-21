@@ -1,6 +1,5 @@
 # Modular design
-Each module reads the result of running the previous and emits its contribution
-to the processing chain. Can easily test each stage in isolation. Enforcing a
+Each module in the chain processes the result from the previous stage and emits its contribution. Can easily test each stage in isolation. Enforcing a
 simply interface between modules enforces a clean design (no complex
 structures passed around).
 
@@ -38,7 +37,7 @@ curl
 'https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=USD&limit=168&aggregate=1&e=CCCAGG'
 ```
 
-# Heading towards strategy definition language
+# Heading towards a strategy definition language
 The current strategy definition makes use of a library of techniques.
 ```cpp
 result stepping_up(series s, param p) { 

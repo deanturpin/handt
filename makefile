@@ -49,3 +49,6 @@ cron:
 
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
+
+closeall:
+	./archive_trades.sh
