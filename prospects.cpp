@@ -56,7 +56,7 @@ result rolling_average(series s, param p) {
   const auto name = NAME("roll_average", p);
   const unsigned long length = 10;
   const double average =
-      std::accumulate(s.crbegin(), next(s.crend(), length), 0.0) / length;
+      std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) / length;
 
   const bool exec = SPOT(s) / average > THRESHOLD(p);
   return result(name, exec);

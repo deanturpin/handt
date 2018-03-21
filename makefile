@@ -4,8 +4,12 @@ source:
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 cc=g++
+flags=-Wall -Werror -Wextra -pedantic -std=gnu++14 
 %.o: %.cpp
-	$(cc) -Wall -Werror -Wextra -pedantic -std=gnu++14 -o $@ $<
+	$(cc) $(flags) -o $@ $<
+
+# handt.a: handt.cpp
+	# $(cc) $(flags) -c -o $@ $<
 
 symbols.csv: symbols.py
 	./$< > $@
@@ -24,13 +28,13 @@ prospects.csv: prospects.o prices.csv
 
 consolidate.csv: consolidate.o review.csv prospects.csv
 	./$< > $@
-	$(shell grep true consolidate.csv > open.csv)
-	$(shell grep false consolidate.csv > closed.csv)
 
 stats:
 	wc -l *.csv
 
 endofsession:
+	$(shell grep true consolidate.csv > open.csv)
+	$(shell grep false consolidate.csv > closed.csv)
 	cp consolidate.csv positions.csv
 
 update:
