@@ -109,7 +109,7 @@ result steady_rising(series s, param p) {
 }
 
 result kosovich(series s, param p) {
-  const auto name = NAME("kosovich", p);
+  const auto name = NAME("koskosovich", p);
   const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));
   const bool exec = SPOT(s) / high > THRESHOLD(p);
   return result(name, exec);
