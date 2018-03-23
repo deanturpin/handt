@@ -24,12 +24,12 @@ struct prospect {
 
 int main() {
 
-  // Debug config
+  // Configure debug
   std::stringstream out;
   out.precision(10);
   out << std::boolalpha;
 
-  // Process prospects
+  // Read current prospects
   std::ifstream in("prospects.csv");
   std::vector<prospect> prospects;
   if (in.good()) {
