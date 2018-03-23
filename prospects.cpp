@@ -4,6 +4,8 @@
 #include <numeric>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <sstream>
 
 // STD shortcuts
 using std::string;
@@ -14,7 +16,7 @@ using std::next;
 using std::to_string;
 
 // Parameteric shortcuts
-using result = pair<string, bool>;
+using result = const pair<string, bool>;
 using series = const vector<double> &;
 using param = const double &;
 
@@ -84,7 +86,7 @@ result average_compare(series s, param p) {
   const unsigned long ratio = s.size() / p;
   const double recent_average =
       std::accumulate(s.crbegin(), std::next(s.crbegin(), ratio), 0.0,
-                      [](auto &sum, auto &i) { return sum + i; }) /
+                      [](auto &sum, const auto &i) { return sum + i; }) /
       ratio;
 
   const bool exec = recent_average > AVERAGE(s);
@@ -122,7 +124,7 @@ result random_decision(series s, param p) {
 
 // Implementation of helper routines
 double AVERAGE(series s) {
-  return s.size() > 0.0
+  return !s.empty()
              ? accumulate(s.cbegin(), s.cend(), 0.0,
                           [](auto &sum, const auto &i) { return sum + i; }) /
                    s.size()
@@ -132,14 +134,14 @@ double AVERAGE(series s) {
 // Average of the most recent half of the series
 double RECENT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
-  vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
+  const vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
   return AVERAGE(subset);
 }
 
 // Average of the oldest half of the series
 double DISTANT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
-  vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
+  const vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
   return AVERAGE(subset);
 }
 
@@ -177,8 +179,8 @@ vector<string> run_strategies(series s) {
   library lib2{average_compare, average_inter};
 
   for (const auto &buy : lib2)
-    for (const auto &t : ratios) {
-      const auto b = buy(s, t);
+    for (const auto &r : ratios) {
+      const auto b = buy(s, r);
 
       if (b.second)
         trades.push_back(b.first);
@@ -186,9 +188,6 @@ vector<string> run_strategies(series s) {
 
   return trades;
 }
-
-#include <iostream>
-#include <sstream>
 
 int main() {
 
