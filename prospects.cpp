@@ -16,7 +16,7 @@ using std::next;
 using std::to_string;
 
 // Parameteric shortcuts
-using result = const pair<string, bool>;
+using result = pair<string, bool>;
 using series = const vector<double> &;
 using param = const double &;
 
