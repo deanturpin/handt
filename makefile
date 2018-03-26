@@ -1,15 +1,15 @@
-all: source review.csv prospects.csv consolidate.csv index.html endofsession
+all: source
+chain: review.csv prospects.csv consolidate.csv index.html endofsession
 
 source:
+	touch $@
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+	make chain
 
 cc=g++
-flags=-Wall -Werror -Wextra -pedantic -std=gnu++14 
+flags=-Wall -Werror -Wextra -pedantic -std=gnu++14
 %.o: %.cpp
 	$(cc) $(flags) -o $@ $<
-
-# handt.a: handt.cpp
-	# $(cc) $(flags) -c -o $@ $<
 
 symbols.csv: symbols.py
 	./$< > $@
@@ -36,6 +36,7 @@ endofsession:
 	$(shell grep true consolidate.csv > open.csv)
 	$(shell grep false consolidate.csv > closed.csv)
 	cp consolidate.csv positions.csv
+	rm -f source
 
 update:
 	rm -f prices.csv
@@ -44,6 +45,9 @@ update:
 index.html: index.o consolidate.csv
 	./$< > $@
 	./create_index.sh >> $@
+
+gitpull:
+	git pull --quiet
 
 clean:
 	rm -f *.o

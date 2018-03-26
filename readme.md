@@ -25,7 +25,10 @@ using operator>> and operator<<.
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
 periodically pulled from GitHub, cleaned, compiled and if successful copied into
-the web root.
+the web root. In the event of a crash a subsequent run could remove the
+troublesome dataset before we've had chance to review it. So a flag is set at
+the start of a build and cleared at the end, if on a subsequent run the flag is
+already set then the build will abort.
 
 # Exchanges
 Whilst intuitively it seems you should be fetching prices often, Coinbase and

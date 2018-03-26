@@ -198,6 +198,8 @@ int main() {
   std::stringstream results;
   results.precision(10);
 
+  results << prices.size() << " prices\n";
+
   // Test strategies on each series
   for (const auto &p : prices) {
 
