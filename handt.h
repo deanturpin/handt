@@ -50,15 +50,23 @@ struct position {
   }
 };
 
+// Strip comments and return the remainder of the file
+std::stringstream strip_comments(const std::string &file) {
+  std::ifstream in(file);
+  std::stringstream ss;
+  if (in.good())
+    ss << in.rdbuf();
+  return ss;
+}
+
 // Get positions from a file
 auto get_positions(const std::string file = "positions.csv") {
+
   std::vector<position> positions;
-  std::ifstream in(file);
-  if (in.good()) {
-    position p;
-    while (in >> p)
-      positions.push_back(p);
-  }
+  position p;
+  auto in = strip_comments(file);
+  while (in >> p)
+    positions.push_back(p);
 
   return positions;
 }
@@ -66,28 +74,26 @@ auto get_positions(const std::string file = "positions.csv") {
 // Get prices and return a container full of them
 std::map<std::string, std::vector<double>>
 get_prices(const std::string file = "prices.csv") {
-  std::map<std::string, std::vector<double>> prices;
 
   // Read some prices
-  std::ifstream in(file);
-  if (in.good()) {
+  auto in = strip_comments(file);
 
-    // The first item is the coin name
-    std::string coin;
-    while (in >> coin) {
+  // The first item is the coin name
+  std::string coin;
+  std::map<std::string, std::vector<double>> prices;
+  while (in >> coin) {
 
-      // The remainder of the line contains values
-      std::string line;
-      std::getline(in, line);
-      std::stringstream ss(line);
+    // The remainder of the line contains values
+    std::string line;
+    std::getline(in, line);
+    std::stringstream ss(line);
 
-      // Extract values and add to the map
-      std::vector<double> p;
-      copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
-           std::back_inserter(p));
+    // Extract values and add to the map
+    std::vector<double> p;
+    copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
+         std::back_inserter(p));
 
-      prices.insert(std::make_pair(coin, p));
-    }
+    prices.insert(std::make_pair(coin, p));
   }
 
   return prices;

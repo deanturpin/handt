@@ -10,7 +10,7 @@ echo Using standard ${std:-c++14}
 
 while :; do
 	
-	inotifywait -qe modify $base.cpp
+	inotifywait -qe modify $base.cpp -qe modify *.h
 	clear
 
 	g++ -I include -Wall -std=${std:-c++1y} -o $base.o $base.cpp && echo && time ./$base.o
