@@ -3,7 +3,7 @@
 cat <<!
 <pre>
 $(date --utc)
-$(echo Index $(cat coinindex.txt) into $(grep -v '#' symbols.csv | wc -l) coins)
+$(echo Index $(cat coinindex.txt) into $(grep -v '#' symbols.csv | wc -l) tradable coins)
 </pre>
 
 <h2>Change log</h2>
