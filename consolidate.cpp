@@ -27,19 +27,19 @@ int main() {
   // Configure debug
   std::stringstream out;
   out.precision(10);
+  out << "# consolidate\n";
   out << std::boolalpha;
 
-  // Read current prospects
-  std::ifstream in("prospects.csv");
+  std::string line;
   std::vector<prospect> prospects;
-  if (in.good()) {
-    std::string line;
-    while (getline(in, line)) {
-      std::stringstream ss(line);
-      prospect p;
-      ss >> p;
-      prospects.push_back(p);
-    }
+
+  // Read current prospects
+  std::stringstream in = handt::strip_comments("prospects.csv");
+  while (getline(in, line)) {
+    std::stringstream ss(line);
+    prospect p;
+    ss >> p;
+    prospects.push_back(p);
   }
 
   // Get current reviewed positions
