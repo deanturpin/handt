@@ -1,10 +1,7 @@
-all: source
-chain: review.csv prospects.csv consolidate.csv index.html endofsession
+all: source review.csv prospects.csv consolidate.csv index.html endofsession
 
 source:
-	touch $@
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
-	make chain
 
 cc=g++
 flags=-Wall -Werror -Wextra -pedantic -std=gnu++14
@@ -33,7 +30,6 @@ endofsession:
 	$(shell grep true consolidate.csv > open.csv)
 	$(shell grep false consolidate.csv > closed.csv)
 	cp consolidate.csv positions.csv
-	rm -f source
 
 update:
 	rm -f prices.csv
