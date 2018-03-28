@@ -6,6 +6,8 @@ import requests
 batch_size = 80
 index = 0
 
+print("# prices")
+
 try:
     coinindex = open("coinindex.txt")
     index = int(coinindex.read())
@@ -64,7 +66,7 @@ for coin in wallet:
                 print(coin, end=" ")
                 for val in series:
                     print(val, end=" ")
-                print()
+                print("\n# values ", len(series))
 
     except Exception:
         do = "nothing"

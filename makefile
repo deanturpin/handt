@@ -29,9 +29,6 @@ prospects.csv: prospects.o prices.csv
 consolidate.csv: consolidate.o review.csv prospects.csv
 	./$< > $@
 
-stats:
-	wc -l *.csv
-
 endofsession:
 	$(shell grep true consolidate.csv > open.csv)
 	$(shell grep false consolidate.csv > closed.csv)
@@ -53,7 +50,7 @@ clean:
 	rm -f *.o
 
 cron:
-	watch -d -n 60 make --silent update stats
+	watch -d -n 60 make --silent update
 
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg

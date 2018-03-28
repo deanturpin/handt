@@ -52,16 +52,21 @@ struct position {
 
 // Strip comments and return the remainder of the file
 std::stringstream strip_comments(const std::string &file) {
+
   std::ifstream in(file);
   std::stringstream ss;
+
+  std::string line;
   if (in.good())
-    ss << in.rdbuf();
+    while (getline(in, line))
+      if (line.front() != '#')
+        ss << line << '\n';
+
   return ss;
 }
 
 // Get positions from a file
 auto get_positions(const std::string file = "positions.csv") {
-
   std::vector<position> positions;
   position p;
   auto in = strip_comments(file);
@@ -93,7 +98,8 @@ get_prices(const std::string file = "prices.csv") {
     copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
          std::back_inserter(p));
 
-    prices.insert(std::make_pair(coin, p));
+    if (!p.empty())
+      prices.insert(std::make_pair(coin, p));
   }
 
   return prices;

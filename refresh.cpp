@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
-// #include <type_traits>
 
 int main() {
 
@@ -10,6 +9,7 @@ int main() {
   std::stringstream out;
   out.precision(10);
   out << std::boolalpha;
+  out << "# refresh\n";
 
   // Get recent prices (not necessarily for all positions)
   const auto prices = handt::get_prices();
@@ -25,9 +25,9 @@ int main() {
   };
 
   // Update positions
-  std::decay_t<decltype(positions)> update;
+  std::decay_t<decltype(positions)> updated_positions;
   std::transform(positions.cbegin(), positions.cend(),
-                 std::back_inserter(update),
+                 std::back_inserter(updated_positions),
                  [&find_prices, &out](const auto p) {
 
                    // Create a copy of the position
@@ -44,8 +44,10 @@ int main() {
                    return pos;
                  });
 
-  for (const auto position : update)
+  for (const auto position : updated_positions)
     out << position << "\n";
+
+  out << "# " << updated_positions.size() << " positions\n";
 
   std::cout << out.str();
 }

@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
-// #include <type_traits>
 
 int main() {
 
@@ -11,10 +10,10 @@ int main() {
   out.precision(10);
   out << std::boolalpha;
 
-  // Get current positions (not necessarily for all prices)
+  // Get current refreshed positions
   auto positions = handt::get_positions("refresh.csv");
 
-  // Close any positions
+  // Close any positions that have matured sufficiently
   for (auto &p : positions)
     if (p.buy_price > 0)
       if (p.sell_price / p.buy_price > 1.10)
@@ -22,6 +21,8 @@ int main() {
 
   for (const auto position : positions)
     out << position << "\n";
+
+  out << "# " << positions.size() << " positions\n";
 
   std::cout << out.str();
 }

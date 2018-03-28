@@ -191,30 +191,32 @@ vector<string> run_strategies(series s) {
 
 int main() {
 
-  // Get some example prices
+  // Get some prices
   const auto prices = handt::get_prices();
 
   // A place for the results
-  std::stringstream results;
-  results.precision(10);
-
-  results << prices.size() << " prices\n";
+  std::stringstream out;
+  out.precision(10);
+  out << "# prospects\n";
+  out << "# " << prices.size() << " prices\n";
 
   // Test strategies on each series
   for (const auto &p : prices) {
 
     const auto &name = p.first;
     const auto &series = p.second;
-    const auto spot = series.back();
 
-    const auto buys = run_strategies(series);
-    if (!buys.empty()) {
-      results << name << "\t" << spot << " ";
-      for (const auto &buy : buys)
-        results << buy << " ";
-      results << "\n";
+    if (!series.empty()) {
+      const auto spot = series.back();
+      const auto buys = run_strategies(series);
+      if (!buys.empty()) {
+        out << name << "\t" << spot << " ";
+        for (const auto &buy : buys)
+          out << buy << " ";
+        out << "\n";
+      }
     }
   }
 
-  std::cout << results.str();
+  std::cout << out.str();
 }
