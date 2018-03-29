@@ -80,38 +80,26 @@ struct coin {
   }
 };
 
-// Strip comments and return the remainder of the file
-std::stringstream strip_comments(const std::string &file) {
-
-  std::ifstream in(file);
-  std::stringstream ss;
-
-  std::string line;
-  if (in.good())
-    while (getline(in, line))
-      if (!line.empty())
-        if (line.front() != '#')
-          ss << line << '\n';
-
-  return ss;
-}
-
 // Generic routine to extract a series of objects and populate a container
 template <typename T> auto get_objects_from_file(const std::string file) {
 
   // Declare object to be returned
   std::vector<T> objects;
 
-  // Read in the file and remove any cruft
-  std::stringstream in = strip_comments(file);
-
   // Step through each line extracting the object and pushing onto a container
+  std::ifstream in(file);
   std::string line;
   while (getline(in, line)) {
-    std::stringstream ss(line);
-    T p;
-    ss >> p;
-    objects.push_back(p);
+
+    // Skip lines that start with a comment
+    if (line.front() != '#') {
+
+      // Store object if it streams successfully
+      std::stringstream ss(line);
+      T p;
+      ss >> p;
+      objects.push_back(p);
+    }
   }
 
   // Return the extracted objects
