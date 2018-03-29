@@ -56,7 +56,7 @@ int main() {
 
       // If some strategies have triggered then print them
       if (!buys.empty()) {
-        out << p.name << "\t" << spot << " ";
+        out << p.symbol << "\t" << spot << " ";
         for (const auto &buy : buys)
           out << buy << " ";
         out << "\n";

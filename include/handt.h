@@ -66,11 +66,11 @@ struct prospect {
 
 // A coin has a name and a series of prices
 struct coin {
-  std::string name;
+  std::string symbol;
   std::vector<double> series;
 
   friend std::istream &operator>>(std::istream &is, coin &p) {
-    is >> p.name;
+    is >> p.symbol;
     std::copy(std::istream_iterator<double>(is),
               std::istream_iterator<double>(), std::back_inserter(p.series));
     return is;

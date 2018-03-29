@@ -21,7 +21,7 @@ int main() {
   auto find_prices = [&prices](const std::string symbol) {
     const auto it =
         std::find_if(prices.cbegin(), prices.cend(),
-                     [symbol](const auto p) { return p.name == symbol; });
+                     [symbol](const auto p) { return p.symbol == symbol; });
     return it != prices.cend() ? it->series : std::vector<double>();
   };
 
