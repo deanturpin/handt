@@ -1,40 +1,8 @@
 #include "handt.h"
 #include "low_frequency_trader.h"
-#include <functional>
 #include <iostream>
 #include <sstream>
 #include <vector>
-
-// Return a list of the strategy names that reported "buy" for the series of
-// prices given
-std::vector<std::string> run_strategies(lft::series s) {
-
-  using namespace lft;
-  using library = const std::vector<std::function<result(series, param)>>;
-
-  // Strategies that take thresholds (in percent)
-  library lib1{flicking_down,   flicking_up,   ski_jumping,  stepping_up,
-               stepping_down,   steady_rising, kosovich,     rolling_average,
-               random_decision, back_to_front, front_to_back};
-
-  std::vector<std::string> trades;
-  for (const auto &buy : lib1) {
-    const auto b = buy(s, 10.0);
-    if (b.second)
-      trades.push_back(b.first);
-  }
-
-  // Strategies that take ratios
-  library lib2{average_compare, average_inter};
-
-  for (const auto &buy : lib2) {
-    const auto b = buy(s, 2.0);
-    if (b.second)
-      trades.push_back(b.first);
-  }
-
-  return trades;
-}
 
 int main() {
 
@@ -43,16 +11,15 @@ int main() {
   out.precision(10);
 
   // Get some prices
-  const auto prices = handt::get_prices();
+  const auto &prices = handt::get_prices();
   out << "# prospects\n";
-  out << "# " << prices.size() << " prices\n";
 
   // Test strategies on each series
   for (const auto &p : prices)
     if (!p.series.empty()) {
 
       const auto spot = p.series.back();
-      const auto buys = run_strategies(p.series);
+      const auto &buys = lft::run_strategies(p.series);
 
       // If some strategies have triggered then print them
       if (!buys.empty()) {
@@ -63,5 +30,6 @@ int main() {
       }
     }
 
+  out << "# " << prices.size() << " prices\n";
   std::cout << out.str();
 }

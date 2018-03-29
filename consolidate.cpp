@@ -13,7 +13,7 @@ int main() {
   out << std::boolalpha;
   out << "# consolidate\n";
 
-  const auto reviewed_positions = handt::get_reviewed_positions();
+  const auto &reviewed_positions = handt::get_reviewed_positions();
 
   // Store new positions in a separate container
   std::decay_t<decltype(reviewed_positions)> new_positions;
