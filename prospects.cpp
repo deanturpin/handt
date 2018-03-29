@@ -101,10 +101,15 @@ result ski_jumping(series s, param p) {
 
 result steady_rising(series s, param p) {
   const auto name = NAME("steady_rising", p);
-  double trend = 0.0;
+
+  // Check if the next value is large than the current
+  unsigned long trend = 0;
   for (auto i = s.cbegin(); i != std::prev(s.cend()); ++i)
-    trend += (*i < *std::next(i) ? 1.0 : -1.0);
-  const bool exec = trend > s.size() * .75;
+    if (*i < *std::next(i))
+      ++trend;
+
+  // Execute if a significant proportion of intervals are increasing
+  const bool exec = trend > s.size() / 2;
   return result(name, exec);
 }
 
