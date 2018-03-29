@@ -30,11 +30,11 @@ int main() {
   out << "# consolidate\n";
   out << std::boolalpha;
 
-  std::string line;
   std::vector<prospect> prospects;
 
-  // Read current prospects
+  // Read recent prospects
   std::stringstream in = handt::strip_comments("prospects.csv");
+  std::string line;
   while (getline(in, line)) {
     std::stringstream ss(line);
     prospect p;
@@ -42,37 +42,41 @@ int main() {
     prospects.push_back(p);
   }
 
-  // Get current reviewed positions
-  const auto refresh = handt::get_positions("review.csv");
+  // Get existing reviewed positions
+  const auto existing_positions = handt::get_positions("review.csv");
 
-  // Create postion for each propsect
-  std::decay_t<decltype(refresh)> positions;
+  // Create new postion for each propsect
+  std::decay_t<decltype(existing_positions)> new_positions;
   for (const auto &prospect : prospects) {
     for (const auto &strategy : prospect.strategies) {
 
       // Check if we already hold an open position with this currency/strategy
       const auto symbol = prospect.symbol;
       const auto it = std::find_if(
-          refresh.cbegin(), refresh.cend(), [&symbol, &strategy](const auto p) {
+          existing_positions.cbegin(), existing_positions.cend(),
+          [&symbol, &strategy](const auto p) {
             return p.open && p.symbol == symbol && p.strategy == strategy;
           });
 
       // Create a position if we don't already hold one
-      if (it == refresh.cend()) {
-        // Initialise position with prospect details
+      if (it == existing_positions.cend()) {
+
+        // Initialise position with prospect details and store it
         handt::position position;
         position.symbol = prospect.symbol;
         position.strategy = strategy;
         position.buy_price = position.sell_price = prospect.spot;
-        positions.push_back(position);
+        new_positions.push_back(position);
       }
     }
   }
 
-  for (const auto &p : refresh)
+  out << "# " << existing_positions.size() << " existing positions\n";
+  for (const auto &p : existing_positions)
     out << p << "\n";
 
-  for (const auto &p : positions)
+  out << "# " << new_positions.size() << " new positions\n";
+  for (const auto &p : new_positions)
     out << p << "\n";
 
   std::cout << out.str();

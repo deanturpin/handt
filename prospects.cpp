@@ -1,11 +1,11 @@
 #include "handt.h"
 #include <algorithm>
 #include <functional>
+#include <iostream>
 #include <numeric>
+#include <sstream>
 #include <string>
 #include <vector>
-#include <iostream>
-#include <sstream>
 
 // STD shortcuts
 using std::string;

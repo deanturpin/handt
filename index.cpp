@@ -56,7 +56,7 @@ target="blah">GitHub</a>.</p>
                                              position.buy_price);
     else
       big_cap[position.strategy].push_back(position.sell_price /
-                                             position.buy_price);
+                                           position.buy_price);
   }
 
   out << "SMALLCAP\t\t POS\t% RETURN\n";
