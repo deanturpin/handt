@@ -17,7 +17,7 @@ std::vector<std::string> run_strategies(lft::series s) {
                stepping_up,   stepping_down,   steady_rising,
                kosovich,      rolling_average, random_decision};
 
-  std::vector<string> trades;
+  std::vector<std::string> trades;
   for (const auto &buy : lib1) {
     const auto b = buy(s, 10.0);
     if (b.second)

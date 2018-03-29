@@ -8,26 +8,41 @@
 
 namespace lft {
 
-// STD shortcuts
-using std::string;
-using std::pair;
-using std::vector;
-using std::accumulate;
-using std::next;
-using std::to_string;
-
 // Parameteric aliases to make the strategy definitions cleaner
-using result = pair<string, bool>;
-using series = const vector<double> &;
+using result = std::pair<std::string, bool>;
+using series = const std::vector<double> &;
 using param = const double &;
 
-// Helper routines to define strategies
-double SPOT(series);
-double AVERAGE(series);
-double RECENT_AVERAGE(series);
-double DISTANT_AVERAGE(series);
-double THRESHOLD(param);
-string NAME(const string, param p);
+// Helper routines used to define strategies
+
+double AVERAGE(series s) {
+  return !s.empty()
+             ? accumulate(s.cbegin(), s.cend(), 0.0,
+                          [](auto &sum, const auto &i) { return sum + i; }) /
+                   s.size()
+             : 0.0;
+}
+
+// Average of the most recent half of the series
+double RECENT_AVERAGE(series s) {
+  const unsigned long mid_point = s.size() / 2;
+  const std::vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
+  return AVERAGE(subset);
+}
+
+// Average of the oldest half of the series
+double DISTANT_AVERAGE(series s) {
+  const unsigned long mid_point = s.size() / 2;
+  const std::vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
+  return AVERAGE(subset);
+}
+
+std::string NAME(const std::string n, param p) {
+  return std::to_string(p).substr(0, 4) + "_" + n;
+}
+
+double THRESHOLD(param p) { return (100.0 + p) / 100.0; }
+double SPOT(series s) { return s.back(); }
 
 // The strategies
 
@@ -128,35 +143,6 @@ result random_decision(series s, param p) {
   return result(name, exec);
 }
 
-// Implementation of helper routines
-double AVERAGE(series s) {
-  return !s.empty()
-             ? accumulate(s.cbegin(), s.cend(), 0.0,
-                          [](auto &sum, const auto &i) { return sum + i; }) /
-                   s.size()
-             : 0.0;
-}
-
-// Average of the most recent half of the series
-double RECENT_AVERAGE(series s) {
-  const unsigned long mid_point = s.size() / 2;
-  const vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
-  return AVERAGE(subset);
-}
-
-// Average of the oldest half of the series
-double DISTANT_AVERAGE(series s) {
-  const unsigned long mid_point = s.size() / 2;
-  const vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
-  return AVERAGE(subset);
-}
-
-string NAME(const string n, param p) {
-  return to_string(p).substr(0, 4) + "_" + n;
-}
-
-double THRESHOLD(param p) { return (100.0 + p) / 100.0; }
-double SPOT(series s) { return s.back(); }
 }
 
 #endif
