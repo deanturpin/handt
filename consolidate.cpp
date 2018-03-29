@@ -45,11 +45,9 @@ int main() {
     }
   }
 
-  out << "# " << existing_positions.size() << " existing positions\n";
   for (const auto &p : existing_positions)
     out << p << "\n";
 
-  out << "# " << new_positions.size() << " new positions\n";
   for (const auto &p : new_positions)
     out << p << "\n";
 

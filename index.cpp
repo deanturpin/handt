@@ -43,7 +43,7 @@ target="blah">GitHub</a>.</p>
   out << prices.size() << " coins updated in the last minute\n";
 
   // Get the final set of positions after trading is complete
-  const auto positions = handt::get_consolidated_positions();
+  const auto positions = handt::get_final_positions();
   out << positions.size() << " consolidated positions\n\n";
 
   // Close all positions and split into cap size

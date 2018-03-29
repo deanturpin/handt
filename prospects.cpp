@@ -48,22 +48,17 @@ int main() {
   out << "# " << prices.size() << " prices\n";
 
   // Test strategies on each series
-  for (const auto &p : prices) {
-
-    const auto &name = p.first;
-    const auto &series = p.second;
-
-    if (!series.empty()) {
-      const auto spot = series.back();
-      const auto buys = run_strategies(series);
+  for (const auto &p : prices)
+    if (!p.series.empty()) {
+      const auto spot = p.series.back();
+      const auto buys = run_strategies(p.series);
       if (!buys.empty()) {
-        out << name << "\t" << spot << " ";
+        out << p.name << "\t" << spot << " ";
         for (const auto &buy : buys)
           out << buy << " ";
         out << "\n";
       }
     }
-  }
 
   std::cout << out.str();
 }
