@@ -117,6 +117,12 @@ result ski_jumping(series s, param p) {
   return result(name, exec);
 }
 
+result back_to_front(series s, param p) {
+  const auto name = NAME("back_to_front", p);
+  const bool exec = s.front() / s.back() > THRESHOLD(p);
+  return result(name, exec);
+}
+
 result steady_rising(series s, param p) {
   const auto name = NAME("steady_rising", p);
 
