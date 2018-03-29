@@ -26,17 +26,17 @@ double AVERAGE(series s) {
              : 0.0;
 }
 
-// Average of the most recent half of the series
-double RECENT_AVERAGE(series s) {
-  const unsigned long mid_point = s.size() / 2;
-  const std::vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
-  return AVERAGE(subset);
-}
-
 // Average of the oldest half of the series
 double DISTANT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
   const std::vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
+  return AVERAGE(subset);
+}
+
+// Average of the recent half of the series
+double RECENT_AVERAGE(series s) {
+  const unsigned long mid_point = s.size() / 2;
+  const std::vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
   return AVERAGE(subset);
 }
 
@@ -85,8 +85,8 @@ result rolling_average(series s, param p) {
 
 result average_inter(series s, param p) {
   const auto name = NAME("average_inter", p);
-  const unsigned long filter1 = 5.0 * p;
-  const unsigned long filter2 = 10.0 * p;
+  const unsigned long filter1 = 5 * p;
+  const unsigned long filter2 = 10 * p;
 
   // Average with a small window
   const double short_average =
