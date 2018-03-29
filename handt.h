@@ -79,17 +79,11 @@ auto get_positions(const std::string file = "positions.csv") {
 }
 
 // Helper routines to colocate the external filenames
-auto get_reviewed_positions() {
-  return get_positions("review.csv");
-}
+auto get_reviewed_positions() { return get_positions("review.csv"); }
 
-auto get_consolidated_positions() {
-  return get_positions("consolidate.csv");
-}
+auto get_consolidated_positions() { return get_positions("consolidate.csv"); }
 
-auto get_refreshed_positions() {
-  return get_positions("refresh.csv");
-}
+auto get_refreshed_positions() { return get_positions("refresh.csv"); }
 
 // A prospect has a name, an initial price and a list of strategies that
 // triggered the prospect

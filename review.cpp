@@ -1,7 +1,5 @@
 #include "handt.h"
-#include <algorithm>
 #include <iostream>
-#include <sstream>
 
 int main() {
 
@@ -19,10 +17,10 @@ int main() {
       if (p.sell_price / p.buy_price > 1.10)
         p.open = false;
 
+  // Print all positions
+  out << "# " << positions.size() << " positions\n";
   for (const auto position : positions)
     out << position << "\n";
-
-  out << "# " << positions.size() << " positions\n";
 
   std::cout << out.str();
 }
