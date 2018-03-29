@@ -1,7 +1,7 @@
 all: source review.csv prospects.csv consolidate.csv index.html endofsession
 
 source:
-	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+	make --silent -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 cc=g++
 flags=-Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
