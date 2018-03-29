@@ -13,15 +13,12 @@
 
 namespace handt {
 
+// Timestamp routine
 unsigned long seconds_since_epoch() {
-
-  using namespace std::chrono;
-  using clock = std::chrono::system_clock;
-  const auto now = clock::now();
-  const auto epoch = static_cast<unsigned long>(
-      duration_cast<seconds>(now.time_since_epoch()).count());
-
-  return epoch;
+  return static_cast<unsigned long>(
+      std::chrono::duration_cast<std::chrono::seconds>(
+          std::chrono::system_clock::now().time_since_epoch())
+          .count());
 }
 
 // A stucture to represent a trade
@@ -113,8 +110,7 @@ auto get_prospects() { return get_objects<prospect>("prospects.csv"); }
 auto get_positions() { return get_objects<position>("positions.csv"); }
 auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
 auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
-auto get_final_positions() { return get_objects<position>("consolidate.csv");
-}
+auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
 }
 
 #endif
