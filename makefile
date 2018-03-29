@@ -4,7 +4,7 @@ source:
 	make -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 cc=g++
-flags=-Wall -Werror -Wextra -pedantic -std=gnu++14
+flags=-Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
 %.o: %.cpp
 	$(cc) $(flags) -o $@ $<
 
