@@ -18,7 +18,7 @@ int main() {
   const auto prospects = handt::get_prospects();
 
   // Get existing reviewed positions
-  const auto existing_positions = handt::get_positions("review.csv");
+  const auto existing_positions = handt::get_reviewed_positions();
 
   // Create new postion for each propsect
   std::decay_t<decltype(existing_positions)> new_positions;

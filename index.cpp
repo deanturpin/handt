@@ -43,7 +43,7 @@ target="blah">GitHub</a>.</p>
   out << prices.size() << " coins updated in the last minute\n";
 
   // Get the positions
-  const auto positions = handt::get_positions("consolidate.csv");
+  const auto positions = handt::get_consolidated_positions();
   out << positions.size() << " positions\n\n";
 
   std::map<std::string, std::vector<double>> small_cap, big_cap;

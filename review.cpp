@@ -11,7 +11,7 @@ int main() {
   out << std::boolalpha;
 
   // Get current refreshed positions
-  auto positions = handt::get_positions("refresh.csv");
+  auto positions = handt::get_refreshed_positions();
 
   // Close any positions that have matured sufficiently
   for (auto &p : positions)

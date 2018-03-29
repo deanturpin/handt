@@ -68,6 +68,7 @@ std::stringstream strip_comments(const std::string &file) {
 
 // Get positions from a file
 auto get_positions(const std::string file = "positions.csv") {
+
   std::vector<position> positions;
   position p;
   auto in = strip_comments(file);
@@ -75,6 +76,19 @@ auto get_positions(const std::string file = "positions.csv") {
     positions.push_back(p);
 
   return positions;
+}
+
+// Helper routines to colocate the external filenames
+auto get_reviewed_positions() {
+  return get_positions("review.csv");
+}
+
+auto get_consolidated_positions() {
+  return get_positions("consolidate.csv");
+}
+
+auto get_refreshed_positions() {
+  return get_positions("refresh.csv");
 }
 
 // A prospect has a name, an initial price and a list of strategies that
