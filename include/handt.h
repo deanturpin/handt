@@ -82,7 +82,7 @@ struct coin {
 
 // Generic routine to extract a series of objects from a file and populate a
 // container
-template <typename T> auto get_objects_from_file(const std::string file) {
+template <typename T> auto get_objects(const std::string file) {
 
   // Declare object to be returned
   std::vector<T> objects;
@@ -108,21 +108,12 @@ template <typename T> auto get_objects_from_file(const std::string file) {
 }
 
 // Wrappers to get various objects
-auto get_prospects() {
-  return get_objects_from_file<prospect>("prospects.csv");
-}
-auto get_prices() { return get_objects_from_file<coin>("prices.csv"); }
-auto get_positions() {
-  return get_objects_from_file<position>("positions.csv");
-}
-auto get_reviewed_positions() {
-  return get_objects_from_file<position>("review.csv");
-}
-auto get_refreshed_positions() {
-  return get_objects_from_file<position>("refresh.csv");
-}
-auto get_consolidated_positions() {
-  return get_objects_from_file<position>("consolidate.csv");
+auto get_prospects() { return get_objects<prospect>("prospects.csv"); }
+auto get_prices() { return get_objects<coin>("prices.csv"); }
+auto get_positions() { return get_objects<position>("positions.csv"); }
+auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
+auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
+auto get_final_positions() { return get_objects<position>("consolidate.csv");
 }
 }
 
