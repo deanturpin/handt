@@ -38,24 +38,28 @@ target="blah">GitHub</a>.</p>
 
   out << "<pre>\n";
 
-  // Get the coins
+  // Get recent prices
   const auto prices = handt::get_prices();
   out << prices.size() << " coins updated in the last minute\n";
 
-  // Get the positions
+  // Get the final set of positions after trading is complete
   const auto positions = handt::get_consolidated_positions();
   out << positions.size() << " consolidated positions\n\n";
 
-  std::map<std::string, std::vector<double>> small_cap, big_cap;
-
   // Close all positions and split into cap size
+  std::map<std::string, std::vector<double>> small_cap, big_cap;
   for (const auto &position : positions) {
-    if (position.buy_price < 10.0)
-      small_cap[position.strategy].push_back(position.sell_price /
-                                             position.buy_price);
+
+    const auto strategy = position.strategy;
+    const auto buy = position.buy_price;
+    const auto sell = position.sell_price;
+    const auto yield = buy > 0.0 ? sell / buy : 0.0;
+
+    // Check if it's actually kind of a big deal
+    if (buy < 10.0)
+      small_cap[strategy].push_back(yield);
     else
-      big_cap[position.strategy].push_back(position.sell_price /
-                                           position.buy_price);
+      big_cap[strategy].push_back(yield);
   }
 
   // Print strategy summaries
