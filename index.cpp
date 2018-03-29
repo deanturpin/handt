@@ -77,6 +77,6 @@ target="blah">GitHub</a>.</p>
     out << "--\n";
   }
 
-  out << "<pre>\n";
+  out << "</pre>\n";
   std::cout << out.str();
 }
