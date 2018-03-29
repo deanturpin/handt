@@ -44,13 +44,12 @@ target="blah">GitHub</a>.</p>
 
   // Get the positions
   const auto positions = handt::get_consolidated_positions();
-  out << positions.size() << " positions\n\n";
+  out << positions.size() << " consolidated positions\n\n";
 
   std::map<std::string, std::vector<double>> small_cap, big_cap;
 
-  // Close all positions
+  // Close all positions and split into cap size
   for (const auto &position : positions) {
-
     if (position.buy_price < 10.0)
       small_cap[position.strategy].push_back(position.sell_price /
                                              position.buy_price);
@@ -59,24 +58,19 @@ target="blah">GitHub</a>.</p>
                                            position.buy_price);
   }
 
-  out << "SMALLCAP\t\t POS\t% RETURN\n";
-  for (const auto &i : small_cap) {
-    const unsigned long count = i.second.size();
-    const double yield =
-        100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-        count;
+  // Print strategy summaries
+  out << "STRATEGY\t\t POS\t% RETURN\n";
+  for (const auto &strategy : {small_cap, big_cap}) {
+    for (const auto &i : strategy) {
+      const unsigned long positions_held = i.second.size();
+      const double yield =
+          100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
+          positions_held;
 
-    out << i.first << "\t" << count << "\t" << yield << "\n";
-  }
+      out << i.first << "\t" << positions_held << "\t" << yield << "\n";
+    }
 
-  out << "\nBIGCAP\t\t\t POS\t% RETURN\n";
-  for (const auto &i : big_cap) {
-    const unsigned long count = i.second.size();
-    const double yield =
-        100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-        count;
-
-    out << i.first << "\t" << count << "\t" << yield << "\n";
+    out << "--\n";
   }
 
   out << "<pre>\n";
