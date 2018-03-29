@@ -11,12 +11,13 @@ int main() {
   out << std::boolalpha;
   out << "# refresh\n";
 
-  // Get recent prices (not necessarily for all positions)
+  // Get recent prices
   const auto prices = handt::get_prices();
 
-  // Get current positions (not necessarily for all prices)
+  // Get current positions
   const auto positions = handt::get_positions();
 
+  // Lambda to search for a symbol in the recent prices
   auto find_prices = [&prices](const std::string symbol) {
     const auto it =
         std::find_if(prices.cbegin(), prices.cend(),
@@ -24,7 +25,8 @@ int main() {
     return it != prices.cend() ? it->second : std::vector<double>();
   };
 
-  // Update positions
+  // Copy existing positions into a new container, updating the prices if they
+  // are available
   std::decay_t<decltype(positions)> updated_positions;
   std::transform(positions.cbegin(), positions.cend(),
                  std::back_inserter(updated_positions),
@@ -44,10 +46,10 @@ int main() {
                    return pos;
                  });
 
+  // Print all positions
+  out << "# " << updated_positions.size() << " positions\n";
   for (const auto position : updated_positions)
     out << position << "\n";
-
-  out << "# " << updated_positions.size() << " positions\n";
 
   std::cout << out.str();
 }
