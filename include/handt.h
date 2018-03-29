@@ -67,31 +67,6 @@ std::stringstream strip_comments(const std::string &file) {
   return ss;
 }
 
-// Get positions from disk
-auto get_positions_from_file(const std::string file) {
-
-  // Declare object that will be returned
-  std::vector<position> positions;
-
-  // Process all lines that match a position structure
-  position p;
-  auto in = strip_comments(file);
-  while (in >> p)
-    positions.push_back(p);
-
-  return positions;
-}
-
-// Helper routines to colocate the external filenames
-auto get_positions() { return get_positions_from_file("positions.csv"); }
-auto get_reviewed_positions() { return get_positions_from_file("review.csv"); }
-auto get_refreshed_positions() {
-  return get_positions_from_file("refresh.csv");
-}
-auto get_consolidated_positions() {
-  return get_positions_from_file("consolidate.csv");
-}
-
 // A prospect has a name, an initial price and a list of strategies that
 // triggered the prospect
 struct prospect {
@@ -107,25 +82,6 @@ struct prospect {
     return is;
   }
 };
-
-// Get prospects from disk
-auto get_prospects() {
-
-  // Declare object that will be returned
-  std::vector<prospect> prospects;
-
-  // Read recent prospects
-  std::stringstream in = strip_comments("prospects.csv");
-  std::string line;
-  while (getline(in, line)) {
-    std::stringstream ss(line);
-    prospect p;
-    ss >> p;
-    prospects.push_back(p);
-  }
-
-  return prospects;
-}
 
 // Get prices from disk
 auto get_prices() {
@@ -155,6 +111,45 @@ auto get_prices() {
   }
 
   return prices;
+}
+
+// Generic routine to extract a series of objects and populate a container
+template <typename T> auto get_values_from_file(const std::string file) {
+
+  // Declare object to be returned
+  std::vector<T> objects;
+
+  // Read in the file and remove any cruft
+  std::stringstream in = strip_comments(file);
+
+  // Step through each line extracting the object and pushing onto a container
+  std::string line;
+  while (getline(in, line)) {
+    std::stringstream ss(line);
+    T p;
+    ss >> p;
+    objects.push_back(p);
+  }
+
+  // Return the extracted objects
+  return objects;
+}
+
+auto get_prospects() { return get_values_from_file<prospect>("prospects.csv"); }
+
+// Get positions from disk
+auto get_positions_from_file(const std::string file) {
+  return get_values_from_file<position>(file);
+}
+
+// Helper routines to colocate the external filenames
+auto get_positions() { return get_positions_from_file("positions.csv"); }
+auto get_reviewed_positions() { return get_positions_from_file("review.csv"); }
+auto get_refreshed_positions() {
+  return get_positions_from_file("refresh.csv");
+}
+auto get_consolidated_positions() {
+  return get_positions_from_file("consolidate.csv");
 }
 }
 

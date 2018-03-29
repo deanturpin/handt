@@ -142,7 +142,6 @@ result random_decision(series s, param p) {
   const bool exec = handt::seconds_since_epoch() / 10 % 2 == 0;
   return result(name, exec);
 }
-
 }
 
 #endif
