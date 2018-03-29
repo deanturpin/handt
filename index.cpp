@@ -46,11 +46,11 @@ less than 10 USD, the second block is the remaining larger value currencies.</p>
 
   // Get recent prices
   const auto prices = handt::get_prices();
-  out << prices.size() << " coins updated in the last minute, ";
+  out << "<p>" << prices.size() << " coins updated in the last minute, ";
 
   // Get the final set of positions after trading is complete
   const auto positions = handt::get_final_positions();
-  out << positions.size() << " consolidated positions held.";
+  out << positions.size() << " consolidated positions held.</p>\n";
   out << "<pre>\n";
 
   // Close all positions and split into cap size
@@ -84,6 +84,6 @@ less than 10 USD, the second block is the remaining larger value currencies.</p>
     out << "--\n";
   }
 
-  out << "</pre>\n";
+  out << "</pre>\n<hr>\n";
   std::cout << out.str();
 }
