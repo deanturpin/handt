@@ -6,22 +6,6 @@
 #include <sstream>
 #include <vector>
 
-// A prospect has a name, an initial price and a list of strategies that
-// triggered the prospect
-struct prospect {
-  std::string symbol;
-  double spot;
-  std::vector<std::string> strategies;
-
-  friend std::istream &operator>>(std::istream &is, prospect &p) {
-    is >> p.symbol >> p.spot;
-    std::copy(std::istream_iterator<std::string>(is),
-              std::istream_iterator<std::string>(),
-              std::back_inserter(p.strategies));
-    return is;
-  }
-};
-
 int main() {
 
   // Configure debug
@@ -30,17 +14,8 @@ int main() {
   out << "# consolidate\n";
   out << std::boolalpha;
 
-  std::vector<prospect> prospects;
-
-  // Read recent prospects
-  std::stringstream in = handt::strip_comments("prospects.csv");
-  std::string line;
-  while (getline(in, line)) {
-    std::stringstream ss(line);
-    prospect p;
-    ss >> p;
-    prospects.push_back(p);
-  }
+  // Get recent prospects
+  const auto prospects = handt::get_prospects();
 
   // Get existing reviewed positions
   const auto existing_positions = handt::get_positions("review.csv");

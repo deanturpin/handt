@@ -77,6 +77,40 @@ auto get_positions(const std::string file = "positions.csv") {
   return positions;
 }
 
+// A prospect has a name, an initial price and a list of strategies that
+// triggered the prospect
+struct prospect {
+  std::string symbol;
+  double spot;
+  std::vector<std::string> strategies;
+
+  friend std::istream &operator>>(std::istream &is, prospect &p) {
+    is >> p.symbol >> p.spot;
+    std::copy(std::istream_iterator<std::string>(is),
+              std::istream_iterator<std::string>(),
+              std::back_inserter(p.strategies));
+    return is;
+  }
+};
+
+// Get prospects from a file
+auto get_prospects() {
+
+  std::vector<prospect> prospects;
+
+  // Read recent prospects
+  std::stringstream in = strip_comments("prospects.csv");
+  std::string line;
+  while (getline(in, line)) {
+    std::stringstream ss(line);
+    prospect p;
+    ss >> p;
+    prospects.push_back(p);
+  }
+
+  return prospects;
+}
+
 // Get prices and return a container full of them
 std::map<std::string, std::vector<double>>
 get_prices(const std::string file = "prices.csv") {
