@@ -43,7 +43,6 @@ less than 10 USD, the second block is the remaining larger value currencies.</p>
 
 )";
 
-
   // Get recent prices
   const auto prices = handt::get_prices();
   out << "<p>" << prices.size() << " coins updated in the last minute, ";

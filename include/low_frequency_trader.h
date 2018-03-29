@@ -123,6 +123,12 @@ result back_to_front(series s, param p) {
   return result(name, exec);
 }
 
+result front_to_back(series s, param p) {
+  const auto name = NAME("front_to_back", p);
+  const bool exec = s.back() / s.front() > THRESHOLD(p);
+  return result(name, exec);
+}
+
 result steady_rising(series s, param p) {
   const auto name = NAME("steady_rising", p);
 

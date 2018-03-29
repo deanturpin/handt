@@ -13,10 +13,9 @@ std::vector<std::string> run_strategies(lft::series s) {
   using library = const std::vector<std::function<result(series, param)>>;
 
   // Strategies that take thresholds (in percent)
-  library lib1{flicking_down, flicking_up,     ski_jumping,
-               stepping_up,   stepping_down,   steady_rising,
-               kosovich,      rolling_average, random_decision,
-              back_to_front};
+  library lib1{flicking_down,   flicking_up,   ski_jumping,  stepping_up,
+               stepping_down,   steady_rising, kosovich,     rolling_average,
+               random_decision, back_to_front, front_to_back};
 
   std::vector<std::string> trades;
   for (const auto &buy : lib1) {
