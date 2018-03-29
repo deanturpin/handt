@@ -32,21 +32,26 @@ body { font-family: sans-serif; }
 what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
-target="blah">GitHub</a>. The first block of results summarises strategy
-performance for coins worth less than 10 USD, the second block is the remaining
-larger value currencies.</p>
+target="blah">GitHub</a>.</p>
+
+<p>7 days of prices are fetched for almost 2000 coins at a rate of 80 per
+minute&mdash; a limit set by the exchange&mdash; therefore it takes around 25
+minutes to process the full set of coins. A library of strategies is run over
+each block and a position is created if the strategy returns positively. The
+first block of results (below) summarises strategy performance for coins worth
+less than 10 USD, the second block is the remaining larger value currencies.</p>
 
 )";
 
-  out << "<pre>\n";
 
   // Get recent prices
   const auto prices = handt::get_prices();
-  out << prices.size() << " coins updated in the last minute\n";
+  out << prices.size() << " coins updated in the last minute, ";
 
   // Get the final set of positions after trading is complete
   const auto positions = handt::get_final_positions();
-  out << positions.size() << " consolidated positions\n\n";
+  out << positions.size() << " consolidated positions held.";
+  out << "<pre>\n";
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> small_cap, big_cap;
