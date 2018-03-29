@@ -50,8 +50,11 @@ int main() {
   // Test strategies on each series
   for (const auto &p : prices)
     if (!p.series.empty()) {
+
       const auto spot = p.series.back();
       const auto buys = run_strategies(p.series);
+
+      // If some strategies have triggered then print them
       if (!buys.empty()) {
         out << p.name << "\t" << spot << " ";
         for (const auto &buy : buys)
