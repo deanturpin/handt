@@ -1,3 +1,5 @@
+// Trading strategy routines
+
 #ifndef LOW_FREQUENCY_TRADER_H
 #define LOW_FREQUENCY_TRADER_H
 
