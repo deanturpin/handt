@@ -12,43 +12,37 @@ vector<string> run_strategies(series s) {
   using library = const vector<std::function<result(series, param)>>;
 
   // Strategies that take thresholds (in percent)
-  const vector<double> thresholds{10.0};
   library lib1{flicking_down, flicking_up,     ski_jumping,
                stepping_up,   stepping_down,   steady_rising,
                kosovich,      rolling_average, random_decision};
 
   vector<string> trades;
-  for (const auto &buy : lib1)
-    for (const auto &t : thresholds) {
-      const auto b = buy(s, t);
-
+  for (const auto &buy : lib1) {
+      const auto b = buy(s, 10.0);
       if (b.second)
         trades.push_back(b.first);
-    }
+  }
 
   // Strategies that take ratios
-  const vector<double> ratios{2.0};
   library lib2{average_compare, average_inter};
 
-  for (const auto &buy : lib2)
-    for (const auto &r : ratios) {
-      const auto b = buy(s, r);
-
+  for (const auto &buy : lib2) {
+      const auto b = buy(s, 2.0);
       if (b.second)
         trades.push_back(b.first);
-    }
+  }
 
   return trades;
 }
 
 int main() {
 
-  // Get some prices
-  const auto prices = handt::get_prices();
-
-  // A place for the results
+  // Configure debug
   std::stringstream out;
   out.precision(10);
+
+  // Get some prices
+  const auto prices = handt::get_prices();
   out << "# prospects\n";
   out << "# " << prices.size() << " prices\n";
 
