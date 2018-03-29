@@ -1,35 +1,36 @@
 #include "handt.h"
-#include "strategy.h"
+#include "low_frequency_trader.h"
 #include <functional>
-#include <vector>
-#include <sstream>
 #include <iostream>
+#include <sstream>
+#include <vector>
 
 // Return a list of the strategy names that reported "buy" for the series of
 // prices given
-vector<string> run_strategies(series s) {
+std::vector<std::string> run_strategies(lft::series s) {
 
-  using library = const vector<std::function<result(series, param)>>;
+  using namespace lft;
+  using library = const std::vector<std::function<result(series, param)>>;
 
   // Strategies that take thresholds (in percent)
-  library lib1{flicking_down, flicking_up,     ski_jumping,
-               stepping_up,   stepping_down,   steady_rising,
-               kosovich,      rolling_average, random_decision};
+  library lib1{flicking_down, lft::flicking_up,     lft::ski_jumping,
+               stepping_up,   lft::stepping_down,   lft::steady_rising,
+               kosovich,      lft::rolling_average, lft::random_decision};
 
-  vector<string> trades;
+  std::vector<string> trades;
   for (const auto &buy : lib1) {
-      const auto b = buy(s, 10.0);
-      if (b.second)
-        trades.push_back(b.first);
+    const auto b = buy(s, 10.0);
+    if (b.second)
+      trades.push_back(b.first);
   }
 
   // Strategies that take ratios
   library lib2{average_compare, average_inter};
 
   for (const auto &buy : lib2) {
-      const auto b = buy(s, 2.0);
-      if (b.second)
-        trades.push_back(b.first);
+    const auto b = buy(s, 2.0);
+    if (b.second)
+      trades.push_back(b.first);
   }
 
   return trades;

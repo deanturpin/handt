@@ -1,7 +1,12 @@
+#ifndef LOW_FREQUENCY_TRADER_H
+#define LOW_FREQUENCY_TRADER_H
+
 #include <algorithm>
 #include <numeric>
 #include <string>
 #include <vector>
+
+namespace lft {
 
 // STD shortcuts
 using std::string;
@@ -152,3 +157,6 @@ string NAME(const string n, param p) {
 
 double THRESHOLD(param p) { return (100.0 + p) / 100.0; }
 double SPOT(series s) { return s.back(); }
+}
+
+#endif
