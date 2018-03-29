@@ -18,9 +18,9 @@ The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
 confirms to LLVM's coding standard by virtue of periodic passes of
 ```clang-format``` over the source.
 
-As the the code is designed to run periodically on a web server, between runs
-state must be saved. Positions are read and written to a temporary text file
-using operator>> and operator<<.
+As the code is designed to run periodically on a web server, between runs state
+must be saved. Positions are read and written to a temporary text file using
+operator>> and operator<<.
 
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
@@ -28,8 +28,9 @@ periodically pulled from GitHub, cleaned, compiled and if successful copied into
 the web root.
 
 # Exchanges
-Whilst intuitively it seems you should be fetching prices often, Coinbase and
-CryptoCompare don't publish updates more often than once per minute.
+Whilst intuitively it feels you will respond to market changes quicker the more
+frequently you request prices. But Coinbase and CryptoCompare don't publish
+updates more often than once per minute.
 
 ## CryptoCompare API
 ```bash
