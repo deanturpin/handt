@@ -15,12 +15,12 @@ strategies.
 
 # C++
 The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
-confirms to LLVM's coding standard by virtue of periodic passes of
+confirms to LLVM's coding standard by virtue of occasional runs of
 ```clang-format``` over the source.
 
-As the code is designed to run periodically on a web server, between runs state
-must be saved. Positions are read and written to a temporary text file using
-operator>> and operator<<.
+As the code is designed to run periodically on a web server therefore between
+runs state must be saved. Positions are read and written to a temporary text
+file using operator>> and operator<<.
 
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is

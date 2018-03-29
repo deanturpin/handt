@@ -27,6 +27,7 @@ unsigned long seconds_since_epoch() {
 // A stucture to represent a trade
 struct position {
 
+  // Initialise position
   std::string symbol = "sym";
   unsigned long timestamp = seconds_since_epoch();
   double buy_price = 0.0;
@@ -35,18 +36,18 @@ struct position {
   std::string notes = "NEWTRADE";
   bool open = true;
 
+  // Streaming in
+  friend std::istream &operator>>(std::istream &is, position &p) {
+    return is >> p.symbol >> p.strategy >> p.notes >> p.buy_price >>
+           p.sell_price >> p.timestamp >> std::boolalpha >> p.open;
+  }
+
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
     os.precision(10);
     return os << std::fixed << p.symbol << "\t" << p.strategy << "\t" << p.notes
               << " " << p.buy_price << " " << p.sell_price << " " << p.timestamp
               << " " << std::boolalpha << p.open;
-  }
-
-  // Streaming in
-  friend std::istream &operator>>(std::istream &is, position &p) {
-    return is >> p.symbol >> p.strategy >> p.notes >> p.buy_price >>
-           p.sell_price >> p.timestamp >> std::boolalpha >> p.open;
   }
 };
 
