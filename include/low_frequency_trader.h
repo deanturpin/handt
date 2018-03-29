@@ -4,10 +4,10 @@
 #define LOW_FREQUENCY_TRADER_H
 
 #include <algorithm>
+#include <functional>
 #include <numeric>
 #include <string>
 #include <vector>
-#include <functional>
 
 namespace lft {
 

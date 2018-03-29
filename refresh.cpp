@@ -12,10 +12,10 @@ int main() {
   out << "# refresh\n";
 
   // Get recent prices
-  const auto prices = handt::get_prices();
+  const auto &prices = handt::get_prices();
 
   // Get current positions
-  const auto positions = handt::get_positions();
+  const auto &positions = handt::get_positions();
 
   // Lambda to search for a symbol in the recent prices
   auto find_prices = [&prices](const std::string symbol) {

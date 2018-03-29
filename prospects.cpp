@@ -9,13 +9,10 @@ int main() {
   // Configure debug
   std::stringstream out;
   out.precision(10);
-
-  // Get some prices
-  const auto &prices = handt::get_prices();
   out << "# prospects\n";
 
   // Test strategies on each series
-  for (const auto &p : prices)
+  for (const auto &p : handt::get_prices())
     if (!p.series.empty()) {
 
       const auto spot = p.series.back();
@@ -30,6 +27,5 @@ int main() {
       }
     }
 
-  out << "# " << prices.size() << " prices\n";
   std::cout << out.str();
 }
