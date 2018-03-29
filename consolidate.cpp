@@ -11,8 +11,8 @@ int main() {
   // Configure debug
   std::stringstream out;
   out.precision(10);
-  out << "# consolidate\n";
   out << std::boolalpha;
+  out << "# consolidate\n";
 
   // Get recent prospects
   const auto prospects = handt::get_prospects();
