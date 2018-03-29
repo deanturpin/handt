@@ -21,8 +21,8 @@ int main() {
   auto find_prices = [&prices](const std::string symbol) {
     const auto it =
         std::find_if(prices.cbegin(), prices.cend(),
-                     [symbol](const auto p) { return p.first == symbol; });
-    return it != prices.cend() ? it->second : std::vector<double>();
+                     [symbol](const auto p) { return p.name == symbol; });
+    return it != prices.cend() ? it->series : std::vector<double>();
   };
 
   // Copy existing positions into a new container, updating the prices if they
@@ -47,9 +47,11 @@ int main() {
                  });
 
   // Print all positions
-  out << "# " << updated_positions.size() << " positions\n";
   for (const auto position : updated_positions)
     out << position << "\n";
+
+  out << "# " << prices.size() << " prices\n";
+  out << "# " << updated_positions.size() << " positions\n";
 
   std::cout << out.str();
 }

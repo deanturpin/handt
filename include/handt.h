@@ -83,38 +83,22 @@ struct prospect {
   }
 };
 
-// Get prices from disk
-auto get_prices() {
+// A coin has a name and a series of prices
+struct coin {
+  std::string name;
+  std::vector<double> series;
 
-  // Declare object that will be returned
-  std::map<std::string, std::vector<double>> prices;
-
-  // Read recent prices
-  auto in = strip_comments("prices.csv");
-
-  // The first item is the coin name
-  std::string coin;
-  while (in >> coin) {
-
-    // The remainder of the line contains values
-    std::string line;
-    std::getline(in, line);
-    std::stringstream ss(line);
-
-    // Extract values and add to the map
-    std::vector<double> p;
-    copy(std::istream_iterator<double>(ss), std::istream_iterator<double>(),
-         std::back_inserter(p));
-
-    if (!p.empty())
-      prices.insert(std::make_pair(coin, p));
+  friend std::istream &operator>>(std::istream &is, coin &p) {
+    is >> p.name;
+    std::copy(std::istream_iterator<double>(is),
+              std::istream_iterator<double>(),
+              std::back_inserter(p.series));
+    return is;
   }
-
-  return prices;
-}
+};
 
 // Generic routine to extract a series of objects and populate a container
-template <typename T> auto get_values_from_file(const std::string file) {
+template <typename T> auto get_objects_from_file(const std::string file) {
 
   // Declare object to be returned
   std::vector<T> objects;
@@ -135,11 +119,15 @@ template <typename T> auto get_values_from_file(const std::string file) {
   return objects;
 }
 
-auto get_prospects() { return get_values_from_file<prospect>("prospects.csv"); }
+auto get_prospects() { return get_objects_from_file<prospect>("prospects.csv"); }
 
 // Get positions from disk
 auto get_positions_from_file(const std::string file) {
-  return get_values_from_file<position>(file);
+  return get_objects_from_file<position>(file);
+}
+
+auto get_prices() {
+  return get_objects_from_file<coin>("prices.csv");
 }
 
 // Helper routines to colocate the external filenames
