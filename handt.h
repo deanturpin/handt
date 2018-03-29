@@ -59,8 +59,9 @@ std::stringstream strip_comments(const std::string &file) {
   std::string line;
   if (in.good())
     while (getline(in, line))
-      if (line.front() != '#')
-        ss << line << '\n';
+      if (!line.empty())
+        if (line.front() != '#')
+          ss << line << '\n';
 
   return ss;
 }
