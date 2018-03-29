@@ -79,26 +79,22 @@ struct coin {
 
 // Generic routine to extract a series of objects from a file and populate a
 // container
-template <typename T> auto get_objects(const std::string file) {
+template <typename Object> auto get_objects(const std::string file) {
 
   // Declare object to be returned
-  std::vector<T> objects;
+  std::vector<Object> objects;
 
-  // Step through each line extracting the object and pushing onto a container
+  // Step through each line extracting the object and pushing onto a container,
+  // unless the line starts with a comment character then skip it
   std::ifstream in(file);
   std::string line;
-  while (getline(in, line)) {
-
-    // Skip lines that start with a comment
+  while (getline(in, line))
     if (line.front() != '#') {
-
-      // Stream object and store it
       std::stringstream ss(line);
-      T p;
+      Object p;
       ss >> p;
       objects.push_back(p);
     }
-  }
 
   // Return the extracted objects
   return objects;
