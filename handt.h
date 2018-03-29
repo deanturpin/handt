@@ -66,10 +66,13 @@ std::stringstream strip_comments(const std::string &file) {
   return ss;
 }
 
-// Get positions from a file
-auto get_positions(const std::string file = "positions.csv") {
+// Get positions from disk
+auto get_positions_from_file(const std::string file) {
 
+  // Declare object that will be returned
   std::vector<position> positions;
+
+  // Process all lines that match a position structure
   position p;
   auto in = strip_comments(file);
   while (in >> p)
@@ -79,11 +82,14 @@ auto get_positions(const std::string file = "positions.csv") {
 }
 
 // Helper routines to colocate the external filenames
-auto get_reviewed_positions() { return get_positions("review.csv"); }
-
-auto get_consolidated_positions() { return get_positions("consolidate.csv"); }
-
-auto get_refreshed_positions() { return get_positions("refresh.csv"); }
+auto get_positions() { return get_positions_from_file("positions.csv"); }
+auto get_reviewed_positions() { return get_positions_from_file("review.csv"); }
+auto get_refreshed_positions() {
+  return get_positions_from_file("refresh.csv");
+}
+auto get_consolidated_positions() {
+  return get_positions_from_file("consolidate.csv");
+}
 
 // A prospect has a name, an initial price and a list of strategies that
 // triggered the prospect
@@ -101,9 +107,10 @@ struct prospect {
   }
 };
 
-// Get prospects from a file
+// Get prospects from disk
 auto get_prospects() {
 
+  // Declare object that will be returned
   std::vector<prospect> prospects;
 
   // Read recent prospects
@@ -119,16 +126,17 @@ auto get_prospects() {
   return prospects;
 }
 
-// Get prices and return a container full of them
-std::map<std::string, std::vector<double>>
-get_prices(const std::string file = "prices.csv") {
+// Get prices from disk
+auto get_prices() {
 
-  // Read some prices
-  auto in = strip_comments(file);
+  // Declare object that will be returned
+  std::map<std::string, std::vector<double>> prices;
+
+  // Read recent prices
+  auto in = strip_comments("prices.csv");
 
   // The first item is the coin name
   std::string coin;
-  std::map<std::string, std::vector<double>> prices;
   while (in >> coin) {
 
     // The remainder of the line contains values
