@@ -80,7 +80,8 @@ struct coin {
   }
 };
 
-// Generic routine to extract a series of objects and populate a container
+// Generic routine to extract a series of objects from a file and populate a
+// container
 template <typename T> auto get_objects_from_file(const std::string file) {
 
   // Declare object to be returned
@@ -94,7 +95,7 @@ template <typename T> auto get_objects_from_file(const std::string file) {
     // Skip lines that start with a comment
     if (line.front() != '#') {
 
-      // Store object if it streams successfully
+      // Stream object and store it
       std::stringstream ss(line);
       T p;
       ss >> p;
