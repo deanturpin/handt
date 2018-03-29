@@ -33,14 +33,16 @@ int main() {
                  [&find_prices, &out](const auto p) {
 
                    // Create a copy of the position
-                   std::decay_t<decltype(p)> pos = p;
+                   std::decay_t<decltype(p)> pos(p);
 
-                   // If we've found some prices then update the position and
-                   // return it
-                   const auto q = find_prices(p.symbol);
-                   if (!q.empty()) {
-                     pos.sell_price = q.back();
-                     pos.notes = "refreshd";
+                   // If the position is open then try to find some prices,
+                   // update the position and return it
+                   if (p.open) {
+                     const auto q = find_prices(p.symbol);
+                     if (!q.empty()) {
+                       pos.sell_price = q.back();
+                       pos.notes = "refreshd";
+                     }
                    }
 
                    return pos;
