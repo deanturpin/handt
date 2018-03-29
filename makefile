@@ -27,8 +27,6 @@ consolidate.csv: consolidate.o review.csv prospects.csv
 	./$< > $@
 
 endofsession:
-	$(shell grep true consolidate.csv > open.csv)
-	$(shell grep false consolidate.csv > closed.csv)
 	cp consolidate.csv positions.csv
 
 update:
