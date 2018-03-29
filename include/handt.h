@@ -108,8 +108,8 @@ template <typename T> auto get_objects(const std::string file) {
 }
 
 // Wrappers to get various objects
-auto get_prospects() { return get_objects<prospect>("prospects.csv"); }
 auto get_prices() { return get_objects<coin>("prices.csv"); }
+auto get_prospects() { return get_objects<prospect>("prospects.csv"); }
 auto get_positions() { return get_objects<position>("positions.csv"); }
 auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
 auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
