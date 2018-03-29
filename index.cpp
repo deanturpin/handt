@@ -32,7 +32,8 @@ body { font-family: sans-serif; }
 what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
-target="blah">GitHub</a>.</p>
+target="blah">GitHub</a>. The first block of results summarises only coins worth
+less than 10 USD, the second block is the remaining larger value coins.</p>
 
 )";
 
