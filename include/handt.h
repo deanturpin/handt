@@ -51,22 +51,6 @@ struct position {
   }
 };
 
-// Strip comments and return the remainder of the file
-std::stringstream strip_comments(const std::string &file) {
-
-  std::ifstream in(file);
-  std::stringstream ss;
-
-  std::string line;
-  if (in.good())
-    while (getline(in, line))
-      if (!line.empty())
-        if (line.front() != '#')
-          ss << line << '\n';
-
-  return ss;
-}
-
 // A prospect has a name, an initial price and a list of strategies that
 // triggered the prospect
 struct prospect {
@@ -91,11 +75,26 @@ struct coin {
   friend std::istream &operator>>(std::istream &is, coin &p) {
     is >> p.name;
     std::copy(std::istream_iterator<double>(is),
-              std::istream_iterator<double>(),
-              std::back_inserter(p.series));
+              std::istream_iterator<double>(), std::back_inserter(p.series));
     return is;
   }
 };
+
+// Strip comments and return the remainder of the file
+std::stringstream strip_comments(const std::string &file) {
+
+  std::ifstream in(file);
+  std::stringstream ss;
+
+  std::string line;
+  if (in.good())
+    while (getline(in, line))
+      if (!line.empty())
+        if (line.front() != '#')
+          ss << line << '\n';
+
+  return ss;
+}
 
 // Generic routine to extract a series of objects and populate a container
 template <typename T> auto get_objects_from_file(const std::string file) {
@@ -119,25 +118,22 @@ template <typename T> auto get_objects_from_file(const std::string file) {
   return objects;
 }
 
-auto get_prospects() { return get_objects_from_file<prospect>("prospects.csv"); }
-
-// Get positions from disk
-auto get_positions_from_file(const std::string file) {
-  return get_objects_from_file<position>(file);
+// Wrappers to get various objects
+auto get_prospects() {
+  return get_objects_from_file<prospect>("prospects.csv");
 }
-
-auto get_prices() {
-  return get_objects_from_file<coin>("prices.csv");
+auto get_prices() { return get_objects_from_file<coin>("prices.csv"); }
+auto get_positions() {
+  return get_objects_from_file<position>("positions.csv");
 }
-
-// Helper routines to colocate the external filenames
-auto get_positions() { return get_positions_from_file("positions.csv"); }
-auto get_reviewed_positions() { return get_positions_from_file("review.csv"); }
+auto get_reviewed_positions() {
+  return get_objects_from_file<position>("review.csv");
+}
 auto get_refreshed_positions() {
-  return get_positions_from_file("refresh.csv");
+  return get_objects_from_file<position>("refresh.csv");
 }
 auto get_consolidated_positions() {
-  return get_positions_from_file("consolidate.csv");
+  return get_objects_from_file<position>("consolidate.csv");
 }
 }
 
