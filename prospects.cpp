@@ -15,7 +15,7 @@ using std::accumulate;
 using std::next;
 using std::to_string;
 
-// Parameteric shortcuts
+// Parameteric aliases to make the strategy definitions cleaner
 using result = pair<string, bool>;
 using series = const vector<double> &;
 using param = const double &;
@@ -28,7 +28,7 @@ double DISTANT_AVERAGE(series);
 double THRESHOLD(param);
 string NAME(const string, param p);
 
-// Strategies
+// The strategies
 
 result flicking_down(series s, param p) {
   const auto name = NAME("flicking_down", p);
@@ -83,7 +83,7 @@ result average_inter(series s, param p) {
 
 result average_compare(series s, param p) {
   const auto name = NAME("average_comp", p);
-  const unsigned long ratio = s.size() / p;
+  const unsigned long ratio = s.size() / (p > 0 ? p : 1);
   const double recent_average =
       std::accumulate(s.crbegin(), std::next(s.crbegin(), ratio), 0.0,
                       [](auto &sum, const auto &i) { return sum + i; }) /
@@ -111,7 +111,7 @@ result steady_rising(series s, param p) {
 result kosovich(series s, param p) {
   const auto name = NAME("koskosovich", p);
   const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));
-  const bool exec = SPOT(s) / high > THRESHOLD(p);
+  const bool exec = SPOT(s) / (high > 0 ? high : 1) > THRESHOLD(p);
   return result(name, exec);
 }
 
