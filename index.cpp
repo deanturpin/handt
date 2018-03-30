@@ -1,4 +1,5 @@
 #include "handt.h"
+#include <algorithm>
 #include <iostream>
 #include <map>
 #include <numeric>
@@ -55,13 +56,16 @@ block is the remaining larger value currencies.</p>
   out << "<pre>\n";
 
   // Close all positions and split into cap size
-  std::map<std::string, std::vector<double>> small_cap, big_cap;
+  std::map<std::string, std::vector<double>> small_cap, big_cap, coins;
   for (const auto &position : positions) {
 
     const auto strategy = position.strategy;
+    const auto symbol = position.symbol;
     const auto buy = position.buy_price;
     const auto sell = position.sell_price;
     const auto yield = buy > 0.0 ? sell / buy : 0.0;
+
+    coins[symbol].push_back(yield);
 
     // Check if it's actually kind of a big deal
     if (buy < 10.0)
@@ -84,6 +88,24 @@ block is the remaining larger value currencies.</p>
 
     out << "--\n";
   }
+
+  std::vector<std::pair<std::string, double>> coin_summary;
+
+  // Calculate coin averages and sort
+  for (const auto &coin : coins)
+    coin_summary.push_back(std::make_pair(
+        coin.first,
+        100.0 * std::accumulate(coin.second.cbegin(), coin.second.cend(), 0.0) /
+            coin.second.size()));
+
+  std::sort(coin_summary.begin(), coin_summary.end(),
+            [](const auto &a, const auto &b) { return a.second > b.second; });
+
+  // Print the best currencies
+  out << "Top performing currencies (% RETURN)\n";
+  for (auto i = coin_summary.cbegin();
+       i != std::next(coin_summary.cbegin(), 20); ++i)
+    out << i->first << "\t" << i->second << '\n';
 
   out << "</pre>\n<hr>\n";
   std::cout << out.str();
