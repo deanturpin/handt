@@ -41,7 +41,7 @@ minutes to process the full set of coins. A library of strategies is run over
 each batch of 80 and a position is created if the strategy returns positively. A
 simple sell strategy is employed: the position is closed if the sell price
 exceeds a fixed percentage of the buy price. The first block of results (below)
-summarises strategy performance for coins worth less than 1 USD, the second
+summarises strategy performance for coins worth less than 50 USD, the second
 block is the remaining larger value currencies.</p>
 
 )";
@@ -65,7 +65,7 @@ block is the remaining larger value currencies.</p>
     const auto yield = buy > 0.0 ? sell / buy : 0.0;
 
     // Check if it's actually kind of a big deal
-    if (buy < 1.0)
+    if (buy < 50.0)
       small_cap[strategy].push_back(yield);
     else {
       big_cap[strategy].push_back(yield);
