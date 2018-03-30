@@ -37,10 +37,11 @@ target="blah">GitHub</a>.</p>
 <p>24 hours of prices are fetched for approximately 2000 coins at a rate of 80
 per minute&mdash;a limit set by the exchange&mdash;therefore it takes around 25
 minutes to process the full set of coins. A library of strategies is run over
-each batch of 80 and a position is created if the strategy returns positively.
-The first block of results (below) summarises strategy performance for coins
-worth less than 10 USD, the second block is the remaining larger value
-currencies.</p>
+each batch of 80 and a position is created if the strategy returns positively. A
+simple sell strategy is employed: the position is closed if the sell price
+exceeds a fixed percentage of the buy price. The first block of results (below)
+summarises strategy performance for coins worth less than 10 USD, the second
+block is the remaining larger value currencies.</p>
 
 )";
 
