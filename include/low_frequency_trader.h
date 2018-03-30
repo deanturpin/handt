@@ -13,7 +13,7 @@ namespace lft {
 
 // Parameteric aliases to make the strategy definitions cleaner
 using result = std::pair<std::string, bool>;
-using series = const std::vector<double> &;
+using series = const std::vector<double>;
 using param = const double &;
 
 // Helper routines used to define strategies
@@ -168,32 +168,48 @@ result random_decision(series s, param p) {
   return result(name, exec);
 }
 
+bool preflight_check(series s) {
+
+  // Make sure there's a bit of activity
+  auto unique_values(s);
+  std::sort(unique_values.begin(), unique_values.end());
+  const auto last = std::unique(unique_values.begin(), unique_values.end());
+  unique_values.erase(last, unique_values.end());
+
+  return unique_values.size() > 100;
+}
+
 // Return a list of the strategy names that reported "buy" for the series of
 // prices given
 std::vector<std::string> run_strategies(series s) {
 
   using library = const std::vector<std::function<result(series, param)>>;
 
-  // Strategies that take thresholds (in percent)
-  library lib1{flicking_down,   flicking_up,     ski_jumping,
-               stepping_up,     stepping_down,   steady_rising,
-               kosovich,        rolling_average, rolling_average2,
-               random_decision, back_to_front,   front_to_back};
-
   std::vector<std::string> trades;
-  for (const auto &buy : lib1) {
-    const auto b = buy(s, 10.0);
-    if (b.second)
-      trades.push_back(b.first);
-  }
 
-  // Strategies that take ratios
-  library lib2{average_compare, average_inter};
+  // Perform some initial checks to assess viability of series
+  if (preflight_check(s)) {
 
-  for (const auto &buy : lib2) {
-    const auto b = buy(s, 2.0);
-    if (b.second)
-      trades.push_back(b.first);
+    // Strategies that take thresholds (in percent)
+    library lib1{flicking_down,   flicking_up,     ski_jumping,
+      stepping_up,     stepping_down,   steady_rising,
+      kosovich,        rolling_average, rolling_average2,
+      random_decision, back_to_front,   front_to_back};
+
+    for (const auto &buy : lib1) {
+      const auto b = buy(s, 10.0);
+      if (b.second)
+        trades.push_back(b.first);
+    }
+
+    // Strategies that take ratios
+    library lib2{average_compare, average_inter};
+
+    for (const auto &buy : lib2) {
+      const auto b = buy(s, 2.0);
+      if (b.second)
+        trades.push_back(b.first);
+    }
   }
 
   return trades;
