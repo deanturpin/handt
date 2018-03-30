@@ -13,7 +13,7 @@ namespace lft {
 
 // Parameteric aliases to make the strategy definitions cleaner
 using result = std::pair<std::string, bool>;
-using series = const std::vector<double> &;
+using series = const std::vector<double>&;
 using param = const double &;
 
 // Helper routines used to define strategies
@@ -29,14 +29,14 @@ double AVERAGE(series s) {
 // Average of the oldest half of the series
 double DISTANT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
-  const std::vector<double> subset(s.cbegin(), next(s.cend(), mid_point));
+  const std::vector<double> subset(s.cbegin(), next(s.cbegin(), mid_point));
   return AVERAGE(subset);
 }
 
 // Average of the recent half of the series
 double RECENT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
-  const std::vector<double> subset(s.crbegin(), next(s.crend(), mid_point));
+  const std::vector<double> subset(s.crbegin(), next(s.crbegin(), mid_point));
   return AVERAGE(subset);
 }
 
@@ -159,7 +159,7 @@ result random_decision(series s, param p) {
 }
 
 // Return a list of the strategy names that reported "buy" for the series of
-// prices given
+//prices given
 std::vector<std::string> run_strategies(series s) {
 
   using library = const std::vector<std::function<result(series, param)>>;
