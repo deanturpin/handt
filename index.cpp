@@ -53,7 +53,6 @@ block is the remaining larger value currencies.</p>
   // Get the final set of positions after trading is complete
   const auto &positions = handt::get_final_positions();
   out << positions.size() << " consolidated positions.</p>\n";
-  out << "<pre>\n";
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> small_cap, big_cap, coins;
@@ -74,21 +73,7 @@ block is the remaining larger value currencies.</p>
     }
   }
 
-  // Print strategy summaries
-  out << "STRATEGY\t\t POS\t% RETURN\n";
-  for (const auto &strategy : {small_cap, big_cap}) {
-    for (const auto &i : strategy) {
-      const unsigned long positions_held = i.second.size();
-      const double yield =
-          100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-          positions_held;
-
-      out << i.first << "\t" << positions_held << "\t" << yield << "\n";
-    }
-
-    out << "--\n";
-  }
-
+  out << "<pre style='float:right;'>\n";
   std::vector<std::pair<std::string, double>> coin_summary;
 
   // Calculate coin averages and sort
@@ -110,6 +95,27 @@ block is the remaining larger value currencies.</p>
        ++i)
     out << i->first << "\t" << i->second << '\n';
 
-  out << "</pre>\n<hr>\n";
+  out << "</pre>\n";
+
+  out << "<pre>\n";
+
+  // Print strategy summaries
+  out << "STRATEGY\t\t POS\t% RETURN\n";
+  for (const auto &strategy : {small_cap, big_cap}) {
+    for (const auto &i : strategy) {
+      const unsigned long positions_held = i.second.size();
+      const double yield =
+          100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
+          positions_held;
+
+      out << i.first << "\t" << positions_held << "\t" << yield << "\n";
+    }
+
+    out << "--\n";
+  }
+
+  out << "</pre>\n";
+
+  out << "<hr>\n";
   std::cout << out.str();
 }
