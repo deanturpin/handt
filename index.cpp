@@ -64,13 +64,8 @@ block is the remaining larger value currencies.</p>
     const auto sell = position.sell_price;
     const auto yield = buy > 0.0 ? sell / buy : 0.0;
 
-    // Check if it's actually kind of a big deal
-    if (buy < 50.0)
-      small_cap[strategy].push_back(yield);
-    else {
-      big_cap[strategy].push_back(yield);
-      coins[symbol].push_back(yield);
-    }
+    big_cap[strategy].push_back(yield);
+    coins[symbol].push_back(yield);
   }
 
   out << "<pre style='float:right;'>\n";
