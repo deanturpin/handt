@@ -104,9 +104,9 @@ block is the remaining larger value currencies.</p>
             [](const auto &a, const auto &b) { return a.second > b.second; });
 
   // Print the best currencies
-  out << "Top performing currencies (% RETURN)\n";
+  out << "Top performing big cap currencies (% RETURN)\n";
   for (auto i = coin_summary.cbegin();
-       i != coin_summary.cend() && i != std::next(coin_summary.cbegin(), 20);
+       i != std::min(coin_summary.cend(), std::next(coin_summary.cbegin(), 20));
        ++i)
     out << i->first << "\t" << i->second << '\n';
 
