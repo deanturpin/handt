@@ -65,13 +65,13 @@ block is the remaining larger value currencies.</p>
     const auto sell = position.sell_price;
     const auto yield = buy > 0.0 ? sell / buy : 0.0;
 
-    coins[symbol].push_back(yield);
-
     // Check if it's actually kind of a big deal
     if (buy < 10.0)
       small_cap[strategy].push_back(yield);
-    else
+    else {
       big_cap[strategy].push_back(yield);
+      coins[symbol].push_back(yield);
+    }
   }
 
   // Print strategy summaries
@@ -93,10 +93,12 @@ block is the remaining larger value currencies.</p>
 
   // Calculate coin averages and sort
   for (const auto &coin : coins)
-    coin_summary.push_back(std::make_pair(
-        coin.first,
-        100.0 * std::accumulate(coin.second.cbegin(), coin.second.cend(), 0.0) /
-            coin.second.size()));
+    if (!coin.second.empty())
+      coin_summary.push_back(std::make_pair(
+          coin.first,
+          100.0 *
+              std::accumulate(coin.second.cbegin(), coin.second.cend(), 0.0) /
+              coin.second.size()));
 
   std::sort(coin_summary.begin(), coin_summary.end(),
             [](const auto &a, const auto &b) { return a.second > b.second; });
@@ -104,7 +106,8 @@ block is the remaining larger value currencies.</p>
   // Print the best currencies
   out << "Top performing currencies (% RETURN)\n";
   for (auto i = coin_summary.cbegin();
-       i != std::next(coin_summary.cbegin(), 20); ++i)
+       i != coin_summary.cend() && i != std::next(coin_summary.cbegin(), 20);
+       ++i)
     out << i->first << "\t" << i->second << '\n';
 
   out << "</pre>\n<hr>\n";
