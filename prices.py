@@ -41,8 +41,8 @@ coinindex.write(str(index))
 for coin in wallet:
 
     # Construct URL
-    url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
-        + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
+    url = ("https://min-api.cryptocompare.com/data/histominute?fsym="
+        + coin + "&tsym=USD&limit=1440&aggregate=1&e=CCCAGG")
 
     try:
         # Check the response is a good one
