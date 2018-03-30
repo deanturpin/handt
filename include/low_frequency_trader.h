@@ -13,7 +13,7 @@ namespace lft {
 
 // Parameteric aliases to make the strategy definitions cleaner
 using result = std::pair<std::string, bool>;
-using series = const std::vector<double>&;
+using series = const std::vector<double> &;
 using param = const double &;
 
 // Helper routines used to define strategies
@@ -76,6 +76,16 @@ result stepping_down(series s, param p) {
 result rolling_average(series s, param p) {
   const auto name = NAME("roll_average", p);
   const unsigned long length = 10;
+  const double average =
+      std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) / length;
+
+  const bool exec = SPOT(s) / average > THRESHOLD(p);
+  return result(name, exec);
+}
+
+result rolling_average2(series s, param p) {
+  const auto name = NAME("roll_average2", p);
+  const unsigned long length = 100;
   const double average =
       std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) / length;
 
@@ -159,15 +169,16 @@ result random_decision(series s, param p) {
 }
 
 // Return a list of the strategy names that reported "buy" for the series of
-//prices given
+// prices given
 std::vector<std::string> run_strategies(series s) {
 
   using library = const std::vector<std::function<result(series, param)>>;
 
   // Strategies that take thresholds (in percent)
-  library lib1{flicking_down,   flicking_up,   ski_jumping,  stepping_up,
-               stepping_down,   steady_rising, kosovich,     rolling_average,
-               random_decision, back_to_front, front_to_back};
+  library lib1{flicking_down,   flicking_up,     ski_jumping,
+               stepping_up,     stepping_down,   steady_rising,
+               kosovich,        rolling_average, rolling_average2,
+               random_decision, back_to_front,   front_to_back};
 
   std::vector<std::string> trades;
   for (const auto &buy : lib1) {
