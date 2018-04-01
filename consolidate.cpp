@@ -11,7 +11,6 @@ int main() {
   std::stringstream out;
   out.precision(10);
   out << std::boolalpha;
-  out << "# consolidate\n";
 
   const auto &reviewed_positions = handt::get_reviewed_positions();
 
