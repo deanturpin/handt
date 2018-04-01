@@ -13,14 +13,6 @@
 
 namespace handt {
 
-// Timestamp routine
-unsigned long seconds_since_epoch() {
-  return static_cast<unsigned long>(
-      std::chrono::duration_cast<std::chrono::seconds>(
-          std::chrono::system_clock::now().time_since_epoch())
-          .count());
-}
-
 // A stucture to represent a trade
 struct position {
 
@@ -45,6 +37,14 @@ struct position {
     return os << std::fixed << p.symbol << "\t" << p.strategy << "\t" << p.notes
               << " " << p.buy_price << " " << p.sell_price << " " << p.timestamp
               << " " << std::boolalpha << p.open;
+  }
+
+  // Timestamp when a position is opened
+  unsigned long seconds_since_epoch() {
+    return static_cast<unsigned long>(
+      std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch())
+      .count());
   }
 };
 
