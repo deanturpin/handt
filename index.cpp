@@ -88,9 +88,7 @@ exceeds a fixed percentage of the buy price.</p>
        ++i)
     out << i->first << "\t" << i->second << '\n';
 
-  out << "</pre>\n";
-
-  out << "<pre>\n";
+  out << "</pre>\n<pre>\n";
 
   // Print strategy summaries
   out << "STRATEGY\t\t POS\t% RETURN\n";
@@ -107,8 +105,7 @@ exceeds a fixed percentage of the buy price.</p>
     out << "--\n";
   }
 
-  out << "</pre>\n";
+  out << "</pre>\n<hr>\n";
 
-  out << "<hr>\n";
   std::cout << out.str();
 }
