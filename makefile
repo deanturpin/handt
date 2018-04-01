@@ -4,7 +4,7 @@ source:
 	make --silent -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 cc=g++
-flags=-Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
+flags=-g -Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
 %.o: %.cpp
 	$(cc) $(flags) -o $@ $<
 
@@ -51,3 +51,4 @@ docs:
 
 closeall:
 	./archive_trades.sh
+	rm -f _*.csv
