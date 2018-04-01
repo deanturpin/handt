@@ -51,3 +51,4 @@ docs:
 
 closeall:
 	./archive_trades.sh
+	rm -f _*.csv

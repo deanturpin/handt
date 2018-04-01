@@ -13,6 +13,7 @@ int main() {
   out << std::boolalpha;
 
   const auto &reviewed_positions = handt::get_reviewed_positions();
+  const auto &prices = handt::get_prices();
 
   // Store new positions in a separate container
   std::decay_t<decltype(reviewed_positions)> new_positions;
@@ -38,6 +39,21 @@ int main() {
         position.strategy = strategy;
         position.buy_price = position.sell_price = prospect.spot;
         new_positions.push_back(position);
+
+        // Dump prices at the time of creating position
+        const auto it = find_if(prices.cbegin(), prices.cend(),
+                                [&position](const auto &coin) {
+                                  return coin.symbol == position.symbol;
+                                });
+
+        if (it != prices.cend()) {
+          std::ofstream log("_" + position.symbol + "_" + position.strategy +
+                            "_" + std::to_string(position.timestamp) + ".csv");
+
+          for (const auto &s : it->series)
+            log << s << " ";
+          log << "\n";
+        }
       }
     }
   }

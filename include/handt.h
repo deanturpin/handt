@@ -42,9 +42,9 @@ struct position {
   // Timestamp when a position is opened
   unsigned long seconds_since_epoch() {
     return static_cast<unsigned long>(
-      std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch())
-      .count());
+        std::chrono::duration_cast<std::chrono::seconds>(
+            std::chrono::system_clock::now().time_since_epoch())
+            .count());
   }
 };
 
