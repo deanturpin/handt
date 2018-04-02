@@ -51,8 +51,7 @@ int main() {
                             "_" + std::to_string(position.timestamp) + ".csv");
 
           for (const auto &s : it->series)
-            log << s << " ";
-          log << "\n";
+            log << s << '\n';
         }
       }
     }
