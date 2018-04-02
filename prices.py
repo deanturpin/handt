@@ -41,8 +41,8 @@ coinindex.write(str(index))
 for coin in wallet:
 
     # Construct URL
-    url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
-        + coin + "&tsym=USD&limit=168&aggregate=1&e=CCCAGG")
+    url = ("https://min-api.cryptocompare.com/data/histominute?fsym="
+        + coin + "&tsym=USD&limit=1440&aggregate=1&e=CCCAGG")
 
     try:
         # Check the response is a good one
@@ -52,21 +52,28 @@ for coin in wallet:
 
             # Check the reply was good and extract the prices
             if prices["Response"] != "Error":
-                series = []
-                for spot in prices["Data"]:
 
-                    # The pivot is the average of three of the prices
-                    # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
-                    pivot = (float(spot["low"])
-                        + float(spot["close"])
-                        + float(spot["high"])) / 3
+                # Check there's been some action
+                if float(prices["Data"][0]["volumeto"]) > 0:
 
-                    series.append(pivot)
+                    series = []
+                    for spot in prices["Data"]:
 
-                print(coin, end=" ")
-                for val in series:
-                    print(val, end=" ")
-                print("\n# values ", len(series))
+                        # The pivot is the average of three of the prices
+                        # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
+                        pivot = (float(spot["low"])
+                            + float(spot["close"])
+                            + float(spot["high"])) / 3
+
+                        series.append(pivot)
+
+                    print(coin, end=" ")
+                    for val in series:
+                        print(val, end=" ")
+                    print("\n# values ", len(series))
+
+                else:
+                    print("# " + coin + " no volume")
 
     except Exception:
         do = "nothing"
