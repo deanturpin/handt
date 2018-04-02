@@ -128,14 +128,14 @@ result ski_jumping(series s, param p) {
   return result(name, exec);
 }
 
-result back_to_front(series s, param p) {
-  const auto name = NAME("back_to_front", p);
+result old_above_new(series s, param p) {
+  const auto name = NAME("old_above_new", p);
   const bool exec = s.front() / s.back() > THRESHOLD(p);
   return result(name, exec);
 }
 
-result front_to_back(series s, param p) {
-  const auto name = NAME("front_to_back", p);
+result new_above_old(series s, param p) {
+  const auto name = NAME("new_above_old", p);
   const bool exec = s.back() / s.front() > THRESHOLD(p);
   return result(name, exec);
 }
@@ -186,7 +186,7 @@ std::vector<std::string> run_strategies(series s) {
     // Strategies that take thresholds (in percent)
     library lib1{flicking_down,    flicking_up,   ski_jumping,  stepping_up,
                  stepping_down,    steady_rising, kosovich,     rolling_average,
-                 rolling_average2, back_to_front, front_to_back};
+                 rolling_average2, old_above_new, new_above_old};
 
     for (const auto &buy : lib1) {
       const auto b = buy(s, 10.0);
