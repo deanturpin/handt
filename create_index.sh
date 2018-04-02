@@ -9,5 +9,6 @@ $(echo Index $(cat coinindex.txt) into $(grep -v '#' symbols.csv | wc -l) tradab
 <h2>Change log</h2>
 <pre>
 $(git log -n 5 --oneline)
+$(git branch --list --all)
 </pre>
 !
