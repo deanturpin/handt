@@ -198,7 +198,7 @@ std::vector<std::string> run_strategies(series s) {
     library lib2{average_compare, average_inter};
 
     for (const auto &buy : lib2) {
-      const auto b = buy(s, 4.0);
+      const auto b = buy(s, 1.25);
       if (b.second)
         trades.push_back(b.first);
     }
