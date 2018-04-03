@@ -101,7 +101,7 @@ exceeds a fixed percentage of the buy price.</p>
     out << i.first << "\t" << positions_held << "\t" << yield << "\n";
   }
 
-  out << "--\n</pre>\n<hr>\n";
+  out << "--\n</pre>\n";
 
   std::cout << out.str();
 }

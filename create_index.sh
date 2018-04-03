@@ -1,10 +1,7 @@
 #!/bin/bash
 
 cat <<!
-<pre>
-$(echo Index $(cat coinindex.txt) into $(grep -v '#' symbols.csv | wc -l) tradable coins)
-</pre>
-
+<hr>
 <h2>Change log</h2>
 <pre>
 $(git log -n 5 --oneline)
