@@ -10,4 +10,7 @@ $(echo Index $(cat coinindex.txt) into $(grep -v '#' symbols.csv | wc -l) tradab
 <pre>
 $(git log -n 5 --oneline)
 </pre>
+
+<h2>Autotest</h2>
+$(diff test/refresh.csv test/refresh2.csv && echo Pass || echo Fail)
 !
