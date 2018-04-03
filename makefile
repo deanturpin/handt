@@ -1,4 +1,4 @@
-all: source review.csv prospects.csv consolidate.csv index.html endofsession
+all: source review.csv prospects.csv consolidate.csv index.html endofsession autotest
 
 source:
 	make --silent -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -48,6 +48,9 @@ cron:
 
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
+
+autotest:
+	make --silent -C test
 
 closeall:
 	./archive_trades.sh
