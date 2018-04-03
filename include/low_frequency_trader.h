@@ -185,7 +185,7 @@ auto run_strategies(series s) {
 
     // Test each strategy
     for (const auto &buy : library) {
-      const auto b = buy(s, 10.0);
+      const auto b = buy(s, 20.0);
       if (b.second)
         prospects.push_back(b.first);
     }
