@@ -15,5 +15,6 @@ $(git log -n 5 --oneline)
 <pre>
 $(diff test/refresh.csv test/refresh2.csv && echo -e $'refresh\tpass' || echo $'refresh\tfail')
 $(diff test/review.csv test/review2.csv && echo $'review\tpass' || echo $'review\tfail')
+$(diff test/consolidate.csv test/consolidate2.csv && echo $'consol\tpass' || echo $'consol\tfail')
 </pre>
 !
