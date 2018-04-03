@@ -88,7 +88,7 @@ exceeds a fixed percentage of the buy price.</p>
   // Print the best performing currencies
   out << "Top symbols\n";
   for (auto i = coin_summary.cbegin();
-       i != std::min(coin_summary.cend(), std::next(coin_summary.cbegin(), 20));
+       i != std::min(coin_summary.cend(), std::next(coin_summary.cbegin(), 30));
        ++i)
     out << i->first << "\t" << i->second << '\n';
 
