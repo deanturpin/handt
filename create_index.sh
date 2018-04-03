@@ -2,7 +2,6 @@
 
 cat <<!
 <pre>
-$(date --utc)
 $(echo Index $(cat coinindex.txt) into $(grep -v '#' symbols.csv | wc -l) tradable coins)
 </pre>
 
@@ -13,6 +12,7 @@ $(git log -n 5 --oneline)
 
 <h2>Autotest</h2>
 <pre>
+$(TZ=BST date)
 $(diff --brief test/refresh.csv test/refresh2.csv && echo -e $'refresh\tpass' || echo $'refresh\tfail')
 $(diff --brief test/review.csv test/review2.csv && echo $'review\tpass' || echo $'review\tfail')
 $(diff --brief test/prospects1.csv test/prospects2.csv && echo $'prospec\tpass' || echo $'prospec\tfail')
