@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta name="robots" content="index,follow" />
+<meta http-equiv="refresh" content="30" />
+<link rel=icon href="favicon.ico" sizes="any">
+
+<style>
+body { font-family: sans-serif; }
+</style>
+
+<title>HANDT</title>
+<h1>HAVE A NICE DAY TRADER</h1>
+
+<p id="disclaimer">History is no indicator of future performance. Don't invest
+what you can't afford to lose. Prices fetched periodically from <a
+href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
+the documentation on <a href="https://deanturpin.github.io/handt"
+target="blah">GitHub</a>.</p>
+
+<p>24 hours of prices are fetched for approximately 2000 coins at a rate of 80
+per minute&mdash;a limit set by the exchange&mdash;therefore it takes around 25
+minutes to process the full set of coins. A library of strategies is run over
+each batch of 80 and a position is created if the strategy returns positively. A
+simple sell strategy is employed: the position is closed if the sell price
+exceeds a fixed percentage of the buy price.</p>
+
+<p>80 coins updated in the last minute, 828 consolidated positions.</p>
+<pre style='float:right;'>
+Top performing currencies (% RETURN)
+MRT	115.0064694235
+MNC	111.0955449861
+EBTC	110.7792526917
+ETP	109.8574155103
+PIVX	109.7297297297
+XRB	109.5471402106
+WPR	109.4128185149
+BTM*	109.3281594841
+GHS	108.6602921551
+XTZ	108.5967130065
+ARDR	108.5746826865
+POE	108.4952784776
+IOST	108.4848141809
+AMP	108.3527454590
+STK	108.2503622823
+DRGN	108.2289481445
+POA	108.1537811470
+TRIG	108.1181876969
+ONT	108.0991401972
+WAX	108.0709945749
+</pre>
+<pre>
+STRATEGY		 POS	% RETURN
+10.0_back_to_front	218	104.4655869610
+10.0_flicking_down	106	105.0802388250
+10.0_flicking_up	15	99.8200163622
+10.0_front_to_back	13	99.5310104832
+10.0_koskosovich	1	100.0000000000
+10.0_new_above_old	6	100.0000000000
+10.0_old_above_new	26	100.0000000000
+10.0_roll_average	3	100.0000000000
+10.0_roll_average2	12	100.7819156391
+10.0_ski_jumping	2	100.0000000000
+10.0_stepping_down	51	101.9296750255
+10.0_stepping_up	9	102.3229569249
+2.00_average_comp	31	98.9589765787
+2.00_average_inter	335	102.3044456879
+--
+</pre>
+<hr>
