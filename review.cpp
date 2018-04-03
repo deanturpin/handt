@@ -8,6 +8,10 @@ int main() {
   out.precision(10);
   out << std::boolalpha;
 
+  // Get current timestamp
+  const auto timestamp = handt::seconds_since_epoch();
+  out << "# " << timestamp << " timestamp\n";
+
   // Review each position
   for (auto &position : handt::get_refreshed_positions()) {
 
@@ -17,7 +21,9 @@ int main() {
         if (position.sell_price / position.buy_price > 1.10)
           position.open = false;
 
-    out << position << "\n";
+    // Delete (don't report) if it's old
+    if (timestamp - position.timestamp < (60 * 60 * 24))
+      out << position << "\n";
   }
 
   std::cout << out.str();
