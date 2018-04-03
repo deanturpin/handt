@@ -1,20 +1,14 @@
 # prospects
-COB	0.07151666667 20.0_old_above_new 2.00_average_inter 
-XIN	0.01307 20.0_flicking_up 20.0_stepping_up 20.0_new_above_old 2.00_average_comp 2.00_average_inter 
+COB	0.07151666667 20.0_old_above_new 
+XIN	0.01307 20.0_flicking_up 20.0_stepping_up 20.0_new_above_old 4.00_average_comp 
 CON	0.003658666667 20.0_flicking_down 20.0_stepping_down 20.0_old_above_new 
 ICOB	0.0009787 20.0_stepping_down 
-UTT	0.3109 2.00_average_inter 
-SPT	0.003868333333 2.00_average_comp 
-CRM	0.02048333333 2.00_average_comp 
-EREAL	0.0004664 20.0_flicking_up 20.0_stepping_up 20.0_new_above_old 2.00_average_comp 2.00_average_inter 
-ZSC	0.01197666667 2.00_average_inter 
+SPT	0.003868333333 4.00_average_comp 
+EREAL	0.0004664 20.0_flicking_up 20.0_stepping_up 20.0_new_above_old 4.00_average_comp 
 300	415.39 20.0_old_above_new 
-SPK	0.04334333333 2.00_average_comp 
-IETH	0.01518 20.0_stepping_down 20.0_old_above_new 2.00_average_inter 
-PGL	0.005844666667 2.00_average_inter 
-ETN	0.02051333333 2.00_average_inter 
-HGT	0.02448666667 2.00_average_inter 
+SPK	0.04334333333 4.00_average_comp 
+IETH	0.01518 20.0_stepping_down 20.0_old_above_new 4.00_average_inter 
 FUZZ	0.01675333333 20.0_flicking_down 20.0_old_above_new 
 WSX	0.003350333333 20.0_old_above_new 
-CAT	0.6107666667 20.0_new_above_old 2.00_average_comp 
-LNC	0.07497 20.0_flicking_up 20.0_koskosovich 20.0_roll_average 20.0_roll_average2 20.0_new_above_old 2.00_average_inter 
+CAT	0.6107666667 20.0_new_above_old 4.00_average_comp 
+LNC	0.07497 20.0_flicking_up 20.0_koskosovich 20.0_roll_average 20.0_roll_average2 20.0_new_above_old 4.00_average_inter 
