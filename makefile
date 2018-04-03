@@ -50,7 +50,7 @@ docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
 
 autotest:
-	make --silent -C test
+	make -C test
 
 closeall:
 	./archive_trades.sh
