@@ -53,7 +53,7 @@ exceeds a fixed percentage of the buy price.</p>
   out << positions.size() << " consolidated positions.</p>\n";
 
   // Close all positions and split into cap size
-  std::map<std::string, std::vector<double>> small_cap, big_cap, coins;
+  std::map<std::string, std::vector<double>> strategy_summary, coins;
   for (const auto &position : positions) {
 
     const auto strategy = position.strategy;
@@ -62,7 +62,7 @@ exceeds a fixed percentage of the buy price.</p>
     const auto sell = position.sell_price;
     const auto yield = buy > 0.0 ? sell / buy : 0.0;
 
-    big_cap[strategy].push_back(yield);
+    strategy_summary[strategy].push_back(yield);
     coins[symbol].push_back(yield);
   }
 
@@ -81,7 +81,7 @@ exceeds a fixed percentage of the buy price.</p>
   std::sort(coin_summary.begin(), coin_summary.end(),
             [](const auto &a, const auto &b) { return a.second > b.second; });
 
-  // Print the best currencies
+  // Print the best performing currencies
   out << "Top performing currencies (% RETURN)\n";
   for (auto i = coin_summary.cbegin();
        i != std::min(coin_summary.cend(), std::next(coin_summary.cbegin(), 20));
@@ -92,20 +92,16 @@ exceeds a fixed percentage of the buy price.</p>
 
   // Print strategy summaries
   out << "STRATEGY\t\t POS\t% RETURN\n";
-  for (const auto &strategy : {small_cap, big_cap}) {
-    for (const auto &i : strategy) {
-      const unsigned long positions_held = i.second.size();
-      const double yield =
-          100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-          positions_held;
+  for (const auto &i : strategy_summary) {
+    const unsigned long positions_held = i.second.size();
+    const double yield =
+      100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
+      positions_held;
 
-      out << i.first << "\t" << positions_held << "\t" << yield << "\n";
-    }
-
-    out << "--\n";
+    out << i.first << "\t" << positions_held << "\t" << yield << "\n";
   }
 
-  out << "</pre>\n<hr>\n";
+  out << "--\n</pre>\n<hr>\n";
 
   std::cout << out.str();
 }
