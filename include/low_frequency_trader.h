@@ -189,7 +189,7 @@ std::vector<std::string> run_strategies(series s) {
                  rolling_average2, old_above_new, new_above_old};
 
     for (const auto &buy : lib1) {
-      const auto b = buy(s, 10.0);
+      const auto b = buy(s, 20.0);
       if (b.second)
         trades.push_back(b.first);
     }
