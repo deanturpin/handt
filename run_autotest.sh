@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TZ=BST date
+TZ=HANDT-1 date
 
 diff test/refresh.csv test/refresh2.csv >& /dev/null && echo -e $'refresh\tpass' || echo $'refresh\tfail'
 diff test/review.csv test/review2.csv >& /dev/null && echo $'review\tpass' || echo $'review\tfail'
