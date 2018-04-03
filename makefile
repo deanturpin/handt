@@ -1,4 +1,5 @@
-all: source review.csv prospects.csv consolidate.csv index.html endofsession autotest
+all: source review.csv prospects.csv consolidate.csv index.html endofsession \
+	autotest alert
 
 source:
 	make --silent -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -42,12 +43,16 @@ gitpull:
 
 clean:
 	rm -f *.o
+	rm -f alert
 
 cron:
 	watch -d -n 60 make --silent update
 
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
+
+alert: consolidate.csv alert.o
+	$(shell ./alert.o && touch $@ && echo Interesting coin alert)
 
 autotest:
 	make -C test
