@@ -1,6 +1,6 @@
 all: source \
 	review.csv prospects.csv consolidate.csv index.html endofsession \
-	autotest alert
+	autotest # alert
 
 source:
 	make --silent -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
