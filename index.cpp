@@ -24,6 +24,10 @@ int main() {
 
 <style>
 body { font-family: sans-serif; }
+pre#floater {
+  float: right;
+  text-align: right;
+}
 </style>
 
 <title>HANDT</title>
@@ -66,7 +70,7 @@ exceeds a fixed percentage of the buy price.</p>
     coins[symbol].push_back(yield);
   }
 
-  out << "<pre style='float:right;'>\n";
+  out << "<pre id='floater'>\n";
   std::vector<std::pair<std::string, double>> coin_summary;
 
   // Calculate coin averages and sort
@@ -82,7 +86,7 @@ exceeds a fixed percentage of the buy price.</p>
             [](const auto &a, const auto &b) { return a.second > b.second; });
 
   // Print the best performing currencies
-  out << "Top performing currencies (% RETURN)\n";
+  out << "Top symbols\n";
   for (auto i = coin_summary.cbegin();
        i != std::min(coin_summary.cend(), std::next(coin_summary.cbegin(), 20));
        ++i)
