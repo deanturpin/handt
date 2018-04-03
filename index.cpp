@@ -95,8 +95,8 @@ exceeds a fixed percentage of the buy price.</p>
   for (const auto &i : strategy_summary) {
     const unsigned long positions_held = i.second.size();
     const double yield =
-      100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-      positions_held;
+        100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
+        positions_held;
 
     out << i.first << "\t" << positions_held << "\t" << yield << "\n";
   }

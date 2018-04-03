@@ -95,30 +95,24 @@ result rolling_average2(series s, param p) {
 
 result average_inter(series s, param p) {
   const auto name = NAME("average_inter", p);
-  const unsigned long filter1 = 5 * p;
-  const unsigned long filter2 = 10 * p;
+  const unsigned long filter1 = s.size() / 3;
+  const unsigned long filter2 = s.size() / 2;
 
-  // Average with a small window
+  // Small window average
   const double short_average =
       std::accumulate(s.crbegin(), next(s.crbegin(), filter1), 0.0) / filter1;
 
-  // Average with a longer window
+  // Longer window average
   const double long_average =
       std::accumulate(s.crbegin(), next(s.crbegin(), filter2), 0.0) / filter2;
 
-  const bool exec = short_average > long_average;
+  const bool exec = short_average / long_average > THRESHOLD(p);
   return result(name, exec);
 }
 
 result average_compare(series s, param p) {
   const auto name = NAME("average_comp", p);
-  const unsigned long ratio = s.size() / (p > 0 ? p : 1);
-  const double recent_average =
-      std::accumulate(s.crbegin(), std::next(s.crbegin(), ratio), 0.0,
-                      [](auto &sum, const auto &i) { return sum + i; }) /
-      ratio;
-
-  const bool exec = recent_average > AVERAGE(s);
+  const bool exec = RECENT_AVERAGE(s) / AVERAGE(s) > THRESHOLD(p);
   return result(name, exec);
 }
 
@@ -174,37 +168,30 @@ bool preflight_check(series s) {
 
 // Return a list of the strategy names that reported "buy" for the series of
 // prices given
-std::vector<std::string> run_strategies(series s) {
+auto run_strategies(series s) {
 
-  using library = const std::vector<std::function<result(series, param)>>;
-
-  std::vector<std::string> trades;
+  // Return potential prospects
+  std::vector<std::string> prospects;
 
   // Perform some initial checks to assess viability of series
   if (preflight_check(s)) {
 
-    // Strategies that take thresholds (in percent)
-    library lib1{flicking_down,    flicking_up,   ski_jumping,  stepping_up,
-                 stepping_down,    steady_rising, kosovich,     rolling_average,
-                 rolling_average2, old_above_new, new_above_old};
+    // Create a library of strategies
+    const std::vector<std::function<result(series, param)>> library{
+        flicking_down,    flicking_up,   ski_jumping,   stepping_up,
+        stepping_down,    steady_rising, kosovich,      rolling_average,
+        rolling_average2, old_above_new, new_above_old, average_inter,
+        average_compare};
 
-    for (const auto &buy : lib1) {
-      const auto b = buy(s, 20.0);
+    // Test each strategy
+    for (const auto &buy : library) {
+      const auto b = buy(s, 10.0);
       if (b.second)
-        trades.push_back(b.first);
-    }
-
-    // Strategies that take ratios
-    library lib2{average_compare, average_inter};
-
-    for (const auto &buy : lib2) {
-      const auto b = buy(s, 1.25);
-      if (b.second)
-        trades.push_back(b.first);
+        prospects.push_back(b.first);
     }
   }
 
-  return trades;
+  return prospects;
 }
 }
 
