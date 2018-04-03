@@ -157,7 +157,7 @@ result kosovich(series s, param p) {
 
 bool preflight_check(series s) {
 
-  // Make sure there's a bit of activity
+  // Ensure there's a bit of activity
   auto unique_values(s);
   std::sort(unique_values.begin(), unique_values.end());
   const auto last = std::unique(unique_values.begin(), unique_values.end());
