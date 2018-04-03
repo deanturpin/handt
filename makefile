@@ -52,6 +52,6 @@ docs:
 autotest:
 	make -C test
 
-closeall:
+closeall: clean
 	./archive_trades.sh
 	rm -f _*.csv
