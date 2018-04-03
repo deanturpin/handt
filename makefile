@@ -1,5 +1,6 @@
-all: source review.csv prospects.csv consolidate.csv index.html endofsession \
-	autotest # alert
+all: source \
+	review.csv prospects.csv consolidate.csv index.html endofsession \
+	autotest alert
 
 source:
 	make --silent -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -52,7 +53,7 @@ docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
 
 alert: consolidate.csv alert.o
-	$(shell ./alert.o && touch $@ && echo Interesting coin alert)
+	./alert.sh
 
 autotest:
 	make -C test

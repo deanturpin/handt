@@ -5,15 +5,16 @@ digraph {
   "Fetch all SYMBOLS from CryptoCompare"
     -> "Fetch PRICES for symbols"
     -> "REFRESH current positions with recent prices"
-    -> "REVIEW and close existing positions"
+    -> "REVIEW and close or delete existing positions"
 
   "Fetch PRICES for symbols"
     -> "Calculate PROSPECTS by executing strategy library"
     -> "CONSOLIDATE reviewed positions and new prospects"
 
   // Consolidate takes review and new
-  "REVIEW and close existing positions"
+  "REVIEW and close or delete existing positions"
     -> "CONSOLIDATE reviewed positions and new prospects"
     -> "Create SUMMARY of trades for this period"
     -> "RENDER report (web page)"
+    -> "Send ALERTs"
 }
