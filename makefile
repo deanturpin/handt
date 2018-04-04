@@ -1,5 +1,5 @@
 all: source \
-	review.csv prospects.csv consolidate.csv index.html endofsession \
+	review.csv purge.csv prospects.csv consolidate.csv index.html endofsession \
 	autotest # alert
 
 source:
@@ -20,6 +20,9 @@ refresh.csv: refresh.o prices.csv
 	./$< > $@
 
 review.csv: review.o refresh.csv
+	./$< > $@
+
+purge.csv: purge.o review.o review.csv
 	./$< > $@
 
 prospects.csv: prospects.o prices.csv

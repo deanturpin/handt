@@ -21,9 +21,13 @@ int main() {
         if (position.sell_price / position.buy_price > 1.10)
           position.open = false;
 
-    // Delete (don't report) if it's old
-    if (timestamp - position.timestamp < (60 * 60 * 24))
-      out << position << "\n";
+    // Mark old positions for deletion
+    if (timestamp - position.timestamp < (60 * 60 * 24)) {
+      position.open = false;
+      position.status = "purgenow";
+    }
+
+    out << position << "\n";
   }
 
   std::cout << out.str();

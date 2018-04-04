@@ -16,9 +16,9 @@ namespace handt {
 // Timestamp when a position is opened
 unsigned long seconds_since_epoch() {
   return static_cast<unsigned long>(
-    std::chrono::duration_cast<std::chrono::seconds>(
-      std::chrono::system_clock::now().time_since_epoch())
-    .count());
+      std::chrono::duration_cast<std::chrono::seconds>(
+          std::chrono::system_clock::now().time_since_epoch())
+          .count());
 }
 
 // A stucture to represent a trade
@@ -30,21 +30,21 @@ struct position {
   double buy_price = 0.0;
   double sell_price = 0.0;
   std::string strategy = "strategy";
-  std::string notes = "NEWTRADE";
+  std::string status = "NEWTRADE";
   bool open = true;
 
   // Streaming in
   friend std::istream &operator>>(std::istream &is, position &p) {
-    return is >> p.symbol >> p.strategy >> p.notes >> p.buy_price >>
+    return is >> p.symbol >> p.strategy >> p.status >> p.buy_price >>
            p.sell_price >> p.timestamp >> std::boolalpha >> p.open;
   }
 
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
     os.precision(10);
-    return os << std::fixed << p.symbol << "\t" << p.strategy << "\t" << p.notes
-              << " " << p.buy_price << " " << p.sell_price << " " << p.timestamp
-              << " " << std::boolalpha << p.open;
+    return os << std::fixed << p.symbol << "\t" << p.strategy << "\t"
+              << p.status << " " << p.buy_price << " " << p.sell_price << " "
+              << p.timestamp << " " << std::boolalpha << p.open;
   }
 };
 

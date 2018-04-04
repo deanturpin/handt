@@ -41,7 +41,7 @@ int main() {
                      const auto q = find_prices(p.symbol);
                      if (!q.empty()) {
                        pos.sell_price = q.back();
-                       pos.notes = "refreshd";
+                       pos.status = "refreshd";
                      }
                    }
 
