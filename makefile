@@ -4,7 +4,7 @@ all: source \
 	autotest
 
 source:
-	make --silent -j 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+	make --silent --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 cc=g++
 flags=-g -Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
@@ -59,4 +59,4 @@ docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
 
 autotest:
-	make -C test
+	make --silent --directory test
