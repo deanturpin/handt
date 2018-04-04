@@ -1,1 +1,11 @@
-# prospects
+COB	0.0715167 20.0_old_above_new 
+XIN	0.01307 20.0_flicking_up 20.0_stepping_up 20.0_new_above_old 20.0_average_comp 
+CON	0.00365867 20.0_flicking_down 20.0_stepping_down 20.0_old_above_new 
+ICOB	0.0009787 20.0_stepping_down 
+EREAL	0.0004664 20.0_flicking_up 20.0_stepping_up 20.0_new_above_old 
+300	415.39 20.0_old_above_new 
+IETH	0.01518 20.0_stepping_down 20.0_old_above_new 
+FUZZ	0.0167533 20.0_flicking_down 20.0_old_above_new 
+WSX	0.00335033 20.0_old_above_new 
+CAT	0.610767 20.0_new_above_old 
+LNC	0.07497 20.0_flicking_up 20.0_koskosovich 20.0_roll_average 20.0_roll_average2 20.0_new_above_old 
