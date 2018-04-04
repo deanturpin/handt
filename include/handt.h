@@ -14,7 +14,7 @@
 namespace handt {
 
 // Timestamp when a position is opened
-unsigned long seconds_since_epoch() {
+unsigned long get_timestamp() {
   return static_cast<unsigned long>(
       std::chrono::duration_cast<std::chrono::seconds>(
           std::chrono::system_clock::now().time_since_epoch())
@@ -26,7 +26,7 @@ struct position {
 
   // Initialise position
   std::string symbol = "sym";
-  unsigned long timestamp = seconds_since_epoch();
+  unsigned long timestamp = get_timestamp();
   double buy_price = 0.0;
   double sell_price = 0.0;
   std::string strategy = "strategy";

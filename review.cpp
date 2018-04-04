@@ -9,7 +9,7 @@ int main() {
   out << std::boolalpha;
 
   // Get current timestamp
-  const auto timestamp = handt::seconds_since_epoch();
+  const auto timestamp = handt::get_timestamp();
   out << "# " << timestamp << " timestamp\n";
 
   // Review each position
