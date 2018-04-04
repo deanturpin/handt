@@ -2,18 +2,24 @@ digraph {
 
   node [fontname=Helvetica]
 
+  review [label="REVIEW existing positions"]
+  purge [label="PURGE closed positions (old or ready to sell)"]
+  consolidate [label="CONSOLIDATE purged positions and new prospects"]
+
   "Fetch all SYMBOLS from CryptoCompare"
     -> "Fetch PRICES for symbols"
     -> "REFRESH current positions with recent prices"
-    -> "REVIEW and close existing positions"
+    -> review
 
   "Fetch PRICES for symbols"
     -> "Calculate PROSPECTS by executing strategy library"
-    -> "CONSOLIDATE reviewed positions and new prospects"
+    -> consolidate
 
   // Consolidate takes review and new
-  "REVIEW and close existing positions"
-    -> "CONSOLIDATE reviewed positions and new prospects"
+  review
+    -> purge
+    -> consolidate
     -> "Create SUMMARY of trades for this period"
     -> "RENDER report (web page)"
+    -> "Send ALERTs"
 }

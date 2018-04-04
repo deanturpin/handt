@@ -9,7 +9,7 @@ int main() {
   const auto &positions = handt::get_final_positions();
 
   // Define some interesting symbols
-  const std::vector<std::string> symbols {"BLAHBLAH"};
+  const std::vector<std::string> symbols{"BTC", "ETH", "BCH", "LTC"};
 
   const auto it = std::find_first_of(positions.cbegin(), positions.cend(),
                                      symbols.cbegin(), symbols.cend(),

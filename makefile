@@ -1,4 +1,5 @@
-all: source review.csv prospects.csv consolidate.csv index.html endofsession \
+all: source \
+	review.csv purge.csv prospects.csv consolidate.csv index.html endofsession \
 	autotest # alert
 
 source:
@@ -19,6 +20,9 @@ refresh.csv: refresh.o prices.csv
 	./$< > $@
 
 review.csv: review.o refresh.csv
+	./$< > $@
+
+purge.csv: purge.o review.o review.csv
 	./$< > $@
 
 prospects.csv: prospects.o prices.csv
@@ -52,7 +56,7 @@ docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
 
 alert: consolidate.csv alert.o
-	$(shell ./alert.o && touch $@ && echo Interesting coin alert)
+	./alert.sh
 
 autotest:
 	make -C test

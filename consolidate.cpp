@@ -12,7 +12,7 @@ int main() {
   out.precision(10);
   out << std::boolalpha;
 
-  const auto &reviewed_positions = handt::get_reviewed_positions();
+  const auto &reviewed_positions = handt::get_purged_positions();
   const auto &prices = handt::get_prices();
 
   // Store new positions in a separate container

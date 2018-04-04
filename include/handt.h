@@ -13,6 +13,14 @@
 
 namespace handt {
 
+// Timestamp when a position is opened
+unsigned long seconds_since_epoch() {
+  return static_cast<unsigned long>(
+      std::chrono::duration_cast<std::chrono::seconds>(
+          std::chrono::system_clock::now().time_since_epoch())
+          .count());
+}
+
 // A stucture to represent a trade
 struct position {
 
@@ -22,29 +30,21 @@ struct position {
   double buy_price = 0.0;
   double sell_price = 0.0;
   std::string strategy = "strategy";
-  std::string notes = "NEWTRADE";
+  std::string status = "NEWTRADE";
   bool open = true;
 
   // Streaming in
   friend std::istream &operator>>(std::istream &is, position &p) {
-    return is >> p.symbol >> p.strategy >> p.notes >> p.buy_price >>
+    return is >> p.symbol >> p.strategy >> p.status >> p.buy_price >>
            p.sell_price >> p.timestamp >> std::boolalpha >> p.open;
   }
 
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
     os.precision(10);
-    return os << std::fixed << p.symbol << "\t" << p.strategy << "\t" << p.notes
-              << " " << p.buy_price << " " << p.sell_price << " " << p.timestamp
-              << " " << std::boolalpha << p.open;
-  }
-
-  // Timestamp when a position is opened
-  unsigned long seconds_since_epoch() {
-    return static_cast<unsigned long>(
-        std::chrono::duration_cast<std::chrono::seconds>(
-            std::chrono::system_clock::now().time_since_epoch())
-            .count());
+    return os << std::fixed << p.symbol << "\t" << p.strategy << "\t"
+              << p.status << " " << p.buy_price << " " << p.sell_price << " "
+              << p.timestamp << " " << std::boolalpha << p.open;
   }
 };
 
@@ -104,9 +104,10 @@ template <typename Object> auto get_objects(const std::string file) {
 auto get_prices() { return get_objects<coin>("prices.csv"); }
 auto get_prospects() { return get_objects<prospect>("prospects.csv"); }
 auto get_positions() { return get_objects<position>("positions.csv"); }
-auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
+auto get_purged_positions() { return get_objects<position>("purge.csv"); }
 auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
 auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
+auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
 }
 
 #endif
