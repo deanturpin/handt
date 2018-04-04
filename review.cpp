@@ -16,15 +16,18 @@ int main() {
   for (auto &position : handt::get_refreshed_positions()) {
 
     // Close position if sufficiently matured
-    if (position.open)
-      if (position.buy_price > 0)
+    if (position.open) {
+
+      // Mark old position for deletion
+      if (timestamp - position.timestamp > (60 * 60 * 24)) {
+        position.open = false;
+        position.status = "purgenow";
+      }
+
+      // Otherwise check if it's mature
+      else if (position.buy_price > 0)
         if (position.sell_price / position.buy_price > 1.10)
           position.open = false;
-
-    // Mark old positions for deletion
-    if (timestamp - position.timestamp < (60 * 60 * 24)) {
-      position.open = false;
-      position.status = "purgenow";
     }
 
     out << position << "\n";

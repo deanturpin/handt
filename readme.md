@@ -3,9 +3,9 @@ Each module in the chain processes the result from the previous stage and emits 
 simply interface between modules enforces a clean design (no complex
 structures passed around).
 
-This approach may make the interface harder to change (with is not necessarily a bad
-thing) but it does make reasoning about each module much easier. A module can
-even be ported to a different language so long as the interface is honoured.
+This approach may make the interface harder to change (with is not necessarily a
+bad thing) but it does make reasoning about each module much easier. A module
+can even be ported to a different language so long as the interface is honoured.
 
 The strategy module takes the list of coins/prices and emits a line for each
 currency that has triggered a buy: coin name, price and list of a matching
