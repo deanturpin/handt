@@ -11,7 +11,7 @@ int main() {
   // Configure debug
   std::stringstream out;
   out.precision(10);
-  out << std::boolalpha;
+  // out << std::boolalpha;
   out << std::fixed;
 
   out << R"(

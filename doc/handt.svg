@@ -16,23 +16,23 @@
 </g>
 <!-- purge -->
 <g id="node2" class="node"><title>purge</title>
-<polygon fill="none" stroke="black" points="329.5,-180 164.5,-180 164.5,-144 329.5,-144 329.5,-180"/>
-<text text-anchor="middle" x="247" y="-158.3" font-family="Helvetica,sans-Serif" font-size="14.00">PURGE closed positions</text>
+<polygon fill="none" stroke="black" points="333.5,-180 168.5,-180 168.5,-144 333.5,-144 333.5,-180"/>
+<text text-anchor="middle" x="251" y="-158.3" font-family="Helvetica,sans-Serif" font-size="14.00">PURGE closed positions</text>
 </g>
 <!-- review&#45;&gt;purge -->
 <g id="edge6" class="edge"><title>review&#45;&gt;purge</title>
-<path fill="none" stroke="black" d="M158.621,-215.876C173.919,-206.724 192.943,-195.342 209.418,-185.485"/>
-<polygon fill="black" stroke="black" points="211.484,-188.327 218.269,-180.19 207.89,-182.32 211.484,-188.327"/>
+<path fill="none" stroke="black" d="M159.6,-215.876C175.567,-206.639 195.46,-195.131 212.606,-185.212"/>
+<polygon fill="black" stroke="black" points="214.383,-188.227 221.286,-180.19 210.878,-182.168 214.383,-188.227"/>
 </g>
 <!-- balance -->
 <g id="node4" class="node"><title>balance</title>
-<polygon fill="none" stroke="black" points="186,-108 46,-108 46,-72 186,-72 186,-108"/>
-<text text-anchor="middle" x="116" y="-86.3" font-family="Helvetica,sans-Serif" font-size="14.00">Calculate BALANCE</text>
+<polygon fill="none" stroke="black" points="186.5,-108 59.5,-108 59.5,-72 186.5,-72 186.5,-108"/>
+<text text-anchor="middle" x="123" y="-86.3" font-family="Helvetica,sans-Serif" font-size="14.00">Update BALANCE</text>
 </g>
 <!-- review&#45;&gt;balance -->
 <g id="edge9" class="edge"><title>review&#45;&gt;balance</title>
-<path fill="none" stroke="black" d="M128.311,-215.871C125.925,-191.67 121.542,-147.211 118.701,-118.393"/>
-<polygon fill="black" stroke="black" points="122.159,-117.798 117.695,-108.189 115.193,-118.484 122.159,-117.798"/>
+<path fill="none" stroke="black" d="M129.156,-215.871C127.963,-191.67 125.771,-147.211 124.35,-118.393"/>
+<polygon fill="black" stroke="black" points="127.836,-118.005 123.847,-108.189 120.844,-118.349 127.836,-118.005"/>
 </g>
 <!-- consolidate -->
 <g id="node3" class="node"><title>consolidate</title>
@@ -41,23 +41,23 @@
 </g>
 <!-- purge&#45;&gt;consolidate -->
 <g id="edge7" class="edge"><title>purge&#45;&gt;consolidate</title>
-<path fill="none" stroke="black" d="M279.046,-143.876C296.492,-134.554 318.265,-122.919 336.943,-112.939"/>
-<polygon fill="black" stroke="black" points="338.66,-115.99 345.831,-108.19 335.361,-109.816 338.66,-115.99"/>
+<path fill="none" stroke="black" d="M282.068,-143.876C298.827,-134.639 319.706,-123.131 337.702,-113.212"/>
+<polygon fill="black" stroke="black" points="339.745,-116.082 346.813,-108.19 336.366,-109.952 339.745,-116.082"/>
 </g>
 <!-- index -->
 <g id="node5" class="node"><title>index</title>
-<polygon fill="none" stroke="black" points="364,-36 130,-36 130,-0 364,-0 364,-36"/>
-<text text-anchor="middle" x="247" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Create INDEX (web page summary)</text>
+<polygon fill="none" stroke="black" points="367,-36 133,-36 133,-0 367,-0 367,-36"/>
+<text text-anchor="middle" x="250" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Create INDEX (web page summary)</text>
 </g>
 <!-- consolidate&#45;&gt;index -->
 <g id="edge8" class="edge"><title>consolidate&#45;&gt;index</title>
-<path fill="none" stroke="black" d="M345.954,-71.8761C328.508,-62.5541 306.735,-50.9194 288.057,-40.939"/>
-<polygon fill="black" stroke="black" points="289.639,-37.8157 279.169,-36.1898 286.34,-43.9896 289.639,-37.8157"/>
+<path fill="none" stroke="black" d="M346.688,-71.8761C329.797,-62.6388 308.753,-51.1308 290.615,-41.2116"/>
+<polygon fill="black" stroke="black" points="291.886,-37.9171 281.433,-36.1898 288.527,-44.0587 291.886,-37.9171"/>
 </g>
 <!-- balance&#45;&gt;index -->
 <g id="edge10" class="edge"><title>balance&#45;&gt;index</title>
-<path fill="none" stroke="black" d="M148.046,-71.8761C165.492,-62.5541 187.265,-50.9194 205.943,-40.939"/>
-<polygon fill="black" stroke="black" points="207.66,-43.9896 214.831,-36.1898 204.361,-37.8157 207.66,-43.9896"/>
+<path fill="none" stroke="black" d="M154.068,-71.8761C170.827,-62.6388 191.706,-51.1308 209.702,-41.2116"/>
+<polygon fill="black" stroke="black" points="211.745,-44.0822 218.813,-36.1898 208.366,-37.9517 211.745,-44.0822"/>
 </g>
 <!-- refresh -->
 <g id="node6" class="node"><title>refresh</title>

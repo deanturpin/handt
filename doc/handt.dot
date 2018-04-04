@@ -5,7 +5,7 @@ digraph {
   review [label="REVIEW positions"]
   purge [label="PURGE closed positions"]
   consolidate [label="CONSOLIDATE reviewed positions and new prospects"]
-  balance [label="Calculate BALANCE"]
+  balance [label="Update BALANCE"]
   index [label="Create INDEX (web page summary)"]
   refresh [label= "REFRESH existing positions with recent prices"]
 
