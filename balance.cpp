@@ -17,13 +17,10 @@ int main() {
 
   const double trade_size = 1000.0;
 
-  // Update balance for each position
+  // Update balance for each closed position
   for (const auto &position : reviewed_positions)
     if (!position.open)
       balance += trade_size * position.yield() - trade_size;
-    else
-      if (position.status == "NEWTRADE")
-        balance -= trade_size;
 
   // Write the updateed balance back
   std::ofstream file_out(filename);
