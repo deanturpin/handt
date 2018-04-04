@@ -60,7 +60,3 @@ alert: consolidate.csv alert.o
 
 autotest:
 	make -C test
-
-closeall: clean
-	./archive_trades.sh
-	rm -f _*.csv
