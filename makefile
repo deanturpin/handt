@@ -42,7 +42,7 @@ update:
 	rm -f prices.csv
 	make
 
-index.html: index.o consolidate.csv balance.csv
+index.html: index.o consolidate.csv balance.csv review.csv
 	./$< > $@
 	./create_index.sh >> $@
 

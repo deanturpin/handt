@@ -6,6 +6,8 @@ cat <<!
 <pre>
 $(cat balance.csv) USD
 (Nominal initial balance of 1M USD and 1000 USD trades)
+
+Positions closed this period: $(grep false review.csv | wc -l)
 </pre>
 
 <h2>Change log</h2>
