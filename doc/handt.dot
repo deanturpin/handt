@@ -3,7 +3,7 @@ digraph {
   node [fontname=Helvetica]
 
   review [label="REVIEW existing positions"]
-  purge [label="PURGE closed positions (old or ready to sell)"]
+  purge [label="PURGE closed positions"]
   consolidate [label="CONSOLIDATE purged positions and new prospects"]
   balance [label="Calculate BALANCE"]
   index [label="Create INDEX (web page summary)"]
