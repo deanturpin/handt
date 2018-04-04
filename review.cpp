@@ -24,9 +24,8 @@ int main() {
         position.status = "purgenow";
       }
 
-      // Otherwise check if it's mature
-      else if (position.buy_price > 0)
-        if (position.sell_price / position.buy_price > 1.10)
+      // Otherwise check if it's ready to cash in
+      else if (position.yield() > 1.06)
           position.open = false;
     }
 
