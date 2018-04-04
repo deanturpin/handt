@@ -104,9 +104,10 @@ template <typename Object> auto get_objects(const std::string file) {
 auto get_prices() { return get_objects<coin>("prices.csv"); }
 auto get_prospects() { return get_objects<prospect>("prospects.csv"); }
 auto get_positions() { return get_objects<position>("positions.csv"); }
-auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
+auto get_purged_positions() { return get_objects<position>("purge.csv"); }
 auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
 auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
+auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
 }
 
 #endif
