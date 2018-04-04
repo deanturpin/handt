@@ -9,6 +9,6 @@ $(git log -n 5 --oneline)
 
 <h2>Autotest</h2>
 <pre>
-$(./check_autotest_results.sh)
+$(test/check_autotest_results.sh)
 </pre>
 !
