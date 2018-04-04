@@ -2,15 +2,16 @@ digraph {
 
   node [fontname=Helvetica]
 
-  review [label="REVIEW existing positions"]
+  review [label="REVIEW positions"]
   purge [label="PURGE closed positions"]
-  consolidate [label="CONSOLIDATE purged positions and new prospects"]
+  consolidate [label="CONSOLIDATE reviewed positions and new prospects"]
   balance [label="Calculate BALANCE"]
   index [label="Create INDEX (web page summary)"]
+  refresh [label= "REFRESH existing positions with recent prices"]
 
   "Fetch all SYMBOLS from CryptoCompare"
     -> "Fetch PRICES for symbols"
-    -> "REFRESH current positions with recent prices"
+    -> refresh
     -> review
 
   "Fetch PRICES for symbols"
