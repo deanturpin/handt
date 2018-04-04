@@ -62,9 +62,7 @@ Positions are closed if either the sell prices exceeds 110% of the buy price or
 
     const auto strategy = position.strategy;
     const auto symbol = position.symbol;
-    const auto buy = position.buy_price;
-    const auto sell = position.sell_price;
-    const auto yield = buy > 0.0 ? sell / buy : 0.0;
+    const auto yield = position.yield();
 
     strategy_summary[strategy].push_back(yield);
     coins[symbol].push_back(yield);

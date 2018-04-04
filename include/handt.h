@@ -46,6 +46,10 @@ struct position {
               << p.status << " " << p.buy_price << " " << p.sell_price << " "
               << p.timestamp << " " << std::boolalpha << p.open;
   }
+
+  auto yield() const {
+    return buy_price > 0.0 ? sell_price / buy_price : 0.0;
+  }
 };
 
 // A prospect has a name, an initial price and a list of strategies that
