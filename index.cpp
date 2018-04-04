@@ -44,7 +44,7 @@ per minute&mdash;a limit set by the exchange&mdash;therefore it takes around 25
 minutes to process the full set of coins. A library of strategies is run over
 each batch and a position is created if the strategy returns positively.
 Positions are closed if either the sell prices exceeds 110% of the buy price or
-24 hours have passed since it was created.</p>
+24 hours have elapsed since it was created.</p>
 
 )";
 
