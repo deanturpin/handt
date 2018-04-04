@@ -1,6 +1,6 @@
 digraph {
 
-  node [fontname=Helvetica]
+  node [fontname=Helvetica shape=box]
 
   review [label="REVIEW positions"]
   purge [label="PURGE closed positions"]
