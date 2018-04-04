@@ -148,6 +148,14 @@ result steady_rising(series s, param p) {
   return result(name, exec);
 }
 
+result steady_rising2(series s, param p) {
+  const auto name = NAME("steady_rising2", p);
+  const auto a = steady_rising(s, p).second;
+  const auto b = new_above_old(s, p).second;
+  const bool exec = a && b;
+  return result(name, exec);
+}
+
 result kosovich(series s, param p) {
   const auto name = NAME("koskosovich", p);
   const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));
@@ -181,7 +189,7 @@ auto run_strategies(series s) {
         flicking_down,    flicking_up,   ski_jumping,   stepping_up,
         stepping_down,    steady_rising, kosovich,      rolling_average,
         rolling_average2, old_above_new, new_above_old, average_inter,
-        average_compare};
+        average_compare, steady_rising2};
 
     // Test each strategy
     for (const auto &buy : library) {
