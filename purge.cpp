@@ -6,11 +6,6 @@
 
 int main() {
 
-  // Configure debug
-  std::stringstream out;
-  out.precision(10);
-  out << std::boolalpha;
-
   // Get all positions
   const auto &reviewed_positions = handt::get_reviewed_positions();
 
@@ -21,6 +16,7 @@ int main() {
                [](const auto &position) { return position.open; });
 
   // Print remaining positions
+  std::stringstream out;
   for (const auto &position : purged_positions)
     out << position << '\n';
 

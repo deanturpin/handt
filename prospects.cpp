@@ -6,10 +6,7 @@
 
 int main() {
 
-  // Configure debug
   std::stringstream out;
-  out.precision(10);
-  out << "# prospects\n";
 
   // Test strategies on each series
   for (const auto &p : handt::get_prices())

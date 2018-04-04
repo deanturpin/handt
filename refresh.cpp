@@ -5,11 +5,7 @@
 
 int main() {
 
-  // Configure debug
   std::stringstream out;
-  out.precision(10);
-  out << std::boolalpha;
-  out << "# refresh\n";
 
   // Get recent prices
   const auto &prices = handt::get_prices();

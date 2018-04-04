@@ -3,10 +3,7 @@
 
 int main() {
 
-  // Configure debug
   std::stringstream out;
-  out.precision(10);
-  out << std::boolalpha;
 
   // Get current timestamp
   const auto timestamp = handt::get_timestamp();
