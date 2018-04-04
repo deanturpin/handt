@@ -39,20 +39,6 @@ int main() {
         position.strategy = strategy;
         position.buy_price = position.sell_price = prospect.spot;
         new_positions.push_back(position);
-
-        // Dump prices at the time of creating position
-        const auto it = find_if(prices.cbegin(), prices.cend(),
-                                [&position](const auto &coin) {
-                                  return coin.symbol == position.symbol;
-                                });
-
-        if (it != prices.cend()) {
-          std::ofstream log("_" + position.symbol + "_" + position.strategy +
-                            "_" + std::to_string(position.timestamp) + ".csv");
-
-          for (const auto &s : it->series)
-            log << s << '\n';
-        }
       }
     }
   }
