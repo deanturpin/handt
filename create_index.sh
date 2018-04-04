@@ -5,7 +5,7 @@ cat <<!
 <h2>Balance</h2>
 <pre>
 $(cat balance.csv) USD
-(Nominal initial balance of 1M USD and 1000 USD trades)
+(Nominal initial balance of 1,000,000 USD and 1,000 USD trades)
 
 Positions closed this period: $(grep false review.csv | wc -l)
 </pre>
