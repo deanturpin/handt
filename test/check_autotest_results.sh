@@ -14,5 +14,7 @@ diff prospects1.csv prospects2.csv >& /dev/null && \
   echo $'prospec\tpass' || echo $'prospec\tfail'
 diff consolidate.csv consolidate2.csv >& /dev/null && \
   echo $'consol\tpass' || echo $'consol\tfail'
+diff balance.csv balance2.csv >& /dev/null && \
+  echo -e $'balance\tpass' || echo $'balance\tfail'
 
 popd >& /dev/null

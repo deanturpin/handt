@@ -1,7 +1,6 @@
 #include "handt.h"
 #include <algorithm>
 #include <vector>
-#include <iostream>
 
 int main() {
 
@@ -25,8 +24,6 @@ int main() {
     else
       if (position.status == "NEWTRADE")
         balance -= trade_size;
-
-  std::cout << balance << '\n';
 
   // Write the updateed balance back
   std::ofstream file_out(filename);
