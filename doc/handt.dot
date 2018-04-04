@@ -5,6 +5,8 @@ digraph {
   review [label="REVIEW existing positions"]
   purge [label="PURGE closed positions (old or ready to sell)"]
   consolidate [label="CONSOLIDATE purged positions and new prospects"]
+  balance [label="Calculate BALANCE"]
+  index [label="Create INDEX (web page summary)"]
 
   "Fetch all SYMBOLS from CryptoCompare"
     -> "Fetch PRICES for symbols"
@@ -19,7 +21,10 @@ digraph {
   review
     -> purge
     -> consolidate
-    -> "Create SUMMARY of trades for this period"
-    -> "RENDER report (web page)"
-    -> "Send ALERTs"
+    -> index
+
+  // Balance calculation
+  review
+    -> balance
+    -> index
 }
