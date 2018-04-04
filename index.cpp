@@ -54,7 +54,7 @@ Positions are closed if either the sell prices exceeds 110% of the buy price or
 
   // Get the final set of positions after trading is complete
   const auto &positions = handt::get_final_positions();
-  out << positions.size() << " consolidated positions.</p>\n";
+  out << positions.size() << " open positions.</p>\n";
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;
