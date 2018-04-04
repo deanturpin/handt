@@ -112,6 +112,26 @@ auto get_purged_positions() { return get_objects<position>("purge.csv"); }
 auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
 auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
 auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
+
+// Balance access
+const std::string balance_filename("balance.csv");
+
+double get_balance() {
+  double balance = 1000000.0;
+  std::ifstream file(balance_filename);
+  if (file.good())
+    file >> balance;
+  file.close();
+
+  return balance;
+}
+
+void put_balance(const double &balance) {
+  std::ofstream file_out(balance_filename);
+  if (file_out.good())
+    file_out << std::fixed << balance;
+}
+
 }
 
 #endif

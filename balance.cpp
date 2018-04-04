@@ -8,13 +8,9 @@ int main() {
   const auto &reviewed_positions = handt::get_reviewed_positions();
 
   // Read current balance
-  const std::string filename("balance.csv");
-  std::ifstream file(filename);
-  double balance = 1000000.0;
-  if (file.good())
-    file >> balance;
-  file.close();
+  double balance = handt::get_balance();
 
+  // Default fixed trade size
   const double trade_size = 1000.0;
 
   // Update balance for each closed position
@@ -22,8 +18,6 @@ int main() {
     if (!position.open)
       balance += (trade_size * position.yield()) - trade_size;
 
-  // Write the updateed balance back
-  std::ofstream file_out(filename);
-  if (file_out.good())
-    file_out << balance;
+  // Write the updated balance back
+  handt::put_balance(balance);
 }
