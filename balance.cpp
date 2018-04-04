@@ -1,18 +1,12 @@
 #include "handt.h"
 #include <algorithm>
-#include <iterator>
 #include <vector>
+#include <iostream>
 
 int main() {
 
   // Get all review positions
   const auto &reviewed_positions = handt::get_reviewed_positions();
-
-  // Filter closed positions
-  std::decay_t<decltype(reviewed_positions)> closed_positions;
-  std::copy_if(reviewed_positions.cbegin(), reviewed_positions.cend(),
-               std::back_inserter(closed_positions),
-               [](const auto &position) { return !position.open; });
 
   // Read current balance
   const std::string filename("balance.csv");
@@ -24,9 +18,15 @@ int main() {
 
   const double trade_size = 1000.0;
 
-  // Update balance for each closed position
-  for (const auto &position : closed_positions)
-    balance += trade_size * position.yield() - trade_size;
+  // Update balance for each position
+  for (const auto &position : reviewed_positions)
+    if (!position.open)
+      balance += trade_size * position.yield() - trade_size;
+    else
+      if (position.status == "NEWTRADE")
+        balance -= trade_size;
+
+  std::cout << balance << '\n';
 
   // Write the updateed balance back
   std::ofstream file_out(filename);
