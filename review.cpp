@@ -17,13 +17,13 @@ int main() {
     }
 
     // Check if it's ready to cash in
-    else if (position.yield() > 1.06) {
+    else if (position.yield() > handt::sell_threshold) {
       position.status = "cashmein";
       position.open = false;
     }
 
     // Cut our losses
-    else if (position.yield() < .8) {
+    else if (position.yield() < handt::cut_losses_threshold) {
       position.status = "cutropes";
       position.open = false;
     }
