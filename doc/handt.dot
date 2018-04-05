@@ -2,7 +2,7 @@ digraph {
 
   node [fontname=Helvetica shape=box]
 
-  review [label="REVIEW positions"]
+  review [label="REVIEW (and close) positions"]
   purge [label="PURGE closed positions"]
   consolidate [label="CONSOLIDATE reviewed positions and new prospects"]
   balance [label="Update BALANCE"]
