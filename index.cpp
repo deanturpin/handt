@@ -65,8 +65,8 @@ the fees on a Coinbase trade.
   const auto plural = prices.size() == 1 ? "" : "s";
 
   // Trade summary
-  out << "<h2>Balance: $" << balance
-    << " - " << open_positions << " open positions</h2>";
+  out << "<h2>Balance: $" << balance;
+  out << "<br>Positions: " << open_positions << "</h2>\n";
   out << "<p>";
   out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
