@@ -27,7 +27,7 @@ file using operator>> and operator<<.
 periodically pulled from GitHub, cleaned, compiled and if successful copied into
 the web root.
 
-I can simulate a cron job locally by running '''make cron''' before pushing to
+A cron job can be simulated locally by running ```make cron``` before pushing to
 GitHub. But if the fails unexpectedyly I soon receive an email from the cron
 daemon alerting me to the fact that I've done something wrong.
 
