@@ -42,11 +42,11 @@ minutes to process the full set of coins. A library of strategies is run over
 each batch and a position is created if the strategy returns positively.
 Positions are closed if either the sell price exceeds 106 % of the buy price or
 24 hours have elapsed since creation. A position can also be closed if the
-yields falls below 80 %.
-
-The return and exposure are updated as each position is created or closed and
-all trades are $1000. This trade size was chosen as it's large enough to not
-worry about the fees on a Coinbase trade.</p>
+yields falls below 80 %. The return and exposure are updated as each position is
+created or closed and all trades are $)"
+      << handt::trade_size << R"(. This trade
+    size was chosen as it's large enough to not worry about the fees on a
+    Coinbase trade.</p>
 
 )";
 
@@ -71,9 +71,8 @@ worry about the fees on a Coinbase trade.</p>
   }
 
   // Print summary of open positions, sorted by yield
-  std::sort(positions.begin(), positions.end(), [](const auto &a, const auto &b){
-              return a.yield() > b.yield();
-            });
+  std::sort(positions.begin(), positions.end(),
+            [](const auto &a, const auto &b) { return a.yield() > b.yield(); });
   out << "<pre id='floater'>\n";
   for (const auto &position : positions)
     out << position.symbol << '\t' << position.yield() * 100.0 << '\t'

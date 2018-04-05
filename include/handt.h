@@ -13,6 +13,8 @@
 
 namespace handt {
 
+const double trade_size = 1000.0;
+
 // Timestamp when a position is opened
 unsigned long get_timestamp() {
   return static_cast<unsigned long>(

@@ -4,11 +4,9 @@
 
 int main() {
 
-  // Read current balance
+  // Read current balance and trade size
   double balance = handt::get_balance();
-
-  // Default fixed trade size
-  const double trade_size = 1000.0;
+  const double &trade_size = handt::trade_size;
 
   // Update balance for each closed position
   for (const auto &position : handt::get_reviewed_positions())
