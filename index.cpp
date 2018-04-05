@@ -14,7 +14,7 @@ int main() {
   out.precision(2);
   out << std::fixed;
 
-  const auto readme = R"(
+  out << R"(
 <!DOCTYPE html>
 
 <meta charset="UTF-8">
@@ -24,10 +24,7 @@ int main() {
 
 <style>
 body { font-family: sans-serif; }
-pre#floater {
-  float: right;
-  text-align: right;
-}
+pre#floater { float: right; }
 </style>
 
 <title>HANDT</title>
@@ -59,8 +56,7 @@ worry about the fees on a Coinbase trade.</p>
   const auto &balance = handt::get_balance();
   const auto open_positions = positions.size();
 
-  out << "<pre id='floater'>\n";
-
+  // out << "<pre id='floater'>\n";
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;
   for (const auto &position : positions) {
@@ -73,28 +69,33 @@ worry about the fees on a Coinbase trade.</p>
     coins[symbol].push_back(yield);
   }
 
-  std::vector<std::pair<std::string, double>> coin_summary;
+  // std::vector<std::pair<std::string, double>> coin_summary;
 
-  // Calculate coin averages and sort
-  for (const auto &coin : coins)
-    if (!coin.second.empty())
-      coin_summary.push_back(std::make_pair(
-          coin.first,
-          100.0 *
-              std::accumulate(coin.second.cbegin(), coin.second.cend(), 0.0) /
-              coin.second.size()));
+  // // Calculate coin averages and sort
+  // for (const auto &coin : coins)
+  //   if (!coin.second.empty())
+  //     coin_summary.push_back(std::make_pair(
+  //         coin.first,
+  //         100.0 *
+  //             std::accumulate(coin.second.cbegin(), coin.second.cend(), 0.0) /
+  //             coin.second.size()));
 
-  std::sort(coin_summary.begin(), coin_summary.end(),
-            [](const auto &a, const auto &b) { return a.second > b.second; });
+  // std::sort(coin_summary.begin(), coin_summary.end(),
+  //           [](const auto &a, const auto &b) { return a.second > b.second; });
 
-  // Print the best performing currencies
-  out << "Open positions\n";
-  for (const auto i : coin_summary)
-    out << i.first << "\t" << i.second << '\n';
+  // // Print the best performing currencies
+  // out << "Open positions\n";
+  // for (const auto i : coin_summary)
+  //   out << i.first << "\t" << i.second << '\n';
+  // out << "</pre>\n";
 
+  out << "<pre id='floater'>\n";
+  for (const auto &position : positions)
+    out << position.symbol << '\t'
+      << position.yield() * 100.0 << '\t'
+        << position.strategy << '\t'
+          << position.buy_price << '\n';
   out << "</pre>\n";
-
-  out << readme;
 
   // Pretty print
   const auto plural = prices.size() == 1 ? "" : "s";
