@@ -77,6 +77,7 @@ not worry about the fees on a Coinbase trade.</p>
   std::sort(positions.begin(), positions.end(),
             [](const auto &a, const auto &b) { return a.yield() > b.yield(); });
   out << "<pre id='floater'>\n";
+  out << "Open positions\n";
   for (const auto &position : positions)
     out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
         << position.strategy << '\t' << position.buy_price << '\n';
