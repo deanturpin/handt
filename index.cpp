@@ -14,6 +14,15 @@ int main() {
   out.precision(2);
   out << std::fixed;
 
+  // Get some data to play with
+  auto positions = handt::get_final_positions();
+  const auto &prices = handt::get_prices();
+  const auto &symbols = handt::get_symbols().size();
+  const auto &balance = handt::get_balance();
+  const auto open_positions = positions.size();
+  const unsigned long batch_size = 80UL;
+
+  // Print the bulk of the HTML
   out << R"(
 <!DOCTYPE html>
 
@@ -34,33 +43,26 @@ pre#floater { float: right; }
 what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
-target="blah">GitHub</a>.</p>
-
-<p>24 hours of prices are fetched for approximately 2000 coins at a rate of 80
-per minute&mdash;a limit set by the exchange&mdash;therefore it takes around 25
-minutes to process the full set of coins. A library of strategies is run over
-each batch and a position is created if the strategy returns positively.
-Positions are closed if either the sell price exceeds )"
+target="blah">GitHub</a>.</p>\n\n)"
+      << "<p>24 hours of prices are fetched for" << symbols
+      << " coins at a rate of " << batch_size
+      << " per minute&mdash;a limit set by the exchange&mdash;therefore it "
+         "takes "
+      << symbols / batch_size
+      << " minutes to process the full set of coins. A library of strategies "
+         "is run over each batch and a position is created if the strategy "
+         "returns positively. Positions are closed if either the sell price "
+         "exceeds "
       << handt::sell_threshold * 100.0
-      << R"( % of the buy price or 24 hours have
-elapsed since creation. A position can also be closed if the return falls
-below )"
-      << handt::cut_losses_threshold * 100.0 << R"( %. The total return and exposure
-    are updated as each position is created or closed and all trades are $)"
+      << " % of the buy price or 24 hours have elapsed since creation. A "
+         "position can also be closed if the return falls below "
+      << handt::cut_losses_threshold * 100.0
+      << "( %. The total return and exposure are updated as each position is "
+         "created (or closed) and all trades are $"
       << handt::trade_size
-      << R"(. (This trade size was chosen as it's large enough to ignore the
-fees on a Coinbase trade.</p>
+      << ". (This trade size was chosen as it's large enough to ignore the "
+         "fees on a Coinbase trade.</p>\n\n";
 
-)";
-
-  // Get some data to play with
-  auto positions = handt::get_final_positions();
-  const auto &prices = handt::get_prices();
-  const auto &symbols = handt::get_symbols();
-  const auto &balance = handt::get_balance();
-  const auto open_positions = positions.size();
-
-  // out << "<pre id='floater'>\n";
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;
   for (const auto &position : positions) {
@@ -90,7 +92,7 @@ fees on a Coinbase trade.</p>
   out << "<h3>Return: $" << balance;
   out << "<br>Exposure: $" << open_positions * 1000.0 << "</h3>\n";
   out << "<p>";
-  out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
+  // out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
 
