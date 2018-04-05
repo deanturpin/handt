@@ -41,7 +41,8 @@ per minute&mdash;a limit set by the exchange&mdash;therefore it takes around 25
 minutes to process the full set of coins. A library of strategies is run over
 each batch and a position is created if the strategy returns positively.
 Positions are closed if either the sell price exceeds 106 % of the buy price or
-24 hours have elapsed since it was created.
+24 hours have elapsed since creation. A position can also be closed if the
+yields falls below 80 %.
 
 The return and exposure are updated as each position is created or closed and
 all trades are $1000. This trade size was chosen as it's large enough to not
@@ -50,9 +51,9 @@ worry about the fees on a Coinbase trade.</p>
 )";
 
   // Get some data to play with
+  auto positions = handt::get_final_positions();
   const auto &prices = handt::get_prices();
   const auto &symbols = handt::get_symbols();
-  const auto &positions = handt::get_final_positions();
   const auto &balance = handt::get_balance();
   const auto open_positions = positions.size();
 
@@ -69,38 +70,20 @@ worry about the fees on a Coinbase trade.</p>
     coins[symbol].push_back(yield);
   }
 
-  // std::vector<std::pair<std::string, double>> coin_summary;
-
-  // // Calculate coin averages and sort
-  // for (const auto &coin : coins)
-  //   if (!coin.second.empty())
-  //     coin_summary.push_back(std::make_pair(
-  //         coin.first,
-  //         100.0 *
-  //             std::accumulate(coin.second.cbegin(), coin.second.cend(), 0.0) /
-  //             coin.second.size()));
-
-  // std::sort(coin_summary.begin(), coin_summary.end(),
-  //           [](const auto &a, const auto &b) { return a.second > b.second; });
-
-  // // Print the best performing currencies
-  // out << "Open positions\n";
-  // for (const auto i : coin_summary)
-  //   out << i.first << "\t" << i.second << '\n';
-  // out << "</pre>\n";
-
+  // Print summary of open positions, sorted by yield
+  std::sort(positions.begin(), positions.end(), [](const auto &a, const auto &b){
+              return a.yield() > b.yield();
+            });
   out << "<pre id='floater'>\n";
   for (const auto &position : positions)
-    out << position.symbol << '\t'
-      << position.yield() * 100.0 << '\t'
-        << position.strategy << '\t'
-          << position.buy_price << '\n';
+    out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
+        << position.strategy << '\t' << position.buy_price << '\n';
   out << "</pre>\n";
 
   // Pretty print
   const auto plural = prices.size() == 1 ? "" : "s";
 
-  // Trade summary
+  // Print trade summary
   out << "<h3>Return: $" << balance;
   out << "<br>Exposure: $" << open_positions * 1000.0 << "</h3>\n";
   out << "<p>";
@@ -108,9 +91,8 @@ worry about the fees on a Coinbase trade.</p>
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
 
+  // Print strategy summary
   out << "<pre>\n";
-
-  // Print strategy summaries
   out << "STRATEGY\t\t POS\t% RETURN\n";
   for (const auto &i : strategy_summary) {
     const unsigned long positions_held = i.second.size();
