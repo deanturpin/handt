@@ -14,7 +14,7 @@ int main() {
   out.precision(2);
   out << std::fixed;
 
-  out << R"(
+  const auto readme = R"(
 <!DOCTYPE html>
 
 <meta charset="UTF-8">
@@ -59,16 +59,7 @@ worry about the fees on a Coinbase trade.</p>
   const auto &balance = handt::get_balance();
   const auto open_positions = positions.size();
 
-  // Pretty print
-  const auto plural = prices.size() == 1 ? "" : "s";
-
-  // Trade summary
-  out << "<h3>Return: $" << balance;
-  out << "<br>Exposure: $" << open_positions * 1000.0 << "</h3>\n";
-  out << "<p>";
-  out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
-  out << prices.size() << " coin" << plural << " updated in the last minute.";
-  out << "</p>\n";
+  out << "<pre id='floater'>\n";
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;
@@ -82,7 +73,6 @@ worry about the fees on a Coinbase trade.</p>
     coins[symbol].push_back(yield);
   }
 
-  out << "<pre id='floater'>\n";
   std::vector<std::pair<std::string, double>> coin_summary;
 
   // Calculate coin averages and sort
@@ -98,13 +88,27 @@ worry about the fees on a Coinbase trade.</p>
             [](const auto &a, const auto &b) { return a.second > b.second; });
 
   // Print the best performing currencies
-  out << "Top open positions\n";
-  for (auto i = coin_summary.cbegin();
-       i != std::min(coin_summary.cend(), std::next(coin_summary.cbegin(), 30));
-       ++i)
-    out << i->first << "\t" << i->second << '\n';
+  out << "Open positions\n";
+  for (const auto i : coin_summary)
+    out << i.first << "\t" << i.second << '\n';
 
-  out << "</pre>\n<pre>\n";
+  out << "</pre>\n";
+
+  out << readme;
+
+  // Pretty print
+  const auto plural = prices.size() == 1 ? "" : "s";
+
+  // Trade summary
+  out << "<h3>Return: $" << balance;
+  out << "<br>Exposure: $" << open_positions * 1000.0 << "</h3>\n";
+  out << "<p>";
+  out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
+  out << prices.size() << " coin" << plural << " updated in the last minute.";
+  out << "</p>\n";
+
+
+  out << "<pre>\n";
 
   // Print strategy summaries
   out << "STRATEGY\t\t POS\t% RETURN\n";
