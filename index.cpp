@@ -3,6 +3,7 @@
 #include <iostream>
 #include <map>
 #include <numeric>
+#include <iomanip>
 #include <string>
 #include <vector>
 
@@ -10,7 +11,7 @@ int main() {
 
   // Configure debug
   std::stringstream out;
-  out.precision(10);
+  out.precision(2);
   out << std::fixed;
 
   out << R"(
@@ -43,17 +44,34 @@ per minute&mdash;a limit set by the exchange&mdash;therefore it takes around 25
 minutes to process the full set of coins. A library of strategies is run over
 each batch and a position is created if the strategy returns positively.
 Positions are closed if either the sell price exceeds 106 % of the buy price or
-24 hours have elapsed since it was created.</p>
+24 hours have elapsed since it was created.
+
+The balance is nominally a pot of $1M USD which is updated as each positions is
+closed - all trades are $1000. This isn't a actual balance but does give a feel
+for how much must be invested to hedge in such a way. The $1000 trade was chosen
+as it's large enough to not worry about the fees on a Coinbase trade.
+</p>
 
 )";
 
-  // Get recent prices
+  // Get some data to play with
   const auto &prices = handt::get_prices();
-  out << "<p>" << prices.size() << " coins updated in the last minute, ";
-
-  // Get the final set of positions after trading is complete
+  const auto &symbols = handt::get_symbols();
   const auto &positions = handt::get_final_positions();
-  out << positions.size() << " open positions.</p>\n";
+  const auto &balance = handt::get_balance();
+  const auto open_positions = positions.size();
+
+  // Pretty print
+  const auto plural = prices.size() == 1 ? "" : "s";
+
+  // Trade summary
+  out << "<h2>Balance: $" << balance - (open_positions * 1000)
+    << " - includes " << open_positions << " open positions</h2>";
+  out << "<p>";
+  out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
+  out << prices.size() << " coin" << plural << " updated in the last minute.";
+  out << "</p>\n";
+
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;

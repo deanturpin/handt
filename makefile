@@ -60,3 +60,4 @@ docs:
 
 autotest:
 	make --silent --directory test
+	test/check_autotest_results.sh
