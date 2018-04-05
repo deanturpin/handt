@@ -4,6 +4,9 @@ TZ=HANDT-1 date
 
 pushd test >& /dev/null
 
+# Clear down previous results
+rm -f balance.csv
+
 # Simple tests
 diff --brief refresh.csv refresh2.csv && echo -e $'refresh\tpass' || echo $'refresh\tfail'
 diff --brief review.csv review2.csv && echo $'review\tpass' || echo $'review\tfail'
