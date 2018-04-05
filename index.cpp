@@ -44,12 +44,12 @@ Positions are closed if either the sell price exceeds )"
       << handt::sell_threshold * 100.0
       << R"( % of the buy price or 24 hours have
 elapsed since creation. A position can also be closed if the return falls
-below)"
-      << handt::cut_losses_threshold * 100.0 << R"( %. The return and exposure
+below )"
+      << handt::cut_losses_threshold * 100.0 << R"( %. The total return and exposure
     are updated as each position is created or closed and all trades are $)"
       << handt::trade_size
-      << R"(. This trade size was chosen as it's large enough to
-not worry about the fees on a Coinbase trade.</p>
+      << R"(. (This trade size was chosen as it's large enough to ignore the
+fees on a Coinbase trade.</p>
 
 )";
 
