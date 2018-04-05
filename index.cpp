@@ -46,11 +46,10 @@ each batch and a position is created if the strategy returns positively.
 Positions are closed if either the sell price exceeds 106 % of the buy price or
 24 hours have elapsed since it was created.
 
-The balance is updated as each positions is closed and all trades are $1000.
-This isn't an real balance but does give a feel for how well the strategies are
+The balance is updated as each position is closed and all trades are $1000. This
+isn't an real balance but does give a feel for how well the strategies are
 performing. The $1000 trade was chosen as it's large enough to not worry about
-the fees on a Coinbase trade.
-</p>
+the fees on a Coinbase trade.</p>
 
 )";
 
