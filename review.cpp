@@ -7,7 +7,6 @@ int main() {
 
   // Get current timestamp
   const auto timestamp = handt::get_timestamp();
-  out << "# " << timestamp << " timestamp\n";
 
   // Review each position
   for (auto &position : handt::get_refreshed_positions()) {
