@@ -1,9 +1,9 @@
 #include "handt.h"
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
 #include <map>
 #include <numeric>
-#include <iomanip>
 #include <string>
 #include <vector>
 
@@ -106,7 +106,6 @@ worry about the fees on a Coinbase trade.</p>
   out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
-
 
   out << "<pre>\n";
 

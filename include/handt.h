@@ -47,9 +47,7 @@ struct position {
               << p.timestamp << " " << std::boolalpha << p.open;
   }
 
-  auto yield() const {
-    return buy_price > 0.0 ? sell_price / buy_price : 0.0;
-  }
+  auto yield() const { return buy_price > 0.0 ? sell_price / buy_price : 0.0; }
 };
 
 // A prospect has a name, an initial price and a list of strategies that
@@ -130,7 +128,6 @@ void put_balance(const double &balance) {
   if (out.good())
     out << std::fixed << balance;
 }
-
 }
 
 #endif
