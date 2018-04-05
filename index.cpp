@@ -46,10 +46,10 @@ each batch and a position is created if the strategy returns positively.
 Positions are closed if either the sell price exceeds 106 % of the buy price or
 24 hours have elapsed since it was created.
 
-The balance is nominally a pot of $1M USD which is updated as each positions is
-closed - all trades are $1000. This isn't a actual balance but does give a feel
-for how much must be invested to hedge in such a way. The $1000 trade was chosen
-as it's large enough to not worry about the fees on a Coinbase trade.
+The balance is updated as each positions is closed, all trades are $1000. This
+isn't a actual balance but does give a feel for how much must be invested to
+hedge in such a way. The $1000 trade was chosen as it's large enough to not
+worry about the fees on a Coinbase trade.
 </p>
 
 )";

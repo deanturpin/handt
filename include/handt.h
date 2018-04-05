@@ -117,7 +117,7 @@ auto get_symbols() { return get_objects<std::string>("symbols.csv"); }
 // Balance access
 const std::string balance_file("balance.csv");
 double get_balance() {
-  double balance = 1000000.0;
+  double balance = 0.0;
   std::ifstream in(balance_file);
   if (in.good())
     in >> balance;
