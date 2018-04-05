@@ -65,13 +65,12 @@ worry about the fees on a Coinbase trade.
   const auto plural = prices.size() == 1 ? "" : "s";
 
   // Trade summary
-  out << "<h2>Balance: $" << balance - (open_positions * 1000)
-    << " - includes " << open_positions << " open positions</h2>";
+  out << "<h2>Balance: $" << balance
+    << " - " << open_positions << " open positions</h2>";
   out << "<p>";
   out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
-
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;
