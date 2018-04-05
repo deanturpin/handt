@@ -66,7 +66,7 @@ the fees on a Coinbase trade.
 
   // Trade summary
   out << "<h2>Balance: $" << balance;
-  out << "<br>Positions: " << open_positions << "</h2>\n";
+  out << "<br>Exposure: $" << open_positions * 1000.0 << "</h2>\n";
   out << "<p>";
   out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
