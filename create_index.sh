@@ -15,4 +15,10 @@ $(git log -n 5 --oneline)
 <pre>
 $(test/check_autotest_results.sh)
 </pre>
+
+<h2>Closed positions</h2>
+<pre>
+$(grep false review.csv >> closed.csv)
+$(cat closed.csv)
+</pre>
 !
