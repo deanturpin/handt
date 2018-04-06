@@ -118,8 +118,9 @@ target="blah">GitHub</a>.</p>)"
   // Closed positions
   out << "<h2>Closed positions</h2>\n";
   out << "<pre>\n";
-  std::sort(closed.begin(), closed.end(),
-            [](const auto &a, const auto &b) { return a.status < b.status; });
+  std::sort(closed.begin(), closed.end(), [](const auto &a, const auto &b) {
+    return a.strategy < b.strategy;
+  });
 
   for (const auto &p : closed)
     out << p.symbol << '\t' << 100.0 * p.yield() << '\t' << p.strategy << '\t'
