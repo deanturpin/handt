@@ -185,11 +185,14 @@ auto run_strategies(series s) {
   if (preflight_check(s)) {
 
     // Create a library of strategies
+    // const std::vector<std::function<result(series, param)>> library{
+    //     flicking_down,    flicking_up,   ski_jumping,   stepping_up,
+    //     stepping_down,    steady_rising, kosovich,      rolling_average,
+    //     rolling_average2, old_above_new, new_above_old, average_inter,
+    //     average_compare,  steady_rising2};
+
     const std::vector<std::function<result(series, param)>> library{
-        flicking_down,    flicking_up,   ski_jumping,   stepping_up,
-        stepping_down,    steady_rising, kosovich,      rolling_average,
-        rolling_average2, old_above_new, new_above_old, average_inter,
-        average_compare,  steady_rising2};
+        flicking_down};
 
     // Test each strategy
     for (const auto &buy : library) {
