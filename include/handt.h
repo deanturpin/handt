@@ -14,7 +14,7 @@
 namespace handt {
 
 const double trade_size = 1000.0;
-const double sell_threshold = 1.06;
+const double sell_threshold = 1.08;
 const double cut_losses_threshold = 0.70;
 
 // Timestamp when a position is opened
