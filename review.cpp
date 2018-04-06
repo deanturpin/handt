@@ -12,13 +12,13 @@ int main() {
 
     // Mark old position for deletion
     if (timestamp - position.timestamp > (60 * 60 * 24)) {
-      position.status = "purgenow";
+      position.status = "time_out";
       position.open = false;
     }
 
     // Check if it's ready to cash in
     else if (position.yield() > handt::sell_threshold) {
-      position.status = "cashmein";
+      position.status = "cashfome";
       position.open = false;
     }
 
