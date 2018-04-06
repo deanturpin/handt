@@ -117,6 +117,7 @@ target="blah">GitHub</a>.</p>)"
 
   // Closed positions
   out << "<pre>\n";
+  out << "Closed positions\n";
   for (const auto &p : closed)
     out << p.symbol << '\t' << 100.0 * p.yield() << '\t' << p.strategy << '\t'
         << p.status << '\n';
