@@ -54,10 +54,11 @@ target="blah">GitHub</a>.</p>)"
          "returns positively. Positions are closed if either the sell price "
          "exceeds "
       << handt::sell_threshold * 100.0
-      << " % of the buy price or 24 hours have elapsed since creation. A "
+      << "&nbsp;% of the buy price or 24 hours have elapsed since creation. A "
          "position can also be closed if the return falls below "
       << handt::cut_losses_threshold * 100.0
-      << " %. The total return and exposure are updated as each position is "
+      << "&nbsp;%. The total return and exposure are updated as each position "
+         "is "
          "created (or closed) and all trades are $"
       << handt::trade_size
       << ". (This trade size was chosen as it's large enough to ignore the "
