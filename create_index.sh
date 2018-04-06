@@ -18,7 +18,7 @@ $(test/check_autotest_results.sh)
 
 <h2>Closed positions</h2>
 <pre>
-$(grep false review.csv >> closed.csv)
+$(grep false review.csv | cut -d ' ' -f1,2 >> closed.csv)
 $(cat closed.csv)
 </pre>
 !
