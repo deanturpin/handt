@@ -97,7 +97,7 @@ target="blah">GitHub</a>.</p>)"
   // Print trade summary
   out << "<h3>Return: $" << balance;
   out << "<br>Exposure: $" << exposure << " ($" << exposure_value - exposure
-      << " cash out now)</h3>\n";
+      << " cash out)</h3>\n";
   out << "<p>";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
