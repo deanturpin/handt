@@ -62,7 +62,7 @@ target="blah">GitHub</a>.</p>)"
          "created (or closed) and all trades are $"
       << handt::trade_size
       << ". (This trade size was chosen as it's large enough to ignore the "
-         "fees on a Coinbase trade.</p>\n\n";
+         "fees on a Coinbase trade.)</p>\n\n";
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;
