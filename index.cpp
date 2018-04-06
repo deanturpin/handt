@@ -16,7 +16,7 @@ int main() {
 
   // Get some data to play with
   auto positions = handt::get_final_positions();
-  const auto &closed = handt::get_closed_positions();
+  auto closed = handt::get_closed_positions();
   const auto &prices = handt::get_prices();
   const auto &symbols = handt::get_symbols().size();
   const auto &balance = handt::get_balance();
@@ -118,6 +118,9 @@ target="blah">GitHub</a>.</p>)"
   // Closed positions
   out << "<h2>Closed positions</h2>\n";
   out << "<pre>\n";
+  std::sort(closed.begin(), closed.end(),
+            [](const auto &a, const auto &b) { return a.status < b.status; });
+
   for (const auto &p : closed)
     out << p.symbol << '\t' << 100.0 * p.yield() << '\t' << p.strategy << '\t'
         << p.status << '\n';
