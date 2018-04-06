@@ -43,8 +43,8 @@ pre#floater { float: right; }
 what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
-target="blah">GitHub</a>.</p>\n\n)"
-      << "<p>24 hours of prices are fetched for " << symbols
+target="blah">GitHub</a>.</p>)"
+      << "\n\n<p>24 hours of prices are fetched for " << symbols
       << " coins at a rate of " << batch_size
       << " per minute&mdash;a limit set by the exchange&mdash;therefore it "
          "takes "
