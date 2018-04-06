@@ -82,7 +82,7 @@ target="blah">GitHub</a>.</p>)"
         << position.strategy << '\t' << position.buy_price << '\n';
   out << "</pre>\n";
 
-  // Calculate the value of the currrent exposure if we were to cash in now
+  // Calculate the value of the currrent exposure if we were to cash out now
   const double exposure = open_positions * handt::trade_size;
   const double exposure_value =
       handt::trade_size * std::accumulate(positions.cbegin(), positions.cend(),
@@ -97,7 +97,7 @@ target="blah">GitHub</a>.</p>)"
   // Print trade summary
   out << "<h3>Return: $" << balance;
   out << "<br>Exposure: $" << exposure << " ($" << exposure_value - exposure
-      << " cash in)</h3>\n";
+      << " cash out now)</h3>\n";
   out << "<p>";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
