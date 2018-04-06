@@ -66,13 +66,8 @@ target="blah">GitHub</a>.</p>)"
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary, coins;
   for (const auto &position : positions) {
-
-    const auto strategy = position.strategy;
-    const auto symbol = position.symbol;
-    const auto yield = position.yield();
-
-    strategy_summary[strategy].push_back(yield);
-    coins[symbol].push_back(yield);
+    strategy_summary[position.strategy].push_back(position.yield());
+    coins[position.symbol].push_back(position.yield());
   }
 
   // Print summary of open positions, sorted by yield
@@ -85,14 +80,22 @@ target="blah">GitHub</a>.</p>)"
         << position.strategy << '\t' << position.buy_price << '\n';
   out << "</pre>\n";
 
+  // Calculate the value of the currrent exposure if we were to cash in now
+  const auto exposure_value =
+      handt::trade_size * std::accumulate(positions.cbegin(), positions.cend(),
+                                          0.0,
+                                          [](auto &sum, const auto &position) {
+                                            return sum + position.yield();
+                                          });
+
   // Pretty print
   const auto plural = prices.size() == 1 ? "" : "s";
 
   // Print trade summary
   out << "<h3>Return: $" << balance;
-  out << "<br>Exposure: $" << open_positions * 1000.0 << "</h3>\n";
+  out << "<br>Exposure: $" << open_positions * 1000.0 << " ($" << exposure_value
+      << " cash in)</h3>\n";
   out << "<p>";
-  // out << symbols.size() << " tradable symbols listed on CryptoCompare, ";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
 
