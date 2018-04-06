@@ -118,8 +118,8 @@ target="blah">GitHub</a>.</p>)"
   // Closed positions
   out << "<pre>\n";
   for (const auto &p : closed)
-    out << p.symbol << '\t' << p.strategy << '\t'
-      << p.status << ' ' << 100.0 * p.yield() << "%\n";
+    out << p.symbol << '\t' << 100.0 * p.yield() << '\t' << p.strategy << '\t'
+        << p.status << '\n';
   out << "</pre>\n";
 
   std::cout << out.str();
