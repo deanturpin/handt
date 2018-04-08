@@ -56,13 +56,9 @@ target="blah">GitHub</a>.</p>)"
       << handt::sell_threshold * 100.0
       << "&nbsp;% of the buy price or 24 hours have elapsed since creation. A "
          "position can also be closed if the return falls below "
-      << handt::cut_losses_threshold * 100.0
-      << "&nbsp;%. The total return and exposure are updated as each position "
-         "is "
-         "created (or closed) and all trades are $"
-      << handt::trade_size
-      << ". This trade size was chosen as it's large enough to ignore the "
-         "fees on a Coinbase trade.</p>\n\n";
+      << handt::cut_losses_threshold * 100.0 << "&nbsp;%. A trade size of $"
+      << handt::trade_size << " was chosen as it's large enough to ignore the "
+                              "fees on a Coinbase trade.</p>\n\n";
 
   // Close all positions and split into cap size
   std::map<std::string, std::vector<double>> strategy_summary;
@@ -92,7 +88,7 @@ target="blah">GitHub</a>.</p>)"
   const auto plural = prices.size() == 1 ? "" : "s";
 
   // Print trade summary
-  out << "<h2>Exposure: $" << exposure << " ($" << exposure_value - exposure
+  out << "<h2>$" << exposure << " ($" << exposure_value - exposure
       << " cash out)</h2>\n";
   out << "<p>";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
