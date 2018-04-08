@@ -93,6 +93,26 @@ result rolling_average2(series s, param p) {
   return result(name, exec);
 }
 
+result rolling_average3(series s, param p) {
+  const auto name = NAME("roll_average3", p);
+  const unsigned long length = 50;
+  const double average =
+      std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) / length;
+
+  const bool exec = SPOT(s) / average > THRESHOLD(p);
+  return result(name, exec);
+}
+
+result rolling_average4(series s, param p) {
+  const auto name = NAME("roll_average4", p);
+  const unsigned long length = 200;
+  const double average =
+      std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) / length;
+
+  const bool exec = SPOT(s) / average > THRESHOLD(p);
+  return result(name, exec);
+}
+
 result average_inter(series s, param p) {
   const auto name = NAME("average_inter", p);
   const unsigned long filter1 = s.size() / 3;
@@ -186,10 +206,10 @@ auto run_strategies(series s) {
 
     // Create a library of strategies
     const std::vector<std::function<result(series, param)>> library{
-        flicking_down,    flicking_up,   ski_jumping,   stepping_up,
-        stepping_down,    steady_rising, kosovich,      rolling_average,
-        rolling_average2, old_above_new, new_above_old, average_inter,
-        average_compare,  steady_rising2};
+        flicking_down,    flicking_up,      ski_jumping,      stepping_up,
+        stepping_down,    steady_rising,    kosovich,         rolling_average,
+        rolling_average2, rolling_average3, rolling_average4, old_above_new,
+        new_above_old,    average_inter,    average_compare,  steady_rising2};
 
     // Test each strategy with a set of thresholds
     for (const auto &buy : library) {
