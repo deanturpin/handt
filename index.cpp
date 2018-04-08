@@ -67,11 +67,9 @@ target="blah">GitHub</a>.</p>)"
          "fees on a Coinbase trade.</p>\n\n";
 
   // Close all positions and split into cap size
-  std::map<std::string, std::vector<double>> strategy_summary, coins;
-  for (const auto &position : closed) {
+  std::map<std::string, std::vector<double>> strategy_summary;
+  for (const auto &position : closed)
     strategy_summary[position.strategy].push_back(position.yield());
-    coins[position.symbol].push_back(position.yield());
-  }
 
   // Print summary of open positions, sorted by yield
   std::sort(positions.begin(), positions.end(),
