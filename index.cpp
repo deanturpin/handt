@@ -20,7 +20,6 @@ int main() {
   auto closed = handt::get_closed_positions();
   const auto &prices = handt::get_prices();
   const auto &symbols = handt::get_symbols().size();
-  const auto &balance = handt::get_balance();
   const auto open_positions = positions.size();
   const unsigned long batch_size = 80UL;
 
@@ -94,9 +93,8 @@ target="blah">GitHub</a>.</p>)"
   const auto plural = prices.size() == 1 ? "" : "s";
 
   // Print trade summary
-  out << "<h3>Return: $" << balance;
-  out << "<br>Exposure: $" << exposure << " ($" << exposure_value - exposure
-      << " cash out)</h3>\n";
+  out << "<h2>Exposure: $" << exposure << " ($" << exposure_value - exposure
+      << " cash out)</h2>\n";
   out << "<p>";
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
