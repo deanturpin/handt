@@ -191,11 +191,13 @@ auto run_strategies(series s) {
         rolling_average2, old_above_new, new_above_old, average_inter,
         average_compare,  steady_rising2};
 
-    // Test each strategy
+    // Test each strategy with a set of thresholds
     for (const auto &buy : library) {
-      const auto b = buy(s, 20.0);
-      if (b.second)
-        prospects.push_back(b.first);
+      for (const auto &t : {20.0, 30.0}) {
+        const auto b = buy(s, t);
+        if (b.second)
+          prospects.push_back(b.first);
+      }
     }
   }
 
