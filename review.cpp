@@ -31,7 +31,5 @@ int main() {
     out << position << "\n";
   }
 
-  out << "# " << timestamp << " seconds since epoch\n";
-
   std::cout << out.str();
 }
