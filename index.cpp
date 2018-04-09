@@ -19,7 +19,6 @@ int main() {
   auto closed = handt::get_closed_positions();
   const auto &prices = handt::get_prices();
   const auto &symbols = handt::get_symbols().size();
-  const auto open_positions = positions.size();
   const unsigned long batch_size = 80UL;
 
   // Print the bulk of the HTML
@@ -70,25 +69,6 @@ target="blah">GitHub</a>.</p>)"
         << position.strategy << '\t' << position.buy_price << '\n';
   out << "</pre>\n";
 
-  // Calculate the value of the currrent exposure if we were to cash out now
-  const double exposure = open_positions * handt::trade_size;
-  const double exposure_value =
-      handt::trade_size * std::accumulate(positions.cbegin(), positions.cend(),
-                                          0.0,
-                                          [](auto &sum, const auto &position) {
-                                            return sum + position.yield();
-                                          });
-
-  // Pretty print
-  const auto plural = prices.size() == 1 ? "" : "s";
-
-  // Print trade summary
-  out << "<h2>$" << exposure << " ($" << exposure_value - exposure
-      << " cash out)</h2>\n";
-  out << "<p>";
-  out << prices.size() << " coin" << plural << " updated in the last minute.";
-  out << "</p>\n";
-
   // Structure for reporting strategy performance
   struct strategy_summary2 {
     std::string name;
@@ -100,9 +80,7 @@ target="blah">GitHub</a>.</p>)"
   // Iterate over all closed positions and create strategy summary
   std::vector<strategy_summary2> ss;
   for (const auto &position : closed) {
-
     const auto strategy = position.strategy;
-
     const auto it = find_if(ss.begin(), ss.end(), 
           [&strategy](const auto &s) {
             return strategy == s.name;
@@ -129,6 +107,7 @@ target="blah">GitHub</a>.</p>)"
             });
 
   // Print strategy summary
+  out << "<h2>Strategy summary</h2>\n";
   out << "<pre>\n";
   out << "STRATEGY\t\t POS\t% RETURN\n";
   for (const auto &strategy : ss) {
@@ -144,18 +123,6 @@ target="blah">GitHub</a>.</p>)"
         << yield
         << '\n';
   }
-  out << "</pre>\n";
-
-  // Closed positions
-  out << "<h2>Closed positions</h2>\n";
-  out << "<pre>\n";
-  std::sort(closed.begin(), closed.end(), [](const auto &a, const auto &b) {
-    return a.strategy < b.strategy;
-  });
-
-  for (const auto &p : closed)
-    out << p.symbol << '\t' << 100.0 * p.yield() << '\t' << p.strategy << '\t'
-        << p.status << '\n';
   out << "</pre>\n";
 
   std::cout << out.str();
