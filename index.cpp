@@ -60,11 +60,6 @@ target="blah">GitHub</a>.</p>)"
       << handt::trade_size << " was chosen as it's large enough to ignore the "
                               "fees on a Coinbase trade.</p>\n\n";
 
-  // Close all positions and split into cap size
-  std::map<std::string, std::vector<double>> strategy_summary;
-  for (const auto &position : closed)
-    strategy_summary[position.strategy].push_back(position.yield());
-
   // Print summary of open positions, sorted by yield
   std::sort(positions.begin(), positions.end(),
             [](const auto &a, const auto &b) { return a.yield() > b.yield(); });
@@ -94,16 +89,60 @@ target="blah">GitHub</a>.</p>)"
   out << prices.size() << " coin" << plural << " updated in the last minute.";
   out << "</p>\n";
 
+  // Structure for reporting strategy performance
+  struct strategy_summary2 {
+    std::string name;
+    double yield;
+    // unsigned long positions;
+    std::vector<double> returns;
+  };
+
+  // Iterate over all closed positions and create strategy summary
+  std::vector<strategy_summary2> ss;
+  for (const auto &position : closed) {
+
+    const auto strategy = position.strategy;
+
+    const auto it = find_if(ss.begin(), ss.end(), 
+          [&strategy](const auto &s) {
+            return strategy == s.name;
+          });
+
+    // If strategy record doesn't exist, create a new one and insert it
+    if (it == ss.end()) {
+      strategy_summary2 strat;
+      strat.name = strategy;
+      strat.returns.push_back(position.yield());
+      ss.emplace_back(strat);
+    }
+
+    // Otherwise just update the position count
+    else
+      it->returns.push_back(position.yield());
+  }
+
+  // Sort strategy summaries by number of positions, and indicator of confidence
+  // in the return: a high yield with few closed positions suggests a low
+  // confidence
+  std::sort(ss.begin(), ss.end(), [](const auto &a, const auto &b){
+            return a.returns.size() > b.returns.size();
+            });
+
   // Print strategy summary
   out << "<pre>\n";
   out << "STRATEGY\t\t POS\t% RETURN\n";
-  for (const auto &i : strategy_summary) {
-    const unsigned long positions_held = i.second.size();
-    const double yield =
-        100.0 * std::accumulate(i.second.cbegin(), i.second.cend(), 0.0) /
-        positions_held;
+  for (const auto &strategy : ss) {
 
-    out << i.first << "\t" << positions_held << "\t" << yield << "\n";
+    const auto returns = strategy.returns.size();
+    const auto yield = 100.0 * std::accumulate(strategy.returns.cbegin(),
+                                       strategy.returns.cend(), 0.0,
+                                       [](auto &sum, const auto &y){
+                                        return sum + y;
+                                       }) / (returns > 0 ? returns : 1);
+    out << strategy.name << '\t'
+      << returns << '\t'
+        << yield
+        << '\n';
   }
   out << "</pre>\n";
 
