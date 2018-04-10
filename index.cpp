@@ -92,7 +92,7 @@ target="blah">GitHub</a>.</p>)"
   };
 
   // Iterate over all closed positions and create strategy summary
-  std::vector<strategy_summary> all_coins, coinbase;
+  std::vector<strategy_summary> all_coins;
   for (const auto &position : closed) {
     const auto strategy = position.strategy;
     const auto it =
@@ -106,10 +106,38 @@ target="blah">GitHub</a>.</p>)"
       strat.returns.push_back(position.yield());
 
       // Only store symbol if it's matured
-      if (position.yield() > handt::sell_threshold)
+      if (position.yield() > .90) // handt::sell_threshold)
         strat.symbols[position.symbol] = 1;
 
       all_coins.emplace_back(strat);
+    }
+    else {
+      // Otherwise just update the position count
+      it->returns.push_back(position.yield());
+
+      // Only store symbol if it's matured
+      if (position.yield() > handt::sell_threshold)
+          ++it->symbols[position.symbol];
+    }
+  }
+
+  // Iterate over Coinbase closed positions and create strategy summary
+  std::vector<strategy_summary> coinbase;
+  for (const auto &position : closed) {
+    const auto strategy = position.strategy;
+    const auto it =
+        find_if(coinbase.begin(), coinbase.end(),
+                [&strategy](const auto &s) { return strategy == s.name; });
+
+    // If strategy record doesn't exist, create a new one and insert it
+    if (it == coinbase.end()) {
+      strategy_summary strat;
+      strat.name = strategy;
+      strat.returns.push_back(position.yield());
+
+      // Only store symbol if it's matured
+      if (position.yield() > .90) // handt::sell_threshold)
+        strat.symbols[position.symbol] = 1;
 
       if (position.symbol == "ETH" || position.symbol == "BTC" ||
           position.symbol == "BCH" || position.symbol == "LTC")
@@ -150,8 +178,9 @@ target="blah">GitHub</a>.</p>)"
   out << "<pre>\n";
   for (const auto &strategy : coinbase)
     out << strategy.name << '\t' << strategy.returns.size() << '\t'
-      << 100.0 * strategy.average_yield() << "\t\t"
-        << strategy.symbol_list() << '\n';
+    << 100.0 * strategy.average_yield() << "\t\t"
+    << strategy.symbol_list() << '\n';
+
   out << "</pre>\n";
 
   std::cout << out.str();
