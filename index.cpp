@@ -29,11 +29,17 @@ int main() {
 <link rel=icon href="favicon.ico" sizes="any">
 
 <style>
-body { font-family: sans-serif; }
+body {
+  font-family: sans-serif;
+  background-color: #234;
+  color: white;
+}
+a:link, a:visited { color: lightblue; }
 pre#floater { float: right; }
 h1 {
   font-size: 100%;
   text-transform: uppercase;
+  color: darkorange;
 }
 </style>
 
