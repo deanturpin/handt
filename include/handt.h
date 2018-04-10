@@ -46,9 +46,9 @@ struct position {
   // Streaming out
   friend std::ostream &operator<<(std::ostream &os, const position &p) {
     os.precision(10);
-    return os << std::fixed << p.symbol << "\t" << p.strategy << "\t"
-              << p.status << " " << p.buy_price << " " << p.sell_price << " "
-              << p.timestamp << " " << std::boolalpha << p.open;
+    return os << std::fixed << p.symbol << '\t' << p.strategy << '\t'
+              << p.status << ' ' << p.buy_price << ' ' << p.sell_price << ' '
+              << p.timestamp << ' ' << std::boolalpha << p.open;
   }
 
   double yield() const {
