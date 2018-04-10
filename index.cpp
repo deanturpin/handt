@@ -167,6 +167,7 @@ target="blah">GitHub</a>.</p>)"
 
   // Print strategy summary for all coins
   out << "<h1>All coins strategy summary</h1>\n";
+  out << "<p>" << closed.size() << " closed positions</p>\n";
   out << "<pre>\n";
   out << "STRATEGY\t\tPOS\t% RETURN\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
