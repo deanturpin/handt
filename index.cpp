@@ -36,22 +36,22 @@ body {
   color: white;
 }
 a:link, a:visited { color: lightblue; }
-pre#floater { float: right; }
 h1 {
   font-size: 100%;
   text-transform: uppercase;
   color: darkorange;
 }
+p.disclaimer { width: 600px; }
 </style>
 
 <title>Have A Nice Day Trader</title>
 <h1>Have A Nice Day Trader</h1>
-<p id="disclaimer">History is no indicator of future performance. Don't invest
+<p class="disclaimer">History is no indicator of future performance. Don't invest
 what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
 target="blah">GitHub</a>.</p>)"
-      << "\n\n<p>24 hours of prices are fetched for " << symbols
+      << "\n\n<p class='disclaimer'>24 hours of prices are fetched for " << symbols
       << " coins at a rate of " << batch_size
       << " per minute&mdash;a limit set by the exchange&mdash;therefore it "
          "takes "
@@ -168,7 +168,7 @@ target="blah">GitHub</a>.</p>)"
   // Print strategy summary for all coins
   out << "<h1>All coins strategy summary</h1>\n";
   out << "<pre>\n";
-  out << "STRATEGY\t\t POS\t% RETURN\tMATURED SYMBOLS\n";
+  out << "STRATEGY\t\tPOS\t% RETURN\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
     out << strategy.name << '\t' << strategy.returns.size() << '\t'
         << 100.0 * strategy.average_yield() << "\t\t" << strategy.symbol_list()
