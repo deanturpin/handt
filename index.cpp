@@ -116,7 +116,7 @@ target="blah">GitHub</a>.</p>)"
 
     std::stringstream symbols;
     for (const auto &symbol : strategy.symbols)
-      symbols << symbol.first << ' ' << symbol.second << ' ';
+      symbols << symbol.first << ' ';
 
     out << strategy.name << '\t' << returns << '\t' << yield << "\t\t"
         << symbols.str() << '\n';
