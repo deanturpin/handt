@@ -31,7 +31,10 @@ int main() {
 <style>
 body { font-family: sans-serif; }
 pre#floater { float: right; }
-h1 { font-size: 100%; }
+h1 {
+  font-size: 100%;
+  text-transform: uppercase;
+}
 </style>
 
 <title>Have A Nice Day Trader</title>
