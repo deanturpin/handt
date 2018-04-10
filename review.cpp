@@ -1,35 +1,50 @@
 #include "handt.h"
-#include <iostream>
 
-int main() {
+std::vector<handt::position>
+review(const std::vector<handt::position> &positions) {
 
-  std::stringstream out;
-
-  const auto timestamp = handt::get_timestamp();
+  // Create a container to store the review positions
+  std::vector<handt::position> reviewed;
 
   // Review each position
-  for (auto &position : handt::get_refreshed_positions()) {
+  for (const auto &p : positions) {
 
-    // Mark old position for deletion
-    if (timestamp - position.timestamp > (60 * 60 * 24)) {
+    // Create a copy of the position
+    handt::position position(p);
+
+    // Mark old position for deletion if it has expired
+    if (handt::get_timestamp() - position.timestamp > (60 * 60 * 24)) {
       position.status = "time_out";
       position.open = false;
     }
 
-    // Check if it's ready to cash in
+    // Or check if it's ready to cash in
     else if (position.yield() > handt::sell_threshold) {
       position.status = "cashfome";
       position.open = false;
     }
 
-    // Cut our losses
+    // Or cut our losses
     else if (position.yield() < handt::cut_losses_threshold) {
       position.status = "cutropes";
       position.open = false;
     }
 
-    out << position << "\n";
+    // Store updated position
+    reviewed.push_back(position);
   }
 
-  std::cout << out.str();
+  return reviewed;
+}
+
+#include <iostream>
+
+int main() {
+
+  // Get latest positions
+  const auto &positions = handt::get_refreshed_positions();
+
+  // Dump review positions
+  for (const auto &position : review(positions))
+    std::cout << position << '\n';
 }
