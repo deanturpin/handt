@@ -1,7 +1,8 @@
+**Have A Nice Day Trader** is automated algorithmic trading platform.
+
 # Modular design
-Each module in the chain processes the result from the previous stage and emits its contribution. Can easily test each stage in isolation. Enforcing a
-simply interface between modules enforces a clean design (no complex
-structures passed around).
+Each module in the chain processes the result from the previous stage and emits
+its contribution. Each module can be tested in isolation. 
 
 This approach may make the interface harder to change (with is not necessarily a
 bad thing) but it does make reasoning about each module much easier. A module
