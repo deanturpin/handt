@@ -76,10 +76,10 @@ target="blah">GitHub</a>.</p>)"
 
     // Calculate average yield of all the positions created by current strategy
     double average_yield() const {
-        return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
-                        [](auto &sum, const auto &y) { return sum + y; }) /
-        (returns.size() > 0 ? returns.size() : 1);
-      }
+      return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
+                             [](auto &sum, const auto &y) { return sum + y; }) /
+             (returns.size() > 0 ? returns.size() : 1);
+    }
 
     // Return list of symbols that matured under current strategy
     std::string symbol_list() const {
@@ -111,55 +111,59 @@ target="blah">GitHub</a>.</p>)"
         strat.symbols[position.symbol] = 1;
 
       all_coins.emplace_back(strat);
-    }
-    else {
+    } else {
       // Otherwise just update the position count
       it->returns.push_back(position.yield());
 
       // Only store symbol if it's matured
       if (position.yield() > handt::sell_threshold)
-          ++it->symbols[position.symbol];
+        ++it->symbols[position.symbol];
     }
   }
 
   // Iterate over Coinbase closed positions and create strategy summary
   std::vector<strategy_summary> coinbase;
   for (const auto &position : closed) {
-    const auto strategy = position.strategy;
-    const auto it =
-        find_if(coinbase.begin(), coinbase.end(),
-                [&strategy](const auto &s) { return strategy == s.name; });
 
-    // If strategy record doesn't exist, create a new one and insert it
-    if (it == coinbase.end()) {
-      strategy_summary strat;
-      strat.name = strategy;
-      strat.returns.push_back(position.yield());
+    // We're only interested in currency you can buy on Coinbase
+    if (position.symbol == "ETH" || position.symbol == "BTC" ||
+        position.symbol == "BCH" || position.symbol == "LTC") {
 
-      // Only store symbol if it's matured
-      if (position.yield() > .90) // handt::sell_threshold)
-        strat.symbols[position.symbol] = 1;
+      const auto strategy = position.strategy;
+      const auto it =
+          find_if(coinbase.begin(), coinbase.end(),
+                  [&strategy](const auto &s) { return strategy == s.name; });
 
-      if (position.symbol == "ETH" || position.symbol == "BTC" ||
-          position.symbol == "BCH" || position.symbol == "LTC")
+      // If strategy record doesn't exist, create a new one and insert it
+      if (it == coinbase.end()) {
+
+        strategy_summary strat;
+        strat.name = strategy;
+        strat.returns.push_back(position.yield());
+
+        // Only store symbol if it's matured
+        if (position.yield() > handt::sell_threshold)
+          strat.symbols[position.symbol] = 1;
+
         coinbase.emplace_back(strat);
-    }
-    else {
-      // Otherwise just update the position count
-      it->returns.push_back(position.yield());
+      } else {
+        // Otherwise just update the position count
+        it->returns.push_back(position.yield());
 
-      // Only store symbol if it's matured
-      if (position.yield() > handt::sell_threshold)
+        // Only store symbol if it's matured
+        if (position.yield() > handt::sell_threshold)
           ++it->symbols[position.symbol];
+      }
     }
   }
 
   // Sort strategy summaries by number of positions - an indicator of confidence
   // in the return: a high yield with few closed positions suggests a low
   // confidence
-  std::sort(all_coins.begin(), all_coins.end(), [](const auto &a, const auto &b) {
-    return a.returns.size() > b.returns.size();
-  });
+  std::sort(all_coins.begin(), all_coins.end(),
+            [](const auto &a, const auto &b) {
+              return a.returns.size() > b.returns.size();
+            });
   std::sort(coinbase.begin(), coinbase.end(), [](const auto &a, const auto &b) {
     return a.returns.size() > b.returns.size();
   });
@@ -170,8 +174,8 @@ target="blah">GitHub</a>.</p>)"
   out << "STRATEGY\t\t POS\t% RETURN\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
     out << strategy.name << '\t' << strategy.returns.size() << '\t'
-      << 100.0 * strategy.average_yield() << "\t\t"
-        << strategy.symbol_list() << '\n';
+        << 100.0 * strategy.average_yield() << "\t\t" << strategy.symbol_list()
+        << '\n';
   out << "</pre>\n";
 
   // Print strategy summary for Coinbase coins
@@ -179,8 +183,8 @@ target="blah">GitHub</a>.</p>)"
   out << "<pre>\n";
   for (const auto &strategy : coinbase)
     out << strategy.name << '\t' << strategy.returns.size() << '\t'
-    << 100.0 * strategy.average_yield() << "\t\t"
-    << strategy.symbol_list() << '\n';
+        << 100.0 * strategy.average_yield() << "\t\t" << strategy.symbol_list()
+        << '\n';
   out << "</pre>\n";
 
   // Print open Coinbase positions
@@ -189,7 +193,7 @@ target="blah">GitHub</a>.</p>)"
   for (const auto &position : open)
     if (position.symbol == "ETH" || position.symbol == "BTC" ||
         position.symbol == "BCH" || position.symbol == "LTC")
-          out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
+      out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
           << position.strategy << '\t' << position.buy_price << '\n';
   out << "</pre>\n";
 

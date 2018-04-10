@@ -118,7 +118,6 @@ auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
 auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
 auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
 auto get_symbols() { return get_objects<std::string>("symbols.csv"); }
-
 }
 
 #endif
