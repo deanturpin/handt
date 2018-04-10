@@ -213,7 +213,7 @@ auto run_strategies(series s) {
 
     // Test each strategy with a set of thresholds
     for (const auto &buy : library) {
-      for (const auto &t : {20.0, 30.0}) {
+      for (const auto &t : {10.0, 20.0, 30.0}) {
         const auto b = buy(s, t);
         if (b.second)
           prospects.push_back(b.first);

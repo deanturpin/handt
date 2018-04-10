@@ -1,11 +1,35 @@
-COB	0.0715167 20.0_old_above_new 
-XIN	0.01307 20.0_flicking_up 30.0_flicking_up 20.0_stepping_up 30.0_stepping_up 20.0_new_above_old 30.0_new_above_old 20.0_average_comp 30.0_average_comp 
-CON	0.00365867 20.0_flicking_down 20.0_stepping_down 20.0_old_above_new 30.0_old_above_new 
-ICOB	0.0009787 20.0_stepping_down 
-EREAL	0.0004664 20.0_flicking_up 20.0_stepping_up 30.0_stepping_up 20.0_new_above_old 30.0_new_above_old 
-300	415.39 20.0_old_above_new 30.0_old_above_new 
-IETH	0.01518 20.0_stepping_down 30.0_stepping_down 20.0_old_above_new 
-FUZZ	0.0167533 20.0_flicking_down 20.0_old_above_new 30.0_old_above_new 
-WSX	0.00335033 20.0_old_above_new 
-CAT	0.610767 20.0_new_above_old 
-LNC	0.07497 20.0_flicking_up 30.0_flicking_up 20.0_koskosovich 30.0_koskosovich 20.0_roll_average 30.0_roll_average 20.0_roll_average2 30.0_roll_average2 20.0_roll_average3 30.0_roll_average3 20.0_roll_average4 30.0_roll_average4 20.0_new_above_old 30.0_new_above_old 
+GBX	6.99667 10.0_stepping_down 10.0_old_above_new 
+WPR	0.0994967 10.0_stepping_down 10.0_old_above_new 
+COB	0.0715167 10.0_flicking_down 10.0_stepping_down 10.0_old_above_new 20.0_old_above_new 
+XIN	0.01307 10.0_flicking_up 20.0_flicking_up 30.0_flicking_up 10.0_stepping_up 20.0_stepping_up 30.0_stepping_up 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 10.0_average_comp 20.0_average_comp 30.0_average_comp 
+888	0.00244667 10.0_flicking_down 
+EBST	0.103467 10.0_old_above_new 
+CON	0.00365867 10.0_flicking_down 20.0_flicking_down 10.0_stepping_down 20.0_stepping_down 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 
+ICOB	0.0009787 10.0_flicking_down 10.0_stepping_down 20.0_stepping_down 10.0_old_above_new 
+PTOY	0.0996133 10.0_old_above_new 
+KLC	0.00146833 10.0_old_above_new 
+XVP	0.01328 10.0_flicking_down 
+SPT	0.00386833 10.0_stepping_up 10.0_new_above_old 
+BSTY	0.00946067 10.0_old_above_new 
+GRS	0.288667 10.0_stepping_down 10.0_old_above_new 
+CRM	0.0204833 10.0_new_above_old 
+EREAL	0.0004664 10.0_flicking_up 20.0_flicking_up 10.0_stepping_up 20.0_stepping_up 30.0_stepping_up 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 10.0_average_comp 
+300	415.39 10.0_stepping_down 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 
+IETH	0.01518 10.0_flicking_down 10.0_stepping_down 20.0_stepping_down 30.0_stepping_down 10.0_old_above_new 20.0_old_above_new 
+EBTC	0.232633 10.0_old_above_new 
+WCT	0.862 10.0_old_above_new 
+UNIT	0.751067 10.0_stepping_down 10.0_old_above_new 
+PROC	0.0150333 10.0_stepping_down 10.0_old_above_new 
+ETN	0.0205133 10.0_stepping_down 10.0_old_above_new 
+HGT	0.0244867 10.0_stepping_down 
+CANN	0.0327467 10.0_old_above_new 
+IDH	0.06974 10.0_old_above_new 
+DGD	239.94 10.0_stepping_down 10.0_old_above_new 
+QBT	0.002792 10.0_old_above_new 
+POT	0.08536 10.0_old_above_new 
+RATIO	0.000977133 10.0_old_above_new 
+FUZZ	0.0167533 10.0_flicking_down 20.0_flicking_down 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 
+OTX	0.0272233 10.0_stepping_down 10.0_old_above_new 
+WSX	0.00335033 10.0_stepping_down 10.0_old_above_new 20.0_old_above_new 
+CAT	0.610767 10.0_flicking_up 10.0_new_above_old 20.0_new_above_old 
+LNC	0.07497 10.0_flicking_up 20.0_flicking_up 30.0_flicking_up 10.0_koskosovich 20.0_koskosovich 30.0_koskosovich 10.0_roll_average 20.0_roll_average 30.0_roll_average 10.0_roll_average2 20.0_roll_average2 30.0_roll_average2 10.0_roll_average3 20.0_roll_average3 30.0_roll_average3 10.0_roll_average4 20.0_roll_average4 30.0_roll_average4 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 
