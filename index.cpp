@@ -41,7 +41,7 @@ h1 {
   text-transform: uppercase;
   color: darkorange;
 }
-p.disclaimer { max-width: 600px; }
+p.disclaimer { max-width: 700px; }
 </style>
 
 <title>Have A Nice Day Trader</title>
