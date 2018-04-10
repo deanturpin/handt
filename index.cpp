@@ -58,14 +58,11 @@ target="blah">GitHub</a>.</p>)"
       << symbols / batch_size
       << " minutes to process the full set of coins. A library of strategies "
          "is run over each batch and a position is created if the strategy "
-         "returns positively. Positions are closed if either the sell price "
+         "returns positively. Positions are closed if the return "
          "exceeds "
-      << handt::sell_threshold * 100.0
-      << "&nbsp;% of the buy price or 24 hours have elapsed since creation. A "
-         "position can also be closed if the return falls below "
-      << handt::cut_losses_threshold * 100.0 << "&nbsp;%. A trade size of $"
-      << handt::trade_size << " was chosen as it's large enough to ignore the "
-                              "fees on a Coinbase trade.</p>\n\n";
+      << handt::sell_threshold * 100.0 << "&nbsp;%, falls below "
+      << handt::cut_losses_threshold * 100.0 << "&nbsp;%"
+      << " or 24 hours have elapsed since creation.</p>\n\n";
 
   // Structure for reporting strategy performance
   struct strategy_summary {
