@@ -1,12 +1,12 @@
 #!/bin/bash
 
 cat <<!
-<h2>Change log</h2>
+<h1>Change log</h1>
 <pre>
 $(git log -n 5 --oneline)
 </pre>
 
-<h2>Autotest</h2>
+<h1>Autotest</h1>
 <pre>
 $(test/check_autotest_results.sh)
 </pre>

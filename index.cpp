@@ -31,10 +31,12 @@ int main() {
 <style>
 body { font-family: sans-serif; }
 pre#floater { float: right; }
+h1 { font-size: 100%; }
 </style>
 
 <title>Have A Nice Day Trader</title>
-<p id="disclaimer"><b>HAVE A NICE DAY TRADER</b> History is no indicator of future performance. Don't invest
+<h1>Have A Nice Day Trader</h1>
+<p id="disclaimer">History is no indicator of future performance. Don't invest
 what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
@@ -100,7 +102,7 @@ target="blah">GitHub</a>.</p>)"
   });
 
   // Print strategy summary
-  out << "<h2>Strategy summary</h2>\n";
+  out << "<h1>Strategy summary</h1>\n";
   out << "<pre>\n";
   out << "STRATEGY\t\t POS\t% RETURN\tMATURED SYMBOLS\n";
   for (const auto &strategy : summary) {
