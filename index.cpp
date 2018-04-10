@@ -72,18 +72,35 @@ target="blah">GitHub</a>.</p>)"
     double yield;
     std::vector<double> returns;
     std::map<std::string, unsigned long> symbols;
+
+    // Calculate average yield of all the positions created by current strategy
+    double average_yield() const {
+        return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
+                        [](auto &sum, const auto &y) { return sum + y; }) /
+        (returns.size() > 0 ? returns.size() : 1);
+      }
+
+    // Return list of symbols that matured under current strategy
+    std::string symbol_list() const {
+
+      std::stringstream symbol_string;
+      for (const auto &symbol : symbols)
+        symbol_string << symbol.first << ' ';
+
+      return symbol_string.str();
+    }
   };
 
   // Iterate over all closed positions and create strategy summary
-  std::vector<strategy_summary> summary;
+  std::vector<strategy_summary> all_coins, coinbase;
   for (const auto &position : closed) {
     const auto strategy = position.strategy;
     const auto it =
-        find_if(summary.begin(), summary.end(),
+        find_if(all_coins.begin(), all_coins.end(),
                 [&strategy](const auto &s) { return strategy == s.name; });
 
     // If strategy record doesn't exist, create a new one and insert it
-    if (it == summary.end()) {
+    if (it == all_coins.end()) {
       strategy_summary strat;
       strat.name = strategy;
       strat.returns.push_back(position.yield());
@@ -92,7 +109,11 @@ target="blah">GitHub</a>.</p>)"
       if (position.yield() > handt::sell_threshold)
         strat.symbols[position.symbol] = 1;
 
-      summary.emplace_back(strat);
+      all_coins.emplace_back(strat);
+
+      if (position.symbol == "ETH" || position.symbol == "BTC" ||
+          position.symbol == "BCH" || position.symbol == "LTC")
+        coinbase.emplace_back(strat);
     }
     else {
       // Otherwise just update the position count
@@ -107,30 +128,30 @@ target="blah">GitHub</a>.</p>)"
   // Sort strategy summaries by number of positions - an indicator of confidence
   // in the return: a high yield with few closed positions suggests a low
   // confidence
-  std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
+  std::sort(all_coins.begin(), all_coins.end(), [](const auto &a, const auto &b) {
+    return a.returns.size() > b.returns.size();
+  });
+  std::sort(coinbase.begin(), coinbase.end(), [](const auto &a, const auto &b) {
     return a.returns.size() > b.returns.size();
   });
 
-  // Print strategy summary
-  out << "<h1>Strategy summary</h1>\n";
+  // Print strategy summary for all coins
+  out << "<h1>All coins strategy summary</h1>\n";
   out << "<pre>\n";
   out << "STRATEGY\t\t POS\t% RETURN\tMATURED SYMBOLS\n";
-  for (const auto &strategy : summary) {
+  for (const auto &strategy : all_coins)
+    out << strategy.name << '\t' << strategy.returns.size() << '\t'
+      << 100.0 * strategy.average_yield() << "\t\t"
+        << strategy.symbol_list() << '\n';
+  out << "</pre>\n";
 
-    const auto returns = strategy.returns.size();
-    const auto yield =
-        100.0 *
-        std::accumulate(strategy.returns.cbegin(), strategy.returns.cend(), 0.0,
-                        [](auto &sum, const auto &y) { return sum + y; }) /
-        (returns > 0 ? returns : 1);
-
-    std::stringstream symbols;
-    for (const auto &symbol : strategy.symbols)
-      symbols << symbol.first << ' ';
-
-    out << strategy.name << '\t' << returns << '\t' << yield << "\t\t"
-        << symbols.str() << '\n';
-  }
+  // Print strategy summary for Coinbase coins
+  out << "<h1>Coinbase strategy summary</h1>\n";
+  out << "<pre>\n";
+  for (const auto &strategy : coinbase)
+    out << strategy.name << '\t' << strategy.returns.size() << '\t'
+      << 100.0 * strategy.average_yield() << "\t\t"
+        << strategy.symbol_list() << '\n';
   out << "</pre>\n";
 
   std::cout << out.str();
