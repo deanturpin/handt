@@ -15,9 +15,7 @@ int main() {
   out << std::fixed;
 
   // Get some data to play with
-  auto positions = handt::get_final_positions();
-  auto closed = handt::get_closed_positions();
-  const auto &prices = handt::get_prices();
+  const auto &closed = handt::get_closed_positions();
   const auto &symbols = handt::get_symbols().size();
   const unsigned long batch_size = 80UL;
 
@@ -59,21 +57,10 @@ target="blah">GitHub</a>.</p>)"
       << handt::trade_size << " was chosen as it's large enough to ignore the "
                               "fees on a Coinbase trade.</p>\n\n";
 
-  // Print summary of open positions, sorted by yield
-  std::sort(positions.begin(), positions.end(),
-            [](const auto &a, const auto &b) { return a.yield() > b.yield(); });
-  out << "<pre id='floater'>\n";
-  out << "Open positions\n";
-  for (const auto &position : positions)
-    out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
-        << position.strategy << '\t' << position.buy_price << '\n';
-  out << "</pre>\n";
-
   // Structure for reporting strategy performance
   struct strategy_summary2 {
     std::string name;
     double yield;
-    // unsigned long positions;
     std::vector<double> returns;
     std::map<std::string, unsigned long> symbols;
   };

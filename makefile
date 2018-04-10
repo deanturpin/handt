@@ -50,7 +50,7 @@ gitpull:
 	git pull --quiet
 
 clean:
-	rm -f *.o
+	rm -f *.o index.html
 
 cron:
 	watch -d -n 60 make --silent update
