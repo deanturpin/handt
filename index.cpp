@@ -78,13 +78,14 @@ target="blah">GitHub</a>.</p>)"
       strategy_summary strat;
       strat.name = strategy;
       strat.returns.push_back(position.yield());
-      ++strat.symbols[position.symbol];
+      strat.symbols[position.symbol] = 1;
       summary.emplace_back(strat);
     }
-
-    // Otherwise just update the position count
-    else
+    else {
+      // Otherwise just update the position count
       it->returns.push_back(position.yield());
+      ++it->symbols[position.symbol];
+    }
   }
 
   // Sort strategy summaries by number of positions, and indicator of confidence
