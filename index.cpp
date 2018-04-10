@@ -87,11 +87,12 @@ target="blah">GitHub</a>.</p>)"
       strategy_summary strat;
       strat.name = strategy;
       strat.returns.push_back(position.yield());
-      summary.emplace_back(strat);
 
       // Only store symbol if it's matured
       if (position.yield() > handt::sell_threshold)
         strat.symbols[position.symbol] = 1;
+
+      summary.emplace_back(strat);
     }
     else {
       // Otherwise just update the position count
@@ -103,7 +104,7 @@ target="blah">GitHub</a>.</p>)"
     }
   }
 
-  // Sort strategy summaries by number of positions, and indicator of confidence
+  // Sort strategy summaries by number of positions - an indicator of confidence
   // in the return: a high yield with few closed positions suggests a low
   // confidence
   std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
