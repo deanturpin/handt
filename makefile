@@ -1,6 +1,6 @@
 all: source \
 	review.csv purge.csv prospects.csv consolidate.csv \
-       	balance.csv index.html endofsession \
+       	index.html endofsession \
 	autotest
 
 source:
@@ -32,9 +32,6 @@ prospects.csv: prospects.o prices.csv
 consolidate.csv: consolidate.o review.csv prospects.csv
 	./$< > $@
 
-balance.csv: balance.o review.csv
-	./$<
-
 endofsession:
 	cp consolidate.csv positions.csv
 
@@ -42,7 +39,7 @@ update:
 	rm -f prices.csv
 	make
 
-index.html: index.o consolidate.csv balance.csv review.csv
+index.html: index.o consolidate.csv review.csv
 	./$< > $@
 	./create_index.sh >> $@
 

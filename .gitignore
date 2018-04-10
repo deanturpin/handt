@@ -3,7 +3,6 @@
 
 coinindex.txt
 
-balance.csv
 consolidate.csv
 positions.csv
 prices.csv
@@ -16,11 +15,8 @@ index.html
 
 closed.csv
 
-test/balance.csv
-test/balance2.csv
 test/consolidate2.csv
 test/prospects2.csv
 test/purge2.csv
 test/refresh2.csv
 test/review2.csv
-

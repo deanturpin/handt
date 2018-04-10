@@ -119,22 +119,6 @@ auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
 auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
 auto get_symbols() { return get_objects<std::string>("symbols.csv"); }
 
-// Balance access
-const std::string balance_file("balance.csv");
-double get_balance() {
-  double balance = 0.0;
-  std::ifstream in(balance_file);
-  if (in.good())
-    in >> balance;
-
-  return balance;
-}
-
-void put_balance(const double &balance) {
-  std::ofstream out(balance_file);
-  if (out.good())
-    out << std::fixed << balance;
-}
 }
 
 #endif
