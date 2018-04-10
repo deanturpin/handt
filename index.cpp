@@ -51,13 +51,13 @@ what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
 target="blah">GitHub</a>.</p>)"
-      << "\n\n<p class='disclaimer'>24 hours of prices are fetched for " << symbols
-      << " coins at a rate of " << batch_size
+      << "\n\n<p class='disclaimer'>24 hours of prices are fetched for "
+      << symbols << " coins at a rate of " << batch_size
       << " per minute&mdash;a limit set by the exchange&mdash;therefore it "
          "takes "
       << symbols / batch_size
       << " minutes to process the full set of coins. A library of strategies "
-         "is run over each batch and a position is created if the strategy "
+         "runs over each batch and a position is created if a strategy "
          "returns positively. Positions are closed if the return "
          "exceeds "
       << handt::sell_threshold * 100.0 << "&nbsp;%, falls below "
@@ -167,7 +167,8 @@ target="blah">GitHub</a>.</p>)"
 
   // Print strategy summary for all coins
   out << "<h1>All coins strategy summary</h1>\n";
-  out << "<p>" << closed.size() << " closed positions</p>\n";
+  out << "<p>" << open.size() << " open positions, " << closed.size()
+      << " closed/p>\n";
   out << "<pre>\n";
   out << "STRATEGY\t\tPOS\t% RETURN\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
