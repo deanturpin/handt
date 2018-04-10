@@ -170,8 +170,8 @@ result steady_rising(series s, param p) {
 
 result steady_rising2(series s, param p) {
   const auto name = NAME("steady_rising2", p);
-  const auto a = steady_rising(s, p).second;
-  const auto b = new_above_old(s, p).second;
+  const bool a = steady_rising(s, p).second;
+  const bool b = new_above_old(s, p).second;
   const bool exec = a && b;
   return result(name, exec);
 }
