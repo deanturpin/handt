@@ -58,7 +58,7 @@ target="blah">GitHub</a>.</p>)"
                               "fees on a Coinbase trade.</p>\n\n";
 
   // Structure for reporting strategy performance
-  struct strategy_summary2 {
+  struct strategy_summary {
     std::string name;
     double yield;
     std::vector<double> returns;
@@ -66,20 +66,20 @@ target="blah">GitHub</a>.</p>)"
   };
 
   // Iterate over all closed positions and create strategy summary
-  std::vector<strategy_summary2> ss;
+  std::vector<strategy_summary> summary;
   for (const auto &position : closed) {
     const auto strategy = position.strategy;
-    const auto it = find_if(ss.begin(), ss.end(), [&strategy](const auto &s) {
-      return strategy == s.name;
-    });
+    const auto it =
+        find_if(summary.begin(), summary.end(),
+                [&strategy](const auto &s) { return strategy == s.name; });
 
     // If strategy record doesn't exist, create a new one and insert it
-    if (it == ss.end()) {
-      strategy_summary2 strat;
+    if (it == summary.end()) {
+      strategy_summary strat;
       strat.name = strategy;
       strat.returns.push_back(position.yield());
       ++strat.symbols[position.symbol];
-      ss.emplace_back(strat);
+      summary.emplace_back(strat);
     }
 
     // Otherwise just update the position count
@@ -90,7 +90,7 @@ target="blah">GitHub</a>.</p>)"
   // Sort strategy summaries by number of positions, and indicator of confidence
   // in the return: a high yield with few closed positions suggests a low
   // confidence
-  std::sort(ss.begin(), ss.end(), [](const auto &a, const auto &b) {
+  std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
     return a.returns.size() > b.returns.size();
   });
 
@@ -98,7 +98,7 @@ target="blah">GitHub</a>.</p>)"
   out << "<h2>Strategy summary</h2>\n";
   out << "<pre>\n";
   out << "STRATEGY\t\t POS\t% RETURN\tSYMBOLS\n";
-  for (const auto &strategy : ss) {
+  for (const auto &strategy : summary) {
 
     const auto returns = strategy.returns.size();
     const auto yield =
@@ -111,7 +111,7 @@ target="blah">GitHub</a>.</p>)"
     for (const auto &symbol : strategy.symbols)
       symbols << symbol.first << ' ' << symbol.second << ' ';
 
-    out << strategy.name << '\t' << returns << '\t' << yield << "\t\t" 
+    out << strategy.name << '\t' << returns << '\t' << yield << "\t\t"
         << symbols.str() << '\n';
   }
   out << "</pre>\n";
