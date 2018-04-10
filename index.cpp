@@ -78,13 +78,19 @@ target="blah">GitHub</a>.</p>)"
       strategy_summary strat;
       strat.name = strategy;
       strat.returns.push_back(position.yield());
-      strat.symbols[position.symbol] = 1;
       summary.emplace_back(strat);
+
+      // Only store symbol if it's matured
+      if (position.yield() > handt::sell_threshold)
+        strat.symbols[position.symbol] = 1;
     }
     else {
       // Otherwise just update the position count
       it->returns.push_back(position.yield());
-      ++it->symbols[position.symbol];
+
+      // Only store symbol if it's matured
+      if (position.yield() > handt::sell_threshold)
+          ++it->symbols[position.symbol];
     }
   }
 
