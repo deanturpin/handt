@@ -104,7 +104,7 @@ target="blah">GitHub</a>.</p>)"
   // Print strategy summary
   out << "<h2>Strategy summary</h2>\n";
   out << "<pre>\n";
-  out << "STRATEGY\t\t POS\t% RETURN\tSYMBOLS\n";
+  out << "STRATEGY\t\t POS\t% RETURN\tMATURED SYMBOLS\n";
   for (const auto &strategy : summary) {
 
     const auto returns = strategy.returns.size();
