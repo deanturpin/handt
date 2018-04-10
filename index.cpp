@@ -75,22 +75,23 @@ target="blah">GitHub</a>.</p>)"
     double yield;
     // unsigned long positions;
     std::vector<double> returns;
+    std::map<std::string, unsigned long> symbols;
   };
 
   // Iterate over all closed positions and create strategy summary
   std::vector<strategy_summary2> ss;
   for (const auto &position : closed) {
     const auto strategy = position.strategy;
-    const auto it = find_if(ss.begin(), ss.end(), 
-          [&strategy](const auto &s) {
-            return strategy == s.name;
-          });
+    const auto it = find_if(ss.begin(), ss.end(), [&strategy](const auto &s) {
+      return strategy == s.name;
+    });
 
     // If strategy record doesn't exist, create a new one and insert it
     if (it == ss.end()) {
       strategy_summary2 strat;
       strat.name = strategy;
       strat.returns.push_back(position.yield());
+      ++strat.symbols[position.symbol];
       ss.emplace_back(strat);
     }
 
@@ -102,26 +103,29 @@ target="blah">GitHub</a>.</p>)"
   // Sort strategy summaries by number of positions, and indicator of confidence
   // in the return: a high yield with few closed positions suggests a low
   // confidence
-  std::sort(ss.begin(), ss.end(), [](const auto &a, const auto &b){
-            return a.returns.size() > b.returns.size();
-            });
+  std::sort(ss.begin(), ss.end(), [](const auto &a, const auto &b) {
+    return a.returns.size() > b.returns.size();
+  });
 
   // Print strategy summary
   out << "<h2>Strategy summary</h2>\n";
   out << "<pre>\n";
-  out << "STRATEGY\t\t POS\t% RETURN\n";
+  out << "STRATEGY\t\t POS\t% RETURN\tSYMBOLS\n";
   for (const auto &strategy : ss) {
 
     const auto returns = strategy.returns.size();
-    const auto yield = 100.0 * std::accumulate(strategy.returns.cbegin(),
-                                       strategy.returns.cend(), 0.0,
-                                       [](auto &sum, const auto &y){
-                                        return sum + y;
-                                       }) / (returns > 0 ? returns : 1);
-    out << strategy.name << '\t'
-      << returns << '\t'
-        << yield
-        << '\n';
+    const auto yield =
+        100.0 *
+        std::accumulate(strategy.returns.cbegin(), strategy.returns.cend(), 0.0,
+                        [](auto &sum, const auto &y) { return sum + y; }) /
+        (returns > 0 ? returns : 1);
+
+    std::stringstream symbols;
+    for (const auto &symbol : strategy.symbols)
+      symbols << symbol.first << ' ' << symbol.second << ' ';
+
+    out << strategy.name << '\t' << returns << '\t' << yield << "\t\t" 
+        << symbols.str() << '\n';
   }
   out << "</pre>\n";
 
