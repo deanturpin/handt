@@ -15,6 +15,7 @@ int main() {
   out << std::fixed;
 
   // Get some data to play with
+  const auto &open = handt::get_final_positions();
   const auto &closed = handt::get_closed_positions();
   const auto &symbols = handt::get_symbols().size();
   const unsigned long batch_size = 80UL;
@@ -180,7 +181,16 @@ target="blah">GitHub</a>.</p>)"
     out << strategy.name << '\t' << strategy.returns.size() << '\t'
     << 100.0 * strategy.average_yield() << "\t\t"
     << strategy.symbol_list() << '\n';
+  out << "</pre>\n";
 
+  // Print open Coinbase positions
+  out << "<h1>Coinbase open positions</h1>\n";
+  out << "<pre>\n";
+  for (const auto &position : open)
+    if (position.symbol == "ETH" || position.symbol == "BTC" ||
+        position.symbol == "BCH" || position.symbol == "LTC")
+          out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
+          << position.strategy << '\t' << position.buy_price << '\n';
   out << "</pre>\n";
 
   std::cout << out.str();
