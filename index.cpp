@@ -33,10 +33,8 @@ body { font-family: sans-serif; }
 pre#floater { float: right; }
 </style>
 
-<title>HANDT</title>
-<h1>HAVE A NICE DAY TRADER</h1>
-
-<p id="disclaimer">History is no indicator of future performance. Don't invest
+<title>Have A Nice Day Trader</title>
+<p id="disclaimer"><b>HAVE A NICE DAY TRADER</b> History is no indicator of future performance. Don't invest
 what you can't afford to lose. Prices fetched periodically from <a
 href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
 the documentation on <a href="https://deanturpin.github.io/handt"
