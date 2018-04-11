@@ -26,8 +26,14 @@ int main() {
 
 <meta charset="UTF-8">
 <meta name="robots" content="index,follow" />
-<meta http-equiv="refresh" content="30" />
 <link rel=icon href="favicon.ico" sizes="any">
+
+<script>
+  setInterval(function() {
+    if (window.location.href.split("?").pop() !== "noreload")
+      window.location.reload();
+    }, 30000);
+</script>
 
 <style>
 body {
