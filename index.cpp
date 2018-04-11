@@ -170,7 +170,7 @@ target="blah">GitHub</a>.</p>)"
   out << "<p>" << open.size() << " open positions, " << closed.size()
       << " closed</p>\n";
   out << "<pre>\n";
-  out << "STRATEGY\t\tPOS\t% RETURN\tMATURED SYMBOLS\n";
+  out << "STRATEGY\t\tPOS\t%\t\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
     out << strategy.name << '\t' << strategy.returns.size() << '\t'
         << 100.0 * strategy.average_yield() << "\t\t" << strategy.symbol_list()
@@ -189,11 +189,13 @@ target="blah">GitHub</a>.</p>)"
   // Print open Coinbase positions
   out << "<h1>Coinbase open positions</h1>\n";
   out << "<pre>\n";
+  out << "SYMBOL\t%\tSTRATEGY\t\tBUY\tTIMEOUT (HOURS)\n";
   for (const auto &position : open)
     if (position.symbol == "ETH" || position.symbol == "BTC" ||
         position.symbol == "BCH" || position.symbol == "LTC")
       out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
-          << position.strategy << '\t' << position.buy_price << '\n';
+          << position.strategy << '\t' << position.buy_price << '\t'
+          << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0 << '\n';
   out << "</pre>\n";
 
   std::cout << out.str();
