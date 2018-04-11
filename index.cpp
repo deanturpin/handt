@@ -32,7 +32,7 @@ int main() {
   setInterval(function() {
     if (window.location.href.split("?").pop() !== "noreload")
       window.location.reload();
-    }, 30000);
+    }, 60000);
 </script>
 
 <style>
