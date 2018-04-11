@@ -183,6 +183,12 @@ result kosovich(series s, param p) {
   return result(name, exec);
 }
 
+result steady_down(series s, param p) {
+  const auto name = NAME("steady_down", p);
+  const bool exec = flicking_down(s, p).second && steady_rising(s, p).second;
+  return result(name, exec);
+}
+
 bool preflight_check(series s) {
 
   // Ensure there's a bit of activity
