@@ -170,6 +170,7 @@ what you can't afford to lose.</p>
             [](const auto &a, const auto &b) {
               return a.returns.size() > b.returns.size();
             });
+
   std::sort(coinbase.begin(), coinbase.end(), [](const auto &a, const auto &b) {
     return a.returns.size() > b.returns.size();
   });
@@ -196,17 +197,26 @@ what you can't afford to lose.</p>
         << '\n';
   out << "</pre>\n";
 
+  // Extract open Coinbase positions
+  std::vector<handt::position> coinbase_open;
+  for (const auto &position : open)
+    if (position.symbol == "ETH" || position.symbol == "BTC" ||
+        position.symbol == "BCH" || position.symbol == "LTC")
+      coinbase_open.push_back(position);
+
+  // Sort open positions for display
+  std::sort(coinbase_open.begin(), coinbase_open.end(),
+            [](const auto &a, const auto &b) { return a.yield() > b.yield(); });
+
   // Print open Coinbase positions
   out << "<h1>Coinbase open positions</h1>\n";
   out << "<pre>\n";
   out << "SYMBOL\t%\tSTRATEGY\t\tBUY\tTIMEOUT (HOURS)\n";
-  for (const auto &position : open)
-    if (position.symbol == "ETH" || position.symbol == "BTC" ||
-        position.symbol == "BCH" || position.symbol == "LTC")
-      out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
-          << position.strategy << '\t' << position.buy_price << '\t'
-          << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
-          << '\n';
+  for (const auto &position : coinbase_open)
+    out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
+        << position.strategy << '\t' << position.buy_price << '\t'
+        << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
+        << '\n';
   out << "</pre>\n";
 
   std::cout << out.str();
