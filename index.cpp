@@ -178,9 +178,10 @@ target="blah">GitHub</a>.</p>)"
   out << "<pre>\n";
   out << "STRATEGY\t\tPOS\t%\t\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
-    out << strategy.name << '\t' << strategy.returns.size() << '\t'
-        << 100.0 * strategy.average_yield() << "\t\t" << strategy.symbol_list()
-        << '\n';
+    if (strategy.average_yield() > 1.0)
+      out << strategy.name << '\t' << strategy.returns.size() << '\t'
+          << 100.0 * strategy.average_yield() << "\t\t"
+          << strategy.symbol_list() << '\n';
   out << "</pre>\n";
 
   // Print strategy summary for Coinbase coins
@@ -201,7 +202,8 @@ target="blah">GitHub</a>.</p>)"
         position.symbol == "BCH" || position.symbol == "LTC")
       out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
           << position.strategy << '\t' << position.buy_price << '\t'
-          << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0 << '\n';
+          << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
+          << '\n';
   out << "</pre>\n";
 
   std::cout << out.str();
