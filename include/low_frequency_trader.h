@@ -154,8 +154,8 @@ result new_above_old(series s, param p) {
   return result(name, exec);
 }
 
-result steady_rising(series s, param p) {
-  const auto name = NAME("steady_rising", p);
+result steady_riser(series s, param p) {
+  const auto name = NAME("steady_riser", p);
 
   // Check if the next value is larger than the current
   unsigned long trend = 0;
@@ -164,13 +164,13 @@ result steady_rising(series s, param p) {
       ++trend;
 
   // Execute if a significant proportion of intervals are increasing
-  const bool exec = trend > s.size() / 2;
+  const bool exec = trend > (s.size() / 2) + p;
   return result(name, exec);
 }
 
 result steady_rising2(series s, param p) {
   const auto name = NAME("steady_rising2", p);
-  const bool a = steady_rising(s, p).second;
+  const bool a = steady_riser(s, p).second;
   const bool b = new_above_old(s, p).second;
   const bool exec = a && b;
   return result(name, exec);
@@ -185,7 +185,7 @@ result kosovich(series s, param p) {
 
 result steady_down(series s, param p) {
   const auto name = NAME("steady_down", p);
-  const bool exec = flicking_down(s, p).second && steady_rising(s, p).second;
+  const bool exec = flicking_down(s, p).second && steady_riser(s, p).second;
   return result(name, exec);
 }
 
@@ -213,7 +213,7 @@ auto run_strategies(series s) {
     // Create a library of strategies
     const std::vector<std::function<result(series, param)>> library{
         flicking_down,    flicking_up,      ski_jumping,      stepping_up,
-        stepping_down,    steady_rising,    kosovich,         rolling_average,
+        stepping_down,    steady_riser,    kosovich,         rolling_average,
         rolling_average2, rolling_average3, rolling_average4, old_above_new,
         new_above_old,    average_inter,    average_compare,  steady_rising2};
 
