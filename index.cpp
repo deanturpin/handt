@@ -20,6 +20,9 @@ int main() {
   const auto &symbols = handt::get_symbols().size();
   const unsigned long batch_size = 80UL;
 
+  const std::string exchange =
+      "<a href='https://www.cryptocompare.com/api/'>CryptoCompare</a>";
+
   // Print the bulk of the HTML
   out << R"(
 <!DOCTYPE html>
@@ -54,12 +57,10 @@ p.disclaimer { max-width: 700px; }
 <title>Have A Nice Day Trader</title>
 <h1>Have A Nice Day Trader</h1>
 <p class="disclaimer">History is no indicator of future performance. Don't invest
-what you can't afford to lose. Prices fetched periodically from <a
-href="https://www.cryptocompare.com/api/" target="blah">CryptoCompare</a>. See
-the documentation on <a href="https://deanturpin.github.io/handt"
-target="blah">GitHub</a>.</p>)"
+what you can't afford to lose.</p>
+)"
       << "\n\n<p class='disclaimer'>24 hours of prices are fetched for "
-      << symbols << " coins at a rate of " << batch_size
+      << symbols << " coins from " << exchange << " at a rate of " << batch_size
       << " per minute&mdash;a limit set by the exchange&mdash;therefore it "
          "takes "
       << symbols / batch_size
@@ -69,7 +70,8 @@ target="blah">GitHub</a>.</p>)"
          "exceeds "
       << handt::sell_threshold * 100.0 << "&nbsp;%, falls below "
       << handt::cut_losses_threshold * 100.0 << "&nbsp;%"
-      << " or 24 hours have elapsed since creation.</p>\n\n";
+      << " or 24 hours have elapsed since creation. See the documentation on "
+         "<a href='https://deanturpin.github.io/handt'>GitHub</a>.</p>\n\n";
 
   // Structure for reporting strategy performance
   struct strategy_summary {
