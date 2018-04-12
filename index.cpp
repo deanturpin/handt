@@ -40,7 +40,7 @@ body {
   font-family: sans-serif;
   background-color: #234;
   color: white;
-  padding: 4%;
+  padding: 40px;
 }
 a:link, a:visited { color: lightblue; }
 h1 {
