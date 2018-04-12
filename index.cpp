@@ -172,14 +172,14 @@ target="blah">GitHub</a>.</p>)"
     return a.returns.size() > b.returns.size();
   });
 
-  // Print strategy summary for all coins
+  // Print succesful strategy summary for all coins
   out << "<h1>All coins strategy summary</h1>\n";
   out << "<p>" << open.size() << " open positions, " << closed.size()
       << " closed</p>\n";
   out << "<pre>\n";
   out << "STRATEGY\t\tPOS\t%\t\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
-    if (strategy.average_yield() > 1.0)
+    if (strategy.average_yield() > handt::sell_threshold)
       out << strategy.name << '\t' << strategy.returns.size() << '\t'
           << 100.0 * strategy.average_yield() << "\t\t"
           << strategy.symbol_list() << '\n';
