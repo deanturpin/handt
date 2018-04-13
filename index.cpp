@@ -205,8 +205,9 @@ what you can't afford to lose.</p>
       coinbase_open.push_back(position);
 
   // Sort open positions for display
-  std::sort(coinbase_open.begin(), coinbase_open.end(),
-            [](const auto &a, const auto &b) { return a.yield() > b.yield(); });
+  std::sort(
+      coinbase_open.begin(), coinbase_open.end(),
+      [](const auto &a, const auto &b) { return a.timestamp > b.timestamp; });
 
   // Print open Coinbase positions
   out << "<h1>Coinbase open positions</h1>\n";
