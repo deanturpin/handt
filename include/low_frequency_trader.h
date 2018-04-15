@@ -45,7 +45,7 @@ std::string NAME(const std::string n, param p) {
 }
 
 double THRESHOLD(param p) { return (100.0 + p) / 100.0; }
-double SPOT(series s) { return s.back(); }
+double SPOT(series s) { return (!s.empty() ? s.back() : 1.0); }
 
 // The strategies
 
