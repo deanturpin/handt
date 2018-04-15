@@ -72,7 +72,8 @@ what you can't afford to lose.</p>
       << handt::cut_losses_threshold * 100.0 << "&nbsp;%"
       << " or 24 hours have elapsed since creation. See the "
          "<a href='https://deanturpin.github.io/handt'>documentation</a>"
-         " or <a href='https://github.com/deanturpin/handt/issues/new'>"
+         " or <a href='https://github.com/deanturpin/handt/issues/new' "
+         "target='____'>"
          "raise an issue</a>.</p>\n\n";
 
   // Structure for reporting strategy performance
