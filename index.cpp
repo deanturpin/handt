@@ -70,8 +70,10 @@ what you can't afford to lose.</p>
          "exceeds "
       << handt::sell_threshold * 100.0 << "&nbsp;%, falls below "
       << handt::cut_losses_threshold * 100.0 << "&nbsp;%"
-      << " or 24 hours have elapsed since creation. See the documentation on "
-         "<a href='https://deanturpin.github.io/handt'>GitHub</a>.</p>\n\n";
+      << " or 24 hours have elapsed since creation. See the "
+         "<a href='https://deanturpin.github.io/handt'>documentation</a>"
+         " or <a href='https://github.com/deanturpin/handt/issues/new'>"
+         "raise an issue</a>.</p>\n\n";
 
   // Structure for reporting strategy performance
   struct strategy_summary {
