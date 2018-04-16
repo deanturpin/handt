@@ -1,4 +1,5 @@
 autotest: source
+	echo 10 > stats.txt
 	../refresh.o > refresh2.csv
 	../review.o > review2.csv
 	../purge.o > purge2.csv

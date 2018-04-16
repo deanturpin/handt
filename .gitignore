@@ -12,6 +12,7 @@ refresh.csv
 review.csv
 symbols.csv
 index.html
+stats.txt
 
 closed.csv
 
@@ -22,3 +23,4 @@ test/refresh2.csv
 test/review2.csv
 
 closed
+
