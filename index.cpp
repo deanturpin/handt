@@ -66,15 +66,15 @@ what you can't afford to lose.</p>
       << symbols / batch_size
       << " minutes to process the full set of coins. A library of strategies "
          "runs over each batch and a position is created if a strategy "
-         "returns positively. Positions are closed if the return "
-         "exceeds "
+         "returns positively. Positions are closed if the return exceeds "
       << handt::sell_threshold * 100.0 << "&nbsp;%, falls below "
       << handt::cut_losses_threshold * 100.0 << "&nbsp;%"
       << " or 24 hours have elapsed since creation. See the "
          "<a href='https://deanturpin.github.io/handt'>documentation</a>"
          " or <a href='https://github.com/deanturpin/handt/issues/new' "
-         "target='____'>raise an issue</a>. Total prices processed since 16 April 2016: "
-         << handt::get_stats() << ".</p>\n\n";
+         "target='____'>raise an issue</a>. Coins processed since 16 April "
+         "2016: "
+      << handt::get_stats() << ".</p>\n\n";
 
   // Structure for reporting strategy performance
   struct strategy_summary {

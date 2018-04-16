@@ -118,7 +118,6 @@ auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
 auto get_final_positions() { return get_objects<position>("consolidate.csv"); }
 auto get_symbols() { return get_objects<std::string>("symbols.csv"); }
 
-
 const std::string stats_file = "stats.txt";
 auto get_stats() {
   const auto stats = get_objects<unsigned long>(stats_file);
@@ -130,7 +129,6 @@ auto put_stats(const unsigned long &stat) {
   if (out.good())
     out << stat;
 }
-
 }
 
 #endif
