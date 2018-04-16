@@ -44,11 +44,16 @@ int main() {
                    return pos;
                  });
 
+  // Calculate total prices processed and store it
+  const auto total_prices_processed = prices.size() + handt::get_stats();
+  handt::put_stats(total_prices_processed);
+
   // Print all positions
   for (const auto position : updated_positions)
     out << position << "\n";
 
-  out << "# " << prices.size() << " prices\n";
+  out << "# " << prices.size() << " prices this iteration\n";
+  out << "# " << total_prices_processed << " total prices processed\n";
   out << "# " << updated_positions.size() << " positions\n";
 
   std::cout << out.str();

@@ -73,8 +73,8 @@ what you can't afford to lose.</p>
       << " or 24 hours have elapsed since creation. See the "
          "<a href='https://deanturpin.github.io/handt'>documentation</a>"
          " or <a href='https://github.com/deanturpin/handt/issues/new' "
-         "target='____'>"
-         "raise an issue</a>.</p>\n\n";
+         "target='____'>raise an issue</a>. Total prices processed since 16 April 2016: "
+         << handt::get_stats() << ".</p>\n\n";
 
   // Structure for reporting strategy performance
   struct strategy_summary {
