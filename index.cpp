@@ -73,7 +73,7 @@ what you can't afford to lose.</p>
          "<a href='https://deanturpin.github.io/handt'>documentation</a>"
          " or <a href='https://github.com/deanturpin/handt/issues/new' "
          "target='____'>raise an issue</a>. Coins processed since 16 April "
-         "2016: "
+         "2018: "
       << handt::get_stats() << ".</p>\n\n";
 
   // Structure for reporting strategy performance
