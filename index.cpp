@@ -195,9 +195,10 @@ what you can't afford to lose.</p>
   out << "<h1>Coinbase strategy summary</h1>\n";
   out << "<pre>\n";
   for (const auto &strategy : coinbase)
-    out << strategy.name << '\t' << strategy.returns.size() << '\t'
-        << 100.0 * strategy.average_yield() << "\t\t" << strategy.symbol_list()
-        << '\n';
+    if (strategy.average_yield() > handt::sell_threshold)
+      out << strategy.name << '\t' << strategy.returns.size() << '\t'
+          << 100.0 * strategy.average_yield() << "\t\t"
+          << strategy.symbol_list() << '\n';
   out << "</pre>\n";
 
   // Extract open Coinbase positions
