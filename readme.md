@@ -1,12 +1,7 @@
-**Have A Nice Day Trader** is an automated algorithmic trading platform.
-
-# Modular design
-Each module in the chain processes the result from the previous stage and emits
-its contribution. Each module can be tested in isolation.
-
-For example: the strategy module takes the list of coins/prices and emits a line
-for each currency that has triggered a buy: coin name, price and list of
-  matching strategies.
+**Have A Nice Day Trader** is an automated algorithmic trading platform. It
+takes a list of currency symbols, requests prices for each, runs a library of
+strategies and generates a web page summary of positions. The positions are
+(notionally) closed if they exceed a sell threshold or expire after 24 hours.
 
 ![](doc/handt.svg)
 
