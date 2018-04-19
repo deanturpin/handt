@@ -1,27 +1,23 @@
-**Have A Nice Day Trader** is automated algorithmic trading platform.
+**Have A Nice Day Trader** is an automated algorithmic trading platform.
 
 # Modular design
 Each module in the chain processes the result from the previous stage and emits
-its contribution. Each module can be tested in isolation. 
+its contribution. Each module can be tested in isolation.
 
-This approach may make the interface harder to change (with is not necessarily a
-bad thing) but it does make reasoning about each module much easier. A module
-can even be ported to a different language so long as the interface is honoured.
-
-The strategy module takes the list of coins/prices and emits a line for each
-currency that has triggered a buy: coin name, price and list of a matching
-strategies.
+For example: the strategy module takes the list of coins/prices and emits a line
+for each currency that has triggered a buy: coin name, price and list of
+  matching strategies.
 
 ![](doc/handt.svg)
 
 # C++
-The C++ can be built withi a C++14 compliant compiler (gcc, clang). The code
-confirms to LLVM's coding standard by virtue of occasional runs of
-```clang-format``` over the source.
+The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
+to LLVM's coding standard by virtue of occasional runs of ```clang-format```
+over the source.
 
-As the code is designed to run periodically on a web server therefore between
-runs state must be saved. Positions are read and written to a temporary text
-file using operator>> and operator<<.
+The code is designed to run periodically on a web server therefore between runs
+state must be saved. Positions are stored in a temporary text file using
+operator>> and operator<< overloads.
 
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
@@ -29,8 +25,8 @@ periodically pulled from GitHub, cleaned, compiled and if successful copied into
 the web root.
 
 A cron job can be simulated locally by running ```make cron``` before pushing to
-GitHub. But if the fails unexpectedyly I soon receive an email from the cron
-daemon alerting me to the fact that I've done something wrong.
+GitHub. But if the job fails unexpectedly I soon receive an email from the cron
+daemon alerting me to the error.
 
 # Exchanges
 Intuitively it feels you will respond to market changes quicker the more
