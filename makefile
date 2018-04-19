@@ -4,10 +4,11 @@ all: source \
 	autotest
 
 source:
-	make --silent --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+	make --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+	# make --silent --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 cc=g++
-flags=-g -Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
+flags=-g -O0 -Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
 %.o: %.cpp
 	$(cc) $(flags) -o $@ $<
 
@@ -54,6 +55,9 @@ cron:
 
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
+
+coverage:
+	bin/kcov.sh
 
 autotest:
 	make --silent --directory test

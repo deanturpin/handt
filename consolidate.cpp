@@ -11,7 +11,6 @@ int main() {
   std::stringstream out;
 
   const auto &reviewed_positions = handt::get_purged_positions();
-  const auto &prices = handt::get_prices();
 
   // Store new positions in a separate container
   std::decay_t<decltype(reviewed_positions)> new_positions;
