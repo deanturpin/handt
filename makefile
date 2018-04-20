@@ -59,5 +59,8 @@ docs:
 coverage:
 	bin/kcov.sh
 
+format:
+	clang-format -i include/*.h *.cpp
+
 autotest:
 	make --silent --directory test

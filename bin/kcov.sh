@@ -3,4 +3,9 @@
 make clean
 make cc=clang++ source
 
-for obj in *.o; do kcov --exclude-path=/usr/include/c++/ --exclude-path=/usr/include/ results ./$obj; done
+results_dir=kcov_results
+flags='--exclude-path=/usr/include/c++/ --exclude-path=/usr/include/'
+
+for obj in *.o; do
+  kcov $flags $results_dir ./$obj
+done
