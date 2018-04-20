@@ -7,7 +7,7 @@ strategies and generates a web page summary of positions. The positions are
 
 # C++
 The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
-to LLVM's coding standard by virtue of occasional runs of ```clang-format```
+to LLVM's coding standard by virtue of periodic runs of ```clang-format```
 over the source.
 
 The code is designed to run periodically on a web server therefore between runs
@@ -17,7 +17,8 @@ operator>> and operator<< overloads.
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
 periodically pulled from GitHub, cleaned, compiled and if successful copied into
-the web root.
+the web root. Modules are unit tested with each compilation and a code
+coverage tool can be run on demand.
 
 A cron job can be simulated locally by running ```make cron``` before pushing to
 GitHub. But if the job fails unexpectedly I soon receive an email from the cron
