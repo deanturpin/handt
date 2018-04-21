@@ -1,0 +1,31 @@
+var data = {lines:[
+{"lineNum":"    1","line":"#include \"handt.h\""},
+{"lineNum":"    2","line":"#include <algorithm>"},
+{"lineNum":"    3","line":"#include <iostream>"},
+{"lineNum":"    4","line":"#include <iterator>"},
+{"lineNum":"    5","line":"#include <vector>"},
+{"lineNum":"    6","line":""},
+{"lineNum":"    7","line":"int main() {","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"    8","line":""},
+{"lineNum":"    9","line":"  // Get all positions"},
+{"lineNum":"   10","line":"  const auto &reviewed_positions = handt::get_reviewed_positions();","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"   11","line":""},
+{"lineNum":"   12","line":"  // Filter closed positions"},
+{"lineNum":"   13","line":"  std::decay_t<decltype(reviewed_positions)> open_positions;","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"   14","line":"  std::copy_if(reviewed_positions.cbegin(), reviewed_positions.cend(),","class":"lineCov","hits":"2","possible_hits":"2",},
+{"lineNum":"   15","line":"               std::back_inserter(open_positions),","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"   16","line":"               [](const auto &position) { return position.open; });","class":"lineCov","hits":"2","possible_hits":"2",},
+{"lineNum":"   17","line":""},
+{"lineNum":"   18","line":"  // Print remaining positions"},
+{"lineNum":"   19","line":"  std::stringstream out;","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"   20","line":"  for (const auto &position : open_positions)","class":"lineCov","hits":"2","possible_hits":"2",},
+{"lineNum":"   21","line":"    out << position << \'\\n\';","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"   22","line":""},
+{"lineNum":"   23","line":"  out << \"# \" << reviewed_positions.size() << \" reviewed positions\\n\";","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"   24","line":"  out << \"# \" << open_positions.size() << \" open positions\\n\";","class":"lineCov","hits":"1","possible_hits":"1",},
+{"lineNum":"   25","line":"  std::cout << out.str();","class":"linePartCov","hits":"1","possible_hits":"2",},
+{"lineNum":"   26","line":"}","class":"linePartCov","hits":"1","possible_hits":"3",},
+]};
+var percent_low = 25;var percent_high = 75;
+var header = { "command" : "purge.o", "date" : "2018-04-21 09:24:27", "instrumented" : 13, "covered" : 13,};
+var merged_data = [];

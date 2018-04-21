@@ -1,0 +1,7 @@
+var data = {files:[
+{"link":"index.cpp.fda92400.html","title":"index.cpp","summary_name":"[...]/github/handt/index.cpp","covered_class":"lineCov","covered":"88.2","covered_lines":"97","uncovered_lines":"13","total_lines" : "110"},
+{"link":"handt.h.4b7f67c8.html","title":"handt.h","summary_name":"[...]/github/handt/include/handt.h","covered_class":"linePartCov","covered":"60.9","covered_lines":"39","uncovered_lines":"25","total_lines" : "64"},
+]};
+var percent_low = 25;var percent_high = 75;
+var header = { "command" : "index.o", "date" : "2018-04-21 09:24:27", "instrumented" : 174, "covered" : 136,};
+var merged_data = [];
