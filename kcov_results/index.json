@@ -4,8 +4,8 @@ var data = {files:[
 {"link":"index.o/index.html","title":"index.o","summary_name":"index.o","covered_class":"lineCov","covered":"78.2","covered_lines":"136","uncovered_lines":"38","total_lines" : "174"},
 {"link":"consolidate.o/index.html","title":"consolidate.o","summary_name":"consolidate.o","covered_class":"linePartCov","covered":"68.1","covered_lines":"62","uncovered_lines":"29","total_lines" : "91"},
 {"link":"prospects.o/index.html","title":"prospects.o","summary_name":"prospects.o","covered_class":"lineCov","covered":"79.2","covered_lines":"183","uncovered_lines":"48","total_lines" : "231"},
-{"link":"review.o/index.html","title":"review.o","summary_name":"review.o","covered_class":"linePartCov","covered":"58.1","covered_lines":"54","uncovered_lines":"39","total_lines" : "93"},
-], merged_files:[{"link":"kcov-merged/index.html","title":"[merged]","summary_name":"[merged]","covered_class":"lineCov","covered":"91.4","covered_lines":"403","uncovered_lines":"38","total_lines" : "441"},
+{"link":"review.o/index.html","title":"review.o","summary_name":"review.o","covered_class":"linePartCov","covered":"61.3","covered_lines":"57","uncovered_lines":"36","total_lines" : "93"},
+], merged_files:[{"link":"kcov-merged/index.html","title":"[merged]","summary_name":"[merged]","covered_class":"lineCov","covered":"92.1","covered_lines":"406","uncovered_lines":"35","total_lines" : "441"},
 ]};
 var percent_low = 25;var percent_high = 75;
-var header = { "command" : "review.o", "date" : "2018-04-20 13:23:54", "instrumented" : 768, "covered" : 565,};
+var header = { "command" : "review.o", "date" : "2018-04-21 09:24:27", "instrumented" : 768, "covered" : 568,};

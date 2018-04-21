@@ -15,9 +15,9 @@ var data = {lines:[
 {"lineNum":"   14","line":""},
 {"lineNum":"   15","line":"    // Mark old position for deletion if it has expired"},
 {"lineNum":"   16","line":"    if (handt::get_timestamp() - position.timestamp > (60 * 60 * 24)) {","class":"lineCov","hits":"1",},
-{"lineNum":"   17","line":"      position.status = \"time_out\";","class":"lineNoCov","hits":"0",},
-{"lineNum":"   18","line":"      position.open = false;","class":"lineNoCov","hits":"0",},
-{"lineNum":"   19","line":"    }","class":"lineNoCov","hits":"0",},
+{"lineNum":"   17","line":"      position.status = \"time_out\";","class":"lineCov","hits":"1",},
+{"lineNum":"   18","line":"      position.open = false;","class":"lineCov","hits":"1",},
+{"lineNum":"   19","line":"    }","class":"lineCov","hits":"1",},
 {"lineNum":"   20","line":""},
 {"lineNum":"   21","line":"    // Or check if it\'s ready to cash in"},
 {"lineNum":"   22","line":"    else if (position.yield() > handt::sell_threshold) {","class":"lineCov","hits":"1",},
@@ -51,5 +51,5 @@ var data = {lines:[
 {"lineNum":"   50","line":"}","class":"lineCov","hits":"1",},
 ]};
 var percent_low = 25;var percent_high = 75;
-var header = { "command" : "review.o", "date" : "2018-04-20 13:23:54", "instrumented" : 24, "covered" : 16,};
+var header = { "command" : "review.o", "date" : "2018-04-21 09:24:27", "instrumented" : 24, "covered" : 19,};
 var merged_data = [];
