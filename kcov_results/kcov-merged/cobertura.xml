@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-03.dtd'>
-<coverage line-rate="0.000" version="1.9" timestamp="1524299067">
+<coverage line-rate="0.000" version="1.9" timestamp="1524314862">
 	<sources>
 		<source>/home/dev/github/handt/</source>
 	</sources>
@@ -26,7 +26,7 @@
 						<line number="28" hits="1"/>
 					</lines>
 				</class>
-				<class name="low_frequency_trader_h" filename="include/low_frequency_trader.h" line-rate="0.955">
+				<class name="low_frequency_trader_h" filename="include/low_frequency_trader.h" line-rate="0.987">
 					<lines>
 						<line number="21" hits="1"/>
 						<line number="22" hits="1"/>
@@ -153,11 +153,11 @@
 						<line number="182" hits="1"/>
 						<line number="183" hits="1"/>
 						<line number="184" hits="1"/>
-						<line number="186" hits="0"/>
-						<line number="187" hits="0"/>
-						<line number="188" hits="0"/>
-						<line number="189" hits="0"/>
-						<line number="190" hits="0"/>
+						<line number="186" hits="1"/>
+						<line number="187" hits="1"/>
+						<line number="188" hits="1"/>
+						<line number="189" hits="1"/>
+						<line number="190" hits="1"/>
 						<line number="192" hits="1"/>
 						<line number="195" hits="1"/>
 						<line number="196" hits="1"/>
@@ -173,15 +173,16 @@
 						<line number="216" hits="1"/>
 						<line number="217" hits="1"/>
 						<line number="218" hits="1"/>
-						<line number="221" hits="1"/>
+						<line number="219" hits="1"/>
 						<line number="222" hits="1"/>
 						<line number="223" hits="1"/>
 						<line number="224" hits="1"/>
 						<line number="225" hits="1"/>
-						<line number="226" hits="0"/>
-						<line number="228" hits="1"/>
-						<line number="230" hits="1"/>
+						<line number="226" hits="1"/>
+						<line number="227" hits="0"/>
+						<line number="229" hits="1"/>
 						<line number="231" hits="1"/>
+						<line number="232" hits="1"/>
 					</lines>
 				</class>
 				<class name="consolidate_cpp" filename="consolidate.cpp" line-rate="0.750">

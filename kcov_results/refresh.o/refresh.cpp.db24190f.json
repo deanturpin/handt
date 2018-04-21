@@ -61,5 +61,5 @@ var data = {lines:[
 {"lineNum":"   60","line":"}","class":"linePartCov","hits":"1","possible_hits":"3",},
 ]};
 var percent_low = 25;var percent_high = 75;
-var header = { "command" : "refresh.o", "date" : "2018-04-21 09:24:27", "instrumented" : 32, "covered" : 30,};
+var header = { "command" : "refresh.o", "date" : "2018-04-21 13:47:42", "instrumented" : 32, "covered" : 30,};
 var merged_data = [];
