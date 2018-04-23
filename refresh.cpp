@@ -26,7 +26,7 @@ int main() {
   std::decay_t<decltype(positions)> updated_positions;
   std::transform(positions.cbegin(), positions.cend(),
                  std::back_inserter(updated_positions),
-                 [&find_prices, &out](const auto p) {
+                 [&find_prices](const auto p) {
 
                    // Create a copy of the position
                    std::decay_t<decltype(p)> pos(p);
