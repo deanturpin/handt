@@ -20,13 +20,13 @@ review(const std::vector<handt::position> &positions) {
 
     // Or check if it's ready to cash in
     else if (position.yield() > handt::sell_threshold) {
-      position.status = "cashfome";
+      position.status = "maturity";
       position.open = false;
     }
 
     // Or cut our losses
     else if (position.yield() < handt::cut_losses_threshold) {
-      position.status = "cutropes";
+      position.status = "cut_loss";
       position.open = false;
     }
 
