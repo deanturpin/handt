@@ -13,7 +13,7 @@ $(test/check_autotest_results.sh)
 
 !
 
-# Update close positions
+# Update closed positions
 grep false review.csv >> closed.csv
 
 exit 0
