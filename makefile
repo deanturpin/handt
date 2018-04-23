@@ -7,10 +7,10 @@ source:
 	make --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 	# make --silent --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
-cc=g++
+CXX=g++
 flags=-g -O0 -Wall -Werror -Wextra -pedantic -std=gnu++14 -I include
 %.o: %.cpp
-	$(cc) $(flags) -o $@ $<
+	$(CXX) $(flags) -o $@ $<
 
 symbols.csv: symbols.py
 	./$< > $@
