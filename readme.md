@@ -9,6 +9,8 @@ strategies and generates a web page summary of positions. The positions are
 
 # Clone and build
 ```bash
+clone https://github.com/deanturpin/handt
+cd handt
 make update
 ```
 
