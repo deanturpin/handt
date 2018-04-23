@@ -13,9 +13,8 @@ make update
 ```
 
 # Continuous integration
-The code is intended to run periodically on a web server therefore between runs
-state must be saved. Travis builds are invoked on commit and Coveralls reports
-are generated on demand.
+The code is intended to run periodically on a web server. Travis builds are
+invoked on commit and Coveralls reports are generated on demand.
 
 # C++
 The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
