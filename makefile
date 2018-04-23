@@ -6,7 +6,7 @@ all: source \
 source:
 	make --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
-CXX=clang++
+CXX=clang++-4.0
 flags=-g -Wall -Wextra -pedantic -std=gnu++14 -I include
 %.o: %.cpp
 	$(CXX) $(flags) -o $@ $<
