@@ -71,14 +71,18 @@ what you can't afford to lose.</p>
       << handt::cut_losses_threshold * 100.0 << "&nbsp;%"
       << " or 24 hours have elapsed since creation. See the "
          "<a href='https://deanturpin.github.io/handt'>documentation</a>"
-         " or <a href='https://github.com/deanturpin/handt/issues/new' "
+         " or <a href='https://github.com/deanturpin/handt/issues/new'"
          "target='____'>raise an issue</a>.</p>"
          "<p>Coins processed since 16&nbsp;April&nbsp;2018: "
       << handt::get_stats()
       << ".</p>"
+         "<p>"
          "<a href='https://coveralls.io/github/deanturpin/handt?branch='><img "
          "src='https://coveralls.io/repos/github/deanturpin/handt/"
          "badge.svg?branch=' alt='Coverage Status' /></a>"
+         "<img src='https://travis-ci.org/deanturpin/handt.svg?branch=master' "
+         "/>"
+         "</p>"
       << "\n\n";
 
   // Structure for reporting strategy performance
