@@ -74,7 +74,12 @@ what you can't afford to lose.</p>
          " or <a href='https://github.com/deanturpin/handt/issues/new' "
          "target='____'>raise an issue</a>.</p>"
          "<p>Coins processed since 16&nbsp;April&nbsp;2018: "
-      << handt::get_stats() << ".</p>\n\n";
+      << handt::get_stats()
+      << ".</p>"
+         "<a href='https://coveralls.io/github/deanturpin/handt?branch='><img "
+         "src='https://coveralls.io/repos/github/deanturpin/handt/"
+         "badge.svg?branch=' alt='Coverage Status' /></a>"
+      << "\n\n";
 
   // Structure for reporting strategy performance
   struct strategy_summary {
