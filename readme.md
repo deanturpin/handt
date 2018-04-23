@@ -7,14 +7,20 @@ strategies and generates a web page summary of positions. The positions are
 
 ![](doc/handt.svg)
 
+# Clone and build
+```bash
+make update
+```
+
+# Continuous integration
+The code is intended to run periodically on a web server therefore between runs
+state must be saved. Travis builds are invoked on commit and Coveralls reports
+are generated on demand.
+
 # C++
 The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
 to LLVM's coding standard by virtue of periodic runs of ```clang-format```
 over the source.
-
-The code is designed to run periodically on a web server therefore between runs
-state must be saved. Positions are stored in a temporary text file using
-operator>> and operator<< overloads.
 
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
