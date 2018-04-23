@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/deanturpin/handt/badge.svg)](https://coveralls.io/github/deanturpin/handt)
+
 **Have A Nice Day Trader** is an automated algorithmic trading platform. It
 takes a list of currency symbols, requests prices for each, runs a library of
 strategies and generates a web page summary of positions. The positions are
