@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iterator>
 #include <sstream>
+#include <type_traits>
 #include <vector>
 
 int main() {

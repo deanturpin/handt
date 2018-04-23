@@ -5,7 +5,6 @@ all: source \
 
 source:
 	make --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
-	# make --silent --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 CXX=clang++
 flags=-g -Wall -Wextra -pedantic -std=gnu++14 -I include
