@@ -130,6 +130,16 @@ auto put_stats(const unsigned long &stat) {
   if (out.good())
     out << stat;
 }
+
+auto get_index_html() {
+  std::ifstream in("include/index.html");
+  std::stringstream ss;
+  if (in.good())
+    ss << in.rdbuf();
+
+  return ss.str();
+}
+
 }
 
 #endif

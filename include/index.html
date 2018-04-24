@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta name="robots" content="index,follow" />
+<link rel=icon href="favicon.ico" sizes="any">
+
+<script>
+setInterval(function() {
+  if (window.location.href.split("?").pop() !== "noreload")
+    window.location.reload();
+}, 60000);
+</script>
+
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #234;
+  color: white;
+  padding: 40px;
+}
+a:link, a:visited { color: lightblue; }
+h1 {
+  font-size: 100%;
+  text-transform: uppercase;
+  color: darkorange;
+}
+p.disclaimer { max-width: 700px; }
+</style>
+
+<title>Have A Nice Day Trader</title>
+<h1>Have A Nice Day Trader</h1>
+<p class="disclaimer">
+History is no indicator of future performance. Don't invest what you can't
+afford to lose.
+</p>
+
+<p class="disclaimer">
+24 hours of prices are fetched for SYMBOLS coins from <a
+   href="https://www.cryptocompare.com/api/">CryptoCompare</a> at a rate of BATCH
+ per minute&mdash;a limit set by the exchange&mdash; therefore it takes MINUTES
+ minutes to process the full set of coins. A library of strategies runs over each
+ batch and a position is created if a strategy returns positively. Positions are
+ closed if the return exceeds SELL&nbsp;%, falls below CUT&nbsp;% or 24 hours
+ have elapsed since creation. See the <a
+   href="https://deanturpin.github.io/handt">documentation</a> or <a
+   href="https://github.com/deanturpin/handt/issues/new"" target="___">raise an
+   issue</a>.
+</p>
+
+<p>Coins processed since 16&nbsp;April&nbsp;2018: STATS.</p>
+
+<p>
+<a href="https://travis-ci.org/deanturpin/handt" target="___">
+  <img src="https://travis-ci.org/deanturpin/handt.svg?branch=master"/></a>
+
+<a href="https://coveralls.io/github/deanturpin/handt?branch=" target="___">
+  <img src="https://coveralls.io/repos/github/deanturpin/handt/badge.svg?branch="
+       alt="Coverage Status" /></a>
+</p>
+
