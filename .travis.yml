@@ -1,15 +1,45 @@
+# Build the source
+# language: c++
+# script: make source
+# matrix:
+#   include:
+#     - os: linux
+#       addons:
+#         apt:
+#           sources:
+#             - llvm-toolchain-trusty-4.0
+#             - ubuntu-toolchain-r-test
+#           packages:
+#             - clang-4.0
+#             - g++-6
+#       env:
+#         - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+
+# Coverage
 language: c++
-script: make source # coverage
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty-4.0
-            - ubuntu-toolchain-r-test
-          packages:
-            - clang-4.0
-            - g++-6
-      env:
-        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+sudo: required
+script: make source
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libelf-dev
+      - libdw-dev
+      - cmake
+      - clang-4.0
+      - g++-6
+
+    after_success: |
+      wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
+      tar xzf master.tar.gz &&
+      cd kcov-master &&
+      mkdir build &&
+      cd build &&
+      cmake .. &&
+      make &&
+      sudo make install &&
+      cd ../.. &&
+      rm -rf kcov-master &&
+      mkdir -p coverage &&
+      make coverage
+      bash <(curl -s https://codecov.io/bash)

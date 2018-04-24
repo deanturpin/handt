@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# make clean
-# make cc=clang++ source
-
-results_dir=kcov_results
+results_dir=coverage
 flags='--exclude-path=/usr/include/c++/ --exclude-path=/usr/include/'
 coveralls="--coveralls-id=$COVERALLS_ID"
 
