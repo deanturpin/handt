@@ -139,7 +139,6 @@ auto get_index_html() {
 
   return ss.str();
 }
-
 }
 
 #endif

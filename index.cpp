@@ -22,25 +22,26 @@ int main() {
   const unsigned long batch_size = 80UL;
 
   // Get the HTML template
-  std::string index_template = handt::get_index_html();
+  std::string index = handt::get_index_html();
+
+  // Wrapper functor for regex substitution
+  const auto subst = [](std::string &str, const std::string &token,
+                        const std::string &value) {
+    const auto str2 = std::regex_replace(str, std::regex(token), value);
+    str = str2;
+  };
 
   // Substitute some real stats
-  std::string index_subst = std::regex_replace(
-      index_template, std::regex("STATS"), std::to_string(handt::get_stats()));
-  index_subst = std::regex_replace(index_subst, std::regex("BATCH"),
-                                   std::to_string(batch_size));
-  index_subst = std::regex_replace(index_subst, std::regex("SYMBOLS"),
-                                   std::to_string(symbols));
-  index_subst = std::regex_replace(index_subst, std::regex("MINUTES"),
-                                   std::to_string(symbols / batch_size));
-  index_subst = std::regex_replace(index_subst, std::regex("SELL"),
-                                   std::to_string(static_cast<unsigned long>(
-                                       handt::sell_threshold * 100.0)));
-  index_subst = std::regex_replace(index_subst, std::regex("CUT"),
-                                   std::to_string(static_cast<unsigned long>(
-                                       handt::cut_losses_threshold * 100.0)));
+  subst(index, "STATS", std::to_string(handt::get_stats()));
+  subst(index, "BATCH", std::to_string(batch_size));
+  subst(index, "SYMBOLS", std::to_string(symbols));
+  subst(index, "MINUTES", std::to_string(symbols / batch_size));
+  subst(index, "SELL", std::to_string(static_cast<unsigned long>(
+                           handt::sell_threshold * 100.0)));
+  subst(index, "CUT", std::to_string(static_cast<unsigned long>(
+                          handt::cut_losses_threshold * 100.0)));
 
-  out << index_subst;
+  out << index;
 
   // Structure for reporting strategy performance
   struct strategy_summary {
