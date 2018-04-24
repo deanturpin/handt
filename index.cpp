@@ -77,8 +77,9 @@ what you can't afford to lose.</p>
       << handt::get_stats()
       << ".</p>"
          "<p>"
+         "<a href='https://travis-ci.org/deanturpin/handt'>"
          "<img src='https://travis-ci.org/deanturpin/handt.svg?branch=master' "
-         "/>"
+         "/></a> "
          "<a href='https://coveralls.io/github/deanturpin/handt?branch='><img "
          "src='https://coveralls.io/repos/github/deanturpin/handt/"
          "badge.svg?branch=' alt='Coverage Status' /></a>"
