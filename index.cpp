@@ -25,10 +25,10 @@ int main() {
   std::string index = handt::get_index_html();
 
   // Wrapper functor for in-place regex substitution
-  const auto subst = [](std::string &str, const std::string &token,
+  const auto subst = [](std::string &in, const std::string &token,
                         const std::string &value) {
-    const auto str2 = std::regex_replace(str, std::regex(token), value);
-    str = str2;
+    const auto out = std::regex_replace(in, std::regex(token), value);
+    in = out;
   };
 
   // Define tokens and what we'd like them to be replaced with
@@ -36,6 +36,7 @@ int main() {
       {"STATS", std::to_string(handt::get_stats())},
       {"BATCH", std::to_string(batch_size)},
       {"SYMBOLS", std::to_string(symbols)},
+      {"GITLOG", handt::get_git_log()},
       {"MINUTES", std::to_string(symbols / batch_size)},
       {"SELL", std::to_string(
                    static_cast<unsigned long>(handt::sell_threshold * 100.0))},

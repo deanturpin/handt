@@ -131,14 +131,20 @@ auto put_stats(const unsigned long &stat) {
     out << stat;
 }
 
-auto get_index_html() {
-  std::ifstream in("include/index.html");
+// Generic routine to read a text file
+std::string get_plain_text_file(const std::string &name) {
+  std::ifstream in(name);
   std::stringstream ss;
   if (in.good())
     ss << in.rdbuf();
-
   return ss.str();
 }
+
+// Get specific files
+std::string get_index_html() {
+  return get_plain_text_file("include/index.html");
+}
+std::string get_git_log() { return get_plain_text_file("gitlog.txt"); }
 }
 
 #endif
