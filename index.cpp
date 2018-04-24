@@ -151,32 +151,6 @@ int main() {
     return a.returns.size() > b.returns.size();
   });
 
-  // Print the page header
-  out << index;
-
-  // Print succesful strategy summary for all coins
-  out << "<h1>All coins strategy summary</h1>\n";
-  out << "<p>" << open.size() << " open positions, " << closed.size()
-      << " closed</p>\n";
-  out << "<pre>\n";
-  out << "STRATEGY\t\tPOS\t%\t\tMATURED SYMBOLS\n";
-  for (const auto &strategy : all_coins)
-    if (strategy.average_yield() > handt::sell_threshold)
-      out << strategy.name << '\t' << strategy.returns.size() << '\t'
-          << 100.0 * strategy.average_yield() << "\t\t"
-          << strategy.symbol_list() << '\n';
-  out << "</pre>\n";
-
-  // Print strategy summary for Coinbase coins
-  out << "<h1>Coinbase strategy summary</h1>\n";
-  out << "<pre>\n";
-  for (const auto &strategy : coinbase)
-    if (strategy.average_yield() > handt::sell_threshold)
-      out << strategy.name << '\t' << strategy.returns.size() << '\t'
-          << 100.0 * strategy.average_yield() << "\t\t"
-          << strategy.symbol_list() << '\n';
-  out << "</pre>\n";
-
   // Extract open Coinbase positions
   std::vector<handt::position> coinbase_open;
   for (const auto &position : open)
@@ -190,15 +164,42 @@ int main() {
       [](const auto &a, const auto &b) { return a.timestamp > b.timestamp; });
 
   // Print open Coinbase positions
-  out << "<h1>Coinbase open positions</h1>\n";
-  out << "<pre>\n";
-  out << "SYMBOL\t%\tSTRATEGY\t\tBUY\tTIMEOUT (HOURS)\n";
+  std::stringstream open_pos;
   for (const auto &position : coinbase_open)
-    out << position.symbol << '\t' << position.yield() * 100.0 << '\t'
+    open_pos << position.symbol << '\t' << position.yield() * 100.0 << '\t'
         << position.strategy << '\t' << position.buy_price << '\t'
         << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
         << '\n';
-  out << "</pre>\n";
+
+  subst(index, "COINBASE_OPEN", open_pos.str());
+
+  // Print succesful strategy summary for all coins
+  std::stringstream allcoins_summary;
+  allcoins_summary << "<p>" << open.size() << " open positions, " << closed.size()
+      << " closed</p>\n";
+  allcoins_summary << "<pre>\n";
+  allcoins_summary << "STRATEGY\t\tPOS\t%\t\tMATURED SYMBOLS\n";
+  for (const auto &strategy : all_coins)
+    if (strategy.average_yield() > handt::sell_threshold)
+      allcoins_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
+          << 100.0 * strategy.average_yield() << "\t\t"
+          << strategy.symbol_list() << '\n';
+  allcoins_summary << "</pre>\n";
+
+  subst(index, "ALLCOINS_STRATEGY", open_pos.str());
+
+  // Print strategy summary for Coinbase coins
+  std::stringstream coinbase_summary;
+  for (const auto &strategy : coinbase)
+    if (strategy.average_yield() > handt::sell_threshold)
+      coinbase_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
+          << 100.0 * strategy.average_yield() << "\t\t"
+          << strategy.symbol_list() << '\n';
+
+  subst(index, "COINBASE_STRATEGY", coinbase_summary.str());
+
+  // Print populated template
+  out << index;
 
   std::cout << out.str();
 }
