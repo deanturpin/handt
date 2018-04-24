@@ -186,7 +186,7 @@ int main() {
           << strategy.symbol_list() << '\n';
   allcoins_summary << "</pre>\n";
 
-  subst(index, "ALLCOINS_STRATEGY", open_pos.str());
+  subst(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
   // Print strategy summary for Coinbase coins
   std::stringstream coinbase_summary;
