@@ -24,24 +24,27 @@ int main() {
   // Get the HTML template
   std::string index = handt::get_index_html();
 
-  // Wrapper functor for regex substitution
+  // Wrapper functor for in-place regex substitution
   const auto subst = [](std::string &str, const std::string &token,
                         const std::string &value) {
     const auto str2 = std::regex_replace(str, std::regex(token), value);
     str = str2;
   };
 
-  // Substitute some real stats
-  subst(index, "STATS", std::to_string(handt::get_stats()));
-  subst(index, "BATCH", std::to_string(batch_size));
-  subst(index, "SYMBOLS", std::to_string(symbols));
-  subst(index, "MINUTES", std::to_string(symbols / batch_size));
-  subst(index, "SELL", std::to_string(static_cast<unsigned long>(
-                           handt::sell_threshold * 100.0)));
-  subst(index, "CUT", std::to_string(static_cast<unsigned long>(
-                          handt::cut_losses_threshold * 100.0)));
+  // Define tokens and what we'd like them to be replaced with
+  const std::map<std::string, std::string> tokens{
+      {"STATS", std::to_string(handt::get_stats())},
+      {"BATCH", std::to_string(batch_size)},
+      {"SYMBOLS", std::to_string(symbols)},
+      {"MINUTES", std::to_string(symbols / batch_size)},
+      {"SELL", std::to_string(
+                   static_cast<unsigned long>(handt::sell_threshold * 100.0))},
+      {"CUT", std::to_string(static_cast<unsigned long>(
+                  handt::cut_losses_threshold * 100.0))}};
 
-  out << index;
+  // Replace all tokens
+  for (const auto &t : tokens)
+    subst(index, t.first, t.second);
 
   // Structure for reporting strategy performance
   struct strategy_summary {
@@ -144,6 +147,9 @@ int main() {
   std::sort(coinbase.begin(), coinbase.end(), [](const auto &a, const auto &b) {
     return a.returns.size() > b.returns.size();
   });
+
+  // Print the page header
+  out << index;
 
   // Print succesful strategy summary for all coins
   out << "<h1>All coins strategy summary</h1>\n";
