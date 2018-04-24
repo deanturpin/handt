@@ -188,6 +188,7 @@ int main() {
 
   // Print strategy summary for Coinbase coins
   std::stringstream coinbase_summary;
+  coinbase_summary << "SYMBOL\t\t%\tSTRATEGY\t\tBUY TIMEOUT (HOURS)\n";
   for (const auto &strategy : coinbase)
     if (strategy.average_yield() > handt::sell_threshold)
       coinbase_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
