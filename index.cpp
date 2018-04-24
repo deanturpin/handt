@@ -175,16 +175,14 @@ int main() {
 
   // Print succesful strategy summary for all coins
   std::stringstream allcoins_summary;
-  allcoins_summary << "<p>" << open.size() << " open positions, " << closed.size()
-      << " closed</p>\n";
-  allcoins_summary << "<pre>\n";
+  allcoins_summary << open.size() << " open positions, " << closed.size()
+      << " closed\n\n";
   allcoins_summary << "STRATEGY\t\tPOS\t%\t\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
     if (strategy.average_yield() > handt::sell_threshold)
       allcoins_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
           << 100.0 * strategy.average_yield() << "\t\t"
           << strategy.symbol_list() << '\n';
-  allcoins_summary << "</pre>\n";
 
   subst(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
