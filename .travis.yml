@@ -1,5 +1,5 @@
 language: c++
-script: make source
+script: make source coverage
 matrix:
   include:
     - os: linux
