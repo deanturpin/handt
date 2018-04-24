@@ -34,6 +34,7 @@ int main() {
   // Define tokens and what we'd like them to be replaced with
   const std::map<std::string, std::string> tokens{
       {"STATS", std::to_string(handt::get_stats())},
+      {"DATE", handt::get_date()},
       {"BATCH", std::to_string(batch_size)},
       {"SYMBOLS", std::to_string(symbols)},
       {"GITLOG", handt::get_git_log()},

@@ -1,13 +1,9 @@
 #!/bin/bash
 
-cat <<!
+TZ=HANDT-1 date > date.txt
 
-<h1>Autotest</h1>
-<pre>
-$(test/check_autotest_results.sh)
-</pre>
-
-!
+# Autotest results
+test/check_autotest_results.sh > autotest.txt
 
 # Git log summary
 git log -n 1 --oneline > gitlog.txt

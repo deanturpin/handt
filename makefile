@@ -1,4 +1,4 @@
-all: source \
+all: source stats \
 	review.csv purge.csv prospects.csv consolidate.csv \
        	index.html endofsession \
 	autotest
@@ -39,9 +39,11 @@ update:
 	rm -f prices.csv
 	make
 
+stats:
+	bin/generate_stats.sh
+
 index.html: index.o consolidate.csv review.csv
 	./$< > $@
-	./create_index.sh >> $@
 
 gitpull:
 	git pull --quiet

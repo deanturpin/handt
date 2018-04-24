@@ -1,7 +1,5 @@
 #!/bin/bash
 
-TZ=HANDT-1 date
-
 pushd test >& /dev/null
 
 # Simple tests

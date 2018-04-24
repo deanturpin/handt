@@ -132,7 +132,7 @@ auto put_stats(const unsigned long &stat) {
 }
 
 // Generic routine to read a text file
-std::string get_plain_text_file(const std::string &name) {
+std::string get_text_file(const std::string &name) {
   std::ifstream in(name);
   std::stringstream ss;
   if (in.good())
@@ -141,10 +141,9 @@ std::string get_plain_text_file(const std::string &name) {
 }
 
 // Get specific files
-std::string get_index_html() {
-  return get_plain_text_file("include/index.html");
-}
-std::string get_git_log() { return get_plain_text_file("gitlog.txt"); }
+std::string get_index_html() { return get_text_file("include/index.html"); }
+std::string get_git_log() { return get_text_file("gitlog.txt"); }
+std::string get_date() { return get_text_file("date.txt"); }
 }
 
 #endif
