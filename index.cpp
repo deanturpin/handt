@@ -4,6 +4,7 @@
 #include <iostream>
 #include <map>
 #include <numeric>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -20,11 +21,8 @@ int main() {
   const auto &symbols = handt::get_symbols().size();
   const unsigned long batch_size = 80UL;
 
-  const std::string exchange =
-      "<a href='https://www.cryptocompare.com/api/'>CryptoCompare</a>";
-
   // Print the bulk of the HTML
-  out << R"(
+  std::string index_template = R"(
 <!DOCTYPE html>
 
 <meta charset="UTF-8">
@@ -56,36 +54,54 @@ p.disclaimer { max-width: 700px; }
 
 <title>Have A Nice Day Trader</title>
 <h1>Have A Nice Day Trader</h1>
-<p class="disclaimer">History is no indicator of future performance. Don't invest
-what you can't afford to lose.</p>
-)"
-      << "\n\n<p class='disclaimer'>24 hours of prices are fetched for "
-      << symbols << " coins from " << exchange << " at a rate of " << batch_size
-      << " per minute&mdash;a limit set by the exchange&mdash;therefore it "
-         "takes "
-      << symbols / batch_size
-      << " minutes to process the full set of coins. A library of strategies "
-         "runs over each batch and a position is created if a strategy "
-         "returns positively. Positions are closed if the return exceeds "
-      << handt::sell_threshold * 100.0 << "&nbsp;%, falls below "
-      << handt::cut_losses_threshold * 100.0 << "&nbsp;%"
-      << " or 24 hours have elapsed since creation. See the "
-         "<a href='https://deanturpin.github.io/handt'>documentation</a>"
-         " or <a href='https://github.com/deanturpin/handt/issues/new'"
-         "target='___'>raise an issue</a>.</p>"
-         "<p>Coins processed since 16&nbsp;April&nbsp;2018: "
-      << handt::get_stats()
-      << ".</p>"
-         "<p>"
-         "<a href='https://travis-ci.org/deanturpin/handt' target='___'>"
-         "<img src='https://travis-ci.org/deanturpin/handt.svg?branch=master' "
-         "/></a> "
-         "<a href='https://coveralls.io/github/deanturpin/handt?branch=' "
-         "target='___'><img "
-         "src='https://coveralls.io/repos/github/deanturpin/handt/"
-         "badge.svg?branch=' alt='Coverage Status' /></a>"
-         "</p>"
-      << "\n\n";
+<p class="disclaimer">
+History is no indicator of future performance. Don't invest what you can't
+afford to lose.
+</p>
+
+<p class="disclaimer">
+24 hours of prices are fetched for SYMBOLS coins from <a
+href="https://www.cryptocompare.com/api/">CryptoCompare</a> at a rate of BATCH
+per minute&mdash;a limit set by the exchange&mdash; therefore it takes MINUTES
+minutes to process the full set of coins. A library of strategies runs over each
+batch and a position is created if a strategy returns positively. Positions are
+closed if the return exceeds SELL&nbsp;%, falls below CUT&nbsp;% or 24 hours
+have elapsed since creation. See the <a
+href="https://deanturpin.github.io/handt">documentation</a> or <a
+href="https://github.com/deanturpin/handt/issues/new"" target="___">raise an
+issue</a>.
+</p>
+
+<p>Coins processed since 16&nbsp;April&nbsp;2018: STATS.</p>
+
+<p>
+<a href="https://travis-ci.org/deanturpin/handt" target="___">
+<img src="https://travis-ci.org/deanturpin/handt.svg?branch=master"/></a>
+
+<a href="https://coveralls.io/github/deanturpin/handt?branch=" target="___">
+<img src="https://coveralls.io/repos/github/deanturpin/handt/badge.svg?branch="
+alt="Coverage Status" /></a>
+</p>
+
+)";
+
+  // Substitute some real stats
+  std::string index_subst = std::regex_replace(
+      index_template, std::regex("STATS"), std::to_string(handt::get_stats()));
+  index_subst = std::regex_replace(index_subst, std::regex("BATCH"),
+                                   std::to_string(batch_size));
+  index_subst = std::regex_replace(index_subst, std::regex("SYMBOLS"),
+                                   std::to_string(symbols));
+  index_subst = std::regex_replace(index_subst, std::regex("MINUTES"),
+                                   std::to_string(symbols / batch_size));
+  index_subst = std::regex_replace(index_subst, std::regex("SELL"),
+                                   std::to_string(static_cast<unsigned long>(
+                                       handt::sell_threshold * 100.0)));
+  index_subst = std::regex_replace(index_subst, std::regex("CUT"),
+                                   std::to_string(static_cast<unsigned long>(
+                                       handt::cut_losses_threshold * 100.0)));
+
+  out << index_subst;
 
   // Structure for reporting strategy performance
   struct strategy_summary {
