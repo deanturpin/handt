@@ -35,6 +35,7 @@ int main() {
   const std::map<std::string, std::string> tokens{
       {"STATS", std::to_string(handt::get_stats())},
       {"DATE", handt::get_date()},
+      {"UNITTEST", handt::get_unittest()},
       {"BATCH", std::to_string(batch_size)},
       {"SYMBOLS", std::to_string(symbols)},
       {"GITLOG", handt::get_git_log()},
