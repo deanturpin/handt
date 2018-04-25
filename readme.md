@@ -39,6 +39,8 @@ A cron job can be simulated locally by running ```make cron``` before pushing to
 GitHub. But if the job fails unexpectedly I soon receive an email from the cron
 daemon alerting me to the error.
 
+The web page is created from an [HTML template](include/index.html). The template contains keywords which are substituted for current data.
+
 # Exchanges
 Intuitively it feels that requesting prices more often will make the softwrae more responsive to market changes. But Coinbase and CryptoCompare actually don't publish updates more often than once per minute. CryptoCompare also has API request rate
 limiting so 80 requests per minute (for different currencies) seems a good compromise in practice.
