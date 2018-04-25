@@ -1,7 +1,7 @@
-// Trading strategy routines
+// Trading strategies
 
-#ifndef LOW_FREQUENCY_TRADER_H
-#define LOW_FREQUENCY_TRADER_H
+#ifndef STRATEGY_H
+#define STRATEGY_H
 
 #include <algorithm>
 #include <functional>

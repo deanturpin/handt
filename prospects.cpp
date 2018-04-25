@@ -1,5 +1,5 @@
 #include "handt.h"
-#include "low_frequency_trader.h"
+#include "strategy.h"
 #include <iostream>
 #include <sstream>
 #include <vector>
