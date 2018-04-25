@@ -169,15 +169,15 @@ int main() {
   open_pos << std::fixed;
   for (const auto &position : coinbase_open)
     open_pos << position.symbol << '\t' << position.yield() * 100.0 << '\t'
-        << position.strategy << '\t' << position.buy_price << '\t'
-        << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
-        << '\n';
+             << position.strategy << '\t' << position.buy_price << '\t'
+             << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
+             << '\n';
 
   subst(index, "COINBASE_OPEN", open_pos.str());
 
   std::stringstream open_and_closed;
   open_and_closed << open.size() << " open positions, " << closed.size()
-      << " closed\n\n";
+                  << " closed\n\n";
   subst(index, "POSITIONS", open_and_closed.str());
 
   // Print succesful strategy summary for all coins
@@ -186,9 +186,9 @@ int main() {
   allcoins_summary << std::fixed;
   for (const auto &strategy : all_coins)
     if (strategy.average_yield() > handt::sell_threshold)
-      allcoins_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
-          << 100.0 * strategy.average_yield() << "\t\t"
-          << strategy.symbol_list() << '\n';
+      allcoins_summary << strategy.name << '\t' << strategy.returns.size()
+                       << '\t' << 100.0 * strategy.average_yield() << "\t\t"
+                       << strategy.symbol_list() << '\n';
 
   subst(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
@@ -198,9 +198,9 @@ int main() {
   coinbase_summary << std::fixed;
   for (const auto &strategy : coinbase)
     if (strategy.average_yield() > handt::sell_threshold)
-      coinbase_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
-          << 100.0 * strategy.average_yield() << "\t\t"
-          << strategy.symbol_list() << '\n';
+      coinbase_summary << strategy.name << '\t' << strategy.returns.size()
+                       << '\t' << 100.0 * strategy.average_yield() << "\t\t"
+                       << strategy.symbol_list() << '\n';
 
   subst(index, "COINBASE_STRATEGY", coinbase_summary.str());
 
