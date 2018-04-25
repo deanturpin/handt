@@ -173,11 +173,13 @@ int main() {
 
   subst(index, "COINBASE_OPEN", open_pos.str());
 
+  std::stringstream open_and_closed;
+  open_and_closed << open.size() << " open positions, " << closed.size()
+      << " closed\n\n";
+  subst(index, "POSITIONS", open_and_closed.str());
+
   // Print succesful strategy summary for all coins
   std::stringstream allcoins_summary;
-  allcoins_summary << open.size() << " open positions, " << closed.size()
-      << " closed\n\n";
-  allcoins_summary << "STRATEGY\t\tPOS\t%\t\tMATURED SYMBOLS\n";
   for (const auto &strategy : all_coins)
     if (strategy.average_yield() > handt::sell_threshold)
       allcoins_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
@@ -188,7 +190,8 @@ int main() {
 
   // Print strategy summary for Coinbase coins
   std::stringstream coinbase_summary;
-  coinbase_summary << "SYMBOL\t\t\tPOS\tSTRATEGY\tBUY TIMEOUT (HOURS)\n";
+  coinbase_summary.precision(2);
+  coinbase_summary << std::fixed;
   for (const auto &strategy : coinbase)
     if (strategy.average_yield() > handt::sell_threshold)
       coinbase_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
