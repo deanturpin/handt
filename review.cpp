@@ -1,7 +1,7 @@
 #include "handt.h"
 
 std::vector<handt::position>
-review(const std::vector<handt::position> &positions) {
+review(const std::vector<handt::position> &positions, const unsigned long &timestamp) {
 
   // Create a container to store the review positions
   std::vector<handt::position> reviewed;
@@ -13,7 +13,7 @@ review(const std::vector<handt::position> &positions) {
     handt::position position(p);
 
     // Mark old position for deletion if it has expired
-    if (handt::get_timestamp() - position.timestamp > (60 * 60 * 24)) {
+    if (timestamp - position.timestamp > (60 * 60 * 24)) {
       position.status = "time_out";
       position.open = false;
     }
@@ -45,6 +45,6 @@ int main() {
   const auto &positions = handt::get_refreshed_positions();
 
   // Dump review positions
-  for (const auto &position : review(positions))
+  for (const auto &position : review(positions, handt::get_timestamp()))
     std::cout << position << '\n';
 }
