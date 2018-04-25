@@ -16,4 +16,3 @@ linecount2=$(cat consolidate2.csv | wc -l)
 [[ $linecoun11 == $linecount2 ]] && echo $'consol\tpass' || echo $'consol\tfail'
 
 popd >& /dev/null
-

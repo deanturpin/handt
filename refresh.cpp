@@ -1,11 +1,8 @@
 #include "include/handt.h"
 #include <algorithm>
 #include <iostream>
-#include <sstream>
 
 int main() {
-
-  std::stringstream out;
 
   // Get recent prices
   const auto &prices = handt::get_prices();
@@ -23,6 +20,9 @@ int main() {
 
   // Copy existing positions into a new container, updating the prices if they
   // are available
+  //
+  // TODO Use for loop
+  //
   std::decay_t<decltype(positions)> updated_positions;
   std::transform(positions.cbegin(), positions.cend(),
                  std::back_inserter(updated_positions),
@@ -50,11 +50,9 @@ int main() {
 
   // Print all positions
   for (const auto position : updated_positions)
-    out << position << "\n";
+    std::cout << position << "\n";
 
-  out << "# " << prices.size() << " prices this iteration\n";
-  out << "# " << total_prices_processed << " total prices processed\n";
-  out << "# " << updated_positions.size() << " positions\n";
-
-  std::cout << out.str();
+  std::cout << "# " << prices.size() << " prices this iteration\n";
+  std::cout << "# " << total_prices_processed << " total prices processed\n";
+  std::cout << "# " << updated_positions.size() << " positions\n";
 }
