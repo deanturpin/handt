@@ -61,6 +61,3 @@ Which doesn't seem too far removed from a strategy definition language.
 name = "stepping_up"
 exec = RECENT_AVERAGE / DISTANT_AVERAGE > THRESHOLD
 ```
-
-
-
