@@ -1,4 +1,5 @@
 #include "include/handt.h"
+#include <vector>
 
 using positions = std::vector<handt::position>;
 
@@ -47,8 +48,8 @@ int main() {
 
   // Get refreshed positions and review
   const auto &reviewed =
-       review(handt::get_refreshed_positions(), handt::get_timestamp(),
-              handt::sell_threshold, handt::cut_losses_threshold);
+      review(handt::get_refreshed_positions(), handt::get_timestamp(),
+             handt::sell_threshold, handt::cut_losses_threshold);
 
   // Print reviewed positions
   for (const auto &position : reviewed)
