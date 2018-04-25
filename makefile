@@ -1,7 +1,7 @@
 all: source stats \
 	review.csv purge.csv prospects.csv consolidate.csv \
        	index.html endofsession \
-	autotest
+	unittest
 
 source:
 	make --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -11,11 +11,11 @@ flags=-g -Werror -Wall -Wextra -pedantic -std=gnu++14 -I include
 %.o: %.cpp
 	$(CXX) $(flags) -o $@ $<
 
-symbols.csv: symbols.py
-	./$< > $@
+symbols.csv:
+	bin/symbols.py > $@
 
-prices.csv: prices.py symbols.csv
-	./$< > $@
+prices.csv: symbols.csv
+	bin/prices.py > $@
 
 refresh.csv: refresh.o prices.csv
 	./$< > $@
@@ -63,5 +63,5 @@ coverage:
 format:
 	clang-format -i include/*.h *.cpp
 
-autotest:
+unittest:
 	make --silent --directory test

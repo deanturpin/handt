@@ -3,7 +3,7 @@
 TZ=HANDT-1 date > date.txt
 
 # Autotest results
-test/check_autotest_results.sh > autotest.txt
+bin/check_unit_test_results.sh > unit_test.txt
 
 # Git log summary
 git log -n 1 --oneline > gitlog.txt
