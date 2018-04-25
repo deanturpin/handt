@@ -1,16 +1,18 @@
-#include "handt.h"
+#include "include/handt.h"
 
-std::vector<handt::position>
-review(const std::vector<handt::position> &positions, const unsigned long &timestamp) {
+using positions = std::vector<handt::position>;
 
-  // Create a container to store the review positions
-  std::vector<handt::position> reviewed;
+// Review open positions and return an updated list with statuses updated
+positions review(const positions &open, const unsigned long &timestamp) {
 
-  // Review each position
-  for (const auto &p : positions) {
+  // Create a container to store the reviewed positions
+  positions reviewed;
+
+  // Review each open position
+  for (const auto &p : open) {
 
     // Create a copy of the position
-    handt::position position(p);
+    auto position = p;
 
     // Mark old position for deletion if it has expired
     if (timestamp - position.timestamp > (60 * 60 * 24)) {

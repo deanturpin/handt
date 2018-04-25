@@ -1,5 +1,5 @@
-#include "handt.h"
-#include "strategy.h"
+#include "include/handt.h"
+#include "include/strategy.h"
 #include <iostream>
 #include <sstream>
 #include <vector>
