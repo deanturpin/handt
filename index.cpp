@@ -165,6 +165,8 @@ int main() {
 
   // Print open Coinbase positions
   std::stringstream open_pos;
+  open_pos.precision(2);
+  open_pos << std::fixed;
   for (const auto &position : coinbase_open)
     open_pos << position.symbol << '\t' << position.yield() * 100.0 << '\t'
         << position.strategy << '\t' << position.buy_price << '\t'
@@ -180,6 +182,8 @@ int main() {
 
   // Print succesful strategy summary for all coins
   std::stringstream allcoins_summary;
+  allcoins_summary.precision(2);
+  allcoins_summary << std::fixed;
   for (const auto &strategy : all_coins)
     if (strategy.average_yield() > handt::sell_threshold)
       allcoins_summary << strategy.name << '\t' << strategy.returns.size() << '\t'
