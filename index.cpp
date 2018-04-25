@@ -40,7 +40,7 @@ int main() {
       {"SYMBOLS", std::to_string(symbols)},
       {"GITLOG", handt::get_git_log()},
       {"MINUTES", std::to_string(symbols / batch_size)},
-      {"SELL", std::to_string(
+      {"SELL_THRESHOLD", std::to_string(
                    static_cast<unsigned long>(handt::sell_threshold * 100.0))},
       {"CUT", std::to_string(static_cast<unsigned long>(
                   handt::cut_losses_threshold * 100.0))}};
