@@ -25,7 +25,7 @@ int main() {
   std::string index = handt::get_index_html();
 
   // Wrapper functor for in-place regex substitution
-  const auto subst = [](std::string &in, const std::string &token,
+  const auto substitute_inline = [](std::string &in, const std::string &token,
                         const std::string &value) {
     const auto out = std::regex_replace(in, std::regex(token), value);
     in = out;
@@ -47,7 +47,7 @@ int main() {
 
   // Replace all tokens
   for (const auto &t : tokens)
-    subst(index, t.first, t.second);
+    substitute_inline(index, t.first, t.second);
 
   // Structure for reporting strategy performance
   struct strategy_summary {
@@ -173,12 +173,12 @@ int main() {
              << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
              << '\n';
 
-  subst(index, "COINBASE_OPEN", open_pos.str());
+  substitute_inline(index, "COINBASE_OPEN", open_pos.str());
 
   std::stringstream open_and_closed;
   open_and_closed << open.size() << " open positions, " << closed.size()
                   << " closed\n\n";
-  subst(index, "POSITIONS", open_and_closed.str());
+  substitute_inline(index, "POSITIONS", open_and_closed.str());
 
   // Print succesful strategy summary for all coins
   std::stringstream allcoins_summary;
@@ -190,7 +190,7 @@ int main() {
                        << '\t' << 100.0 * strategy.average_yield() << "\t\t"
                        << strategy.symbol_list() << '\n';
 
-  subst(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
+  substitute_inline(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
   // Print strategy summary for Coinbase coins
   std::stringstream coinbase_summary;
@@ -202,7 +202,7 @@ int main() {
                        << '\t' << 100.0 * strategy.average_yield() << "\t\t"
                        << strategy.symbol_list() << '\n';
 
-  subst(index, "COINBASE_STRATEGY", coinbase_summary.str());
+  substitute_inline(index, "COINBASE_STRATEGY", coinbase_summary.str());
 
   // Print populated template
   out << index;
