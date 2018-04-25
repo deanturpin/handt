@@ -1,57 +1,57 @@
-GBX	6.99667 5.00_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-EBC	0.01293 5.00_stepping_down 5.00_old_above_new 
-WPR	0.0994967 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-ECA	6.99067e-05 5.00_stepping_down 5.00_old_above_new 
-COB	0.0715167 5.00_flicking_down 10.0_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 
-XIN	0.01307 5.00_flicking_up 10.0_flicking_up 20.0_flicking_up 30.0_flicking_up 5.00_stepping_up 10.0_stepping_up 20.0_stepping_up 30.0_stepping_up 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 5.00_average_comp 10.0_average_comp 20.0_average_comp 30.0_average_comp 
-888	0.00244667 5.00_flicking_down 10.0_flicking_down 5.00_stepping_down 5.00_old_above_new 
-EBST	0.103467 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-CON	0.00365867 5.00_flicking_down 10.0_flicking_down 20.0_flicking_down 5.00_stepping_down 10.0_stepping_down 20.0_stepping_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 
-ICOB	0.0009787 5.00_flicking_down 10.0_flicking_down 5.00_stepping_down 10.0_stepping_down 20.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-UTT	0.3109 5.00_stepping_down 5.00_old_above_new 
-PTOY	0.0996133 5.00_flicking_down 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-KLC	0.00146833 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-XVP	0.01328 5.00_flicking_down 10.0_flicking_down 5.00_stepping_down 5.00_old_above_new 
-SPT	0.00386833 5.00_flicking_up 5.00_stepping_up 10.0_stepping_up 5.00_new_above_old 10.0_new_above_old 5.00_average_inter 5.00_average_comp 
-BSTY	0.00946067 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-GRS	0.288667 5.00_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
+GBX	6.99667 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+EBC	0.01293 5.00_old_above_new 5.00_stepping_down 
+WPR	0.0994967 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+ECA	6.99067e-05 5.00_old_above_new 5.00_stepping_down 
+COB	0.0715167 5.00_flicking_down 10.0_flicking_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+XIN	0.01307 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 5.00_average_comp 10.0_average_comp 20.0_average_comp 30.0_average_comp 5.00_flicking_up 10.0_flicking_up 20.0_flicking_up 30.0_flicking_up 5.00_stepping_up 10.0_stepping_up 20.0_stepping_up 30.0_stepping_up 
+888	0.00244667 5.00_flicking_down 10.0_flicking_down 5.00_old_above_new 5.00_stepping_down 
+EBST	0.103467 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+CON	0.00365867 5.00_flicking_down 10.0_flicking_down 20.0_flicking_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 5.00_stepping_down 10.0_stepping_down 20.0_stepping_down 
+ICOB	0.0009787 5.00_flicking_down 10.0_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 20.0_stepping_down 
+UTT	0.3109 5.00_old_above_new 5.00_stepping_down 
+PTOY	0.0996133 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+KLC	0.00146833 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+XVP	0.01328 5.00_flicking_down 10.0_flicking_down 5.00_old_above_new 5.00_stepping_down 
+SPT	0.00386833 5.00_new_above_old 10.0_new_above_old 5.00_average_inter 5.00_average_comp 5.00_flicking_up 5.00_stepping_up 10.0_stepping_up 
+BSTY	0.00946067 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+GRS	0.288667 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
 CRM	0.0204833 5.00_new_above_old 10.0_new_above_old 
-EDGE	0.00692067 5.00_stepping_down 5.00_old_above_new 
-EREAL	0.0004664 5.00_flicking_up 10.0_flicking_up 20.0_flicking_up 5.00_stepping_up 10.0_stepping_up 20.0_stepping_up 30.0_stepping_up 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 5.00_average_inter 5.00_average_comp 10.0_average_comp 
+EDGE	0.00692067 5.00_old_above_new 5.00_stepping_down 
+EREAL	0.0004664 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 5.00_average_inter 5.00_average_comp 10.0_average_comp 5.00_flicking_up 10.0_flicking_up 20.0_flicking_up 5.00_stepping_up 10.0_stepping_up 20.0_stepping_up 30.0_stepping_up 
 UFR	0.165367 5.00_flicking_down 5.00_old_above_new 
-NICE	0.00580267 5.00_stepping_down 5.00_old_above_new 
-ZSC	0.0119767 5.00_stepping_down 5.00_old_above_new 
-300	415.39 5.00_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 
+NICE	0.00580267 5.00_old_above_new 5.00_stepping_down 
+ZSC	0.0119767 5.00_old_above_new 5.00_stepping_down 
+300	415.39 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
 NMS	0.873133 5.00_stepping_down 
-IETH	0.01518 5.00_flicking_down 10.0_flicking_down 5.00_stepping_down 10.0_stepping_down 20.0_stepping_down 30.0_stepping_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 
-CBC	6.99067e-05 5.00_stepping_down 5.00_old_above_new 
-EBTC	0.232633 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-PGL	0.00584467 5.00_stepping_down 5.00_old_above_new 
-OS76	0.0298533 5.00_stepping_down 5.00_old_above_new 
+IETH	0.01518 5.00_flicking_down 10.0_flicking_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 5.00_stepping_down 10.0_stepping_down 20.0_stepping_down 30.0_stepping_down 
+CBC	6.99067e-05 5.00_old_above_new 5.00_stepping_down 
+EBTC	0.232633 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+PGL	0.00584467 5.00_old_above_new 5.00_stepping_down 
+OS76	0.0298533 5.00_old_above_new 5.00_stepping_down 
 CLAM	3.22333 5.00_old_above_new 
-WCT	0.862 5.00_flicking_down 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-UNIT	0.751067 5.00_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-PROC	0.0150333 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-APEX	0.009008 5.00_stepping_down 5.00_old_above_new 
-QCN	0.00698333 5.00_stepping_down 5.00_old_above_new 
+WCT	0.862 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+UNIT	0.751067 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+PROC	0.0150333 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+APEX	0.009008 5.00_old_above_new 5.00_stepping_down 
+QCN	0.00698333 5.00_old_above_new 5.00_stepping_down 
 BCN	0.002242 5.00_old_above_new 
-ETN	0.0205133 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-RIPO	0.00698333 5.00_stepping_down 5.00_old_above_new 
-HGT	0.0244867 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 
-TAG	0.0412467 5.00_stepping_down 5.00_old_above_new 
-CANN	0.0327467 5.00_flicking_down 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-ARDR	0.222433 5.00_stepping_down 5.00_old_above_new 
+ETN	0.0205133 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+RIPO	0.00698333 5.00_old_above_new 5.00_stepping_down 
+HGT	0.0244867 5.00_old_above_new 5.00_stepping_down 10.0_stepping_down 
+TAG	0.0412467 5.00_old_above_new 5.00_stepping_down 
+CANN	0.0327467 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+ARDR	0.222433 5.00_old_above_new 5.00_stepping_down 
 IDH	0.06974 5.00_old_above_new 10.0_old_above_new 
-SSD	0.00216467 5.00_stepping_down 5.00_old_above_new 
+SSD	0.00216467 5.00_old_above_new 5.00_stepping_down 
 XWC	0.06925 5.00_old_above_new 
-DGD	239.94 5.00_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-QBT	0.002792 5.00_flicking_down 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-POT	0.08536 5.00_flicking_down 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
-RATIO	0.000977133 5.00_stepping_down 5.00_old_above_new 10.0_old_above_new 
+DGD	239.94 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+QBT	0.002792 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+POT	0.08536 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
+RATIO	0.000977133 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 
 FUZZ	0.0167533 5.00_flicking_down 10.0_flicking_down 20.0_flicking_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 
-OTX	0.0272233 5.00_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 
-WSX	0.00335033 5.00_flicking_down 5.00_stepping_down 10.0_stepping_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 
-NXTI	0.256233 5.00_stepping_down 5.00_old_above_new 
-CAT	0.610767 5.00_flicking_up 10.0_flicking_up 5.00_stepping_up 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 
-LNC	0.07497 5.00_flicking_up 10.0_flicking_up 20.0_flicking_up 30.0_flicking_up 5.00_ski_jumping 5.00_stepping_down 5.00_koskosovich 10.0_koskosovich 20.0_koskosovich 30.0_koskosovich 5.00_roll_average 10.0_roll_average 20.0_roll_average 30.0_roll_average 5.00_roll_average2 10.0_roll_average2 20.0_roll_average2 30.0_roll_average2 5.00_roll_average3 10.0_roll_average3 20.0_roll_average3 30.0_roll_average3 5.00_roll_average4 10.0_roll_average4 20.0_roll_average4 30.0_roll_average4 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 
-GIVE	0.0002792 5.00_stepping_down 5.00_old_above_new 
+OTX	0.0272233 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+WSX	0.00335033 5.00_flicking_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+NXTI	0.256233 5.00_old_above_new 5.00_stepping_down 
+CAT	0.610767 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 5.00_flicking_up 10.0_flicking_up 5.00_stepping_up 
+LNC	0.07497 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 30.0_new_above_old 5.00_ski_jumping 5.00_roll_average 10.0_roll_average 20.0_roll_average 30.0_roll_average 5.00_rolling_average2 10.0_rolling_average2 20.0_rolling_average2 30.0_rolling_average2 5.00_koskosovich 10.0_koskosovich 20.0_koskosovich 30.0_koskosovich 5.00_roll_average4 10.0_roll_average4 20.0_roll_average4 30.0_roll_average4 5.00_flicking_up 10.0_flicking_up 20.0_flicking_up 30.0_flicking_up 5.00_stepping_down 5.00_roll_average3 10.0_roll_average3 20.0_roll_average3 30.0_roll_average3 
+GIVE	0.0002792 5.00_old_above_new 5.00_stepping_down 

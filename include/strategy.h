@@ -53,22 +53,24 @@ struct strategy_details {
   std::function<bool(series, param)> buy;
 };
 
-// const std::map<std::string, std::function<bool(series, param)>> library{
+bool find_and_run_strategy(const std::string name, series s, param p);
 const std::vector<strategy_details> library{
 
-    // [](series s, param p) {
-    //   const auto name = NAME("steady_down", p);
-    //   const bool exec = flicking_down(s, p).second && steady_riser(s,
-    //   p).second;
-    //   return result(name, exec);
-    // },
+    // The most recent price is significantly above the oldest
+    {"new_above_old",
+     [](series s, param p) { return s.back() / s.front() > THRESHOLD(p); }},
 
-    // result ski_jumping(series s, param p) {
-    //   const auto name = NAME("ski_jumping", p);
-    //   const bool exec = stepping_down(s, p).second && flicking_up(s,
-    //   p).second;
-    //   return result(name, exec);
-    // }
+    {"steady_down",
+     [](series s, param p) {
+       return find_and_run_strategy("flicking_down", s, p) &&
+              find_and_run_strategy("steady_riser", s, p);
+     }},
+
+    {"ski_jumping",
+     [](series s, param p) {
+       return find_and_run_strategy("stepping_down", s, p) &&
+              find_and_run_strategy("flicking_up", s, p);
+     }},
 
     {"flicking_down",
      [](series s, param p) { return AVERAGE(s) / SPOT(s) > THRESHOLD(p); }},
@@ -122,10 +124,6 @@ const std::vector<strategy_details> library{
     {"old_above_new",
      [](series s, param p) { return s.front() / s.back() > THRESHOLD(p); }},
 
-    // The most recent price is significantly above the oldest
-    {"new_above_old",
-     [](series s, param p) { return s.back() / s.front() > THRESHOLD(p); }},
-
     {"roll_average4",
      [](series s, param p) {
        const unsigned long length = 200;
@@ -163,29 +161,33 @@ const std::vector<strategy_details> library{
        return SPOT(s) / average > THRESHOLD(p);
      }},
 
-    // [](series s, param p) {
-    //   const auto name = NAME("steady_rising2", p);
-    //   const bool a = steady_riser(s, p).second;
-    //   const bool b = new_above_old(s, p).second;
-    //   const bool exec = a && b;
-    //   return result(name, exec);
-    // },
+    {"steady_rising2",
+     [](series s, param p) {
+       return find_and_run_strategy("steady_riser", s, p) &&
+              find_and_run_strategy("new_above_old", s, p);
+     }},
 
-    // [](series s, param p) {
-    //   const auto name = NAME("steady_riser", p);
+    // Check if the next value is larger than the current
+    {"steady_riser",
+     [](series s, param p) {
+       unsigned long trend = 0;
+       for (auto i = s.cbegin(); i != std::prev(s.cend()); ++i)
+         if (*i < *std::next(i))
+           ++trend;
 
-    //   // Check if the next value is larger than the current
-    //   unsigned long trend = 0;
-    //   for (auto i = s.cbegin(); i != std::prev(s.cend()); ++i)
-    //     if (*i < *std::next(i))
-    //       ++trend;
-
-    //   // Execute if a significant proportion of intervals are increasing
-    //   const bool exec = trend > (s.size() / 2) + p;
-    //   return result(name, exec);
-    // }
+       // Execute if a significant proportion of intervals are increasing
+       return trend > (s.size() / 2) + p;
+     }},
 
 };
+
+bool find_and_run_strategy(const std::string name, series s, param p) {
+
+  const auto it = find_if(library.cbegin(), library.cend(),
+                          [&name](const auto &s) { return s.name == name; });
+
+  return (it != library.cend() ? it->buy(s, p) : false);
+}
 
 // Return a list of the strategy names that reported "buy" for the series of
 // prices given
