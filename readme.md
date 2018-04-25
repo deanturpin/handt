@@ -1,5 +1,6 @@
+[![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
 [![Coverage Status](https://coveralls.io/repos/github/deanturpin/handt/badge.svg)](https://coveralls.io/github/deanturpin/handt)
-
+  
 **Have A Nice Day Trader** is an automated algorithmic trading platform. It
 takes a list of currency symbols, requests prices for each, runs a library of
 strategies and generates a web page summary of positions. The positions are
@@ -38,18 +39,15 @@ A cron job can be simulated locally by running ```make cron``` before pushing to
 GitHub. But if the job fails unexpectedly I soon receive an email from the cron
 daemon alerting me to the error.
 
-# Exchanges
-Intuitively it feels you will respond to market changes quicker the more
-frequently you request prices. But Coinbase and CryptoCompare don't publish
-updates more often than once per minute. CryptoCompare also has some rate
-limiting so 80 requests&mdash;each for a different coin&mdash;seems a good
-compromise.
+The web page is created from an [HTML template](include/index.html). The template contains keywords which are substituted for current data.
 
-## CryptoCompare API
-```bash
-curl
-'https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=USD&limit=168&aggregate=1&e=CCCAGG'
+```html
+<h1>Have A Nice Day Trader <small>DATE</small></h1>
 ```
+
+# Exchanges
+Intuitively it feels that requesting prices more often will make the softwrae more responsive to market changes. But Coinbase and CryptoCompare actually don't publish updates more often than once per minute. CryptoCompare also has API request rate
+limiting so 80 requests per minute (for different currencies) seems a good compromise in practice.
 
 # Heading towards a strategy definition language
 The current strategy definition makes use of a library of techniques.
