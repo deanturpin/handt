@@ -11,6 +11,11 @@ strategies and generates a web page summary of positions. The positions are
 ```bash
 clone https://github.com/deanturpin/handt
 cd handt
+make
+```
+
+Build update to fetch fresh prices.
+```bash
 make update
 ```
 
