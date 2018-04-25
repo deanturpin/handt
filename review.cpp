@@ -3,7 +3,9 @@
 using positions = std::vector<handt::position>;
 
 // Review open positions and return an updated list with statuses updated
-positions review(const positions &open, const unsigned long &timestamp) {
+positions review(const positions &open, const unsigned long &timestamp,
+                 const double &sell_threshold,
+                 const double &cut_losses_threshold) {
 
   // Create a container to store the reviewed positions
   positions reviewed;
@@ -21,13 +23,13 @@ positions review(const positions &open, const unsigned long &timestamp) {
     }
 
     // Or check if it's ready to cash in
-    else if (position.yield() > handt::sell_threshold) {
+    else if (position.yield() > sell_threshold) {
       position.status = "maturity";
       position.open = false;
     }
 
     // Or cut our losses
-    else if (position.yield() < handt::cut_losses_threshold) {
+    else if (position.yield() < cut_losses_threshold) {
       position.status = "cut_loss";
       position.open = false;
     }
@@ -43,10 +45,12 @@ positions review(const positions &open, const unsigned long &timestamp) {
 
 int main() {
 
-  // Get latest positions
-  const auto &positions = handt::get_refreshed_positions();
+  // Get refreshed positions and review
+  const auto &reviewed =
+       review(handt::get_refreshed_positions(), handt::get_timestamp(),
+              handt::sell_threshold, handt::cut_losses_threshold);
 
-  // Dump review positions
-  for (const auto &position : review(positions, handt::get_timestamp()))
+  // Print reviewed positions
+  for (const auto &position : reviewed)
     std::cout << position << '\n';
 }
