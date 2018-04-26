@@ -57,9 +57,6 @@ cron:
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
 
-coverage:
-	bin/kcov.sh
-
 format:
 	clang-format -i include/*.h *.cpp
 

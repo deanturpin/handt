@@ -1,4 +1,7 @@
-autotest: source
+
+all: unit_test
+
+unit_test: source
 	echo 10 > stats.txt
 	../refresh.o > refresh2.csv
 	../review.o > review2.csv
@@ -8,3 +11,6 @@ autotest: source
 
 source:
 	make -C ../ $@
+
+coverage:
+	../bin/kcov.sh

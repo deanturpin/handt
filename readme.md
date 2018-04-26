@@ -24,6 +24,13 @@ make update
 The code is intended to run periodically on a web server. Travis builds are
 invoked on commit and Coveralls reports are generated on demand.
 
+To upload coverage:
+```bash
+export COVERALLS_ID=XXXX
+cd test
+make coverage
+```
+
 # C++
 The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
 to LLVM's coding standard by virtue of periodic runs of ```clang-format```
