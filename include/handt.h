@@ -144,7 +144,7 @@ std::string get_text_file(const std::string &name) {
 std::string get_index_html() { return get_text_file("include/index.html"); }
 std::string get_git_log() { return get_text_file("gitlog.txt"); }
 std::string get_date() { return get_text_file("date.txt"); }
-std::string get_unittest() { return get_text_file("autotest.txt"); }
+std::string get_unit_test_results() { return get_text_file("unit_test.txt"); }
 }
 
 #endif

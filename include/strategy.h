@@ -49,7 +49,7 @@ struct strategy_details {
 };
 
 bool find_and_run_strategy(const std::string name, series s, param p);
-const std::vector<strategy_details> strategy_library {
+const std::vector<strategy_details> strategy_library{
 
     // The most recent price is significantly above the oldest
     {"new_above_old",
@@ -162,8 +162,7 @@ const std::vector<strategy_details> strategy_library {
      }},
 
     // Check if the next value is larger than the current
-    {"steady_riser",
-     [](series s, param p) {
+    {"steady_riser", [](series s, param p) {
        unsigned long trend = 0;
        for (auto i = s.cbegin(); i != std::prev(s.cend()); ++i)
          if (*i < *std::next(i))
@@ -171,8 +170,7 @@ const std::vector<strategy_details> strategy_library {
 
        // Execute if a significant proportion of intervals are increasing
        return trend > (s.size() / 2) + p;
-     }}
-};
+     }}};
 
 // Helper routine to find a strategy by name, used in the strategy library
 // itself to reference and call other strategies

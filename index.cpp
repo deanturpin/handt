@@ -17,7 +17,7 @@ int main() {
 
   // Get some data to play with
   const auto &open = handt::get_final_positions();
-  const auto &closed = handt::get_closed_positions();
+  const auto &closed_positions = handt::get_closed_positions();
   const auto &symbols = handt::get_symbols().size();
   const unsigned long batch_size = 80UL;
 
@@ -35,7 +35,7 @@ int main() {
   const std::map<std::string, std::string> tokens{
       {"STATS", std::to_string(handt::get_stats())},
       {"DATE", handt::get_date()},
-      {"UNITTEST", handt::get_unittest()},
+      {"UNIT_TEST", handt::get_unit_test_results()},
       {"BATCH", std::to_string(batch_size)},
       {"SYMBOLS", std::to_string(symbols)},
       {"GITLOG", handt::get_git_log()},
@@ -54,7 +54,6 @@ int main() {
     std::string name;
     double yield;
     std::vector<double> returns;
-    std::map<std::string, unsigned long> symbols;
 
     // Calculate average yield of all the positions created by current strategy
     double average_yield() const {
@@ -62,94 +61,69 @@ int main() {
                              [](auto &sum, const auto &y) { return sum + y; }) /
              (returns.size() > 0 ? returns.size() : 1);
     }
-
-    // Return list of symbols that matured under current strategy
-    std::string symbol_list() const {
-
-      std::stringstream symbol_string;
-      for (const auto &symbol : symbols)
-        symbol_string << symbol.first << ' ';
-
-      return symbol_string.str();
-    }
   };
 
   // Iterate over all closed positions and create strategy summary
-  std::vector<strategy_summary> all_coins;
-  for (const auto &position : closed) {
+  std::vector<strategy_summary> all_coins_strategy_summary;
+  for (const auto &position : closed_positions) {
     const auto strategy = position.strategy;
-    const auto it =
-        find_if(all_coins.begin(), all_coins.end(),
-                [&strategy](const auto &s) { return strategy == s.name; });
+    const auto it = find_if(
+        all_coins_strategy_summary.begin(), all_coins_strategy_summary.end(),
+        [&strategy](const auto &s) { return strategy == s.name; });
 
-    // If strategy record doesn't exist, create a new one and insert it
-    if (it == all_coins.end()) {
+    // If strategy record doesn't exist, create a new one and insert it,
+    // otherwise just update the position count
+    if (it == all_coins_strategy_summary.end()) {
+
       strategy_summary strat;
       strat.name = strategy;
       strat.returns.push_back(position.yield());
+      all_coins_strategy_summary.emplace_back(strat);
 
-      // Only store symbol if it's matured
-      // if (position.yield() > handt::sell_threshold)
-        // strat.symbols[position.symbol] = 1;
-
-      all_coins.emplace_back(strat);
-    } else {
-      // Otherwise just update the position count
+    } else
       it->returns.push_back(position.yield());
-
-      // Only store symbol if it's matured
-      // if (position.yield() > handt::sell_threshold)
-        // ++it->symbols[position.symbol];
-    }
   }
 
   // Iterate over Coinbase closed positions and create strategy summary
-  std::vector<strategy_summary> coinbase;
-  for (const auto &position : closed) {
+  std::vector<strategy_summary> coinbase_strategy_summary;
+  for (const auto &position : closed_positions) {
 
     // We're only interested in currency you can buy on Coinbase
     if (position.symbol == "ETH" || position.symbol == "BTC" ||
         position.symbol == "BCH" || position.symbol == "LTC") {
 
       const auto strategy = position.strategy;
-      const auto it =
-          find_if(coinbase.begin(), coinbase.end(),
-                  [&strategy](const auto &s) { return strategy == s.name; });
+      const auto it = find_if(
+          coinbase_strategy_summary.begin(), coinbase_strategy_summary.end(),
+          [&strategy](const auto &s) { return strategy == s.name; });
 
-      // If strategy record doesn't exist, create a new one and insert it
-      if (it == coinbase.end()) {
+      // If strategy record doesn't exist, create a new one and insert it,
+      // otherwise just update the position count
+      if (it == coinbase_strategy_summary.end()) {
 
         strategy_summary strat;
         strat.name = strategy;
         strat.returns.push_back(position.yield());
+        coinbase_strategy_summary.emplace_back(strat);
 
-        // Only store symbol if it's matured
-        if (position.yield() > handt::sell_threshold)
-          strat.symbols[position.symbol] = 1;
-
-        coinbase.emplace_back(strat);
-      } else {
-        // Otherwise just update the position count
+      } else
         it->returns.push_back(position.yield());
-
-        // Only store symbol if it's matured
-        if (position.yield() > handt::sell_threshold)
-          ++it->symbols[position.symbol];
-      }
     }
   }
 
-  // Sort strategy summaries by number of positions - an indicator of confidence
-  // in the return: a high yield with few closed positions suggests a low
-  // confidence
-  std::sort(all_coins.begin(), all_coins.end(),
-            [](const auto &a, const auto &b) {
+  // Sort all coins strategy summary by number of positions - an indicator of
+  // confidence in the return: a high yield with few closed positions suggests a
+  // low confidence
+  std::sort(all_coins_strategy_summary.begin(),
+            all_coins_strategy_summary.end(), [](const auto &a, const auto &b) {
               return a.returns.size() > b.returns.size();
             });
 
-  std::sort(coinbase.begin(), coinbase.end(), [](const auto &a, const auto &b) {
-    return a.returns.size() > b.returns.size();
-  });
+  // Sort Coinbase strategy cummary
+  std::sort(coinbase_strategy_summary.begin(), coinbase_strategy_summary.end(),
+            [](const auto &a, const auto &b) {
+              return a.returns.size() > b.returns.size();
+            });
 
   // Extract open Coinbase positions
   std::vector<handt::position> coinbase_open;
@@ -169,26 +143,26 @@ int main() {
   open_pos << std::fixed;
   for (const auto &position : coinbase_open)
     open_pos << position.symbol << '\t' << position.yield() * 100.0 << '\t'
-             << position.strategy << '\t' << position.buy_price << '\t'
+             << position.strategy << '\t' << position.buy_price << "\t\t"
              << 24.0 - (handt::get_timestamp() - position.timestamp) / 3600.0
              << '\n';
 
   substitute_inline(index, "COINBASE_OPEN", open_pos.str());
 
+  // Open and closed positions
   std::stringstream open_and_closed;
-  open_and_closed << open.size() << " open positions, " << closed.size()
-                  << " closed\n\n";
+  open_and_closed << open.size() << " open positions, "
+                  << closed_positions.size() << " closed\n\n";
   substitute_inline(index, "POSITIONS", open_and_closed.str());
 
   // Print succesful strategy summary for all coins
   std::stringstream allcoins_summary;
   allcoins_summary.precision(2);
   allcoins_summary << std::fixed;
-  for (const auto &strategy : all_coins)
+  for (const auto &strategy : all_coins_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
       allcoins_summary << strategy.name << '\t' << strategy.returns.size()
-                       << '\t' << 100.0 * strategy.average_yield() << "\t\t"
-                       << strategy.symbol_list() << '\n';
+                       << '\t' << 100.0 * strategy.average_yield() << '\n';
 
   substitute_inline(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
@@ -196,11 +170,10 @@ int main() {
   std::stringstream coinbase_summary;
   coinbase_summary.precision(2);
   coinbase_summary << std::fixed;
-  for (const auto &strategy : coinbase)
+  for (const auto &strategy : coinbase_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
       coinbase_summary << strategy.name << '\t' << strategy.returns.size()
-                       << '\t' << 100.0 * strategy.average_yield() << "\t\t"
-                       << strategy.symbol_list() << '\n';
+                       << '\t' << 100.0 * strategy.average_yield() << '\n';
 
   substitute_inline(index, "COINBASE_STRATEGY", coinbase_summary.str());
 
