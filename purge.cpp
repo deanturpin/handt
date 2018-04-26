@@ -16,11 +16,9 @@ int main() {
                [](const auto &position) { return position.open; });
 
   // Print remaining positions
-  std::stringstream out;
   for (const auto &position : open_positions)
-    out << position << '\n';
+    std::cout << position << '\n';
 
-  out << "# " << reviewed_positions.size() << " reviewed positions\n";
-  out << "# " << open_positions.size() << " open positions\n";
-  std::cout << out.str();
+  std::cout << "# " << reviewed_positions.size() << " reviewed positions\n";
+  std::cout << "# " << open_positions.size() << " open positions\n";
 }
