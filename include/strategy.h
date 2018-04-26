@@ -12,7 +12,6 @@
 namespace lft {
 
 // Parameteric aliases to make the strategy definitions cleaner
-using result = std::pair<std::string, bool>;
 using series = const std::vector<double>;
 using param = const double &;
 
@@ -38,10 +37,6 @@ double RECENT_AVERAGE(series s) {
   const unsigned long mid_point = s.size() / 2;
   const std::vector<double> subset(s.crbegin(), next(s.crbegin(), mid_point));
   return AVERAGE(subset);
-}
-
-std::string NAME(const std::string n, param p) {
-  return std::to_string(p).substr(0, 4) + "_" + n;
 }
 
 double THRESHOLD(param p) { return (100.0 + p) / 100.0; }
@@ -115,7 +110,6 @@ const std::vector<strategy_details> library{
 
     {"koskosovich",
      [](series s, param p) {
-       // const auto name = NAME("koskosovich", p);
        const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));
        return SPOT(s) / (high > 0 ? high : 1) > THRESHOLD(p);
      }},
@@ -205,6 +199,10 @@ auto run_strategies(series s) {
     return unique_values.size() > 100;
   };
 
+  const auto construct_name = [](const std::string n, param p) {
+    return std::to_string(p).substr(0, 4) + "_" + n;
+  };
+
   // Return potential prospects
   std::vector<std::string> prospects;
 
@@ -213,7 +211,7 @@ auto run_strategies(series s) {
     for (const auto &strat : library)
       for (const auto &t : {5.0, 10.0, 20.0, 30.0})
         if (strat.buy(s, t))
-          prospects.push_back(NAME(strat.name, t));
+          prospects.push_back(construct_name(strat.name, t));
 
   return prospects;
 }
