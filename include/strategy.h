@@ -171,8 +171,7 @@ const std::vector<strategy_details> library{
 
        // Execute if a significant proportion of intervals are increasing
        return trend > (s.size() / 2) + p;
-     }},
-
+     }}
 };
 
 bool find_and_run_strategy(const std::string name, series s, param p) {
