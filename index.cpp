@@ -89,8 +89,8 @@ int main() {
       strat.returns.push_back(position.yield());
 
       // Only store symbol if it's matured
-      if (position.yield() > .90) // handt::sell_threshold)
-        strat.symbols[position.symbol] = 1;
+      // if (position.yield() > handt::sell_threshold)
+        // strat.symbols[position.symbol] = 1;
 
       all_coins.emplace_back(strat);
     } else {
@@ -98,8 +98,8 @@ int main() {
       it->returns.push_back(position.yield());
 
       // Only store symbol if it's matured
-      if (position.yield() > handt::sell_threshold)
-        ++it->symbols[position.symbol];
+      // if (position.yield() > handt::sell_threshold)
+        // ++it->symbols[position.symbol];
     }
   }
 

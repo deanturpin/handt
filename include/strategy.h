@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 
-namespace lft {
+namespace strategy {
 
 // Parameteric aliases to make the strategy definitions cleaner
 using series = const std::vector<double>;
@@ -49,7 +49,7 @@ struct strategy_details {
 };
 
 bool find_and_run_strategy(const std::string name, series s, param p);
-const std::vector<strategy_details> library{
+const std::vector<strategy_details> strategy_library {
 
     // The most recent price is significantly above the oldest
     {"new_above_old",
@@ -174,17 +174,17 @@ const std::vector<strategy_details> library{
      }}
 };
 
+// Helper routine to find a strategy by name, used in the strategy library
+// itself to reference and call other strategies
 bool find_and_run_strategy(const std::string name, series s, param p) {
-
-  const auto it = find_if(library.cbegin(), library.cend(),
+  const auto it = find_if(strategy_library.cbegin(), strategy_library.cend(),
                           [&name](const auto &s) { return s.name == name; });
-
-  return (it != library.cend() ? it->buy(s, p) : false);
+  return (it != strategy_library.cend() ? it->buy(s, p) : false);
 }
 
 // Return a list of the strategy names that reported "buy" for the series of
 // prices given
-auto run_strategies(series s) {
+auto library(series s) {
 
   // Initial checks to assess viability of series
   const auto preflight_check = [](series s) {
@@ -207,7 +207,7 @@ auto run_strategies(series s) {
 
   // Test each strategy with a set of thresholds
   if (preflight_check(s))
-    for (const auto &strat : library)
+    for (const auto &strat : strategy_library)
       for (const auto &t : {5.0, 10.0, 20.0, 30.0})
         if (strat.buy(s, t))
           prospects.push_back(construct_name(strat.name, t));
