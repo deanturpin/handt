@@ -80,6 +80,33 @@ const std::vector<strategy_details> strategy_library{
        return SPOT(s) / average > THRESHOLD(p);
      }},
 
+    // Trigger if price has dropped and passed through a significant threshold
+    {"red_snapper",
+     [](series s, param p) {
+
+       const auto early = s.front();
+       const auto late = s.back();
+
+       // Don't bother with small caps
+       if (early < 1.0)
+         return false;
+
+       unsigned long threshold = 0;
+       for (const auto &mod : {1, 10, 100, 1000, 10000}) {
+
+         const unsigned long test =
+             early - (static_cast<unsigned long>(early) % mod);
+
+         if (test == 0)
+           break;
+
+         threshold = test;
+       }
+
+       return (early / late > THRESHOLD(p)) && early > threshold &&
+              late < threshold;
+     }},
+
     {"rolling_average2",
      [](series s, param p) {
        const unsigned long length = 100;
