@@ -1,5 +1,6 @@
 all: source stats \
-	review.csv purge.csv prospects.csv consolidate.csv \
+	symbols.csv prices.csv \
+	refresh.csv review.csv purge.csv prospects.csv consolidate.csv \
        	index.html endofsession \
 	unittest
 
@@ -24,27 +25,7 @@ prices.csv: symbols.csv
 	date >> $(timing)
 	@echo $@ >> $(timing)
 
-refresh.csv: refresh.o prices.csv
-	./$< > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
-
-review.csv: review.o refresh.csv
-	./$< > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
-
-purge.csv: purge.o review.o review.csv
-	./$< > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
-
-prospects.csv: prospects.o prices.csv
-	./$< > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
-
-consolidate.csv: consolidate.o review.csv prospects.csv
+%.csv : %.o
 	./$< > $@
 	date >> $(timing)
 	@echo $@ >> $(timing)
