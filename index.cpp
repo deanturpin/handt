@@ -18,7 +18,7 @@ int main() {
   const auto &open = handt::get_final_positions();
   const auto &closed_positions = handt::get_closed_positions();
   const auto &symbols = handt::get_symbols().size();
-  const unsigned long batch_size = 80UL;
+  const unsigned long batch_size = 70UL;
 
   // Get the HTML template
   std::string index = handt::get_index_html();
