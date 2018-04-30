@@ -1,9 +1,6 @@
 #include "include/handt.h"
 #include <algorithm>
 #include <iostream>
-#include <iterator>
-#include <type_traits>
-#include <vector>
 
 int main() {
 
