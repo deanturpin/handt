@@ -42,6 +42,26 @@ double RECENT_AVERAGE(series s) {
 double THRESHOLD(param p) { return (100.0 + p) / 100.0; }
 double SPOT(series s) { return (!s.empty() ? s.back() : 1.0); }
 
+// Calculate if two values are straddling a significant price
+bool STRADDLING(param p1, param p2) {
+
+  const auto minmax = std::minmax(p1, p2);
+
+  unsigned long threshold = 0;
+  for (const auto &mod : {1, 10, 100, 1000, 10000}) {
+
+    const unsigned long test =
+        minmax.second - (static_cast<unsigned long>(minmax.second) % mod);
+
+    if (test == 0)
+      break;
+
+    threshold = test;
+  }
+
+  return minmax.first < threshold && minmax.second > threshold;
+}
+
 // A strategy has a name and a buy routine
 struct strategy_details {
   std::string name;
@@ -87,24 +107,7 @@ const std::vector<strategy_details> strategy_library{
        const auto early = s.front();
        const auto late = s.back();
 
-       // Don't bother with small caps
-       if (early < 1.0)
-         return false;
-
-       unsigned long threshold = 0;
-       for (const auto &mod : {1, 10, 100, 1000, 10000}) {
-
-         const unsigned long test =
-             early - (static_cast<unsigned long>(early) % mod);
-
-         if (test == 0)
-           break;
-
-         threshold = test;
-       }
-
-       return (early / late > THRESHOLD(p)) && early > threshold &&
-              late < threshold;
+       return early / late > THRESHOLD(p) && STRADDLING(early, late);
      }},
 
     {"rolling_average2",
@@ -208,7 +211,7 @@ bool find_and_run_strategy(const std::string name, series s, param p) {
 }
 
 // Return a list of the strategy names that reported "buy" for the series of
-// prices given
+// prices supplied
 std::vector<std::string> library(series s) {
 
   // Initial checks to assess viability of series

@@ -87,7 +87,7 @@ struct coin {
 
 // Generic routine to extract a series of objects from a file and populate a
 // container
-template <typename Object> auto get_objects(const std::string file) {
+template <typename Object> auto get_objects(const std::string &file) {
 
   // Declare object to be returned
   std::vector<Object> objects;
