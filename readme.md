@@ -46,7 +46,12 @@ A cron job can be simulated locally by running ```make cron``` before pushing to
 GitHub. But if the job fails unexpectedly I soon receive an email from the cron
 daemon alerting me to the error.
 
-The web page is created from an [HTML template](include/index.html). The template contains keywords which are substituted for current data.
+```bash
+*/1 * * * * cd ~/handt && nice make CXX=g++ --silent gitpull update && cp -u index.html ~/public_html/
+```
+
+The web page is created from an [HTML template](include/index.html). The
+template contains keywords which are substituted for current data.
 
 ```html
 <h1>Have A Nice Day Trader <small>DATE</small></h1>
