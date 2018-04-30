@@ -97,6 +97,7 @@ const std::vector<strategy_details> strategy_library{
 
     {"straddler2",
      [](series s, param p) {
+       static_cast<void>(p);
        return STRADDLING(s.front(), s.back());
      }},
 
