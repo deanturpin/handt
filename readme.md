@@ -3,20 +3,20 @@
   
 **Have A Nice Day Trader** is an algorithmic trading platform. Prices are
 requested for a list of currency symbols, a library of strategies is run over
-the prices and a web page summary of strategy performance is generated. The
-positions are (notionally) closed if they exceed a sell threshold or expire
-after 24 hours.
+the prices and a web page summary of strategy performance is generated every
+minute. The positions are (notionally) closed if they exceed a sell threshold or
+expire after 24 hours.
 
 ![](doc/handt.svg)
 
 # Clone and build
 ```bash
-clone https://github.com/deanturpin/handt
+git clone https://github.com/deanturpin/handt
 cd handt
 make
 ```
 
-Build update to fetch fresh prices.
+Build "update" to fetch fresh prices.
 ```bash
 make update
 ```
@@ -39,13 +39,10 @@ over the source.
 
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
-periodically pulled from GitHub, cleaned, compiled and if successful copied into
-the web root. Modules are unit tested with each compilation and a code
-coverage tool can be run on demand.
-
-A cron job can be simulated locally by running ```make cron``` before pushing to
-GitHub. But if the job fails unexpectedly I soon receive an email from the cron
-daemon alerting me to the error.
+periodically pulled from GitHub, compiled, run and if successful the results are
+copied into the web root. Modules are unit tested with each compilation and a
+code coverage tool can be run on demand. Compilation errors discovered on the
+server are reported immediately by email.
 
 ```bash
 */1 * * * * cd ~/handt && nice make CXX=g++ --silent gitpull update && cp -u index.html ~/public_html/
