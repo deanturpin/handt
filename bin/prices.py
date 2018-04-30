@@ -3,7 +3,7 @@
 import json
 import requests
 
-batch_size = 70
+batch_size = 50
 index = 0
 
 print("# prices")
