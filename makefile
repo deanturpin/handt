@@ -38,7 +38,7 @@ index.html: index.o consolidate.csv review.csv
 endofsession:
 	cp consolidate.csv positions.csv
 
-update:
+update: clean
 	rm -f timing.txt
 	rm -f symbols.csv
 	rm -f prices.csv
