@@ -1,7 +1,7 @@
-all: source stats \
+all: source \
 	symbols.csv prices.csv \
 	refresh.csv review.csv purge.csv prospects.csv consolidate.csv \
-       	index.html endofsession \
+       	stats index.html endofsession \
 	unittest
 
 source:

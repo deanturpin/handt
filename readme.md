@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
 [![Coverage Status](https://coveralls.io/repos/github/deanturpin/handt/badge.svg)](https://coveralls.io/github/deanturpin/handt)
   
-**Have A Nice Day Trader** is an automated algorithmic trading platform. It
-takes a list of currency symbols, requests prices for each, runs a library of
-strategies and generates a web page summary of positions. The positions are
-(notionally) closed if they exceed a sell threshold or expire after 24 hours.
+**Have A Nice Day Trader** is an algorithmic trading platform. Prices are
+requested for a list of currency symbols, a library of strategies is run over
+the prices and a web page summary of strategy performance is generated. The
+positions are (notionally) closed if they exceed a sell threshold or expire
+after 24 hours.
 
 ![](doc/handt.svg)
 
@@ -61,8 +62,8 @@ template contains keywords which are substituted for current data.
 Intuitively it feels that requesting prices more often will make the softwrae
 more responsive to market changes. But Coinbase and CryptoCompare actually don't
 publish updates more often than once per minute. CryptoCompare also has API
-request rate limiting - in practice 80 requests per minute (for different
-currencies) seems a good compromise.
+request rate limiting but in practice only 50 coins can be processed per minute
+to ensure we don't clash with the next cron job.
 
 # Heading towards a strategy definition language
 The current strategy definition makes use of a library of techniques.
