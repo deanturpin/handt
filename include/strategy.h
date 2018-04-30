@@ -209,7 +209,7 @@ bool find_and_run_strategy(const std::string name, series s, param p) {
 
 // Return a list of the strategy names that reported "buy" for the series of
 // prices given
-auto library(series s) {
+std::vector<std::string> library(series s) {
 
   // Initial checks to assess viability of series
   const auto preflight_check = [](series s) {
