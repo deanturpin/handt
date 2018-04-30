@@ -4,8 +4,12 @@ all: source \
        	stats index.html endofsession \
 	unittest
 
+# Don't let make remove intermediate files
+objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+.PRECIOUS: $(objects)
+
 source:
-	make --jobs 4 $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+	make --jobs 4 $(objects)
 
 CXX=clang++
 flags=-g -O2 -Werror -Wall -Wextra -pedantic -std=gnu++14
@@ -38,10 +42,10 @@ index.html: index.o consolidate.csv review.csv
 endofsession:
 	cp consolidate.csv positions.csv
 
-update: clean
+update:
 	rm -f timing.txt
-	rm -f symbols.csv
-	rm -f prices.csv
+	rm -f prospects.csv refresh.csv symbols.csv
+	rm -f consolidate.csv prices.csv purge.csv review.csv
 	make
 
 stats:
