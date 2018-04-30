@@ -23,8 +23,8 @@ int main() {
   std::decay_t<decltype(positions)> updated_positions;
   for (auto p : handt::get_positions()) {
 
-    // If the position is open then try to find some prices,
-    // update the position and return it
+    // If the position is open then try to find some prices, update the position
+    // and return it
     if (p.open) {
       const auto q = find_prices(p.symbol);
 

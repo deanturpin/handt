@@ -2,14 +2,10 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
-#include <sstream>
 #include <type_traits>
 #include <vector>
 
 int main() {
-
-  // Configure debug
-  std::stringstream out;
 
   const auto &reviewed_positions = handt::get_purged_positions();
 
@@ -44,7 +40,5 @@ int main() {
   // Print all positions
   for (const auto &p : {reviewed_positions, new_positions})
     for (const auto &q : p)
-      out << q << "\n";
-
-  std::cout << out.str();
+      std::cout << q << "\n";
 }
