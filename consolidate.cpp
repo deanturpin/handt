@@ -37,5 +37,5 @@ int main() {
   // Print all positions
   for (const auto &p : {reviewed_positions, new_positions})
     for (const auto &q : p)
-      std::cout << q << "\n";
+      std::cout << q << '\n';
 }

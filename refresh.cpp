@@ -43,7 +43,7 @@ int main() {
 
   // Print all positions
   for (const auto position : updated_positions)
-    std::cout << position << "\n";
+    std::cout << position << '\n';
 
   std::cout << "# " << prices.size() << " prices this iteration\n";
   std::cout << "# " << total_prices_processed << " total prices processed\n";

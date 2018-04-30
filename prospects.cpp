@@ -14,10 +14,10 @@ int main() {
 
       // If some strategies have triggered then print them
       if (!buys.empty()) {
-        std::cout << p.symbol << "\t" << spot << " ";
+        std::cout << p.symbol << '\t' << spot << ' ';
         for (const auto &buy : buys)
-          std::cout << buy << " ";
-        std::cout << "\n";
+          std::cout << buy << ' ';
+        std::cout << '\n';
       }
     }
 }
