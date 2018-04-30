@@ -12,7 +12,7 @@
 namespace strategy {
 
 // Parameteric aliases to make the strategy definitions cleaner
-using series = const std::vector<double>;
+using series = const std::vector<double> &;
 using param = const double &;
 
 // Helper routines used to define strategies
