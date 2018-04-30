@@ -20,29 +20,22 @@ int main() {
 
   // Copy existing positions into a new container, updating the prices if they
   // are available
-  //
-  // TODO Use for loop
-  //
   std::decay_t<decltype(positions)> updated_positions;
-  std::transform(positions.cbegin(), positions.cend(),
-                 std::back_inserter(updated_positions),
-                 [&find_prices](const auto p) {
+  for (auto p : handt::get_positions()) {
 
-                   // Create a copy of the position
-                   std::decay_t<decltype(p)> pos(p);
+    // If the position is open then try to find some prices,
+    // update the position and return it
+    if (p.open) {
+      const auto q = find_prices(p.symbol);
 
-                   // If the position is open then try to find some prices,
-                   // update the position and return it
-                   if (p.open) {
-                     const auto q = find_prices(p.symbol);
-                     if (!q.empty()) {
-                       pos.sell_price = q.back();
-                       pos.status = "refreshd";
-                     }
-                   }
+      if (!q.empty()) {
+        p.sell_price = q.back();
+        p.status = "refreshd";
+      }
+    }
 
-                   return pos;
-                 });
+    updated_positions.emplace_back(p);
+  }
 
   // Calculate total prices processed and store it
   const auto total_prices_processed = prices.size() + handt::get_stats();
