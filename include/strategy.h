@@ -90,12 +90,12 @@ const std::vector<strategy_details> strategy_library{
     {"flicking_down",
      [](series s, param p) { return AVERAGE(s) / SPOT(s) > THRESHOLD(p); }},
 
-    {"straddler1",
+    {"straddler_1",
      [](series s, param p) {
        return find_and_run_strategy("flicking_down", s, p) && STRADDLING(s.front(), s.back());
      }},
 
-    {"straddler2",
+    {"straddler_2",
      [](series s, param p) {
        static_cast<void>(p);
        return STRADDLING(s.front(), s.back());
