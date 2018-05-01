@@ -1,4 +1,4 @@
-GBX	6.99667 5.00_flicking_down 5.00_red_snapper 10.0_red_snapper 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+GBX	6.99667 5.00_flicking_down 5.00_straddler1 5.00_straddler2 10.0_straddler2 20.0_straddler2 30.0_straddler2 5.00_red_snapper 10.0_red_snapper 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
 EBC	0.01293 5.00_old_above_new 5.00_stepping_down 
 WPR	0.0994967 5.00_old_above_new 10.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
 ECA	6.99067e-05 5.00_old_above_new 5.00_stepping_down 
@@ -21,7 +21,7 @@ EREAL	0.0004664 5.00_new_above_old 10.0_new_above_old 20.0_new_above_old 30.0_ne
 UFR	0.165367 5.00_flicking_down 5.00_old_above_new 
 NICE	0.00580267 5.00_old_above_new 5.00_stepping_down 
 ZSC	0.0119767 5.00_old_above_new 5.00_stepping_down 
-300	415.39 5.00_flicking_down 5.00_red_snapper 10.0_red_snapper 20.0_red_snapper 30.0_red_snapper 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
+300	415.39 5.00_flicking_down 5.00_straddler1 5.00_straddler2 10.0_straddler2 20.0_straddler2 30.0_straddler2 5.00_red_snapper 10.0_red_snapper 20.0_red_snapper 30.0_red_snapper 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 30.0_old_above_new 5.00_stepping_down 10.0_stepping_down 
 NMS	0.873133 5.00_stepping_down 
 IETH	0.01518 5.00_flicking_down 10.0_flicking_down 5.00_old_above_new 10.0_old_above_new 20.0_old_above_new 5.00_stepping_down 10.0_stepping_down 20.0_stepping_down 30.0_stepping_down 
 CBC	6.99067e-05 5.00_old_above_new 5.00_stepping_down 
