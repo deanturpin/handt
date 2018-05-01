@@ -5,14 +5,10 @@
 #include <numeric>
 #include <regex>
 #include <string>
+#include <sstream>
 #include <vector>
 
 int main() {
-
-  // Configure debug
-  std::stringstream out;
-  out.precision(2);
-  out << std::fixed;
 
   // Get some data to play with
   const auto &open = handt::get_final_positions();
@@ -176,8 +172,5 @@ int main() {
 
   substitute_inline(index, "COINBASE_STRATEGY", coinbase_summary.str());
 
-  // Print populated template
-  out << index;
-
-  std::cout << out.str();
+  std::cout << index;
 }
