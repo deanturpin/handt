@@ -4,10 +4,9 @@
 
 int main() {
 
-  const auto &reviewed_positions = handt::get_purged_positions();
-
-  // Store new positions in a separate container
-  std::decay_t<decltype(reviewed_positions)> new_positions;
+  // Get current positions and create a container for any new positions
+  const auto &purged_positions = handt::get_purged_positions();
+  std::decay_t<decltype(purged_positions)> new_positions;
 
   // Iterate over each new prospect to check we don't already hold a position
   for (const auto &prospect : handt::get_prospects()) {
@@ -16,13 +15,13 @@ int main() {
       // Check if we already hold an open position with this currency/strategy
       const auto symbol = prospect.symbol;
       const auto it = std::find_if(
-          reviewed_positions.cbegin(), reviewed_positions.cend(),
+          purged_positions.cbegin(), purged_positions.cend(),
           [&symbol, &strategy](const auto p) {
             return p.open && p.symbol == symbol && p.strategy == strategy;
           });
 
       // Create a position if we don't already hold one
-      if (it == reviewed_positions.cend()) {
+      if (it == purged_positions.cend()) {
 
         // Initialise position with prospect details and store it
         handt::position position;
@@ -35,7 +34,7 @@ int main() {
   }
 
   // Print all positions
-  for (const auto &p : {reviewed_positions, new_positions})
+  for (const auto &p : {purged_positions, new_positions})
     for (const auto &q : p)
       std::cout << q << '\n';
 }
