@@ -29,7 +29,7 @@ int main() {
         position.symbol = prospect.symbol;
         position.strategy = strategy;
         position.buy_price = position.sell_price = prospect.spot;
-        new_positions.push_back(position);
+        new_positions.emplace_back(position);
       }
     }
   }
