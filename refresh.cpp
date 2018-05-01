@@ -20,7 +20,7 @@ int main() {
 
   // Copy existing positions into a new container, updating the prices if they
   // are available
-  std::decay_t<decltype(positions)> updated_positions;
+  std::decay_t<decltype(positions)> refreshed_positions;
   for (auto p : handt::get_positions()) {
 
     // If the position is open then try to find some prices, update the position
@@ -34,7 +34,7 @@ int main() {
       }
     }
 
-    updated_positions.emplace_back(p);
+    refreshed_positions.emplace_back(p);
   }
 
   // Calculate total prices processed and store it
@@ -42,10 +42,10 @@ int main() {
   handt::put_stats(total_prices_processed);
 
   // Print all positions
-  for (const auto position : updated_positions)
+  for (const auto position : refreshed_positions)
     std::cout << position << '\n';
 
   std::cout << "# " << prices.size() << " prices this iteration\n";
   std::cout << "# " << total_prices_processed << " total prices processed\n";
-  std::cout << "# " << updated_positions.size() << " positions\n";
+  std::cout << "# " << refreshed_positions.size() << " positions\n";
 }
