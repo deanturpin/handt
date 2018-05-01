@@ -6,8 +6,6 @@ import requests
 batch_size = 60
 index = 0
 
-print("# prices")
-
 try:
     coinindex = open("coinindex.txt")
     index = int(coinindex.read())
@@ -42,7 +40,7 @@ for coin in wallet:
 
     # Construct URL
     url = ("https://min-api.cryptocompare.com/data/histominute?fsym="
-        + coin + "&tsym=USD&tryConversion=false")
+        + coin + "&tsym=USD&tryConversion=true")
 
     try:
         # Check the response is a good one
@@ -53,27 +51,24 @@ for coin in wallet:
             # Check the reply was good and extract the prices
             if prices["Response"] != "Error":
 
-                # Check there's been some action
-                if float(prices["Data"][0]["volumeto"]) > 0:
+                series = []
+                for spot in prices["Data"]:
 
-                    series = []
-                    for spot in prices["Data"]:
+                    # The pivot is the average of three of the prices
+                    # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
+                    pivot = (float(spot["low"])
+                        + float(spot["close"])
+                        + float(spot["high"])) / 3
 
-                        # The pivot is the average of three of the prices
-                        # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
-                        pivot = (float(spot["low"])
-                            + float(spot["close"])
-                            + float(spot["high"])) / 3
+                    series.append(pivot)
 
-                        series.append(pivot)
+                print(coin, end=" ")
+                for val in series:
+                    print(val, end=" ")
+                print("")
 
-                    print(coin, end=" ")
-                    for val in series:
-                        print(val, end=" ")
-                    print("\n# values ", len(series))
-
-                else:
-                    print("# " + coin + " no volume")
+            else:
+                print("# " + coin + " error: " + r)
 
     except Exception:
         do = "nothing"
