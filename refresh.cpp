@@ -11,7 +11,7 @@ int main() {
   const auto &positions = handt::get_positions();
 
   // Lambda to search for a symbol in the recent prices
-  auto find_prices = [&prices](const std::string symbol) {
+  const auto find_prices = [&prices](const std::string symbol) {
     const auto it =
         std::find_if(prices.cbegin(), prices.cend(),
                      [symbol](const auto p) { return p.symbol == symbol; });
@@ -21,27 +21,26 @@ int main() {
   // Copy existing positions into a new container, updating the prices if they
   // are available
   std::decay_t<decltype(positions)> refreshed_positions;
-  for (auto p : handt::get_positions()) {
-
-    // If the position is open then try to find some prices, update the position
-    // and return it
+  for (auto p : handt::get_positions())
     if (p.open) {
+
+      // If the position is open search for recent prices and update the sell
+      // price with the spot
       const auto &q = find_prices(p.symbol);
 
       if (!q.empty()) {
         p.sell_price = q.back();
         p.status = "refreshd";
       }
-    }
 
-    refreshed_positions.emplace_back(p);
-  }
+      refreshed_positions.emplace_back(p);
+    }
 
   // Calculate total prices processed and store it
   const auto total_prices_processed = prices.size() + handt::get_stats();
   handt::put_stats(total_prices_processed);
 
-  // Print all positions
+  // Report all positions
   for (const auto position : refreshed_positions)
     std::cout << position << '\n';
 
