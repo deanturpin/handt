@@ -26,7 +26,7 @@ int main() {
     // If the position is open then try to find some prices, update the position
     // and return it
     if (p.open) {
-      const auto q = find_prices(p.symbol);
+      const auto &q = find_prices(p.symbol);
 
       if (!q.empty()) {
         p.sell_price = q.back();
