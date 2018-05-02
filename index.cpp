@@ -36,9 +36,9 @@ int main() {
       {"GITLOG", handt::get_git_log()},
       {"MINUTES", std::to_string(symbols / batch_size)},
       {"SELL_THRESHOLD", std::to_string(static_cast<unsigned long>(
-            handt::sell_threshold * 100.0))},
+                             handt::sell_threshold * 100.0))},
       {"CUT", std::to_string(static_cast<unsigned long>(
-            handt::cut_losses_threshold * 100.0))}};
+                  handt::cut_losses_threshold * 100.0))}};
 
   // Replace all tokens
   for (const auto &t : tokens)
@@ -53,8 +53,7 @@ int main() {
     double average_yield() const {
       return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
                              [](auto &sum, const auto &y) { return sum + y; }) /
-        (returns.size() > 0 ? returns.size() : 1);
-
+             (returns.size() > 0 ? returns.size() : 1);
     }
 
     auto min_yield() const {
@@ -69,18 +68,15 @@ int main() {
       std::stringstream ss;
       ss.precision(2);
       ss << std::fixed;
-      ss << name << '\t' << returns.size()
-                       << '\t' << 100.0 * min_yield()
-                       << '\t' << 100.0 * average_yield()
-                       << '\t' << 100.0 * max_yield();
+      ss << name << '\t' << returns.size() << '\t' << 100.0 * min_yield()
+         << '\t' << 100.0 * average_yield() << '\t' << 100.0 * max_yield();
       return ss.str();
     }
   };
 
-
-  std::vector<yield_summary> all_coins_strategy_summary;
-  std::vector<yield_summary> coinbase_strategy_summary;
-  std::vector<yield_summary> all_coins_performance;
+  // Review all closed positions and generate some summaries
+  std::vector<yield_summary> all_coins_strategy_summary,
+      coinbase_strategy_summary, all_coins_performance;
   for (const auto &position : closed_positions) {
 
     // Iterate over Coinbase closed positions and create strategy summary
@@ -177,10 +173,8 @@ int main() {
       coinbase_open.begin(), coinbase_open.end(),
       [](const auto &a, const auto &b) { return a.timestamp > b.timestamp; });
 
-  // Print open Coinbase positions
+  // Report open Coinbase positions
   std::stringstream open_pos;
-  open_pos.precision(2);
-  open_pos << std::fixed;
   for (const auto &position : coinbase_open)
     open_pos << position.symbol << '\t' << position.yield() * 100.0 << '\t'
              << position.strategy << '\t' << position.buy_price << "\t\t"
@@ -189,22 +183,13 @@ int main() {
 
   substitute_inline(index, "COINBASE_OPEN", open_pos.str());
 
-  // Print coin performance
-  std::stringstream coin_performance;
-  open_pos.precision(2);
-  open_pos << std::fixed;
-  for (const auto &coin : all_coins_performance)
-    coin_performance << coin.report() << '\n';
-
-  substitute_inline(index, "COIN_PERFORMANCE", coin_performance.str());
-
-  // Open and closed positions
+  // Report summary of open and closed positions
   std::stringstream open_and_closed;
   open_and_closed << open.size() << " open positions, "
                   << closed_positions.size() << " closed\n\n";
   substitute_inline(index, "POSITIONS", open_and_closed.str());
 
-  // Print succesful strategy summary for all coins
+  // Report succesful strategy summary for all coins
   std::stringstream allcoins_summary;
   for (const auto &strategy : all_coins_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
@@ -213,7 +198,7 @@ int main() {
 
   substitute_inline(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
-  // Print strategy summary for Coinbase coins
+  // Report strategy summary for Coinbase coins
   std::stringstream coinbase_summary;
   for (const auto &strategy : coinbase_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
@@ -221,6 +206,13 @@ int main() {
         coinbase_summary << strategy.report() << '\n';
 
   substitute_inline(index, "COINBASE_STRATEGY", coinbase_summary.str());
+
+  // Report coin performance
+  std::stringstream coin_performance;
+  for (const auto &coin : all_coins_performance)
+    coin_performance << coin.report() << '\n';
+
+  substitute_inline(index, "COIN_PERFORMANCE", coin_performance.str());
 
   std::cout << index;
 }
