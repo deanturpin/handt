@@ -208,7 +208,8 @@ int main() {
   std::stringstream allcoins_summary;
   for (const auto &strategy : all_coins_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
-      allcoins_summary << strategy.report() << '\n';
+      if (strategy.min_yield() > handt::cut_losses_threshold)
+        allcoins_summary << strategy.report() << '\n';
 
   substitute_inline(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
@@ -216,7 +217,8 @@ int main() {
   std::stringstream coinbase_summary;
   for (const auto &strategy : coinbase_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
-      coinbase_summary << strategy.report() << '\n';
+      if (strategy.min_yield() > handt::cut_losses_threshold)
+        coinbase_summary << strategy.report() << '\n';
 
   substitute_inline(index, "COINBASE_STRATEGY", coinbase_summary.str());
 
