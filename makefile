@@ -16,34 +16,22 @@ flags=-g -O2 -Werror -Wall -Wextra -pedantic -std=gnu++14
 %.o: %.cpp
 	$(CXX) $(flags) -o $@ $<
 
-timing=timing.txt
-
 symbols.csv:
-	date > $(timing)
 	bin/symbols.py > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
 
 prices.csv: symbols.csv
 	bin/prices.py > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
 
 %.csv : %.o
 	./$< > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
 
 index.html: index.o consolidate.csv review.csv
 	./$< > $@
-	date >> $(timing)
-	@echo $@ >> $(timing)
 
 endofsession:
 	cp consolidate.csv positions.csv
 
 update:
-	rm -f timing.txt
 	rm -f prospects.csv refresh.csv symbols.csv
 	rm -f consolidate.csv prices.csv purge.csv review.csv
 	make
