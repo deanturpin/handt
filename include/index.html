@@ -5,10 +5,13 @@
 <link rel=icon href="favicon.ico" sizes="any">
 
 <script>
-setInterval(function() {
-  if (window.location.href.split("?").pop() !== "noreload")
+// Refresh the page on the first second of each minute
+onload = function(){
+  var seconds = 60 - (new Date()).getSeconds();
+  setTimeout(function() {
     window.location.reload();
-}, 60000);
+  }, seconds * 1000);
+}
 </script>
 
 <style>
@@ -71,12 +74,12 @@ SYMBOL  %       STRATEGY                BUY             SELL IN (HOURS)
 COINBASE_OPEN
 </pre>
 
-<h1>Unit test</h1>
-<pre>
-UNIT_TEST
-</pre>
-
 <h1>Coin performance</h1>
 <pre>
 COIN_PERFORMANCE
+</pre>
+
+<h1>Unit test</h1>
+<pre>
+UNIT_TEST
 </pre>
