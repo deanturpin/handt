@@ -210,7 +210,9 @@ int main() {
   // Report coin performance
   std::stringstream coin_performance;
   for (const auto &coin : all_coins_performance)
-    coin_performance << coin.report() << '\n';
+    if (coin.average_yield() > handt::sell_threshold)
+      if (coin.min_yield() > handt::cut_losses_threshold)
+        coin_performance << coin.report() << '\n';
 
   substitute_inline(index, "COIN_PERFORMANCE", coin_performance.str());
 
