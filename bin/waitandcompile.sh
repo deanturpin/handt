@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Script to compile and run a C++ file when it is saved
+
 [[ $# == 0 ]] && echo "Usage: $0 <file to watch>" && exit -1
 
 echo Wait for $1
