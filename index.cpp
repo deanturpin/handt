@@ -47,7 +47,6 @@ int main() {
   // Structure for reporting strategy performance
   struct strategy_summary {
     std::string name;
-    double yield; // TBC
     std::vector<double> returns;
 
     // Calculate average yield of all the positions created by current strategy
@@ -57,27 +56,6 @@ int main() {
              (returns.size() > 0 ? returns.size() : 1);
     }
   };
-
-  // Iterate over all closed positions and create strategy summary
-  std::vector<strategy_summary> all_coins_strategy_summary;
-  for (const auto &position : closed_positions) {
-    const auto strategy = position.strategy;
-    const auto it = find_if(
-        all_coins_strategy_summary.begin(), all_coins_strategy_summary.end(),
-        [&strategy](const auto &s) { return strategy == s.name; });
-
-    // If strategy record doesn't exist, create a new one and insert it,
-    // otherwise just update the position count
-    if (it == all_coins_strategy_summary.end()) {
-
-      strategy_summary strat;
-      strat.name = strategy;
-      strat.returns.push_back(position.yield());
-      all_coins_strategy_summary.emplace_back(strat);
-
-    } else
-      it->returns.push_back(position.yield());
-  }
 
   // Structure for reporting strategy performance
   struct coin_summary {
@@ -92,32 +70,12 @@ int main() {
     }
   };
 
-  // Iterate over all closed positions and create coins performance summary
+  std::vector<strategy_summary> all_coins_strategy_summary;
+  std::vector<strategy_summary> coinbase_strategy_summary;
   std::vector<coin_summary> all_coins_performance;
   for (const auto &position : closed_positions) {
-    const auto symbol = position.symbol;
-    const auto it = find_if(
-        all_coins_performance.begin(), all_coins_performance.end(),
-        [&symbol](const auto &p) { return symbol == p.symbol; });
 
-    // If coin record doesn't exist, create a new one and insert it
-    if (it == all_coins_performance.end()) {
-
-      coin_summary coin;
-      coin.symbol = symbol;
-      coin.returns.push_back(position.yield());
-      all_coins_performance.emplace_back(coin);
-
-    } else
-      it->returns.push_back(position.yield());
-  }
-
-
-  // Iterate over Coinbase closed positions and create strategy summary
-  std::vector<strategy_summary> coinbase_strategy_summary;
-  for (const auto &position : closed_positions) {
-
-    // We're only interested in currency you can buy on Coinbase
+    // Iterate over Coinbase closed positions and create strategy summary
     if (position.symbol == "ETH" || position.symbol == "BTC" ||
         position.symbol == "BCH" || position.symbol == "LTC") {
 
@@ -134,6 +92,45 @@ int main() {
         strat.name = strategy;
         strat.returns.push_back(position.yield());
         coinbase_strategy_summary.emplace_back(strat);
+
+      } else
+        it->returns.push_back(position.yield());
+    }
+
+    // Iterate over all closed positions and create coins performance summary
+    for (const auto &position : closed_positions) {
+      const auto symbol = position.symbol;
+      const auto it = find_if(
+        all_coins_performance.begin(), all_coins_performance.end(),
+        [&symbol](const auto &p) { return symbol == p.symbol; });
+
+      // If coin record doesn't exist, create a new one and insert it
+      if (it == all_coins_performance.end()) {
+
+        coin_summary coin;
+        coin.symbol = symbol;
+        coin.returns.push_back(position.yield());
+        all_coins_performance.emplace_back(coin);
+
+      } else
+        it->returns.push_back(position.yield());
+    }
+
+    // Iterate over all closed positions and create strategy summary
+    for (const auto &position : closed_positions) {
+      const auto strategy = position.strategy;
+      const auto it = find_if(
+        all_coins_strategy_summary.begin(), all_coins_strategy_summary.end(),
+        [&strategy](const auto &s) { return strategy == s.name; });
+
+      // If strategy record doesn't exist, create a new one and insert it,
+      // otherwise just update the position count
+      if (it == all_coins_strategy_summary.end()) {
+
+        strategy_summary strat;
+        strat.name = strategy;
+        strat.returns.push_back(position.yield());
+        all_coins_strategy_summary.emplace_back(strat);
 
       } else
         it->returns.push_back(position.yield());
