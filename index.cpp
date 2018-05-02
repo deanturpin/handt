@@ -54,6 +54,15 @@ int main() {
       return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
                              [](auto &sum, const auto &y) { return sum + y; }) /
              (returns.size() > 0 ? returns.size() : 1);
+
+    }
+
+    auto min_yield() const {
+      return *std::min_element(returns.cbegin(), returns.cend());
+    }
+
+    auto max_yield() const {
+      return *std::max_element(returns.cbegin(), returns.cend());
     }
   };
 
@@ -204,7 +213,9 @@ int main() {
   for (const auto &strategy : all_coins_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
       allcoins_summary << strategy.name << '\t' << strategy.returns.size()
-                       << '\t' << 100.0 * strategy.average_yield() << '\n';
+                       << '\t' << 100.0 * strategy.min_yield()
+                       << '\t' << 100.0 * strategy.average_yield()
+                       << '\t' << 100.0 * strategy.max_yield() << '\n';
 
   substitute_inline(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
@@ -215,7 +226,9 @@ int main() {
   for (const auto &strategy : coinbase_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
       coinbase_summary << strategy.name << '\t' << strategy.returns.size()
-                       << '\t' << 100.0 * strategy.average_yield() << '\n';
+                       << '\t' << 100.0 * strategy.min_yield()
+                       << '\t' << 100.0 * strategy.average_yield()
+                       << '\t' << 100.0 * strategy.max_yield() << '\n';
 
   substitute_inline(index, "COINBASE_STRATEGY", coinbase_summary.str());
 
