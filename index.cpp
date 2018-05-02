@@ -45,7 +45,7 @@ int main() {
     substitute_inline(index, t.first, t.second);
 
   // Structure for reporting strategy performance
-  struct strategy_summary {
+  struct yield_summary {
     std::string name;
     std::vector<double> returns;
 
@@ -66,22 +66,9 @@ int main() {
     }
   };
 
-  // Structure for reporting strategy performance
-  struct coin_summary {
-    std::string symbol;
-    std::vector<double> returns;
-
-    // Calculate average yield of all the positions created by current strategy
-    double average_yield() const {
-      return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
-                             [](auto &sum, const auto &y) { return sum + y; }) /
-             (returns.size() > 0 ? returns.size() : 1);
-    }
-  };
-
-  std::vector<strategy_summary> all_coins_strategy_summary;
-  std::vector<strategy_summary> coinbase_strategy_summary;
-  std::vector<coin_summary> all_coins_performance;
+  std::vector<yield_summary> all_coins_strategy_summary;
+  std::vector<yield_summary> coinbase_strategy_summary;
+  std::vector<yield_summary> all_coins_performance;
   for (const auto &position : closed_positions) {
 
     // Iterate over Coinbase closed positions and create strategy summary
@@ -91,13 +78,13 @@ int main() {
       const auto strategy = position.strategy;
       const auto it = find_if(
           coinbase_strategy_summary.begin(), coinbase_strategy_summary.end(),
-          [&strategy](const auto &s) { return strategy == s.name; });
+          [&strategy](const auto &p) { return strategy == p.name; });
 
       // If strategy record doesn't exist, create a new one and insert it,
       // otherwise just update the position count
       if (it == coinbase_strategy_summary.end()) {
 
-        strategy_summary strat;
+        yield_summary strat;
         strat.name = strategy;
         strat.returns.push_back(position.yield());
         coinbase_strategy_summary.emplace_back(strat);
@@ -108,16 +95,16 @@ int main() {
 
     // Iterate over all closed positions and create coins performance summary
     {
-      const auto symbol = position.symbol;
+      const auto name = position.symbol;
       const auto it =
           find_if(all_coins_performance.begin(), all_coins_performance.end(),
-                  [&symbol](const auto &p) { return symbol == p.symbol; });
+                  [&name](const auto &p) { return name == p.name; });
 
       // If coin record doesn't exist, create a new one and insert it
       if (it == all_coins_performance.end()) {
 
-        coin_summary coin;
-        coin.symbol = symbol;
+        yield_summary coin;
+        coin.name = name;
         coin.returns.push_back(position.yield());
         all_coins_performance.emplace_back(coin);
 
@@ -127,17 +114,17 @@ int main() {
 
     // Iterate over all closed positions and create strategy summary
     {
-      const auto strategy = position.strategy;
+      const auto name = position.strategy;
       const auto it = find_if(
           all_coins_strategy_summary.begin(), all_coins_strategy_summary.end(),
-          [&strategy](const auto &s) { return strategy == s.name; });
+          [&name](const auto &s) { return name == s.name; });
 
       // If strategy record doesn't exist, create a new one and insert it,
       // otherwise just update the position count
       if (it == all_coins_strategy_summary.end()) {
 
-        strategy_summary strat;
-        strat.name = strategy;
+        yield_summary strat;
+        strat.name = name;
         strat.returns.push_back(position.yield());
         all_coins_strategy_summary.emplace_back(strat);
 
@@ -195,7 +182,7 @@ int main() {
   open_pos.precision(2);
   open_pos << std::fixed;
   for (const auto &coin : all_coins_performance)
-    coin_performance << coin.symbol << '\t' << coin.returns.size() << '\t'
+    coin_performance << coin.name << '\t' << coin.returns.size() << '\t'
                      << 100.0 * coin.average_yield() << '\n';
 
   substitute_inline(index, "COIN_PERFORMANCE", coin_performance.str());
