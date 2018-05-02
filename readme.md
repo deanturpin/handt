@@ -62,18 +62,6 @@ publish updates more often than once per minute. CryptoCompare also has API
 request rate limiting but in practice only 60 coins can be processed per minute
 to ensure we don't clash with the next cron job.
 
-# Heading towards a strategy definition language
-The current strategy definition makes use of a library of techniques.
-```cpp
-result stepping_up(series s, param p) { 
-  const auto name = NAME("stepping_up", p);
-  const bool exec = RECENT_AVERAGE(s) / DISTANT_AVERAGE(s) > THRESHOLD(p);
-  return result(name, exec);
-}
-```
-
-Which doesn't seem too far removed from a strategy definition language.
-```
-name = "stepping_up"
-exec = RECENT_AVERAGE / DISTANT_AVERAGE > THRESHOLD
-```
+## Currency viability
+Before running the strategies coins are subjected to a preflight check to ensure
+the currency has some activity.
