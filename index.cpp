@@ -47,7 +47,7 @@ int main() {
   // Structure for reporting strategy performance
   struct strategy_summary {
     std::string name;
-    double yield;
+    double yield; // TBC
     std::vector<double> returns;
 
     // Calculate average yield of all the positions created by current strategy
@@ -78,6 +78,40 @@ int main() {
     } else
       it->returns.push_back(position.yield());
   }
+
+  // Structure for reporting strategy performance
+  struct coin_summary {
+    std::string symbol;
+    std::vector<double> returns;
+
+    // Calculate average yield of all the positions created by current strategy
+    double average_yield() const {
+      return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
+                             [](auto &sum, const auto &y) { return sum + y; }) /
+             (returns.size() > 0 ? returns.size() : 1);
+    }
+  };
+
+  // Iterate over all closed positions and create coins performance summary
+  std::vector<coin_summary> all_coins_performance;
+  for (const auto &position : closed_positions) {
+    const auto symbol = position.symbol;
+    const auto it = find_if(
+        all_coins_performance.begin(), all_coins_performance.end(),
+        [&symbol](const auto &p) { return symbol == p.symbol; });
+
+    // If coin record doesn't exist, create a new one and insert it
+    if (it == all_coins_performance.end()) {
+
+      coin_summary coin;
+      coin.symbol = symbol;
+      coin.returns.push_back(position.yield());
+      all_coins_performance.emplace_back(coin);
+
+    } else
+      it->returns.push_back(position.yield());
+  }
+
 
   // Iterate over Coinbase closed positions and create strategy summary
   std::vector<strategy_summary> coinbase_strategy_summary;
@@ -120,6 +154,12 @@ int main() {
               return a.returns.size() > b.returns.size();
             });
 
+  // Sort coin performance summary
+  std::sort(all_coins_performance.begin(), all_coins_performance.end(),
+            [](const auto &a, const auto &b) {
+              return a.average_yield() > b.average_yield();
+            });
+
   // Extract open Coinbase positions
   std::vector<handt::position> coinbase_open;
   for (const auto &position : open)
@@ -143,6 +183,16 @@ int main() {
              << '\n';
 
   substitute_inline(index, "COINBASE_OPEN", open_pos.str());
+
+  // Print coin performance
+  std::stringstream coin_performance;
+  open_pos.precision(2);
+  open_pos << std::fixed;
+  for (const auto &coin : all_coins_performance)
+    coin_performance << coin.symbol << '\t' << coin.returns.size()
+      << '\t' << 100.0 * coin.average_yield() << '\n';
+
+  substitute_inline(index, "COIN_PERFORMANCE", coin_performance.str());
 
   // Open and closed positions
   std::stringstream open_and_closed;
