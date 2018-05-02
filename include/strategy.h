@@ -92,7 +92,8 @@ const std::vector<strategy_details> strategy_library{
 
     {"straddler_1",
      [](series s, param p) {
-       return find_and_run_strategy("flicking_down", s, p) && STRADDLING(s.front(), s.back());
+       return find_and_run_strategy("flicking_down", s, p) &&
+              STRADDLING(s.front(), s.back());
      }},
 
     {"straddler_2",

@@ -4,8 +4,8 @@
 #include <map>
 #include <numeric>
 #include <regex>
-#include <string>
 #include <sstream>
+#include <string>
 #include <vector>
 
 int main() {
@@ -98,11 +98,11 @@ int main() {
     }
 
     // Iterate over all closed positions and create coins performance summary
-    for (const auto &position : closed_positions) {
+    {
       const auto symbol = position.symbol;
-      const auto it = find_if(
-        all_coins_performance.begin(), all_coins_performance.end(),
-        [&symbol](const auto &p) { return symbol == p.symbol; });
+      const auto it =
+          find_if(all_coins_performance.begin(), all_coins_performance.end(),
+                  [&symbol](const auto &p) { return symbol == p.symbol; });
 
       // If coin record doesn't exist, create a new one and insert it
       if (it == all_coins_performance.end()) {
@@ -117,11 +117,11 @@ int main() {
     }
 
     // Iterate over all closed positions and create strategy summary
-    for (const auto &position : closed_positions) {
+    {
       const auto strategy = position.strategy;
       const auto it = find_if(
-        all_coins_strategy_summary.begin(), all_coins_strategy_summary.end(),
-        [&strategy](const auto &s) { return strategy == s.name; });
+          all_coins_strategy_summary.begin(), all_coins_strategy_summary.end(),
+          [&strategy](const auto &s) { return strategy == s.name; });
 
       // If strategy record doesn't exist, create a new one and insert it,
       // otherwise just update the position count
@@ -186,8 +186,8 @@ int main() {
   open_pos.precision(2);
   open_pos << std::fixed;
   for (const auto &coin : all_coins_performance)
-    coin_performance << coin.symbol << '\t' << coin.returns.size()
-      << '\t' << 100.0 * coin.average_yield() << '\n';
+    coin_performance << coin.symbol << '\t' << coin.returns.size() << '\t'
+                     << 100.0 * coin.average_yield() << '\n';
 
   substitute_inline(index, "COIN_PERFORMANCE", coin_performance.str());
 
