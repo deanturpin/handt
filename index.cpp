@@ -154,7 +154,7 @@ int main() {
   // Sort coin performance summary
   std::sort(all_coins_performance.begin(), all_coins_performance.end(),
             [](const auto &a, const auto &b) {
-              return a.average_yield() > b.average_yield();
+              return a.returns.size() > b.returns.size();
             });
 
   // Extract open Coinbase positions
