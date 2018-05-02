@@ -36,9 +36,9 @@ int main() {
       {"GITLOG", handt::get_git_log()},
       {"MINUTES", std::to_string(symbols / batch_size)},
       {"SELL_THRESHOLD", std::to_string(static_cast<unsigned long>(
-                             handt::sell_threshold * 100.0))},
+            handt::sell_threshold * 100.0))},
       {"CUT", std::to_string(static_cast<unsigned long>(
-                  handt::cut_losses_threshold * 100.0))}};
+            handt::cut_losses_threshold * 100.0))}};
 
   // Replace all tokens
   for (const auto &t : tokens)
@@ -53,7 +53,7 @@ int main() {
     double average_yield() const {
       return std::accumulate(returns.cbegin(), returns.cend(), 0.0,
                              [](auto &sum, const auto &y) { return sum + y; }) /
-             (returns.size() > 0 ? returns.size() : 1);
+        (returns.size() > 0 ? returns.size() : 1);
 
     }
 
@@ -64,7 +64,19 @@ int main() {
     auto max_yield() const {
       return *std::max_element(returns.cbegin(), returns.cend());
     }
+
+    std::string report() const {
+      std::stringstream ss;
+      ss.precision(2);
+      ss << std::fixed;
+      ss << name << '\t' << returns.size()
+                       << '\t' << 100.0 * min_yield()
+                       << '\t' << 100.0 * average_yield()
+                       << '\t' << 100.0 * max_yield();
+      return ss.str();
+    }
   };
+
 
   std::vector<yield_summary> all_coins_strategy_summary;
   std::vector<yield_summary> coinbase_strategy_summary;
@@ -182,8 +194,7 @@ int main() {
   open_pos.precision(2);
   open_pos << std::fixed;
   for (const auto &coin : all_coins_performance)
-    coin_performance << coin.name << '\t' << coin.returns.size() << '\t'
-                     << 100.0 * coin.average_yield() << '\n';
+    coin_performance << coin.report() << '\n';
 
   substitute_inline(index, "COIN_PERFORMANCE", coin_performance.str());
 
@@ -195,27 +206,17 @@ int main() {
 
   // Print succesful strategy summary for all coins
   std::stringstream allcoins_summary;
-  allcoins_summary.precision(2);
-  allcoins_summary << std::fixed;
   for (const auto &strategy : all_coins_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
-      allcoins_summary << strategy.name << '\t' << strategy.returns.size()
-                       << '\t' << 100.0 * strategy.min_yield()
-                       << '\t' << 100.0 * strategy.average_yield()
-                       << '\t' << 100.0 * strategy.max_yield() << '\n';
+      allcoins_summary << strategy.report() << '\n';
 
   substitute_inline(index, "ALLCOINS_STRATEGY", allcoins_summary.str());
 
   // Print strategy summary for Coinbase coins
   std::stringstream coinbase_summary;
-  coinbase_summary.precision(2);
-  coinbase_summary << std::fixed;
   for (const auto &strategy : coinbase_strategy_summary)
     if (strategy.average_yield() > handt::sell_threshold)
-      coinbase_summary << strategy.name << '\t' << strategy.returns.size()
-                       << '\t' << 100.0 * strategy.min_yield()
-                       << '\t' << 100.0 * strategy.average_yield()
-                       << '\t' << 100.0 * strategy.max_yield() << '\n';
+      coinbase_summary << strategy.report() << '\n';
 
   substitute_inline(index, "COINBASE_STRATEGY", coinbase_summary.str());
 
