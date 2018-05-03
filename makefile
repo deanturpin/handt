@@ -1,8 +1,14 @@
-all: source \
+all: preflight
+
+handt: source \
 	symbols.csv prices.csv \
 	refresh.csv review.csv purge.csv prospects.csv consolidate.csv \
        	stats index.html endofsession \
 	unittest
+
+preflight:
+	touch $@
+	make handt
 
 # Don't let make remove intermediate files
 objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -30,6 +36,7 @@ index.html: index.o consolidate.csv review.csv
 
 endofsession:
 	cp consolidate.csv positions.csv
+	rm -f preflight
 
 update:
 	rm -f prospects.csv refresh.csv symbols.csv
