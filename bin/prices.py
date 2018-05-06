@@ -40,7 +40,7 @@ for coin in wallet:
 
     # Construct URL
     url = ("https://min-api.cryptocompare.com/data/histominute?fsym="
-        + coin + "&tsym=USD&extraParams=brightcoin.uk")
+        + coin + "&tsym=USD&limit=2000&extraParams=brightcoin.uk")
 
     try:
         # Check the response is a good one
