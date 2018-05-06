@@ -66,7 +66,7 @@ int main() {
 
     std::string report() const {
       std::stringstream ss;
-      ss.precision(2);
+      ss.precision(0);
       ss << std::fixed;
       ss << name << '\t' << returns.size() << '\t' << 100.0 * min_yield()
          << '\t' << 100.0 * average_yield() << '\t' << 100.0 * max_yield();
@@ -175,6 +175,8 @@ int main() {
 
   // Report open Coinbase positions
   std::stringstream open_pos;
+  open_pos.precision(0);
+  open_pos << std::fixed;
   for (const auto &position : coinbase_open)
     open_pos << position.symbol << '\t' << position.yield() * 100.0 << '\t'
              << position.strategy << '\t' << position.buy_price << '\t'
