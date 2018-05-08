@@ -4,17 +4,18 @@ all: source \
        	stats index.html endofsession \
 	unit_test
 
+JOBS=4
+CXX=clang++
+flags=-g -O2 -Werror -Wall -Wextra -pedantic -std=gnu++14
+%.o: %.cpp
+	$(CXX) $(flags) -o $@ $<
+
 # Don't let make remove intermediate files
 objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 .PRECIOUS: $(objects)
 
 source:
-	make --jobs 4 $(objects)
-
-CXX=clang++
-flags=-g -O2 -Werror -Wall -Wextra -pedantic -std=gnu++14
-%.o: %.cpp
-	$(CXX) $(flags) -o $@ $<
+	make --jobs $(JOBS) $(objects)
 
 symbols.csv:
 	bin/symbols.py > $@
