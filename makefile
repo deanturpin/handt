@@ -1,14 +1,8 @@
-all: preflight
-
-handt: source \
+all: source \
 	symbols.csv prices.csv \
 	refresh.csv review.csv purge.csv prospects.csv consolidate.csv \
        	stats index.html endofsession \
-	unittest
-
-preflight:
-	touch $@
-	make handt
+	unit_test
 
 # Don't let make remove intermediate files
 objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -28,7 +22,24 @@ symbols.csv:
 prices.csv: symbols.csv
 	bin/prices.py > $@
 
-%.csv : %.o
+%.csv: %.o
+	./$< > $@
+
+.PHONY: refresh.csv review.csv purge.csv prospects.csv consolidate.csv index.html
+
+refresh.csv: refresh.o prices.csv
+	./$< > $@
+
+review.csv: review.o refresh.o
+	./$< > $@
+
+purge.csv: purge.o review.csv
+	./$< > $@
+
+consolidate.csv: consolidate.o purge.csv prospects.csv
+	./$< > $@
+
+prospects.csv: prospects.o prices.csv
 	./$< > $@
 
 index.html: index.o consolidate.csv review.csv
@@ -36,11 +47,9 @@ index.html: index.o consolidate.csv review.csv
 
 endofsession:
 	cp consolidate.csv positions.csv
-	rm -f preflight
 
 update:
-	rm -f prospects.csv refresh.csv symbols.csv
-	rm -f consolidate.csv prices.csv purge.csv review.csv
+	rm -f symbols.csv prices.csv
 	make
 
 stats:
@@ -53,7 +62,7 @@ clean:
 	rm -f *.o index.html
 
 cron:
-	watch -d -n 60 make --silent update
+	watch -d -n 60 make update
 
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
@@ -61,5 +70,5 @@ docs:
 format:
 	clang-format -i include/*.h *.cpp
 
-unittest:
+unit_test:
 	make --silent --directory test
