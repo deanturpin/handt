@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
-[![Coverage Status](https://coveralls.io/repos/github/deanturpin/handt/badge.svg)](https://coveralls.io/github/deanturpin/handt)
-  
+
 **Have A Nice Day Trader** is an algorithmic trading platform. Prices are
 requested for a list of currency symbols, a library of strategies is run over
 the prices and a web page summary of strategy performance is generated every
