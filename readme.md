@@ -16,7 +16,7 @@ cd handt
 make
 ```
 
-Build "update" to fetch fresh prices.
+Build "update" to fetch fresh prices and symbols.
 ```bash
 make update
 ```
