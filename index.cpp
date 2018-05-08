@@ -11,7 +11,7 @@
 int main() {
 
   // Get some data to play with
-  const auto &open = handt::get_final_positions();
+  const auto &consolidated = handt::get_consolidated_positions();
   const auto &closed_positions = handt::get_closed_positions();
   const auto &symbols = handt::get_symbols().size();
   const auto batch_size = 60ul;
@@ -163,7 +163,7 @@ int main() {
 
   // Extract open Coinbase positions
   std::vector<handt::position> coinbase_open;
-  for (const auto &position : open)
+  for (const auto &position : consolidated)
     if (position.symbol == "ETH" || position.symbol == "BTC" ||
         position.symbol == "BCH" || position.symbol == "LTC")
       coinbase_open.push_back(position);
@@ -188,7 +188,7 @@ int main() {
 
   // Report summary of open and closed positions
   std::stringstream open_and_closed;
-  open_and_closed << open.size() << " open positions, "
+  open_and_closed << consolidated.size() << " open positions, "
                   << closed_positions.size() << " closed\n\n";
   substitute_inline(index, "POSITIONS", open_and_closed.str());
 
