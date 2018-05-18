@@ -5,7 +5,7 @@ git:
 
 script:
   - make JOBS=2 source
-  - which cppcheck && cppcheck --quiet --enable=all .
+  - which cppcheck && cppcheck --quiet --enable=all . || true
 
 matrix:
   include:
