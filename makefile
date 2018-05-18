@@ -75,4 +75,4 @@ unit_test: source
 	make --silent --directory test
 
 lint:
-	cppcheck --enable=all .
+	cppcheck --quiet --error-exitcode=1 --enable=all .
