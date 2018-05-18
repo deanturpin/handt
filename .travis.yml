@@ -2,11 +2,6 @@ language: cpp
 
 script:
   - make JOBS=2 source
-  - make lint
-
-os:
-  - linux
-  - osx
 
 matrix:
   include:
