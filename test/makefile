@@ -1,5 +1,5 @@
 
-all: unit_test
+all: unit_test check
 
 unit_test: source
 	echo 10 > stats.txt
@@ -8,6 +8,9 @@ unit_test: source
 	../purge.o > purge2.csv
 	../prospects.o > prospects2.csv
 	../consolidate.o > consolidate2.csv
+
+check:
+	../bin/check_unit_test_results.sh
 
 source:
 	make -C ../ $@

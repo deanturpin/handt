@@ -116,7 +116,9 @@ auto get_purged_positions() { return get_objects<position>("purge.csv"); }
 auto get_closed_positions() { return get_objects<position>("closed.csv"); }
 auto get_reviewed_positions() { return get_objects<position>("review.csv"); }
 auto get_refreshed_positions() { return get_objects<position>("refresh.csv"); }
-auto get_consolidated_positions() { return get_objects<position>("consolidate.csv"); }
+auto get_consolidated_positions() {
+  return get_objects<position>("consolidate.csv");
+}
 auto get_symbols() { return get_objects<std::string>("symbols.csv"); }
 
 const std::string stats_file = "stats.txt";
