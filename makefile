@@ -71,5 +71,8 @@ docs:
 format:
 	clang-format -i include/*.h *.cpp
 
-unit_test:
+unit_test: source
 	make --silent --directory test
+
+lint:
+	cppcheck --enable=all .
