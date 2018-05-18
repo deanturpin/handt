@@ -8,27 +8,9 @@ expire after 24 hours.
 
 ![](doc/handt.svg)
 
-# Clone and build
-```bash
-git clone https://github.com/deanturpin/handt
-cd handt
-make
-```
-
 Build "update" to fetch fresh prices and symbols.
 ```bash
 make update
-```
-
-# Continuous integration
-The code is intended to run periodically on a web server. Travis builds are
-invoked on commit and Coveralls reports are generated on demand.
-
-To upload coverage:
-```bash
-export COVERALLS_ID=XXXX
-cd test
-make coverage
 ```
 
 # C++
@@ -44,7 +26,6 @@ $ bin/waitandcompile.sh index.cpp
 Wait for index.cpp
 Using standard c++14
 ```
-
 
 # Web server
 ```cron``` is used to schedule builds on a Linux web server. The project is
