@@ -46,7 +46,7 @@ template contains keywords which are substituted for current data.
 ```
 
 # Exchanges
-Intuitively it feels that requesting prices more often will make the softwrae
+Intuitively it feels that requesting prices more often will make the software
 more responsive to market changes. But Coinbase and CryptoCompare actually don't
 publish updates more often than once per minute. CryptoCompare also has API
 request rate limiting but in practice only 60 coins can be processed per minute
