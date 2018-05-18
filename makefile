@@ -6,7 +6,7 @@ all: source \
 
 JOBS=4
 CXX=clang++
-flags=-g -O2 -Werror -Wall -Wextra -pedantic -std=gnu++14
+flags=-g -O2 -Werror -Wall -Wextra -pedantic -pedantic-errors -std=gnu++14
 %.o: %.cpp
 	$(CXX) $(flags) -o $@ $<
 

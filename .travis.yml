@@ -4,7 +4,7 @@ git:
   depth: false
 
 script:
-  - make JOBS=2 source
+  - make JOBS=2 source lint
 
 matrix:
   include:
