@@ -1,5 +1,5 @@
 
-all: unit_test check
+all: unit_test
 
 unit_test: source
 	echo 10 > stats.txt
