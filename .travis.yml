@@ -4,7 +4,8 @@ git:
   depth: false
 
 script:
-  - make JOBS=2 source lint
+  - make JOBS=2 source
+  - cppcheck --quiet --error-exitcode=1 --enable=all .
 
 matrix:
   include:
