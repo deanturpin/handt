@@ -5,3 +5,6 @@ script:
   - clang++ --version
   - g++ --version
   - bash <(curl -s https://codecov.io/bash)
+addons:
+  apt:
+    update: true
