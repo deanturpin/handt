@@ -1,12 +1,8 @@
-all: source \
-	symbols.csv prices.csv \
-	refresh.csv review.csv purge.csv prospects.csv consolidate.csv \
-       	stats index.html endofsession \
-	unit_test
+all: prices.csv
 
 JOBS=4
 CXX=clang++
-flags=-g -O2 -Werror -Wall -Wextra -pedantic -pedantic-errors -std=gnu++14
+flags=-g -Wall -Wextra -pedantic -pedantic-errors -std=gnu++14
 %.o: %.cpp
 	$(CXX) $(flags) -o $@ $<
 
@@ -15,13 +11,10 @@ objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 .PRECIOUS: $(objects)
 
 source:
-	make --jobs $(JOBS) $(objects)
+	$(MAKE) --jobs $(JOBS) $(objects)
 
-symbols.csv:
-	bin/symbols.py > $@
-
-prices.csv: symbols.csv
-	bin/prices.py > $@
+prices.csv:
+	bin/prices2.py > $@
 
 %.csv: %.o
 	./$< > $@
@@ -50,8 +43,8 @@ endofsession:
 	cp consolidate.csv positions.csv
 
 update:
-	rm -f symbols.csv prices.csv
-	make
+	rm -f prices.csv
+	$(MAKE)
 
 stats:
 	bin/generate_stats.sh
@@ -63,7 +56,7 @@ clean:
 	rm -f *.o index.html
 
 cron:
-	watch -d -n 60 make update
+	watch -d -n 60 $(MAKE) update
 
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
@@ -72,4 +65,4 @@ format:
 	clang-format -i include/*.h *.cpp
 
 unit_test: source
-	make --silent --directory test
+	$(MAKE) --silent --directory test
