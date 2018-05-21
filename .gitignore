@@ -1,5 +1,7 @@
 *.o
 *.swp
+*.gcda
+*.gcno
 
 coinindex.txt
 
