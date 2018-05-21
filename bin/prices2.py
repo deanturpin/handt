@@ -42,12 +42,13 @@ while tokens:
                     series.append(pivot)
 
                 print(from_symbol, to_symbol, end=" ")
-                for val in series:
-                    print(val, end=" ")
-                print("")
+                # for val in series:
+                #     print(val, end=" ")
+                # print("")
+                print(len(prices["Data"]), "prices")
 
             else:
                 print("# " + from_symbol + " error: " + r)
 
-    except Exception:
-        do = "nothing"
+    except Exception as e:
+        print("#", from_symbol, "generated exception")
