@@ -14,7 +14,7 @@ source:
 	$(MAKE) --jobs $(JOBS) $(objects)
 
 prices.csv:
-	bin/prices2.py | tee $@
+	bin/prices2.py > $@
 
 %.csv: %.o
 	./$< > $@
