@@ -8,13 +8,14 @@ int main() {
   // Test strategies on each series
   for (const auto &p : handt::get_prices())
     if (!p.series.empty())
+
     {
 
       const unsigned long frame_size = 120;
 
       // Chop the whole series up into chunks
-      for (auto i = p.series.cbegin(); i != std::prev(p.series.cend(), frame_size); ++i) 
-      {
+      for (auto i = p.series.cbegin();
+           i != std::prev(p.series.cend(), frame_size); ++i) {
 
         decltype(p.series) frame;
 
