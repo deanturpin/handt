@@ -8,7 +8,7 @@ batch_size = 60
 index = 0
 
 # Get the list of coins we're interested in
-f = open("pairs_short.csv")
+f = open("pairs.csv")
 tokens = deque(f.read().split())
 
 while tokens:
@@ -18,7 +18,7 @@ while tokens:
 
     # Construct URL
     url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
-    + from_symbol + "&tsym=" + to_symbol + "&limit=2000&extraParams=brightcoin.uk"
+    + from_symbol + "&tsym=" + to_symbol + "&limit=240&extraParams=brightcoin.uk"
     + "&e=Binance&tryConversion=false")
 
     try:

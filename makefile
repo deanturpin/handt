@@ -1,4 +1,4 @@
-all: prices.csv
+all: prices.csv prospects.csv
 
 JOBS=4
 CXX=clang++
@@ -13,13 +13,13 @@ objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 source:
 	$(MAKE) --jobs $(JOBS) $(objects)
 
-prices.csv:
+prices.csv: pairs.csv pairs_short.csv
 	bin/prices2.py > $@
 
 %.csv: %.o
 	./$< > $@
 
-.PHONY: refresh.csv review.csv purge.csv prospects.csv consolidate.csv index.html
+.PHONY: refresh.csv review.csv purge.csv consolidate.csv index.html
 
 refresh.csv: refresh.o prices.csv
 	./$< > $@

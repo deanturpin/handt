@@ -9,15 +9,27 @@ int main() {
   for (const auto &p : handt::get_prices())
     if (!p.series.empty()) {
 
-      const auto spot = p.series.back();
-      const auto &buys = strategy::library(p.series);
+      const unsigned long frame_size = 120;
 
-      // If some strategies have triggered then print them
-      if (!buys.empty()) {
-        std::cout << p.symbol << '\t' << spot << ' ';
-        for (const auto &buy : buys)
-          std::cout << buy << ' ';
-        std::cout << '\n';
+      // Chop the whole series up into chunks
+      for (auto i = p.series.cbegin(); i < p.series.cend();
+           std::advance(i, frame_size)) {
+
+        decltype(p.series) frame;
+
+        std::copy(i, std::next(i, frame_size), std::back_inserter(frame));
+
+        const auto &buys = strategy::library(frame);
+
+        // If some strategies have triggered then print them
+        if (!buys.empty()) {
+          const auto spot = frame.back();
+          std::cout << p.from_symbol << '\t' << p.to_symbol << '\t' << spot
+                    << ' ';
+          for (const auto &buy : buys)
+            std::cout << buy << ' ';
+          std::cout << '\n';
+        }
       }
     }
 }
