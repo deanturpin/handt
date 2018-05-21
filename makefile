@@ -14,7 +14,7 @@ source:
 	$(MAKE) --jobs $(JOBS) $(objects)
 
 prices.csv:
-	bin/prices2.py > $@
+	bin/prices2.py | tee $@
 
 %.csv: %.o
 	./$< > $@
@@ -53,7 +53,7 @@ gitpull:
 	git pull --quiet
 
 clean:
-	rm -f *.o index.html
+	rm -f *.o prices.csv
 
 cron:
 	watch -d -n 60 $(MAKE) update

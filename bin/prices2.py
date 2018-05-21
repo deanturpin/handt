@@ -18,10 +18,9 @@ while tokens:
 
     # Construct URL
     url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
-    + from_symbol + "&tsym=" + to_symbol + "&limit=2000&extraParams=brightcoin.uk"
+    + from_symbol + "&tsym=" + to_symbol + "&limit=10&extraParams=brightcoin.uk"
     + "&e=Binance&tryConversion=false")
 
-    print("#", url)
     try:
         # Check the response is a good one
         r = requests.get(url)
@@ -42,10 +41,9 @@ while tokens:
                     series.append(pivot)
 
                 print(from_symbol, to_symbol, end=" ")
-                # for val in series:
-                #     print(val, end=" ")
-                # print("")
-                print(len(prices["Data"]), "prices")
+                for val in series:
+                    print(val, end=" ")
+                print("")
 
             else:
                 print("# " + from_symbol + " error: " + r)
