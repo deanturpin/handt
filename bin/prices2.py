@@ -4,22 +4,20 @@ import json
 import requests
 from collections import deque
 
-batch_size = 60
-index = 0
-
 # Get the list of coins we're interested in
-f = open("pairs.csv")
+f = open("pairs_short.csv")
 tokens = deque(f.read().split())
 
 while tokens:
 
     from_symbol = tokens.popleft()
     to_symbol = tokens.popleft()
+    total_prices = 130
 
     # Construct URL
     url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
-    + from_symbol + "&tsym=" + to_symbol + "&limit=240&extraParams=brightcoin.uk"
-    + "&e=Binance&tryConversion=false")
+        + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
+        + "&extraParams=brightcoin.uk&e=Binance&tryConversion=false")
 
     try:
         # Check the response is a good one

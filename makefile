@@ -2,7 +2,7 @@ all: prices.csv prospects.csv
 
 JOBS=4
 CXX=clang++
-flags=-g -Wall -Wextra -pedantic -pedantic-errors -std=gnu++14
+flags=-g -Wall -Wextra -pedantic -pedantic-errors -std=gnu++14 --coverage
 %.o: %.cpp
 	$(CXX) $(flags) -o $@ $<
 
