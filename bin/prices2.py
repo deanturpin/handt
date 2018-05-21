@@ -8,7 +8,7 @@ batch_size = 60
 index = 0
 
 # Get the list of coins we're interested in
-f = open("pairs.csv")
+f = open("pairs_short.csv")
 tokens = deque(f.read().split())
 
 while tokens:
