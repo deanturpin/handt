@@ -2,6 +2,7 @@ language: python
 python: "3.5"
 script:
   - make && cat prospects.csv
+  - make CXX=iwyu
   - clang++ --version
   - g++ --version
   - bash <(curl -s https://codecov.io/bash)
