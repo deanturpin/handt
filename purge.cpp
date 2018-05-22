@@ -10,8 +10,7 @@ int main() {
 
   // Filter closed positions
   std::decay_t<decltype(reviewed_positions)> open_positions;
-  std::copy_if(
-    std::cbegin(reviewed_positions), std::cend(reviewed_positions),
+  std::copy_if(std::cbegin(reviewed_positions), std::cend(reviewed_positions),
                std::back_inserter(open_positions),
                [](const auto &position) { return position.open; });
 

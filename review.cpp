@@ -24,8 +24,7 @@ positions review(const positions &open, const unsigned long &timestamp,
     }
 
     // Or check if it's ready to cash in
-    else if (position.yield() > sell_threshold)
-    {
+    else if (position.yield() > sell_threshold) {
       position.status = "maturity";
       position.open = false;
     }
@@ -37,7 +36,7 @@ positions review(const positions &open, const unsigned long &timestamp,
     }
 
     // Store updated position
-    reviewed.push_back( position );
+    reviewed.push_back(position);
   }
 
   return reviewed;

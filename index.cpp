@@ -22,8 +22,7 @@ int main() {
   std::string index = handt::get_index_html();
 
   // Wrapper functor for in-place regex substitution
-  const auto substitute_inline =
-    [](std::string &in, const std::string &token,
+  const auto substitute_inline = [](std::string &in, const std::string &token,
                                     const std::string &value) {
     const auto out = std::regex_replace(in, std::regex(token), value);
     in = out;
@@ -31,20 +30,19 @@ int main() {
 
   // Define tokens and what we'd like them to be replaced with
   const
-    
-    std::map<std::string, std::string> tokens{
-      {"STATS", std::to_string(handt::get_stats())},
-      {"DATE",
-        handt::get_date()},
-      {"UNIT_TEST", handt::get_unit_test_results()},
-      {"BATCH", std::to_string(batch_size)},
-      {"SYMBOLS", std::to_string(symbols)},
-      {"GITLOG", handt::get_git_log()},
-      {"MINUTES", std::to_string(symbols / batch_size)},
-      {"SELL_THRESHOLD", std::to_string(static_cast<unsigned long>(
-                             handt::sell_threshold * 100.0))},
-      {"CUT", std::to_string(static_cast<unsigned long>(
-                  handt::cut_losses_threshold * 100.0))}};
+
+      std::map<std::string, std::string>
+          tokens{{"STATS", std::to_string(handt::get_stats())},
+                 {"DATE", handt::get_date()},
+                 {"UNIT_TEST", handt::get_unit_test_results()},
+                 {"BATCH", std::to_string(batch_size)},
+                 {"SYMBOLS", std::to_string(symbols)},
+                 {"GITLOG", handt::get_git_log()},
+                 {"MINUTES", std::to_string(symbols / batch_size)},
+                 {"SELL_THRESHOLD", std::to_string(static_cast<unsigned long>(
+                                        handt::sell_threshold * 100.0))},
+                 {"CUT", std::to_string(static_cast<unsigned long>(
+                             handt::cut_losses_threshold * 100.0))}};
 
   // Replace all tokens
   for (const auto &t : tokens)
