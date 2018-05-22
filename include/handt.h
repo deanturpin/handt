@@ -18,7 +18,9 @@ const double sell_threshold = 1.06;
 const double cut_losses_threshold = 0.70;
 
 // Timestamp when a position is opened
-unsigned long get_timestamp() {
+unsigned long get_timestamp()
+
+{
   return static_cast<unsigned long>(
       std::chrono::duration_cast<std::chrono::seconds>(
           std::chrono::system_clock::now().time_since_epoch())

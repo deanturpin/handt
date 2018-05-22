@@ -15,11 +15,9 @@ make update
 
 # C++
 The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
-to LLVM's coding standard by virtue of periodic runs of ```clang-format```
-over the source.
-
-To speed up development the bash script ```bin/waitandcompile.sh``` can be used
-to compile and run C++ code as it is saved.
+to LLVM's coding standard by virtue of periodic runs of ```clang-format``` over
+the source. To speed up development the bash script ```bin/waitandcompile.sh```
+can be used to compile and run C++ code as it is saved.
 
 ```bash
 $ bin/waitandcompile.sh index.cpp 
