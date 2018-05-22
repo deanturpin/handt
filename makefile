@@ -1,10 +1,10 @@
 all: prices.csv prospects.csv
 
-JOBS=4
 CXX=clang++
-flags=-g -Weffc++ -Wall -Wextra -pedantic -pedantic-errors -std=c++14 --coverage
+debug=-g --coverage
+flags=-std=c++14 -Weffc++ -Wall -Wextra -pedantic -pedantic-errors
 %.o: %.cpp
-	$(CXX) $(flags) -o $@ $<
+	$(CXX) -o $@ $< $(flags) $(debug)
 
 # Don't let make remove intermediate files
 objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
@@ -53,7 +53,10 @@ gitpull:
 	git pull --quiet
 
 clean:
-	rm -f *.o prices.csv
+	rm -f *.o
+	rm -f prices.csv
+	rm -f *.gcda
+	rm -f *.gcno
 
 cron:
 	watch -d -n 60 $(MAKE) update

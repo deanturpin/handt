@@ -5,20 +5,23 @@ import requests
 from collections import deque
 
 # Get the list of coins we're interested in
-f = open("pairs_short.csv")
+f = open("pairs.csv")
 tokens = deque(f.read().split())
 
 while tokens:
 
     from_symbol = tokens.popleft()
     to_symbol = tokens.popleft()
-    total_prices = 130
+
+    # Crypto compare counts 0 to limit - 1
+    total_prices = 2000 - 1
 
     # Construct URL
-    url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
+    url = ("https://min-api.cryptocompare.com/data/histominute?fsym="
         + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
         + "&extraParams=brightcoin.uk&e=Binance&tryConversion=false")
 
+    print("#", url)
     try:
         # Check the response is a good one
         r = requests.get(url)
@@ -32,9 +35,10 @@ while tokens:
 
                     # The pivot is the average of three of the prices
                     # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
-                    pivot = (float(spot["low"])
-                        + float(spot["close"])
-                        + float(spot["high"])) / 3
+                    pivot = float(spot["close"])
+                    # pivot = (float(spot["low"])
+                    #     + float(spot["close"])
+                    #     + float(spot["high"])) / 3
 
                     series.append(pivot)
 

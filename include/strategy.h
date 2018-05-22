@@ -224,19 +224,20 @@ bool find_and_run_strategy(const std::string &name, series s, param p) {
 
 // Return a list of the strategy names that reported "buy" for the series of
 // prices supplied
-std::vector<std::string> library(series s) {
+template <typename Iterator>
+std::vector<std::string> library(Iterator begin, Iterator end) {
 
   // Initial checks to assess viability of series
-  const auto preflight_check = [](series s) {
+  // const auto preflight_check = [](series s) {
 
-    // Ensure there's a bit of activity
-    auto unique_values(s);
-    std::sort(unique_values.begin(), unique_values.end());
-    const auto last = std::unique(unique_values.begin(), unique_values.end());
-    unique_values.erase(last, unique_values.end());
+  // // Ensure there's a bit of activity
+  // auto unique_values(s);
+  // std::sort(unique_values.begin(), unique_values.end());
+  // const auto last = std::unique(unique_values.begin(), unique_values.end());
+  // unique_values.erase(last, unique_values.end());
 
-    return unique_values.size() > 100;
-  };
+  // return unique_values.size() > 100;
+  // };
 
   const auto construct_name = [](const std::string n, param p) {
     return std::to_string(p).substr(0, 4) + "_" + n;
@@ -245,12 +246,15 @@ std::vector<std::string> library(series s) {
   // Return potential prospects
   std::vector<std::string> prospects;
 
+  std::vector<double> s2;
+  std::copy(begin, end, std::back_inserter(s2));
+
   // Test each strategy with a set of thresholds
-  if (preflight_check(s))
-    for (const auto &strat : strategy_library)
-      for (const auto &t : {5.0, 10.0, 20.0, 30.0})
-        if (strat.buy(s, t))
-          prospects.push_back(construct_name(strat.name, t));
+  // if (preflight_check(s2))
+  for (const auto &strat : strategy_library)
+    for (const auto &threshold : {5.0, 10.0, 20.0, 30.0})
+      if (strat.buy(s2, threshold))
+        prospects.push_back(construct_name(strat.name, threshold));
 
   return prospects;
 }
