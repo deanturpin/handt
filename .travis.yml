@@ -6,6 +6,14 @@ script:
   - clang++ --version
   - g++ --version
   - bash <(curl -s https://codecov.io/bash)
+
 addons:
   apt:
     update: true
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-4.0
+    packages:
+      - g++-6
+      - cppcheck
+      - iwyu
