@@ -28,9 +28,12 @@ int main() {
   };
 
   // Define tokens and what we'd like them to be replaced with
-  const std::map<std::string, std::string> tokens{
+  const
+    
+    std::map<std::string, std::string> tokens{
       {"STATS", std::to_string(handt::get_stats())},
-      {"DATE", handt::get_date()},
+      {"DATE",
+        handt::get_date()},
       {"UNIT_TEST", handt::get_unit_test_results()},
       {"BATCH", std::to_string(batch_size)},
       {"SYMBOLS", std::to_string(symbols)},
