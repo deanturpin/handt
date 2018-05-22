@@ -20,7 +20,8 @@ int main() {
   std::string index = handt::get_index_html();
 
   // Wrapper functor for in-place regex substitution
-  const auto substitute_inline = [](std::string &in, const std::string &token,
+  const auto substitute_inline =
+    [](std::string &in, const std::string &token,
                                     const std::string &value) {
     const auto out = std::regex_replace(in, std::regex(token), value);
     in = out;
