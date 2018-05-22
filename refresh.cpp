@@ -6,7 +6,8 @@
 int main() {
 
   // Get recent prices
-  const auto &prices = handt::get_prices();
+  const auto &prices
+    = handt::get_prices();
 
   // Get current positions
   const auto &positions = handt::get_positions();
