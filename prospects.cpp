@@ -9,7 +9,7 @@
 
 int main() {
 
-  std::map<std::string, long> successes;
+  std::map<std::string, std::vector<long>> successes;
 
   // Test strategies on each series
   for (const auto &p : handt::get_prices())
@@ -22,7 +22,8 @@ int main() {
 
       // Set up some key iterators
       const auto a = p.series.cbegin();
-      const auto b = std::next(p.series.cbegin(), 500);
+      const auto b = std::next(p.series.cbegin(), 1000);
+      // const auto c = std::next(p.series.cbegin(), 400);
       const auto c = p.series.cend();
 
       // std::cout << std::distance(a, b) << " size of frame\n";
@@ -42,13 +43,16 @@ int main() {
       // std::cout << buys.size() << " orders\n";
       for (const auto &b : buys)
         if (max > target)
-          ++successes[b];
+          successes[b].push_back(1);
         else
-          --successes[b];
+          successes[b].push_back(-1);
     }
 
-  std::cout << "\nStrategy summary\n";
+  std::cout << "Strategy summary\n\n";
 
-  for (const auto &strat : successes)
-    std::cout << strat.first << '\t' << strat.second << '\n';
+  for (const auto &strat : successes) {
+    std::cout << strat.first << '\t'
+              << std::accumulate(strat.second.cbegin(), strat.second.cend(), 0)
+              << "\t(" << strat.second.size() << ")\n";
+  }
 }
