@@ -12,9 +12,9 @@ int main() {
   const auto &positions = handt::get_positions();
 
   // Lambda to search for a symbol in the recent prices
-  const auto find_prices = [&prices](const std::string symbol) {
-    const auto it =
-        std::find_if(prices.cbegin(), prices.cend(),
+  const auto find_prices = [&prices](const std::string symbol)
+  {
+    const auto it = std::find_if(prices.cbegin(), prices.cend(),
                      [symbol](const auto p) { return p.symbol == symbol; });
     return it != prices.cend() ? it->series : std::vector<double>();
   };
@@ -23,7 +23,8 @@ int main() {
   // are available
   std::decay_t<decltype(positions)> refreshed_positions;
   for (auto p : handt::get_positions())
-    if (p.open) {
+    if (p.open)
+    {
 
       // If the position is open search for recent prices and update the sell
       // price with the spot
