@@ -10,7 +10,8 @@ int main() {
     = handt::get_prices();
 
   // Get current positions
-  const auto &positions = handt::get_positions();
+  const auto &positions =
+    handt::get_positions();
 
   // Lambda to search for a symbol in the recent prices
   const auto find_prices = [&prices](const std::string symbol)
