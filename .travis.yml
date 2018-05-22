@@ -16,4 +16,4 @@ addons:
     packages:
       - g++-6
       - cppcheck
-      - iwyu
+      - iwyu-0.7
