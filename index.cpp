@@ -11,7 +11,6 @@
 #include <vector>
 
 int main() {
-
   // Get some data to play with
   const auto &consolidated = handt::get_consolidated_positions();
   const auto &closed_positions = handt::get_closed_positions();
@@ -82,11 +81,9 @@ int main() {
   std::vector<yield_summary> all_coins_strategy_summary,
       coinbase_strategy_summary, all_coins_performance;
   for (const auto &position : closed_positions) {
-
     // Iterate over Coinbase closed positions and create strategy summary
     if (position.symbol == "ETH" || position.symbol == "BTC" ||
         position.symbol == "BCH" || position.symbol == "LTC") {
-
       const auto strategy = position.strategy;
       const auto it = find_if(
           coinbase_strategy_summary.begin(), coinbase_strategy_summary.end(),
@@ -95,7 +92,6 @@ int main() {
       // If strategy record doesn't exist, create a new one and insert it,
       // otherwise just update the position count
       if (it == coinbase_strategy_summary.end()) {
-
         yield_summary strat;
         strat.name = strategy;
         strat.returns.push_back(position.yield());
@@ -114,7 +110,6 @@ int main() {
 
       // If coin record doesn't exist, create a new one and insert it
       if (it == all_coins_performance.end()) {
-
         yield_summary coin;
         coin.name = name;
         coin.returns.push_back(position.yield());
@@ -134,7 +129,6 @@ int main() {
       // If strategy record doesn't exist, create a new one and insert it,
       // otherwise just update the position count
       if (it == all_coins_strategy_summary.end()) {
-
         yield_summary strat;
         strat.name = name;
         strat.returns.push_back(position.yield());

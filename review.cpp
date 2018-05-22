@@ -7,13 +7,11 @@ using positions = std::vector<handt::position>;
 positions review(const positions &open, const unsigned long &timestamp,
                  const double &sell_threshold,
                  const double &cut_losses_threshold) {
-
   // Create a container to store the reviewed positions
   positions reviewed;
 
   // Review each open position
   for (const auto &p : open) {
-
     // Create a copy of the position
     auto position = p;
 
@@ -45,7 +43,6 @@ positions review(const positions &open, const unsigned long &timestamp,
 #include <iostream>
 
 int main() {
-
   // Get refreshed positions and review
   const auto &reviewed =
       review(handt::get_refreshed_positions(), handt::get_timestamp(),

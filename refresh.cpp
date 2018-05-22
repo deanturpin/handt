@@ -4,7 +4,6 @@
 #include <type_traits>
 
 int main() {
-
   // Get recent prices
   const auto &prices = handt::get_prices();
 
@@ -24,7 +23,6 @@ int main() {
   std::decay_t<decltype(positions)> refreshed_positions;
   for (auto p : handt::get_positions())
     if (p.open) {
-
       // If the position is open search for recent prices and update the sell
       // price with the spot
       const auto &q = find_prices(p.symbol);

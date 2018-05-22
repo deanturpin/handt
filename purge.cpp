@@ -4,7 +4,6 @@
 #include <type_traits>
 
 int main() {
-
   // Get all positions
   const auto &reviewed_positions = handt::get_reviewed_positions();
 
