@@ -61,8 +61,5 @@ cron:
 docs:
 	dot -T svg doc/handt.dot > doc/handt.svg
 
-format:
-	clang-format -i include/*.h *.cpp
-
 unit_test: source
 	$(MAKE) --silent --directory test
