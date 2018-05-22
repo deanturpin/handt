@@ -2,18 +2,6 @@ language: python
 python: "3.5"
 script:
   - make && cat prospects.csv
-  - make clean all CXX=iwyu
   - clang++ --version
   - g++ --version
   - bash <(curl -s https://codecov.io/bash)
-
-addons:
-  apt:
-    update: true
-    sources:
-      - ubuntu-toolchain-r-test
-      - llvm-toolchain-trusty-4.0
-    packages:
-      - g++-6
-      - cppcheck
-      - iwyu-0.7
