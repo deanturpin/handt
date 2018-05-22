@@ -1,7 +1,11 @@
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <string>
+#include <vector>
+
 #include "include/handt.h"
 #include "include/strategy.h"
-#include <iostream>
-#include <vector>
 
 int main() {
   // Test strategies on each series
