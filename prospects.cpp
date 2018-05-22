@@ -8,6 +8,8 @@ int main() {
   // Test strategies on each series
   for (const auto &p : handt::get_prices())
     if (!p.series.empty())
+
+
     {
 
       const unsigned long frame_size = 120;
