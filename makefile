@@ -2,10 +2,11 @@ all: prices.csv prospects.csv
 
 CXX=clang++
 debug=-O3
-flags=-std=c++14 -Weffc++ -Wall -Wextra -pedantic -pedantic-errors
+cflags=-std=c++14 --all-warnings --extra-warnings -pedantic-errors \
+     -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor
 
 %.o: %.cpp
-	$(CXX) -o $@ $< $(flags) $(debug)
+	$(CXX) -o $@ $< $(cflags) $(debug)
 
 prices.csv: pairs.csv pairs_short.csv
 	./prices.py > $@

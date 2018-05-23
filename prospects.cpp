@@ -36,13 +36,9 @@ int main() {
         const auto spot = *std::prev(b);
         const auto target = handt::sell_threshold * spot;
 
-        // Run the strategy library
-        const auto &buys = strategy::library(a, b);
-        for (const auto &b : buys)
-          if (max > target)
-            successes[b].push_back(1);
-          else
-            successes[b].push_back(-1);
+        // Run the strategy library and record if the target has been achieved
+        for (const auto &strategy : strategy::library(a, b))
+          successes[strategy].push_back(max > target ? 1 : -1);
 
         // Move iterators to next window
         std::advance(a, window_size / 4);
