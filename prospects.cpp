@@ -16,44 +16,47 @@ int main() {
   std::cout << handt::get_pairs().size() << " pairs\n";
   std::cout << prices.size() << " prices\n";
 
+  const unsigned long window_size = 200;
+  unsigned long window_count = 0;
+
   // Test strategies on each series
-  for (const auto &p : prices)
+  for (const auto &p : prices) {
+
     if (!p.series.empty()) {
 
-      // std::cout << '\n'
-      //           << p.from_symbol << '-' << p.to_symbol << ' ' <<
-      //           p.series.size()
-      //           << " prices\n";
+      // Set up some iterators
+      auto a = p.series.begin();
+      auto b = std::next(p.series.begin(), window_size);
+      auto c = std::next(p.series.begin(), window_size * 3);
 
-      // Set up some key iterators
-      const auto a = p.series.cbegin();
-      const auto b = std::next(p.series.cbegin(), 1000);
-      // const auto c = std::next(p.series.cbegin(), 400);
-      const auto c = p.series.cend();
+      while (c < p.series.cend()) {
 
-      // std::cout << std::distance(a, b) << " size of frame\n";
-      // std::cout << std::distance(a, c) << " size of series\n";
+        // Find the max in the subsequent prices
+        const auto max = *std::max_element(b, c);
+        const auto spot = *std::prev(b);
+        const auto target = handt::sell_threshold * spot;
 
-      // Find the max in the subsequent prices
-      const auto max = *std::max_element(b, c);
-      const auto spot = *std::prev(b);
-      const auto target = handt::sell_threshold * spot;
+        // Run the strategy library
+        const auto &buys = strategy::library(a, b);
+        for (const auto &b : buys)
+          if (max > target)
+            successes[b].push_back(1);
+          else
+            successes[b].push_back(-1);
 
-      // std::cout << spot << " spot price\n";
-      // std::cout << target << " target price\n";
-      // std::cout << max << " max price\n";
+        // Move iterators to next window
+        std::advance(a, window_size / 4);
+        std::advance(b, window_size / 4);
+        std::advance(c, window_size / 4);
 
-      // Run the strategy library
-      const auto &buys = strategy::library(a, b);
-      // std::cout << buys.size() << " orders\n";
-      for (const auto &b : buys)
-        if (max > target)
-          successes[b].push_back(1);
-        else
-          successes[b].push_back(-1);
+        ++window_count;
+      }
     }
+  }
 
-  std::cout << "Strategy summary\n\n";
+  std::cout << window_size << " window size\n";
+  std::cout << window_count << " windows processed\n";
+  std::cout << "\nStrategy summary\n";
 
   for (const auto &strat : successes) {
     std::cout << strat.first << '\t'
