@@ -15,6 +15,6 @@ while :; do
 	inotifywait -qe modify $base.cpp -qe modify include/*.h
 	clear
 
-	g++ -I include -Wall -std=${std:-c++1y} -o $base.o $base.cpp \
+	g++ -O3 -Wextra -Wall -std=${std:-c++1y} -o $base.o $base.cpp \
           && sleep .1 && time ./$base.o
 done

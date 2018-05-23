@@ -16,7 +16,7 @@ int main() {
   std::cout << handt::get_pairs().size() << " pairs\n";
   std::cout << prices.size() << " prices\n";
 
-  const unsigned long window_size = 200;
+  const unsigned long window_size = 24 * 2;
   unsigned long window_count = 0;
 
   // Test strategies on each series
@@ -56,11 +56,23 @@ int main() {
 
   std::cout << window_size << " window size\n";
   std::cout << window_count << " windows processed\n";
-  std::cout << "\nStrategy summary\n";
 
+  std::vector<std::pair<double, std::string>> results;
+
+  // Create results report
   for (const auto &strat : successes) {
-    std::cout << strat.first << '\t'
-              << std::accumulate(strat.second.cbegin(), strat.second.cend(), 0)
-              << "\t(" << strat.second.size() << ")\n";
+
+    const long orders = strat.second.size();
+    const auto sum =
+        std::accumulate(strat.second.cbegin(), strat.second.cend(), 0);
+    const auto name = strat.first;
+    results.push_back({100.0 * sum / orders, name});
   }
+
+  // Report sorted results
+  std::sort(results.rbegin(), results.rend());
+  std::cout << "\nStrategy summary\t%\n";
+  for (const auto &r : results)
+    std::cout << r.second << '\t' << std::setprecision(0) << std::fixed
+              << r.first << '\n';
 }

@@ -17,7 +17,7 @@ while tokens:
     total_prices = 2000 - 1
 
     # Construct URL
-    url = ("https://min-api.cryptocompare.com/data/histominute?fsym="
+    url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
         + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
         + "&extraParams=brightcoin.uk&e=Binance&tryConversion=false")
 

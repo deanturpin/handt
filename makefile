@@ -1,7 +1,7 @@
 all: prices.csv prospects.csv
 
 CXX=clang++
-debug=
+debug=-O3
 flags=-std=c++14 -Weffc++ -Wall -Wextra -pedantic -pedantic-errors
 
 %.o: %.cpp
