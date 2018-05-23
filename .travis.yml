@@ -1,3 +1,10 @@
 language: python
 python: "3.5"
 script: make
+
+deploy:
+  provider: pages
+  github-token: ${api_key}
+  skip-cleanup: true
+  on:
+    branch: arbitrary_base_currency

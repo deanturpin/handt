@@ -1,55 +1,90 @@
-[![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
+<!-- If this is readme.md it will be overwritten by the build process -->
+
+[![Build
+Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
 
 **Have A Nice Day Trader** is an algorithmic trading platform. Prices are
-requested for a list of currency symbols, a library of strategies is run over
-the prices and a web page summary of strategy performance is generated every
-minute. The positions are (notionally) closed if they exceed a sell threshold or
-expire after 24 hours.
+requested for all currency pairs traded by Binance, a library of strategies is
+then back-tested over the prices and a strategy summary is produced below. See
+the [details](details.md).
 
-![](doc/handt.svg)
+Prices are fetched using the [CryptoCompare
+API](https://min-api.cryptocompare.com/).
+Generated Wed 23 May 12:21:57 BST 2018
+<pre>
+315 pairs
+315 prices
+48 window size
+48825 windows processed
 
-Build "update" to fetch fresh prices and symbols.
-```bash
-make update
-```
-
-# C++
-The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
-to LLVM's coding standard by virtue of periodic runs of ```clang-format``` over
-the source. To speed up development the bash script ```bin/waitandcompile.sh```
-can be used to compile and run C++ code as it is saved.
-
-```bash
-$ bin/waitandcompile.sh index.cpp 
-Wait for index.cpp
-Using standard c++14
-```
-
-# Web server
-```cron``` is used to schedule builds on a Linux web server. The project is
-periodically pulled from GitHub, compiled, run and if successful the results are
-copied into the web root. Modules are unit tested with each compilation and a
-code coverage tool can be run on demand. Compilation errors discovered on the
-server are reported immediately by email.
-
-```bash
-*/1 * * * * cd ~/handt && nice make CXX=g++ --silent gitpull update && cp -u index.html ~/public_html/
-```
-
-The web page is created from an [HTML template](include/index.html). The
-template contains keywords which are substituted for current data.
-
-```html
-<h1>Have A Nice Day Trader <small>DATE</small></h1>
-```
-
-# Exchanges
-Intuitively it feels that requesting prices more often will make the software
-more responsive to market changes. But Coinbase and CryptoCompare actually don't
-publish updates more often than once per minute. CryptoCompare also has API
-request rate limiting but in practice only 60 coins can be processed per minute
-to ensure we don't clash with the next cron job.
-
-## Currency viability
-Before running the strategies coins are subjected to a preflight check to ensure
-the currency has some activity.
+Strategy summary	%
+10.0_ski_jumping	-100
+20.0_koskosovich	-100
+20.0_ski_jumping	-100
+30.0_koskosovich	-100
+30.0_ski_jumping	-100
+30.0_roll_average	-48
+20.0_roll_average	-42
+10.0_koskosovich	-23
+30.0_stepping_up	-16
+5.00_ski_jumping	-14
+30.0_stepping_down	-12
+30.0_average_inter	-11
+30.0_flicking_up	-9
+10.0_average_inter	-8
+20.0_average_comp	-6
+20.0_average_inter	-6
+5.00_koskosovich	-5
+30.0_average_comp	-3
+30.0_roll_average3	-3
+5.00_red_snapper	-1
+10.0_straddler_2	-1
+20.0_straddler_2	-1
+30.0_straddler_2	-1
+5.00_straddler_2	-1
+30.0_rolling_average2	-0
+30.0_flicking_down	0
+20.0_rolling_average2	0
+30.0_roll_average4	0
+10.0_roll_average	0
+5.00_rolling_average2	1
+10.0_rolling_average2	1
+5.00_roll_average4	1
+20.0_roll_average4	1
+10.0_roll_average4	1
+30.0_new_above_old	2
+5.00_straddler_1	2
+10.0_red_snapper	2
+10.0_average_comp	3
+5.00_roll_average	3
+20.0_flicking_up	4
+20.0_stepping_up	4
+5.00_old_above_new	6
+20.0_roll_average3	7
+20.0_stepping_down	8
+5.00_average_inter	9
+10.0_straddler_1	10
+10.0_flicking_up	11
+20.0_straddler_1	11
+5.00_roll_average3	12
+20.0_new_above_old	12
+10.0_stepping_up	13
+5.00_average_comp	13
+5.00_flicking_down	13
+5.00_stepping_down	14
+5.00_new_above_old	14
+5.00_stepping_up	15
+30.0_red_snapper	15
+10.0_old_above_new	15
+20.0_red_snapper	16
+10.0_roll_average3	16
+10.0_new_above_old	17
+5.00_flicking_up	18
+10.0_stepping_down	26
+5.00_steady_riser	26
+5.00_steady_rising2	27
+20.0_flicking_down	31
+10.0_flicking_down	33
+20.0_old_above_new	34
+30.0_old_above_new	42
+</pre>
