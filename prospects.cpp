@@ -14,7 +14,7 @@ int main() {
   // Read latest prices
   const auto &prices = handt::get_prices();
   std::cout << handt::get_pairs().size() << " pairs\n";
-  std::cout << prices.size() << " prices\n";
+  std::cout << prices.size() << " series of prices\n";
 
   const unsigned long window_size = 24 * 1;
   unsigned long window_count = 0;
