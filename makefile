@@ -34,7 +34,7 @@ consolidate.csv: consolidate.o purge.csv prospects.csv
 	./$< > $@
 
 prospects.csv: prospects.o prices.csv
-	./$< > $@
+	time ./$< > $@
 
 index.html: index.o consolidate.csv review.csv
 	./$< > $@

@@ -11,8 +11,13 @@ int main() {
 
   std::map<std::string, std::vector<long>> successes;
 
+  // Read latest prices
+  const auto &prices = handt::get_prices();
+  std::cout << handt::get_pairs().size() << " pairs\n";
+  std::cout << prices.size() << " prices\n";
+
   // Test strategies on each series
-  for (const auto &p : handt::get_prices())
+  for (const auto &p : prices)
     if (!p.series.empty()) {
 
       // std::cout << '\n'

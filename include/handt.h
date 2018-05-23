@@ -113,6 +113,7 @@ template <typename Object> auto get_objects(const std::string &file) {
 
 // Wrappers to parse files and return containers of various objects
 auto get_prices() { return get_objects<coin>("prices.csv"); }
+auto get_pairs() { return get_objects<std::string>("pairs.csv"); }
 auto get_prospects() { return get_objects<prospect>("prospects.csv"); }
 auto get_positions() { return get_objects<position>("positions.csv"); }
 auto get_purged_positions() { return get_objects<position>("purge.csv"); }
