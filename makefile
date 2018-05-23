@@ -8,7 +8,7 @@ flags=-std=c++14 -Weffc++ -Wall -Wextra -pedantic -pedantic-errors
 	$(CXX) -o $@ $< $(flags) $(debug)
 
 prices.csv: pairs.csv pairs_short.csv
-	bin/prices2.py > $@
+	./prices.py > $@
 
 prospects.csv: prospects.o prices.csv
 	time ./$<

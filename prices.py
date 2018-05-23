@@ -5,7 +5,7 @@ import requests
 from collections import deque
 
 # Get the list of coins we're interested in
-f = open("pairs_short.csv")
+f = open("pairs.csv")
 tokens = deque(f.read().split())
 
 while tokens:
