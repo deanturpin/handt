@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-#include "include/handt.h"
-#include "include/strategy.h"
+#include "handt.h"
+#include "strategy.h"
 
 int main() {
 
