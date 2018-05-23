@@ -66,7 +66,7 @@ int main() {
   }
 
   // Report sorted results
-  std::sort(results.begin(), results.end());
+  std::sort(results.rbegin(), results.rend());
   std::cout << "\nStrategy summary\t%\n";
   for (const auto &r : results)
     std::cout << r.second << '\t' << std::setprecision(0) << std::fixed
