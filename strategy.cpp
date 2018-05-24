@@ -110,7 +110,7 @@ int main() {
   }
 
   // Report possible orders based on the best performing strategies
-  std::cout << "\n# But What's popping, bro?\n";
+  std::cout << "\n# What's popping, bro?\n";
   std::cout << "Recent recommendations by the top"
                " performing stategies below.\n";
   std::cout << "<pre>\n";

@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
 
-Clone and build by running ```make``` to regenerate the results in a readme.md.
-This is served by GitHub Pages.
+Clone and build using ```make``` will overwrite ```readme.md``` with the
+strategy summary. Commmit the update and the web page results can be viewed in
+GitHub Pages.
 
 # C++
 The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
