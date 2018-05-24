@@ -217,8 +217,9 @@ const std::vector<strategy_details> strategy_library{
 // Helper routine to find a strategy by name, used in the strategy library
 // itself to reference and call other strategies
 bool find_and_run_strategy(const std::string &name, series s, param p) {
-  const auto it = find_if(strategy_library.cbegin(), strategy_library.cend(),
-                          [&name](const auto &s) { return s.name == name; });
+  const auto it =
+      find_if(strategy_library.cbegin(), strategy_library.cend(),
+              [&name](const auto &strat) { return strat.name == name; });
   return (it != strategy_library.cend() ? it->buy(s, p) : false);
 }
 

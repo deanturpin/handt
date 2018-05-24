@@ -1,9 +1,11 @@
 all: tmp tmp/prices.csv tmp/strategy.md
 
-CXX = clang++
-debug = -O3
+CXX = g++-6
 cflags = -std=c++14 --all-warnings --extra-warnings -pedantic-errors \
 	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor
+
+# Override to '-g --coverage' on the command line to generate codecov data
+debug = -O3
 
 tmp/%.o: %.cpp tmp
 	$(CXX) -o $@ $< $(cflags) $(debug)
