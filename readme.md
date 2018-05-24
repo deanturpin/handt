@@ -14,12 +14,12 @@ the [details](details.md).
 Prices are fetched using the [CryptoCompare
 API](https://min-api.cryptocompare.com/).
 
-Generated Wed 23 May 20:57:02 BST 2018
-<pre>
+Generated Thu 24 May 08:07:12 BST 2018
 315 pairs
 315 series of prices
 24 window size
 607320 windows processed
+<pre>
 STRATEGY		%	orders
 30.0_ski_jumping	100.0	2
 20.0_ski_jumping	100.0	2
@@ -63,20 +63,20 @@ STRATEGY		%	orders
 10.0_roll_average	45.5	2373
 5.00_koskosovich	44.4	1810
 10.0_average_comp	43.6	1506
-5.00_roll_average3	42.6	249371
-10.0_roll_average3	42.6	249080
-20.0_roll_average3	42.6	247334
-30.0_roll_average3	42.6	245764
 30.0_new_above_old	42.5	2732
-5.00_rolling_average2	42.5	251297
-5.00_roll_average4	42.5	251155
-10.0_rolling_average2	42.5	251041
-10.0_roll_average4	42.5	250826
-30.0_rolling_average2	42.5	248767
-20.0_roll_average4	42.5	249914
-20.0_rolling_average2	42.5	250067
-30.0_roll_average4	42.5	248955
 20.0_flicking_up	42.1	1706
+5.00_rolling_average2	41.1	25814
+5.00_roll_average3	41.0	27080
+10.0_roll_average4	41.0	25502
+5.00_roll_average4	41.0	25659
+10.0_rolling_average2	41.0	25548
+10.0_roll_average3	40.9	26585
+30.0_roll_average4	40.8	24730
+20.0_roll_average4	40.8	25124
+20.0_roll_average3	40.8	25687
+30.0_rolling_average2	40.8	24699
+20.0_rolling_average2	40.7	25076
+30.0_roll_average3	40.7	25351
 30.0_red_snapper	40.7	59
 10.0_koskosovich	39.8	435
 5.00_ski_jumping	38.5	78
@@ -91,4 +91,30 @@ STRATEGY		%	orders
 20.0_average_inter	30.4	339
 30.0_average_inter	28.9	315
 30.0_koskosovich	22.7	44
+</pre>
+# What's popping right now?
+<pre>
+HSR-BTC 5.00_flicking_down
+HSR-ETH 5.00_flicking_down
+BTS-BTC 5.00_flicking_down
+BTS-BNB 5.00_flicking_down
+FUN-BTC 5.00_flicking_down
+NULS-BNB 5.00_flicking_down
+MOD-BTC 5.00_flicking_down
+RLC-BNB 5.00_flicking_down
+RLC-BTC 5.00_flicking_down
+DLT-BNB 5.00_flicking_down
+DLT-BTC 5.00_flicking_down
+VIB-BTC 5.00_flicking_down
+OST-BTC 5.00_flicking_down
+OST-BNB 5.00_flicking_down
+NCASH-BTC 5.00_flicking_down
+OAX-BTC 5.00_flicking_down
+ZIL-BTC 5.00_flicking_down
+ZIL-BNB 5.00_flicking_down
+MDA-BTC 5.00_flicking_down
+TNB-BTC 5.00_flicking_down
+QTUM-USDT 5.00_flicking_down
+IOST-BTC 5.00_flicking_down
+RPX-BTC 5.00_flicking_down
 </pre>

@@ -15,9 +15,7 @@ readme = readme.md
 prospects.csv: prospects.o prices.csv
 	cat template.md > $(readme)
 	@echo Generated $(shell TZ=BST-1 date) >> $(readme)
-	echo '<pre>' >> $(readme)
 	time ./$< >> $(readme)
-	echo '</pre>' >> $(readme)
 
 clean:
 	rm -f *.o

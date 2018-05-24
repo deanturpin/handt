@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -20,8 +21,8 @@ int main() {
   unsigned long window_count = 0;
 
   // Test strategies on each series
-  for (const auto &p : prices) {
-
+  std::stringstream popping;
+  for (const auto &p : prices)
     if (!p.series.empty()) {
 
       // Set up some iterators
@@ -29,6 +30,8 @@ int main() {
       auto b = std::next(p.series.begin(), window_size);
       auto c = std::next(p.series.begin(), window_size * 3);
 
+      // Back test all historic prices in fixed-size windows starting from the
+      // oldest
       while (c < p.series.cend()) {
 
         // Find the max in the subsequent prices
@@ -60,11 +63,16 @@ int main() {
 
         ++window_count;
       }
-    }
-  }
 
-  std::cout << window_size << " window size\n";
-  std::cout << window_count << " windows processed\n";
+      // Test most recent prices
+      a = std::prev(p.series.end(), window_size);
+      b = p.series.end();
+
+      // std::cout << std::distance(a, b) << '\n';
+      for (const auto &name : strategy::library(a, b))
+        if (name.find("flicking_down") != std::string::npos)
+          popping << p.from_symbol << '-' << p.to_symbol << ' ' << name << '\n';
+    }
 
   // Sort the strategy summary
   std::sort(
@@ -81,6 +89,9 @@ int main() {
       });
 
   // Create results report
+  std::cout << window_size << " window size\n";
+  std::cout << window_count << " windows processed\n";
+  std::cout << "<pre>\n";
   std::cout << "STRATEGY\t\t%\torders\n";
   for (const auto &strat : successes) {
     const long orders = strat.second.size();
@@ -90,4 +101,10 @@ int main() {
     std::cout << name << '\t' << std::setprecision(1) << std::fixed
               << 100.0 * sum / orders << '\t' << orders << '\n';
   }
+  std::cout << "</pre>\n";
+
+  std::cout << "# What's popping right now?\n";
+  std::cout << "<pre>\n";
+  std::cout << popping.str();
+  std::cout << "</pre>\n";
 }
