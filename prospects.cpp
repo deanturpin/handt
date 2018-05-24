@@ -14,10 +14,11 @@ int main() {
 
   // Read latest prices
   const auto &prices = handt::get_prices();
-  std::cout << handt::get_pairs().size() << " pairs\n";
-  std::cout << prices.size() << " series of prices\n";
+  std::cout << "* " << handt::get_pairs().size() << " pairs\n";
+  std::cout << "* " << prices.size() << " series of prices\n";
 
   const unsigned long window_size = 24 * 1;
+  const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
 
   // Test strategies on each series
@@ -28,7 +29,7 @@ int main() {
       // Set up some iterators
       auto a = p.series.begin();
       auto b = std::next(p.series.begin(), window_size);
-      auto c = std::next(p.series.begin(), window_size * 3);
+      auto c = std::next(p.series.begin(), look_ahead);
 
       // Back test all historic prices in fixed-size windows starting from the
       // oldest
@@ -68,7 +69,6 @@ int main() {
       a = std::prev(p.series.end(), window_size);
       b = p.series.end();
 
-      // std::cout << std::distance(a, b) << '\n';
       for (const auto &name : strategy::library(a, b))
         if (name.find("flicking_down") != std::string::npos)
           popping << p.from_symbol << '-' << p.to_symbol << ' ' << name << '\n';
@@ -89,9 +89,10 @@ int main() {
       });
 
   // Create results report
+  std::cout << "* " << window_size << " hours window size\n";
+  std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
+  std::cout << "* " << window_count << " windows processed\n";
   std::cout << "<pre>\n";
-  std::cout << window_size << " hours window size\n";
-  std::cout << window_count << " windows processed\n\n";
   std::cout << "STRATEGY\t\t%\torders\n";
   for (const auto &strat : successes) {
     const long orders = strat.second.size();
