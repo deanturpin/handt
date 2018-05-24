@@ -16,13 +16,25 @@ to generate the complete HTML.
 # Exchanges
 Binance was chosen as it has a good selection of currencies.
 
-# Strategy window during back-testing
+# Strategy window size
 *Any* strategy that triggered a year ago on BTC would have succeeded by now. So
 we must consider how far into the future we are prepared to go. For example:
 should we expect a return after one day from a decision based on a week's worth
 of prices?
 
-# Results from previous version
+# Previous version of HANDT
+The original version ran every minute on a web-server. The process was
+modularised nicely but maintaining state between stages required quite a lot of
+code. It also ran only on new data so it took a while to build up confidence in
+the strategies. I soon realised it was inefficient to wait for new data to come
+in to test the strategies. A sigificant proportion of the original
+design was concerned with saving state between modules/runs and the current
+design halved the line count.
+
+![](doc/handt.svg)
+![](doc/previous_version.png)
+
+## Key results
 ```
 COINBASE ONLY           POS     min     mean    max
 20.0_old_above_new      3       107     108     110
@@ -67,15 +79,3 @@ LTC     5.00_old_above_new      maturity 129.3070000000 137.1300000000 152660452
 ETH     20.0_red_snapper        maturity 565.6600000000 605.8500000000 1527097903 false
 ETH     20.0_old_above_new      maturity 565.6600000000 605.8500000000 1527097903 false
 ```
-
-# Previous versions
-The original version ran every minute on a web-server. The process was
-modularised nicely but maintaining state between stages required quite a lot of
-code. It also ran only on new data so it took a while to build up confidence in
-the strategies. I soon realised it was inefficient to wait for new data to come
-in to test the strategies. A sigificant proportion of the original
-design was concerned with saving state between modules/runs and the current
-design halved the line count.
-
-![](doc/handt.svg)
-![](doc/previous_version.png)
