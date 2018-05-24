@@ -1,6 +1,6 @@
 language: python
 python: "3.5"
-script: make && cat readme.md
+script: make
 deploy:
   provider: pages
   github-token: ${api_key}

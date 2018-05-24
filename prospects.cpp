@@ -20,6 +20,7 @@ int main() {
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
+  const double target_percentage = 1.05;
 
   // Test strategies on each series
   std::stringstream popping;
@@ -38,7 +39,7 @@ int main() {
         // Find the max in the subsequent prices
         const auto max = *std::max_element(b, c);
         const auto spot = *std::prev(b);
-        const auto target = 1.05 * spot;
+        const auto target = target_percentage * spot;
 
         // Run the strategy library and record if the target has been achieved
         for (const auto &name : strategy::library(a, b)) {
@@ -64,14 +65,6 @@ int main() {
 
         ++window_count;
       }
-
-      // Test most recent prices
-      a = std::prev(p.series.end(), window_size);
-      b = p.series.end();
-
-      for (const auto &name : strategy::library(a, b))
-        if (name.find("flicking_down") != std::string::npos)
-          popping << p.from_symbol << '-' << p.to_symbol << ' ' << name << '\n';
     }
 
   // Sort the strategy summary
@@ -88,10 +81,35 @@ int main() {
         return a_return > b_return;
       });
 
+  // Look over the most recent prices to find what's popping
+  for (const auto &p : prices)
+    if (!p.series.empty()) {
+
+      const auto a = std::prev(p.series.cend(), window_size);
+      const auto b = p.series.cend();
+
+      for (const auto &name : strategy::library(a, b))
+        if (name.find("flicking_down") != std::string::npos)
+          popping << p.from_symbol << '-' << p.to_symbol << ' ' << name << '\n';
+    }
+
+  std::cout << "\n# What's popping now?\n";
+  std::cout
+      << "Recent recommendations from the top performing stategies above.\n";
+  std::cout << "<pre>\n";
+  std::cout << (popping.str().empty() ? "NOTHING :(" : popping.str()) << '\n';
+  std::cout << "</pre>\n";
+
   // Create results report
   std::cout << "* " << window_size << " hours window size\n";
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
   std::cout << "* " << window_count << " windows processed\n";
+  std::cout << "# Strategy performance\n";
+  std::cout << "Strategies are sorted by percentage of orders that returned a "
+               "profit of at least "
+            << 100 - 100.0 * target_percentage
+            << " %"
+               ", the more orders the greater the confidence.\n";
   std::cout << "<pre>\n";
   std::cout << "STRATEGY\t\t%\torders\n";
   for (const auto &strat : successes) {
@@ -102,10 +120,5 @@ int main() {
     std::cout << name << '\t' << std::setprecision(1) << std::fixed
               << 100.0 * sum / orders << '\t' << orders << '\n';
   }
-  std::cout << "</pre>\n";
-
-  std::cout << "\n# What's popping right now?\n";
-  std::cout << "<pre>\n";
-  std::cout << (popping.str().empty() ? "NOTHING :(" : popping.str()) << '\n';
   std::cout << "</pre>\n";
 }
