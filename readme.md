@@ -14,21 +14,18 @@ the [details](details.md).
 Prices are fetched using the [CryptoCompare
 API](https://min-api.cryptocompare.com/).
 
-Generated Thu 24 May 12:51:49 BST 2018
+Generated Thu 24 May 13:18:52 BST 2018
 
 # What's popping now?
 Recent recommendations from the top performing stategies below.
 <pre>
 ETH-USDT 10.0_red_snapper
 </pre>
-
-See the [raw price date](prices.csv).
-
 # Strategy performance
-Strategies are sorted by percentage of orders that returned a profit of at least -5 %, the more orders the greater the confidence.
-* 24 hours window size
+Strategies are sorted by percentage of orders that returned a profit of at least 5 %, the more orders the greater the confidence.
 * 315 pairs
 * 315 series of prices
+* 24 hours window size
 * 48 hours look ahead
 * 607320 windows processed
 <pre>
@@ -47,48 +44,48 @@ STRATEGY		%	orders
 20.0_red_snapper	60.0	225
 5.00_steady_rising2	59.1	450
 5.00_steady_riser	58.6	473
-10.0_old_above_new	57.2	24398
-5.00_average_comp	56.8	7350
-10.0_stepping_up	56.4	8336
-5.00_flicking_down	55.3	31469
-5.00_stepping_up	55.0	37503
+10.0_old_above_new	57.1	24420
+5.00_average_comp	56.7	7344
+10.0_stepping_up	56.4	8330
+5.00_flicking_down	55.3	31465
+5.00_stepping_up	55.0	37476
 30.0_stepping_down	55.0	149
-5.00_red_snapper	54.8	1963
+5.00_red_snapper	54.8	1964
 30.0_old_above_new	53.3	816
-10.0_new_above_old	53.1	30028
-5.00_flicking_up	52.8	35158
-5.00_stepping_down	51.9	33382
-5.00_new_above_old	51.5	85165
-10.0_flicking_up	51.2	7972
-5.00_roll_average	50.0	13256
+10.0_new_above_old	53.1	30009
+5.00_flicking_up	52.7	35137
+5.00_stepping_down	51.9	33389
+5.00_new_above_old	51.5	85130
+10.0_flicking_up	51.1	7967
+5.00_roll_average	50.0	13250
 10.0_ski_jumping	50.0	4
-20.0_new_above_old	49.5	6691
+20.0_new_above_old	49.5	6689
 20.0_stepping_down	49.4	482
 5.00_average_inter	49.1	1180
 20.0_straddler_1	48.6	35
-5.00_old_above_new	47.6	92242
-20.0_stepping_up	46.5	1872
-5.00_straddler_2	46.3	4844
-10.0_straddler_2	46.3	4844
-20.0_straddler_2	46.3	4844
-30.0_straddler_2	46.3	4844
-10.0_roll_average	45.4	2361
-5.00_koskosovich	44.3	1799
-10.0_average_comp	43.6	1506
-30.0_new_above_old	42.4	2727
-20.0_flicking_up	42.0	1698
-5.00_roll_average3	41.0	281381
-5.00_roll_average4	41.0	277970
-10.0_rolling_average2	41.0	277023
-5.00_rolling_average2	41.0	279800
-10.0_roll_average4	41.0	275236
-20.0_roll_average3	41.0	263566
-10.0_roll_average3	41.0	277087
-30.0_rolling_average2	41.0	261265
-30.0_roll_average4	41.0	261634
-20.0_rolling_average2	41.0	267546
-20.0_roll_average4	41.0	266575
-30.0_roll_average3	40.9	256426
+5.00_old_above_new	47.6	92317
+20.0_stepping_up	46.5	1870
+30.0_straddler_2	46.3	4845
+20.0_straddler_2	46.3	4845
+10.0_straddler_2	46.3	4845
+5.00_straddler_2	46.3	4845
+10.0_roll_average	45.4	2359
+5.00_koskosovich	44.2	1797
+10.0_average_comp	43.5	1505
+30.0_new_above_old	42.4	2725
+20.0_flicking_up	41.9	1696
+5.00_roll_average3	41.1	245556
+5.00_rolling_average2	41.0	244926
+5.00_roll_average4	41.0	242581
+20.0_roll_average3	41.0	231973
+20.0_roll_average4	41.0	233733
+20.0_rolling_average2	41.0	234361
+30.0_roll_average4	41.0	231094
+10.0_roll_average4	41.0	239401
+10.0_roll_average3	41.0	241505
+30.0_rolling_average2	41.0	230776
+10.0_rolling_average2	40.9	241501
+30.0_roll_average3	40.9	224925
 30.0_red_snapper	40.7	59
 10.0_koskosovich	39.8	430
 5.00_ski_jumping	38.5	78

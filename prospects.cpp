@@ -121,8 +121,10 @@ int main() {
   std::cout << "# Strategy performance\n";
   std::cout << "Strategies are sorted by percentage of orders that returned a "
                "profit of at least "
-            << -100 + 100.0 * target_percentage
-            << " %, the more orders the greater the confidence.\n";
+            << -100 + 100.0 * target_percentage << " % within "
+            << look_ahead - window_size
+            << " hours."
+               "The more orders the greater the confidence in the result.\n";
   std::cout << "* " << handt::get_pairs().size() << " pairs\n";
   std::cout << "* " << prices.size() << " series of prices\n";
   std::cout << "* " << window_size << " hours window size\n";
