@@ -19,6 +19,7 @@ matrix:
     - os: linux
       addons:
         apt:
+          update: true
           sources:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-trusty-4.0
