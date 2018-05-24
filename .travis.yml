@@ -3,9 +3,9 @@ python: "3.5"
 script:
   - make CXX=clang++-4.0 tmp/strategy.o
   - make clean
-  - make CXX=g++-6
+  - make debug='-g --coverage' CXX=g++-6
   - bash <(curl -s https://codecov.io/bash)
-  - which cppcheck && cppcheck -j 2 --enable=all . || true
+  - which cppcheck && cppcheck --enable=all . || true
 
 deploy:
   provider: pages
