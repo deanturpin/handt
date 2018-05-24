@@ -1,75 +1,25 @@
-all: source \
-	symbols.csv prices.csv \
-	refresh.csv review.csv purge.csv prospects.csv consolidate.csv \
-       	stats index.html endofsession \
-	unit_test
+all: tmp tmp/prices.csv tmp/strategy.md
 
-JOBS=4
-CXX=clang++
-flags=-g -O2 -Werror -Wall -Wextra -pedantic -pedantic-errors -std=gnu++14
-%.o: %.cpp
-	$(CXX) $(flags) -o $@ $<
+CXX = clang++
+debug = -O3
+cflags = -std=c++14 --all-warnings --extra-warnings -pedantic-errors \
+	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor
 
-# Don't let make remove intermediate files
-objects = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
-.PRECIOUS: $(objects)
+tmp/%.o: %.cpp
+	$(CXX) -o $@ $< $(cflags) $(debug)
 
-source:
-	make --jobs $(JOBS) $(objects)
+tmp:
+	mkdir -p $@
 
-symbols.csv:
-	bin/symbols.py > $@
+tmp/prices.csv: pairs.csv
+	./prices.py > $@
 
-prices.csv: symbols.csv
-	bin/prices.py > $@
-
-%.csv: %.o
-	./$< > $@
-
-.PHONY: refresh.csv review.csv purge.csv prospects.csv consolidate.csv index.html
-
-refresh.csv: refresh.o prices.csv
-	./$< > $@
-
-review.csv: review.o refresh.o
-	./$< > $@
-
-purge.csv: purge.o review.csv
-	./$< > $@
-
-consolidate.csv: consolidate.o purge.csv prospects.csv
-	./$< > $@
-
-prospects.csv: prospects.o prices.csv
-	./$< > $@
-
-index.html: index.o consolidate.csv review.csv
-	./$< > $@
-
-endofsession:
-	cp consolidate.csv positions.csv
-
-update:
-	rm -f symbols.csv prices.csv
-	make
-
-stats:
-	bin/generate_stats.sh
-
-gitpull:
-	git pull --quiet
+readme = readme.md
+tmp/strategy.md: tmp/strategy.o tmp/prices.csv
+	cat template.md > $(readme)
+	@echo Generated $(shell TZ=BST-1 date) >> $(readme)
+	time ./$< >> $(readme)
+	cat $(readme)
 
 clean:
-	rm -f *.o index.html
-
-cron:
-	watch -d -n 60 make update
-
-docs:
-	dot -T svg doc/handt.dot > doc/handt.svg
-
-format:
-	clang-format -i include/*.h *.cpp
-
-unit_test: source
-	make --silent --directory test
+	rm -rf tmp

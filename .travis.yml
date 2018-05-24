@@ -1,38 +1,9 @@
-language: cpp
-
-git:
-  depth: false
-
-script:
-  - make JOBS=2 source
-  - which cppcheck && cppcheck --enable=all . || true
-
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources: ubuntu-toolchain-r-test
-          packages:
-            - g++-6
-            - cppcheck
-      env: MATRIX_EVAL="CXX=g++-6"
-
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-4.0
-          packages:
-            - clang-4.0
-            - g++-6 # installing clang alone doesn't pull in all the libraries
-            - cppcheck
-      env: MATRIX_EVAL="CXX=clang++-4.0"
-
-    - os: osx
-      osx_image: xcode8
-      env: MATRIX_EVAL="CXX=g++-7"
-
-before_install:
-    - eval "${MATRIX_EVAL}"
+language: python
+python: "3.5"
+script: make
+deploy:
+  provider: pages
+  github-token: ${api_key}
+  skip-cleanup: true
+  on:
+    branch: arbitrary_base_currency
