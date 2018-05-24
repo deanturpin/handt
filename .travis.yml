@@ -1,9 +1,28 @@
 language: python
 python: "3.5"
-script: make
+script:
+  - make CXX=clang++-4.0 strategy.o
+  - make clean
+  - make CXX=g++-6
+  - bash <(curl -s https://codecov.io/bash)
+  - which cppcheck && cppcheck -j 2 --enable=all . || true
+
 deploy:
   provider: pages
   github-token: ${api_key}
   skip-cleanup: true
   on:
-    branch: arbitrary_base_currency
+    branch: master
+
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-4.0
+          packages:
+            - clang++-4.0
+            - g++-6
+            - cppcheck
