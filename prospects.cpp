@@ -89,9 +89,9 @@ int main() {
       });
 
   // Create results report
-  std::cout << window_size << " window size\n";
-  std::cout << window_count << " windows processed\n";
   std::cout << "<pre>\n";
+  std::cout << window_size << " hours window size\n";
+  std::cout << window_count << " windows processed\n\n";
   std::cout << "STRATEGY\t\t%\torders\n";
   for (const auto &strat : successes) {
     const long orders = strat.second.size();
