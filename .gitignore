@@ -1,6 +1,4 @@
-*.o
 *.swp
 *.gcda
 *.gcno
-test
-prices.csv
+tmp
