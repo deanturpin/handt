@@ -103,8 +103,8 @@ int main() {
   }
   std::cout << "</pre>\n";
 
-  std::cout << "# What's popping right now?\n";
+  std::cout << "\n# What's popping right now?\n";
   std::cout << "<pre>\n";
-  std::cout << popping.str();
+  std::cout << (popping.str().empty() ? "NOTHING :(" : popping.str()) << '\n';
   std::cout << "</pre>\n";
 }
