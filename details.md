@@ -104,3 +104,11 @@ LTC     5.00_old_above_new      maturity 129.3070000000 137.1300000000 152660452
 ETH     20.0_red_snapper        maturity 565.6600000000 605.8500000000 1527097903 false
 ETH     20.0_old_above_new      maturity 565.6600000000 605.8500000000 1527097903 false
 ```
+
+# Previous versions
+The original version ran on a web-server. The process was modularised nicely but
+maintaining state between stages required quite a lot of code. It aslo ran only
+on new data so it took a while to build up confidence in the strategies.
+
+![](doc/handt.svg)
+![](doc/previous_version.png)
