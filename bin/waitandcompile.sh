@@ -12,7 +12,7 @@ echo Using standard ${std:-c++14}
 
 while :; do
 	
-	inotifywait -qe modify $base.cpp -qe modify include/*.h
+	inotifywait -qe modify $base.cpp
 	clear
 
 	g++ -O3 -Wextra -Wall -std=${std:-c++1y} -o $base.o $base.cpp \
