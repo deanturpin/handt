@@ -85,7 +85,7 @@ int main() {
   for (const auto &strat : successes) {
     const long orders = strat.second.size();
     const auto sum =
-        std::accumulate(strat.second.cbegin(), strat.second.cend(), 0);
+        std::accumulate(strat.second.cbegin(), strat.second.cend(), 0ul);
     const auto name = strat.first;
     std::cout << name << '\t' << std::setprecision(1) << std::fixed
               << 100.0 * sum / orders << '\t' << orders << '\n';
