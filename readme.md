@@ -21,6 +21,9 @@ Recent recommendations from the top performing stategies below.
 <pre>
 ETH-USDT 10.0_red_snapper
 </pre>
+
+See the [raw price date](prices.csv).
+
 # Strategy performance
 Strategies are sorted by percentage of orders that returned a profit of at least -5 %, the more orders the greater the confidence.
 * 24 hours window size
