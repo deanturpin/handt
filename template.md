@@ -6,11 +6,11 @@
 afford to lose.**
 
 *Have A Nice Day Trader* is an algorithmic trading platform. Prices are
-requested for all currency pairs traded by Binance, a library of strategies is
-then back-tested over the prices and a strategy summary is produced below. See
-the [details](details.md).
-
-Prices are fetched using the [CryptoCompare
+requested for all currency pairs traded by Binance over the last 80 days. Then a
+library of strategies is back-tested over the prices and a strategy summary is
+generated. Prices are fetched using the [CryptoCompare
 API](https://min-api.cryptocompare.com/).
+
+See the [details](details.md).
 
 ---

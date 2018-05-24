@@ -1,58 +1,19 @@
 [![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
 
-**Have A Nice Day Trader** is an algorithmic trading platform. Prices are
-requested for a list of currency symbols, a library of strategies is run over
-the prices and a web page summary of strategy performance is generated every
-minute. The positions are (notionally) closed if they exceed a sell threshold or
-expire after 24 hours.
-
-![](doc/handt.svg)
-
-Build "update" to fetch fresh prices and symbols.
-```bash
-make update
-```
+Clone and build by running ```make``` to regenerate the results in a readme.md.
+This is served by GitHub Pages.
 
 # C++
 The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
-to LLVM's coding standard by virtue of periodic runs of ```clang-format``` over
-the source. To speed up development the bash script ```bin/waitandcompile.sh```
-can be used to compile and run C++ code as it is saved.
-
-```bash
-$ bin/waitandcompile.sh index.cpp 
-Wait for index.cpp
-Using standard c++14
-```
+to LLVM's coding standard by running ```clang-format``` as a pre-commit hook.
 
 # Web server
-```cron``` is used to schedule builds on a Linux web server. The project is
-periodically pulled from GitHub, compiled, run and if successful the results are
-copied into the web root. Modules are unit tested with each compilation and a
-code coverage tool can be run on demand. Compilation errors discovered on the
-server are reported immediately by email.
-
-```bash
-*/1 * * * * cd ~/handt && nice make CXX=g++ --silent gitpull update && cp -u index.html ~/public_html/
-```
-
-The web page is created from an [HTML template](include/index.html). The
-template contains keywords which are substituted for current data.
-
-```html
-<h1>Have A Nice Day Trader <small>DATE</small></h1>
-```
+On each commit Travis CI builds and runs the source and if successful deploys
+the (markdown) results back to GitHub in the gh-pages branch. Jekyll then runs
+to generate the complete HTML.
 
 # Exchanges
-Intuitively it feels that requesting prices more often will make the software
-more responsive to market changes. But Coinbase and CryptoCompare actually don't
-publish updates more often than once per minute. CryptoCompare also has API
-request rate limiting but in practice only 60 coins can be processed per minute
-to ensure we don't clash with the next cron job.
-
-## Currency viability
-Before running the strategies coins are subjected to a preflight check to ensure
-the currency has some activity.
+Binance was chosen as it has a good selection of currencies.
 
 # Strategy window during back-testing
 *Any* strategy that triggered a year ago on BTC would have succeeded by now. So
@@ -66,6 +27,7 @@ COINBASE ONLY           POS     min     mean    max
 20.0_old_above_new      3       107     108     110
 10.0_stepping_down      1       108     108     108
 20.0_red_snapper        1       107     107     107
+```
 ```
 BCH     20.0_old_above_new      maturity 1335.4100000000 1432.1200000000 1526041303 false
 BCH     10.0_old_above_new      maturity 1310.2800000000 1392.0366666667 1526113002 false
@@ -106,9 +68,13 @@ ETH     20.0_old_above_new      maturity 565.6600000000 605.8500000000 152709790
 ```
 
 # Previous versions
-The original version ran on a web-server. The process was modularised nicely but
-maintaining state between stages required quite a lot of code. It aslo ran only
-on new data so it took a while to build up confidence in the strategies.
+The original version ran every minute on a web-server. The process was
+modularised nicely but maintaining state between stages required quite a lot of
+code. It also ran only on new data so it took a while to build up confidence in
+the strategies. I soon realised it was inefficient to wait for new data to come
+in to test the strategies. A sigificant proportion of the original
+design was concerned with saving state between modules/runs and the current
+design halved the line count.
 
 ![](doc/handt.svg)
 ![](doc/previous_version.png)
