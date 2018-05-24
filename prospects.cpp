@@ -121,7 +121,7 @@ int main() {
   std::cout << "# Strategy performance\n";
   std::cout << "Strategies are sorted by percentage of orders that returned a "
                "profit of at least "
-            << 100 - 100.0 * target_percentage
+            << -100 + 100.0 * target_percentage
             << " %, the more orders the greater the confidence.\n";
   std::cout << "* " << handt::get_pairs().size() << " pairs\n";
   std::cout << "* " << prices.size() << " series of prices\n";
