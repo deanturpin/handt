@@ -14,16 +14,12 @@ int main() {
 
   // Read latest prices
   const auto &prices = handt::get_prices();
-  std::cout << "* " << handt::get_pairs().size() << " pairs\n";
-  std::cout << "* " << prices.size() << " series of prices\n";
-
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
   const double target_percentage = 1.05;
 
   // Test strategies on each series
-  std::stringstream popping;
   for (const auto &p : prices)
     if (!p.series.empty()) {
 
@@ -81,7 +77,14 @@ int main() {
         return a_return > b_return;
       });
 
+  // Find the top strategies
+  std::vector<std::string> popping_strategies;
+  for (auto i = successes.cbegin();
+       i != successes.cend() && i != std::next(successes.cbegin(), 13); ++i)
+    popping_strategies.push_back(i->first);
+
   // Look over the most recent prices to find what's popping
+  std::stringstream popping;
   for (const auto &p : prices)
     if (!p.series.empty()) {
 
@@ -89,36 +92,44 @@ int main() {
       const auto b = p.series.cend();
 
       for (const auto &name : strategy::library(a, b))
-        if (name.find("flicking_down") != std::string::npos)
-          popping << p.from_symbol << '-' << p.to_symbol << ' ' << name << '\n';
+        for (const auto &popper : popping_strategies)
+          if (name.find(popper) != std::string::npos)
+            popping << p.from_symbol << '-' << p.to_symbol << ' ' << name
+                    << '\n';
     }
 
+  // Calculate strategy summary
+  std::stringstream strategy_summary;
+  for (const auto &strat : successes) {
+    const long orders = strat.second.size();
+    const auto sum =
+        std::accumulate(strat.second.cbegin(), strat.second.cend(), 0);
+    const auto name = strat.first;
+    strategy_summary << name << '\t' << std::setprecision(1) << std::fixed
+                     << 100.0 * sum / orders << '\t' << orders << '\n';
+  }
+
+  // Report possible orders based on the best performing strategies
   std::cout << "\n# What's popping now?\n";
   std::cout
-      << "Recent recommendations from the top performing stategies above.\n";
+      << "Recent recommendations from the top performing stategies below.\n";
   std::cout << "<pre>\n";
-  std::cout << (popping.str().empty() ? "NOTHING :(" : popping.str()) << '\n';
+  std::cout << (popping.str().empty() ? "NOTHING :(\n" : popping.str());
   std::cout << "</pre>\n";
 
-  // Create results report
-  std::cout << "* " << window_size << " hours window size\n";
-  std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
-  std::cout << "* " << window_count << " windows processed\n";
+  // Create strategy summary
   std::cout << "# Strategy performance\n";
   std::cout << "Strategies are sorted by percentage of orders that returned a "
                "profit of at least "
             << 100 - 100.0 * target_percentage
-            << " %"
-               ", the more orders the greater the confidence.\n";
+            << " %, the more orders the greater the confidence.\n";
+  std::cout << "* " << window_size << " hours window size\n";
+  std::cout << "* " << handt::get_pairs().size() << " pairs\n";
+  std::cout << "* " << prices.size() << " series of prices\n";
+  std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
+  std::cout << "* " << window_count << " windows processed\n";
   std::cout << "<pre>\n";
   std::cout << "STRATEGY\t\t%\torders\n";
-  for (const auto &strat : successes) {
-    const long orders = strat.second.size();
-    const auto sum =
-        std::accumulate(strat.second.cbegin(), strat.second.cend(), 0ul);
-    const auto name = strat.first;
-    std::cout << name << '\t' << std::setprecision(1) << std::fixed
-              << 100.0 * sum / orders << '\t' << orders << '\n';
-  }
+  std::cout << strategy_summary.str();
   std::cout << "</pre>\n";
 }
