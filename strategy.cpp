@@ -117,8 +117,7 @@ int main() {
   std::cout << "Recent recommendations by the top"
                " performing stategies below. "
                "See the [raw price data](tmp/prices.csv)\n";
-  std::cout << "currency pair|strategy\n";
-  std::cout << "-|-\n";
+  std::cout << "currency pair|strategy\n---|---\n";
   std::cout << (popping.str().empty() ? "I GOT NOTHING :(\n" : popping.str());
 
   // Create strategy summary
@@ -135,7 +134,6 @@ int main() {
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
   std::cout << "* " << window_count << " windows processed\n";
   std::cout << "* " << total_orders << " orders placed\n";
-  std::cout << "<pre>\n";
   std::cout << "STRATEGY|%|orders\n---|---\n";
   std::cout << strategy_summary.str();
 }
