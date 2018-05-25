@@ -19,9 +19,11 @@ Generated Fri 25 May 20:11:13 BST 2018
 
 # What's popping, bro?
 Recent recommendations by the top performing stategies below. See the [raw price data](tmp/prices.csv)
+
 |currency pair|strategy|
 |---|---|
 |I GOT NOTHING|:(|
+
 # Strategy performance
 Strategies are sorted by percentage of orders that returned a profit of at least 5 % within 48 hours. The more orders the greater the confidence in the result.
 * 315 pairs
@@ -30,6 +32,7 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 * 48 hours look ahead
 * 5784 windows processed
 * 24250 orders placed
+
 |STRATEGY|%|orders|
 |---|---|---|
 |10.0_flicking_down|66.7|3|
