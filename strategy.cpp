@@ -96,9 +96,13 @@ int main() {
 
       for (const auto &name : strategy::library(a, b))
         for (const auto &popper : popping_strategies)
-          if (name.find(popper) != std::string::npos)
-            popping << p.from_symbol << '-' << p.to_symbol << '|' << name
-                    << '\n';
+          if (name.find(popper) != std::string::npos) {
+            const std::string pair_name = p.from_symbol + '_' + p.to_symbol;
+            popping << "|[" << pair_name
+                    << "]("
+                       "https://www.binance.com/trade.html?symbol="
+                    << pair_name << ")" << name << "|\n";
+          }
     }
 
   // Calculate strategy summary
@@ -117,7 +121,7 @@ int main() {
   std::cout << "Recent recommendations by the top"
                " performing stategies below. "
                "See the [raw price data](tmp/prices.csv)\n";
-  std::cout << "\n|currency pair|strategy|\n";
+  std::cout << "\n|Currency pair|Strategy|\n";
   std::cout << "|---|---|\n";
   std::cout << (popping.str().empty() ? "|I GOT NOTHING|:(|\n" : popping.str());
 
@@ -135,7 +139,7 @@ int main() {
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
   std::cout << "* " << window_count << " windows processed\n";
   std::cout << "* " << total_orders << " orders placed\n";
-  std::cout << "\n|STRATEGY|%|orders|\n";
+  std::cout << "\n|Strategy|%|Orders|\n";
   std::cout << "|---|---|---|\n";
   std::cout << strategy_summary.str();
 }
