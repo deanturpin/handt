@@ -23,6 +23,13 @@ we must consider how far into the future we are prepared to go look. For
 example: should we expect a return after one day from a decision based on a
 week's worth of prices?
 
+# Strategy relevance
+Obviously strategy performance depends on the economic climate, a strategy
+looking for steady risers isn't going to perform when everything is falling. But
+I really like the fact that the HANDT performance is evaluated on the last
+eighty days of data, so the top performers&mdash;and recommended
+trades&mdash;will vary according to the *most recent/relevant* data.
+
 # Previous version of HANDT
 The original version ran once a minute on a web-server. The process modularised
 nicely but maintaining state between stages required quite a lot of code. It
