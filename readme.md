@@ -15,7 +15,7 @@ API](https://min-api.cryptocompare.com/).
 See the [details](details.md).
 
 ---
-Generated Fri 25 May 21:01:42 BST 2018
+Generated Fri 25 May 21:07:03 BST 2018
 
 # What's popping, bro?
 Recent recommendations by the top performing stategies below. See the [raw price data](tmp/prices.csv)
@@ -31,7 +31,7 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 * 24 hours window size
 * 48 hours look ahead
 * 607320 windows processed
-* 5634730 orders placed
+* 3597273 orders placed
 
 |Strategy|%|Orders|
 |---|---|---|
@@ -42,25 +42,25 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 |30.0_flicking_down|67.9|209|
 |10.0_straddler_1|65.6|250|
 |20.0_flicking_down|64.6|520|
-|10.0_red_snapper|64.1|897|
+|10.0_red_snapper|64.0|898|
 |20.0_old_above_new|60.8|3231|
-|5.00_straddler_1|60.7|962|
-|10.0_stepping_down|60.6|4426|
+|5.00_straddler_1|60.6|963|
+|10.0_stepping_down|60.6|4427|
 |20.0_red_snapper|60.0|225|
 |5.00_steady_rising2|59.1|450|
 |5.00_steady_riser|58.6|473|
 |5.00_average_comp|57.1|7210|
-|10.0_old_above_new|56.8|24861|
+|10.0_old_above_new|56.8|24865|
 |10.0_stepping_up|56.8|8168|
 |5.00_stepping_up|55.2|36894|
 |30.0_stepping_down|55.0|149|
-|5.00_flicking_down|55.0|32021|
-|5.00_red_snapper|54.1|1995|
+|5.00_flicking_down|55.0|32024|
+|5.00_red_snapper|54.1|1997|
 |30.0_old_above_new|53.3|816|
 |10.0_new_above_old|53.2|29498|
 |5.00_flicking_up|52.9|34643|
-|5.00_stepping_down|51.7|33783|
-|5.00_new_above_old|51.6|84270|
+|5.00_stepping_down|51.7|33789|
+|5.00_new_above_old|51.6|84271|
 |10.0_flicking_up|51.4|7840|
 |5.00_roll_average|50.1|13075|
 |10.0_ski_jumping|50.0|4|
@@ -68,29 +68,29 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 |20.0_stepping_down|49.4|482|
 |5.00_average_inter|48.9|1174|
 |20.0_straddler_1|48.6|35|
-|5.00_old_above_new|47.3|94053|
+|5.00_old_above_new|47.3|94060|
 |20.0_stepping_up|46.6|1861|
-|5.00_straddler_2|45.9|4893|
-|10.0_straddler_2|45.9|4893|
-|20.0_straddler_2|45.9|4893|
-|30.0_straddler_2|45.9|4893|
+|5.00_straddler_2|45.8|4895|
+|10.0_straddler_2|45.8|4895|
+|20.0_straddler_2|45.8|4895|
+|30.0_straddler_2|45.8|4895|
 |10.0_roll_average|45.2|2332|
 |5.00_koskosovich|44.2|1771|
 |10.0_average_comp|43.5|1503|
 |30.0_new_above_old|42.7|2700|
-|5.00_rolling_average2|42.5|433527|
-|10.0_rolling_average2|42.5|432099|
-|5.00_roll_average3|42.5|432608|
-|5.00_roll_average4|42.5|430730|
-|10.0_roll_average3|42.5|431405|
-|10.0_roll_average4|42.4|429816|
-|20.0_rolling_average2|42.4|430126|
-|20.0_roll_average4|42.4|428472|
-|30.0_roll_average4|42.4|428032|
-|20.0_roll_average3|42.4|429584|
-|30.0_rolling_average2|42.4|429496|
-|30.0_roll_average3|42.3|427597|
 |20.0_flicking_up|41.9|1691|
+|10.0_roll_average3|40.9|262663|
+|10.0_rolling_average2|40.9|263092|
+|5.00_roll_average3|40.8|264709|
+|5.00_rolling_average2|40.8|264514|
+|20.0_rolling_average2|40.8|260594|
+|10.0_roll_average4|40.8|261839|
+|5.00_roll_average4|40.8|262754|
+|20.0_roll_average3|40.8|258268|
+|20.0_roll_average4|40.8|259773|
+|30.0_rolling_average2|40.8|257839|
+|30.0_roll_average4|40.7|257531|
+|30.0_roll_average3|40.7|252425|
 |30.0_red_snapper|40.7|59|
 |10.0_koskosovich|39.6|429|
 |5.00_ski_jumping|37.7|77|

@@ -101,7 +101,7 @@ int main() {
             popping << "|[" << pair_name
                     << "]("
                        "https://www.binance.com/trade.html?symbol="
-                    << pair_name << ")" << name << "|\n";
+                    << pair_name << ")|" << name << "|\n";
           }
     }
 
@@ -112,7 +112,7 @@ int main() {
     const auto sum =
         std::accumulate(strat.second.cbegin(), strat.second.cend(), 0);
     const auto name = strat.first;
-    strategy_summary << '|' << name << '|' << std::setprecision(1) << std::fixed
+    strategy_summary << std::setprecision(1) << std::fixed << '|' << name << '|'
                      << 100.0 * sum / orders << '|' << orders << "|\n";
   }
 

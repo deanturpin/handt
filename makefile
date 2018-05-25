@@ -14,7 +14,7 @@ tmp/%.o: %.cpp tmp
 tmp:
 	mkdir -p $@
 
-tmp/prices.csv: tmp pairs.csv
+tmp/prices.csv: tmp
 	./get_prices.py $(quick_run) > $@
 
 readme = readme.md
