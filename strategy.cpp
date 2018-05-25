@@ -112,7 +112,8 @@ int main() {
   // Report possible orders based on the best performing strategies
   std::cout << "\n# What's popping, bro?\n";
   std::cout << "Recent recommendations by the top"
-               " performing stategies below.\n";
+               " performing stategies below. "
+               "See the [raw price data](tmp/prices.csv)\n";
   std::cout << "<pre>\n";
   std::cout << (popping.str().empty() ? "I GOT NOTHING :(\n" : popping.str());
   std::cout << "</pre>\n";
