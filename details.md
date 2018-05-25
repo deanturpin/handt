@@ -1,4 +1,5 @@
-Clone and build using ```make``` will overwrite ```readme.md``` with the
+# Build
+Clone and build using ```make``` to overwrite ```readme.md``` with the generated
 strategy summary. Commmit the update and the web page results can be viewed in
 GitHub Pages.
 
@@ -7,26 +8,28 @@ The C++ is built with a C++14 compliant compiler (gcc, clang). The code confirms
 to LLVM's coding standard by running ```clang-format``` as a pre-commit hook.
 
 # Web server
-On each commit Travis CI builds and runs the source and if successful deploys
+On each commit Travis CI compiles and runs the source and if successful deploys
 the (markdown) results back to GitHub in the gh-pages branch. Jekyll then runs
 to generate the complete HTML.
 
 # Exchanges
-Binance was chosen as it has a good selection of currencies.
+Binance was the chosen exchange as it has a good selection of currencies. But
+the prices are fetched via Crytpo Compare so the exchange can be changed without
+updating the interface.
 
-# Strategy window size
+# Strategy window size considerations
 *Any* strategy that triggered a year ago on BTC would have succeeded by now. So
-we must consider how far into the future we are prepared to go. For example:
-should we expect a return after one day from a decision based on a week's worth
-of prices?
+we must consider how far into the future we are prepared to go look. For
+example: should we expect a return after one day from a decision based on a
+week's worth of prices?
 
 # Previous version of HANDT
-The original version ran every minute on a web-server. The process was
-modularised nicely but maintaining state between stages required quite a lot of
-code. It also ran only on new data so it took a while to build up confidence in
-the strategies. I soon realised it was inefficient to wait for new data to come
-in to test the strategies. A sigificant proportion of the original
-design was concerned with saving state between modules/runs and the current
+The original version ran once a minute on a web-server. The process modularised
+nicely but maintaining state between stages required quite a lot of code. It
+also ran only on new data so it took a while to build up confidence in the
+strategies. I soon realised it was inefficient to wait for new data to come in
+to prove the strategies. Also, a sigificant proportion of the original design
+was concerned with saving state between modules/runs, consequently the current
 design halved the line count.
 
 ![](doc/handt.svg)
