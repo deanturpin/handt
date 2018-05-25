@@ -108,8 +108,8 @@ int main() {
     const auto sum =
         std::accumulate(strat.second.cbegin(), strat.second.cend(), 0);
     const auto name = strat.first;
-    strategy_summary << name << '|' << std::setprecision(1) << std::fixed
-                     << 100.0 * sum / orders << '|' << orders << '\n';
+    strategy_summary << '|' << name << '|' << std::setprecision(1) << std::fixed
+                     << 100.0 * sum / orders << '|' << orders << "|\n";
   }
 
   // Report possible orders based on the best performing strategies
@@ -117,8 +117,8 @@ int main() {
   std::cout << "Recent recommendations by the top"
                " performing stategies below. "
                "See the [raw price data](tmp/prices.csv)\n";
-  std::cout << "currency pair|strategy\n---|---\n";
-  std::cout << (popping.str().empty() ? "I GOT NOTHING :(\n" : popping.str());
+  std::cout << "|currency pair|strategy|\n|---|---|\n";
+  std::cout << (popping.str().empty() ? "|I GOT NOTHING|:(|\n" : popping.str());
 
   // Create strategy summary
   std::cout << "# Strategy performance\n";
@@ -134,6 +134,6 @@ int main() {
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
   std::cout << "* " << window_count << " windows processed\n";
   std::cout << "* " << total_orders << " orders placed\n";
-  std::cout << "STRATEGY|%|orders\n---|---\n";
+  std::cout << "|STRATEGY|%|orders|\n|---|---|---|\n";
   std::cout << strategy_summary.str();
 }
