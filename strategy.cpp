@@ -94,14 +94,14 @@ int main() {
       const auto a = std::prev(p.series.cend(), window_size);
       const auto b = p.series.cend();
 
-      for (const auto &name : strategy::library(a, b))
+      for (const auto &strategy_name : strategy::library(a, b))
         for (const auto &popper : popping_strategies)
-          if (name.find(popper) != std::string::npos) {
+          if (strategy_name.find(popper) != std::string::npos) {
             const std::string pair_name = p.from_symbol + '_' + p.to_symbol;
             popping << "|[" << pair_name
                     << "]("
                        "https://www.binance.com/trade.html?symbol="
-                    << pair_name << ")|" << name << "|\n";
+                    << pair_name << ")|" << strategy_name << "|\n";
           }
     }
 

@@ -15,7 +15,7 @@ API](https://min-api.cryptocompare.com/).
 See the [details](details.md).
 
 ---
-Generated Fri 25 May 21:14:02 BST 2018
+Generated Fri 25 May 21:35:01 BST 2018
 
 # What's popping, bro?
 Recent recommendations by the top performing stategies below. See the [raw price data](tmp/prices.csv)
@@ -31,7 +31,7 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 * 24 hours window size
 * 48 hours look ahead
 * 607320 windows processed
-* 5400113 orders placed
+* 5400118 orders placed
 
 |Strategy|%|Orders|
 |---|---|---|
@@ -82,14 +82,14 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 |5.00_rolling_average2|42.3|413578|
 |5.00_roll_average4|42.2|410691|
 |10.0_rolling_average2|42.2|412944|
-|10.0_roll_average3|42.2|412754|
+|10.0_roll_average3|42.2|412753|
 |10.0_roll_average4|42.2|410109|
-|20.0_rolling_average2|42.2|411438|
-|20.0_roll_average3|42.2|410344|
-|20.0_roll_average4|42.2|408678|
-|30.0_roll_average3|42.2|406906|
-|30.0_rolling_average2|42.2|410136|
-|30.0_roll_average4|42.2|407525|
+|20.0_rolling_average2|42.2|411439|
+|20.0_roll_average3|42.2|410345|
+|20.0_roll_average4|42.2|408679|
+|30.0_roll_average3|42.2|406907|
+|30.0_rolling_average2|42.2|410137|
+|30.0_roll_average4|42.2|407526|
 |20.0_flicking_up|41.9|1691|
 |30.0_red_snapper|40.7|59|
 |10.0_koskosovich|39.6|429|
