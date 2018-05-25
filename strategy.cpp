@@ -117,11 +117,12 @@ int main() {
   std::cout << "Recent recommendations by the top"
                " performing stategies below. "
                "See the [raw price data](tmp/prices.csv)\n";
-  std::cout << "|currency pair|strategy|\n|---|---|\n";
+  std::cout << "\n|currency pair|strategy|\n";
+  std::cout << "|---|---|\n";
   std::cout << (popping.str().empty() ? "|I GOT NOTHING|:(|\n" : popping.str());
 
   // Create strategy summary
-  std::cout << "# Strategy performance\n";
+  std::cout << "\n# Strategy performance\n";
   std::cout << "Strategies are sorted by percentage of orders that returned a "
                "profit of at least "
             << -100 + 100.0 * target_percentage << " % within "
@@ -134,6 +135,7 @@ int main() {
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
   std::cout << "* " << window_count << " windows processed\n";
   std::cout << "* " << total_orders << " orders placed\n";
-  std::cout << "|STRATEGY|%|orders|\n|---|---|---|\n";
+  std::cout << "\n|STRATEGY|%|orders|\n";
+  std::cout << "|---|---|---|\n";
   std::cout << strategy_summary.str();
 }
