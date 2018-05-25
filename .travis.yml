@@ -1,9 +1,9 @@
 language: python
 python: "3.5"
 script:
-  - make CXX=clang++-4.0 tmp/strategy.o
+  - make CXX=clang++-5.0 tmp/strategy.o
   - make clean
-  - make debug='-g --coverage' CXX=g++-6
+  - make debug='-g --coverage' CXX=g++-7
   - bash <(curl -s https://codecov.io/bash)
   - which cppcheck && cppcheck --enable=all . || true
 
@@ -26,6 +26,6 @@ matrix:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-trusty-4.0
           packages:
-            - clang++-4.0
-            - g++-6
+            - clang++-5.0
+            - g++-7
             - cppcheck
