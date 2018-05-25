@@ -18,6 +18,7 @@ int main() {
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
   const double target_percentage = 1.05;
+  unsigned long total_orders = 0;
 
   // Test strategies on each series
   for (const auto &p : prices)
@@ -39,6 +40,8 @@ int main() {
 
         // Run the strategy library and record if the target has been achieved
         for (const auto &name : strategy::library(a, b)) {
+
+          ++total_orders;
 
           auto it =
               std::find_if(successes.rbegin(), successes.rend(),
@@ -131,6 +134,7 @@ int main() {
   std::cout << "* " << window_size << " hours window size\n";
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
   std::cout << "* " << window_count << " windows processed\n";
+  std::cout << "* " << total_orders << " orders placed\n";
   std::cout << "<pre>\n";
   std::cout << "STRATEGY\t\t%\torders\n";
   std::cout << strategy_summary.str();
