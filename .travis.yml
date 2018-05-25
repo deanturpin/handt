@@ -7,6 +7,8 @@ script:
   - bash <(curl -s https://codecov.io/bash)
   - which cppcheck && cppcheck --enable=all . || true
 
+before_install: cp .gitignore_deploy .gitignore
+
 deploy:
   provider: pages
   github-token: ${api_key}
