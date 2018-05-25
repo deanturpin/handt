@@ -15,7 +15,7 @@ API](https://min-api.cryptocompare.com/).
 See the [details](details.md).
 
 ---
-Generated Fri 25 May 21:07:03 BST 2018
+Generated Fri 25 May 21:14:02 BST 2018
 
 # What's popping, bro?
 Recent recommendations by the top performing stategies below. See the [raw price data](tmp/prices.csv)
@@ -31,7 +31,7 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 * 24 hours window size
 * 48 hours look ahead
 * 607320 windows processed
-* 3597273 orders placed
+* 5400113 orders placed
 
 |Strategy|%|Orders|
 |---|---|---|
@@ -70,27 +70,27 @@ Strategies are sorted by percentage of orders that returned a profit of at least
 |20.0_straddler_1|48.6|35|
 |5.00_old_above_new|47.3|94060|
 |20.0_stepping_up|46.6|1861|
+|30.0_straddler_2|45.8|4895|
 |5.00_straddler_2|45.8|4895|
 |10.0_straddler_2|45.8|4895|
 |20.0_straddler_2|45.8|4895|
-|30.0_straddler_2|45.8|4895|
 |10.0_roll_average|45.2|2332|
 |5.00_koskosovich|44.2|1771|
 |10.0_average_comp|43.5|1503|
 |30.0_new_above_old|42.7|2700|
+|5.00_roll_average3|42.3|413738|
+|5.00_rolling_average2|42.3|413578|
+|5.00_roll_average4|42.2|410691|
+|10.0_rolling_average2|42.2|412944|
+|10.0_roll_average3|42.2|412754|
+|10.0_roll_average4|42.2|410109|
+|20.0_rolling_average2|42.2|411438|
+|20.0_roll_average3|42.2|410344|
+|20.0_roll_average4|42.2|408678|
+|30.0_roll_average3|42.2|406906|
+|30.0_rolling_average2|42.2|410136|
+|30.0_roll_average4|42.2|407525|
 |20.0_flicking_up|41.9|1691|
-|10.0_roll_average3|40.9|262663|
-|10.0_rolling_average2|40.9|263092|
-|5.00_roll_average3|40.8|264709|
-|5.00_rolling_average2|40.8|264514|
-|20.0_rolling_average2|40.8|260594|
-|10.0_roll_average4|40.8|261839|
-|5.00_roll_average4|40.8|262754|
-|20.0_roll_average3|40.8|258268|
-|20.0_roll_average4|40.8|259773|
-|30.0_rolling_average2|40.8|257839|
-|30.0_roll_average4|40.7|257531|
-|30.0_roll_average3|40.7|252425|
 |30.0_red_snapper|40.7|59|
 |10.0_koskosovich|39.6|429|
 |5.00_ski_jumping|37.7|77|
