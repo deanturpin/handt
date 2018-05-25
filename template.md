@@ -12,6 +12,6 @@ library of strategies is back-tested over the prices and a strategy summary is
 generated. Prices are fetched using the [CryptoCompare
 API](https://min-api.cryptocompare.com/).
 
-See the [details](details.md).
+See the [details](details.md) and the [raw prices](tmp/prices.csv).
 
 ---

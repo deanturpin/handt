@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import json
 import requests
 from collections import deque
@@ -8,6 +9,7 @@ from collections import deque
 f = open("pairs.csv")
 tokens = deque(f.read().split())
 
+iterations = 0
 while tokens:
 
     from_symbol = tokens.popleft()
@@ -33,13 +35,8 @@ while tokens:
                 series = []
                 for spot in prices["Data"]:
 
-                    # The pivot is the average of three of the prices
-                    # https://en.wikipedia.org/wiki/Pivot_point_(technical_analysis)
+                    # Just use the close price
                     pivot = float(spot["close"])
-                    # pivot = (float(spot["low"])
-                    #     + float(spot["close"])
-                    #     + float(spot["high"])) / 3
-
                     series.append(pivot)
 
                 print(from_symbol, to_symbol, end=" ")
@@ -49,6 +46,11 @@ while tokens:
 
             else:
                 print("# " + from_symbol + " error: " + r)
+
+            iterations += 1
+            if len(sys.argv) > 1:
+                if iterations > 2:
+                    break
 
     except Exception as e:
         print("#", from_symbol, "generated exception")

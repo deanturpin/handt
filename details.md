@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
-
 Clone and build using ```make``` will overwrite ```readme.md``` with the
 strategy summary. Commmit the update and the web page results can be viewed in
 GitHub Pages.
