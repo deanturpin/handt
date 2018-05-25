@@ -124,7 +124,7 @@ int main() {
                "profit of at least "
             << -100 + 100.0 * target_percentage << " % within "
             << look_ahead - window_size
-            << " hours."
+            << " hours. "
                "The more orders the greater the confidence in the result.\n";
   std::cout << "* " << handt::get_pairs().size() << " pairs\n";
   std::cout << "* " << prices.size() << " series of prices\n";
