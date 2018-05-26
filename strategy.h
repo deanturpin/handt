@@ -174,7 +174,7 @@ const std::vector<strategy_details> strategy_library{
        return SPOT(s) / (high > 0.0 ? high : 1.0) > THRESHOLD(p);
      }},
 
-    {"ninonino_1",
+    {"nino_nino_1",
      [](series s, param p) {
        const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));
        return high / SPOT(s) > THRESHOLD(p);

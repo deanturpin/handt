@@ -112,8 +112,8 @@ int main() {
     const auto sum =
         std::accumulate(strat.second.cbegin(), strat.second.cend(), 0);
     const auto name = strat.first;
-    strategy_summary << std::setprecision(1) << std::fixed << '|' << name << '|'
-                     << 100.0 * sum / orders << '|' << orders << "|\n";
+    strategy_summary << std::setprecision(1) << std::fixed << name << '\t'
+                     << 100.0 * sum / orders << '\t' << orders << '\n';
   }
 
   // Report possible orders based on the best performing strategies
@@ -133,13 +133,14 @@ int main() {
             << look_ahead - window_size
             << " hours. "
                "The more orders the greater the confidence in the result.\n";
-  std::cout << "* " << handt::get_pairs().size() << " pairs\n";
-  std::cout << "* " << prices.size() << " series of prices\n";
-  std::cout << "* " << window_size << " hours window size\n";
+  std::cout << "* " << handt::get_pairs().size() << " tradable pairs\n";
+  std::cout << "* " << prices.size() << " pairs processed\n";
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
-  std::cout << "* " << window_count << " periods processed\n";
+  std::cout << "* " << window_count << " x " << window_size
+            << " hour periods processed\n";
   std::cout << "* " << total_orders << " orders placed\n";
-  std::cout << "\n|Strategy|%|Orders|\n";
-  std::cout << "|---|---|---|\n";
+  std::cout << "<pre>\n";
+  std::cout << "Strategy\t\t%\tOrders\n";
   std::cout << strategy_summary.str();
+  std::cout << "</pre>\n";
 }
