@@ -150,6 +150,24 @@ const std::vector<strategy_details> strategy_library{
        return short_average / long_average > THRESHOLD(p);
      }},
 
+    {"average_under",
+     [](series s, param p) {
+       const unsigned long filter1 = s.size() / 3;
+       const unsigned long filter2 = s.size() / 2;
+
+       // Small window average
+       const double short_average =
+           std::accumulate(s.crbegin(), next(s.crbegin(), filter1), 0.0) /
+           filter1;
+
+       // Longer window average
+       const double long_average =
+           std::accumulate(s.crbegin(), next(s.crbegin(), filter2), 0.0) /
+           filter2;
+
+       return long_average / short_average > THRESHOLD(p);
+     }},
+
     {"koskosovich",
      [](series s, param p) {
        const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));

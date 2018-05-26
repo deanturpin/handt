@@ -137,7 +137,7 @@ int main() {
   std::cout << "* " << prices.size() << " series of prices\n";
   std::cout << "* " << window_size << " hours window size\n";
   std::cout << "* " << look_ahead - window_size << " hours look ahead\n";
-  std::cout << "* " << window_count << " windows processed\n";
+  std::cout << "* " << window_count << " periods processed\n";
   std::cout << "* " << total_orders << " orders placed\n";
   std::cout << "\n|Strategy|%|Orders|\n";
   std::cout << "|---|---|---|\n";
