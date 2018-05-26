@@ -199,6 +199,11 @@ const std::vector<strategy_details> strategy_library{
        return RECENT_AVERAGE(s) / AVERAGE(s) > THRESHOLD(p);
      }},
 
+    {"average_comp2",
+     [](series s, param p) {
+       return AVERAGE(s) / RECENT_AVERAGE(s) > THRESHOLD(p);
+     }},
+
     {"flicking_up",
      [](series s, param p) { return SPOT(s) / AVERAGE(s) > THRESHOLD(p); }},
 
