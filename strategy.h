@@ -171,7 +171,13 @@ const std::vector<strategy_details> strategy_library{
     {"koskosovich",
      [](series s, param p) {
        const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));
-       return SPOT(s) / (high > 0 ? high : 1) > THRESHOLD(p);
+       return SPOT(s) / (high > 0.0 ? high : 1.0) > THRESHOLD(p);
+     }},
+
+    {"ninonino_1",
+     [](series s, param p) {
+       const double high = *std::max_element(s.cbegin(), std::prev(s.cend()));
+       return high / SPOT(s) > THRESHOLD(p);
      }},
 
     // The oldest price is significantly above the most recent
