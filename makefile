@@ -1,4 +1,4 @@
-all: tmp tmp/prices.csv tmp/strategy.md
+all: tmp prices.csv tmp/strategy.md
 
 quick_run=
 CXX = g++-6
@@ -14,15 +14,15 @@ tmp/%.o: %.cpp tmp
 tmp:
 	mkdir -p $@
 
-tmp/prices.csv: tmp
+prices.csv: tmp
 	./get_prices.py $(quick_run) > $@
 
 readme = readme.md
-tmp/strategy.md: tmp/strategy.o tmp/prices.csv
+tmp/strategy.md: tmp/strategy.o prices.csv
 	cat template.md > $(readme)
 	@echo Generated $(shell TZ=BST-1 date) >> $(readme)
 	time ./$< >> $(readme)
 	cat $(readme)
 
 clean:
-	rm -rf tmp
+	rm -rf tmp prices.csv

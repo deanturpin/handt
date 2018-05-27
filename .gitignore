@@ -4,3 +4,4 @@
 *.gcno
 *.gcov
 tmp
+prices.csv
