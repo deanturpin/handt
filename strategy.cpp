@@ -82,9 +82,14 @@ int main() {
 
   // Find the top strategies
   std::vector<std::string> popping_strategies;
-  for (auto i = successes.cbegin();
-       i != successes.cend() && i != std::next(successes.cbegin(), 13); ++i)
-    popping_strategies.push_back(i->first);
+  for (const auto &strat : successes) {
+    if (65.0 >
+        100.0 * std::accumulate(strat.second.cbegin(), strat.second.cend(), 0) /
+            strat.second.size())
+      break;
+
+    popping_strategies.push_back(strat.first);
+  }
 
   // Look over the most recent prices to find what's popping
   std::stringstream popping;
