@@ -5,7 +5,7 @@ script:
   - make clean
   - make debug='-O3 -g --coverage' CXX=g++-7
   - bash <(curl -s https://codecov.io/bash)
-  - which cppcheck && cppcheck --enable=all . || true
+  - cppcheck --enable=all .
 
 before_deploy: cp .gitignore_deploy .gitignore
 
