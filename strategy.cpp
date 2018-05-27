@@ -17,7 +17,7 @@ int main() {
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
-  const double target_percentage = 1.1;
+  const double target_percentage = 1.06;
   unsigned long total_orders = 0;
 
   // Test strategies on each series
@@ -121,9 +121,8 @@ int main() {
   }
 
   // Report possible orders based on the best performing strategies
-  std::cout << "\n# What's popping, bro?\n";
-  std::cout << "Recent recommendations by the top"
-               " performing stategies below. "
+  std::cout << "\n# Recent recommendations\n";
+  std::cout << "Recommendations by the top performing stategies below. "
                "See the [raw price data](prices.csv)\n";
   std::cout << "\n|Currency pair|Strategy|\n";
   std::cout << "|---|---|\n";
