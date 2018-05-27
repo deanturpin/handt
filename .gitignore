@@ -1,7 +1,7 @@
-*.o
 *.swp
 *.gcda
 *.gcno
 *.gcov
 tmp
 prices.csv
+strategy.o

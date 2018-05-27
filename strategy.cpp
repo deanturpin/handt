@@ -142,9 +142,9 @@ int main() {
             << " hours look ahead (for order to mature)\n";
   std::cout << "* " << window_count << " x " << window_size
             << "-hour periods tested\n";
-  std::cout << "* " << total_orders << " orders placed\n";
+  std::cout << "* " << total_orders << " trades\n";
   std::cout << "<pre>\n";
-  std::cout << "Strategy\t\t%\tOrders\n";
+  std::cout << "Strategy\t\t%\tTrades\n";
   std::cout << strategy_summary.str();
   std::cout << "</pre>\n";
 }
