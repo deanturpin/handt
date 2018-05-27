@@ -124,12 +124,42 @@ const std::vector<strategy_details> strategy_library{
 
     {"rolling_average2",
      [](series s, param p) {
-       const unsigned long length = 100;
+       const unsigned long length = 10;
        const double average =
            std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
            length;
 
        return SPOT(s) / average > THRESHOLD(p);
+     }},
+
+    {"rolling_ave_inv1",
+     [](series s, param p) {
+       const unsigned long length = 10;
+       const double average =
+           std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
+           length;
+
+       return average / SPOT(s) > THRESHOLD(p);
+     }},
+
+    {"rolling_ave_inv2",
+     [](series s, param p) {
+       const unsigned long length = 5;
+       const double average =
+           std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
+           length;
+
+       return average / SPOT(s) > THRESHOLD(p);
+     }},
+
+    {"rolling_ave_inv3",
+     [](series s, param p) {
+       const unsigned long length = 2;
+       const double average =
+           std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
+           length;
+
+       return average / SPOT(s) > THRESHOLD(p);
      }},
 
     {"average_inter",
@@ -269,7 +299,7 @@ std::vector<std::string> library(Iterator begin, Iterator end) {
 
   // Test each strategy with a set of thresholds
   for (const auto &strat : strategy_library)
-    for (const auto &threshold : {5.0, 10.0, 20.0, 30.0})
+    for (const auto &threshold : {2.5, 5.0, 10.0, 20.0, 30.0, 40.0})
       if (strat.buy(s2, threshold))
         prospects.push_back(construct_name(strat.name, threshold));
 
