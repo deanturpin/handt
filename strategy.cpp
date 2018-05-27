@@ -138,10 +138,8 @@ int main() {
                "The more orders the greater the confidence in the result.\n";
   std::cout << "* " << handt::get_pairs().size() << " tradable pairs\n";
   std::cout << "* " << prices.size() << " pairs tested\n";
-  std::cout << "* " << look_ahead - window_size
-            << " hours look ahead (for order to mature)\n";
-  std::cout << "* " << window_count << " x " << window_size
-            << "-hour periods tested\n";
+  std::cout << "* " << look_ahead - window_size << "-hour trade window\n";
+  std::cout << "* " << window_count << " opportunities to trade\n";
   std::cout << "* " << total_orders << " trades\n";
   std::cout << "<pre>\n";
   std::cout << "Strategy\t\t%\tTrades\n";
