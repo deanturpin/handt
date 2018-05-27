@@ -122,7 +122,7 @@ int main() {
 
   // Report possible orders based on the best performing strategies
   std::cout << "\n# Recent recommendations\n";
-  std::cout << "Recommendations by the top performing stategies below. "
+  std::cout << "Potential trades from the top performing stategies below. "
                "See the [raw price data](prices.csv)\n";
   std::cout << "\n|Currency pair|Strategy|\n";
   std::cout << "|---|---|\n";

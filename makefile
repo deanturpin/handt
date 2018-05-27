@@ -1,6 +1,6 @@
 all: prices.csv strategy.md
 
-quick_run=
+quick_run =
 CXX = g++-6
 cflags = -std=c++14 --all-warnings --extra-warnings -pedantic-errors \
 	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor
