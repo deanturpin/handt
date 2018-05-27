@@ -17,7 +17,7 @@ int main() {
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
-  const double target_percentage = 1.06;
+  const double target_percentage = 1.1;
   unsigned long total_orders = 0;
 
   // Test strategies on each series
