@@ -3,7 +3,7 @@ python: "3.5"
 script:
   - make CXX=clang++-5.0 tmp/strategy.o
   - make clean
-  - make debug='-g --coverage' CXX=g++-7
+  - make debug='-O3 -g --coverage' CXX=g++-7
   - bash <(curl -s https://codecov.io/bash)
   - which cppcheck && cppcheck --enable=all . || true
 
