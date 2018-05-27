@@ -99,8 +99,7 @@ int main() {
           if (strategy_name.find(popper) != std::string::npos) {
             const std::string pair_name = p.from_symbol + '_' + p.to_symbol;
             popping << "|[" << pair_name
-                    << "]("
-                       "https://www.binance.com/trade.html?symbol="
+                    << "](https://www.binance.com/trade.html?symbol="
                     << pair_name << ")|" << strategy_name << "|\n";
           }
     }
