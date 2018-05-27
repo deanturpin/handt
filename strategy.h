@@ -1,5 +1,3 @@
-// Trading strategies
-
 #ifndef STRATEGY_H
 #define STRATEGY_H
 
@@ -102,16 +100,6 @@ const std::vector<strategy_details> strategy_library{
        return STRADDLING(s.front(), s.back());
      }},
 
-    {"roll_average",
-     [](series s, param p) {
-       const unsigned long length = 10;
-       const double average =
-           std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
-           length;
-
-       return SPOT(s) / average > THRESHOLD(p);
-     }},
-
     // Trigger if price has dropped and passed through a significant threshold
     {"red_snapper",
      [](series s, param p) {
@@ -122,9 +110,19 @@ const std::vector<strategy_details> strategy_library{
        return early / late > THRESHOLD(p) && STRADDLING(early, late);
      }},
 
+    {"roll_average",
+     [](series s, param p) {
+       const unsigned long length = std::min(s.size(), 5ul);
+       const double average =
+           std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
+           length;
+
+       return SPOT(s) / average > THRESHOLD(p);
+     }},
+
     {"rolling_average2",
      [](series s, param p) {
-       const unsigned long length = 10;
+       const unsigned long length = std::min(s.size(), 10ul);
        const double average =
            std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
            length;
@@ -134,7 +132,7 @@ const std::vector<strategy_details> strategy_library{
 
     {"rolling_ave_inv1",
      [](series s, param p) {
-       const unsigned long length = 10;
+       const unsigned long length = std::min(s.size(), 10ul);
        const double average =
            std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
            length;
@@ -144,7 +142,7 @@ const std::vector<strategy_details> strategy_library{
 
     {"rolling_ave_inv2",
      [](series s, param p) {
-       const unsigned long length = 5;
+       const unsigned long length = std::min(s.size(), 5ul);
        const double average =
            std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
            length;
@@ -154,7 +152,7 @@ const std::vector<strategy_details> strategy_library{
 
     {"rolling_ave_inv3",
      [](series s, param p) {
-       const unsigned long length = 2;
+       const unsigned long length = std::min(s.size(), 2ul);
        const double average =
            std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
            length;
@@ -214,16 +212,6 @@ const std::vector<strategy_details> strategy_library{
     {"old_above_new",
      [](series s, param p) { return s.front() / s.back() > THRESHOLD(p); }},
 
-    {"roll_average4",
-     [](series s, param p) {
-       const unsigned long length = 200;
-       const double average =
-           std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
-           length;
-
-       return SPOT(s) / average > THRESHOLD(p);
-     }},
-
     {"average_comp",
      [](series s, param p) {
        return RECENT_AVERAGE(s) / AVERAGE(s) > THRESHOLD(p);
@@ -245,15 +233,6 @@ const std::vector<strategy_details> strategy_library{
     {"stepping_down",
      [](series s, param p) {
        return DISTANT_AVERAGE(s) / RECENT_AVERAGE(s) > THRESHOLD(p);
-     }},
-
-    {"roll_average3",
-     [](series s, param p) {
-       const unsigned long length = 50;
-       const double average =
-           std::accumulate(s.crbegin(), next(s.crbegin(), length), 0.0) /
-           length;
-       return SPOT(s) / average > THRESHOLD(p);
      }},
 
     {"steady_rising2",
