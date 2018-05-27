@@ -1,7 +1,7 @@
 language: python
 python: "3.5"
 script:
-  - make CXX=clang++-6.0 tmp/strategy.o
+  - make CXX=clang++-6.0 strategy.o
   - make clean
   - make debug='-O3 -g --coverage' CXX=g++-8
   - bash <(curl -s https://codecov.io/bash)

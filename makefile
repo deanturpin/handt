@@ -22,4 +22,4 @@ strategy.md: strategy.o prices.csv
 	cat $(readme)
 
 clean:
-	rm -rf prices.csv strategy.o
+	rm -f prices.csv strategy.o
