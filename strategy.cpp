@@ -120,7 +120,7 @@ int main() {
   std::cout << "\n# What's popping, bro?\n";
   std::cout << "Recent recommendations by the top"
                " performing stategies below. "
-               "See the [raw price data](tmp/prices.csv)\n";
+               "See the [raw price data](prices.csv)\n";
   std::cout << "\n|Currency pair|Strategy|\n";
   std::cout << "|---|---|\n";
   std::cout << (popping.str().empty() ? "|I GOT NOTHING|:(|\n" : popping.str());
