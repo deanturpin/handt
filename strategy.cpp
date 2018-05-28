@@ -10,14 +10,14 @@
 
 int main() {
 
-  std::vector<std::pair<std::string, std::vector<long>>> successes;
+  std::vector<std::pair<std::string, std::vector<long>>> summary;
 
   // Read latest prices
   const auto &prices = handt::get_prices();
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
-  const double target_percentage = 1.06;
+  const double target_percentage = 1.03;
   unsigned long total_orders = 0;
 
   // Test strategies on each series
@@ -44,14 +44,14 @@ int main() {
           ++total_orders;
 
           auto it =
-              std::find_if(successes.rbegin(), successes.rend(),
+              std::find_if(summary.rbegin(), summary.rend(),
                            [&name](const auto &s) { return s.first == name; });
 
           // Check if we have an entry for this strategy, if not create an empty
           // one and update the iterator
-          if (it == successes.rend()) {
-            successes.push_back({name, {}});
-            it = successes.rbegin();
+          if (it == summary.rend()) {
+            summary.push_back({name, {}});
+            it = summary.rbegin();
           }
 
           it->second.push_back(max > target ? 1 : 0);
@@ -67,22 +67,21 @@ int main() {
     }
 
   // Sort the strategy summary
-  std::sort(
-      successes.begin(), successes.end(), [](const auto &a, const auto &b) {
+  std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
 
-        const auto a_return =
-            100.0 * std::accumulate(a.second.cbegin(), a.second.cend(), 0) /
-            a.second.size();
-        const auto b_return =
-            100.0 * std::accumulate(b.second.cbegin(), b.second.cend(), 0) /
-            b.second.size();
+    const auto a_return =
+        100.0 * std::accumulate(a.second.cbegin(), a.second.cend(), 0) /
+        a.second.size();
+    const auto b_return =
+        100.0 * std::accumulate(b.second.cbegin(), b.second.cend(), 0) /
+        b.second.size();
 
-        return a_return > b_return;
-      });
+    return a_return > b_return;
+  });
 
   // Find the top strategies
   std::vector<std::string> popping_strategies;
-  for (const auto &strat : successes) {
+  for (const auto &strat : summary) {
     if (65.0 >
         100.0 * std::accumulate(strat.second.cbegin(), strat.second.cend(), 0) /
             strat.second.size())
@@ -111,10 +110,10 @@ int main() {
 
   // Calculate strategy summary
   std::stringstream strategy_summary;
-  for (const auto &strat : successes) {
+  for (const auto &strat : summary) {
     const long orders = strat.second.size();
-    const auto sum =
-        std::accumulate(strat.second.cbegin(), strat.second.cend(), 0);
+    const auto &results = strat.second;
+    const auto sum = std::accumulate(results.cbegin(), results.cend(), 0);
     const auto name = strat.first;
     strategy_summary << std::setprecision(1) << std::fixed << name << '\t'
                      << 100.0 * sum / orders << '\t' << orders << '\n';
@@ -140,9 +139,9 @@ int main() {
   std::cout << "* " << prices.size() << " pairs tested\n";
   std::cout << "* " << look_ahead - window_size << "-hour trade window\n";
   std::cout << "* " << window_count << " opportunities to trade\n";
-  std::cout << "* " << total_orders << " trades\n";
+  std::cout << "* " << total_orders << " orders\n";
   std::cout << "<pre>\n";
-  std::cout << "Strategy\t\t%\tTrades\n";
+  std::cout << "Strategy\t\t%\tOrders\n";
   std::cout << strategy_summary.str();
   std::cout << "</pre>\n";
 }
