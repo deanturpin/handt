@@ -17,7 +17,7 @@ prices.csv:
 readme = readme.md
 strategy.md: strategy.o prices.csv
 	cat template.md > $(readme)
-	@echo Generated $(shell TZ=BST-1 date) >> $(readme)
+	@echo '$(shell TZ=BST-1 date) - ' >> $(readme)
 	@git log --oneline -1 >> $(readme)
 	time ./$< >> $(readme)
 	cat $(readme)
