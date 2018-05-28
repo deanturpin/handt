@@ -14,14 +14,15 @@ while tokens:
 
     from_symbol = tokens.popleft()
     to_symbol = tokens.popleft()
+    exchange = tokens.popleft()
 
-    # Crypto compare counts 0 to limit - 1
-    total_prices = 2000 - 1
+    # Crypto compare counts start at zero
+    total_prices = 1999
 
     # Construct URL
     url = ("https://min-api.cryptocompare.com/data/histohour?fsym="
         + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
-        + "&extraParams=brightcoin.uk&e=Binance&tryConversion=false")
+        + "&extraParams=brightcoin.uk&e=" + exchange + "&tryConversion=false")
 
     print("#", url)
     try:
