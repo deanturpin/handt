@@ -135,8 +135,7 @@ int main() {
             << look_ahead - window_size
             << " hours. "
                "The more orders the greater the confidence in the result.\n";
-  std::cout << "* " << handt::get_pairs().size() << " tradable pairs\n";
-  std::cout << "* " << prices.size() << " pairs tested\n";
+  std::cout << "* " << prices.size() << " currency pairs polled\n";
   std::cout << "* " << look_ahead - window_size << "-hour trade window\n";
   std::cout << "* " << window_count << " opportunities to trade\n";
   std::cout << "* " << total_orders << " orders executed\n";
