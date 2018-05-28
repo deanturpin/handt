@@ -139,7 +139,7 @@ int main() {
   std::cout << "* " << prices.size() << " pairs tested\n";
   std::cout << "* " << look_ahead - window_size << "-hour trade window\n";
   std::cout << "* " << window_count << " opportunities to trade\n";
-  std::cout << "* " << total_orders << " orders\n";
+  std::cout << "* " << total_orders << " orders executed\n";
   std::cout << "<pre>\n";
   std::cout << "Strategy\t\t%\tOrders\n";
   std::cout << strategy_summary.str();
