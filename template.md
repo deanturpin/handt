@@ -2,6 +2,7 @@
 [![codecov](https://codecov.io/gh/deanturpin/handt/branch/master/graph/badge.svg)](https://codecov.io/gh/deanturpin/handt)
 **History is no indicator of future performance. Don't invest what you can't
 afford to lose.**
+
 *Have A Nice Day Trader* is an algorithmic trading platform. Prices are
 requested for all currency pairs traded by Binance over the last 80 days. Then a
 library of strategies is back-tested over the prices and a strategy summary is
