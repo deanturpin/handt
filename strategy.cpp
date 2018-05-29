@@ -17,7 +17,7 @@ int main() {
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
-  const double target_percentage = 1.025;
+  const double target_percentage = 1.035;
   unsigned long total_orders = 0;
 
   // Test strategies on each series
@@ -68,7 +68,6 @@ int main() {
 
   // Sort the strategy summary
   std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
-
     const auto a_return =
         100.0 * std::accumulate(a.second.cbegin(), a.second.cend(), 0) /
         a.second.size();
@@ -101,11 +100,13 @@ int main() {
       for (const auto &strategy_name : strategy::library(a, b))
         for (const auto &popper : popping_strategies)
           if (strategy_name.find(popper) != std::string::npos)
-            popping << p.exchange << '|' << p.from_symbol << '|' << p.to_symbol
-                    << '|' << strategy_name << '\n';
+            popping << p.from_symbol << '\t' << p.to_symbol
+
+                    << '\t' << strategy_name << '\t' << p.exchange << '\t'
+                    << p.series.back() << '\n';
     }
 
-  // Calculate strategy summary
+  // Calculate strategy suGmmary
   std::stringstream strategy_summary;
   for (const auto &strat : summary) {
     const long orders = strat.second.size();
@@ -120,9 +121,10 @@ int main() {
   std::cout << "\n# Recent recommendations\n";
   std::cout << "Potential trades from the top performing stategies below. "
                "See the [raw price data](prices.csv)\n";
-  std::cout << "\nExchange|From|To|Strategy\n";
-  std::cout << "---|---|---|---\n";
-  std::cout << (popping.str().empty() ? "I|GOT|NOTHING|:(\n" : popping.str());
+  std::cout << "<pre>\n";
+  std::cout << "From\tTo\tSpot\tStrategy\t\tExchange\n";
+  std::cout << (popping.str().empty() ? "I GOT NOTHING :(\n" : popping.str());
+  std::cout << "</pre>\n";
 
   // Create strategy summary
   std::cout << "\n# Strategy performance\n";
