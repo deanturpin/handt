@@ -141,9 +141,9 @@ int main() {
   std::cout << strategy_summary.str();
   std::cout << "</pre>\n";
 
-  // Dump new prospects
+  // Dump new orders
   if (!popping.str().empty()) {
-    std::ofstream out("prospects.csv");
+    std::ofstream out("orders.csv");
     out << popping.str();
   }
 }
