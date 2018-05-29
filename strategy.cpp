@@ -17,7 +17,7 @@ int main() {
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
-  const double target_percentage = 1.045;
+  const double target_percentage = 1.025;
   unsigned long total_orders = 0;
 
   // Test strategies on each series
@@ -140,4 +140,10 @@ int main() {
   std::cout << "Strategy\t\t%\tOrders\n";
   std::cout << strategy_summary.str();
   std::cout << "</pre>\n";
+
+  // Dump new prospects
+  if (!popping.str().empty()) {
+    std::ofstream out("prospects.csv");
+    out << popping.str();
+  }
 }
