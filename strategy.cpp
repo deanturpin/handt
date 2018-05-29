@@ -17,7 +17,7 @@ int main() {
   const unsigned long window_size = 24 * 1;
   const unsigned long look_ahead = window_size * 3;
   unsigned long window_count = 0;
-  const double target_percentage = 1.045;
+  const double target_percentage = 1.025;
   unsigned long total_orders = 0;
 
   // Test strategies on each series
@@ -100,12 +100,9 @@ int main() {
 
       for (const auto &strategy_name : strategy::library(a, b))
         for (const auto &popper : popping_strategies)
-          if (strategy_name.find(popper) != std::string::npos) {
-            const std::string pair_name = p.from_symbol + '_' + p.to_symbol;
-            popping << "|[" << pair_name
-                    << "](https://www.binance.com/trade.html?symbol="
-                    << pair_name << ")|" << strategy_name << "|\n";
-          }
+          if (strategy_name.find(popper) != std::string::npos)
+            popping << p.exchange << '|' << p.from_symbol << '|' << p.to_symbol
+                    << '|' << strategy_name << '\n';
     }
 
   // Calculate strategy summary
@@ -123,9 +120,9 @@ int main() {
   std::cout << "\n# Recent recommendations\n";
   std::cout << "Potential trades from the top performing stategies below. "
                "See the [raw price data](prices.csv)\n";
-  std::cout << "\n|Currency pair|Strategy|\n";
-  std::cout << "|---|---|\n";
-  std::cout << (popping.str().empty() ? "|I GOT NOTHING|:(|\n" : popping.str());
+  std::cout << "\nExchange|From|To|Strategy\n";
+  std::cout << "---|---|---|---\n";
+  std::cout << (popping.str().empty() ? "I|GOT|NOTHING|:(\n" : popping.str());
 
   // Create strategy summary
   std::cout << "\n# Strategy performance\n";
@@ -143,4 +140,10 @@ int main() {
   std::cout << "Strategy\t\t%\tOrders\n";
   std::cout << strategy_summary.str();
   std::cout << "</pre>\n";
+
+  // Dump new orders
+  if (!popping.str().empty()) {
+    std::ofstream out("orders.csv");
+    out << popping.str();
+  }
 }

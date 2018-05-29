@@ -40,7 +40,7 @@ while tokens:
                     pivot = float(spot["close"])
                     series.append(pivot)
 
-                print(from_symbol, to_symbol, end=" ")
+                print(from_symbol, to_symbol, exchange, end=" ")
                 for val in series:
                     print(val, end=" ")
                 print("")
