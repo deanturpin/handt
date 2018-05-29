@@ -34,10 +34,11 @@ struct prospect {
 struct coin {
   std::string from_symbol = "no symbol";
   std::string to_symbol = "no symbol";
+  std::string exchange = "no exchange";
   std::vector<double> series{};
 
   friend std::istream &operator>>(std::istream &is, coin &p) {
-    is >> p.from_symbol >> p.to_symbol;
+    is >> p.from_symbol >> p.to_symbol >> p.exchange;
     std::copy(std::istream_iterator<double>(is),
               std::istream_iterator<double>(), std::back_inserter(p.series));
     return is;
