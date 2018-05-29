@@ -122,7 +122,7 @@ int main() {
   std::cout << "Potential trades from the top performing stategies below. "
                "See the [raw price data](prices.csv)\n";
   std::cout << "<pre>\n";
-  std::cout << "From\tTo\tSpot\tStrategy\t\tExchange\n";
+  std::cout << "From\tTo\t\tStrategy\tExch\tSpot\n";
   std::cout << (popping.str().empty() ? "I GOT NOTHING :(\n" : popping.str());
   std::cout << "</pre>\n";
 
