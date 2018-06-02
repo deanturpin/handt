@@ -14,10 +14,17 @@ int main() {
 
   // Read latest prices
   const auto &prices = handt::get_prices();
-  const unsigned long window_size = 24 * 1;
+
+  // The size of the window we're using to decide whether to trade
+  const unsigned long window_size = 24;
+
+  // How far we're going to look ahead for maturity from the beginning of the
+  // analysis window
   const unsigned long look_ahead = window_size * 3;
-  unsigned long window_count = 0;
+
+  // Target return
   const double target_percentage = 1.06;
+  unsigned long window_count = 0;
   unsigned long total_orders = 0;
 
   // Test strategies on each series
@@ -66,28 +73,25 @@ int main() {
       }
     }
 
-  // Sort the strategy summary
-  std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
-    const auto a_return =
-        100.0 * std::accumulate(a.second.cbegin(), a.second.cend(), 0) /
-        a.second.size();
-    const auto b_return =
-        100.0 * std::accumulate(b.second.cbegin(), b.second.cend(), 0) /
-        b.second.size();
+  const auto average_percentage = [](const auto &begin, const auto &end) {
+    const auto size = std::distance(begin, end);
+    return size > 0.0 ? 100.0 * std::accumulate(begin, end, 0.0) / size : 0.0;
+  };
 
-    return a_return > b_return;
-  });
+  // Sort the strategy summary
+  std::sort(summary.begin(), summary.end(),
+            [&average_percentage](const auto &a, const auto &b) {
+              return average_percentage(a.second.cbegin(), a.second.cend()) >
+                     average_percentage(b.second.cbegin(), b.second.cend());
+            });
 
   // Find the top strategies
   std::vector<std::string> popping_strategies;
-  for (const auto &strat : summary) {
-    if (65.0 >
-        100.0 * std::accumulate(strat.second.cbegin(), strat.second.cend(), 0) /
-            strat.second.size())
+  for (const auto &strat : summary)
+    if (65.0 < average_percentage(strat.second.cbegin(), strat.second.cend()))
+      popping_strategies.push_back(strat.first);
+    else
       break;
-
-    popping_strategies.push_back(strat.first);
-  }
 
   // Look over the most recent prices to find what's popping
   std::stringstream popping;
@@ -100,24 +104,25 @@ int main() {
       for (const auto &strategy_name : strategy::library(a, b))
         for (const auto &popper : popping_strategies)
           if (strategy_name.find(popper) != std::string::npos)
-            popping << p.from_symbol << '\t' << p.to_symbol
-
-                    << '\t' << strategy_name << '\t' << p.exchange << '\t'
+            popping << p.from_symbol << '\t' << p.to_symbol << '\t'
+                    << strategy_name << '\t' << p.exchange << '\t'
                     << p.series.back() << '\n';
     }
 
-  // Calculate strategy suGmmary
+  // Calculate strategy summary
   std::stringstream strategy_summary;
-  for (const auto &strat : summary) {
-    const long orders = strat.second.size();
-    const auto &results = strat.second;
-    const auto sum = std::accumulate(results.cbegin(), results.cend(), 0);
-    const auto name = strat.first;
-    strategy_summary << std::setprecision(1) << std::fixed << name << '\t'
-                     << 100.0 * sum / orders << '\t' << orders << '\n';
-  }
+  for (const auto &strat : summary)
+    strategy_summary << std::setprecision(1) << std::fixed << strat.first
+                     << '\t' << average_percentage(strat.second.cbegin(),
+                                                   strat.second.cend())
+                     << '\t' << strat.second.size() << '\n';
 
-  // Report possible orders based on the best performing strategies
+  // Dump new orders (or clear order file if there are none)
+  std::ofstream orders("orders.csv");
+  if (orders.good())
+    orders << popping.str();
+
+  // Report potential new orders based on the best performing strategies
   std::cout << "\n# Recent recommendations\n";
   std::cout << "Potential trades from the top performing stategies below. "
                "See the [raw price data](prices.csv)\n";
@@ -142,8 +147,4 @@ int main() {
   std::cout << "Strategy\t\t%\tOrders\n";
   std::cout << strategy_summary.str();
   std::cout << "</pre>\n";
-
-  // Dump new orders (or clear order file if there are none)
-  std::ofstream out("orders.csv");
-  out << popping.str();
 }
