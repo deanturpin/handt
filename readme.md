@@ -12,20 +12,18 @@ API](https://min-api.cryptocompare.com/). See the [details](details.md).
 
 ---
 
-Sat  2 Jun 22:20:53 BST 2018 - 
-4055743 Trial 6 % maturity
-
+Sun  3 Jun 09:02:08 BST 2018 - 
+a33e48d Break average percentage calculation out into a lambda
 # Recent recommendations
 Potential trades from the top performing stategies below. See the [raw price data](prices.csv)
 <pre>
 From	To	Strategy		Exch	Spot
 I GOT NOTHING :(
 </pre>
-
-# Strategy performance
-Strategies are sorted by percentage of orders that returned a profit of at least 6 % within 48 hours. The more orders the greater the confidence in the result.
+# Strategy back-test performance
+Strategies are back-tested and sorted by percentage of orders that returned a profit of at least 6 % within 48 hours. The more orders the greater the confidence in the result.
 * 328 currency pairs polled
-* 48-hour trade window
+* 48-hour sell window
 * 632384 opportunities to trade
 * 2097771 orders executed
 <pre>

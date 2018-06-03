@@ -66,6 +66,7 @@ int main() {
 
         // Nudge all iterators along
         std::advance(a, 1);
+
         std::advance(b, 1);
         std::advance(c, 1);
 
@@ -98,10 +99,12 @@ int main() {
   for (const auto &p : prices)
     if (!p.series.empty()) {
 
-      const auto a = std::prev(p.series.cend(), window_size);
-      const auto b = p.series.cend();
+      // Create iterators for the most recent window of prices
+      const auto begin = std::prev(p.series.cend(), window_size);
+      const auto end = p.series.cend();
 
-      for (const auto &strategy_name : strategy::library(a, b))
+      // Run strategy library over recent prices
+      for (const auto &strategy_name : strategy::library(begin, end))
         for (const auto &popper : popping_strategies)
           if (strategy_name.find(popper) != std::string::npos)
             popping << p.from_symbol << '\t' << p.to_symbol << '\t'
@@ -123,7 +126,7 @@ int main() {
     orders << popping.str();
 
   // Report potential new orders based on the best performing strategies
-  std::cout << "\n# Recent recommendations\n";
+  std::cout << "# Recent recommendations\n";
   std::cout << "Potential trades from the top performing stategies below. "
                "See the [raw price data](prices.csv)\n";
   std::cout << "<pre>\n";
@@ -132,15 +135,16 @@ int main() {
   std::cout << "</pre>\n";
 
   // Create strategy summary
-  std::cout << "\n# Strategy performance\n";
-  std::cout << "Strategies are sorted by percentage of orders that returned a "
-               "profit of at least "
-            << -100 + 100.0 * target_percentage << " % within "
-            << look_ahead - window_size
-            << " hours. "
-               "The more orders the greater the confidence in the result.\n";
+  std::cout << "# Strategy back-test performance\n";
+  std::cout
+      << "Strategies are back-tested and sorted by percentage of orders that "
+         "returned a profit of at least "
+      << -100 + 100.0 * target_percentage << " % within "
+      << look_ahead - window_size
+      << " hours. "
+         "The more orders the greater the confidence in the result.\n";
   std::cout << "* " << prices.size() << " currency pairs polled\n";
-  std::cout << "* " << look_ahead - window_size << "-hour trade window\n";
+  std::cout << "* " << look_ahead - window_size << "-hour sell window\n";
   std::cout << "* " << window_count << " opportunities to trade\n";
   std::cout << "* " << total_orders << " orders executed\n";
   std::cout << "<pre>\n";
