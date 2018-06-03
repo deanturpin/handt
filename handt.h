@@ -14,12 +14,12 @@
 
 namespace handt {
 
-// A prospect has a name, an initial price and a list of strategies that
+// A prospect has a name, a spot price and a list of strategies that
 // triggered the prospect
 struct prospect {
-  std::string symbol;
-  double spot;
-  std::vector<std::string> strategies;
+  std::string symbol{};
+  double spot{};
+  std::vector<std::string> strategies{};
 
   friend std::istream &operator>>(std::istream &is, prospect &p) {
     is >> p.symbol >> p.spot;
@@ -29,16 +29,15 @@ struct prospect {
   }
 };
 
-// A coin has a name and a series of prices
+// A coin is a currency pair and a series of prices
 struct coin {
-  std::string from_symbol = "no symbol";
-  std::string to_symbol = "no symbol";
-  std::string exchange = "no exchange";
+  std::string from_symbol{"no symbol"};
+  std::string to_symbol{"no symbol"};
+  std::string exchange{"no exchange"};
   std::vector<double> series{};
 
   friend std::istream &operator>>(std::istream &is, coin &p) {
     is >> p.from_symbol >> p.to_symbol >> p.exchange;
-
     p.series = {std::istream_iterator<double>(is),
                 std::istream_iterator<double>()};
     return is;

@@ -12,8 +12,8 @@ API](https://min-api.cryptocompare.com/). See the [details](details.md).
 
 ---
 
-Sun  3 Jun 09:02:08 BST 2018 - 
-a33e48d Break average percentage calculation out into a lambda
+Sun  3 Jun 10:09:29 BST 2018 - 
+05a6dec Reword
 # Recent recommendations
 Potential trades from the top performing stategies below. See the [raw price data](prices.csv)
 <pre>
@@ -25,7 +25,7 @@ Strategies are back-tested and sorted by percentage of orders that returned a pr
 * 328 currency pairs polled
 * 48-hour sell window
 * 632384 opportunities to trade
-* 2097771 orders executed
+* 2095940 orders executed
 <pre>
 Strategy		%	Orders
 30.0_ski_jumping	100.0	2
@@ -47,96 +47,96 @@ Strategy		%	Orders
 40.0_rolling_ave_inv1	69.0	58
 40.0_red_snapper	66.7	36
 40.0_flicking_down	66.7	162
-20.0_average_comp2	65.4	107
 40.0_stepping_down	65.4	107
-5.00_rolling_ave_inv2	64.8	2327
-10.0_flicking_down	64.8	4204
+20.0_average_comp2	65.4	107
+5.00_rolling_ave_inv2	65.0	2320
+10.0_flicking_down	65.0	4192
 10.0_straddler_1	63.8	279
 10.0_rolling_ave_inv3	63.2	95
 20.0_straddler_1	62.0	50
 20.0_flicking_down	61.6	544
 20.0_red_snapper	61.4	259
-2.50_rolling_ave_inv3	59.2	2789
-20.0_old_above_new	58.5	3121
+2.50_rolling_ave_inv3	59.5	2771
 30.0_average_comp2	58.5	82
-5.00_average_comp2	58.5	4133
-10.0_stepping_down	58.5	4133
+20.0_old_above_new	58.5	3124
+10.0_stepping_down	58.4	4141
+5.00_average_comp2	58.4	4141
 5.00_rolling_ave_inv3	58.0	314
 30.0_stepping_down	57.6	170
-5.00_rolling_ave_inv1	57.2	8117
-2.50_average_under	57.1	3586
-10.0_red_snapper	55.7	1181
+5.00_rolling_ave_inv1	57.4	8084
+2.50_average_under	57.3	3578
+10.0_red_snapper	55.6	1192
 40.0_old_above_new	54.7	318
-20.0_nino_nino_1	54.2	5978
+20.0_nino_nino_1	54.2	5983
 40.0_average_comp2	53.7	67
 30.0_red_snapper	53.7	82
-5.00_average_comp	52.9	6861
-2.50_steady_down	52.8	163
-10.0_stepping_up	52.4	7789
-2.50_average_inter	52.4	6002
+2.50_steady_down	53.4	161
+5.00_average_comp	52.7	6834
+2.50_average_inter	52.4	5991
+10.0_stepping_up	52.3	7758
 5.00_average_under	52.0	542
-10.0_old_above_new	51.5	23503
+10.0_old_above_new	51.5	23598
 30.0_old_above_new	51.4	837
 5.00_steady_rising2	51.1	507
-2.50_rolling_ave_inv2	50.8	19358
+2.50_rolling_ave_inv2	51.1	19247
 5.00_steady_riser	50.7	550
+5.00_straddler_1	50.3	1251
 20.0_rolling_ave_inv3	50.0	8
 10.0_ski_jumping	50.0	4
-5.00_straddler_1	50.0	1256
-2.50_average_comp	49.8	35213
-5.00_stepping_up	49.5	36906
-10.0_new_above_old	48.4	29249
-10.0_flicking_up	48.1	7465
-5.00_flicking_down	48.1	30254
-5.00_flicking_up	47.9	34496
+2.50_average_comp	49.6	35197
+5.00_stepping_up	49.4	36892
+10.0_new_above_old	48.3	29165
+5.00_flicking_down	48.2	30161
+10.0_flicking_up	48.0	7444
+5.00_flicking_up	47.8	34441
 40.0_nino_nino_1	47.5	579
-10.0_nino_nino_1	47.4	44408
-10.0_average_comp2	47.4	511
+10.0_nino_nino_1	47.5	44430
 20.0_stepping_down	47.4	511
-20.0_new_above_old	46.2	6274
+10.0_average_comp2	47.4	511
 5.00_average_inter	46.1	1081
-5.00_rolling_average2	46.0	12721
+20.0_new_above_old	46.0	6229
+5.00_rolling_average2	45.9	12701
 30.0_nino_nino_1	45.8	1568
-5.00_new_above_old	45.5	86489
-2.50_average_comp2	45.3	31984
-5.00_stepping_down	45.3	31982
+5.00_new_above_old	45.4	86639
+2.50_average_comp2	45.2	32009
+5.00_stepping_down	45.2	32007
 2.50_ski_jumping	45.2	1025
-2.50_stepping_up	44.8	97907
-2.50_steady_rising2	44.6	21036
-2.50_flicking_up	44.4	92727
+2.50_stepping_up	44.7	98101
+2.50_rolling_ave_inv1	44.5	47661
 20.0_stepping_up	44.4	1720
-2.50_rolling_ave_inv1	44.3	47910
-5.00_roll_average	43.8	4549
-2.50_steady_riser	43.5	25055
-2.50_roll_average	43.4	23081
-2.50_rolling_average2	43.4	48549
-5.00_red_snapper	43.3	2769
-10.0_rolling_average2	42.6	2165
-2.50_koskosovich	42.3	5922
-2.50_new_above_old	42.1	155929
-2.50_straddler_1	41.9	2614
-5.00_koskosovich	41.6	1716
-30.0_new_above_old	40.9	2517
-5.00_old_above_new	40.9	91563
+2.50_steady_rising2	44.3	21083
+2.50_flicking_up	44.3	92745
+5.00_roll_average	43.6	4536
+5.00_red_snapper	43.6	2777
+2.50_rolling_average2	43.3	48499
+2.50_roll_average	43.3	23059
+2.50_steady_riser	43.2	25126
+10.0_rolling_average2	42.7	2159
+2.50_straddler_1	42.4	2600
+2.50_koskosovich	42.2	5916
+2.50_new_above_old	42.0	156377
+5.00_koskosovich	41.5	1711
+30.0_new_above_old	41.0	2511
+5.00_old_above_new	40.9	91584
 10.0_average_comp	40.5	1385
-5.00_nino_nino_1	39.7	173876
-20.0_flicking_up	39.4	1596
-2.50_flicking_down	39.1	102282
-10.0_koskosovich	38.3	394
-2.50_stepping_down	38.1	106587
+5.00_nino_nino_1	39.8	173411
+20.0_flicking_up	39.4	1590
+2.50_flicking_down	39.3	101918
+2.50_stepping_down	38.2	106435
+10.0_koskosovich	38.0	392
 5.00_ski_jumping	37.5	64
-2.50_nino_nino_1	36.7	338899
-2.50_red_snapper	36.4	3733
-2.50_old_above_new	36.3	180450
-10.0_roll_average	36.1	819
-40.0_straddler_2	35.1	7562
-30.0_straddler_2	35.1	7562
-20.0_straddler_2	35.1	7562
-10.0_straddler_2	35.1	7562
-5.00_straddler_2	35.1	7562
-2.50_straddler_2	35.1	7562
+2.50_red_snapper	36.8	3722
+2.50_nino_nino_1	36.8	338418
+2.50_old_above_new	36.4	180067
+10.0_roll_average	36.0	817
+40.0_straddler_2	35.3	7539
+30.0_straddler_2	35.3	7539
+20.0_straddler_2	35.3	7539
+10.0_straddler_2	35.3	7539
+5.00_straddler_2	35.3	7539
+2.50_straddler_2	35.3	7539
 40.0_new_above_old	34.3	1435
-20.0_rolling_average2	33.8	568
+20.0_rolling_average2	33.6	566
 20.0_koskosovich	32.4	105
 30.0_stepping_up	32.2	938
 20.0_roll_average	31.9	254
@@ -156,6 +156,6 @@ Strategy		%	Orders
 20.0_average_inter	24.2	339
 40.0_average_inter	23.2	280
 30.0_average_inter	22.2	315
-30.0_rolling_ave_inv3	20.0	5
 40.0_rolling_ave_inv3	20.0	5
+30.0_rolling_ave_inv3	20.0	5
 </pre>
