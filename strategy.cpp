@@ -89,7 +89,7 @@ int main() {
   // Find the top strategies
   std::vector<std::string> popping_strategies;
   for (const auto &strat : summary)
-    if (65.0 < average_percentage(strat.second.cbegin(), strat.second.cend()))
+    if (70.0 < average_percentage(strat.second.cbegin(), strat.second.cend()))
       popping_strategies.push_back(strat.first);
     else
       break;
