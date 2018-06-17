@@ -20,7 +20,7 @@ int main() {
 
   // How far we're going to look ahead for maturity from the beginning of the
   // analysis window
-  const unsigned long look_ahead = window_size * 3;
+  const unsigned long look_ahead = window_size * 5;
 
   // Target return
   const double target_percentage = 1.05;
@@ -66,7 +66,6 @@ int main() {
 
         // Nudge all iterators along
         std::advance(a, 1);
-
         std::advance(b, 1);
         std::advance(c, 1);
 
