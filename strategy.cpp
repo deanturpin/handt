@@ -20,7 +20,7 @@ int main() {
 
   // How far we're going to look ahead for maturity from the beginning of the
   // analysis window
-  const unsigned long look_ahead = window_size * 5;
+  const unsigned long look_ahead = window_size;
 
   // Target return
   const double target_percentage = 1.05;
@@ -34,7 +34,7 @@ int main() {
       // Set up some iterators
       auto a = p.series.begin();
       auto b = std::next(p.series.begin(), window_size);
-      auto c = std::next(p.series.begin(), look_ahead);
+      auto c = std::next(p.series.begin(), window_size + look_ahead);
 
       // Back test all historic prices in fixed-size windows starting from the
       // oldest
@@ -138,12 +138,10 @@ int main() {
   std::cout
       << "Strategies are back-tested and sorted by percentage of orders that "
          "returned a profit of at least "
-      << -100 + 100.0 * target_percentage << " % within "
-      << look_ahead - window_size
+      << -100 + 100.0 * target_percentage << " % within " << look_ahead
       << " hours. "
          "The more orders the greater the confidence in the result.\n";
   std::cout << "* " << prices.size() << " currency pairs polled\n";
-  std::cout << "* " << look_ahead - window_size << "-hour sell window\n";
   std::cout << "* " << window_count << " opportunities to trade\n";
   std::cout << "* " << total_orders << " orders executed\n";
   std::cout << "<pre>\n";
