@@ -23,8 +23,7 @@ struct prospect {
 
   friend std::istream &operator>>(std::istream &is, prospect &p) {
     is >> p.symbol >> p.spot;
-    p.strategies = {std::istream_iterator<std::string>(is),
-                    std::istream_iterator<std::string>()};
+    p.strategies = {std::istream_iterator<std::string>(is), {}};
     return is;
   }
 };
@@ -38,8 +37,7 @@ struct coin {
 
   friend std::istream &operator>>(std::istream &is, coin &p) {
     is >> p.from_symbol >> p.to_symbol >> p.exchange;
-    p.series = {std::istream_iterator<double>(is),
-                std::istream_iterator<double>()};
+    p.series = {std::istream_iterator<double>(is), {}};
     return is;
   }
 };
