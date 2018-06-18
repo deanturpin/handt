@@ -20,7 +20,7 @@ int main() {
 
   // How far we're going to look ahead for maturity from the beginning of the
   // analysis window
-  const unsigned long look_ahead = window_size;
+  const unsigned long look_ahead = window_size * 2;
 
   // Target return
   const double target_percentage = 1.05;
