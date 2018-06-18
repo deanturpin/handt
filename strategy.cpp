@@ -23,7 +23,7 @@ int main() {
   const unsigned long look_ahead = window_size * 2;
 
   // Target return
-  const double target_percentage = 1.05;
+  const double target_percentage = 1.04;
   unsigned long window_count = 0;
   unsigned long total_orders = 0;
 
