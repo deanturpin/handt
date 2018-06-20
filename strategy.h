@@ -278,7 +278,7 @@ std::vector<std::string> library(Iterator begin, Iterator end) {
 
   // Test each strategy with a set of thresholds
   for (const auto &strat : strategy_library)
-    for (const auto &threshold : {2.5, 5.0, 10.0, 20.0, 30.0, 40.0})
+    for (const auto &threshold : {4.987, 9.887, 19.567, 27.123, 39.009})
       if (strat.buy(s2, threshold))
         prospects.push_back(construct_name(strat.name, threshold));
 
