@@ -46,7 +46,7 @@ bool STRADDLING(param p1, param p2) {
   const auto minmax = std::minmax(p1, p2);
 
   unsigned long threshold = 0;
-  for (const auto &mod : {1, 10, 100, 1000, 10000}) {
+  for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
 
     const unsigned long test =
         minmax.second - (static_cast<unsigned long>(minmax.second) % mod);
@@ -273,8 +273,8 @@ std::vector<std::string> library(Iterator begin, Iterator end) {
   // Return potential prospects
   std::vector<std::string> prospects;
 
-  std::vector<double> s2;
-  std::copy(begin, end, std::back_inserter(s2));
+  // Create a copy of the range to pass to buy routine
+  const std::vector<double> s2(begin, end);
 
   // Test each strategy with a set of thresholds
   for (const auto &strat : strategy_library)
