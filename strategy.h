@@ -267,7 +267,7 @@ template <typename Iterator>
 std::vector<std::string> library(Iterator begin, Iterator end) {
 
   const auto construct_name = [](const std::string n, param p) {
-    return std::to_string(p).substr(0, 4) + "_" + n;
+    return std::to_string(p).substr(0, 6) + "_" + n;
   };
 
   // Return potential prospects
