@@ -1,10 +1,7 @@
 language: python
 python: "3.5"
 script:
-  - make CXX=clang++-6.0 strategy.o
-  - make clean
-  - make debug='-O3 -g --coverage' CXX=g++-8
-  - bash <(curl -s https://codecov.io/bash)
+  - make CXX=g++-8
   - cppcheck --enable=all .
 
 before_deploy: cp .gitignore_deploy .gitignore
@@ -24,8 +21,6 @@ matrix:
           update: true
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-6.0
           packages:
-            - clang++-6.0
             - g++-8
             - cppcheck
