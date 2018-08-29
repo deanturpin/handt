@@ -1,7 +1,7 @@
 all: prices.csv strategy.md
 
 quick_run =
-CXX = g++-6
+CXX = g++-8
 cflags = -std=c++14 --all-warnings --extra-warnings -pedantic-errors \
 	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor
 
@@ -19,7 +19,7 @@ strategy.md: strategy.o prices.csv
 	cat template.md > $(readme)
 	@echo '$(shell TZ=BST-1 date) - ' >> $(readme)
 	@git log --oneline -1 >> $(readme)
-	time ./$< >> $(readme)
+	./$< >> $(readme)
 	cat $(readme)
 
 clean:
