@@ -23,7 +23,7 @@ int main() {
   const unsigned long look_ahead = window_size * 2;
 
   // Target return
-  const double target_percentage = 1.04723;
+  const double target_percentage = 1.05;
   unsigned long window_count = 0;
   unsigned long total_orders = 0;
 
@@ -115,8 +115,9 @@ int main() {
   std::stringstream strategy_summary;
   for (const auto &strat : summary)
     strategy_summary << std::setprecision(1) << std::fixed << strat.first
-                     << '\t' << average_percentage(strat.second.cbegin(),
-                                                   strat.second.cend())
+                     << '\t'
+                     << average_percentage(strat.second.cbegin(),
+                                           strat.second.cend())
                      << '\t' << strat.second.size() << '\n';
 
   // Dump new orders (or clear order file if there are none)

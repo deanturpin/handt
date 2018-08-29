@@ -103,7 +103,6 @@ const std::vector<strategy_details> strategy_library{
     // Trigger if price has dropped and passed through a significant threshold
     {"red_snapper",
      [](series s, param p) {
-
        const auto early = s.front();
        const auto late = s.back();
 
@@ -278,12 +277,12 @@ std::vector<std::string> library(Iterator begin, Iterator end) {
 
   // Test each strategy with a set of thresholds
   for (const auto &strat : strategy_library)
-    for (const auto &threshold : {4.987, 9.887, 19.567, 27.123, 39.009})
+    for (const auto &threshold : {5.0, 10.0, 20.0, 30.0, 40.0})
       if (strat.buy(s2, threshold))
         prospects.push_back(construct_name(strat.name, threshold));
 
   return prospects;
 }
-}
+} // namespace strategy
 
 #endif

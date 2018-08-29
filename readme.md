@@ -12,8 +12,8 @@ API](https://min-api.cryptocompare.com/). See the [details](details.md).
 
 ---
 
-Wed 29 Aug 17:35:16 BST 2018 - 
-4c43ac2 Move to gcc 8
+Wed 29 Aug 17:40:24 BST 2018 - 
+ef65cf1 Add ETC pairs for Coinbase
 # Recent recommendations
 Potential trades from the top performing stategies below. See the [raw price data](prices.csv)
 <pre>
