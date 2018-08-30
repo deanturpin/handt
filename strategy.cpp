@@ -113,12 +113,10 @@ int main() {
 
   // Calculate strategy summary
   std::stringstream strategy_summary;
-  for (const auto &strat : summary)
-    strategy_summary << std::setprecision(1) << std::fixed << strat.first
-                     << '\t'
-                     << average_percentage(strat.second.cbegin(),
-                                           strat.second.cend())
-                     << '\t' << strat.second.size() << '\n';
+  for (const auto &[name, results] : summary)
+    strategy_summary << std::setprecision(1) << std::fixed << name << '\t'
+                     << average_percentage(results.cbegin(), results.cend())
+                     << '\t' << results.size() << '\n';
 
   // Dump new orders (or clear order file if there are none)
   std::ofstream orders("orders.csv");
