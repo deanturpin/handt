@@ -1,18 +1,15 @@
 all: prices.csv strategy.md
 
-quick_run =
 CXX = g++-8
-cflags = -std=c++17 --all-warnings --extra-warnings -pedantic-errors \
-	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor
-
-# Override to '-g --coverage' on the command line to generate codecov data
-debug = -O3
+cflags = -std=c++14 --all-warnings --extra-warnings -pedantic-errors \
+	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
+	 -lstdc++fs -O3
 
 %.o: %.cpp
-	$(CXX) -o $@ $< $(cflags) $(debug)
+	$(CXX) -o $@ $< $(cflags)
 
 prices.csv:
-	./get_prices.py $(quick_run) > $@
+	./get_prices.py > $@
 
 readme = readme.md
 strategy.md: strategy.o prices.csv
