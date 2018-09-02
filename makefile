@@ -1,7 +1,7 @@
 all: prices.csv strategy.md
 
 CXX = g++-8
-cflags = -std=c++14 --all-warnings --extra-warnings -pedantic-errors \
+cflags = -std=c++17 --all-warnings --extra-warnings -pedantic-errors \
 	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
 	 -lstdc++fs -O3
 

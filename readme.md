@@ -12,8 +12,8 @@ API](https://min-api.cryptocompare.com/). See the [details](details.md).
 
 ---
 
-Fri 31 Aug 13:21:24 BST 2018 - 
-b13cdf2 Merge pull request #232 from deanturpin/gcc_8_migration
+Sun  2 Sep 21:21:06 BST 2018 - 
+2e87259 Resolved conflicts
 # Recent recommendations
 Potential trades from the top performing stategies below. See the [raw price data](prices.csv)
 <pre>

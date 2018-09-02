@@ -30,9 +30,9 @@ struct prospect {
 
 // A coin is a currency pair and a series of prices
 struct coin {
-  std::string from_symbol{"no symbol"};
-  std::string to_symbol{"no symbol"};
-  std::string exchange{"no exchange"};
+  std::string from_symbol = "no symbol";
+  std::string to_symbol = "no symbol";
+  std::string exchange = "no exchange";
   std::vector<double> series{};
 
   friend std::istream &operator>>(std::istream &is, coin &p) {
@@ -68,6 +68,6 @@ template <typename Object> auto get_objects(const std::string &file) {
 // Wrappers to parse files and return containers of various objects
 auto get_prices() { return get_objects<coin>("prices.csv"); }
 auto get_pairs() { return get_objects<std::string>("pairs.csv"); }
-}
+} // namespace handt
 
 #endif
