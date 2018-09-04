@@ -1,4 +1,4 @@
-all: prices.csv strategy.md
+all: tmp prices.csv strategy.md
 
 CXX = g++-8
 cflags = -std=c++17 --all-warnings --extra-warnings -pedantic-errors \
@@ -7,6 +7,9 @@ cflags = -std=c++17 --all-warnings --extra-warnings -pedantic-errors \
 
 %.o: %.cpp
 	$(CXX) -o $@ $< $(cflags)
+
+tmp:
+	touch $@
 
 prices.csv:
 	./get_prices.py > $@

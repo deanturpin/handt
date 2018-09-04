@@ -24,9 +24,11 @@ std::vector<currency_pair> get_pairs() {
 
 int main() {
 
+  // Fetch the pairs we're interested in
   const auto &pairs = get_pairs();
   std::cout << pairs.size() << " pairs read\n";
 
+  // Form a price request
   for (const auto &request : get_pairs())
     std::cout << request.from_sym << '\t' << request.to_sym << '\t'
               << request.exchange << '\n';
