@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <iterator>
+#include <numeric>
 #include <vector>
 
 // A currency pair is a duo of symbols and an exchange whence the price came
@@ -30,17 +31,22 @@ int main() {
   const auto &pairs = get_pairs();
   std::cout << pairs.size() << " pairs read\n";
 
-  // Process prices
+  // Get prices
   for (auto &file : std::filesystem::directory_iterator("tmp")) {
 
-    currency_pair p;
+    // Get the trade params
     std::ifstream in(file.path());
-
-    if (in >> p.from_sym >> p.to_sym >> p.exchange)
+    if (currency_pair p; in >> p.from_sym >> p.to_sym >> p.exchange)
       std::cout << p.from_sym << " processing\n";
 
-    std::vector<double> prices{std::istream_iterator<double>(in), {}};
+    // Get the prices
+    const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
     std::cout << prices.size() << " prices read\n";
+
+    // Backtest
+    std::cout << std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
+                     prices.size()
+              << " average price\n";
   }
 }
