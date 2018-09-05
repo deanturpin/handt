@@ -9,7 +9,7 @@ cflags = -std=c++17 --all-warnings --extra-warnings -pedantic-errors \
 	$(CXX) -o $@ $< $(cflags)
 
 tmp:
-	touch $@
+	 mkdir $@
 
 prices.csv:
 	./get_prices.py > $@

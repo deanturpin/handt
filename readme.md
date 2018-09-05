@@ -12,5 +12,5 @@ API](https://min-api.cryptocompare.com/). See the [details](details.md).
 
 ---
 
-Mon  3 Sep 18:15:06 BST 2018 - 
-29c4512 Init strings by assignment
+Tue  4 Sep 18:11:37 BST 2018 - 
+331df55 Comment
