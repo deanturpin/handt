@@ -52,11 +52,11 @@ int main() {
 
     // Configure trading period
     const unsigned int test_period = 200;
-    const unsigned int look_ahead = test_period * 2;
+    const unsigned int look_ahead  = test_period * 2;
 
     // Set up some indices into the prices
     auto begin = prices.cbegin();
-    auto end = std::next(begin, test_period);
+    auto end   = std::next(begin, test_period);
     auto until = std::next(end, look_ahead);
 
     while (until < prices.cend()) {
@@ -67,7 +67,7 @@ int main() {
                 << '\n';
 
       std::advance(begin, test_period);
-      end = std::next(begin, test_period);
+      end   = std::next(begin, test_period);
       until = std::next(end, look_ahead);
     }
   }
