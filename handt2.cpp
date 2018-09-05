@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -48,5 +49,26 @@ int main() {
     std::cout << std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
                      prices.size()
               << " average price\n";
+
+    // Configure trading period
+    const unsigned int test_period = 200;
+    const unsigned int look_ahead = test_period * 2;
+
+    // Set up some indices into the prices
+    auto begin = prices.cbegin();
+    auto end = std::next(begin, test_period);
+    auto until = std::next(end, look_ahead);
+
+    while (until < prices.cend()) {
+      std::cout << std::distance(prices.cbegin(), begin) << '\t'
+                << (*begin > *end && *std::max_element(end, until) > *end * 1.05
+                        ? "buy"
+                        : "sell")
+                << '\n';
+
+      std::advance(begin, test_period);
+      end = std::next(begin, test_period);
+      until = std::next(end, look_ahead);
+    }
   }
 }
