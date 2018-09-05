@@ -67,8 +67,10 @@ int main() {
                 << '\n';
 
       std::advance(begin, test_period);
-      end = std::next(begin, test_period);
+      end = 			std::next(begin, test_period);
       until = std::next(end, look_ahead);
+
+
     }
   }
 }
