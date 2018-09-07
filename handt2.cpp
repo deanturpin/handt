@@ -213,21 +213,21 @@ int main() {
 
       // Configure trading period
       const unsigned int analysis_window = 24;
-      const unsigned int sell_window     = analysis_window * 2;
+      const unsigned int sell_window = analysis_window * 2;
 
       // Set up some indices into the prices
       auto earliest_price = prices.cbegin();
-      auto latest_price   = std::next(earliest_price, analysis_window);
-      auto future_price   = std::next(latest_price, sell_window);
+      auto latest_price = std::next(earliest_price, analysis_window);
+      auto future_price = std::next(latest_price, sell_window);
 
       // Stat reporting
-      unsigned int successes              = 0;
-      unsigned int fails                  = 0;
+      unsigned int successes = 0;
+      unsigned int fails = 0;
       unsigned int opportunities_to_trade = 0;
 
       while (future_price < prices.cend()) {
 
-        const double buy_threshold  = 1.2;
+        const double buy_threshold = 1.2;
         const double sell_threshold = 1.01;
 
         // Check if we're ready to trade
