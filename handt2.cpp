@@ -228,22 +228,25 @@ int main() {
       while (future_price < prices.cend()) {
 
         const double buy_threshold  = 1.2;
-        const double sell_threshold = 1.02;
+        const double sell_threshold = 1.01;
 
         // Check if we're ready to trade
         if (*earliest_price / *latest_price > buy_threshold) {
 
           // Find the first opportunity to sell in the future sell window
-          const auto max_price = std::max_element(latest_price, future_price);
+          const auto sell_price =
+              std::find_if(latest_price, future_price,
+                           [&latest_price, &sell_threshold](const auto &p) {
+                             return p > (*latest_price * sell_threshold);
+                           });
 
           // Look ahead to see if we would have cashed in the trade
-          if (*max_price / *latest_price > sell_threshold) {
+          if (sell_price != future_price) {
             ++successes;
 
             // Move the trade window to the first opportunity to sell
-            earliest_price = max_price;
+            earliest_price = sell_price;
           }
-
         } else
           ++fails;
 
