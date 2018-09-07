@@ -215,10 +215,17 @@ int main() {
       const unsigned int analysis_window = 24;
       const unsigned int sell_window = analysis_window * 2;
 
-      // Set up some indices into the prices
-      auto earliest_price = prices.cbegin();
-      auto latest_price = std::next(earliest_price, analysis_window);
-      auto future_price = std::next(latest_price, sell_window);
+      // Set up some indices into the prices. Historic price the first price in
+      // the analysis window and the future price is the furthest price after
+      // the current price that we're prepared to trade.
+
+      // |-- analysis window --|
+      // H--------------------NOW----------------F
+      //                       |-- sell window --|
+
+      auto historic_price = prices.cbegin();
+      auto current_price = std::next(historic_price, analysis_window);
+      auto future_price = std::next(current_price, sell_window);
 
       // Stat reporting
       unsigned int successes = 0;
@@ -231,13 +238,13 @@ int main() {
         const double sell_threshold = 1.01;
 
         // Check if we're ready to trade
-        if (*earliest_price / *latest_price > buy_threshold) {
+        if (*historic_price / *current_price > buy_threshold) {
 
           // Find the first opportunity to sell in the future sell window
           const auto sell_price =
-              std::find_if(latest_price, future_price,
-                           [&latest_price, &sell_threshold](const auto &p) {
-                             return p > (*latest_price * sell_threshold);
+              std::find_if(current_price, future_price,
+                           [&current_price, &sell_threshold](const auto &p) {
+                             return p > (*current_price * sell_threshold);
                            });
 
           // Look ahead to see if we would have cashed in the trade
@@ -245,15 +252,15 @@ int main() {
             ++successes;
 
             // Move the trade window to the first opportunity to sell
-            earliest_price = sell_price;
+            historic_price = sell_price;
           }
         } else
           ++fails;
 
-        std::advance(earliest_price, 1);
+        std::advance(historic_price, 1);
 
-        latest_price = std::next(earliest_price, analysis_window);
-        future_price = std::next(latest_price, sell_window);
+        current_price = std::next(historic_price, analysis_window);
+        future_price = std::next(current_price, sell_window);
 
         ++opportunities_to_trade;
       }
