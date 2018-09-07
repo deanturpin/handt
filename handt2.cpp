@@ -6,6 +6,21 @@
 #include <numeric>
 #include <vector>
 
+template <typename T>
+auto buy_strategy(const T historic, const T current, const T future,
+                  const double buy, const double sell) {
+  if (*current / *historic > buy) {
+
+    // Find the first opportunity to sell in the future sell window
+    return std::find_if(current, future, [&current, &sell](const auto &p) {
+      return p > (*current * sell);
+    });
+  }
+
+  else
+    return historic;
+}
+
 int main() {
 
   // A currency pair is a duo of symbols and an exchange whence the price came
@@ -190,6 +205,7 @@ int main() {
 
   // for (const auto &[from_sym, to_sym, exchange] : pairs)
   // std::cout << from_sym << '\n';
+  //
 
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
@@ -241,14 +257,11 @@ int main() {
         const double sell_threshold = 1.05;
 
         // Test strategy
-        if (*current_price / *historic_price > buy_threshold) {
+        const auto sell_price =
+            buy_strategy(historic_price, current_price, future_price,
+                         buy_threshold, sell_threshold);
 
-          // Find the first opportunity to sell in the future sell window
-          const auto sell_price =
-              std::find_if(current_price, future_price,
-                           [&current_price, &sell_threshold](const auto &p) {
-                             return p > (*current_price * sell_threshold);
-                           });
+        if (sell_price != historic_price) {
 
           // Strategy triggered, so look ahead to see if it succeeded in the
           // defined trade window
