@@ -6,21 +6,6 @@
 #include <numeric>
 #include <vector>
 
-template <typename T>
-auto buy_strategy(const T historic, const T current, const T future,
-                  const double buy, const double sell) {
-  if (*current / *historic > buy) {
-
-    // Find the first opportunity to sell in the future sell window
-    return std::find_if(current, future, [&current, &sell](const auto &p) {
-      return p > (*current * sell);
-    });
-  }
-
-  else
-    return historic;
-}
-
 int main() {
 
   // A currency pair is a duo of symbols and an exchange whence the price came
@@ -253,15 +238,32 @@ int main() {
       while (future_price < prices.cend()) {
 
         // Define our trading thresholds
-        const double buy_threshold = 1.05;
+        const double buy_threshold = 1.15;
         const double sell_threshold = 1.05;
 
-        // Test strategy
-        const auto sell_price =
-            buy_strategy(historic_price, current_price, future_price,
-                         buy_threshold, sell_threshold);
+        // The buy strategy: return true if the strategy has triggered for the
+        // given range of historic prices
+        const auto buy_strategy = [](const auto &historic, const auto &current,
+                                     const double &threshold) -> bool {
+          return *current / *historic > threshold;
+        };
 
-        if (sell_price != historic_price) {
+        // The sell strategy: return the index of the first price to exceed
+        // the sell threshold or return the end iterator
+        const auto sell_strategy = [](const auto &current, const auto &future,
+                                      const double &threshold) {
+          const double spot = *current;
+          return std::find_if(current, future,
+                              [&spot, &threshold](const auto &p) {
+                                return p > spot * threshold;
+                              });
+        };
+
+        if (buy_strategy(historic_price, current_price, buy_threshold)) {
+
+          // Test strategy
+          const auto sell_price =
+              sell_strategy(current_price, future_price, sell_threshold);
 
           // Strategy triggered, so look ahead to see if it succeeded in the
           // defined trade window
