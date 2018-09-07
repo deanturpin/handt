@@ -236,8 +236,8 @@ int main() {
       // the current price that we're prepared to trade.
 
       // |-- analysis window --|
-      // H--------------------NOW----------------F
-      //                       |-- sell window --|
+      // H--------------------NOW-----------------F
+      //                       |-- trade window --|
 
       // Initialise the price markers to the beginning of the historic price
       // data
