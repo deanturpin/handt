@@ -223,6 +223,8 @@ int main() {
       // H--------------------NOW----------------F
       //                       |-- sell window --|
 
+      // Initialise the price markers to the beginning of the historic price
+      // data
       auto historic_price = prices.cbegin();
       auto current_price = std::next(historic_price, analysis_window);
       auto future_price = std::next(current_price, sell_window);
@@ -234,11 +236,12 @@ int main() {
 
       while (future_price < prices.cend()) {
 
-        const double buy_threshold = 1.2;
-        const double sell_threshold = 1.01;
+        // Define our trading thresholds
+        const double buy_threshold = 1.05;
+        const double sell_threshold = 1.05;
 
-        // Check if we're ready to trade
-        if (*historic_price / *current_price > buy_threshold) {
+        // Test strategy
+        if (*current_price / *historic_price > buy_threshold) {
 
           // Find the first opportunity to sell in the future sell window
           const auto sell_price =
@@ -247,21 +250,26 @@ int main() {
                              return p > (*current_price * sell_threshold);
                            });
 
-          // Look ahead to see if we would have cashed in the trade
+          // Strategy triggered, so look ahead to see if it succeeded in the
+          // defined trade window
           if (sell_price != future_price) {
             ++successes;
 
-            // Move the trade window to the first opportunity to sell
+            // If we succeeded move the trade window to the first opportunity to
+            // sell
             historic_price = sell_price;
-          }
-        } else
-          ++fails;
+          } else
+            ++fails;
+        }
 
+        // Nudge the analysis window along
         std::advance(historic_price, 1);
 
+        // Update upstream prices
         current_price = std::next(historic_price, analysis_window);
         future_price = std::next(current_price, sell_window);
 
+        // Track how many times we could have traded
         ++opportunities_to_trade;
       }
 
@@ -269,7 +277,8 @@ int main() {
       std::cout << fails << " fails\n";
       std::cout << opportunities_to_trade << " opportunities to trade\n";
 
-      std::cout << 100.0 * successes / fails << " % success rate\n";
+      std::cout << (fails > 0.0 ? 100.0 * successes / fails : 0.0)
+                << " % success rate\n";
     }
   }
 }
