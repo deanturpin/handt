@@ -189,7 +189,7 @@ int main() {
   std::cout << pairs.size() << " pairs read\n";
 
   // Get prices
-  for (auto &file : std::filesystem::directory_iterator("tmp")) {
+  for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
     // Get the trade params
     std::ifstream in(file.path());
