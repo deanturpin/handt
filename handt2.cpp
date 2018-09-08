@@ -10,40 +10,38 @@
 
 int main() {
 
+  struct strategy_summary {
+    std::string from_symbol{"undefined"};
+    std::string to_symbol{"undefined"};
+    std::string exchange{"undefined"};
+    unsigned int opportunities_to_trade{0u};
+    unsigned int good_deals{0u};
+    unsigned int bad_deals{0u};
+    double average_price{0u};
+    unsigned int price_count{0u};
+
+    void print() const {
+      std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
+                << average_price << ' ' << price_count << " prices "
+                << good_deals << " good " << bad_deals << " bad "
+                << opportunities_to_trade << " opportunities\n";
+    }
+  };
+
+  // Create a
+  static std::vector<strategy_summary> summary;
+  summary.reserve(pairs.size());
+
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
     // Open each coin summary
     std::ifstream in(file.path());
 
-    struct strategy_summary {
-      std::string from_symbol{"undefined"};
-      std::string to_symbol{"undefined"};
-      std::string exchange{"undefined"};
-      unsigned int opportunities_to_trade{0u};
-      unsigned int good_deals{0u};
-      unsigned int bad_deals{0u};
-      double average_price{0u};
-      double success_rate{0u};
-      unsigned int price_count{0u};
-
-      void print() {
-
-        // Calculate success rate
-        success_rate = good_deals + bad_deals > 0.0
-                           ? 100.0 * good_deals / (good_deals + bad_deals)
-                           : 0.0;
-
-        std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
-                  << average_price << ' ' << price_count << " prices\n"
-                  << good_deals << " good, " << bad_deals << " bad, "
-                  << opportunities_to_trade << " opportunities to trade\n"
-                  << success_rate << " % success rate\n";
-      }
-    } strategy;
+    // Create a new strategy summary to populate
+    strategy_summary &strategy = summary.emplace_back(strategy_summary{});
 
     // Get the trade details
-    std::string from_sym, to_sym, exchange;
     in >> strategy.from_symbol >> strategy.to_symbol >> strategy.exchange;
 
     // Get the prices
@@ -127,9 +125,10 @@ int main() {
         ++strategy.opportunities_to_trade;
       }
 
-      strategy.print();
-
     } else
       std::cout << "BAD COIN\n";
   }
+
+  for (const auto &s : summary)
+    s.print();
 }
