@@ -18,13 +18,11 @@ int main() {
     unsigned int good_deals{0u};
     unsigned int bad_deals{0u};
     double average_price{0u};
-    unsigned int price_count{0u};
 
     void print() const {
       std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
-                << average_price << ' ' << price_count << " prices "
-                << good_deals << " good " << bad_deals << " bad "
-                << opportunities_to_trade << " opportunities\n";
+                << average_price << ' ' << good_deals << " good " << bad_deals
+                << " bad " << opportunities_to_trade << " opportunities\n";
     }
   };
 
@@ -48,8 +46,6 @@ int main() {
     const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
     if (!prices.empty()) {
-
-      strategy.price_count = prices.size();
 
       // Backtest
       strategy.average_price =
