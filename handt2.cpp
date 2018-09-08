@@ -17,14 +17,15 @@ int main() {
     std::ifstream in(file.path());
 
     struct strategy_summary {
-      std::string from_symbol;
-      std::string to_symbol;
-      std::string exchange;
-      unsigned int opportunities_to_trade;
-      unsigned int good_deals;
-      unsigned int bad_deals;
-      double average_price;
-      double success_rate;
+      std::string from_symbol{"undefined"};
+      std::string to_symbol{"undefined"};
+      std::string exchange{"undefined"};
+      unsigned int opportunities_to_trade{0u};
+      unsigned int good_deals{0u};
+      unsigned int bad_deals{0u};
+      double average_price{0u};
+      double success_rate{0u};
+      unsigned int price_count{0u};
 
       void print() {
 
@@ -34,7 +35,7 @@ int main() {
                            : 0.0;
 
         std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
-                  << average_price << '\n'
+                  << average_price << ' ' << price_count << " prices\n"
                   << good_deals << " good, " << bad_deals << " bad, "
                   << opportunities_to_trade << " opportunities to trade\n"
                   << success_rate << " % success rate\n";
@@ -49,6 +50,8 @@ int main() {
     const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
     if (!prices.empty()) {
+
+      strategy.price_count = prices.size();
 
       // Backtest
       strategy.average_price =
