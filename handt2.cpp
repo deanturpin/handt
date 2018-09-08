@@ -203,24 +203,18 @@ int main() {
   // The pairs we're interested in
   std::cout << pairs.size() << " pairs read\n";
 
-  // for (const auto &[from_sym, to_sym, exchange] : pairs)
-  // std::cout << from_sym << '\n';
-  //
-
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
     // Get the trade params
     std::ifstream in(file.path());
     if (currency_pair p; in >> p.from_sym >> p.to_sym >> p.exchange)
-      std::cout << "Processing " << p.from_sym << " from symbol\n";
+      std::cout << "\n| " << p.from_sym << '-' << p.to_sym << '\n';
 
     // Get the prices
     const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
     if (!prices.empty()) {
-
-      std::cout << prices.size() << " prices read\n";
 
       // Backtest
       std::cout << std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
@@ -260,7 +254,8 @@ int main() {
         // given range of historic prices
         const auto buy_strategy = [](const auto &historic, const auto &current,
                                      const double &threshold) -> bool {
-          return *current / *historic > threshold;
+          // return *current / *historic > threshold;
+          return *historic / *current > threshold;
         };
 
         // The sell strategy: return the index of the first price to exceed
@@ -301,12 +296,12 @@ int main() {
         ++opportunities_to_trade;
       }
 
-      std::cout << successes << " successes\n";
-      std::cout << fails << " fails\n";
-      std::cout << opportunities_to_trade << " opportunities to trade\n";
+      std::cout << successes << " successes, " << fails << " fails, "
+                << opportunities_to_trade << " opportunities to trade\n";
 
-      std::cout << (fails > 0.0 ? 100.0 * successes / fails : 0.0)
+      std::cout << (fails > 0.0 ? 100.0 * successes / (successes + fails) : 0.0)
                 << " % success rate\n";
-    }
+    } else
+      std::cout << "THE PRICE IS WRONG\n";
   }
 }
