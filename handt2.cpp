@@ -17,23 +17,27 @@ int main() {
     std::ifstream in(file.path());
 
     struct strategy_summary {
-      std::string from_symbol{};
-      std::string to_symbol{};
-      std::string exchange{};
-      unsigned int opportunities_to_trade = 0u;
-      unsigned int good_deals = 0u;
-      unsigned int bad_deals = 0u;
-      double average_price = 0.0;
+      std::string from_symbol;
+      std::string to_symbol;
+      std::string exchange;
+      unsigned int opportunities_to_trade;
+      unsigned int good_deals;
+      unsigned int bad_deals;
+      double average_price;
+      double success_rate;
 
       void print() {
+
+        // Calculate success rate
+        success_rate = good_deals + bad_deals > 0.0
+                           ? 100.0 * good_deals / (good_deals + bad_deals)
+                           : 0.0;
+
         std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
                   << average_price << '\n'
                   << good_deals << " good, " << bad_deals << " bad, "
                   << opportunities_to_trade << " opportunities to trade\n"
-                  << (good_deals + bad_deals > 0.0
-                          ? 100.0 * good_deals / (good_deals + bad_deals)
-                          : 0.0)
-                  << " % success rate\n";
+                  << success_rate << " % success rate\n";
       }
     } strategy;
 
