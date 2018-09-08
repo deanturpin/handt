@@ -35,7 +35,7 @@ int main() {
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
     using iter = const std::vector<double>::const_iterator &;
-    using func = std::function<bool(iter, iter, const double &)>;
+    using func = const std::function<bool(iter, iter, const double &)>;
     using thresh = const double &;
 
     // The buy strategies: return true if the strategy has triggered for the
@@ -47,7 +47,20 @@ int main() {
     func strategy2 = [](iter historic, iter current, thresh threshold) {
       return *current / *historic > threshold;
     };
-    for (const auto &buy_strategy : {strategy1, strategy2}) {
+
+    func strategy3 = [](iter historic, iter current, thresh threshold) {
+      return *std::max_element(historic, std::prev(current)) /
+                 *std::prev(current) >
+             threshold;
+    };
+    func strategy4 = [](iter historic, iter current, thresh threshold) {
+      return *std::prev(current) /
+                 *std::max_element(historic, std::prev(current)) >
+             threshold;
+    };
+
+    for (const auto &buy_strategy :
+         {strategy1, strategy2, strategy3, strategy4}) {
 
       // Open each coin summary
       std::ifstream in(file.path());
