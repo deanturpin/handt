@@ -120,9 +120,7 @@ int main() {
         // Track how many times we could have traded
         ++strategy.opportunities_to_trade;
       }
-
-    } else
-      std::cout << "BAD COIN\n";
+    }
   }
 
   for (const auto &s : summary)
