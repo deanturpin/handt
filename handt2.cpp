@@ -53,14 +53,21 @@ int main() {
                  *std::prev(current) >
              threshold;
     };
+
     func strategy4 = [](iter historic, iter current, thresh threshold) {
       return *std::prev(current) /
                  *std::max_element(historic, std::prev(current)) >
              threshold;
     };
 
+    func strategy5 = [](iter historic, iter current, thresh threshold) {
+      return *std::prev(current) / (std::accumulate(historic, current, 0.0) /
+                                    std::distance(historic, current)) >
+             threshold;
+    };
+
     for (const auto &buy_strategy :
-         {strategy1, strategy2, strategy3, strategy4}) {
+         {strategy1, strategy2, strategy3, strategy4, strategy5}) {
 
       // Open each coin summary
       std::ifstream in(file.path());
@@ -102,8 +109,8 @@ int main() {
         while (future_price < prices.cend()) {
 
           // Define our trading thresholds
-          const double buy_threshold = 1.15;
-          const double sell_threshold = 1.05;
+          const double buy_threshold = 1.30;
+          const double sell_threshold = 1.1;
 
           // The sell strategy: return the index of the first price to exceed
           // the sell threshold or return the end iterator
