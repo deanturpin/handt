@@ -16,11 +16,28 @@ int main() {
     // Open each coin summary
     std::ifstream in(file.path());
 
+    struct strategy_summary {
+      std::string from_symbol{};
+      std::string to_symbol{};
+      std::string exchange{};
+      unsigned int opportunities_to_trade = 0u;
+      unsigned int good_deals = 0u;
+      unsigned int bad_deals = 0u;
+
+      void print() {
+        std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << '\n'
+                  << good_deals << " good, " << bad_deals << " bad, "
+                  << opportunities_to_trade << " opportunities to trade\n"
+                  << (good_deals + bad_deals > 0.0
+                          ? 100.0 * good_deals / (good_deals + bad_deals)
+                          : 0.0)
+                  << " % success rate\n";
+      }
+    } strategy;
+
     // Get the trade details
     std::string from_sym, to_sym, exchange;
-    in >> from_sym >> to_sym >> exchange;
-
-    std::cout << from_sym << '-' << to_sym << '\t' << exchange << '\n';
+    in >> strategy.from_symbol >> strategy.to_symbol >> strategy.exchange;
 
     // Get the prices
     const std::vector<double> prices{std::istream_iterator<double>(in), {}};
@@ -49,11 +66,6 @@ int main() {
       auto historic_price = prices.cbegin();
       auto current_price = std::next(historic_price, analysis_window);
       auto future_price = std::next(current_price, sell_window);
-
-      // Stat reporting
-      unsigned int successes = 0;
-      unsigned int fails = 0;
-      unsigned int opportunities_to_trade = 0;
 
       while (future_price < prices.cend()) {
 
@@ -87,13 +99,13 @@ int main() {
           if (const auto sell_price =
                   sell_strategy(current_price, future_price, sell_threshold);
               sell_price != future_price) {
-            ++successes;
+            ++strategy.good_deals;
 
             // If we succeeded move the next analysis window so it starts at
             // the sell price
             historic_price = sell_price;
           } else
-            ++fails;
+            ++strategy.bad_deals;
         }
 
         // Nudge the analysis window along
@@ -104,14 +116,11 @@ int main() {
         future_price = std::next(current_price, sell_window);
 
         // Track how many times we could have traded
-        ++opportunities_to_trade;
+        ++strategy.opportunities_to_trade;
       }
 
-      std::cout << successes << " successes, " << fails << " fails, "
-                << opportunities_to_trade << " opportunities to trade\n";
+      strategy.print();
 
-      std::cout << (fails > 0.0 ? 100.0 * successes / (successes + fails) : 0.0)
-                << " % success rate\n";
     } else
       std::cout << "BAD COIN\n";
   }
