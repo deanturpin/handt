@@ -23,9 +23,11 @@ int main() {
       unsigned int opportunities_to_trade = 0u;
       unsigned int good_deals = 0u;
       unsigned int bad_deals = 0u;
+      double average_price = 0.0;
 
       void print() {
-        std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << '\n'
+        std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
+                  << average_price << '\n'
                   << good_deals << " good, " << bad_deals << " bad, "
                   << opportunities_to_trade << " opportunities to trade\n"
                   << (good_deals + bad_deals > 0.0
@@ -45,9 +47,8 @@ int main() {
     if (!prices.empty()) {
 
       // Backtest
-      std::cout << std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
-                       prices.size()
-                << " average price\n";
+      strategy.average_price =
+          std::accumulate(prices.cbegin(), prices.cend(), 0.0) / prices.size();
 
       // Configure trading period
       const unsigned int analysis_window = 24;
