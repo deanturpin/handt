@@ -34,37 +34,34 @@ int main() {
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
-    // Open each coin summary
-    std::ifstream in(file.path());
+    using iter = const std::vector<double>::const_iterator &;
+    using func = std::function<bool(iter, iter, const double &)>;
+    using thresh = const double &;
 
-    // Create a new strategy summary to populate
-    strategy_summary &strategy = summary.emplace_back(strategy_summary{});
+    // The buy strategies: return true if the strategy has triggered for the
+    // given range of historic prices
+    func strategy1 = [](iter historic, iter current, thresh threshold) {
+      return *historic / *current > threshold;
+    };
 
-    // Get the trade details
-    in >> strategy.from_symbol >> strategy.to_symbol >> strategy.exchange;
+    func strategy2 = [](iter historic, iter current, thresh threshold) {
+      return *current / *historic > threshold;
+    };
+    for (const auto &buy_strategy : {strategy1, strategy2}) {
 
-    // Get the prices
-    const std::vector<double> prices{std::istream_iterator<double>(in), {}};
+      // Open each coin summary
+      std::ifstream in(file.path());
 
-    if (!prices.empty()) {
+      // Create a new strategy summary to populate
+      strategy_summary &strategy = summary.emplace_back(strategy_summary{});
 
-      // The buy strategy: return true if the strategy has triggered for the
-      // given range of historic prices
-      const auto strategy1 = [](const auto &historic, const auto &current,
-                                const double &threshold) -> bool {
-        return *historic / *current > threshold;
-      };
+      // Get the trade details
+      in >> strategy.from_symbol >> strategy.to_symbol >> strategy.exchange;
 
-      using iter = const std::vector<double>::const_iterator &;
-      using func = std::function<bool(iter, iter, const double &)>;
-      using thresh = const double &;
-      func strategy2 = [](iter historic, iter current, thresh threshold) {
-        return *current / *historic > threshold;
-      };
+      // Get the prices
+      const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
-      const auto buy_strategy = strategy2;
-      // for (const auto &buy_strategy : strategy1)
-      {
+      if (!prices.empty()) {
 
         // Backtest
         strategy.average_price =
