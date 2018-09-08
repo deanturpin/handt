@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <filesystem>
 #include <fstream>
+#include <functional>
 #include <iostream>
 #include <iterator>
 #include <numeric>
@@ -47,78 +48,90 @@ int main() {
 
     if (!prices.empty()) {
 
-      // Backtest
-      strategy.average_price =
-          std::accumulate(prices.cbegin(), prices.cend(), 0.0) / prices.size();
+      // The buy strategy: return true if the strategy has triggered for the
+      // given range of historic prices
+      const auto strategy1 = [](const auto &historic, const auto &current,
+                                const double &threshold) -> bool {
+        return *historic / *current > threshold;
+      };
 
-      // Configure trading period
-      const unsigned int analysis_window = 24;
-      const unsigned int sell_window = analysis_window * 2;
+      using iter = const std::vector<double>::const_iterator &;
+      using func = std::function<bool(iter, iter, const double &)>;
+      using thresh = const double &;
+      func strategy2 = [](iter historic, iter current, thresh threshold) {
+        return *current / *historic > threshold;
+      };
 
-      // Set up some indices into the prices. Historic price the first price in
-      // the analysis window and the future price is the furthest price after
-      // the current price that we're prepared to trade.
+      const auto buy_strategy = strategy2;
+      // for (const auto &buy_strategy : strategy1)
+      {
 
-      // |-- analysis window --|
-      // H--------------------NOW-----------------F
-      //                       |-- trade window --|
+        // Backtest
+        strategy.average_price =
+            std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
+            prices.size();
 
-      // Initialise the price markers to the beginning of the historic price
-      // data
-      auto historic_price = prices.cbegin();
-      auto current_price = std::next(historic_price, analysis_window);
-      auto future_price = std::next(current_price, sell_window);
+        // Configure trading period
+        const unsigned int analysis_window = 24;
+        const unsigned int sell_window = analysis_window * 2;
 
-      while (future_price < prices.cend()) {
+        // Set up some indices into the prices. Historic price the first price
+        // in the analysis window and the future price is the furthest price
+        // after the current price that we're prepared to trade.
 
-        // Define our trading thresholds
-        const double buy_threshold = 1.15;
-        const double sell_threshold = 1.05;
+        // |-- analysis window --|
+        // H--------------------NOW-----------------F
+        //                       |-- trade window --|
 
-        // The buy strategy: return true if the strategy has triggered for the
-        // given range of historic prices
-        const auto buy_strategy = [](const auto &historic, const auto &current,
-                                     const double &threshold) -> bool {
-          // return *current / *historic > threshold;
-          return *historic / *current > threshold;
-        };
+        // Initialise the price markers to the beginning of the historic price
+        // data
+        auto historic_price = prices.cbegin();
+        auto current_price = std::next(historic_price, analysis_window);
+        auto future_price = std::next(current_price, sell_window);
 
-        // The sell strategy: return the index of the first price to exceed
-        // the sell threshold or return the end iterator
-        const auto sell_strategy = [](const auto &current, const auto &future,
-                                      const double &threshold) {
-          const double spot = *current;
-          return std::find_if(current, future,
-                              [&spot, &threshold](const auto &p) {
-                                return p > spot * threshold;
-                              });
-        };
+        while (future_price < prices.cend()) {
 
-        if (buy_strategy(historic_price, current_price, buy_threshold)) {
+          // Define our trading thresholds
+          const double buy_threshold = 1.15;
+          const double sell_threshold = 1.05;
 
-          // Strategy triggered, so look ahead to see if it succeeded in the
-          // defined trade window
-          if (const auto sell_price =
-                  sell_strategy(current_price, future_price, sell_threshold);
-              sell_price != future_price) {
-            ++strategy.good_deals;
+          // The sell strategy: return the index of the first price to exceed
+          // the sell threshold or return the end iterator
+          const auto sell_strategy = [](const auto &current, const auto &future,
+                                        const double &threshold) {
+            const double spot = *current;
+            return std::find_if(current, future,
+                                [&spot, &threshold](const auto &p) {
+                                  return p > spot * threshold;
+                                });
+          };
 
-            // If we succeeded move the next analysis window so it starts at
-            // the sell price
-            historic_price = sell_price;
-          } else
-            ++strategy.bad_deals;
+          if (buy_strategy(historic_price, current_price, buy_threshold)) {
+
+            // Strategy triggered, so look ahead to see if it succeeded in the
+            // defined trade window
+            if (const auto sell_price =
+                    sell_strategy(current_price, future_price, sell_threshold);
+                sell_price != future_price) {
+              ++strategy.good_deals;
+
+              // If we succeeded move the next analysis window so it starts at
+              // the sell price
+              historic_price = sell_price;
+            } else
+              ++strategy.bad_deals;
+          }
+
+          // Nudge the analysis window along
+          std::advance(historic_price, 1);
+
+          // Update upstream prices
+          current_price = std::next(historic_price, analysis_window);
+          future_price = std::next(current_price, sell_window);
+
+          // Track how many times we could have traded
+          ++strategy.opportunities_to_trade;
         }
-
-        // Nudge the analysis window along
-        std::advance(historic_price, 1);
-
-        // Update upstream prices
-        current_price = std::next(historic_price, analysis_window);
-        future_price = std::next(current_price, sell_window);
-
-        // Track how many times we could have traded
-        ++strategy.opportunities_to_trade;
       }
     }
   }
