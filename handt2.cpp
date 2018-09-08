@@ -8,29 +8,7 @@
 #include <numeric>
 #include <vector>
 
-template <typename T>
-auto buy_strategy(const T historic, const T current, const T future,
-                  const double buy, const double sell) {
-  if (*current / *historic > buy) {
-
-    // Find the first opportunity to sell in the future sell window
-    return std::find_if(current, future, [&current, &sell](const auto &p) {
-      return p > (*current * sell);
-    });
-  }
-
-  else
-    return historic;
-}
-
 int main() {
-
-  // A currency pair is a duo of symbols and an exchange whence the price came
-  // struct currency_pair {
-  //   std::string from_sym{};
-  //   std::string to_sym{};
-  //   std::string exchange{};
-  // };
 
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
