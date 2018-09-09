@@ -68,22 +68,24 @@ int main() {
              *std::prev(current);
     };
 
-    for (const auto &buy_strategy :
-         {strategy1, strategy2, strategy3, strategy4, strategy5, strategy6}) {
+    // Open prices
+    std::ifstream in(file.path());
+    std::string from_symbol, to_symbol, exchange;
 
-      // Open each coin summary
-      std::ifstream in(file.path());
+    // Get the trade details
+    in >> from_symbol >> to_symbol >> exchange;
 
-      // Create a new strategy summary to populate
-      strategy_summary &strategy = summary.emplace_back(strategy_summary{});
+    // Get the prices
+    if (const std::vector<double> prices{std::istream_iterator<double>(in), {}};
+        !prices.empty()) {
 
-      // Get the trade details
-      in >> strategy.from_symbol >> strategy.to_symbol >> strategy.exchange;
+      // Run strategies over the prices
+      for (const auto &buy_strategy :
+           {strategy1, strategy2, strategy3, strategy4, strategy5, strategy6}) {
 
-      // Get the prices
-      const std::vector<double> prices{std::istream_iterator<double>(in), {}};
-
-      if (!prices.empty()) {
+        // Create a new strategy summary, initialised with basic trade info
+        strategy_summary &strategy = summary.emplace_back(
+            strategy_summary{from_symbol, to_symbol, exchange});
 
         // Backtest
         strategy.average_price =
