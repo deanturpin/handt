@@ -4,7 +4,6 @@
 #include <filesystem>
 #include <fstream>
 #include <functional>
-#include <iostream>
 #include <iterator>
 #include <numeric>
 #include <vector>
@@ -20,10 +19,13 @@ int main() {
     unsigned int bad_deals{0u};
     double average_price{0u};
 
-    void print() const {
-      std::cout << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
-                << average_price << ' ' << good_deals << " good " << bad_deals
-                << " bad " << opportunities_to_trade << " opportunities\n";
+    std::string str() const {
+      std::stringstream out;
+      out << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
+          << average_price << ' ' << good_deals << " good " << bad_deals
+          << " bad " << opportunities_to_trade << " opportunities";
+
+      return out.str();
     }
   };
 
@@ -34,38 +36,31 @@ int main() {
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
-    using iter = const std::vector<double>::const_iterator &;
-    using func = const std::function<double(iter, iter)>;
-
     // The buy strategies: return true if the strategy has triggered for the
     // given range of historic prices
-    func strategy1 = [](iter historic, iter current) {
-      return *historic / *current;
-    };
-
-    func strategy2 = [](iter historic, iter current) {
-      return *current / *historic;
-    };
-
-    func strategy3 = [](iter historic, iter current) {
-      return *std::max_element(historic, std::prev(current)) /
-             *std::prev(current);
-    };
-
-    func strategy4 = [](iter historic, iter current) {
-      return *std::prev(current) /
-             *std::max_element(historic, std::prev(current));
-    };
-
-    func strategy5 = [](iter historic, iter current) {
-      return *std::prev(current) / (std::accumulate(historic, current, 0.0) /
-                                    std::distance(historic, current));
-    };
-
-    func strategy6 = [](iter historic, iter current) {
-      return (std::accumulate(historic, current, 0.0) /
-              std::distance(historic, current)) /
-             *std::prev(current);
+    using iter = const std::vector<double>::const_iterator &;
+    using func = std::function<double(iter, iter)>;
+    const std::vector<func> strategies{
+        [](iter historic, iter current) { return *historic / *current; },
+        [](iter historic, iter current) { return *current / *historic; },
+        [](iter historic, iter current) {
+          return *std::max_element(historic, std::prev(current)) /
+                 *std::prev(current);
+        },
+        [](iter historic, iter current) {
+          return *std::prev(current) /
+                 *std::max_element(historic, std::prev(current));
+        },
+        [](iter historic, iter current) {
+          return *std::prev(current) /
+                 (std::accumulate(historic, current, 0.0) /
+                  std::distance(historic, current));
+        },
+        [](iter historic, iter current) {
+          return (std::accumulate(historic, current, 0.0) /
+                  std::distance(historic, current)) /
+                 *std::prev(current);
+        },
     };
 
     // Open prices
@@ -80,8 +75,7 @@ int main() {
         !prices.empty()) {
 
       // Run strategies over the prices
-      for (const auto &buy_strategy :
-           {strategy1, strategy2, strategy3, strategy4, strategy5, strategy6}) {
+      for (const auto &buy_strategy : strategies) {
 
         // Create a new strategy summary, initialised with basic trade info
         strategy_summary &strategy = summary.emplace_back(
@@ -112,27 +106,23 @@ int main() {
 
         while (future_price < prices.cend()) {
 
-          // Define our trading thresholds
-          const double buy_threshold = 1.20;
-          const double sell_threshold = 1.05;
-
           // The sell strategy: return the index of the first price to exceed
           // the sell threshold or return the end iterator
-          const auto sell_strategy = [](const auto &current, const auto &future,
-                                        const double &threshold) {
+          const auto sell_strategy = [](iter current, iter future) {
             const double spot = *current;
-            return std::find_if(current, future,
-                                [&spot, &threshold](const auto &p) {
-                                  return p > spot * threshold;
-                                });
+            return std::find_if(current, future, [&spot](const auto &p) {
+              const double sell_threshold = 1.05;
+              return p > spot * sell_threshold;
+            });
           };
 
+          const double buy_threshold = 1.20;
           if (buy_strategy(historic_price, current_price) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
             if (const auto sell_price =
-                    sell_strategy(current_price, future_price, sell_threshold);
+                    sell_strategy(current_price, future_price);
                 sell_price != future_price) {
               ++strategy.good_deals;
 
@@ -157,6 +147,20 @@ int main() {
     }
   }
 
+  // Sort strategies by effectiveness
+  std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
+    // Strategy performance
+    const auto a_performance = a.bad_deals > 0.0
+                                   ? a.good_deals / (a.good_deals + a.bad_deals)
+                                   : a.good_deals;
+    const auto b_performance = b.bad_deals > 0.0
+                                   ? b.good_deals / (b.good_deals + b.bad_deals)
+                                   : b.good_deals;
+
+    return a_performance > b_performance;
+  });
+
+  // Print strategy report
   for (const auto &s : summary)
-    s.print();
+    std::puts(s.str().c_str());
 }
