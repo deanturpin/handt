@@ -81,12 +81,11 @@ int main() {
         strategy_summary &strategy = summary.emplace_back(
             strategy_summary{from_symbol, to_symbol, exchange});
 
-        // Backtest
         strategy.average_price =
             std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
             prices.size();
 
-        // Configure trading period
+        // Configure trading periods for back test
         const unsigned int analysis_window = 24;
         const unsigned int sell_window = analysis_window * 2;
 
@@ -149,7 +148,6 @@ int main() {
 
   // Sort strategies by effectiveness
   std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
-    // Strategy performance
     const auto a_performance = a.bad_deals > 0.0
                                    ? a.good_deals / (a.good_deals + a.bad_deals)
                                    : a.good_deals;
@@ -157,7 +155,7 @@ int main() {
                                    ? b.good_deals / (b.good_deals + b.bad_deals)
                                    : b.good_deals;
 
-    return a_performance > b_performance;
+    return a_performance < b_performance;
   });
 
   // Print strategy report
