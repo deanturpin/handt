@@ -103,18 +103,18 @@ int main() {
         auto current_price = std::next(historic_price, analysis_window);
         auto future_price = std::next(current_price, sell_window);
 
+        // Move windows along until we run out of prices
         while (future_price < prices.cend()) {
 
           // The sell strategy: return the index of the first price to exceed
           // the sell threshold or return the end iterator
           const auto sell_strategy = [](iter current, iter future) {
-            const double spot = *current;
-            return std::find_if(current, future, [&spot](const auto &p) {
-              const double sell_threshold = 1.05;
-              return p > spot * sell_threshold;
+            return std::find_if(current, future, [&current](const auto &p) {
+              return p > *current * 1.05;
             });
           };
 
+          // Test strategy
           const double buy_threshold = 1.20;
           if (buy_strategy(historic_price, current_price) > buy_threshold) {
 
