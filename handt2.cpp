@@ -35,44 +35,37 @@ int main() {
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
     using iter = const std::vector<double>::const_iterator &;
-    using func = const std::function<bool(iter, iter, const double &)>;
-    using thresh = const double &;
+    using func = const std::function<double(iter, iter)>;
 
     // The buy strategies: return true if the strategy has triggered for the
     // given range of historic prices
-    func strategy1 = [](iter historic, iter current, thresh threshold) {
-      return *historic / *current > threshold;
+    func strategy1 = [](iter historic, iter current) {
+      return *historic / *current;
     };
 
-    func strategy2 = [](iter historic, iter current, thresh threshold) {
-      return *current / *historic > threshold;
+    func strategy2 = [](iter historic, iter current) {
+      return *current / *historic;
     };
 
-    func strategy3 = [](iter historic, iter current, thresh threshold) {
+    func strategy3 = [](iter historic, iter current) {
       return *std::max_element(historic, std::prev(current)) /
-                 *std::prev(current) >
-             threshold;
+             *std::prev(current);
     };
 
-    func strategy4 = [](iter historic, iter current, thresh threshold) {
+    func strategy4 = [](iter historic, iter current) {
       return *std::prev(current) /
-                 *std::max_element(historic, std::prev(current)) >
-             threshold;
+             *std::max_element(historic, std::prev(current));
     };
 
-    func strategy5 = [](iter historic, iter current, thresh threshold) {
+    func strategy5 = [](iter historic, iter current) {
       return *std::prev(current) / (std::accumulate(historic, current, 0.0) /
-                                    std::distance(historic, current)) >
-             threshold;
+                                    std::distance(historic, current));
     };
 
-    func strategy6 = [](iter historic, iter current, thresh threshold) {
-      return
-
-          (std::accumulate(historic, current, 0.0) /
-           std::distance(historic, current)) /
-              *std::prev(current) >
-          threshold;
+    func strategy6 = [](iter historic, iter current) {
+      return (std::accumulate(historic, current, 0.0) /
+              std::distance(historic, current)) /
+             *std::prev(current);
     };
 
     for (const auto &buy_strategy :
@@ -132,7 +125,7 @@ int main() {
                                 });
           };
 
-          if (buy_strategy(historic_price, current_price, buy_threshold)) {
+          if (buy_strategy(historic_price, current_price) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
