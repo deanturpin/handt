@@ -8,6 +8,7 @@
 
 int main() {
 
+  // Structure to represent a trade
   struct strategy_summary {
     std::string from_symbol = "undefined";
     std::string to_symbol = "undefined";
@@ -24,8 +25,8 @@ int main() {
       std::stringstream out;
       out.precision(10);
       out << strategy_id << '\t' << from_symbol << '-' << to_symbol << ' '
-          << exchange << ' ' << good_deals << '/' << good_deals + bad_deals
-          << ' ' << average_price << ' ' << opportunities_to_trade << " opps "
+          << exchange << ' ' << good_deals << '/' << bad_deals << ' '
+          << average_price << ' ' << opportunities_to_trade << " opps "
           << trigger_ratio << (current_prospect ? " *" : "");
 
       return out.str();
@@ -43,15 +44,19 @@ int main() {
     using iter = const std::vector<double>::const_iterator &;
     using func = std::function<double(iter, iter)>;
     const std::vector<func> strategies{
-        [](iter historic, iter current) { return *historic / *current; },
-        [](iter historic, iter current) { return *current / *historic; },
         [](iter historic, iter current) {
-          return *std::max_element(historic, std::prev(current)) /
+          return *historic / *std::prev(current);
+        },
+        [](iter historic, iter current) {
+          return *std::prev(current) / *historic;
+        },
+        [](iter historic, iter current) {
+          return *std::max_element(historic, std::prev(current, 2)) /
                  *std::prev(current);
         },
         [](iter historic, iter current) {
           return *std::prev(current) /
-                 *std::max_element(historic, std::prev(current));
+                 *std::max_element(historic, std::prev(current, 2));
         },
         [](iter historic, iter current) {
           return *std::prev(current) /
@@ -161,14 +166,10 @@ int main() {
 
   // Sort strategies by effectiveness
   std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
-    const auto a_performance = a.bad_deals > 0.0
-                                   ? a.good_deals / (a.good_deals + a.bad_deals)
-                                   : a.good_deals;
-    const auto b_performance = b.bad_deals > 0.0
-                                   ? b.good_deals / (b.good_deals + b.bad_deals)
-                                   : b.good_deals;
-
-    return a_performance > b_performance;
+    return (a.good_deals ? a.good_deals : 1.0) /
+               (a.bad_deals ? a.bad_deals : 1.0) >
+           (b.good_deals ? b.good_deals : 1.0) /
+               (b.bad_deals ? b.bad_deals : 1.0);
   });
 
   // Print strategy report
