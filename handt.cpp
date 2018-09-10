@@ -3,6 +3,7 @@
 #include <fstream>
 #include <functional>
 #include <iterator>
+#include <map>
 #include <numeric>
 #include <vector>
 
@@ -40,39 +41,25 @@ int main() {
 
     // Define the buy strategies, eash strategy function takes a pair of
     // iterators that define a window into the prices: the analysis window
-    using iter = const std::vector<double>::const_iterator &;
     using cont = const std::vector<double>;
     using func = std::function<double(cont)>;
 
-    struct strategy_pair {
-      std::string name = "undefined";
-      func buy;
-    };
+    const std::map<std::string, func> strategies{
 
-    const std::vector<strategy_pair> strategies{
-
-        {"blah", [](cont p) { return p.front() / p.back(); }},
-
-        // [](iter historic, iter current) {
-        //   return *std::prev(current) / *historic;
-        // },
-        // [](iter historic, iter current) {
-        //   return *std::max_element(historic, std::prev(current, 2)) /
-        //          *std::prev(current);
-        // },
-        // [](iter historic, iter current) {
-        //   return *std::prev(current) /
-        //          *std::max_element(historic, std::prev(current, 2));
-        // },
-        // [](iter historic, iter current) {
-        //   return *std::prev(current) /
-        //          (std::accumulate(historic, current, 0.0) /
-        //           std::distance(historic, current));
-        // },
-        // [](iter h, iter c) {
-        //   return (std::accumulate(h, c, 0.0) / std::distance(h, c)) /
-        //          *std::prev(c);
-        // },
+        {"nao", [](cont p) { return p.front() / p.back(); }},
+        {"oan", [](cont p) { return p.back() / p.front(); }},
+        {"dean",
+         [](cont p) {
+           return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
+         }},
+        {"ken",
+         [](cont p) {
+           return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
+         }},
+        {"les",
+         [](cont p) {
+           return p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
+         }},
     };
 
     // Open prices
@@ -121,6 +108,7 @@ int main() {
 
           // The sell strategy: return the index of the first price to exceed
           // the sell threshold or return the end iterator
+          using iter = const std::vector<double>::const_iterator &;
           const auto sell_strategy = [](iter current, iter future) {
             return std::find_if(current, future, [&current](const auto &p) {
               return p > *current * 1.05;
