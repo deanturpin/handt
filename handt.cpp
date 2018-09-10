@@ -115,7 +115,7 @@ int main() {
           };
 
           // Test strategy
-          const double buy_threshold = 1.20;
+          const double buy_threshold = 1.15;
           if (buy_strategy(historic_price, current_price) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
