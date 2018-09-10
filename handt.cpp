@@ -33,8 +33,9 @@ int main() {
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
-    // The buy strategies: return true if the strategy has triggered for the
-    // given range of historic prices
+    // Define the the buy strategies, eash strategy is a function that takes a
+    // pair of iterators that define a window into the prices: the analysis
+    // window
     using iter = const std::vector<double>::const_iterator &;
     using func = std::function<double(iter, iter)>;
     const std::vector<func> strategies{
@@ -86,10 +87,10 @@ int main() {
         const unsigned int analysis_window = 24;
         const unsigned int sell_window = analysis_window * 2;
 
-        // Set up some indices into the prices. Historic price is the first price
-        // in the analysis window and the future price is the furthest price
-        // after the current price that we're prepared to trade.
-        // e.g., 24-hour analysis window and 48-hour trade window
+        // Set up some indices into the prices. Historic price is the first
+        // price in the analysis window and the future price is the furthest
+        // price after the current price that we're prepared to trade. e.g.,
+        // 24-hour analysis window and 48-hour trade window
 
         // |-- analysis window --|
         // H--------------------NOW-----------------F
