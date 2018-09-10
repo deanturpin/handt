@@ -86,16 +86,16 @@ int main() {
         const unsigned int analysis_window = 24;
         const unsigned int sell_window = analysis_window * 2;
 
-        // Set up some indices into the prices. Historic price the first price
+        // Set up some indices into the prices. Historic price is the first price
         // in the analysis window and the future price is the furthest price
         // after the current price that we're prepared to trade.
+        // e.g., 24-hour analysis window and 48-hour trade window
 
         // |-- analysis window --|
         // H--------------------NOW-----------------F
         //                       |-- trade window --|
 
-        // Initialise the price markers to the beginning of the historic price
-        // data
+        // Initialise the price markers to the start of historic price data
         auto historic_price = prices.cbegin();
         auto current_price = std::next(historic_price, analysis_window);
         auto future_price = std::next(current_price, sell_window);
