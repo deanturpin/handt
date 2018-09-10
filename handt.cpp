@@ -41,31 +41,31 @@ int main() {
     // Define the buy strategies, eash strategy function takes a pair of
     // iterators that define a window into the prices: the analysis window
     using iter = const std::vector<double>::const_iterator &;
-    using func = std::function<double(iter, iter)>;
+    using cont = const std::vector<double>;
+    using func = std::function<double(cont)>;
     const std::vector<func> strategies{
-        [](iter historic, iter current) {
-          return *historic / *std::prev(current);
-        },
-        [](iter historic, iter current) {
-          return *std::prev(current) / *historic;
-        },
-        [](iter historic, iter current) {
-          return *std::max_element(historic, std::prev(current, 2)) /
-                 *std::prev(current);
-        },
-        [](iter historic, iter current) {
-          return *std::prev(current) /
-                 *std::max_element(historic, std::prev(current, 2));
-        },
-        [](iter historic, iter current) {
-          return *std::prev(current) /
-                 (std::accumulate(historic, current, 0.0) /
-                  std::distance(historic, current));
-        },
-        [](iter h, iter c) {
-          return (std::accumulate(h, c, 0.0) / std::distance(h, c)) /
-                 *std::prev(c);
-        },
+        [](cont p) { return p.front() / p.back(); },
+
+        // [](iter historic, iter current) {
+        //   return *std::prev(current) / *historic;
+        // },
+        // [](iter historic, iter current) {
+        //   return *std::max_element(historic, std::prev(current, 2)) /
+        //          *std::prev(current);
+        // },
+        // [](iter historic, iter current) {
+        //   return *std::prev(current) /
+        //          *std::max_element(historic, std::prev(current, 2));
+        // },
+        // [](iter historic, iter current) {
+        //   return *std::prev(current) /
+        //          (std::accumulate(historic, current, 0.0) /
+        //           std::distance(historic, current));
+        // },
+        // [](iter h, iter c) {
+        //   return (std::accumulate(h, c, 0.0) / std::distance(h, c)) /
+        //          *std::prev(c);
+        // },
     };
 
     // Open prices
@@ -122,7 +122,7 @@ int main() {
           };
 
           // Test strategy
-          if (buy_strategy(historic_price, current_price) > buy_threshold) {
+          if (buy_strategy({historic_price, current_price}) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
@@ -154,7 +154,7 @@ int main() {
         current_price = prices.cend();
 
         if (strategy.trigger_ratio =
-                buy_strategy(historic_price, current_price);
+                buy_strategy({historic_price, current_price});
             strategy.trigger_ratio > buy_threshold)
           strategy.current_prospect = true;
 
