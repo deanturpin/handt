@@ -24,7 +24,7 @@ while tokens:
         + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
         + "&extraParams=brightcoin.uk&e=" + exchange + "&tryConversion=false")
 
-    print(url)
+    print("#", url)
     try:
         # Check the response is a good one
         r = requests.get(url)
@@ -40,20 +40,18 @@ while tokens:
                     pivot = float(spot["close"])
                     series.append(pivot)
 
-                price_file = open("tmp/" + from_symbol + "-" + to_symbol + ".csv", "w+")
-                price_file.write(from_symbol + "\n")
-                price_file.write(to_symbol + "\n")
-                price_file.write(exchange + "\n")
+                print(from_symbol, to_symbol, exchange, end=" ")
                 for val in series:
-                    price_file.write(str(val) + "\n")
+                    print(val, end=" ")
+                print("")
 
             else:
                 print("# " + from_symbol + " error: " + r)
 
             iterations += 1
             if len(sys.argv) > 1:
-                if iterations > 0:
+                if iterations > 2:
                     break
 
     except Exception as e:
-        print("#", from_symbol, "generated exception: " + str(e))
+        print("#", from_symbol, "generated exception")

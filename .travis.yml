@@ -4,8 +4,6 @@ script:
   - make CXX=g++-8
   - cppcheck --enable=all .
 
-before_deploy: cp .gitignore_deploy .gitignore
-
 deploy:
   provider: pages
   github-token: ${api_key}

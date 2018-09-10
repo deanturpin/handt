@@ -1,23 +1,27 @@
-all: prices.csv strategy.md
+all: tmp handt
 
 CXX = g++-8
 cflags = -std=c++17 --all-warnings --extra-warnings -pedantic-errors \
 	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
-	 -lstdc++fs -O3
+	 -lstdc++fs
 
-%.o: %.cpp
+tmp/%.o: %.cpp
 	$(CXX) -o $@ $< $(cflags)
 
-prices.csv:
-	./get_prices.py > $@
+tmp:
+	 mkdir $@
+	./get_prices.py
 
+# Generate documentation
 readme = readme.md
-strategy.md: strategy.o prices.csv
+handt: tmp/handt.o
+	./$^ | tee tmp/strategy.txt
 	cat template.md > $(readme)
-	@echo '$(shell TZ=BST-1 date) - ' >> $(readme)
-	@git log --oneline -1 >> $(readme)
-	./$< >> $(readme)
-	cat $(readme)
+	echo Generated $(shell date) >> $(readme)
+	echo '```' >> $(readme)
+	cat tmp/strategy.txt >> $(readme)
+	echo '```' >> $(readme)
 
+# All intermediate files are stored in tmp, so just remove it
 clean:
-	rm -f prices.csv strategy.o
+	rm -rf tmp
