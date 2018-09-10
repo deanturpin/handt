@@ -155,7 +155,7 @@ int main() {
                                    ? b.good_deals / (b.good_deals + b.bad_deals)
                                    : b.good_deals;
 
-    return a_performance < b_performance;
+    return a_performance > b_performance;
   });
 
   // Print strategy report
