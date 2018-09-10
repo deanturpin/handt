@@ -12,6 +12,7 @@ int main() {
     std::string from_symbol{"undefined"};
     std::string to_symbol{"undefined"};
     std::string exchange{"undefined"};
+    int strategy_id{-1};
     unsigned int opportunities_to_trade{0u};
     unsigned int good_deals{0u};
     unsigned int bad_deals{0u};
@@ -19,9 +20,9 @@ int main() {
 
     std::string str() const {
       std::stringstream out;
-      out << from_symbol << '-' << to_symbol << ' ' << exchange << ' '
-          << average_price << ' ' << good_deals << " good " << bad_deals
-          << " bad " << opportunities_to_trade << " opportunities";
+      out << strategy_id << '\t' << from_symbol << '-' << to_symbol << ' '
+          << exchange << ' ' << average_price << ' ' << good_deals << " good "
+          << bad_deals << " bad " << opportunities_to_trade << " opportunities";
 
       return out.str();
     }
@@ -73,11 +74,14 @@ int main() {
         !prices.empty()) {
 
       // Run strategies over the prices
+      int strategy_id = 0;
       for (const auto &buy_strategy : strategies) {
 
         // Create a new strategy summary, initialised with basic trade info
         strategy_summary &strategy = summary.emplace_back(
-            strategy_summary{from_symbol, to_symbol, exchange});
+            strategy_summary{from_symbol, to_symbol, exchange, strategy_id});
+
+        ++strategy_id;
 
         strategy.average_price =
             std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
