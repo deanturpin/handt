@@ -113,8 +113,8 @@ int main() {
           };
 
           // Test strategy
-          const double buy_threshold = 1.15;
-          if (buy_strategy(historic_price, current_price) > buy_threshold) {
+          if (const double buy_threshold = 1.15;
+              buy_strategy(historic_price, current_price) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
@@ -123,8 +123,8 @@ int main() {
                 sell_price != future_price) {
               ++strategy.good_deals;
 
-              // If we succeeded move the next analysis window so it starts at
-              // the sell price
+              // Move the analysis window so the next iteration starts at the
+              // last sell price
               historic_price = sell_price;
             } else
               ++strategy.bad_deals;
