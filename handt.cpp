@@ -1,5 +1,3 @@
-#include "pairs.h"
-
 #include <algorithm>
 #include <filesystem>
 #include <fstream>
@@ -29,9 +27,8 @@ int main() {
     }
   };
 
-  // Create a
+  // Create a container for all trades
   static std::vector<strategy_summary> summary;
-  summary.reserve(pairs.size());
 
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {

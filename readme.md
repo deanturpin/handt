@@ -12,7 +12,7 @@ API](https://min-api.cryptocompare.com/). See the [details](details.md).
 
 ---
 
-Generated Mon 10 Sep 09:48:50 BST 2018
+Generated Mon 10 Sep 10:02:13 BST 2018
 ```
 AION-ETH Binance 0.00197024 7 good 0 bad 1697 opportunities
 CND-BTC Binance 3.78059e-06 7 good 0 bad 1604 opportunities
