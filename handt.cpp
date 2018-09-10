@@ -46,8 +46,11 @@ int main() {
 
     const std::map<std::string, func> strategies{
 
+        // First and last comparisons
         {"nao", [](cont p) { return p.front() / p.back(); }},
         {"oan", [](cont p) { return p.back() / p.front(); }},
+
+        // Averages
         {"dean",
          [](cont p) {
            return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
@@ -56,9 +59,15 @@ int main() {
          [](cont p) {
            return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
          }},
+
+        // Peak finders
         {"les",
          [](cont p) {
            return p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
+         }},
+        {"nacho",
+         [](cont p) {
+           return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
          }},
     };
 
