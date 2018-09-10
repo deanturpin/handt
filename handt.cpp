@@ -9,23 +9,23 @@
 int main() {
 
   struct strategy_summary {
-    std::string from_symbol{"undefined"};
-    std::string to_symbol{"undefined"};
-    std::string exchange{"undefined"};
-    int strategy_id{-1};
-    unsigned int opportunities_to_trade{0u};
-    unsigned int good_deals{0u};
-    unsigned int bad_deals{0u};
-    double average_price{0u};
-    bool prospect{false};
-    double trigger_ratio{0.0};
+    std::string from_symbol = "undefined";
+    std::string to_symbol = "undefined";
+    std::string exchange = "undefined";
+    int strategy_id = -1;
+    unsigned int opportunities_to_trade = 0u;
+    unsigned int good_deals = 0u;
+    unsigned int bad_deals = 0u;
+    double average_price = 0u;
+    bool prospect = false;
+    double trigger_ratio = 0.0;
 
     std::string str() const {
       std::stringstream out;
       out << strategy_id << '\t' << from_symbol << '-' << to_symbol << ' '
           << exchange << ' ' << good_deals << '/' << good_deals + bad_deals
           << ' ' << average_price << ' ' << opportunities_to_trade << " opps "
-          << trigger_ratio << (prospect ? " *" : "");
+          << trigger_ratio;
 
       return out.str();
     }
@@ -172,5 +172,6 @@ int main() {
 
   // Print strategy report
   for (const auto &s : summary)
-    std::puts(s.str().c_str());
+    if (s.prospect)
+      std::puts(s.str().c_str());
 }
