@@ -23,7 +23,6 @@ int main() {
 
     std::string str() const {
       std::stringstream out;
-      out.precision(10);
       out << strategy_id << '\t' << from_symbol << '-' << to_symbol << ' '
           << exchange << ' ' << good_deals << '/' << bad_deals << ' '
           << average_price << ' ' << opportunities_to_trade << " opps "
