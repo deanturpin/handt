@@ -37,9 +37,8 @@ int main() {
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
-    // Define the buy strategies, eash strategy is a function that takes a
-    // pair of iterators that define a window into the prices: the analysis
-    // window
+    // Define the buy strategies, eash strategy function takes a pair of
+    // iterators that define a window into the prices: the analysis window
     using iter = const std::vector<double>::const_iterator &;
     using func = std::function<double(iter, iter)>;
     const std::vector<func> strategies{
@@ -58,10 +57,9 @@ int main() {
                  (std::accumulate(historic, current, 0.0) /
                   std::distance(historic, current));
         },
-        [](iter historic, iter current) {
-          return (std::accumulate(historic, current, 0.0) /
-                  std::distance(historic, current)) /
-                 *std::prev(current);
+        [](iter h, iter c) {
+          return (std::accumulate(h, c, 0.0) / std::distance(h, c)) /
+                 *std::prev(c);
         },
     };
 
