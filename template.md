@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/deanturpin/handt.svg?branch=master)](https://travis-ci.org/deanturpin/handt)
-[![codecov](https://codecov.io/gh/deanturpin/handt/branch/master/graph/badge.svg)](https://codecov.io/gh/deanturpin/handt)
 
 **History is no indicator of future performance. Don't invest what you can't
 afford to lose.**
