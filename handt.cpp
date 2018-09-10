@@ -13,7 +13,7 @@ int main() {
     std::string from_symbol = "undefined";
     std::string to_symbol = "undefined";
     std::string exchange = "undefined";
-    int strategy_id = -1;
+    std::string strategy_name = "undefined";
     unsigned int opportunities_to_trade = 0u;
     unsigned int good_deals = 0u;
     unsigned int bad_deals = 0u;
@@ -23,7 +23,7 @@ int main() {
 
     std::string str() const {
       std::stringstream out;
-      out << strategy_id << '\t' << from_symbol << '-' << to_symbol << ' '
+      out << strategy_name << '\t' << from_symbol << '-' << to_symbol << ' '
           << exchange << ' ' << good_deals << '/' << bad_deals << ' '
           << average_price << ' ' << opportunities_to_trade << " opps "
           << trigger_ratio << (current_prospect ? " *" : "");
@@ -43,8 +43,15 @@ int main() {
     using iter = const std::vector<double>::const_iterator &;
     using cont = const std::vector<double>;
     using func = std::function<double(cont)>;
-    const std::vector<func> strategies{
-        [](cont p) { return p.front() / p.back(); },
+
+    struct strategy_pair {
+      std::string name = "undefined";
+      func buy;
+    };
+
+    const std::vector<strategy_pair> strategies{
+
+        {"blah", [](cont p) { return p.front() / p.back(); }},
 
         // [](iter historic, iter current) {
         //   return *std::prev(current) / *historic;
@@ -80,12 +87,11 @@ int main() {
         !prices.empty()) {
 
       // Run strategies over the prices
-      int strategy_id = 0;
-      for (const auto &buy_strategy : strategies) {
+      for (const auto &[name, buy] : strategies) {
 
         // Create a new strategy summary, initialised with basic trade info
         strategy_summary &strategy = summary.emplace_back(
-            strategy_summary{from_symbol, to_symbol, exchange, strategy_id});
+            strategy_summary{from_symbol, to_symbol, exchange, name});
 
         strategy.average_price =
             std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
@@ -122,7 +128,7 @@ int main() {
           };
 
           // Test strategy
-          if (buy_strategy({historic_price, current_price}) > buy_threshold) {
+          if (buy({historic_price, current_price}) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
@@ -153,12 +159,9 @@ int main() {
         historic_price = std::prev(prices.cbegin(), analysis_window);
         current_price = prices.cend();
 
-        if (strategy.trigger_ratio =
-                buy_strategy({historic_price, current_price});
+        if (strategy.trigger_ratio = buy({historic_price, current_price});
             strategy.trigger_ratio > buy_threshold)
           strategy.current_prospect = true;
-
-        ++strategy_id;
       }
     }
   }
