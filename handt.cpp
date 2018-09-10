@@ -18,13 +18,14 @@ int main() {
     unsigned int bad_deals{0u};
     double average_price{0u};
     bool prospect{false};
+    double trigger_ratio{0.0};
 
     std::string str() const {
       std::stringstream out;
       out << strategy_id << '\t' << from_symbol << '-' << to_symbol << ' '
-          << exchange << ' ' << average_price << ' ' << good_deals << " good "
-          << bad_deals << " bad " << opportunities_to_trade << " opportunities"
-          << (prospect ? " *" : "");
+          << exchange << ' ' << good_deals << '/' << good_deals + bad_deals
+          << ' ' << average_price << ' ' << opportunities_to_trade << " opps "
+          << trigger_ratio << (prospect ? " *" : "");
 
       return out.str();
     }
@@ -149,7 +150,9 @@ int main() {
         historic_price = std::prev(prices.cbegin(), analysis_window);
         current_price = prices.cend();
 
-        if (buy_strategy(historic_price, current_price) > buy_threshold)
+        if (strategy.trigger_ratio =
+                buy_strategy(historic_price, current_price);
+            strategy.trigger_ratio > buy_threshold)
           strategy.prospect = true;
 
         ++strategy_id;

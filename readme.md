@@ -11,1938 +11,1938 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Mon 10 Sep 13:57:01 BST 2018
+Generated Mon 10 Sep 14:11:01 BST 2018
 ```
-0	ELF-BTC Binance 7.76584e-05 5 good 0 bad 1785 opportunities *
-0	WABI-BNB Binance 0.0218806 5 good 0 bad 1739 opportunities *
-2	WTC-BTC Binance 0.000759352 4 good 0 bad 1766 opportunities *
-0	ONT-BTC Binance 0.000481866 4 good 0 bad 1823 opportunities *
-1	LINK-BTC Binance 3.74083e-05 4 good 0 bad 1775 opportunities
-0	POE-BTC Binance 2.05588e-06 4 good 0 bad 1772 opportunities
-2	AION-BNB Binance 0.0607529 4 good 0 bad 1805 opportunities *
-2	ONT-BNB Binance 0.253171 4 good 0 bad 1802 opportunities *
-0	CDT-BTC Binance 2.86956e-06 4 good 0 bad 1769 opportunities
-0	TRIG-BNB Binance 0.0218628 3 good 0 bad 1840 opportunities *
-2	POWR-BTC Binance 3.56362e-05 3 good 0 bad 1846 opportunities *
-0	ONT-BNB Binance 0.253171 3 good 0 bad 1827 opportunities *
-2	WABI-ETH Binance 0.000707204 3 good 0 bad 1803 opportunities
-2	POA-BTC Binance 1.97474e-05 3 good 0 bad 1812 opportunities *
-0	POA-BTC Binance 1.97474e-05 3 good 0 bad 1811 opportunities *
-2	FUEL-ETH Binance 6.26916e-05 3 good 0 bad 1838 opportunities *
-1	MDA-BTC Binance 7.90729e-05 3 good 0 bad 1823 opportunities
-0	AST-ETH Binance 0.0003173 3 good 0 bad 1824 opportunities *
-4	LINK-BTC Binance 3.74083e-05 3 good 0 bad 1817 opportunities
-2	MTH-BTC Binance 4.75823e-06 3 good 0 bad 1797 opportunities *
-0	BCN-BTC Binance 3.75485e-07 3 good 0 bad 1839 opportunities
-0	REQ-BTC Binance 8.76991e-06 3 good 0 bad 1793 opportunities *
-2	REQ-BTC Binance 8.76991e-06 3 good 0 bad 1819 opportunities *
-2	CDT-BTC Binance 2.86956e-06 3 good 0 bad 1817 opportunities *
-2	CND-BTC Binance 3.77305e-06 3 good 0 bad 1815 opportunities *
-1	LSK-BNB Binance 0.374707 3 good 0 bad 1790 opportunities
-2	TNB-BTC Binance 2.60035e-06 3 good 0 bad 1787 opportunities *
-2	AMB-BTC Binance 3.27705e-05 3 good 0 bad 1818 opportunities *
-2	LEND-BTC Binance 3.17656e-06 2 good 0 bad 1826 opportunities *
-2	ZIL-BTC Binance 8.51794e-06 2 good 0 bad 1877 opportunities *
-4	SYS-BNB Binance 0.0112006 2 good 0 bad 1847 opportunities
-0	AMB-BTC Binance 3.27705e-05 2 good 0 bad 1856 opportunities *
-1	NCASH-BTC Binance 1.46901e-06 2 good 0 bad 1866 opportunities *
-2	STEEM-BNB Binance 0.0967836 2 good 0 bad 1870 opportunities *
-0	POWR-BTC Binance 3.56362e-05 2 good 0 bad 1856 opportunities *
-0	STEEM-BNB Binance 0.0967836 2 good 0 bad 1873 opportunities *
-0	AION-BTC Binance 0.00011427 2 good 0 bad 1868 opportunities *
-1	ZRX-ETH Binance 0.00232249 2 good 0 bad 1802 opportunities
-0	AE-BTC Binance 0.000232681 2 good 0 bad 1847 opportunities *
-2	AE-BTC Binance 0.000232681 2 good 0 bad 1850 opportunities *
-1	BLZ-BTC Binance 3.26236e-05 2 good 0 bad 1866 opportunities
-0	ICX-BNB Binance 0.0906316 2 good 0 bad 1865 opportunities *
-1	ICX-BTC Binance 0.000171332 2 good 0 bad 1866 opportunities
-2	ONT-ETH Binance 0.00822856 2 good 0 bad 1868 opportunities *
-0	QSP-BNB Binance 0.00444976 2 good 0 bad 1862 opportunities *
-1	ZRX-BTC Binance 0.000127805 2 good 0 bad 1806 opportunities
-0	STRAT-BTC Binance 0.000316614 2 good 0 bad 1872 opportunities *
-1	SALT-BTC Binance 0.000125637 2 good 0 bad 1863 opportunities
-2	OAX-BTC Binance 3.83156e-05 2 good 0 bad 1837 opportunities *
-0	VIBE-BTC Binance 8.117e-06 2 good 0 bad 1842 opportunities *
-1	WAN-BTC Binance 0.00024985 2 good 0 bad 1846 opportunities
-1	XVG-BTC Binance 2.92021e-06 2 good 0 bad 1867 opportunities *
-2	SALT-ETH Binance 0.00214298 2 good 0 bad 1866 opportunities *
-1	SALT-ETH Binance 0.00214298 2 good 0 bad 1861 opportunities
-0	RCN-BTC Binance 5.21751e-06 2 good 0 bad 1808 opportunities *
-1	POWR-BTC Binance 3.56362e-05 2 good 0 bad 1849 opportunities
-2	QLC-BTC Binance 8.19402e-06 2 good 0 bad 1838 opportunities *
-2	WAN-ETH Binance 0.00425863 2 good 0 bad 1857 opportunities *
-1	MCO-BTC Binance 0.000885883 2 good 0 bad 1858 opportunities
-0	QLC-BTC Binance 8.19402e-06 2 good 0 bad 1840 opportunities *
-1	XLM-BNB Binance 0.0187822 2 good 0 bad 1858 opportunities
-0	FUEL-ETH Binance 6.26916e-05 2 good 0 bad 1877 opportunities *
-2	PPT-BTC Binance 0.000831413 2 good 0 bad 1870 opportunities *
-0	MTH-BTC Binance 4.75823e-06 2 good 0 bad 1850 opportunities
-0	PPT-BTC Binance 0.000831413 2 good 0 bad 1862 opportunities *
-1	POWR-ETH Binance 0.000636819 2 good 0 bad 1849 opportunities
-2	GRS-ETH Binance 0.00162475 2 good 0 bad 1860 opportunities
-2	WTC-ETH Binance 0.0132017 2 good 0 bad 1868 opportunities
-2	LRC-BTC Binance 3.22476e-05 2 good 0 bad 1873 opportunities *
-2	PPT-ETH Binance 0.0147119 2 good 0 bad 1840 opportunities
-0	MTL-BTC Binance 0.000155743 2 good 0 bad 1839 opportunities *
-0	EVX-ETH Binance 0.00148077 2 good 0 bad 1830 opportunities *
-0	ARK-BTC Binance 0.000160684 2 good 0 bad 1836 opportunities *
-1	NULS-BNB Binance 0.160333 2 good 0 bad 1871 opportunities
-0	AION-BNB Binance 0.0607529 2 good 0 bad 1859 opportunities *
-1	MCO-BNB Binance 0.484497 2 good 0 bad 1855 opportunities
-2	GRS-BTC Binance 8.80792e-05 2 good 0 bad 1875 opportunities *
-0	MCO-BNB Binance 0.484497 2 good 0 bad 1861 opportunities *
-0	WABI-ETH Binance 0.000707204 2 good 0 bad 1865 opportunities *
-2	STORM-BTC Binance 1.99095e-06 2 good 0 bad 1832 opportunities *
-2	MCO-BNB Binance 0.484497 2 good 0 bad 1848 opportunities *
-1	GRS-BTC Binance 8.80792e-05 2 good 0 bad 1867 opportunities
-1	IOST-BTC Binance 2.95905e-06 2 good 0 bad 1869 opportunities *
-2	ARK-BTC Binance 0.000160684 2 good 0 bad 1837 opportunities *
-0	VIA-BNB Binance 0.0829672 2 good 0 bad 1822 opportunities *
-0	GRS-BTC Binance 8.80792e-05 2 good 0 bad 1855 opportunities *
-0	EVX-BTC Binance 8.35253e-05 2 good 0 bad 1834 opportunities *
-4	MTH-ETH Binance 8.28933e-05 2 good 0 bad 1857 opportunities
-4	CHAT-BTC Binance 4.58923e-06 2 good 0 bad 1867 opportunities
-0	CMT*-BTC Binance 1.87604e-05 2 good 0 bad 1850 opportunities *
-0	KNC-BTC Binance 0.000106508 2 good 0 bad 1810 opportunities *
-2	MTH-ETH Binance 8.28933e-05 2 good 0 bad 1804 opportunities
-1	QLC-ETH Binance 0.00015016 2 good 0 bad 1853 opportunities
-1	LSK-ETH Binance 0.0123879 2 good 0 bad 1859 opportunities
-1	CMT*-BNB Binance 0.0100737 2 good 0 bad 1875 opportunities
-0	PPT-ETH Binance 0.0147119 2 good 0 bad 1873 opportunities *
-1	LSK-BTC Binance 0.000686612 2 good 0 bad 1843 opportunities
-0	YOYOW-ETH Binance 0.00010861 2 good 0 bad 1839 opportunities *
-0	BLZ-BNB Binance 0.0174785 2 good 0 bad 1873 opportunities *
-1	QLC-BTC Binance 8.19402e-06 1 good 0 bad 1884 opportunities
-5	POE-BTC Binance 2.05588e-06 1 good 0 bad 1902 opportunities *
-0	ONT-ETH Binance 0.00822856 1 good 0 bad 1902 opportunities *
-4	POE-BTC Binance 2.05588e-06 1 good 0 bad 1903 opportunities
-5	RCN-BTC Binance 5.21751e-06 1 good 0 bad 1865 opportunities *
-4	APPC-ETH Binance 0.000363691 1 good 0 bad 1902 opportunities
-0	GVT-BTC Binance 0.00107445 1 good 0 bad 1881 opportunities *
-4	AION-BNB Binance 0.0607529 1 good 0 bad 1886 opportunities
-4	ONT-ETH Binance 0.00822856 1 good 0 bad 1903 opportunities
-2	GVT-BTC Binance 0.00107445 1 good 0 bad 1880 opportunities *
-2	AE-BNB Binance 0.124701 1 good 0 bad 1898 opportunities *
-5	CND-BTC Binance 3.77305e-06 1 good 0 bad 1890 opportunities *
-3	AION-BNB Binance 0.0607529 1 good 0 bad 1886 opportunities
-3	POE-BTC Binance 2.05588e-06 1 good 0 bad 1903 opportunities
-3	MDA-BTC Binance 7.90729e-05 1 good 0 bad 1887 opportunities
-0	DGD-BTC Binance 0.0115343 1 good 0 bad 1898 opportunities *
-2	BTG-BTC Binance 0.00361922 1 good 0 bad 1901 opportunities *
-5	KNC-BTC Binance 0.000106508 1 good 0 bad 1889 opportunities *
-0	MTH-ETH Binance 8.28933e-05 1 good 0 bad 1898 opportunities *
-0	BTG-BTC Binance 0.00361922 1 good 0 bad 1900 opportunities *
-2	IOT-BTC Binance 0.000123745 1 good 0 bad 1882 opportunities *
-1	ADX-BTC Binance 4.49423e-05 1 good 0 bad 1903 opportunities
-4	CMT*-BTC Binance 1.87604e-05 1 good 0 bad 1901 opportunities
-0	IOT-BTC Binance 0.000123745 1 good 0 bad 1902 opportunities *
-0	DGD-ETH Binance 0.199558 1 good 0 bad 1903 opportunities *
-2	VIA-ETH Binance 0.00272827 1 good 0 bad 1901 opportunities
-2	RLC-BTC Binance 8.46061e-05 1 good 0 bad 1876 opportunities *
-2	DGD-ETH Binance 0.199558 1 good 0 bad 1899 opportunities
-0	BNB-BTC Binance 0.00184242 1 good 0 bad 1903 opportunities *
-3	MTL-BTC Binance 0.000155743 1 good 0 bad 1903 opportunities
-4	MTL-BTC Binance 0.000155743 1 good 0 bad 1903 opportunities
-4	MDA-BTC Binance 7.90729e-05 1 good 0 bad 1887 opportunities
-1	POE-BTC Binance 2.05588e-06 1 good 0 bad 1901 opportunities *
-4	ADX-ETH Binance 0.000776372 1 good 0 bad 1890 opportunities
-3	ADX-ETH Binance 0.000776372 1 good 0 bad 1890 opportunities
-5	MTL-BTC Binance 0.000155743 1 good 0 bad 1881 opportunities *
-1	ADX-ETH Binance 0.000776372 1 good 0 bad 1903 opportunities
-3	AST-ETH Binance 0.0003173 1 good 0 bad 1891 opportunities
-4	CLOAK-ETH Binance 0.00788147 1 good 0 bad 1903 opportunities *
-1	ZIL-ETH Binance 0.00014793 1 good 0 bad 1900 opportunities
-3	CLOAK-ETH Binance 0.00788147 1 good 0 bad 1903 opportunities
-4	BLZ-BNB Binance 0.0174785 1 good 0 bad 1895 opportunities
-4	IOST-BTC Binance 2.95905e-06 1 good 0 bad 1902 opportunities
-1	MANA-BTC Binance 1.35127e-05 1 good 0 bad 1903 opportunities
-2	LINK-BTC Binance 3.74083e-05 1 good 0 bad 1897 opportunities *
-0	LINK-BTC Binance 3.74083e-05 1 good 0 bad 1898 opportunities *
-5	PPT-ETH Binance 0.0147119 1 good 0 bad 1901 opportunities
-4	PPT-ETH Binance 0.0147119 1 good 0 bad 1901 opportunities *
-0	TRX-BTC Binance 4.57992e-06 1 good 0 bad 1880 opportunities
-2	TRX-BTC Binance 4.57992e-06 1 good 0 bad 1903 opportunities *
-1	STEEM-ETH Binance 0.00315933 1 good 0 bad 1898 opportunities
-3	IOST-BTC Binance 2.95905e-06 1 good 0 bad 1902 opportunities
-2	FUN-BTC Binance 3.27181e-06 1 good 0 bad 1883 opportunities *
-0	BRD-BTC Binance 5.72179e-05 1 good 0 bad 1896 opportunities *
-0	FUN-BTC Binance 3.27181e-06 1 good 0 bad 1882 opportunities
-0	GNT-BNB Binance 0.0192669 1 good 0 bad 1891 opportunities *
-1	BRD-BTC Binance 5.72179e-05 1 good 0 bad 1866 opportunities
-2	BRD-BTC Binance 5.72179e-05 1 good 0 bad 1896 opportunities *
-1	BTS-BNB Binance 0.0117468 1 good 0 bad 1868 opportunities
-4	NULS-ETH Binance 0.00522668 1 good 0 bad 1900 opportunities
-4	DASH-BTC Binance 0.0309666 1 good 0 bad 1884 opportunities
-4	LSK-BNB Binance 0.374707 1 good 0 bad 1891 opportunities
-2	NAV-BTC Binance 5.40206e-05 1 good 0 bad 1868 opportunities *
-1	WABI-BNB Binance 0.0218806 1 good 0 bad 1903 opportunities
-4	LSK-ETH Binance 0.0123879 1 good 0 bad 1891 opportunities *
-3	MDA-ETH Binance 0.00149742 1 good 0 bad 1887 opportunities
-4	MDA-ETH Binance 0.00149742 1 good 0 bad 1887 opportunities *
-1	DASH-ETH Binance 0.557381 1 good 0 bad 1882 opportunities
-0	NAV-BTC Binance 5.40206e-05 1 good 0 bad 1885 opportunities *
-4	DASH-ETH Binance 0.557381 1 good 0 bad 1884 opportunities *
-0	LSK-BNB Binance 0.374707 1 good 0 bad 1894 opportunities *
-3	POWR-ETH Binance 0.000636819 1 good 0 bad 1900 opportunities
-2	WINGS-BTC Binance 2.72221e-05 1 good 0 bad 1896 opportunities *
-0	WINGS-BTC Binance 2.72221e-05 1 good 0 bad 1896 opportunities *
-0	KNC-ETH Binance 0.00185128 1 good 0 bad 1860 opportunities *
-1	DLT-BNB Binance 0.00547206 1 good 0 bad 1869 opportunities
-1	XLM-ETH Binance 0.00062467 1 good 0 bad 1903 opportunities
-1	WABI-ETH Binance 0.000707204 1 good 0 bad 1903 opportunities
-4	LSK-BTC Binance 0.000686612 1 good 0 bad 1891 opportunities
-0	WTC-ETH Binance 0.0132017 1 good 0 bad 1888 opportunities *
-2	STORM-BNB Binance 0.00106172 1 good 0 bad 1892 opportunities *
-5	PPT-BTC Binance 0.000831413 1 good 0 bad 1902 opportunities *
-0	NEBL-BTC Binance 0.000447602 1 good 0 bad 1880 opportunities *
-0	TNT-ETH Binance 8.27509e-05 1 good 0 bad 1902 opportunities *
-2	BNB-USDT Binance 12.4538 1 good 0 bad 1903 opportunities *
-0	BNB-USDT Binance 12.4538 1 good 0 bad 1903 opportunities *
-5	NEBL-BTC Binance 0.000447602 1 good 0 bad 1899 opportunities *
-5	NCASH-BTC Binance 1.46901e-06 1 good 0 bad 1901 opportunities *
-5	TNB-BTC Binance 2.60035e-06 1 good 0 bad 1876 opportunities *
-0	QSP-BTC Binance 8.29651e-06 1 good 0 bad 1889 opportunities *
-4	PPT-BTC Binance 0.000831413 1 good 0 bad 1901 opportunities
-0	XVG-BTC Binance 2.92021e-06 1 good 0 bad 1882 opportunities
-0	STORM-BNB Binance 0.00106172 1 good 0 bad 1892 opportunities *
-2	XVG-BTC Binance 2.92021e-06 1 good 0 bad 1883 opportunities *
-2	QSP-BTC Binance 8.29651e-06 1 good 0 bad 1889 opportunities *
-2	NEBL-ETH Binance 0.00775643 1 good 0 bad 1902 opportunities
-4	QSP-BTC Binance 8.29651e-06 1 good 0 bad 1900 opportunities
-0	ADA-BTC Binance 1.87224e-05 1 good 0 bad 1902 opportunities *
-5	WAN-BTC Binance 0.00024985 1 good 0 bad 1902 opportunities *
-3	POWR-BNB Binance 0.0195873 1 good 0 bad 1900 opportunities
-4	MTH-BTC Binance 4.75823e-06 1 good 0 bad 1902 opportunities
-1	DASH-BTC Binance 0.0309666 1 good 0 bad 1882 opportunities
-2	POWR-ETH Binance 0.000636819 1 good 0 bad 1897 opportunities
-4	APPC-BTC Binance 2.12354e-05 1 good 0 bad 1902 opportunities
-4	AION-BTC Binance 0.00011427 1 good 0 bad 1867 opportunities
-3	AION-BTC Binance 0.00011427 1 good 0 bad 1867 opportunities
-0	NEO-BTC Binance 0.00408046 1 good 0 bad 1902 opportunities *
-5	APPC-BTC Binance 2.12354e-05 1 good 0 bad 1880 opportunities *
-2	NEO-BTC Binance 0.00408046 1 good 0 bad 1902 opportunities *
-5	SUB-BTC Binance 2.7109e-05 1 good 0 bad 1894 opportunities *
-3	GRS-ETH Binance 0.00162475 1 good 0 bad 1898 opportunities
-2	EDO-BTC Binance 0.000127657 1 good 0 bad 1892 opportunities *
-1	EDO-BTC Binance 0.000127657 1 good 0 bad 1903 opportunities
-0	EDO-BTC Binance 0.000127657 1 good 0 bad 1900 opportunities *
-0	GRS-ETH Binance 0.00162475 1 good 0 bad 1886 opportunities *
-5	BNB-USDT Binance 12.4538 1 good 0 bad 1882 opportunities *
-5	QTUM-USDT Binance 6.63961 1 good 0 bad 1888 opportunities *
-5	NEO-USDT Binance 27.7092 1 good 0 bad 1903 opportunities *
-3	CLOAK-BTC Binance 0.000458909 1 good 0 bad 1903 opportunities
-0	BAT-ETH Binance 0.000671091 1 good 0 bad 1897 opportunities *
-4	AION-ETH Binance 0.001969 1 good 0 bad 1877 opportunities
-0	CDT-ETH Binance 4.90595e-05 1 good 0 bad 1899 opportunities *
-1	CDT-ETH Binance 4.90595e-05 1 good 0 bad 1903 opportunities
-1	WAVES-ETH Binance 0.00652438 1 good 0 bad 1902 opportunities
-2	CDT-ETH Binance 4.90595e-05 1 good 0 bad 1896 opportunities *
-4	CDT-ETH Binance 4.90595e-05 1 good 0 bad 1884 opportunities *
-0	PIVX-BNB Binance 0.12704 1 good 0 bad 1896 opportunities *
-1	STEEM-BNB Binance 0.0967836 1 good 0 bad 1900 opportunities
-4	CLOAK-BTC Binance 0.000458909 1 good 0 bad 1903 opportunities
-3	AION-ETH Binance 0.001969 1 good 0 bad 1877 opportunities
-0	PIVX-BTC Binance 0.00023628 1 good 0 bad 1896 opportunities *
-0	ETC-USD Coinbase 2.93785 1 good 0 bad 1879 opportunities
-2	PIVX-BTC Binance 0.00023628 1 good 0 bad 1897 opportunities *
-2	AMB-ETH Binance 0.000564479 1 good 0 bad 1891 opportunities
-0	WAVES-BTC Binance 0.000363063 1 good 0 bad 1886 opportunities *
-1	AE-BTC Binance 0.000232681 1 good 0 bad 1896 opportunities
-0	AMB-ETH Binance 0.000564479 1 good 0 bad 1891 opportunities *
-2	WAVES-BTC Binance 0.000363063 1 good 0 bad 1887 opportunities *
-2	PIVX-BNB Binance 0.12704 1 good 0 bad 1897 opportunities *
-0	ENG-BTC Binance 0.000159075 1 good 0 bad 1880 opportunities *
-1	WABI-BTC Binance 4.09942e-05 1 good 0 bad 1903 opportunities
-4	TRIG-ETH Binance 0.000702721 1 good 0 bad 1891 opportunities *
-2	ZRX-BTC Binance 0.000127805 1 good 0 bad 1882 opportunities *
-2	TRIG-ETH Binance 0.000702721 1 good 0 bad 1869 opportunities
-4	BLZ-ETH Binance 0.000559407 1 good 0 bad 1898 opportunities
-4	ZRX-BTC Binance 0.000127805 1 good 0 bad 1873 opportunities
-4	SALT-ETH Binance 0.00214298 1 good 0 bad 1902 opportunities
-4	SYS-BTC Binance 2.09359e-05 1 good 0 bad 1903 opportunities
-1	SYS-BTC Binance 2.09359e-05 1 good 0 bad 1901 opportunities
-2	MCO-BTC Binance 0.000885883 1 good 0 bad 1879 opportunities *
-0	MCO-BTC Binance 0.000885883 1 good 0 bad 1888 opportunities *
-2	ENG-BTC Binance 0.000159075 1 good 0 bad 1896 opportunities *
-5	ENJ-BTC Binance 7.62863e-06 1 good 0 bad 1899 opportunities *
-1	STEEM-BTC Binance 0.000178833 1 good 0 bad 1903 opportunities
-5	WABI-BTC Binance 4.09942e-05 1 good 0 bad 1880 opportunities *
-0	INS-BTC Binance 6.88952e-05 1 good 0 bad 1902 opportunities *
-4	APPC-BNB Binance 0.0113508 1 good 0 bad 1902 opportunities
-1	WAVES-BNB Binance 0.19801 1 good 0 bad 1902 opportunities
-2	ENJ-BTC Binance 7.62863e-06 1 good 0 bad 1899 opportunities *
-0	ENJ-BTC Binance 7.62863e-06 1 good 0 bad 1903 opportunities *
-5	BAT-BTC Binance 3.73057e-05 1 good 0 bad 1893 opportunities *
-2	AION-ETH Binance 0.001969 1 good 0 bad 1898 opportunities *
-2	ETC-EUR Coinbase 2.53523 1 good 0 bad 1881 opportunities *
-2	QTUM-BTC Binance 0.000980964 1 good 0 bad 1883 opportunities *
-3	IOST-ETH Binance 5.18427e-05 1 good 0 bad 1902 opportunities
-4	IOST-ETH Binance 5.18427e-05 1 good 0 bad 1902 opportunities
-0	QTUM-BTC Binance 0.000980964 1 good 0 bad 1902 opportunities *
-0	RCN-ETH Binance 8.90564e-05 1 good 0 bad 1873 opportunities *
-5	STORM-BTC Binance 1.99095e-06 1 good 0 bad 1882 opportunities *
-1	IOT-BNB Binance 0.066496 1 good 0 bad 1900 opportunities
-0	IOT-BNB Binance 0.066496 1 good 0 bad 1896 opportunities *
-4	MOD-ETH Binance 0.00257915 1 good 0 bad 1899 opportunities *
-0	ETC-EUR Coinbase 2.53523 1 good 0 bad 1881 opportunities
-0	PIVX-ETH Binance 0.0041264 1 good 0 bad 1896 opportunities *
-0	STORM-BTC Binance 1.99095e-06 1 good 0 bad 1879 opportunities
-5	RDN*-BTC Binance 9.53135e-05 1 good 0 bad 1864 opportunities *
-0	BTS-BTC Binance 2.14386e-05 1 good 0 bad 1903 opportunities *
-5	BCD-BTC Binance 0.00183056 1 good 0 bad 1894 opportunities *
-2	REQ-ETH Binance 0.000152616 1 good 0 bad 1885 opportunities
-0	REQ-ETH Binance 0.000152616 1 good 0 bad 1894 opportunities *
-0	CND-BTC Binance 3.77305e-06 1 good 0 bad 1881 opportunities
-3	AST-BTC Binance 1.80512e-05 1 good 0 bad 1889 opportunities
-4	CMT*-ETH Binance 0.000328184 1 good 0 bad 1901 opportunities *
-2	CMT*-ETH Binance 0.000328184 1 good 0 bad 1897 opportunities
-4	NULS-BTC Binance 0.000294667 1 good 0 bad 1900 opportunities
-0	NAV-BNB Binance 0.0290794 1 good 0 bad 1898 opportunities *
-4	ICN-BTC Binance 8.23068e-05 1 good 0 bad 1901 opportunities
-5	PIVX-BNB Binance 0.12704 1 good 0 bad 1897 opportunities *
-3	CHAT-BTC Binance 4.58923e-06 1 good 0 bad 1896 opportunities
-2	EDO-ETH Binance 0.00233255 1 good 0 bad 1898 opportunities
-0	SNM-BTC Binance 1.52594e-05 1 good 0 bad 1881 opportunities *
-4	EDO-ETH Binance 0.00233255 1 good 0 bad 1886 opportunities *
-0	NULS-BTC Binance 0.000294667 1 good 0 bad 1896 opportunities *
-2	OMG-BTC Binance 0.000876518 1 good 0 bad 1892 opportunities *
-2	NULS-BTC Binance 0.000294667 1 good 0 bad 1893 opportunities *
-5	GVT-BTC Binance 0.00107445 1 good 0 bad 1880 opportunities
-0	LRC-BTC Binance 3.22476e-05 1 good 0 bad 1902 opportunities *
-1	LRC-BTC Binance 3.22476e-05 1 good 0 bad 1902 opportunities
-5	BCN-BTC Binance 3.75485e-07 1 good 0 bad 1903 opportunities
-2	GTO-BTC Binance 1.79182e-05 1 good 0 bad 1882 opportunities *
-0	MCO-ETH Binance 0.0158101 1 good 0 bad 1889 opportunities *
-0	GTO-BTC Binance 1.79182e-05 1 good 0 bad 1878 opportunities *
-2	MCO-ETH Binance 0.0158101 1 good 0 bad 1879 opportunities
-5	GRS-BTC Binance 8.80792e-05 1 good 0 bad 1891 opportunities
-2	PIVX-ETH Binance 0.0041264 1 good 0 bad 1897 opportunities
-1	PIVX-ETH Binance 0.0041264 1 good 0 bad 1897 opportunities
-1	POE-ETH Binance 3.60753e-05 1 good 0 bad 1901 opportunities
-4	ONT-BNB Binance 0.253171 1 good 0 bad 1903 opportunities
-5	BCPT-BTC Binance 2.00277e-05 1 good 0 bad 1874 opportunities *
-4	ICN-ETH Binance 0.0014765 1 good 0 bad 1901 opportunities *
-0	CHAT-ETH Binance 7.70613e-05 1 good 0 bad 1891 opportunities *
-2	ICN-ETH Binance 0.0014765 1 good 0 bad 1858 opportunities
-2	ARK-ETH Binance 0.00279756 1 good 0 bad 1892 opportunities
-4	CMT*-BNB Binance 0.0100737 1 good 0 bad 1901 opportunities
-3	CHAT-ETH Binance 7.70613e-05 1 good 0 bad 1896 opportunities
-4	CHAT-ETH Binance 7.70613e-05 1 good 0 bad 1896 opportunities
-5	ARK-BTC Binance 0.000160684 1 good 0 bad 1888 opportunities *
-0	ARK-ETH Binance 0.00279756 1 good 0 bad 1897 opportunities *
-5	BLZ-BTC Binance 3.26236e-05 1 good 0 bad 1866 opportunities *
-4	BLZ-BTC Binance 3.26236e-05 1 good 0 bad 1898 opportunities
-2	SNT-BTC Binance 8.30138e-06 1 good 0 bad 1881 opportunities *
-5	BCD-ETH Binance 0.0321052 1 good 0 bad 1894 opportunities *
-2	AE-ETH Binance 0.00404609 1 good 0 bad 1897 opportunities
-0	SNT-BTC Binance 8.30138e-06 1 good 0 bad 1902 opportunities *
-1	SUB-ETH Binance 0.000478569 1 good 0 bad 1886 opportunities
-3	POE-ETH Binance 3.60753e-05 1 good 0 bad 1903 opportunities
-4	ZRX-ETH Binance 0.00232249 1 good 0 bad 1874 opportunities *
-0	CND-BNB Binance 0.00202268 1 good 0 bad 1889 opportunities *
-5	ONT-BTC Binance 0.000481866 1 good 0 bad 1903 opportunities *
-2	NCASH-ETH Binance 2.52661e-05 1 good 0 bad 1903 opportunities *
-5	ZIL-BTC Binance 8.51794e-06 1 good 0 bad 1903 opportunities *
-4	ONT-BTC Binance 0.000481866 1 good 0 bad 1903 opportunities
-4	POE-ETH Binance 3.60753e-05 1 good 0 bad 1903 opportunities
-5	ICX-BTC Binance 0.000171332 1 good 0 bad 1882 opportunities *
-5	YOYOW-BTC Binance 6.42376e-06 1 good 0 bad 1903 opportunities *
-0	ZIL-BTC Binance 8.51794e-06 1 good 0 bad 1901 opportunities *
-1	ZIL-BTC Binance 8.51794e-06 1 good 0 bad 1903 opportunities
-0	GVT-ETH Binance 0.0191492 1 good 0 bad 1903 opportunities *
-1	SYS-ETH Binance 0.000365382 1 good 0 bad 1901 opportunities
-0	AE-BNB Binance 0.124701 1 good 0 bad 1901 opportunities *
-0	OAX-ETH Binance 0.00065859 1 good 0 bad 1902 opportunities *
-2	GNT-BTC Binance 3.60712e-05 1 good 0 bad 1876 opportunities *
-0	GNT-BTC Binance 3.60712e-05 1 good 0 bad 1879 opportunities *
-4	SYS-ETH Binance 0.000365382 1 good 0 bad 1900 opportunities
-5	DGD-BTC Binance 0.0115343 1 good 0 bad 1901 opportunities *
-2	OAX-ETH Binance 0.00065859 1 good 0 bad 1880 opportunities *
-2	GVT-ETH Binance 0.0191492 1 good 0 bad 1891 opportunities
-2	ZIL-BNB Binance 0.00457364 1 good 0 bad 1899 opportunities *
-0	WAN-ETH Binance 0.00425863 1 good 0 bad 1893 opportunities *
-0	CMT*-ETH Binance 0.000328184 1 good 0 bad 1896 opportunities *
-0	AE-ETH Binance 0.00404609 1 good 0 bad 1897 opportunities *
-0	ZRX-BTC Binance 0.000127805 1 good 0 bad 1880 opportunities *
-5	SNM-BTC Binance 1.52594e-05 0 good 0 bad 1928 opportunities *
-3	SNM-BTC Binance 1.52594e-05 0 good 0 bad 1928 opportunities
-1	CND-ETH Binance 6.56375e-05 0 good 0 bad 1928 opportunities
-2	BCN-ETH Binance 6.67417e-06 0 good 0 bad 1928 opportunities
-4	BCN-ETH Binance 6.67417e-06 0 good 1 bad 1928 opportunities *
-0	ADX-BNB Binance 0.0240968 5 good 10 bad 1736 opportunities *
-4	INS-ETH Binance 0.00117627 0 good 0 bad 1928 opportunities
-0	BCPT-BTC Binance 2.00277e-05 3 good 1 bad 1817 opportunities *
-4	BTS-BTC Binance 2.14386e-05 0 good 0 bad 1928 opportunities
-5	EVX-ETH Binance 0.00148077 0 good 0 bad 1928 opportunities
-4	SNM-BTC Binance 1.52594e-05 0 good 0 bad 1928 opportunities
-3	BCN-ETH Binance 6.67417e-06 0 good 0 bad 1928 opportunities
-0	BCD-ETH Binance 0.0321052 3 good 5 bad 1821 opportunities *
-2	SALT-BTC Binance 0.000125637 5 good 4 bad 1730 opportunities *
-1	EVX-ETH Binance 0.00148077 1 good 11 bad 1903 opportunities
-3	BCD-ETH Binance 0.0321052 0 good 1 bad 1928 opportunities
-3	LUN-ETH Binance 0.0141579 0 good 0 bad 1928 opportunities
-1	BCD-ETH Binance 0.0321052 3 good 3 bad 1819 opportunities
-3	EVX-ETH Binance 0.00148077 0 good 1 bad 1928 opportunities
-4	EVX-ETH Binance 0.00148077 0 good 7 bad 1928 opportunities *
-2	EVX-ETH Binance 0.00148077 2 good 6 bad 1832 opportunities
-4	LUN-ETH Binance 0.0141579 0 good 0 bad 1928 opportunities
-4	BCD-ETH Binance 0.0321052 2 good 3 bad 1857 opportunities
-5	LUN-ETH Binance 0.0141579 0 good 0 bad 1928 opportunities
-0	LUN-ETH Binance 0.0141579 0 good 0 bad 1928 opportunities *
-2	LUN-ETH Binance 0.0141579 0 good 0 bad 1928 opportunities *
-5	BCN-ETH Binance 6.67417e-06 0 good 0 bad 1928 opportunities
-1	BTS-BTC Binance 2.14386e-05 0 good 0 bad 1928 opportunities
-2	BTS-BTC Binance 2.14386e-05 0 good 1 bad 1928 opportunities *
-5	INS-ETH Binance 0.00117627 0 good 0 bad 1928 opportunities
-3	BTS-BTC Binance 2.14386e-05 0 good 0 bad 1928 opportunities
-2	BCD-ETH Binance 0.0321052 5 good 3 bad 1774 opportunities *
-1	LUN-ETH Binance 0.0141579 0 good 0 bad 1928 opportunities
-3	NCASH-BTC Binance 1.46901e-06 0 good 0 bad 1928 opportunities
-5	STEEM-BTC Binance 0.000178833 0 good 0 bad 1928 opportunities *
-4	GTO-ETH Binance 0.000311837 0 good 0 bad 1928 opportunities
-3	GTO-ETH Binance 0.000311837 0 good 0 bad 1928 opportunities
-4	STEEM-BTC Binance 0.000178833 0 good 2 bad 1928 opportunities
-0	XEM-ETH Binance 0.000375655 0 good 0 bad 1928 opportunities *
-1	XEM-ETH Binance 0.000375655 0 good 0 bad 1928 opportunities
-2	GTO-ETH Binance 0.000311837 0 good 0 bad 1928 opportunities *
-1	GTO-ETH Binance 0.000311837 0 good 0 bad 1928 opportunities
-3	STEEM-BTC Binance 0.000178833 0 good 0 bad 1928 opportunities
-2	STEEM-BTC Binance 0.000178833 0 good 0 bad 1928 opportunities *
-2	XEM-ETH Binance 0.000375655 0 good 0 bad 1928 opportunities
-3	XEM-ETH Binance 0.000375655 0 good 0 bad 1928 opportunities
-0	GTO-ETH Binance 0.000311837 0 good 0 bad 1928 opportunities *
-4	XEM-ETH Binance 0.000375655 0 good 0 bad 1928 opportunities *
-5	GTO-ETH Binance 0.000311837 0 good 0 bad 1928 opportunities
-5	XEM-ETH Binance 0.000375655 0 good 0 bad 1928 opportunities
-0	STEEM-BTC Binance 0.000178833 0 good 0 bad 1928 opportunities *
-0	IOTA-BTC Binance 3.627e-08 0 good 0 bad 1928 opportunities
-4	NCASH-BTC Binance 1.46901e-06 0 good 2 bad 1928 opportunities
-1	IOTA-BTC Binance 3.627e-08 0 good 0 bad 1928 opportunities *
-5	SALT-BTC Binance 0.000125637 1 good 1 bad 1901 opportunities *
-4	SALT-BTC Binance 0.000125637 0 good 2 bad 1928 opportunities
-0	SALT-BTC Binance 0.000125637 4 good 3 bad 1767 opportunities *
-5	IOTA-BTC Binance 3.627e-08 0 good 0 bad 1928 opportunities
-4	IOTA-BTC Binance 3.627e-08 0 good 0 bad 1928 opportunities *
-2	IOTA-BTC Binance 3.627e-08 0 good 0 bad 1928 opportunities
-3	IOTA-BTC Binance 3.627e-08 0 good 0 bad 1928 opportunities *
-3	SALT-BTC Binance 0.000125637 0 good 0 bad 1928 opportunities
-4	BRD-BTC Binance 5.72179e-05 0 good 0 bad 1928 opportunities
-1	ADX-BNB Binance 0.0240968 1 good 1 bad 1903 opportunities
-2	SNM-BTC Binance 1.52594e-05 1 good 1 bad 1880 opportunities *
-2	ADX-BNB Binance 0.0240968 5 good 14 bad 1734 opportunities *
-3	ADX-BNB Binance 0.0240968 0 good 1 bad 1928 opportunities
-1	SNM-BTC Binance 1.52594e-05 0 good 0 bad 1928 opportunities
-4	ADX-BNB Binance 0.0240968 1 good 2 bad 1891 opportunities
-5	ADX-BNB Binance 0.0240968 0 good 0 bad 1928 opportunities *
-1	BCPT-BTC Binance 2.00277e-05 1 good 5 bad 1898 opportunities
-2	INS-ETH Binance 0.00117627 0 good 0 bad 1928 opportunities *
-2	BCPT-BTC Binance 2.00277e-05 5 good 2 bad 1696 opportunities *
-1	INS-ETH Binance 0.00117627 0 good 4 bad 1928 opportunities
-4	PIVX-BNB Binance 0.12704 0 good 0 bad 1928 opportunities
-0	INS-ETH Binance 0.00117627 0 good 0 bad 1928 opportunities *
-3	BRD-BTC Binance 5.72179e-05 0 good 0 bad 1928 opportunities
-3	INS-ETH Binance 0.00117627 0 good 0 bad 1928 opportunities
-5	BRD-BTC Binance 5.72179e-05 0 good 0 bad 1928 opportunities
-3	PIVX-BNB Binance 0.12704 0 good 0 bad 1928 opportunities
-5	ENJ-ETH Binance 0.000136351 0 good 0 bad 1928 opportunities
-0	NCASH-BTC Binance 1.46901e-06 2 good 6 bad 1824 opportunities
-4	ENJ-ETH Binance 0.000136351 0 good 0 bad 1928 opportunities *
-2	NCASH-BTC Binance 1.46901e-06 4 good 5 bad 1750 opportunities *
-3	ENJ-ETH Binance 0.000136351 0 good 0 bad 1928 opportunities
-3	BCPT-BTC Binance 2.00277e-05 0 good 0 bad 1928 opportunities
-2	ENJ-ETH Binance 0.000136351 0 good 0 bad 1928 opportunities
-1	PIVX-BNB Binance 0.12704 0 good 2 bad 1928 opportunities
-1	ENJ-ETH Binance 0.000136351 0 good 1 bad 1928 opportunities
-4	BCPT-BTC Binance 2.00277e-05 0 good 0 bad 1928 opportunities
-0	ENJ-ETH Binance 0.000136351 0 good 0 bad 1928 opportunities *
-0	NEO-BNB Binance 2.19638 0 good 0 bad 1928 opportunities *
-1	ONT-BTC Binance 0.000481866 3 good 1 bad 1839 opportunities
-5	TRIG-BTC Binance 4.1092e-05 0 good 0 bad 1928 opportunities
-4	TRIG-BTC Binance 4.1092e-05 0 good 1 bad 1928 opportunities
-3	TRIG-BTC Binance 4.1092e-05 0 good 0 bad 1928 opportunities
-2	TRIG-BTC Binance 4.1092e-05 3 good 2 bad 1784 opportunities *
-1	TRIG-BTC Binance 4.1092e-05 2 good 12 bad 1864 opportunities
-0	TRIG-BTC Binance 4.1092e-05 2 good 1 bad 1830 opportunities *
-5	NEO-BNB Binance 2.19638 0 good 0 bad 1928 opportunities
-4	NEO-BNB Binance 2.19638 0 good 0 bad 1928 opportunities
-3	NEO-BNB Binance 2.19638 0 good 0 bad 1928 opportunities
-2	NEO-BNB Binance 2.19638 0 good 0 bad 1928 opportunities *
-1	NEO-BNB Binance 2.19638 0 good 1 bad 1928 opportunities
-2	ONT-BTC Binance 0.000481866 4 good 1 bad 1805 opportunities *
-5	XRP-BTC Binance 5.98487e-05 0 good 0 bad 1928 opportunities *
-4	XRP-BTC Binance 5.98487e-05 0 good 0 bad 1928 opportunities
-3	XRP-BTC Binance 5.98487e-05 0 good 0 bad 1928 opportunities
-2	XRP-BTC Binance 5.98487e-05 0 good 0 bad 1928 opportunities *
-1	XRP-BTC Binance 5.98487e-05 0 good 1 bad 1928 opportunities
-0	XRP-BTC Binance 5.98487e-05 0 good 0 bad 1928 opportunities *
-5	TRIG-ETH Binance 0.000702721 0 good 0 bad 1928 opportunities
-3	TRIG-ETH Binance 0.000702721 0 good 0 bad 1928 opportunities
-1	TRIG-ETH Binance 0.000702721 1 good 17 bad 1891 opportunities
-0	TRIG-ETH Binance 0.000702721 0 good 0 bad 1928 opportunities *
-5	SYS-BTC Binance 2.09359e-05 1 good 2 bad 1901 opportunities *
-5	BCH-EUR Coinbase 584.053 0 good 0 bad 1928 opportunities *
-0	ADX-BTC Binance 4.49423e-05 2 good 13 bad 1825 opportunities *
-5	XRB-BNB Binance 7.68e-05 0 good 0 bad 1928 opportunities
-4	XRB-BNB Binance 7.68e-05 0 good 0 bad 1928 opportunities *
-3	XRB-BNB Binance 7.68e-05 0 good 0 bad 1928 opportunities *
-2	XRB-BNB Binance 7.68e-05 0 good 0 bad 1928 opportunities
-1	XRB-BNB Binance 7.68e-05 0 good 0 bad 1928 opportunities *
-0	XRB-BNB Binance 7.68e-05 0 good 0 bad 1928 opportunities
-5	AE-BNB Binance 0.124701 0 good 0 bad 1928 opportunities *
-4	AE-BNB Binance 0.124701 0 good 0 bad 1928 opportunities
-3	AE-BNB Binance 0.124701 0 good 0 bad 1928 opportunities
-1	AE-BNB Binance 0.124701 0 good 5 bad 1928 opportunities
-3	SYS-BTC Binance 2.09359e-05 0 good 2 bad 1928 opportunities
-4	BCH-EUR Coinbase 584.053 0 good 0 bad 1928 opportunities
-3	BCH-EUR Coinbase 584.053 0 good 0 bad 1928 opportunities
-2	BCH-EUR Coinbase 584.053 3 good 5 bad 1794 opportunities *
-1	BCH-EUR Coinbase 584.053 0 good 0 bad 1928 opportunities
-0	BCH-EUR Coinbase 584.053 3 good 6 bad 1801 opportunities *
-5	SUB-ETH Binance 0.000478569 0 good 0 bad 1928 opportunities
-4	SUB-ETH Binance 0.000478569 0 good 0 bad 1928 opportunities
-3	SUB-ETH Binance 0.000478569 0 good 0 bad 1928 opportunities
-2	SUB-ETH Binance 0.000478569 3 good 19 bad 1768 opportunities *
-0	SUB-ETH Binance 0.000478569 0 good 2 bad 1928 opportunities *
-3	ONT-BTC Binance 0.000481866 0 good 0 bad 1928 opportunities
-1	STORM-BTC Binance 1.99095e-06 0 good 6 bad 1928 opportunities *
-1	FUN-ETH Binance 5.81469e-05 0 good 5 bad 1928 opportunities
-0	FUN-ETH Binance 5.81469e-05 0 good 0 bad 1928 opportunities *
-4	BCN-BTC Binance 3.75485e-07 0 good 1 bad 1928 opportunities
-3	BCN-BTC Binance 3.75485e-07 0 good 0 bad 1928 opportunities
-2	BCN-BTC Binance 3.75485e-07 3 good 1 bad 1819 opportunities *
-1	BCN-BTC Binance 3.75485e-07 1 good 6 bad 1903 opportunities *
-5	QTUM-BTC Binance 0.000980964 0 good 0 bad 1928 opportunities *
-4	QTUM-BTC Binance 0.000980964 0 good 0 bad 1928 opportunities
-3	QTUM-BTC Binance 0.000980964 0 good 0 bad 1928 opportunities
-1	QTUM-BTC Binance 0.000980964 0 good 0 bad 1928 opportunities
-4	STORM-BTC Binance 1.99095e-06 0 good 0 bad 1928 opportunities
-3	STORM-BTC Binance 1.99095e-06 0 good 0 bad 1928 opportunities
-2	FUN-ETH Binance 5.81469e-05 0 good 0 bad 1928 opportunities
-5	STORJ-ETH Binance 0.00105854 0 good 0 bad 1928 opportunities
-4	STORJ-ETH Binance 0.00105854 0 good 0 bad 1928 opportunities
-3	STORJ-ETH Binance 0.00105854 0 good 0 bad 1928 opportunities
-2	STORJ-ETH Binance 0.00105854 0 good 3 bad 1928 opportunities
-1	STORJ-ETH Binance 0.00105854 0 good 0 bad 1928 opportunities
-0	STORJ-ETH Binance 0.00105854 0 good 1 bad 1928 opportunities *
-5	CND-ETH Binance 6.56375e-05 0 good 0 bad 1928 opportunities
-4	CND-ETH Binance 6.56375e-05 0 good 0 bad 1928 opportunities
-3	CND-ETH Binance 6.56375e-05 0 good 0 bad 1928 opportunities
-2	CND-ETH Binance 6.56375e-05 0 good 0 bad 1928 opportunities
-0	WPR-BTC Binance 4.85356e-06 3 good 1 bad 1787 opportunities
-4	AMB-ETH Binance 0.000564479 0 good 0 bad 1928 opportunities
-2	SYS-BTC Binance 2.09359e-05 2 good 21 bad 1874 opportunities *
-0	SYS-BTC Binance 2.09359e-05 1 good 27 bad 1901 opportunities *
-4	ENJ-BTC Binance 7.62863e-06 0 good 0 bad 1928 opportunities
-3	ENJ-BTC Binance 7.62863e-06 0 good 0 bad 1928 opportunities
-1	ENJ-BTC Binance 7.62863e-06 0 good 2 bad 1928 opportunities
-4	BAT-BTC Binance 3.73057e-05 0 good 1 bad 1928 opportunities
-3	BAT-BTC Binance 3.73057e-05 0 good 0 bad 1928 opportunities
-2	BAT-BTC Binance 3.73057e-05 1 good 2 bad 1902 opportunities *
-1	BAT-BTC Binance 3.73057e-05 1 good 5 bad 1892 opportunities
-0	BAT-BTC Binance 3.73057e-05 2 good 2 bad 1860 opportunities *
-5	AMB-ETH Binance 0.000564479 0 good 0 bad 1928 opportunities
-2	ADX-BTC Binance 4.49423e-05 2 good 11 bad 1847 opportunities *
-3	AMB-ETH Binance 0.000564479 0 good 0 bad 1928 opportunities
-1	AMB-ETH Binance 0.000564479 0 good 2 bad 1928 opportunities
-5	XZC-BNB Binance 1.19855 0 good 0 bad 1928 opportunities
-4	XZC-BNB Binance 1.19855 0 good 0 bad 1928 opportunities
-3	XZC-BNB Binance 1.19855 0 good 0 bad 1928 opportunities
-2	XZC-BNB Binance 1.19855 0 good 0 bad 1928 opportunities *
-1	XZC-BNB Binance 1.19855 1 good 1 bad 1897 opportunities
-0	XZC-BNB Binance 1.19855 0 good 0 bad 1928 opportunities *
-5	FUN-ETH Binance 5.81469e-05 0 good 0 bad 1928 opportunities
-4	FUN-ETH Binance 5.81469e-05 0 good 0 bad 1928 opportunities *
-3	FUN-ETH Binance 5.81469e-05 0 good 0 bad 1928 opportunities
-2	NULS-ETH Binance 0.00522668 0 good 0 bad 1928 opportunities
-5	GNT-BNB Binance 0.0192669 0 good 0 bad 1928 opportunities *
-4	GNT-BNB Binance 0.0192669 0 good 0 bad 1928 opportunities
-3	GNT-BNB Binance 0.0192669 0 good 0 bad 1928 opportunities
-2	GNT-BNB Binance 0.0192669 1 good 1 bad 1892 opportunities *
-1	GNT-BNB Binance 0.0192669 0 good 1 bad 1928 opportunities
-5	BTS-BNB Binance 0.0117468 0 good 0 bad 1928 opportunities
-4	BTS-BNB Binance 0.0117468 0 good 0 bad 1928 opportunities
-3	BTS-BNB Binance 0.0117468 0 good 0 bad 1928 opportunities
-2	BTS-BNB Binance 0.0117468 0 good 1 bad 1928 opportunities *
-0	BTS-BNB Binance 0.0117468 0 good 0 bad 1928 opportunities *
-5	NULS-ETH Binance 0.00522668 0 good 0 bad 1928 opportunities
-3	NULS-ETH Binance 0.00522668 0 good 0 bad 1928 opportunities
-1	CDT-BTC Binance 2.86956e-06 0 good 3 bad 1928 opportunities *
-1	NULS-ETH Binance 0.00522668 1 good 5 bad 1874 opportunities
-0	NULS-ETH Binance 0.00522668 0 good 0 bad 1928 opportunities *
-5	CTR-ETH Binance 0.0001639 0 good 0 bad 1928 opportunities
-4	CTR-ETH Binance 0.0001639 0 good 0 bad 1928 opportunities
-3	CTR-ETH Binance 0.0001639 0 good 0 bad 1928 opportunities
-2	CTR-ETH Binance 0.0001639 0 good 0 bad 1928 opportunities
-1	CTR-ETH Binance 0.0001639 0 good 0 bad 1928 opportunities
-0	CTR-ETH Binance 0.0001639 0 good 0 bad 1928 opportunities *
-5	GRS-ETH Binance 0.00162475 0 good 0 bad 1928 opportunities
-4	GRS-ETH Binance 0.00162475 1 good 4 bad 1892 opportunities *
-1	GRS-ETH Binance 0.00162475 2 good 3 bad 1877 opportunities
-1	KNC-ETH Binance 0.00185128 0 good 3 bad 1928 opportunities
-0	BCN-ETH Binance 6.67417e-06 0 good 0 bad 1928 opportunities *
-5	XMR-ETH Binance 0.317783 0 good 0 bad 1928 opportunities
-4	XMR-ETH Binance 0.317783 0 good 0 bad 1928 opportunities *
-3	XMR-ETH Binance 0.317783 0 good 0 bad 1928 opportunities
-2	XMR-ETH Binance 0.317783 0 good 0 bad 1928 opportunities
-1	XMR-ETH Binance 0.317783 0 good 0 bad 1928 opportunities
-0	XMR-ETH Binance 0.317783 0 good 0 bad 1928 opportunities *
-5	KNC-ETH Binance 0.00185128 0 good 0 bad 1928 opportunities
-4	KNC-ETH Binance 0.00185128 0 good 1 bad 1928 opportunities
-3	KNC-ETH Binance 0.00185128 0 good 1 bad 1928 opportunities
-2	KNC-ETH Binance 0.00185128 1 good 20 bad 1860 opportunities *
-4	BNB-USDT Binance 12.4538 0 good 0 bad 1928 opportunities
-5	WTC-ETH Binance 0.0132017 0 good 0 bad 1928 opportunities
-4	WTC-ETH Binance 0.0132017 0 good 1 bad 1928 opportunities *
-3	WTC-ETH Binance 0.0132017 0 good 0 bad 1928 opportunities
-1	WTC-ETH Binance 0.0132017 3 good 7 bad 1806 opportunities
-5	LINK-BTC Binance 3.74083e-05 0 good 0 bad 1928 opportunities
-3	LINK-BTC Binance 3.74083e-05 0 good 0 bad 1928 opportunities
-3	PPT-ETH Binance 0.0147119 0 good 0 bad 1928 opportunities
-1	PPT-ETH Binance 0.0147119 3 good 6 bad 1842 opportunities
-5	CDT-BTC Binance 2.86956e-06 0 good 0 bad 1928 opportunities *
-4	CDT-BTC Binance 2.86956e-06 0 good 1 bad 1928 opportunities
-3	CDT-BTC Binance 2.86956e-06 0 good 0 bad 1928 opportunities
-2	LTC-USDT Binance 72.7159 1 good 4 bad 1882 opportunities *
-3	POA-BTC Binance 1.97474e-05 0 good 0 bad 1928 opportunities
-1	POA-BTC Binance 1.97474e-05 2 good 4 bad 1825 opportunities
-5	MTL-ETH Binance 0.00267343 0 good 0 bad 1928 opportunities
-4	MTL-ETH Binance 0.00267343 0 good 1 bad 1928 opportunities *
-3	MTL-ETH Binance 0.00267343 0 good 0 bad 1928 opportunities
-2	MTL-ETH Binance 0.00267343 0 good 0 bad 1928 opportunities
-1	MTL-ETH Binance 0.00267343 0 good 2 bad 1928 opportunities
-0	MTL-ETH Binance 0.00267343 0 good 0 bad 1928 opportunities *
-5	LTC-USDT Binance 72.7159 0 good 0 bad 1928 opportunities *
-4	LTC-USDT Binance 72.7159 0 good 0 bad 1928 opportunities
-3	LTC-USDT Binance 72.7159 0 good 0 bad 1928 opportunities
-4	POA-BTC Binance 1.97474e-05 0 good 0 bad 1928 opportunities
-1	LTC-USDT Binance 72.7159 0 good 0 bad 1928 opportunities
-0	LTC-USDT Binance 72.7159 1 good 6 bad 1882 opportunities *
-5	RCN-BNB Binance 0.00277229 0 good 0 bad 1928 opportunities *
-4	RCN-BNB Binance 0.00277229 0 good 1 bad 1928 opportunities
-3	RCN-BNB Binance 0.00277229 0 good 0 bad 1928 opportunities
-2	RCN-BNB Binance 0.00277229 3 good 15 bad 1818 opportunities *
-1	RCN-BNB Binance 0.00277229 1 good 2 bad 1872 opportunities
-0	RCN-BNB Binance 0.00277229 2 good 5 bad 1863 opportunities *
-5	ADX-BTC Binance 4.49423e-05 0 good 0 bad 1928 opportunities *
-4	ADX-BTC Binance 4.49423e-05 1 good 1 bad 1891 opportunities
-3	ADX-BTC Binance 4.49423e-05 0 good 1 bad 1928 opportunities
-2	STRAT-BTC Binance 0.000316614 2 good 2 bad 1865 opportunities *
-3	BNB-USDT Binance 12.4538 0 good 0 bad 1928 opportunities
-1	BNB-USDT Binance 12.4538 0 good 0 bad 1928 opportunities
-5	WTC-BNB Binance 0.406024 0 good 0 bad 1928 opportunities
-4	WTC-BNB Binance 0.406024 0 good 2 bad 1928 opportunities
-3	WTC-BNB Binance 0.406024 0 good 0 bad 1928 opportunities
-2	WTC-BNB Binance 0.406024 4 good 15 bad 1770 opportunities *
-1	WTC-BNB Binance 0.406024 3 good 2 bad 1792 opportunities
-0	WTC-BNB Binance 0.406024 2 good 5 bad 1849 opportunities *
-5	STRAT-BTC Binance 0.000316614 0 good 0 bad 1928 opportunities *
-4	STRAT-BTC Binance 0.000316614 0 good 0 bad 1928 opportunities
-3	STRAT-BTC Binance 0.000316614 0 good 0 bad 1928 opportunities
-1	BCN-ETH Binance 6.67417e-06 1 good 5 bad 1899 opportunities
-1	STRAT-BTC Binance 0.000316614 0 good 0 bad 1928 opportunities
-5	DLT-ETH Binance 0.000176002 0 good 0 bad 1928 opportunities
-4	DLT-ETH Binance 0.000176002 0 good 0 bad 1928 opportunities
-3	DLT-ETH Binance 0.000176002 0 good 0 bad 1928 opportunities
-2	DLT-ETH Binance 0.000176002 0 good 0 bad 1928 opportunities *
-1	DLT-ETH Binance 0.000176002 0 good 0 bad 1928 opportunities
-0	DLT-ETH Binance 0.000176002 0 good 0 bad 1928 opportunities *
-5	QLC-BTC Binance 8.19402e-06 0 good 0 bad 1928 opportunities
-4	QLC-BTC Binance 8.19402e-06 0 good 0 bad 1928 opportunities
-3	QLC-BTC Binance 8.19402e-06 0 good 0 bad 1928 opportunities
-5	POA-BTC Binance 1.97474e-05 0 good 0 bad 1928 opportunities *
-4	HCC-BTC Binance 1.8e-06 0 good 0 bad 1928 opportunities
-3	SYS-ETH Binance 0.000365382 0 good 2 bad 1928 opportunities
-2	SYS-ETH Binance 0.000365382 1 good 21 bad 1901 opportunities *
-0	SYS-ETH Binance 0.000365382 0 good 26 bad 1928 opportunities *
-4	GVT-BTC Binance 0.00107445 0 good 0 bad 1928 opportunities
-3	GVT-BTC Binance 0.00107445 0 good 0 bad 1928 opportunities
-1	GVT-BTC Binance 0.00107445 1 good 6 bad 1903 opportunities
-5	HSR-ETH Binance 0.0118153 0 good 0 bad 1928 opportunities
-4	HSR-ETH Binance 0.0118153 0 good 0 bad 1928 opportunities
-3	HSR-ETH Binance 0.0118153 0 good 0 bad 1928 opportunities
-2	HSR-ETH Binance 0.0118153 0 good 0 bad 1928 opportunities
-1	HSR-ETH Binance 0.0118153 0 good 0 bad 1928 opportunities
-0	HSR-ETH Binance 0.0118153 0 good 0 bad 1928 opportunities *
-5	HCC-BTC Binance 1.8e-06 0 good 0 bad 1928 opportunities
-5	SYS-ETH Binance 0.000365382 1 good 2 bad 1901 opportunities
-3	HCC-BTC Binance 1.8e-06 0 good 0 bad 1928 opportunities
-2	HCC-BTC Binance 1.8e-06 0 good 0 bad 1928 opportunities
-1	HCC-BTC Binance 1.8e-06 0 good 0 bad 1928 opportunities *
-0	HCC-BTC Binance 1.8e-06 0 good 0 bad 1928 opportunities
-5	DGD-ETH Binance 0.199558 0 good 0 bad 1928 opportunities
-4	DGD-ETH Binance 0.199558 0 good 0 bad 1928 opportunities
-3	DGD-ETH Binance 0.199558 0 good 0 bad 1928 opportunities
-1	DGD-ETH Binance 0.199558 0 good 1 bad 1928 opportunities
-5	BTG-BTC Binance 0.00361922 0 good 0 bad 1928 opportunities
-4	BTG-BTC Binance 0.00361922 0 good 0 bad 1928 opportunities
-3	BTG-BTC Binance 0.00361922 0 good 0 bad 1928 opportunities
-1	BTG-BTC Binance 0.00361922 0 good 0 bad 1928 opportunities
-1	LTC-USD Coinbase 72.7743 0 good 0 bad 1928 opportunities
-5	ZRX-ETH Binance 0.00232249 0 good 0 bad 1928 opportunities
-3	ZRX-ETH Binance 0.00232249 0 good 0 bad 1928 opportunities
-2	ZRX-ETH Binance 0.00232249 0 good 0 bad 1928 opportunities
-0	ZRX-ETH Binance 0.00232249 0 good 0 bad 1928 opportunities *
-4	YOYOW-BTC Binance 6.42376e-06 0 good 1 bad 1928 opportunities
-3	YOYOW-BTC Binance 6.42376e-06 0 good 1 bad 1928 opportunities
-2	YOYOW-BTC Binance 6.42376e-06 3 good 13 bad 1775 opportunities *
-1	YOYOW-BTC Binance 6.42376e-06 1 good 4 bad 1881 opportunities
-0	YOYOW-BTC Binance 6.42376e-06 4 good 2 bad 1786 opportunities *
-5	LTC-USD Coinbase 72.7743 0 good 0 bad 1928 opportunities *
-4	LTC-USD Coinbase 72.7743 0 good 0 bad 1928 opportunities
-3	LTC-USD Coinbase 72.7743 0 good 0 bad 1928 opportunities
-2	LTC-USD Coinbase 72.7743 1 good 3 bad 1882 opportunities *
-5	GXS-BTC Binance 0.000321072 0 good 0 bad 1928 opportunities *
-0	LTC-USD Coinbase 72.7743 1 good 5 bad 1882 opportunities *
-5	RLC-ETH Binance 0.00146136 0 good 0 bad 1928 opportunities
-4	RLC-ETH Binance 0.00146136 0 good 0 bad 1928 opportunities
-3	RLC-ETH Binance 0.00146136 0 good 0 bad 1928 opportunities
-2	RLC-ETH Binance 0.00146136 0 good 0 bad 1928 opportunities
-1	RLC-ETH Binance 0.00146136 1 good 1 bad 1860 opportunities
-0	RLC-ETH Binance 0.00146136 0 good 0 bad 1928 opportunities *
-5	NULS-BNB Binance 0.160333 0 good 0 bad 1928 opportunities *
-4	NULS-BNB Binance 0.160333 1 good 1 bad 1900 opportunities
-3	NULS-BNB Binance 0.160333 0 good 0 bad 1928 opportunities
-2	NULS-BNB Binance 0.160333 1 good 1 bad 1899 opportunities *
-0	NULS-BNB Binance 0.160333 1 good 1 bad 1899 opportunities *
-4	ADA-BTC Binance 1.87224e-05 0 good 0 bad 1928 opportunities
-5	XLM-BTC Binance 3.35949e-05 0 good 0 bad 1928 opportunities
-4	XLM-BTC Binance 3.35949e-05 0 good 0 bad 1928 opportunities
-3	XLM-BTC Binance 3.35949e-05 0 good 0 bad 1928 opportunities
-2	XLM-BTC Binance 3.35949e-05 0 good 0 bad 1928 opportunities *
-1	XLM-BTC Binance 3.35949e-05 0 good 2 bad 1928 opportunities
-0	XLM-BTC Binance 3.35949e-05 0 good 0 bad 1928 opportunities *
-5	ELC-BTC Binance 5.3e-07 0 good 0 bad 1928 opportunities
-4	ELC-BTC Binance 5.3e-07 0 good 0 bad 1928 opportunities
-3	ELC-BTC Binance 5.3e-07 0 good 0 bad 1928 opportunities
-2	ELC-BTC Binance 5.3e-07 0 good 0 bad 1928 opportunities
-1	ELC-BTC Binance 5.3e-07 0 good 0 bad 1928 opportunities *
-0	ELC-BTC Binance 5.3e-07 0 good 0 bad 1928 opportunities
-5	ADA-BTC Binance 1.87224e-05 0 good 0 bad 1928 opportunities *
-0	GXS-ETH Binance 0.0055678 0 good 1 bad 1928 opportunities *
-3	ADA-BTC Binance 1.87224e-05 0 good 0 bad 1928 opportunities
-2	ADA-BTC Binance 1.87224e-05 0 good 1 bad 1928 opportunities *
-1	ADA-BTC Binance 1.87224e-05 0 good 0 bad 1928 opportunities
-5	XVG-BTC Binance 2.92021e-06 0 good 0 bad 1928 opportunities *
-4	XVG-BTC Binance 2.92021e-06 0 good 0 bad 1928 opportunities
-3	XVG-BTC Binance 2.92021e-06 0 good 0 bad 1928 opportunities
-5	TNT-BTC Binance 4.86511e-06 0 good 0 bad 1928 opportunities *
-4	TNT-BTC Binance 4.86511e-06 0 good 1 bad 1928 opportunities
-3	TNT-BTC Binance 4.86511e-06 0 good 0 bad 1928 opportunities
-2	TNT-BTC Binance 4.86511e-06 2 good 3 bad 1831 opportunities *
-1	TNT-BTC Binance 4.86511e-06 0 good 1 bad 1928 opportunities
-0	TNT-BTC Binance 4.86511e-06 3 good 1 bad 1806 opportunities
-2	ADX-ETH Binance 0.000776372 0 good 28 bad 1928 opportunities *
-4	GXS-BTC Binance 0.000321072 0 good 0 bad 1928 opportunities
-3	GXS-BTC Binance 0.000321072 0 good 0 bad 1928 opportunities
-2	GXS-BTC Binance 0.000321072 1 good 16 bad 1880 opportunities *
-1	GXS-BTC Binance 0.000321072 0 good 0 bad 1928 opportunities
-0	GXS-BTC Binance 0.000321072 1 good 2 bad 1881 opportunities *
-5	VIA-BTC Binance 0.000150966 0 good 0 bad 1928 opportunities *
-4	VIA-BTC Binance 0.000150966 0 good 0 bad 1928 opportunities
-3	VIA-BTC Binance 0.000150966 0 good 0 bad 1928 opportunities
-2	VIA-BTC Binance 0.000150966 0 good 0 bad 1928 opportunities *
-1	VIA-BTC Binance 0.000150966 0 good 1 bad 1928 opportunities
-0	VIA-BTC Binance 0.000150966 0 good 0 bad 1928 opportunities *
-5	ADX-ETH Binance 0.000776372 0 good 0 bad 1928 opportunities
-1	ICX-BNB Binance 0.0906316 0 good 10 bad 1928 opportunities
-0	ADX-ETH Binance 0.000776372 0 good 10 bad 1928 opportunities *
-5	ADA-ETH Binance 0.000332856 0 good 0 bad 1928 opportunities
-4	ADA-ETH Binance 0.000332856 0 good 0 bad 1928 opportunities
-3	ADA-ETH Binance 0.000332856 0 good 0 bad 1928 opportunities
-2	ADA-ETH Binance 0.000332856 0 good 0 bad 1928 opportunities
-1	ADA-ETH Binance 0.000332856 0 good 0 bad 1928 opportunities
-0	ADA-ETH Binance 0.000332856 0 good 0 bad 1928 opportunities *
-5	GXS-ETH Binance 0.0055678 0 good 0 bad 1928 opportunities
-4	GXS-ETH Binance 0.0055678 0 good 0 bad 1928 opportunities
-3	GXS-ETH Binance 0.0055678 0 good 0 bad 1928 opportunities
-2	GXS-ETH Binance 0.0055678 0 good 12 bad 1928 opportunities *
-1	GXS-ETH Binance 0.0055678 0 good 0 bad 1928 opportunities
-0	EDO-ETH Binance 0.00233255 0 good 0 bad 1928 opportunities *
-1	MCO-ETH Binance 0.0158101 2 good 2 bad 1855 opportunities
-5	LRC-BTC Binance 3.22476e-05 0 good 1 bad 1928 opportunities *
-4	LRC-BTC Binance 3.22476e-05 0 good 0 bad 1928 opportunities
-3	LRC-BTC Binance 3.22476e-05 0 good 0 bad 1928 opportunities
-5	YOYO-ETH Binance 1.225e-07 0 good 0 bad 1928 opportunities
-4	YOYO-ETH Binance 1.225e-07 0 good 0 bad 1928 opportunities *
-3	YOYO-ETH Binance 1.225e-07 0 good 0 bad 1928 opportunities *
-2	YOYO-ETH Binance 1.225e-07 0 good 0 bad 1928 opportunities
-1	YOYO-ETH Binance 1.225e-07 0 good 0 bad 1928 opportunities *
-0	YOYO-ETH Binance 1.225e-07 0 good 0 bad 1928 opportunities
-5	EDO-ETH Binance 0.00233255 0 good 0 bad 1928 opportunities
-3	EDO-ETH Binance 0.00233255 0 good 0 bad 1928 opportunities
-1	EDO-ETH Binance 0.00233255 1 good 1 bad 1903 opportunities
-3	MCO-ETH Binance 0.0158101 0 good 0 bad 1928 opportunities
-5	ENG-BTC Binance 0.000159075 0 good 0 bad 1928 opportunities *
-4	ENG-BTC Binance 0.000159075 0 good 0 bad 1928 opportunities
-3	ENG-BTC Binance 0.000159075 0 good 0 bad 1928 opportunities
-1	ENG-BTC Binance 0.000159075 0 good 10 bad 1928 opportunities
-5	RPX-ETH Binance 6.50109e-05 0 good 0 bad 1928 opportunities *
-4	RPX-ETH Binance 6.50109e-05 0 good 0 bad 1928 opportunities
-3	RPX-ETH Binance 6.50109e-05 0 good 0 bad 1928 opportunities
-2	RPX-ETH Binance 6.50109e-05 0 good 0 bad 1928 opportunities *
-1	RPX-ETH Binance 6.50109e-05 0 good 0 bad 1928 opportunities
-0	RPX-ETH Binance 6.50109e-05 0 good 0 bad 1928 opportunities *
-5	XMR-BTC Binance 0.0174303 0 good 0 bad 1928 opportunities
-4	XMR-BTC Binance 0.0174303 0 good 0 bad 1928 opportunities
-1	ETC-EUR Coinbase 2.53523 0 good 24 bad 1928 opportunities *
-4	CND-BTC Binance 3.77305e-06 0 good 0 bad 1928 opportunities
-3	CND-BTC Binance 3.77305e-06 0 good 0 bad 1928 opportunities
-1	CND-BTC Binance 3.77305e-06 0 good 0 bad 1928 opportunities *
-5	LLT-BTC Binance 1.669e-05 0 good 0 bad 1928 opportunities
-4	LLT-BTC Binance 1.669e-05 0 good 0 bad 1928 opportunities
-3	LLT-BTC Binance 1.669e-05 0 good 0 bad 1928 opportunities
-2	LLT-BTC Binance 1.669e-05 0 good 0 bad 1928 opportunities
-1	LLT-BTC Binance 1.669e-05 0 good 0 bad 1928 opportunities
-0	LLT-BTC Binance 1.669e-05 0 good 0 bad 1928 opportunities *
-5	ETC-EUR Coinbase 2.53523 0 good 0 bad 1928 opportunities
-4	ETC-EUR Coinbase 2.53523 0 good 18 bad 1928 opportunities *
-3	ETC-EUR Coinbase 2.53523 0 good 1 bad 1928 opportunities
-3	XMR-BTC Binance 0.0174303 0 good 0 bad 1928 opportunities
-5	BTG-ETH Binance 0.0648711 0 good 0 bad 1928 opportunities
-4	BTG-ETH Binance 0.0648711 0 good 0 bad 1928 opportunities *
-3	BTG-ETH Binance 0.0648711 0 good 0 bad 1928 opportunities
-2	BTG-ETH Binance 0.0648711 0 good 0 bad 1928 opportunities
-1	BTG-ETH Binance 0.0648711 0 good 0 bad 1928 opportunities
-0	BTG-ETH Binance 0.0648711 0 good 0 bad 1928 opportunities *
-5	IOST-ETH Binance 5.18427e-05 0 good 0 bad 1928 opportunities
-2	IOST-ETH Binance 5.18427e-05 0 good 0 bad 1928 opportunities *
-1	IOST-ETH Binance 5.18427e-05 2 good 2 bad 1872 opportunities
-0	IOST-ETH Binance 5.18427e-05 0 good 0 bad 1928 opportunities *
-5	MCO-ETH Binance 0.0158101 0 good 0 bad 1928 opportunities
-4	MCO-ETH Binance 0.0158101 0 good 0 bad 1928 opportunities *
-4	WAN-ETH Binance 0.00425863 0 good 0 bad 1928 opportunities
-5	KMD-BTC Binance 0.000209876 0 good 0 bad 1928 opportunities *
-4	KMD-BTC Binance 0.000209876 0 good 0 bad 1928 opportunities
-3	KMD-BTC Binance 0.000209876 0 good 0 bad 1928 opportunities
-2	KMD-BTC Binance 0.000209876 0 good 0 bad 1928 opportunities *
-1	KMD-BTC Binance 0.000209876 0 good 3 bad 1928 opportunities
-0	KMD-BTC Binance 0.000209876 0 good 0 bad 1928 opportunities *
-5	BCN-BNB Binance 0.000203398 0 good 0 bad 1928 opportunities
-4	BCN-BNB Binance 0.000203398 0 good 2 bad 1928 opportunities
-3	BCN-BNB Binance 0.000203398 0 good 0 bad 1928 opportunities
-2	BCN-BNB Binance 0.000203398 1 good 6 bad 1867 opportunities *
-1	BCN-BNB Binance 0.000203398 2 good 4 bad 1869 opportunities
-0	BCN-BNB Binance 0.000203398 1 good 3 bad 1878 opportunities *
-5	WAN-ETH Binance 0.00425863 0 good 0 bad 1928 opportunities
-0	BNB-ETH Binance 0.0331567 0 good 0 bad 1928 opportunities *
-3	WAN-ETH Binance 0.00425863 0 good 0 bad 1928 opportunities
-1	WAN-ETH Binance 0.00425863 1 good 5 bad 1878 opportunities
-5	RPX-BNB Binance 0.00207704 0 good 0 bad 1928 opportunities *
-4	RPX-BNB Binance 0.00207704 0 good 0 bad 1928 opportunities
-3	RPX-BNB Binance 0.00207704 0 good 0 bad 1928 opportunities
-2	RPX-BNB Binance 0.00207704 1 good 12 bad 1901 opportunities *
-1	RPX-BNB Binance 0.00207704 0 good 1 bad 1928 opportunities
-0	RPX-BNB Binance 0.00207704 1 good 5 bad 1896 opportunities *
-5	ICX-BNB Binance 0.0906316 0 good 0 bad 1928 opportunities *
-4	ICX-BNB Binance 0.0906316 0 good 0 bad 1928 opportunities
-3	ICX-BNB Binance 0.0906316 0 good 0 bad 1928 opportunities
-2	ICX-BNB Binance 0.0906316 2 good 1 bad 1864 opportunities *
-1	ETH-USDT Binance 387.05 0 good 0 bad 1928 opportunities
-2	XMR-BTC Binance 0.0174303 0 good 0 bad 1928 opportunities *
-1	XMR-BTC Binance 0.0174303 0 good 0 bad 1928 opportunities
-0	XMR-BTC Binance 0.0174303 0 good 0 bad 1928 opportunities *
-5	CDT-ETH Binance 4.90595e-05 0 good 0 bad 1928 opportunities
-3	CDT-ETH Binance 4.90595e-05 0 good 0 bad 1928 opportunities
-5	AION-ETH Binance 0.001969 0 good 0 bad 1928 opportunities
-1	AION-ETH Binance 0.001969 2 good 1 bad 1836 opportunities
-0	AION-ETH Binance 0.001969 0 good 0 bad 1928 opportunities *
-5	ETH-USDT Binance 387.05 0 good 0 bad 1928 opportunities *
-4	ETH-USDT Binance 387.05 0 good 0 bad 1928 opportunities
-3	ETH-USDT Binance 387.05 0 good 0 bad 1928 opportunities
-2	ETH-USDT Binance 387.05 1 good 9 bad 1883 opportunities *
-4	NEBL-BTC Binance 0.000447602 0 good 0 bad 1928 opportunities
-0	ETH-USDT Binance 387.05 1 good 10 bad 1882 opportunities *
-5	BNT-BTC Binance 0.000323169 0 good 0 bad 1928 opportunities *
-4	BNT-BTC Binance 0.000323169 0 good 0 bad 1928 opportunities
-3	BNT-BTC Binance 0.000323169 0 good 0 bad 1928 opportunities
-2	BNT-BTC Binance 0.000323169 0 good 0 bad 1928 opportunities *
-1	BNT-BTC Binance 0.000323169 0 good 0 bad 1928 opportunities
-0	BNT-BTC Binance 0.000323169 0 good 0 bad 1928 opportunities *
-5	BNB-ETH Binance 0.0331567 0 good 0 bad 1928 opportunities
-4	BNB-ETH Binance 0.0331567 0 good 0 bad 1928 opportunities *
-3	BNB-ETH Binance 0.0331567 0 good 0 bad 1928 opportunities
-2	BNB-ETH Binance 0.0331567 0 good 0 bad 1928 opportunities
-1	BNB-ETH Binance 0.0331567 0 good 0 bad 1928 opportunities
-1	BCPT-ETH Binance 0.000347397 1 good 2 bad 1899 opportunities
-4	AST-ETH Binance 0.0003173 2 good 1 bad 1862 opportunities
-2	AST-ETH Binance 0.0003173 3 good 2 bad 1777 opportunities *
-1	AST-ETH Binance 0.0003173 1 good 10 bad 1891 opportunities
-5	ETC-ETH Binance 0.0401793 0 good 0 bad 1928 opportunities
-4	ETC-ETH Binance 0.0401793 0 good 0 bad 1928 opportunities *
-3	ETC-ETH Binance 0.0401793 0 good 0 bad 1928 opportunities
-2	ETC-ETH Binance 0.0401793 0 good 0 bad 1928 opportunities
-1	ETC-ETH Binance 0.0401793 0 good 3 bad 1928 opportunities
-0	ETC-ETH Binance 0.0401793 0 good 0 bad 1928 opportunities *
-5	BCPT-ETH Binance 0.000347397 0 good 0 bad 1928 opportunities
-4	BCPT-ETH Binance 0.000347397 0 good 1 bad 1928 opportunities
-3	BCPT-ETH Binance 0.000347397 0 good 0 bad 1928 opportunities
-2	BCPT-ETH Binance 0.000347397 1 good 9 bad 1886 opportunities *
-5	AST-ETH Binance 0.0003173 0 good 0 bad 1928 opportunities
-0	BCPT-ETH Binance 0.000347397 0 good 1 bad 1928 opportunities *
-5	ETC-BTC Coinbase 0.000432375 0 good 0 bad 1928 opportunities
-4	ETC-BTC Coinbase 0.000432375 0 good 19 bad 1928 opportunities *
-3	ETC-BTC Coinbase 0.000432375 0 good 1 bad 1928 opportunities
-2	ETC-BTC Coinbase 0.000432375 0 good 0 bad 1928 opportunities
-1	ETC-BTC Coinbase 0.000432375 0 good 24 bad 1928 opportunities *
-0	ETC-BTC Coinbase 0.000432375 0 good 0 bad 1928 opportunities
-5	SNT-BTC Binance 8.30138e-06 0 good 0 bad 1928 opportunities *
-4	SNT-BTC Binance 8.30138e-06 0 good 0 bad 1928 opportunities
-3	SNT-BTC Binance 8.30138e-06 0 good 0 bad 1928 opportunities
-1	SNT-BTC Binance 8.30138e-06 0 good 5 bad 1928 opportunities
-4	ICX-BTC Binance 0.000171332 0 good 0 bad 1928 opportunities
-2	QTUM-USDT Binance 6.63961 3 good 1 bad 1797 opportunities *
-0	STORJ-BTC Binance 6.00596e-05 1 good 12 bad 1875 opportunities *
-5	BTC-GBP Coinbase 5247.76 0 good 0 bad 1928 opportunities
-4	BTC-GBP Coinbase 5247.76 0 good 0 bad 1928 opportunities
-3	BTC-GBP Coinbase 5247.76 0 good 0 bad 1928 opportunities
-2	BTC-GBP Coinbase 5247.76 0 good 0 bad 1928 opportunities *
-1	BTC-GBP Coinbase 5247.76 0 good 0 bad 1928 opportunities
-0	BTC-GBP Coinbase 5247.76 0 good 0 bad 1928 opportunities *
-5	MTH-BTC Binance 4.75823e-06 0 good 0 bad 1928 opportunities *
-3	MTH-BTC Binance 4.75823e-06 0 good 0 bad 1928 opportunities
-1	MTH-BTC Binance 4.75823e-06 0 good 3 bad 1928 opportunities
-4	QTUM-USDT Binance 6.63961 0 good 0 bad 1928 opportunities
-3	QTUM-USDT Binance 6.63961 0 good 0 bad 1928 opportunities
-3	ICX-BTC Binance 0.000171332 0 good 0 bad 1928 opportunities
-1	QTUM-USDT Binance 6.63961 0 good 6 bad 1928 opportunities
-0	QTUM-USDT Binance 6.63961 3 good 4 bad 1807 opportunities *
-5	WTC-BTC Binance 0.000759352 0 good 0 bad 1928 opportunities *
-4	WTC-BTC Binance 0.000759352 1 good 1 bad 1891 opportunities
-3	WTC-BTC Binance 0.000759352 0 good 0 bad 1928 opportunities
-1	WTC-BTC Binance 0.000759352 2 good 7 bad 1831 opportunities
-0	WTC-BTC Binance 0.000759352 4 good 1 bad 1763 opportunities *
-5	BNB-BTC Binance 0.00184242 0 good 1 bad 1928 opportunities *
-4	BNB-BTC Binance 0.00184242 0 good 0 bad 1928 opportunities
-3	BNB-BTC Binance 0.00184242 0 good 0 bad 1928 opportunities
-2	BNB-BTC Binance 0.00184242 1 good 1 bad 1886 opportunities *
-1	BNB-BTC Binance 0.00184242 0 good 0 bad 1928 opportunities
-3	GRS-BTC Binance 8.80792e-05 1 good 1 bad 1898 opportunities
-4	REQ-BTC Binance 8.76991e-06 0 good 0 bad 1928 opportunities
-3	REQ-BTC Binance 8.76991e-06 0 good 0 bad 1928 opportunities
-1	REQ-BTC Binance 8.76991e-06 0 good 7 bad 1928 opportunities
-5	ICN-BTC Binance 8.23068e-05 0 good 0 bad 1928 opportunities *
-3	ICN-BTC Binance 8.23068e-05 0 good 0 bad 1928 opportunities
-2	ICN-BTC Binance 8.23068e-05 1 good 14 bad 1903 opportunities *
-1	ICN-BTC Binance 8.23068e-05 1 good 2 bad 1900 opportunities
-0	ICN-BTC Binance 8.23068e-05 0 good 15 bad 1928 opportunities *
-5	GTO-BTC Binance 1.79182e-05 0 good 0 bad 1928 opportunities *
-4	GTO-BTC Binance 1.79182e-05 0 good 0 bad 1928 opportunities
-3	GTO-BTC Binance 1.79182e-05 0 good 0 bad 1928 opportunities
-1	GTO-BTC Binance 1.79182e-05 0 good 0 bad 1928 opportunities
-4	GRS-BTC Binance 8.80792e-05 1 good 4 bad 1893 opportunities
-5	REQ-BTC Binance 8.76991e-06 0 good 0 bad 1928 opportunities *
-5	BCH-USDT Binance 677.548 0 good 0 bad 1928 opportunities *
-4	BCH-USDT Binance 677.548 0 good 0 bad 1928 opportunities
-3	BCH-USDT Binance 677.548 0 good 0 bad 1928 opportunities
-2	BCH-USDT Binance 677.548 3 good 5 bad 1794 opportunities *
-1	BCH-USDT Binance 677.548 0 good 0 bad 1928 opportunities
-0	BCH-USDT Binance 677.548 2 good 5 bad 1839 opportunities *
-5	OMG-ETH Binance 0.0151897 0 good 0 bad 1928 opportunities
-4	OMG-ETH Binance 0.0151897 0 good 0 bad 1928 opportunities
-3	OMG-ETH Binance 0.0151897 0 good 0 bad 1928 opportunities
-2	OMG-ETH Binance 0.0151897 0 good 0 bad 1928 opportunities
-1	OMG-ETH Binance 0.0151897 0 good 0 bad 1928 opportunities
-0	OMG-ETH Binance 0.0151897 0 good 0 bad 1928 opportunities *
-1	QSP-BNB Binance 0.00444976 1 good 1 bad 1897 opportunities
-2	ICX-BTC Binance 0.000171332 2 good 2 bad 1863 opportunities *
-0	ICX-BTC Binance 0.000171332 1 good 3 bad 1902 opportunities *
-5	VIB-ETH Binance 0.000147378 0 good 0 bad 1928 opportunities
-4	VIB-ETH Binance 0.000147378 0 good 0 bad 1928 opportunities
-3	VIB-ETH Binance 0.000147378 0 good 0 bad 1928 opportunities
-2	VIB-ETH Binance 0.000147378 0 good 0 bad 1928 opportunities *
-1	VIB-ETH Binance 0.000147378 0 good 0 bad 1928 opportunities
-0	VIB-ETH Binance 0.000147378 0 good 0 bad 1928 opportunities *
-5	QSP-BNB Binance 0.00444976 0 good 0 bad 1928 opportunities *
-4	QSP-BNB Binance 0.00444976 0 good 0 bad 1928 opportunities
-3	QSP-BNB Binance 0.00444976 0 good 0 bad 1928 opportunities
-2	QSP-BNB Binance 0.00444976 2 good 1 bad 1866 opportunities *
-1	STORJ-BTC Binance 6.00596e-05 0 good 0 bad 1928 opportunities
-5	BTC-EUR Coinbase 5863.16 0 good 0 bad 1928 opportunities
-4	BTC-EUR Coinbase 5863.16 0 good 0 bad 1928 opportunities
-3	BTC-EUR Coinbase 5863.16 0 good 0 bad 1928 opportunities
-2	BTC-EUR Coinbase 5863.16 0 good 0 bad 1928 opportunities *
-1	BTC-EUR Coinbase 5863.16 0 good 0 bad 1928 opportunities
-0	BTC-EUR Coinbase 5863.16 0 good 0 bad 1928 opportunities *
-5	BNT-ETH Binance 0.00563123 0 good 0 bad 1928 opportunities
-4	BNT-ETH Binance 0.00563123 0 good 0 bad 1928 opportunities
-3	BNT-ETH Binance 0.00563123 0 good 0 bad 1928 opportunities
-2	BNT-ETH Binance 0.00563123 0 good 0 bad 1928 opportunities
-1	BNT-ETH Binance 0.00563123 0 good 0 bad 1928 opportunities
-0	BNT-ETH Binance 0.00563123 0 good 0 bad 1928 opportunities *
-3	GAS-BTC Binance 0.00131454 0 good 0 bad 1928 opportunities
-5	TNB-ETH Binance 4.48214e-05 0 good 0 bad 1928 opportunities
-4	TNB-ETH Binance 4.48214e-05 0 good 0 bad 1928 opportunities
-3	TNB-ETH Binance 4.48214e-05 0 good 0 bad 1928 opportunities
-2	TNB-ETH Binance 4.48214e-05 0 good 0 bad 1928 opportunities *
-1	TNB-ETH Binance 4.48214e-05 1 good 3 bad 1858 opportunities
-0	TNB-ETH Binance 4.48214e-05 0 good 0 bad 1928 opportunities *
-5	QLC-ETH Binance 0.00015016 0 good 0 bad 1928 opportunities
-4	QLC-ETH Binance 0.00015016 0 good 0 bad 1928 opportunities *
-3	QLC-ETH Binance 0.00015016 0 good 0 bad 1928 opportunities
-2	QLC-ETH Binance 0.00015016 0 good 0 bad 1928 opportunities
-0	QLC-ETH Binance 0.00015016 0 good 0 bad 1928 opportunities *
-5	GAS-BTC Binance 0.00131454 0 good 0 bad 1928 opportunities *
-4	GAS-BTC Binance 0.00131454 1 good 1 bad 1894 opportunities
-0	SYS-BNB Binance 0.0112006 1 good 28 bad 1895 opportunities *
-2	GAS-BTC Binance 0.00131454 3 good 7 bad 1835 opportunities *
-1	GAS-BTC Binance 0.00131454 3 good 5 bad 1840 opportunities
-0	GAS-BTC Binance 0.00131454 1 good 7 bad 1901 opportunities *
-5	ELF-ETH Binance 0.00137258 0 good 0 bad 1928 opportunities
-4	ELF-ETH Binance 0.00137258 0 good 0 bad 1928 opportunities *
-3	ELF-ETH Binance 0.00137258 0 good 0 bad 1928 opportunities
-2	ELF-ETH Binance 0.00137258 0 good 1 bad 1928 opportunities
-1	ELF-ETH Binance 0.00137258 0 good 9 bad 1928 opportunities
-0	ELF-ETH Binance 0.00137258 0 good 0 bad 1928 opportunities *
-5	ETH-USD Coinbase 386.986 0 good 0 bad 1928 opportunities *
-4	ETH-USD Coinbase 386.986 0 good 0 bad 1928 opportunities
-3	ETH-USD Coinbase 386.986 0 good 0 bad 1928 opportunities
-4	NEO-BTC Binance 0.00408046 0 good 0 bad 1928 opportunities
-3	NEBL-BTC Binance 0.000447602 0 good 0 bad 1928 opportunities
-2	NEBL-BTC Binance 0.000447602 2 good 3 bad 1866 opportunities *
-1	NEBL-BTC Binance 0.000447602 1 good 5 bad 1895 opportunities
-3	PPT-BTC Binance 0.000831413 0 good 0 bad 1928 opportunities
-1	PPT-BTC Binance 0.000831413 3 good 3 bad 1830 opportunities
-5	ARN-ETH Binance 0.00123134 0 good 0 bad 1928 opportunities
-4	ARN-ETH Binance 0.00123134 0 good 0 bad 1928 opportunities
-3	ARN-ETH Binance 0.00123134 0 good 0 bad 1928 opportunities
-2	ARN-ETH Binance 0.00123134 0 good 0 bad 1928 opportunities *
-1	ARN-ETH Binance 0.00123134 0 good 4 bad 1928 opportunities
-0	ARN-ETH Binance 0.00123134 0 good 0 bad 1928 opportunities *
-5	NEO-BTC Binance 0.00408046 0 good 0 bad 1928 opportunities *
-2	ETH-USD Coinbase 386.986 1 good 9 bad 1883 opportunities *
-3	NEO-BTC Binance 0.00408046 0 good 0 bad 1928 opportunities
-1	NEO-BTC Binance 0.00408046 0 good 4 bad 1928 opportunities
-5	HSR-BTC Binance 0.000738967 0 good 0 bad 1928 opportunities
-4	HSR-BTC Binance 0.000738967 0 good 0 bad 1928 opportunities
-3	HSR-BTC Binance 0.000738967 0 good 0 bad 1928 opportunities
-2	HSR-BTC Binance 0.000738967 0 good 0 bad 1928 opportunities *
-1	HSR-BTC Binance 0.000738967 0 good 0 bad 1928 opportunities
-0	HSR-BTC Binance 0.000738967 0 good 0 bad 1928 opportunities *
-5	SYS-BNB Binance 0.0112006 1 good 3 bad 1902 opportunities *
-3	SYS-BNB Binance 0.0112006 1 good 2 bad 1872 opportunities
-2	SYS-BNB Binance 0.0112006 2 good 23 bad 1847 opportunities *
-1	SYS-BNB Binance 0.0112006 1 good 6 bad 1901 opportunities
-5	MCO-BNB Binance 0.484497 0 good 0 bad 1928 opportunities
-2	OST-ETH Binance 0.000130792 2 good 10 bad 1864 opportunities *
-1	OST-ETH Binance 0.000130792 3 good 7 bad 1822 opportunities
-0	OST-ETH Binance 0.000130792 1 good 1 bad 1900 opportunities *
-5	WABI-BNB Binance 0.0218806 0 good 0 bad 1928 opportunities
-4	WABI-BNB Binance 0.0218806 0 good 4 bad 1928 opportunities
-3	WABI-BNB Binance 0.0218806 0 good 0 bad 1928 opportunities
-2	WABI-BNB Binance 0.0218806 6 good 2 bad 1710 opportunities *
-5	ETH-EUR Coinbase 333.585 0 good 0 bad 1928 opportunities *
-4	ETH-EUR Coinbase 333.585 0 good 0 bad 1928 opportunities
-3	ETH-EUR Coinbase 333.585 0 good 0 bad 1928 opportunities
-2	ETH-EUR Coinbase 333.585 1 good 9 bad 1883 opportunities *
-1	ETH-EUR Coinbase 333.585 0 good 0 bad 1928 opportunities
-0	ETH-EUR Coinbase 333.585 1 good 10 bad 1901 opportunities *
-3	OST-ETH Binance 0.000130792 0 good 1 bad 1928 opportunities
-4	MCO-BNB Binance 0.484497 0 good 0 bad 1928 opportunities
-3	MCO-BNB Binance 0.484497 0 good 0 bad 1928 opportunities
-5	BCPT-BNB Binance 0.0107594 0 good 0 bad 1928 opportunities *
-4	BCPT-BNB Binance 0.0107594 0 good 1 bad 1928 opportunities
-3	BCPT-BNB Binance 0.0107594 0 good 0 bad 1928 opportunities
-2	BCPT-BNB Binance 0.0107594 4 good 16 bad 1748 opportunities *
-1	BCPT-BNB Binance 0.0107594 2 good 1 bad 1813 opportunities
-0	BCPT-BNB Binance 0.0107594 3 good 1 bad 1795 opportunities *
-5	STORJ-BTC Binance 6.00596e-05 0 good 0 bad 1928 opportunities *
-4	STORJ-BTC Binance 6.00596e-05 0 good 0 bad 1928 opportunities
-3	STORJ-BTC Binance 6.00596e-05 0 good 0 bad 1928 opportunities
-2	STORJ-BTC Binance 6.00596e-05 1 good 14 bad 1895 opportunities *
-4	DLT-BNB Binance 0.00547206 0 good 0 bad 1928 opportunities
-1	ETH-USD Coinbase 386.986 0 good 0 bad 1928 opportunities
-0	ETH-USD Coinbase 386.986 1 good 10 bad 1901 opportunities *
-5	LUN-BTC Binance 0.00083068 0 good 0 bad 1928 opportunities *
-4	LUN-BTC Binance 0.00083068 0 good 0 bad 1928 opportunities
-3	LUN-BTC Binance 0.00083068 0 good 0 bad 1928 opportunities
-2	LUN-BTC Binance 0.00083068 2 good 2 bad 1831 opportunities *
-1	LUN-BTC Binance 0.00083068 0 good 1 bad 1928 opportunities
-0	LUN-BTC Binance 0.00083068 1 good 1 bad 1879 opportunities *
-5	WABI-ETH Binance 0.000707204 0 good 0 bad 1928 opportunities
-4	WABI-ETH Binance 0.000707204 0 good 5 bad 1928 opportunities *
-3	WABI-ETH Binance 0.000707204 0 good 0 bad 1928 opportunities
-5	DLT-BNB Binance 0.00547206 0 good 0 bad 1928 opportunities *
-5	BTS-BTC Binance 2.14386e-05 0 good 0 bad 1928 opportunities *
-3	DLT-BNB Binance 0.00547206 0 good 0 bad 1928 opportunities
-2	DLT-BNB Binance 0.00547206 3 good 11 bad 1795 opportunities *
-0	DLT-BNB Binance 0.00547206 2 good 7 bad 1863 opportunities *
-5	LSK-BNB Binance 0.374707 0 good 0 bad 1928 opportunities
-3	LSK-BNB Binance 0.374707 0 good 0 bad 1928 opportunities
-2	LSK-BNB Binance 0.374707 0 good 0 bad 1928 opportunities *
-5	DASH-ETH Binance 0.557381 0 good 0 bad 1928 opportunities
-3	DASH-ETH Binance 0.557381 0 good 0 bad 1928 opportunities
-2	DASH-ETH Binance 0.557381 0 good 0 bad 1928 opportunities
-0	DASH-ETH Binance 0.557381 0 good 0 bad 1928 opportunities *
-5	OST-ETH Binance 0.000130792 1 good 5 bad 1900 opportunities
-4	OST-ETH Binance 0.000130792 1 good 5 bad 1898 opportunities
-2	DASH-BTC Binance 0.0309666 0 good 0 bad 1928 opportunities *
-4	MANA-ETH Binance 0.000241819 0 good 2 bad 1928 opportunities *
-3	MANA-ETH Binance 0.000241819 0 good 1 bad 1928 opportunities
-2	MANA-ETH Binance 0.000241819 2 good 9 bad 1872 opportunities *
-1	MANA-ETH Binance 0.000241819 1 good 1 bad 1903 opportunities
-0	MANA-ETH Binance 0.000241819 0 good 1 bad 1928 opportunities *
-5	ARN-BTC Binance 7.19969e-05 0 good 0 bad 1928 opportunities *
-4	ARN-BTC Binance 7.19969e-05 0 good 0 bad 1928 opportunities
-3	ARN-BTC Binance 7.19969e-05 0 good 0 bad 1928 opportunities
-2	ARN-BTC Binance 7.19969e-05 1 good 18 bad 1896 opportunities *
-1	ARN-BTC Binance 7.19969e-05 0 good 5 bad 1928 opportunities
-0	ARN-BTC Binance 7.19969e-05 1 good 15 bad 1896 opportunities *
-5	DASH-BTC Binance 0.0309666 0 good 0 bad 1928 opportunities
-3	DASH-BTC Binance 0.0309666 0 good 0 bad 1928 opportunities
-5	MANA-ETH Binance 0.000241819 0 good 0 bad 1928 opportunities
-0	DASH-BTC Binance 0.0309666 0 good 0 bad 1928 opportunities *
-5	AION-BTC Binance 0.00011427 0 good 0 bad 1928 opportunities *
-2	AION-BTC Binance 0.00011427 3 good 1 bad 1842 opportunities *
-1	AION-BTC Binance 0.00011427 2 good 1 bad 1831 opportunities
-5	POWR-BNB Binance 0.0195873 0 good 0 bad 1928 opportunities *
-4	POWR-BNB Binance 0.0195873 1 good 1 bad 1898 opportunities
-2	POWR-BNB Binance 0.0195873 3 good 7 bad 1834 opportunities *
-1	POWR-BNB Binance 0.0195873 2 good 1 bad 1856 opportunities
-0	POWR-BNB Binance 0.0195873 2 good 1 bad 1858 opportunities *
-5	EDO-BTC Binance 0.000127657 0 good 0 bad 1928 opportunities
-4	EDO-BTC Binance 0.000127657 1 good 2 bad 1899 opportunities
-3	EDO-BTC Binance 0.000127657 0 good 1 bad 1928 opportunities
-5	BRD-BNB Binance 0.0312786 0 good 0 bad 1928 opportunities
-3	STEEM-ETH Binance 0.00315933 0 good 0 bad 1928 opportunities
-4	ETH-BTC Coinbase 0.0570572 0 good 0 bad 1928 opportunities
-3	ETH-BTC Coinbase 0.0570572 0 good 0 bad 1928 opportunities
-2	ETH-BTC Coinbase 0.0570572 0 good 0 bad 1928 opportunities *
-1	ETH-BTC Coinbase 0.0570572 0 good 0 bad 1928 opportunities
-0	ETH-BTC Coinbase 0.0570572 0 good 0 bad 1928 opportunities *
-5	BCH-BNB Binance 54.4008 0 good 0 bad 1928 opportunities
-4	BCH-BNB Binance 54.4008 0 good 0 bad 1928 opportunities
-3	BCH-BNB Binance 54.4008 0 good 0 bad 1928 opportunities
-2	BCH-BNB Binance 54.4008 0 good 0 bad 1928 opportunities *
-1	BCH-BNB Binance 54.4008 0 good 0 bad 1928 opportunities
-0	BCH-BNB Binance 54.4008 0 good 0 bad 1928 opportunities *
-5	STEEM-ETH Binance 0.00315933 0 good 0 bad 1928 opportunities
-4	STEEM-ETH Binance 0.00315933 0 good 0 bad 1928 opportunities *
-4	BRD-BNB Binance 0.0312786 0 good 0 bad 1928 opportunities
-2	STEEM-ETH Binance 0.00315933 0 good 0 bad 1928 opportunities
-0	STEEM-ETH Binance 0.00315933 0 good 0 bad 1928 opportunities *
-5	BCH-USD Coinbase 677.547 0 good 0 bad 1928 opportunities *
-4	BCH-USD Coinbase 677.547 0 good 0 bad 1928 opportunities
-3	BCH-USD Coinbase 677.547 0 good 0 bad 1928 opportunities
-2	BCH-USD Coinbase 677.547 3 good 4 bad 1794 opportunities *
-1	BCH-USD Coinbase 677.547 0 good 0 bad 1928 opportunities
-0	BCH-USD Coinbase 677.547 2 good 5 bad 1839 opportunities *
-5	FUN-BTC Binance 3.27181e-06 0 good 0 bad 1928 opportunities *
-4	FUN-BTC Binance 3.27181e-06 0 good 0 bad 1928 opportunities
-3	FUN-BTC Binance 3.27181e-06 0 good 0 bad 1928 opportunities
-1	FUN-BTC Binance 3.27181e-06 0 good 1 bad 1928 opportunities *
-1	LTC-BNB Binance 5.83402 0 good 0 bad 1928 opportunities
-3	ZEC-ETH Binance 0.447039 0 good 0 bad 1928 opportunities
-2	ZEC-ETH Binance 0.447039 0 good 0 bad 1928 opportunities
-1	ZEC-ETH Binance 0.447039 0 good 0 bad 1928 opportunities
-0	ZEC-ETH Binance 0.447039 0 good 0 bad 1928 opportunities *
-5	APPC-ETH Binance 0.000363691 0 good 0 bad 1928 opportunities
-3	APPC-ETH Binance 0.000363691 0 good 0 bad 1928 opportunities
-2	APPC-ETH Binance 0.000363691 0 good 12 bad 1928 opportunities *
-1	APPC-ETH Binance 0.000363691 1 good 2 bad 1902 opportunities
-0	APPC-ETH Binance 0.000363691 0 good 4 bad 1928 opportunities *
-5	LTC-BNB Binance 5.83402 0 good 0 bad 1928 opportunities
-4	LTC-BNB Binance 5.83402 0 good 0 bad 1928 opportunities
-3	LTC-BNB Binance 5.83402 0 good 0 bad 1928 opportunities
-2	LTC-BNB Binance 5.83402 0 good 0 bad 1928 opportunities *
-4	ZEC-ETH Binance 0.447039 0 good 0 bad 1928 opportunities *
-0	LTC-BNB Binance 5.83402 0 good 0 bad 1928 opportunities *
-5	IOT-ETH Binance 0.00216689 0 good 0 bad 1928 opportunities
-4	IOT-ETH Binance 0.00216689 0 good 0 bad 1928 opportunities *
-3	IOT-ETH Binance 0.00216689 0 good 0 bad 1928 opportunities
-2	IOT-ETH Binance 0.00216689 0 good 0 bad 1928 opportunities
-1	IOT-ETH Binance 0.00216689 0 good 0 bad 1928 opportunities
-0	IOT-ETH Binance 0.00216689 0 good 0 bad 1928 opportunities *
-5	ZIL-ETH Binance 0.00014793 0 good 0 bad 1928 opportunities
-4	ZIL-ETH Binance 0.00014793 0 good 0 bad 1928 opportunities
-3	ZIL-ETH Binance 0.00014793 0 good 0 bad 1928 opportunities
-2	ZIL-ETH Binance 0.00014793 0 good 0 bad 1928 opportunities
-0	ZIL-ETH Binance 0.00014793 0 good 0 bad 1928 opportunities *
-1	XZC-BTC Binance 0.00219094 0 good 1 bad 1928 opportunities
-3	BRD-BNB Binance 0.0312786 0 good 0 bad 1928 opportunities
-2	BRD-BNB Binance 0.0312786 0 good 0 bad 1928 opportunities *
-1	BRD-BNB Binance 0.0312786 0 good 4 bad 1928 opportunities
-0	BRD-BNB Binance 0.0312786 0 good 0 bad 1928 opportunities *
-4	NEO-USDT Binance 27.7092 0 good 0 bad 1928 opportunities
-3	NEO-USDT Binance 27.7092 0 good 0 bad 1928 opportunities
-2	NEO-USDT Binance 27.7092 4 good 4 bad 1741 opportunities *
-1	NEO-USDT Binance 27.7092 2 good 1 bad 1807 opportunities
-0	NEO-USDT Binance 27.7092 4 good 1 bad 1742 opportunities *
-5	XZC-BTC Binance 0.00219094 0 good 0 bad 1928 opportunities *
-4	XZC-BTC Binance 0.00219094 0 good 0 bad 1928 opportunities
-3	XZC-BTC Binance 0.00219094 0 good 0 bad 1928 opportunities
-2	XZC-BTC Binance 0.00219094 0 good 0 bad 1928 opportunities *
-5	ETH-BTC Coinbase 0.0570572 0 good 0 bad 1928 opportunities *
-0	XZC-BTC Binance 0.00219094 0 good 0 bad 1928 opportunities *
-5	STORM-BNB Binance 0.00106172 0 good 0 bad 1928 opportunities *
-4	STORM-BNB Binance 0.00106172 0 good 0 bad 1928 opportunities
-3	STORM-BNB Binance 0.00106172 0 good 0 bad 1928 opportunities
-1	STORM-BNB Binance 0.00106172 0 good 4 bad 1928 opportunities
-5	SNT-ETH Binance 0.000145463 0 good 0 bad 1928 opportunities
-4	SNT-ETH Binance 0.000145463 0 good 0 bad 1928 opportunities
-3	SNT-ETH Binance 0.000145463 0 good 0 bad 1928 opportunities
-2	SNT-ETH Binance 0.000145463 0 good 0 bad 1928 opportunities
-1	SNT-ETH Binance 0.000145463 0 good 2 bad 1928 opportunities
-0	SNT-ETH Binance 0.000145463 0 good 0 bad 1928 opportunities *
-5	ZEC-ETH Binance 0.447039 0 good 0 bad 1928 opportunities
-4	XZC-ETH Binance 0.0394553 0 good 0 bad 1928 opportunities *
-1	QSP-BTC Binance 8.29651e-06 1 good 2 bad 1900 opportunities
-4	TNB-BTC Binance 2.60035e-06 0 good 0 bad 1928 opportunities
-3	TNB-BTC Binance 2.60035e-06 0 good 0 bad 1928 opportunities
-1	TNB-BTC Binance 2.60035e-06 1 good 2 bad 1858 opportunities *
-0	TNB-BTC Binance 2.60035e-06 2 good 1 bad 1826 opportunities
-5	POWR-BTC Binance 3.56362e-05 0 good 0 bad 1928 opportunities *
-4	POWR-BTC Binance 3.56362e-05 1 good 1 bad 1898 opportunities
-3	POWR-BTC Binance 3.56362e-05 0 good 1 bad 1928 opportunities
-3	APPC-BTC Binance 2.12354e-05 0 good 0 bad 1928 opportunities
-2	APPC-BTC Binance 2.12354e-05 3 good 12 bad 1815 opportunities *
-1	APPC-BTC Binance 2.12354e-05 1 good 5 bad 1902 opportunities
-0	APPC-BTC Binance 2.12354e-05 2 good 4 bad 1840 opportunities *
-5	XZC-ETH Binance 0.0394553 0 good 0 bad 1928 opportunities
-3	QSP-BTC Binance 8.29651e-06 0 good 0 bad 1928 opportunities
-3	XZC-ETH Binance 0.0394553 0 good 0 bad 1928 opportunities
-2	XZC-ETH Binance 0.0394553 0 good 0 bad 1928 opportunities
-1	XZC-ETH Binance 0.0394553 0 good 0 bad 1928 opportunities
-0	XZC-ETH Binance 0.0394553 0 good 0 bad 1928 opportunities *
-5	LTC-ETH Binance 0.192083 0 good 0 bad 1928 opportunities
-4	LTC-ETH Binance 0.192083 0 good 0 bad 1928 opportunities *
-3	LTC-ETH Binance 0.192083 0 good 0 bad 1928 opportunities
-2	LTC-ETH Binance 0.192083 0 good 0 bad 1928 opportunities
-1	LTC-ETH Binance 0.192083 0 good 0 bad 1928 opportunities
-0	LTC-ETH Binance 0.192083 0 good 0 bad 1928 opportunities *
-5	TRIG-BNB Binance 0.0218628 0 good 0 bad 1928 opportunities
-4	TRIG-BNB Binance 0.0218628 1 good 3 bad 1902 opportunities
-3	TRIG-BNB Binance 0.0218628 0 good 0 bad 1928 opportunities
-2	BCH-BTC Coinbase 0.09972 0 good 0 bad 1928 opportunities *
-3	VIB-BTC Binance 8.563e-06 0 good 0 bad 1928 opportunities
-2	VIB-BTC Binance 8.563e-06 1 good 13 bad 1860 opportunities *
-1	VIB-BTC Binance 8.563e-06 0 good 0 bad 1928 opportunities
-0	VIB-BTC Binance 8.563e-06 1 good 6 bad 1860 opportunities *
-5	QTUM-ETH Binance 0.0169528 0 good 0 bad 1928 opportunities
-4	QTUM-ETH Binance 0.0169528 0 good 0 bad 1928 opportunities
-3	QTUM-ETH Binance 0.0169528 0 good 0 bad 1928 opportunities
-2	QTUM-ETH Binance 0.0169528 0 good 0 bad 1928 opportunities
-1	QTUM-ETH Binance 0.0169528 0 good 0 bad 1928 opportunities
-0	QTUM-ETH Binance 0.0169528 0 good 0 bad 1928 opportunities *
-5	BCH-BTC Coinbase 0.09972 0 good 0 bad 1928 opportunities *
-4	BCH-BTC Coinbase 0.09972 0 good 0 bad 1928 opportunities
-3	BCH-BTC Coinbase 0.09972 0 good 0 bad 1928 opportunities
-2	TRIG-BNB Binance 0.0218628 3 good 2 bad 1786 opportunities *
-1	BCH-BTC Coinbase 0.09972 0 good 0 bad 1928 opportunities
-0	BCH-BTC Coinbase 0.09972 0 good 0 bad 1928 opportunities *
-5	ONT-ETH Binance 0.00822856 0 good 0 bad 1928 opportunities
-3	ONT-ETH Binance 0.00822856 0 good 0 bad 1928 opportunities
-1	ONT-ETH Binance 0.00822856 3 good 4 bad 1825 opportunities
-5	KMD-ETH Binance 0.0037842 0 good 0 bad 1928 opportunities
-4	KMD-ETH Binance 0.0037842 0 good 0 bad 1928 opportunities *
-3	KMD-ETH Binance 0.0037842 0 good 0 bad 1928 opportunities
-2	KMD-ETH Binance 0.0037842 0 good 0 bad 1928 opportunities
-1	KMD-ETH Binance 0.0037842 0 good 6 bad 1928 opportunities
-0	KMD-ETH Binance 0.0037842 0 good 0 bad 1928 opportunities *
-5	QSP-BTC Binance 8.29651e-06 0 good 0 bad 1928 opportunities *
-2	BRD-ETH Binance 0.00103685 0 good 0 bad 1928 opportunities
-5	QLC-BNB Binance 0.00448829 0 good 0 bad 1928 opportunities
-4	QLC-BNB Binance 0.00448829 0 good 0 bad 1928 opportunities
-3	QLC-BNB Binance 0.00448829 0 good 0 bad 1928 opportunities
-2	QLC-BNB Binance 0.00448829 4 good 13 bad 1750 opportunities *
-1	QLC-BNB Binance 0.00448829 1 good 1 bad 1903 opportunities
-0	QLC-BNB Binance 0.00448829 2 good 3 bad 1841 opportunities *
-5	WINGS-BTC Binance 2.72221e-05 0 good 0 bad 1928 opportunities *
-4	WINGS-BTC Binance 2.72221e-05 0 good 0 bad 1928 opportunities
-3	WINGS-BTC Binance 2.72221e-05 0 good 0 bad 1928 opportunities
-1	WINGS-BTC Binance 2.72221e-05 0 good 0 bad 1928 opportunities
-5	BRD-ETH Binance 0.00103685 0 good 0 bad 1928 opportunities
-4	BRD-ETH Binance 0.00103685 0 good 0 bad 1928 opportunities *
-3	BRD-ETH Binance 0.00103685 0 good 0 bad 1928 opportunities
-0	LSK-ETH Binance 0.0123879 0 good 0 bad 1928 opportunities *
-1	BRD-ETH Binance 0.00103685 1 good 1 bad 1867 opportunities
-0	BRD-ETH Binance 0.00103685 0 good 0 bad 1928 opportunities *
-5	VIA-BNB Binance 0.0829672 0 good 0 bad 1928 opportunities
-4	VIA-BNB Binance 0.0829672 0 good 0 bad 1928 opportunities
-3	VIA-BNB Binance 0.0829672 0 good 0 bad 1928 opportunities
-2	VIA-BNB Binance 0.0829672 2 good 10 bad 1830 opportunities *
-1	VIA-BNB Binance 0.0829672 0 good 1 bad 1928 opportunities
-5	MANA-BTC Binance 1.35127e-05 0 good 0 bad 1928 opportunities *
-4	MANA-BTC Binance 1.35127e-05 0 good 1 bad 1928 opportunities
-3	MANA-BTC Binance 1.35127e-05 0 good 1 bad 1928 opportunities
-2	MANA-BTC Binance 1.35127e-05 1 good 9 bad 1898 opportunities *
-0	MANA-BTC Binance 1.35127e-05 0 good 2 bad 1928 opportunities *
-5	MDA-ETH Binance 0.00149742 0 good 0 bad 1928 opportunities
-1	TRIG-BNB Binance 0.0218628 3 good 14 bad 1838 opportunities
-5	LINK-ETH Binance 0.00072017 0 good 0 bad 1928 opportunities
-4	LINK-ETH Binance 0.00072017 2 good 1 bad 1860 opportunities *
-3	LINK-ETH Binance 0.00072017 0 good 0 bad 1928 opportunities
-2	LINK-ETH Binance 0.00072017 0 good 0 bad 1928 opportunities
-1	LINK-ETH Binance 0.00072017 4 good 1 bad 1777 opportunities
-0	LINK-ETH Binance 0.00072017 0 good 0 bad 1928 opportunities *
-5	OST-BTC Binance 7.62881e-06 1 good 5 bad 1900 opportunities *
-4	OST-BTC Binance 7.62881e-06 1 good 5 bad 1898 opportunities
-3	OST-BTC Binance 7.62881e-06 0 good 1 bad 1928 opportunities
-2	OST-BTC Binance 7.62881e-06 3 good 15 bad 1805 opportunities *
-1	OST-BTC Binance 7.62881e-06 3 good 6 bad 1822 opportunities
-0	OST-BTC Binance 7.62881e-06 4 good 7 bad 1773 opportunities *
-5	BTC-USDT Binance 6798.52 0 good 0 bad 1928 opportunities
-2	MDA-ETH Binance 0.00149742 0 good 0 bad 1928 opportunities *
-1	MDA-ETH Binance 0.00149742 4 good 6 bad 1756 opportunities
-0	MDA-ETH Binance 0.00149742 0 good 0 bad 1928 opportunities *
-5	SNM-ETH Binance 0.000255297 0 good 0 bad 1928 opportunities
-4	SNM-ETH Binance 0.000255297 0 good 0 bad 1928 opportunities
-3	SNM-ETH Binance 0.000255297 0 good 0 bad 1928 opportunities
-2	SNM-ETH Binance 0.000255297 0 good 0 bad 1928 opportunities *
-1	SNM-ETH Binance 0.000255297 0 good 0 bad 1928 opportunities
-0	SNM-ETH Binance 0.000255297 0 good 0 bad 1928 opportunities *
-5	LSK-ETH Binance 0.0123879 0 good 0 bad 1928 opportunities
-3	LSK-ETH Binance 0.0123879 0 good 0 bad 1928 opportunities
-2	LSK-ETH Binance 0.0123879 0 good 0 bad 1928 opportunities
-1	POA-ETH Binance 0.000335968 1 good 2 bad 1885 opportunities
-1	BAT-ETH Binance 0.000671091 1 good 7 bad 1893 opportunities
-5	WAVES-ETH Binance 0.00652438 0 good 0 bad 1928 opportunities
-4	WAVES-ETH Binance 0.00652438 0 good 0 bad 1928 opportunities *
-3	WAVES-ETH Binance 0.00652438 0 good 0 bad 1928 opportunities
-2	WAVES-ETH Binance 0.00652438 0 good 13 bad 1928 opportunities
-0	WAVES-ETH Binance 0.00652438 0 good 12 bad 1928 opportunities *
-5	STEEM-BNB Binance 0.0967836 0 good 0 bad 1928 opportunities
-4	STEEM-BNB Binance 0.0967836 0 good 2 bad 1928 opportunities
-3	STEEM-BNB Binance 0.0967836 0 good 0 bad 1928 opportunities
-5	POA-ETH Binance 0.000335968 0 good 0 bad 1928 opportunities
-4	POA-ETH Binance 0.000335968 0 good 0 bad 1928 opportunities
-3	POA-ETH Binance 0.000335968 0 good 0 bad 1928 opportunities
-2	POA-ETH Binance 0.000335968 0 good 0 bad 1928 opportunities *
-2	BAT-ETH Binance 0.000671091 0 good 0 bad 1928 opportunities
-0	POA-ETH Binance 0.000335968 0 good 0 bad 1928 opportunities *
-5	AE-BTC Binance 0.000232681 0 good 0 bad 1928 opportunities *
-4	AE-BTC Binance 0.000232681 0 good 0 bad 1928 opportunities
-3	AE-BTC Binance 0.000232681 0 good 0 bad 1928 opportunities
-5	AMB-BTC Binance 3.27705e-05 0 good 0 bad 1928 opportunities *
-4	AMB-BTC Binance 3.27705e-05 0 good 0 bad 1928 opportunities
-3	AMB-BTC Binance 3.27705e-05 0 good 0 bad 1928 opportunities
-1	AMB-BTC Binance 3.27705e-05 0 good 2 bad 1928 opportunities
-5	NEBL-BNB Binance 0.239702 0 good 0 bad 1928 opportunities *
-4	NEBL-BNB Binance 0.239702 0 good 1 bad 1928 opportunities
-3	NEBL-BNB Binance 0.239702 0 good 0 bad 1928 opportunities
-2	NEBL-BNB Binance 0.239702 2 good 9 bad 1874 opportunities *
-1	NEBL-BNB Binance 0.239702 0 good 7 bad 1928 opportunities
-3	MCO-BTC Binance 0.000885883 0 good 0 bad 1928 opportunities
-1	ZIL-BNB Binance 0.00457364 1 good 3 bad 1898 opportunities
-0	ZIL-BNB Binance 0.00457364 0 good 0 bad 1928 opportunities *
-5	TRX-ETH Binance 8.02817e-05 0 good 0 bad 1928 opportunities
-4	TRX-ETH Binance 8.02817e-05 0 good 0 bad 1928 opportunities *
-3	TRX-ETH Binance 8.02817e-05 0 good 0 bad 1928 opportunities
-2	TRX-ETH Binance 8.02817e-05 0 good 0 bad 1928 opportunities
-1	TRX-ETH Binance 8.02817e-05 0 good 0 bad 1928 opportunities
-0	TRX-ETH Binance 8.02817e-05 0 good 0 bad 1928 opportunities *
-5	SALT-ETH Binance 0.00214298 0 good 0 bad 1928 opportunities
-3	SALT-ETH Binance 0.00214298 0 good 0 bad 1928 opportunities
-0	SALT-ETH Binance 0.00214298 0 good 0 bad 1928 opportunities *
-5	MCO-BTC Binance 0.000885883 0 good 0 bad 1928 opportunities *
-4	MCO-BTC Binance 0.000885883 0 good 1 bad 1928 opportunities
-0	NEBL-BNB Binance 0.239702 4 good 6 bad 1793 opportunities *
-5	INS-BTC Binance 6.88952e-05 0 good 0 bad 1928 opportunities *
-4	INS-BTC Binance 6.88952e-05 0 good 0 bad 1928 opportunities
-3	INS-BTC Binance 6.88952e-05 0 good 0 bad 1928 opportunities
-2	INS-BTC Binance 6.88952e-05 0 good 1 bad 1928 opportunities *
-1	INS-BTC Binance 6.88952e-05 0 good 0 bad 1928 opportunities
-5	FUEL-ETH Binance 6.26916e-05 0 good 0 bad 1928 opportunities
-4	FUEL-ETH Binance 6.26916e-05 0 good 1 bad 1928 opportunities
-3	FUEL-ETH Binance 6.26916e-05 0 good 0 bad 1928 opportunities
-1	FUEL-ETH Binance 6.26916e-05 0 good 1 bad 1928 opportunities
-5	BAT-ETH Binance 0.000671091 0 good 0 bad 1928 opportunities
-4	BAT-ETH Binance 0.000671091 0 good 1 bad 1928 opportunities
-3	BAT-ETH Binance 0.000671091 0 good 0 bad 1928 opportunities
-3	RDN*-BTC Binance 9.53135e-05 0 good 0 bad 1928 opportunities
-2	FUEL-BTC Binance 3.72676e-06 3 good 7 bad 1784 opportunities *
-1	FUEL-BTC Binance 3.72676e-06 0 good 1 bad 1928 opportunities
-0	FUEL-BTC Binance 3.72676e-06 3 good 5 bad 1789 opportunities *
-5	IOT-BNB Binance 0.066496 0 good 0 bad 1928 opportunities
-4	IOT-BNB Binance 0.066496 0 good 0 bad 1928 opportunities
-3	IOT-BNB Binance 0.066496 0 good 0 bad 1928 opportunities
-2	IOT-BNB Binance 0.066496 1 good 1 bad 1883 opportunities *
-5	MOD-ETH Binance 0.00257915 0 good 0 bad 1928 opportunities
-3	MOD-ETH Binance 0.00257915 0 good 0 bad 1928 opportunities
-2	MOD-ETH Binance 0.00257915 0 good 2 bad 1928 opportunities
-1	MOD-ETH Binance 0.00257915 2 good 4 bad 1873 opportunities
-0	MOD-ETH Binance 0.00257915 0 good 0 bad 1928 opportunities *
-4	RDN*-BTC Binance 9.53135e-05 0 good 2 bad 1928 opportunities
-3	FUEL-BTC Binance 3.72676e-06 0 good 0 bad 1928 opportunities
-2	RDN*-BTC Binance 9.53135e-05 1 good 6 bad 1858 opportunities *
-1	RDN*-BTC Binance 9.53135e-05 0 good 9 bad 1928 opportunities
-0	RDN*-BTC Binance 9.53135e-05 1 good 6 bad 1858 opportunities *
-5	XRB-BTC Binance 0.000338974 0 good 0 bad 1928 opportunities
-4	XRB-BTC Binance 0.000338974 0 good 19 bad 1928 opportunities
-3	XRB-BTC Binance 0.000338974 0 good 1 bad 1928 opportunities
-2	XRB-BTC Binance 0.000338974 0 good 0 bad 1928 opportunities
-1	XRB-BTC Binance 0.000338974 0 good 24 bad 1928 opportunities
-0	XRB-BTC Binance 0.000338974 0 good 0 bad 1928 opportunities *
-5	CMT*-ETH Binance 0.000328184 0 good 0 bad 1928 opportunities
-3	CMT*-ETH Binance 0.000328184 0 good 0 bad 1928 opportunities
-1	CMT*-ETH Binance 0.000328184 1 good 3 bad 1903 opportunities
-1	XEM-BTC Binance 2.12779e-05 0 good 0 bad 1928 opportunities
-5	CHAT-BTC Binance 4.58923e-06 0 good 0 bad 1928 opportunities *
-2	CHAT-BTC Binance 4.58923e-06 3 good 12 bad 1833 opportunities *
-1	CHAT-BTC Binance 4.58923e-06 3 good 1 bad 1830 opportunities
-0	CHAT-BTC Binance 4.58923e-06 2 good 12 bad 1858 opportunities *
-5	OMG-BTC Binance 0.000876518 0 good 0 bad 1928 opportunities *
-4	OMG-BTC Binance 0.000876518 0 good 0 bad 1928 opportunities
-3	OMG-BTC Binance 0.000876518 0 good 0 bad 1928 opportunities
-1	OMG-BTC Binance 0.000876518 0 good 0 bad 1928 opportunities
-0	OMG-BTC Binance 0.000876518 0 good 0 bad 1928 opportunities *
-5	XEM-BTC Binance 2.12779e-05 0 good 0 bad 1928 opportunities *
-4	XEM-BTC Binance 2.12779e-05 0 good 0 bad 1928 opportunities
-3	XEM-BTC Binance 2.12779e-05 0 good 0 bad 1928 opportunities
-2	XEM-BTC Binance 2.12779e-05 0 good 0 bad 1928 opportunities *
-3	ZIL-BNB Binance 0.00457364 0 good 0 bad 1928 opportunities
-0	XEM-BTC Binance 2.12779e-05 0 good 0 bad 1928 opportunities *
-5	XRB-ETH Binance 0.0047098 0 good 0 bad 1928 opportunities
-4	XRB-ETH Binance 0.0047098 0 good 20 bad 1928 opportunities
-3	XRB-ETH Binance 0.0047098 0 good 1 bad 1928 opportunities
-2	XRB-ETH Binance 0.0047098 0 good 0 bad 1928 opportunities
-1	XRB-ETH Binance 0.0047098 0 good 24 bad 1928 opportunities
-0	XRB-ETH Binance 0.0047098 0 good 0 bad 1928 opportunities *
-5	PIVX-ETH Binance 0.0041264 0 good 0 bad 1928 opportunities
-4	PIVX-ETH Binance 0.0041264 0 good 0 bad 1928 opportunities
-3	PIVX-ETH Binance 0.0041264 0 good 0 bad 1928 opportunities
-5	FUEL-BTC Binance 3.72676e-06 0 good 0 bad 1928 opportunities *
-4	FUEL-BTC Binance 3.72676e-06 0 good 1 bad 1928 opportunities
-2	YOYOW-ETH Binance 0.00010861 4 good 3 bad 1765 opportunities *
-5	LEND-ETH Binance 5.47073e-05 0 good 0 bad 1928 opportunities
-4	LEND-ETH Binance 5.47073e-05 0 good 0 bad 1928 opportunities
-3	LEND-ETH Binance 5.47073e-05 0 good 0 bad 1928 opportunities
-2	LEND-ETH Binance 5.47073e-05 0 good 0 bad 1928 opportunities *
-1	LEND-ETH Binance 5.47073e-05 0 good 3 bad 1928 opportunities
-0	LEND-ETH Binance 5.47073e-05 0 good 0 bad 1928 opportunities *
-5	CLOAK-ETH Binance 0.00788147 0 good 0 bad 1928 opportunities
-2	CLOAK-ETH Binance 0.00788147 1 good 25 bad 1897 opportunities
-1	CLOAK-ETH Binance 0.00788147 2 good 2 bad 1866 opportunities
-0	CLOAK-ETH Binance 0.00788147 0 good 2 bad 1928 opportunities *
-5	YOYOW-ETH Binance 0.00010861 0 good 0 bad 1928 opportunities
-4	YOYOW-ETH Binance 0.00010861 0 good 1 bad 1928 opportunities
-3	YOYOW-ETH Binance 0.00010861 0 good 0 bad 1928 opportunities
-0	RLC-BTC Binance 8.46061e-05 0 good 1 bad 1928 opportunities *
-1	YOYOW-ETH Binance 0.00010861 1 good 2 bad 1881 opportunities
-5	STORM-ETH Binance 3.41307e-05 0 good 0 bad 1928 opportunities
-4	STORM-ETH Binance 3.41307e-05 0 good 0 bad 1928 opportunities
-3	STORM-ETH Binance 3.41307e-05 0 good 0 bad 1928 opportunities
-2	STORM-ETH Binance 3.41307e-05 0 good 0 bad 1928 opportunities *
-1	STORM-ETH Binance 3.41307e-05 0 good 3 bad 1928 opportunities
-0	STORM-ETH Binance 3.41307e-05 0 good 0 bad 1928 opportunities *
-5	GNT-BTC Binance 3.60712e-05 0 good 0 bad 1928 opportunities *
-4	GNT-BTC Binance 3.60712e-05 0 good 0 bad 1928 opportunities
-3	GNT-BTC Binance 3.60712e-05 0 good 0 bad 1928 opportunities
-1	GNT-BTC Binance 3.60712e-05 0 good 3 bad 1928 opportunities
-5	OAX-ETH Binance 0.00065859 0 good 0 bad 1928 opportunities
-1	VIA-ETH Binance 0.00272827 0 good 2 bad 1928 opportunities
-4	BTC-USDT Binance 6798.52 0 good 0 bad 1928 opportunities
-3	BTC-USDT Binance 6798.52 0 good 0 bad 1928 opportunities
-2	BTC-USDT Binance 6798.52 0 good 0 bad 1928 opportunities *
-1	BTC-USDT Binance 6798.52 0 good 0 bad 1928 opportunities
-0	BTC-USDT Binance 6798.52 0 good 0 bad 1928 opportunities *
-5	LEND-BTC Binance 3.17656e-06 0 good 1 bad 1928 opportunities *
-4	LEND-BTC Binance 3.17656e-06 0 good 0 bad 1928 opportunities
-3	LEND-BTC Binance 3.17656e-06 0 good 0 bad 1928 opportunities
-1	LEND-BTC Binance 3.17656e-06 0 good 3 bad 1928 opportunities *
-0	LEND-BTC Binance 3.17656e-06 1 good 2 bad 1878 opportunities
-5	VIA-ETH Binance 0.00272827 0 good 0 bad 1928 opportunities
-4	VIA-ETH Binance 0.00272827 0 good 0 bad 1928 opportunities *
-3	VIA-ETH Binance 0.00272827 0 good 0 bad 1928 opportunities
-4	OAX-ETH Binance 0.00065859 0 good 2 bad 1928 opportunities
-0	VIA-ETH Binance 0.00272827 0 good 0 bad 1928 opportunities *
-5	CMT*-BTC Binance 1.87604e-05 0 good 0 bad 1928 opportunities *
-3	CMT*-BTC Binance 1.87604e-05 0 good 0 bad 1928 opportunities
-2	CMT*-BTC Binance 1.87604e-05 2 good 1 bad 1848 opportunities *
-1	CMT*-BTC Binance 1.87604e-05 2 good 3 bad 1878 opportunities
-5	MTH-ETH Binance 8.28933e-05 0 good 0 bad 1928 opportunities
-3	MTH-ETH Binance 8.28933e-05 0 good 0 bad 1928 opportunities
-1	MTH-ETH Binance 8.28933e-05 0 good 5 bad 1928 opportunities
-5	RLC-BTC Binance 8.46061e-05 0 good 0 bad 1928 opportunities *
-4	RLC-BTC Binance 8.46061e-05 0 good 0 bad 1928 opportunities
-3	RLC-BTC Binance 8.46061e-05 0 good 0 bad 1928 opportunities
-1	RLC-BTC Binance 8.46061e-05 0 good 5 bad 1928 opportunities
-1	ONT-BNB Binance 0.253171 2 good 1 bad 1866 opportunities
-1	GTO-BNB Binance 0.00967613 1 good 1 bad 1857 opportunities
-0	GTO-BNB Binance 0.00967613 0 good 0 bad 1928 opportunities *
-5	ICX-ETH Binance 0.00293246 0 good 0 bad 1928 opportunities
-4	ICX-ETH Binance 0.00293246 0 good 0 bad 1928 opportunities
-3	ICX-ETH Binance 0.00293246 0 good 0 bad 1928 opportunities
-2	ICX-ETH Binance 0.00293246 0 good 0 bad 1928 opportunities *
-1	ICX-ETH Binance 0.00293246 1 good 4 bad 1895 opportunities
-0	ICX-ETH Binance 0.00293246 0 good 0 bad 1928 opportunities *
-5	CHAT-ETH Binance 7.70613e-05 0 good 0 bad 1928 opportunities
-2	CHAT-ETH Binance 7.70613e-05 2 good 1 bad 1859 opportunities *
-1	CHAT-ETH Binance 7.70613e-05 2 good 11 bad 1855 opportunities
-5	ONT-BNB Binance 0.253171 0 good 0 bad 1928 opportunities *
-3	ONT-BNB Binance 0.253171 0 good 0 bad 1928 opportunities
-2	GTO-BNB Binance 0.00967613 0 good 0 bad 1928 opportunities *
-5	GVT-ETH Binance 0.0191492 0 good 0 bad 1928 opportunities
-4	GVT-ETH Binance 0.0191492 0 good 0 bad 1928 opportunities *
-3	GVT-ETH Binance 0.0191492 0 good 0 bad 1928 opportunities
-1	GVT-ETH Binance 0.0191492 0 good 6 bad 1928 opportunities
-5	DLT-BTC Binance 1.02757e-05 0 good 0 bad 1928 opportunities *
-4	DLT-BTC Binance 1.02757e-05 0 good 0 bad 1928 opportunities
-3	DLT-BTC Binance 1.02757e-05 0 good 0 bad 1928 opportunities
-2	DLT-BTC Binance 1.02757e-05 2 good 3 bad 1861 opportunities *
-1	DLT-BTC Binance 1.02757e-05 0 good 0 bad 1928 opportunities
-0	DLT-BTC Binance 1.02757e-05 3 good 3 bad 1834 opportunities *
-5	ZIL-BNB Binance 0.00457364 0 good 0 bad 1928 opportunities *
-4	ZIL-BNB Binance 0.00457364 0 good 0 bad 1928 opportunities
-4	NCASH-ETH Binance 2.52661e-05 0 good 2 bad 1928 opportunities
-3	OAX-ETH Binance 0.00065859 0 good 1 bad 1928 opportunities
-1	OAX-ETH Binance 0.00065859 0 good 2 bad 1928 opportunities
-5	ICN-ETH Binance 0.0014765 0 good 0 bad 1928 opportunities
-3	ICN-ETH Binance 0.0014765 0 good 0 bad 1928 opportunities
-1	ICN-ETH Binance 0.0014765 1 good 2 bad 1900 opportunities
-0	ICN-ETH Binance 0.0014765 0 good 0 bad 1928 opportunities *
-5	LTC-EUR Coinbase 62.7516 0 good 0 bad 1928 opportunities *
-4	LTC-EUR Coinbase 62.7516 0 good 0 bad 1928 opportunities
-3	LTC-EUR Coinbase 62.7516 0 good 0 bad 1928 opportunities
-2	LTC-EUR Coinbase 62.7516 2 good 2 bad 1829 opportunities *
-1	LTC-EUR Coinbase 62.7516 0 good 0 bad 1928 opportunities
-0	LTC-EUR Coinbase 62.7516 2 good 3 bad 1828 opportunities *
-5	NCASH-ETH Binance 2.52661e-05 0 good 0 bad 1928 opportunities
-4	VIB-BTC Binance 8.563e-06 0 good 0 bad 1928 opportunities
-3	NCASH-ETH Binance 2.52661e-05 0 good 0 bad 1928 opportunities
-1	NCASH-ETH Binance 2.52661e-05 1 good 7 bad 1903 opportunities
-0	NCASH-ETH Binance 2.52661e-05 0 good 0 bad 1928 opportunities *
-5	WAN-BNB Binance 0.132206 0 good 0 bad 1928 opportunities *
-4	WAN-BNB Binance 0.132206 0 good 0 bad 1928 opportunities
-3	WAN-BNB Binance 0.132206 0 good 0 bad 1928 opportunities
-2	WAN-BNB Binance 0.132206 4 good 6 bad 1808 opportunities *
-1	WAN-BNB Binance 0.132206 1 good 5 bad 1894 opportunities
-0	WAN-BNB Binance 0.132206 3 good 8 bad 1823 opportunities *
-5	GTO-BNB Binance 0.00967613 0 good 0 bad 1928 opportunities *
-4	GTO-BNB Binance 0.00967613 0 good 0 bad 1928 opportunities
-3	GTO-BNB Binance 0.00967613 0 good 0 bad 1928 opportunities
-0	XLM-BNB Binance 0.0187822 0 good 0 bad 1928 opportunities *
-2	BTC-CAD Coinbase 861.74 0 good 0 bad 1928 opportunities
-1	BTC-CAD Coinbase 861.74 0 good 0 bad 1928 opportunities
-0	BTC-CAD Coinbase 861.74 0 good 0 bad 1928 opportunities *
-5	DNT-ETH Binance 8.08164e-05 0 good 0 bad 1928 opportunities
-4	DNT-ETH Binance 8.08164e-05 1 good 5 bad 1903 opportunities *
-3	DNT-ETH Binance 8.08164e-05 1 good 1 bad 1903 opportunities
-2	DNT-ETH Binance 8.08164e-05 1 good 9 bad 1899 opportunities *
-1	DNT-ETH Binance 8.08164e-05 2 good 1 bad 1847 opportunities
-0	DNT-ETH Binance 8.08164e-05 0 good 9 bad 1928 opportunities *
-5	XLM-BNB Binance 0.0187822 0 good 0 bad 1928 opportunities
-4	XLM-BNB Binance 0.0187822 0 good 0 bad 1928 opportunities
-3	XLM-BNB Binance 0.0187822 0 good 0 bad 1928 opportunities
-2	XLM-BNB Binance 0.0187822 0 good 0 bad 1928 opportunities *
-3	BTC-CAD Coinbase 861.74 0 good 0 bad 1928 opportunities
-4	RCN-BTC Binance 5.21751e-06 0 good 0 bad 1928 opportunities
-3	RCN-BTC Binance 5.21751e-06 0 good 0 bad 1928 opportunities
-2	RCN-BTC Binance 5.21751e-06 2 good 7 bad 1834 opportunities *
-1	RCN-BTC Binance 5.21751e-06 0 good 3 bad 1928 opportunities
-5	BAT-BNB Binance 0.0205031 0 good 0 bad 1928 opportunities *
-4	BAT-BNB Binance 0.0205031 1 good 2 bad 1888 opportunities
-3	BAT-BNB Binance 0.0205031 0 good 0 bad 1928 opportunities
-2	BAT-BNB Binance 0.0205031 1 good 2 bad 1893 opportunities *
-1	BAT-BNB Binance 0.0205031 1 good 4 bad 1888 opportunities
-0	BAT-BNB Binance 0.0205031 0 good 1 bad 1928 opportunities *
-4	SUB-BTC Binance 2.7109e-05 0 good 0 bad 1928 opportunities
-3	SUB-BTC Binance 2.7109e-05 0 good 0 bad 1928 opportunities
-2	SUB-BTC Binance 2.7109e-05 5 good 24 bad 1764 opportunities *
-4	NAV-ETH Binance 0.000945604 0 good 1 bad 1928 opportunities *
-4	EOS-BTC Binance 0.00102888 0 good 0 bad 1928 opportunities
-3	EOS-BTC Binance 0.00102888 0 good 0 bad 1928 opportunities
-2	EOS-BTC Binance 0.00102888 0 good 0 bad 1928 opportunities *
-1	EOS-BTC Binance 0.00102888 0 good 0 bad 1928 opportunities
-0	EOS-BTC Binance 0.00102888 0 good 0 bad 1928 opportunities *
-2	POE-BTC Binance 2.05588e-06 4 good 2 bad 1787 opportunities *
-5	RDN*-BNB Binance 0.0512309 0 good 0 bad 1928 opportunities
-4	RDN*-BNB Binance 0.0512309 1 good 1 bad 1881 opportunities
-3	RDN*-BNB Binance 0.0512309 0 good 0 bad 1928 opportunities
-2	RDN*-BNB Binance 0.0512309 0 good 21 bad 1928 opportunities *
-1	RDN*-BNB Binance 0.0512309 2 good 2 bad 1823 opportunities
-0	RDN*-BNB Binance 0.0512309 1 good 3 bad 1901 opportunities *
-5	NAV-ETH Binance 0.000945604 0 good 0 bad 1928 opportunities
-1	SUB-BTC Binance 2.7109e-05 1 good 1 bad 1886 opportunities
-3	NAV-ETH Binance 0.000945604 0 good 0 bad 1928 opportunities
-2	NAV-ETH Binance 0.000945604 0 good 0 bad 1928 opportunities
-1	NAV-ETH Binance 0.000945604 1 good 1 bad 1902 opportunities
-0	NAV-ETH Binance 0.000945604 0 good 0 bad 1928 opportunities *
-5	VIBE-ETH Binance 0.000138071 0 good 0 bad 1928 opportunities
-4	VIBE-ETH Binance 0.000138071 0 good 0 bad 1928 opportunities
-3	VIBE-ETH Binance 0.000138071 0 good 0 bad 1928 opportunities
-2	VIBE-ETH Binance 0.000138071 0 good 0 bad 1928 opportunities
-1	VIBE-ETH Binance 0.000138071 0 good 1 bad 1928 opportunities
-0	VIBE-ETH Binance 0.000138071 0 good 0 bad 1928 opportunities *
-5	BTC-CAD Coinbase 861.74 0 good 0 bad 1928 opportunities
-4	BTC-CAD Coinbase 861.74 0 good 0 bad 1928 opportunities
-1	AMB-BNB Binance 0.0174883 1 good 3 bad 1889 opportunities
-2	WINGS-ETH Binance 0.00048201 0 good 0 bad 1928 opportunities
-1	WINGS-ETH Binance 0.00048201 0 good 0 bad 1928 opportunities
-0	WINGS-ETH Binance 0.00048201 0 good 0 bad 1928 opportunities *
-5	NEO-ETH Binance 0.0713462 0 good 0 bad 1928 opportunities
-4	NEO-ETH Binance 0.0713462 0 good 0 bad 1928 opportunities *
-3	NEO-ETH Binance 0.0713462 0 good 0 bad 1928 opportunities
-2	NEO-ETH Binance 0.0713462 0 good 0 bad 1928 opportunities
-1	NEO-ETH Binance 0.0713462 0 good 0 bad 1928 opportunities
-0	NEO-ETH Binance 0.0713462 0 good 0 bad 1928 opportunities *
-5	AMB-BNB Binance 0.0174883 0 good 0 bad 1928 opportunities *
-4	AMB-BNB Binance 0.0174883 0 good 0 bad 1928 opportunities
-3	AMB-BNB Binance 0.0174883 0 good 0 bad 1928 opportunities
-2	AMB-BNB Binance 0.0174883 2 good 2 bad 1864 opportunities *
-3	WINGS-ETH Binance 0.00048201 0 good 0 bad 1928 opportunities
-0	AMB-BNB Binance 0.0174883 2 good 1 bad 1863 opportunities *
-5	BLZ-BNB Binance 0.0174785 0 good 0 bad 1928 opportunities *
-3	BLZ-BNB Binance 0.0174785 0 good 0 bad 1928 opportunities
-2	BLZ-BNB Binance 0.0174785 3 good 2 bad 1842 opportunities *
-1	BLZ-BNB Binance 0.0174785 1 good 3 bad 1903 opportunities
-5	EVX-BTC Binance 8.35253e-05 0 good 0 bad 1928 opportunities *
-4	EVX-BTC Binance 8.35253e-05 0 good 6 bad 1928 opportunities
-3	EVX-BTC Binance 8.35253e-05 0 good 1 bad 1928 opportunities
-2	EVX-BTC Binance 8.35253e-05 2 good 8 bad 1833 opportunities *
-1	EVX-BTC Binance 8.35253e-05 1 good 2 bad 1903 opportunities
-5	TRX-BTC Binance 4.57992e-06 0 good 0 bad 1928 opportunities *
-4	TRX-BTC Binance 4.57992e-06 0 good 0 bad 1928 opportunities
-4	BTM-ETH Binance 0.00431 0 good 0 bad 1928 opportunities
-0	SUB-BTC Binance 2.7109e-05 5 good 3 bad 1752 opportunities *
-5	YOYOW-BNB Binance 0.00339109 0 good 0 bad 1928 opportunities *
-4	YOYOW-BNB Binance 0.00339109 0 good 0 bad 1928 opportunities
-3	YOYOW-BNB Binance 0.00339109 0 good 0 bad 1928 opportunities
-2	YOYOW-BNB Binance 0.00339109 4 good 6 bad 1806 opportunities *
-1	YOYOW-BNB Binance 0.00339109 1 good 1 bad 1881 opportunities
-0	YOYOW-BNB Binance 0.00339109 2 good 3 bad 1864 opportunities *
-5	TNT-ETH Binance 8.27509e-05 0 good 0 bad 1928 opportunities
-4	TNT-ETH Binance 8.27509e-05 0 good 1 bad 1928 opportunities
-3	TNT-ETH Binance 8.27509e-05 0 good 0 bad 1928 opportunities
-2	TNT-ETH Binance 8.27509e-05 1 good 3 bad 1894 opportunities *
-1	TNT-ETH Binance 8.27509e-05 0 good 1 bad 1928 opportunities
-5	BTM-ETH Binance 0.00431 0 good 0 bad 1928 opportunities
-5	EOS-BTC Binance 0.00102888 0 good 0 bad 1928 opportunities *
-3	BTM-ETH Binance 0.00431 0 good 0 bad 1928 opportunities
-2	BTM-ETH Binance 0.00431 0 good 0 bad 1928 opportunities
-1	BTM-ETH Binance 0.00431 0 good 0 bad 1928 opportunities
-0	BTM-ETH Binance 0.00431 0 good 0 bad 1928 opportunities *
-5	RPX-BTC Binance 3.9137e-06 0 good 0 bad 1928 opportunities *
-4	RPX-BTC Binance 3.9137e-06 0 good 0 bad 1928 opportunities
-3	RPX-BTC Binance 3.9137e-06 0 good 0 bad 1928 opportunities
-2	RPX-BTC Binance 3.9137e-06 0 good 19 bad 1928 opportunities *
-1	RPX-BTC Binance 3.9137e-06 0 good 0 bad 1928 opportunities
-0	RPX-BTC Binance 3.9137e-06 1 good 16 bad 1889 opportunities
-5	WINGS-ETH Binance 0.00048201 0 good 0 bad 1928 opportunities
-4	WINGS-ETH Binance 0.00048201 0 good 0 bad 1928 opportunities *
-3	WAVES-BTC Binance 0.000363063 0 good 0 bad 1928 opportunities
-1	LRC-ETH Binance 0.000537639 0 good 2 bad 1928 opportunities
-0	LRC-ETH Binance 0.000537639 0 good 0 bad 1928 opportunities *
-5	NULS-BTC Binance 0.000294667 0 good 0 bad 1928 opportunities *
-3	NULS-BTC Binance 0.000294667 0 good 0 bad 1928 opportunities
-1	NULS-BTC Binance 0.000294667 1 good 5 bad 1902 opportunities
-5	OST-BNB Binance 0.0040618 1 good 5 bad 1900 opportunities *
-4	OST-BNB Binance 0.0040618 2 good 7 bad 1867 opportunities
-3	OST-BNB Binance 0.0040618 0 good 1 bad 1928 opportunities
-2	OST-BNB Binance 0.0040618 4 good 11 bad 1807 opportunities *
-1	OST-BNB Binance 0.0040618 2 good 24 bad 1873 opportunities
-0	OST-BNB Binance 0.0040618 4 good 1 bad 1798 opportunities *
-5	WAVES-BTC Binance 0.000363063 0 good 0 bad 1928 opportunities
-4	WAVES-BTC Binance 0.000363063 0 good 0 bad 1928 opportunities
-2	LRC-ETH Binance 0.000537639 0 good 0 bad 1928 opportunities *
-1	WAVES-BTC Binance 0.000363063 0 good 3 bad 1928 opportunities
-5	PIVX-BTC Binance 0.00023628 0 good 0 bad 1928 opportunities *
-4	PIVX-BTC Binance 0.00023628 0 good 0 bad 1928 opportunities
-3	PIVX-BTC Binance 0.00023628 0 good 0 bad 1928 opportunities
-1	PIVX-BTC Binance 0.00023628 1 good 1 bad 1898 opportunities
-5	SNGLS-ETH Binance 8.01561e-05 0 good 0 bad 1928 opportunities
-4	SNGLS-ETH Binance 8.01561e-05 0 good 2 bad 1928 opportunities
-3	SNGLS-ETH Binance 8.01561e-05 0 good 1 bad 1928 opportunities
-2	SNGLS-ETH Binance 8.01561e-05 1 good 39 bad 1857 opportunities *
-1	SNGLS-ETH Binance 8.01561e-05 1 good 3 bad 1900 opportunities
-0	SNGLS-ETH Binance 8.01561e-05 1 good 1 bad 1858 opportunities *
-5	WAVES-BNB Binance 0.19801 0 good 0 bad 1928 opportunities
-4	WAVES-BNB Binance 0.19801 0 good 0 bad 1928 opportunities *
-4	RCN-ETH Binance 8.90564e-05 0 good 0 bad 1928 opportunities *
-5	BTS-ETH Binance 0.000382296 0 good 0 bad 1928 opportunities
-4	BTS-ETH Binance 0.000382296 0 good 0 bad 1928 opportunities *
-3	BTS-ETH Binance 0.000382296 0 good 0 bad 1928 opportunities
-2	BTS-ETH Binance 0.000382296 0 good 0 bad 1928 opportunities
-1	BTS-ETH Binance 0.000382296 0 good 0 bad 1928 opportunities
-0	BTS-ETH Binance 0.000382296 0 good 0 bad 1928 opportunities *
-5	DNT-BTC Binance 4.57336e-06 0 good 0 bad 1928 opportunities *
-4	DNT-BTC Binance 4.57336e-06 1 good 5 bad 1903 opportunities
-3	DNT-BTC Binance 4.57336e-06 1 good 1 bad 1903 opportunities
-2	DNT-BTC Binance 4.57336e-06 3 good 12 bad 1817 opportunities *
-1	DNT-BTC Binance 4.57336e-06 2 good 1 bad 1847 opportunities
-0	DNT-BTC Binance 4.57336e-06 2 good 13 bad 1842 opportunities
-5	RCN-ETH Binance 8.90564e-05 0 good 0 bad 1928 opportunities
-3	WAVES-BNB Binance 0.19801 0 good 0 bad 1928 opportunities
-3	RCN-ETH Binance 8.90564e-05 0 good 0 bad 1928 opportunities
-2	RCN-ETH Binance 8.90564e-05 1 good 1 bad 1868 opportunities
-1	RCN-ETH Binance 8.90564e-05 0 good 3 bad 1928 opportunities
-5	POA-BNB Binance 0.0104639 0 good 0 bad 1928 opportunities *
-4	POA-BNB Binance 0.0104639 0 good 0 bad 1928 opportunities
-3	POA-BNB Binance 0.0104639 0 good 0 bad 1928 opportunities
-2	POA-BNB Binance 0.0104639 2 good 9 bad 1862 opportunities *
-1	POA-BNB Binance 0.0104639 2 good 1 bad 1824 opportunities
-0	POA-BNB Binance 0.0104639 1 good 5 bad 1890 opportunities *
-5	LRC-ETH Binance 0.000537639 0 good 0 bad 1928 opportunities
-4	LRC-ETH Binance 0.000537639 0 good 0 bad 1928 opportunities
-3	LRC-ETH Binance 0.000537639 0 good 0 bad 1928 opportunities
-5	WPR-ETH Binance 8.38663e-05 0 good 0 bad 1928 opportunities
-4	ARK-ETH Binance 0.00279756 0 good 0 bad 1928 opportunities
-3	ARK-ETH Binance 0.00279756 0 good 0 bad 1928 opportunities
-1	ARK-ETH Binance 0.00279756 0 good 1 bad 1928 opportunities
-3	BLZ-BTC Binance 3.26236e-05 0 good 0 bad 1928 opportunities
-2	BLZ-BTC Binance 3.26236e-05 4 good 1 bad 1781 opportunities *
-0	BLZ-BTC Binance 3.26236e-05 2 good 1 bad 1857 opportunities *
-4	ZIL-BTC Binance 8.51794e-06 0 good 0 bad 1928 opportunities
-3	ZIL-BTC Binance 8.51794e-06 0 good 0 bad 1928 opportunities
-5	CND-BNB Binance 0.00202268 0 good 0 bad 1928 opportunities *
-4	CND-BNB Binance 0.00202268 0 good 0 bad 1928 opportunities
-3	CND-BNB Binance 0.00202268 0 good 0 bad 1928 opportunities
-2	CND-BNB Binance 0.00202268 1 good 1 bad 1891 opportunities *
-1	CND-BNB Binance 0.00202268 0 good 0 bad 1928 opportunities
-5	ARK-ETH Binance 0.00279756 0 good 0 bad 1928 opportunities
-4	WPR-ETH Binance 8.38663e-05 0 good 0 bad 1928 opportunities
-3	WPR-ETH Binance 8.38663e-05 0 good 0 bad 1928 opportunities
-2	WPR-ETH Binance 8.38663e-05 1 good 11 bad 1862 opportunities *
-1	WPR-ETH Binance 8.38663e-05 0 good 3 bad 1928 opportunities
-0	WPR-ETH Binance 8.38663e-05 1 good 1 bad 1873 opportunities *
-4	ARK-BTC Binance 0.000160684 0 good 0 bad 1928 opportunities
-3	ARK-BTC Binance 0.000160684 0 good 0 bad 1928 opportunities
-1	ARK-BTC Binance 0.000160684 0 good 0 bad 1928 opportunities
-4	DGD-BTC Binance 0.0115343 0 good 0 bad 1928 opportunities
-3	DGD-BTC Binance 0.0115343 0 good 0 bad 1928 opportunities
-2	DGD-BTC Binance 0.0115343 1 good 3 bad 1898 opportunities *
-1	DGD-BTC Binance 0.0115343 0 good 0 bad 1928 opportunities
-4	AE-ETH Binance 0.00404609 0 good 0 bad 1928 opportunities
-2	WAVES-BNB Binance 0.19801 1 good 7 bad 1892 opportunities
-0	WAVES-BNB Binance 0.19801 1 good 6 bad 1892 opportunities *
-4	WABI-BTC Binance 4.09942e-05 0 good 4 bad 1928 opportunities
-3	WABI-BTC Binance 4.09942e-05 0 good 0 bad 1928 opportunities
-2	WABI-BTC Binance 4.09942e-05 4 good 12 bad 1764 opportunities *
-0	WABI-BTC Binance 4.09942e-05 4 good 3 bad 1782 opportunities *
-5	ZEC-BTC Binance 0.024665 0 good 0 bad 1928 opportunities *
-4	ZEC-BTC Binance 0.024665 0 good 0 bad 1928 opportunities
-3	ZEC-BTC Binance 0.024665 0 good 0 bad 1928 opportunities
-2	ZEC-BTC Binance 0.024665 0 good 0 bad 1928 opportunities *
-1	ZEC-BTC Binance 0.024665 0 good 0 bad 1928 opportunities
-0	ZEC-BTC Binance 0.024665 0 good 0 bad 1928 opportunities *
-5	AE-ETH Binance 0.00404609 0 good 0 bad 1928 opportunities
-3	TRX-BTC Binance 4.57992e-06 0 good 0 bad 1928 opportunities
-3	AE-ETH Binance 0.00404609 0 good 0 bad 1928 opportunities
-1	AE-ETH Binance 0.00404609 0 good 0 bad 1928 opportunities
-5	VIBE-BTC Binance 8.117e-06 0 good 0 bad 1928 opportunities *
-4	VIBE-BTC Binance 8.117e-06 0 good 0 bad 1928 opportunities
-3	VIBE-BTC Binance 8.117e-06 0 good 0 bad 1928 opportunities
-2	VIBE-BTC Binance 8.117e-06 2 good 1 bad 1835 opportunities *
-1	VIBE-BTC Binance 8.117e-06 0 good 1 bad 1928 opportunities
-5	WPR-BTC Binance 4.85356e-06 0 good 0 bad 1928 opportunities *
-4	WPR-BTC Binance 4.85356e-06 0 good 0 bad 1928 opportunities
-3	WPR-BTC Binance 4.85356e-06 0 good 0 bad 1928 opportunities
-2	WPR-BTC Binance 4.85356e-06 3 good 7 bad 1792 opportunities *
-1	WPR-BTC Binance 4.85356e-06 0 good 1 bad 1928 opportunities
-4	CTR-BTC Binance 9.11e-06 0 good 0 bad 1928 opportunities
-0	AST-BTC Binance 1.80512e-05 5 good 1 bad 1765 opportunities *
-5	STRAT-ETH Binance 0.00557349 0 good 0 bad 1928 opportunities
-4	STRAT-ETH Binance 0.00557349 0 good 0 bad 1928 opportunities *
-3	STRAT-ETH Binance 0.00557349 0 good 0 bad 1928 opportunities
-2	STRAT-ETH Binance 0.00557349 0 good 0 bad 1928 opportunities
-1	STRAT-ETH Binance 0.00557349 0 good 1 bad 1928 opportunities
-0	STRAT-ETH Binance 0.00557349 0 good 0 bad 1928 opportunities *
-4	BCD-BTC Binance 0.00183056 2 good 3 bad 1857 opportunities
-3	BCD-BTC Binance 0.00183056 1 good 2 bad 1897 opportunities
-2	BCD-BTC Binance 0.00183056 5 good 3 bad 1777 opportunities *
-1	BCD-BTC Binance 0.00183056 2 good 4 bad 1861 opportunities
-0	BCD-BTC Binance 0.00183056 3 good 5 bad 1820 opportunities *
-5	CTR-BTC Binance 9.11e-06 0 good 0 bad 1928 opportunities
-1	AST-BTC Binance 1.80512e-05 2 good 12 bad 1840 opportunities
-3	CTR-BTC Binance 9.11e-06 0 good 0 bad 1928 opportunities
-2	CTR-BTC Binance 9.11e-06 0 good 0 bad 1928 opportunities
-1	CTR-BTC Binance 9.11e-06 0 good 0 bad 1928 opportunities
-0	CTR-BTC Binance 9.11e-06 0 good 0 bad 1928 opportunities *
-5	GNT-ETH Binance 0.000621567 0 good 0 bad 1928 opportunities
-4	GNT-ETH Binance 0.000621567 0 good 0 bad 1928 opportunities
-3	GNT-ETH Binance 0.000621567 0 good 0 bad 1928 opportunities
-2	GNT-ETH Binance 0.000621567 0 good 0 bad 1928 opportunities
-1	GNT-ETH Binance 0.000621567 0 good 2 bad 1928 opportunities
-0	GNT-ETH Binance 0.000621567 0 good 0 bad 1928 opportunities *
-5	NAV-BNB Binance 0.0290794 0 good 0 bad 1928 opportunities *
-4	NAV-BNB Binance 0.0290794 0 good 0 bad 1928 opportunities
-3	NAV-BNB Binance 0.0290794 0 good 0 bad 1928 opportunities
-5	BCH-ETH Binance 1.78868 0 good 0 bad 1928 opportunities
-2	APPC-BNB Binance 0.0113508 1 good 6 bad 1901 opportunities *
-1	APPC-BNB Binance 0.0113508 1 good 1 bad 1872 opportunities
-0	APPC-BNB Binance 0.0113508 2 good 4 bad 1860 opportunities *
-5	CLOAK-BTC Binance 0.000458909 0 good 0 bad 1928 opportunities *
-2	CLOAK-BTC Binance 0.000458909 4 good 29 bad 1743 opportunities *
-1	CLOAK-BTC Binance 0.000458909 2 good 2 bad 1866 opportunities
-0	CLOAK-BTC Binance 0.000458909 3 good 2 bad 1799 opportunities *
-5	QSP-ETH Binance 0.000143942 0 good 0 bad 1928 opportunities
-4	QSP-ETH Binance 0.000143942 0 good 0 bad 1928 opportunities
-3	QSP-ETH Binance 0.000143942 0 good 0 bad 1928 opportunities
-2	QSP-ETH Binance 0.000143942 0 good 0 bad 1928 opportunities
-1	QSP-ETH Binance 0.000143942 0 good 4 bad 1928 opportunities
-0	QSP-ETH Binance 0.000143942 0 good 0 bad 1928 opportunities *
-2	NAV-BNB Binance 0.0290794 1 good 1 bad 1899 opportunities *
-4	BCH-ETH Binance 1.78868 0 good 0 bad 1928 opportunities *
-3	BCH-ETH Binance 1.78868 0 good 0 bad 1928 opportunities
-2	BCH-ETH Binance 1.78868 0 good 0 bad 1928 opportunities
-1	BCH-ETH Binance 1.78868 0 good 0 bad 1928 opportunities
-0	BCH-ETH Binance 1.78868 0 good 0 bad 1928 opportunities *
-5	REQ-ETH Binance 0.000152616 0 good 0 bad 1928 opportunities
-4	REQ-ETH Binance 0.000152616 0 good 0 bad 1928 opportunities
-3	REQ-ETH Binance 0.000152616 0 good 0 bad 1928 opportunities
-1	REQ-ETH Binance 0.000152616 0 good 5 bad 1928 opportunities
-5	AST-BTC Binance 1.80512e-05 0 good 0 bad 1928 opportunities *
-4	AST-BTC Binance 1.80512e-05 1 good 2 bad 1889 opportunities
-2	AST-BTC Binance 1.80512e-05 5 good 2 bad 1723 opportunities *
-5	CMT*-BNB Binance 0.0100737 0 good 0 bad 1928 opportunities
-3	IOTA-ETH Binance 7.475e-07 0 good 0 bad 1928 opportunities *
-2	IOTA-ETH Binance 7.475e-07 0 good 0 bad 1928 opportunities
-1	IOTA-ETH Binance 7.475e-07 0 good 0 bad 1928 opportunities *
-0	IOTA-ETH Binance 7.475e-07 0 good 0 bad 1928 opportunities
-5	QTUM-BNB Binance 0.523663 0 good 0 bad 1928 opportunities *
-4	QTUM-BNB Binance 0.523663 0 good 0 bad 1928 opportunities
-3	QTUM-BNB Binance 0.523663 0 good 0 bad 1928 opportunities
-2	QTUM-BNB Binance 0.523663 0 good 0 bad 1928 opportunities *
-1	QTUM-BNB Binance 0.523663 0 good 0 bad 1928 opportunities
-0	QTUM-BNB Binance 0.523663 0 good 0 bad 1928 opportunities *
-5	POE-ETH Binance 3.60753e-05 0 good 0 bad 1928 opportunities
-2	POE-ETH Binance 3.60753e-05 2 good 2 bad 1876 opportunities *
-0	POE-ETH Binance 3.60753e-05 1 good 1 bad 1884 opportunities *
-4	IOTA-ETH Binance 7.475e-07 0 good 0 bad 1928 opportunities *
-3	CMT*-BNB Binance 0.0100737 0 good 0 bad 1928 opportunities
-2	CMT*-BNB Binance 0.0100737 2 good 1 bad 1857 opportunities *
-0	CMT*-BNB Binance 0.0100737 2 good 2 bad 1863 opportunities *
-5	AION-BNB Binance 0.0607529 0 good 0 bad 1928 opportunities *
-1	AION-BNB Binance 0.0607529 2 good 1 bad 1846 opportunities
-2	MTL-BTC Binance 0.000155743 2 good 1 bad 1839 opportunities *
-1	MTL-BTC Binance 0.000155743 0 good 3 bad 1928 opportunities
-5	IOT-BTC Binance 0.000123745 0 good 0 bad 1928 opportunities *
-4	IOT-BTC Binance 0.000123745 0 good 0 bad 1928 opportunities
-3	IOT-BTC Binance 0.000123745 0 good 0 bad 1928 opportunities
-1	IOT-BTC Binance 0.000123745 0 good 1 bad 1928 opportunities
-5	VIB-BTC Binance 8.563e-06 0 good 0 bad 1928 opportunities *
-4	LTC-BTC Coinbase 0.010725 0 good 0 bad 1928 opportunities
-1	NAV-BNB Binance 0.0290794 1 good 4 bad 1891 opportunities
-5	ETC-USD Coinbase 2.93785 0 good 0 bad 1928 opportunities
-4	ETC-USD Coinbase 2.93785 0 good 18 bad 1928 opportunities *
-3	ETC-USD Coinbase 2.93785 0 good 1 bad 1928 opportunities
-2	ETC-USD Coinbase 2.93785 1 good 2 bad 1882 opportunities *
-1	ETC-USD Coinbase 2.93785 0 good 24 bad 1928 opportunities *
-5	RDN*-ETH Binance 0.00166559 0 good 0 bad 1928 opportunities
-4	RDN*-ETH Binance 0.00166559 1 good 1 bad 1901 opportunities *
-3	RDN*-ETH Binance 0.00166559 0 good 0 bad 1928 opportunities
-2	RDN*-ETH Binance 0.00166559 0 good 0 bad 1928 opportunities
-1	RDN*-ETH Binance 0.00166559 1 good 4 bad 1881 opportunities
-0	RDN*-ETH Binance 0.00166559 0 good 0 bad 1928 opportunities *
-5	LTC-BTC Coinbase 0.010725 0 good 0 bad 1928 opportunities *
-3	APPC-BNB Binance 0.0113508 0 good 0 bad 1928 opportunities
-3	LTC-BTC Coinbase 0.010725 0 good 0 bad 1928 opportunities
-2	LTC-BTC Coinbase 0.010725 0 good 0 bad 1928 opportunities *
-1	LTC-BTC Coinbase 0.010725 0 good 0 bad 1928 opportunities
-0	LTC-BTC Coinbase 0.010725 0 good 0 bad 1928 opportunities *
-5	ZRX-BTC Binance 0.000127805 0 good 0 bad 1928 opportunities *
-3	ZRX-BTC Binance 0.000127805 0 good 0 bad 1928 opportunities
-5	OAX-BTC Binance 3.83156e-05 0 good 0 bad 1928 opportunities *
-4	OAX-BTC Binance 3.83156e-05 0 good 2 bad 1928 opportunities
-3	OAX-BTC Binance 3.83156e-05 0 good 1 bad 1928 opportunities
-1	OAX-BTC Binance 3.83156e-05 0 good 2 bad 1928 opportunities
-0	OAX-BTC Binance 3.83156e-05 2 good 1 bad 1861 opportunities *
-5	IOTA-ETH Binance 7.475e-07 0 good 0 bad 1928 opportunities
-0	LSK-BTC Binance 0.000686612 0 good 0 bad 1928 opportunities *
-0	MOD-BTC Binance 0.000140286 0 good 0 bad 1928 opportunities *
-5	NAV-BTC Binance 5.40206e-05 0 good 0 bad 1928 opportunities *
-4	NAV-BTC Binance 5.40206e-05 0 good 1 bad 1928 opportunities
-3	NAV-BTC Binance 5.40206e-05 0 good 0 bad 1928 opportunities
-1	NAV-BTC Binance 5.40206e-05 1 good 3 bad 1892 opportunities
-5	XLM-ETH Binance 0.00062467 0 good 0 bad 1928 opportunities
-4	XLM-ETH Binance 0.00062467 0 good 0 bad 1928 opportunities *
-3	XLM-ETH Binance 0.00062467 0 good 0 bad 1928 opportunities
-2	XLM-ETH Binance 0.00062467 0 good 0 bad 1928 opportunities
-0	XLM-ETH Binance 0.00062467 0 good 0 bad 1928 opportunities *
-5	LSK-BTC Binance 0.000686612 0 good 0 bad 1928 opportunities *
-3	LSK-BTC Binance 0.000686612 0 good 0 bad 1928 opportunities
-2	LSK-BTC Binance 0.000686612 0 good 0 bad 1928 opportunities *
-1	MOD-BTC Binance 0.000140286 1 good 2 bad 1899 opportunities
-5	ELF-BTC Binance 7.76584e-05 0 good 1 bad 1928 opportunities *
-4	ELF-BTC Binance 7.76584e-05 0 good 0 bad 1928 opportunities
-3	ELF-BTC Binance 7.76584e-05 0 good 0 bad 1928 opportunities
-2	ELF-BTC Binance 7.76584e-05 4 good 2 bad 1796 opportunities *
-1	ELF-BTC Binance 7.76584e-05 1 good 1 bad 1897 opportunities
-5	SNGLS-BTC Binance 4.55795e-06 0 good 0 bad 1928 opportunities *
-4	SNGLS-BTC Binance 4.55795e-06 0 good 2 bad 1928 opportunities
-3	SNGLS-BTC Binance 4.55795e-06 0 good 1 bad 1928 opportunities
-2	SNGLS-BTC Binance 4.55795e-06 2 good 44 bad 1810 opportunities *
-1	SNGLS-BTC Binance 4.55795e-06 0 good 4 bad 1928 opportunities
-0	SNGLS-BTC Binance 4.55795e-06 2 good 3 bad 1848 opportunities
-5	POWR-ETH Binance 0.000636819 0 good 0 bad 1928 opportunities
-2	EOS-ETH Binance 0.0182603 0 good 0 bad 1928 opportunities
-1	TRX-BTC Binance 4.57992e-06 0 good 0 bad 1928 opportunities
-5	XRP-ETH Binance 0.00106515 0 good 0 bad 1928 opportunities
-4	XRP-ETH Binance 0.00106515 0 good 0 bad 1928 opportunities *
-3	XRP-ETH Binance 0.00106515 0 good 0 bad 1928 opportunities
-2	XRP-ETH Binance 0.00106515 0 good 0 bad 1928 opportunities
-1	XRP-ETH Binance 0.00106515 0 good 0 bad 1928 opportunities
-0	XRP-ETH Binance 0.00106515 0 good 0 bad 1928 opportunities *
-5	IOST-BTC Binance 2.95905e-06 0 good 0 bad 1928 opportunities *
-2	IOST-BTC Binance 2.95905e-06 3 good 9 bad 1782 opportunities *
-0	IOST-BTC Binance 2.95905e-06 2 good 10 bad 1836 opportunities
-5	EOS-ETH Binance 0.0182603 0 good 0 bad 1928 opportunities
-4	EOS-ETH Binance 0.0182603 0 good 0 bad 1928 opportunities *
-3	EOS-ETH Binance 0.0182603 0 good 0 bad 1928 opportunities
-4	POWR-ETH Binance 0.000636819 1 good 1 bad 1898 opportunities
-1	EOS-ETH Binance 0.0182603 0 good 0 bad 1928 opportunities
-0	EOS-ETH Binance 0.0182603 0 good 0 bad 1928 opportunities *
-5	RLC-BNB Binance 0.0452105 0 good 0 bad 1928 opportunities *
-4	RLC-BNB Binance 0.0452105 0 good 0 bad 1928 opportunities
-3	RLC-BNB Binance 0.0452105 0 good 0 bad 1928 opportunities
-2	RLC-BNB Binance 0.0452105 2 good 15 bad 1866 opportunities *
-1	RLC-BNB Binance 0.0452105 1 good 1 bad 1859 opportunities
-0	RLC-BNB Binance 0.0452105 2 good 8 bad 1865 opportunities *
-5	MOD-BTC Binance 0.000140286 0 good 0 bad 1928 opportunities
-4	MOD-BTC Binance 0.000140286 0 good 0 bad 1928 opportunities
-3	MOD-BTC Binance 0.000140286 0 good 0 bad 1928 opportunities
-2	MOD-BTC Binance 0.000140286 0 good 0 bad 1928 opportunities *
-0	XEM-BNB Binance 0.0115189 0 good 0 bad 1928 opportunities *
-2	KNC-BTC Binance 0.000106508 2 good 22 bad 1832 opportunities *
-1	KNC-BTC Binance 0.000106508 0 good 4 bad 1928 opportunities
-5	BTC-USD Coinbase 6798.72 0 good 0 bad 1928 opportunities
-4	BTC-USD Coinbase 6798.72 0 good 0 bad 1928 opportunities
-3	BTC-USD Coinbase 6798.72 0 good 0 bad 1928 opportunities
-2	BTC-USD Coinbase 6798.72 0 good 0 bad 1928 opportunities *
-1	BTC-USD Coinbase 6798.72 0 good 0 bad 1928 opportunities
-0	BTC-USD Coinbase 6798.72 0 good 0 bad 1928 opportunities *
-5	XEM-BNB Binance 0.0115189 0 good 0 bad 1928 opportunities
-4	XEM-BNB Binance 0.0115189 0 good 0 bad 1928 opportunities
-3	XEM-BNB Binance 0.0115189 0 good 0 bad 1928 opportunities
-2	XEM-BNB Binance 0.0115189 0 good 0 bad 1928 opportunities *
-1	XEM-BNB Binance 0.0115189 0 good 3 bad 1928 opportunities
-3	KNC-BTC Binance 0.000106508 0 good 1 bad 1928 opportunities
-5	NCASH-BNB Binance 0.000783527 0 good 0 bad 1928 opportunities *
-4	NCASH-BNB Binance 0.000783527 1 good 2 bad 1898 opportunities
-3	NCASH-BNB Binance 0.000783527 0 good 1 bad 1928 opportunities
-2	NCASH-BNB Binance 0.000783527 1 good 1 bad 1873 opportunities *
-1	NCASH-BNB Binance 0.000783527 1 good 2 bad 1903 opportunities
-0	NCASH-BNB Binance 0.000783527 3 good 2 bad 1829 opportunities *
-5	BLZ-ETH Binance 0.000559407 0 good 0 bad 1928 opportunities
-3	BLZ-ETH Binance 0.000559407 0 good 0 bad 1928 opportunities
-2	BLZ-ETH Binance 0.000559407 0 good 7 bad 1928 opportunities *
-1	BLZ-ETH Binance 0.000559407 1 good 1 bad 1891 opportunities
-0	BLZ-ETH Binance 0.000559407 1 good 4 bad 1892 opportunities *
-5	APPC-BNB Binance 0.0113508 0 good 0 bad 1928 opportunities *
-2	XVG-ETH Binance 5.13278e-05 0 good 0 bad 1928 opportunities
-0	POWR-ETH Binance 0.000636819 0 good 0 bad 1928 opportunities *
-5	NEBL-ETH Binance 0.00775643 0 good 0 bad 1928 opportunities
-4	NEBL-ETH Binance 0.00775643 0 good 0 bad 1928 opportunities
-3	NEBL-ETH Binance 0.00775643 0 good 0 bad 1928 opportunities
-1	NEBL-ETH Binance 0.00775643 0 good 7 bad 1928 opportunities
-0	NEBL-ETH Binance 0.00775643 0 good 0 bad 1928 opportunities *
-4	WAN-BTC Binance 0.00024985 0 good 0 bad 1928 opportunities
-3	WAN-BTC Binance 0.00024985 0 good 0 bad 1928 opportunities
-2	WAN-BTC Binance 0.00024985 5 good 1 bad 1681 opportunities *
-0	WAN-BTC Binance 0.00024985 4 good 2 bad 1744 opportunities *
-5	XVG-ETH Binance 5.13278e-05 0 good 0 bad 1928 opportunities
-4	XVG-ETH Binance 5.13278e-05 0 good 0 bad 1928 opportunities *
-3	XVG-ETH Binance 5.13278e-05 0 good 0 bad 1928 opportunities
-0	CND-ETH Binance 6.56375e-05 0 good 0 bad 1928 opportunities *
-1	XVG-ETH Binance 5.13278e-05 1 good 5 bad 1887 opportunities
-0	XVG-ETH Binance 5.13278e-05 0 good 0 bad 1928 opportunities *
-5	MDA-BTC Binance 7.90729e-05 0 good 0 bad 1928 opportunities
-2	MDA-BTC Binance 7.90729e-05 1 good 15 bad 1887 opportunities *
-0	MDA-BTC Binance 7.90729e-05 1 good 15 bad 1887 opportunities *
-5	ENG-ETH Binance 0.0027547 0 good 0 bad 1928 opportunities
-4	ENG-ETH Binance 0.0027547 0 good 0 bad 1928 opportunities
-3	ENG-ETH Binance 0.0027547 0 good 0 bad 1928 opportunities
-2	ENG-ETH Binance 0.0027547 0 good 0 bad 1928 opportunities
-1	ENG-ETH Binance 0.0027547 1 good 4 bad 1867 opportunities
-0	ENG-ETH Binance 0.0027547 0 good 0 bad 1928 opportunities *
-4	KNC-BTC Binance 0.000106508 0 good 1 bad 1928 opportunities
+0	ELF-BTC Binance 5/5 7.76584e-05 1785 opps 17.2362 *
+0	WABI-BNB Binance 5/5 0.0218806 1739 opps 5144.5 *
+2	WTC-BTC Binance 4/4 0.000759352 1766 opps 2.38371 *
+0	ONT-BTC Binance 4/4 0.000481866 1823 opps 82.7982 *
+1	LINK-BTC Binance 4/4 3.74083e-05 1775 opps 0.113719
+0	POE-BTC Binance 4/4 2.05588e-06 1772 opps 0.495413
+2	AION-BNB Binance 4/4 0.0607529 1805 opps 1.98302 *
+2	ONT-BNB Binance 4/4 0.253171 1802 opps 2.13101 *
+0	CDT-BTC Binance 4/4 2.86956e-06 1769 opps 0.62156
+0	TRIG-BNB Binance 3/3 0.0218628 1840 opps 5784.4 *
+2	POWR-BTC Binance 3/3 3.56362e-05 1846 opps 2.54202 *
+0	ONT-BNB Binance 3/3 0.253171 1827 opps 51009.2 *
+2	WABI-ETH Binance 3/3 0.000707204 1803 opps 1.04354
+2	POA-BTC Binance 3/3 1.97474e-05 1812 opps 3.65499 *
+0	POA-BTC Binance 3/3 1.97474e-05 1811 opps 4.18807 *
+2	FUEL-ETH Binance 3/3 6.26916e-05 1838 opps 1.59993 *
+1	MDA-BTC Binance 3/3 7.90729e-05 1823 opps 0.0586416
+0	AST-ETH Binance 3/3 0.0003173 1824 opps 70.6193 *
+4	LINK-BTC Binance 3/3 3.74083e-05 1817 opps 1.0709
+2	MTH-BTC Binance 3/3 4.75823e-06 1797 opps 2.71769 *
+0	BCN-BTC Binance 3/3 3.75485e-07 1839 opps 0.0802752
+0	REQ-BTC Binance 3/3 8.76991e-06 1793 opps 1.76606 *
+2	REQ-BTC Binance 3/3 8.76991e-06 1819 opps 2.80839 *
+2	CDT-BTC Binance 3/3 2.86956e-06 1817 opps 3.09043 *
+2	CND-BTC Binance 3/3 3.77305e-06 1815 opps 2.74107 *
+1	LSK-BNB Binance 3/3 0.374707 1790 opps 1.19912e-05
+2	TNB-BTC Binance 3/3 2.60035e-06 1787 opps 3.46154 *
+2	AMB-BTC Binance 3/3 3.27705e-05 1818 opps 2.58367 *
+2	LEND-BTC Binance 2/2 3.17656e-06 1826 opps 2.96774 *
+2	ZIL-BTC Binance 2/2 8.51794e-06 1877 opps 2.59266 *
+4	SYS-BNB Binance 2/2 0.0112006 1847 opps 0.750349
+0	AMB-BTC Binance 2/2 3.27705e-05 1856 opps 7.36009 *
+1	NCASH-BTC Binance 2/2 1.46901e-06 1866 opps 3.04895 *
+2	STEEM-BNB Binance 2/2 0.0967836 1870 opps 1.57694 *
+0	POWR-BTC Binance 2/2 3.56362e-05 1856 opps 8.77982 *
+0	STEEM-BNB Binance 2/2 0.0967836 1873 opps 23990.8 *
+0	AION-BTC Binance 2/2 0.00011427 1868 opps 22.7064 *
+1	ZRX-ETH Binance 2/2 0.00232249 1802 opps 0.0017281
+0	AE-BTC Binance 2/2 0.000232681 1847 opps 56.2844 *
+2	AE-BTC Binance 2/2 0.000232681 1850 opps 2.73754 *
+1	BLZ-BTC Binance 2/2 3.26236e-05 1866 opps 0.125251
+0	ICX-BNB Binance 2/2 0.0906316 1865 opps 20990.8 *
+1	ICX-BTC Binance 2/2 0.000171332 1866 opps 0.0295794
+2	ONT-ETH Binance 2/2 0.00822856 1868 opps 1.3353 *
+0	QSP-BNB Binance 2/2 0.00444976 1862 opps 1117.89 *
+1	ZRX-BTC Binance 2/2 0.000127805 1806 opps 0.0308782
+0	STRAT-BTC Binance 2/2 0.000316614 1872 opps 79.8853 *
+1	SALT-BTC Binance 2/2 0.000125637 1863 opps 0.0356792
+2	OAX-BTC Binance 2/2 3.83156e-05 1837 opps 3.11027 *
+0	VIBE-BTC Binance 2/2 8.117e-06 1842 opps 1.70413 *
+1	WAN-BTC Binance 2/2 0.00024985 1846 opps 0.0204791
+1	XVG-BTC Binance 2/2 2.92021e-06 1867 opps 1.47297 *
+2	SALT-ETH Binance 2/2 0.00214298 1866 opps 1.57109 *
+1	SALT-ETH Binance 2/2 0.00214298 1861 opps 0.00198543
+0	RCN-BTC Binance 2/2 5.21751e-06 1808 opps 1.31651 *
+1	POWR-BTC Binance 2/2 3.56362e-05 1849 opps 0.113898
+2	QLC-BTC Binance 2/2 8.19402e-06 1838 opps 1.64529 *
+2	WAN-ETH Binance 2/2 0.00425863 1857 opps 1.2981 *
+1	MCO-BTC Binance 2/2 0.000885883 1858 opps 0.00470334
+0	QLC-BTC Binance 2/2 8.19402e-06 1840 opps 1.68807 *
+1	XLM-BNB Binance 2/2 0.0187822 1858 opps 0.000194991
+0	FUEL-ETH Binance 2/2 6.26916e-05 1877 opps 15.6881 *
+2	PPT-BTC Binance 2/2 0.000831413 1870 opps 2.4088 *
+0	MTH-BTC Binance 2/2 4.75823e-06 1850 opps 1.02752
+0	PPT-BTC Binance 2/2 0.000831413 1862 opps 151.124 *
+1	POWR-ETH Binance 2/2 0.000636819 1849 opps 0.00630878
+2	GRS-ETH Binance 2/2 0.00162475 1860 opps 1.01279
+2	WTC-ETH Binance 2/2 0.0132017 1868 opps 1.0996
+2	LRC-BTC Binance 2/2 3.22476e-05 1873 opps 4.03975 *
+2	PPT-ETH Binance 2/2 0.0147119 1840 opps 1.12666
+0	MTL-BTC Binance 2/2 0.000155743 1839 opps 35.1835 *
+0	EVX-ETH Binance 2/2 0.00148077 1830 opps 321.33 *
+0	ARK-BTC Binance 2/2 0.000160684 1836 opps 32.8211 *
+1	NULS-BNB Binance 2/2 0.160333 1871 opps 2.33906e-05
+0	AION-BNB Binance 2/2 0.0607529 1859 opps 14087.2 *
+1	MCO-BNB Binance 2/2 0.484497 1855 opps 7.65584e-06
+2	GRS-BTC Binance 2/2 8.80792e-05 1875 opps 1.44627 *
+0	MCO-BNB Binance 2/2 0.484497 1861 opps 130619 *
+0	WABI-ETH Binance 2/2 0.000707204 1865 opps 148.417 *
+2	STORM-BTC Binance 2/2 1.99095e-06 1832 opps 3.12963 *
+2	MCO-BNB Binance 2/2 0.484497 1848 opps 1.52361 *
+1	GRS-BTC Binance 2/2 8.80792e-05 1867 opps 0.0552038
+1	IOST-BTC Binance 2/2 2.95905e-06 1869 opps 1.41558 *
+2	ARK-BTC Binance 2/2 0.000160684 1837 opps 2.49899 *
+0	VIA-BNB Binance 2/2 0.0829672 1822 opps 23233.9 *
+0	GRS-BTC Binance 2/2 8.80792e-05 1855 opps 18.1147 *
+0	EVX-BTC Binance 2/2 8.35253e-05 1834 opps 17.7867 *
+4	MTH-ETH Binance 2/2 8.28933e-05 1857 opps 1.13679
+4	CHAT-BTC Binance 2/2 4.58923e-06 1867 opps 0.611898
+0	CMT*-BTC Binance 2/2 1.87604e-05 1850 opps 3.80046 *
+0	KNC-BTC Binance 2/2 0.000106508 1810 opps 24.1972 *
+2	MTH-ETH Binance 2/2 8.28933e-05 1804 opps 1.14441
+1	QLC-ETH Binance 2/2 0.00015016 1853 opps 0.0329305
+1	LSK-ETH Binance 2/2 0.0123879 1859 opps 0.000411321
+1	CMT*-BNB Binance 2/2 0.0100737 1875 opps 0.000422072
+0	PPT-ETH Binance 2/2 0.0147119 1873 opps 2711.01 *
+1	LSK-BTC Binance 2/2 0.000686612 1843 opps 0.00733143
+0	YOYOW-ETH Binance 2/2 0.00010861 1839 opps 23.4174 *
+0	BLZ-BNB Binance 2/2 0.0174785 1873 opps 4837.16 *
+1	QLC-BTC Binance 1/1 8.19402e-06 1884 opps 0.592391
+5	POE-BTC Binance 1/1 2.05588e-06 1902 opps 1.60519 *
+0	ONT-ETH Binance 1/1 0.00822856 1902 opps 1483.94 *
+4	POE-BTC Binance 1/1 2.05588e-06 1903 opps 0.622977
+5	RCN-BTC Binance 1/1 5.21751e-06 1865 opps 1.54798 *
+4	APPC-ETH Binance 1/1 0.000363691 1902 opps 0.991448
+0	GVT-BTC Binance 1/1 0.00107445 1881 opps 216.239 *
+4	AION-BNB Binance 1/1 0.0607529 1886 opps 0.747999
+4	ONT-ETH Binance 1/1 0.00822856 1903 opps 1.15991
+2	GVT-BTC Binance 1/1 0.00107445 1880 opps 1.69238 *
+2	AE-BNB Binance 1/1 0.124701 1898 opps 1.74704 *
+5	CND-BTC Binance 1/1 3.77305e-06 1890 opps 1.68136 *
+3	AION-BNB Binance 1/1 0.0607529 1886 opps 0.50428
+3	POE-BTC Binance 1/1 2.05588e-06 1903 opps 0.288288
+3	MDA-BTC Binance 1/1 7.90729e-05 1887 opps 0.577097
+0	DGD-BTC Binance 1/1 0.0115343 1898 opps 2529.82 *
+2	BTG-BTC Binance 1/1 0.00361922 1901 opps 1.60261 *
+5	KNC-BTC Binance 1/1 0.000106508 1889 opps 1.76341 *
+0	MTH-ETH Binance 1/1 8.28933e-05 1898 opps 18.4083 *
+0	BTG-BTC Binance 1/1 0.00361922 1900 opps 796.33 *
+2	IOT-BTC Binance 1/1 0.000123745 1882 opps 2.041 *
+1	ADX-BTC Binance 1/1 4.49423e-05 1903 opps 0.0927265
+4	CMT*-BTC Binance 1/1 1.87604e-05 1901 opps 0.705339
+0	IOT-BTC Binance 1/1 0.000123745 1902 opps 27.2936 *
+0	DGD-ETH Binance 1/1 0.199558 1903 opps 45275.2 *
+2	VIA-ETH Binance 1/1 0.00272827 1901 opps 1.07803
+2	RLC-BTC Binance 1/1 8.46061e-05 1876 opps 2.81937 *
+2	DGD-ETH Binance 1/1 0.199558 1899 opps 1.19314
+0	BNB-BTC Binance 1/1 0.00184242 1903 opps 370.642 *
+3	MTL-BTC Binance 1/1 0.000155743 1903 opps 0.362402
+4	MTL-BTC Binance 1/1 0.000155743 1903 opps 0.686848
+4	MDA-BTC Binance 1/1 7.90729e-05 1887 opps 1.00209
+1	POE-BTC Binance 1/1 2.05588e-06 1901 opps 2.01852 *
+4	ADX-ETH Binance 1/1 0.000776372 1890 opps 1.15237
+3	ADX-ETH Binance 1/1 0.000776372 1890 opps 0.66
+5	MTL-BTC Binance 1/1 0.000155743 1881 opps 1.45593 *
+1	ADX-ETH Binance 1/1 0.000776372 1903 opps 0.00515671
+3	AST-ETH Binance 1/1 0.0003173 1891 opps 0.795226
+4	CLOAK-ETH Binance 1/1 0.00788147 1903 opps 1.22907 *
+1	ZIL-ETH Binance 1/1 0.00014793 1900 opps 0.0283669
+3	CLOAK-ETH Binance 1/1 0.00788147 1903 opps 0.836128
+4	BLZ-BNB Binance 1/1 0.0174785 1895 opps 0.681155
+4	IOST-BTC Binance 1/1 2.95905e-06 1902 opps 0.619078
+1	MANA-BTC Binance 1/1 1.35127e-05 1903 opps 0.286277
+2	LINK-BTC Binance 1/1 3.74083e-05 1897 opps 1.28468 *
+0	LINK-BTC Binance 1/1 3.74083e-05 1898 opps 8.79358 *
+5	PPT-ETH Binance 1/1 0.0147119 1901 opps 0.776891
+4	PPT-ETH Binance 1/1 0.0147119 1901 opps 1.28718 *
+0	TRX-BTC Binance 1/1 4.57992e-06 1880 opps 1.02064
+2	TRX-BTC Binance 1/1 4.57992e-06 1903 opps 2.40645 *
+1	STEEM-ETH Binance 1/1 0.00315933 1898 opps 0.00145092
+3	IOST-BTC Binance 1/1 2.95905e-06 1902 opps 0.378099
+2	FUN-BTC Binance 1/1 3.27181e-06 1883 opps 2.07556 *
+0	BRD-BTC Binance 1/1 5.72179e-05 1896 opps 10.6881 *
+0	FUN-BTC Binance 1/1 3.27181e-06 1882 opps 0.690367
+0	GNT-BNB Binance 1/1 0.0192669 1891 opps 5025.23 *
+1	BRD-BTC Binance 1/1 5.72179e-05 1866 opps 0.0935622
+2	BRD-BTC Binance 1/1 5.72179e-05 1896 opps 1.5917 *
+1	BTS-BNB Binance 1/1 0.0117468 1868 opps 0.000311429
+4	NULS-ETH Binance 1/1 0.00522668 1900 opps 1.19886
+4	DASH-BTC Binance 1/1 0.0309666 1884 opps 1.03826
+4	LSK-BNB Binance 1/1 0.374707 1891 opps 1.00919
+2	NAV-BTC Binance 1/1 5.40206e-05 1868 opps 2.48626 *
+1	WABI-BNB Binance 1/1 0.0218806 1903 opps 0.000194383
+4	LSK-ETH Binance 1/1 0.0123879 1891 opps 1.47614 *
+3	MDA-ETH Binance 1/1 0.00149742 1887 opps 0.737605
+4	MDA-ETH Binance 1/1 0.00149742 1887 opps 1.70233 *
+1	DASH-ETH Binance 1/1 0.557381 1882 opps 8.46766e-06
+0	NAV-BTC Binance 1/1 5.40206e-05 1885 opps 12.5229 *
+4	DASH-ETH Binance 1/1 0.557381 1884 opps 1.85147 *
+0	LSK-BNB Binance 1/1 0.374707 1894 opps 83394.5 *
+3	POWR-ETH Binance 1/1 0.000636819 1900 opps 0.87442
+2	WINGS-BTC Binance 1/1 2.72221e-05 1896 opps 2.04462 *
+0	WINGS-BTC Binance 1/1 2.72221e-05 1896 opps 6.50917 *
+0	KNC-ETH Binance 1/1 0.00185128 1860 opps 432.798 *
+1	DLT-BNB Binance 1/1 0.00547206 1869 opps 0.000688784
+1	XLM-ETH Binance 1/1 0.00062467 1903 opps 0.00674818
+1	WABI-ETH Binance 1/1 0.000707204 1903 opps 0.00673775
+4	LSK-BTC Binance 1/1 0.000686612 1891 opps 0.831664
+0	WTC-ETH Binance 1/1 0.0132017 1888 opps 2855.5 *
+2	STORM-BNB Binance 1/1 0.00106172 1892 opps 2.21944 *
+5	PPT-BTC Binance 1/1 0.000831413 1902 opps 1.41213 *
+0	NEBL-BTC Binance 1/1 0.000447602 1880 opps 99.5413 *
+0	TNT-ETH Binance 1/1 8.27509e-05 1902 opps 18.4839 *
+2	BNB-USDT Binance 1/1 12.4538 1903 opps 1.79643 *
+0	BNB-USDT Binance 1/1 12.4538 1903 opps 3.02064e+06 *
+5	NEBL-BTC Binance 1/1 0.000447602 1899 opps 1.56614 *
+5	NCASH-BTC Binance 1/1 1.46901e-06 1901 opps 1.78878 *
+5	TNB-BTC Binance 1/1 2.60035e-06 1876 opps 1.99577 *
+0	QSP-BTC Binance 1/1 8.29651e-06 1889 opps 1.81651 *
+4	PPT-BTC Binance 1/1 0.000831413 1901 opps 0.70815
+0	XVG-BTC Binance 1/1 2.92021e-06 1882 opps 0.678899
+0	STORM-BNB Binance 1/1 0.00106172 1892 opps 280.046 *
+2	XVG-BTC Binance 1/1 2.92021e-06 1883 opps 2.15942 *
+2	QSP-BTC Binance 1/1 8.29651e-06 1889 opps 2.92133 *
+2	NEBL-ETH Binance 1/1 0.00775643 1902 opps 1.04039
+4	QSP-BTC Binance 1/1 8.29651e-06 1900 opps 0.583281
+0	ADA-BTC Binance 1/1 1.87224e-05 1902 opps 4.30046 *
+5	WAN-BTC Binance 1/1 0.00024985 1902 opps 1.70245 *
+3	POWR-BNB Binance 1/1 0.0195873 1900 opps 0.486681
+4	MTH-BTC Binance 1/1 4.75823e-06 1902 opps 0.618884
+1	DASH-BTC Binance 1/1 0.0309666 1882 opps 0.000152022
+2	POWR-ETH Binance 1/1 0.000636819 1897 opps 1.14361
+4	APPC-BTC Binance 1/1 2.12354e-05 1902 opps 0.528253
+4	AION-BTC Binance 1/1 0.00011427 1867 opps 0.60732
+3	AION-BTC Binance 1/1 0.00011427 1867 opps 0.316705
+0	NEO-BTC Binance 1/1 0.00408046 1902 opps 894.725 *
+5	APPC-BTC Binance 1/1 2.12354e-05 1880 opps 1.89303 *
+2	NEO-BTC Binance 1/1 0.00408046 1902 opps 2.15701 *
+5	SUB-BTC Binance 1/1 2.7109e-05 1894 opps 1.61527 *
+3	GRS-ETH Binance 1/1 0.00162475 1898 opps 0.98737
+2	EDO-BTC Binance 1/1 0.000127657 1892 opps 1.53242 *
+1	EDO-BTC Binance 1/1 0.000127657 1903 opps 0.0410933
+0	EDO-BTC Binance 1/1 0.000127657 1900 opps 24.3349 *
+0	GRS-ETH Binance 1/1 0.00162475 1886 opps 326.606 *
+5	BNB-USDT Binance 1/1 12.4538 1882 opps 1.30662 *
+5	QTUM-USDT Binance 1/1 6.63961 1888 opps 1.86444 *
+5	NEO-USDT Binance 1/1 27.7092 1903 opps 1.48136 *
+3	CLOAK-BTC Binance 1/1 0.000458909 1903 opps 0.36136
+0	BAT-ETH Binance 1/1 0.000671091 1897 opps 153.188 *
+4	AION-ETH Binance 1/1 0.001969 1877 opps 1.12722
+0	CDT-ETH Binance 1/1 4.90595e-05 1899 opps 11.1193 *
+1	CDT-ETH Binance 1/1 4.90595e-05 1903 opps 0.089934
+1	WAVES-ETH Binance 1/1 0.00652438 1902 opps 0.00078375
+2	CDT-ETH Binance 1/1 4.90595e-05 1896 opps 1.25985 *
+4	CDT-ETH Binance 1/1 4.90595e-05 1884 opps 1.22758 *
+0	PIVX-BNB Binance 1/1 0.12704 1896 opps 35321.1 *
+1	STEEM-BNB Binance 1/1 0.0967836 1900 opps 4.16826e-05
+4	CLOAK-BTC Binance 1/1 0.000458909 1903 opps 0.66146
+3	AION-ETH Binance 1/1 0.001969 1877 opps 0.784272
+0	PIVX-BTC Binance 1/1 0.00023628 1896 opps 56.9037 *
+0	ETC-USD Coinbase 1/1 2.93785 1879 opps 0
+2	PIVX-BTC Binance 1/1 0.00023628 1897 opps 2.60578 *
+2	AMB-ETH Binance 1/1 0.000564479 1891 opps 1.14392
+0	WAVES-BTC Binance 1/1 0.000363063 1886 opps 71.5138 *
+1	AE-BTC Binance 1/1 0.000232681 1896 opps 0.0177669
+0	AMB-ETH Binance 1/1 0.000564479 1891 opps 131.674 *
+2	WAVES-BTC Binance 1/1 0.000363063 1887 opps 1.49252 *
+2	PIVX-BNB Binance 1/1 0.12704 1897 opps 1.69715 *
+0	ENG-BTC Binance 1/1 0.000159075 1880 opps 31.8807 *
+1	WABI-BTC Binance 1/1 4.09942e-05 1903 opps 0.121313
+4	TRIG-ETH Binance 1/1 0.000702721 1891 opps 1.64668 *
+2	ZRX-BTC Binance 1/1 0.000127805 1882 opps 2.00198 *
+2	TRIG-ETH Binance 1/1 0.000702721 1869 opps 1.07266
+4	BLZ-ETH Binance 1/1 0.000559407 1898 opps 1.02007
+4	ZRX-BTC Binance 1/1 0.000127805 1873 opps 0.710269
+4	SALT-ETH Binance 1/1 0.00214298 1902 opps 0.982383
+4	SYS-BTC Binance 1/1 2.09359e-05 1903 opps 0.606652
+1	SYS-BTC Binance 1/1 2.09359e-05 1901 opps 0.213099
+2	MCO-BTC Binance 1/1 0.000885883 1879 opps 2.09039 *
+0	MCO-BTC Binance 1/1 0.000885883 1888 opps 212.615 *
+2	ENG-BTC Binance 1/1 0.000159075 1896 opps 2.81972 *
+5	ENJ-BTC Binance 1/1 7.62863e-06 1899 opps 1.24285 *
+1	STEEM-BTC Binance 1/1 0.000178833 1903 opps 0.0260454
+5	WABI-BTC Binance 1/1 4.09942e-05 1880 opps 1.45658 *
+0	INS-BTC Binance 1/1 6.88952e-05 1902 opps 12.2936 *
+4	APPC-BNB Binance 1/1 0.0113508 1902 opps 0.64775
+1	WAVES-BNB Binance 1/1 0.19801 1902 opps 2.26258e-05
+2	ENJ-BTC Binance 1/1 7.62863e-06 1899 opps 1.77488 *
+0	ENJ-BTC Binance 1/1 7.62863e-06 1903 opps 1.70413 *
+5	BAT-BTC Binance 1/1 3.73057e-05 1893 opps 1.51754 *
+2	AION-ETH Binance 1/1 0.001969 1898 opps 1.27507 *
+2	ETC-EUR Coinbase 1/1 2.53523 1881 opps 1.28351 *
+2	QTUM-BTC Binance 1/1 0.000980964 1883 opps 2.81062 *
+3	IOST-ETH Binance 1/1 5.18427e-05 1902 opps 0.826026
+4	IOST-ETH Binance 1/1 5.18427e-05 1902 opps 1.14199
+0	QTUM-BTC Binance 1/1 0.000980964 1902 opps 208.028 *
+0	RCN-ETH Binance 1/1 8.90564e-05 1873 opps 23.7385 *
+5	STORM-BTC Binance 1/1 1.99095e-06 1882 opps 1.84091 *
+1	IOT-BNB Binance 1/1 0.066496 1900 opps 0
+0	IOT-BNB Binance 1/1 0.066496 1896 opps inf *
+4	MOD-ETH Binance 1/1 0.00257915 1899 opps 1.53587 *
+0	ETC-EUR Coinbase 1/1 2.53523 1881 opps 0
+0	PIVX-ETH Binance 1/1 0.0041264 1896 opps inf *
+0	STORM-BTC Binance 1/1 1.99095e-06 1879 opps 0.449541
+5	RDN*-BTC Binance 1/1 9.53135e-05 1864 opps 1.30847 *
+0	BTS-BTC Binance 1/1 2.14386e-05 1903 opps 5.12156 *
+5	BCD-BTC Binance 1/1 0.00183056 1894 opps 5.63237 *
+2	REQ-ETH Binance 1/1 0.000152616 1885 opps 1.12727
+0	REQ-ETH Binance 1/1 0.000152616 1894 opps 31.6284 *
+0	CND-BTC Binance 1/1 3.77305e-06 1881 opps 0.807339
+3	AST-BTC Binance 1/1 1.80512e-05 1889 opps 0.358959
+4	CMT*-ETH Binance 1/1 0.000328184 1901 opps 1.29663 *
+2	CMT*-ETH Binance 1/1 0.000328184 1897 opps 1.0431
+4	NULS-BTC Binance 1/1 0.000294667 1900 opps 0.664212
+0	NAV-BNB Binance 1/1 0.0290794 1898 opps 7800.46 *
+4	ICN-BTC Binance 1/1 8.23068e-05 1901 opps 0.722403
+5	PIVX-BNB Binance 1/1 0.12704 1897 opps 1.24953 *
+3	CHAT-BTC Binance 1/1 4.58923e-06 1896 opps 0.304679
+2	EDO-ETH Binance 1/1 0.00233255 1898 opps 1.01991
+0	SNM-BTC Binance 1/1 1.52594e-05 1881 opps 3.30275 *
+4	EDO-ETH Binance 1/1 0.00233255 1886 opps 1.51168 *
+0	NULS-BTC Binance 1/1 0.000294667 1896 opps 68.945 *
+2	OMG-BTC Binance 1/1 0.000876518 1892 opps 2.56881 *
+2	NULS-BTC Binance 1/1 0.000294667 1893 opps 2.22506 *
+5	GVT-BTC Binance 1/1 0.00107445 1880 opps 1.02065
+0	LRC-BTC Binance 1/1 3.22476e-05 1902 opps 7.26835 *
+1	LRC-BTC Binance 1/1 3.22476e-05 1902 opps 0.137583
+5	BCN-BTC Binance 1/1 3.75485e-07 1903 opps 1.17104
+2	GTO-BTC Binance 1/1 1.79182e-05 1882 opps 2.97467 *
+0	MCO-ETH Binance 1/1 0.0158101 1889 opps 3791.28 *
+0	GTO-BTC Binance 1/1 1.79182e-05 1878 opps 4.05963 *
+2	MCO-ETH Binance 1/1 0.0158101 1879 opps 1.00179
+5	GRS-BTC Binance 1/1 8.80792e-05 1891 opps 1.06698
+2	PIVX-ETH Binance 1/1 0.0041264 1897 opps 1.07843
+1	PIVX-ETH Binance 1/1 0.0041264 1897 opps 0
+1	POE-ETH Binance 1/1 3.60753e-05 1901 opps 0.11272
+4	ONT-BNB Binance 1/1 0.253171 1903 opps 0.774058
+5	BCPT-BTC Binance 1/1 2.00277e-05 1874 opps 1.7751 *
+4	ICN-ETH Binance 1/1 0.0014765 1901 opps 1.29565 *
+0	CHAT-ETH Binance 1/1 7.70613e-05 1891 opps 16.2179 *
+2	ICN-ETH Binance 1/1 0.0014765 1858 opps 1.04038
+2	ARK-ETH Binance 1/1 0.00279756 1892 opps 1.0927
+4	CMT*-BNB Binance 1/1 0.0100737 1901 opps 0.865924
+3	CHAT-ETH Binance 1/1 7.70613e-05 1896 opps 0.75476
+4	CHAT-ETH Binance 1/1 7.70613e-05 1896 opps 1.16521
+5	ARK-BTC Binance 1/1 0.000160684 1888 opps 1.61569 *
+0	ARK-ETH Binance 1/1 0.00279756 1897 opps 587.156 *
+5	BLZ-BTC Binance 1/1 3.26236e-05 1866 opps 1.83134 *
+4	BLZ-BTC Binance 1/1 3.26236e-05 1898 opps 0.546047
+2	SNT-BTC Binance 1/1 8.30138e-06 1881 opps 2.49168 *
+5	BCD-ETH Binance 1/1 0.0321052 1894 opps 3.07026 *
+2	AE-ETH Binance 1/1 0.00404609 1897 opps 1.0865
+0	SNT-BTC Binance 1/1 8.30138e-06 1902 opps 1.84862 *
+1	SUB-ETH Binance 1/1 0.000478569 1886 opps 0.0104231
+3	POE-ETH Binance 1/1 3.60753e-05 1903 opps 0.654693
+4	ZRX-ETH Binance 1/1 0.00232249 1874 opps 1.25807 *
+0	CND-BNB Binance 1/1 0.00202268 1889 opps 502.982 *
+5	ONT-BTC Binance 1/1 0.000481866 1903 opps 1.62815 *
+2	NCASH-ETH Binance 1/1 2.52661e-05 1903 opps 1.45988 *
+5	ZIL-BTC Binance 1/1 8.51794e-06 1903 opps 1.56077 *
+4	ONT-BTC Binance 1/1 0.000481866 1903 opps 0.614194
+4	POE-ETH Binance 1/1 3.60753e-05 1903 opps 1.13715
+5	ICX-BTC Binance 1/1 0.000171332 1882 opps 1.70345 *
+5	YOYOW-BTC Binance 1/1 6.42376e-06 1903 opps 2.05372 *
+0	ZIL-BTC Binance 1/1 8.51794e-06 1901 opps 1.9656 *
+1	ZIL-BTC Binance 1/1 8.51794e-06 1903 opps 0.508751
+0	GVT-ETH Binance 1/1 0.0191492 1903 opps 3924.31 *
+1	SYS-ETH Binance 1/1 0.000365382 1901 opps 0.0118189
+0	AE-BNB Binance 1/1 0.124701 1901 opps 34862.4 *
+0	OAX-ETH Binance 1/1 0.00065859 1902 opps 155.459 *
+2	GNT-BTC Binance 1/1 3.60712e-05 1876 opps 2.69901 *
+0	GNT-BTC Binance 1/1 3.60712e-05 1879 opps 8.08486 *
+4	SYS-ETH Binance 1/1 0.000365382 1900 opps 1.13238
+5	DGD-BTC Binance 1/1 0.0115343 1901 opps 1.91247 *
+2	OAX-ETH Binance 1/1 0.00065859 1880 opps 1.36384 *
+2	GVT-ETH Binance 1/1 0.0191492 1891 opps 0.991153
+2	ZIL-BNB Binance 1/1 0.00457364 1899 opps 1.8407 *
+0	WAN-ETH Binance 1/1 0.00425863 1893 opps 870.872 *
+0	CMT*-ETH Binance 1/1 0.000328184 1896 opps inf *
+0	AE-ETH Binance 1/1 0.00404609 1897 opps 1005.5 *
+0	ZRX-BTC Binance 1/1 0.000127805 1880 opps 32.3853 *
+5	SNM-BTC Binance 0/0 1.52594e-05 1928 opps 2.10357 *
+3	SNM-BTC Binance 0/0 1.52594e-05 1928 opps 0.243198
+1	CND-ETH Binance 0/0 6.56375e-05 1928 opps 0.0686074
+2	BCN-ETH Binance 0/0 6.67417e-06 1928 opps 1.01361
+4	BCN-ETH Binance 0/1 6.67417e-06 1928 opps 1.54468 *
+0	ADX-BNB Binance 5/15 0.0240968 1736 opps 6715.6 *
+4	INS-ETH Binance 0/0 0.00117627 1928 opps 1.10624
+0	BCPT-BTC Binance 3/4 2.00277e-05 1817 opps 4.73165 *
+4	BTS-BTC Binance 0/0 2.14386e-05 1928 opps 0.711143
+5	EVX-ETH Binance 0/0 0.00148077 1928 opps 0.744667
+4	SNM-BTC Binance 0/0 1.52594e-05 1928 opps 0.475383
+3	BCN-ETH Binance 0/0 6.67417e-06 1928 opps 0.986577
+0	BCD-ETH Binance 3/8 0.0321052 1821 opps 8582.57 *
+2	SALT-BTC Binance 5/9 0.000125637 1730 opps 3.43098 *
+1	EVX-ETH Binance 1/12 0.00148077 1903 opps 0.00311206
+3	BCD-ETH Binance 0/1 0.0321052 1928 opps 0.188604
+3	LUN-ETH Binance 0/0 0.0141579 1928 opps 0.65942
+1	BCD-ETH Binance 3/6 0.0321052 1819 opps 0.000116515
+3	EVX-ETH Binance 0/1 0.00148077 1928 opps 0.890534
+4	EVX-ETH Binance 0/7 0.00148077 1928 opps 1.34288 *
+2	EVX-ETH Binance 2/8 0.00148077 1832 opps 1.12292
+4	LUN-ETH Binance 0/0 0.0141579 1928 opps 0.900434
+4	BCD-ETH Binance 2/5 0.0321052 1857 opps 0.325705
+5	LUN-ETH Binance 0/0 0.0141579 1928 opps 1.11058
+0	LUN-ETH Binance 0/0 0.0141579 1928 opps 3536.7 *
+2	LUN-ETH Binance 0/0 0.0141579 1928 opps 1.51648 *
+5	BCN-ETH Binance 0/0 6.67417e-06 1928 opps 0.647383
+1	BTS-BTC Binance 0/0 2.14386e-05 1928 opps 0.195253
+2	BTS-BTC Binance 0/1 2.14386e-05 1928 opps 2.03546 *
+5	INS-ETH Binance 0/0 0.00117627 1928 opps 0.903962
+3	BTS-BTC Binance 0/0 2.14386e-05 1928 opps 0.49129
+2	BCD-ETH Binance 5/8 0.0321052 1774 opps 5.3021 *
+1	LUN-ETH Binance 0/0 0.0141579 1928 opps 0.00028275
+3	NCASH-BTC Binance 0/0 1.46901e-06 1928 opps 0.29927
+5	STEEM-BTC Binance 0/0 0.000178833 1928 opps 1.4492 *
+4	GTO-ETH Binance 0/0 0.000311837 1928 opps 1.02069
+3	GTO-ETH Binance 0/0 0.000311837 1928 opps 0.743626
+4	STEEM-BTC Binance 0/2 0.000178833 1928 opps 0.690037
+0	XEM-ETH Binance 0/0 0.000375655 1928 opps 86.078 *
+1	XEM-ETH Binance 0/0 0.000375655 1928 opps 0.0116174
+2	GTO-ETH Binance 0/0 0.000311837 1928 opps 1.34476 *
+1	GTO-ETH Binance 0/0 0.000311837 1928 opps 0.0137496
+3	STEEM-BTC Binance 0/0 0.000178833 1928 opps 0.44237
+2	STEEM-BTC Binance 0/0 0.000178833 1928 opps 2.26055 *
+2	XEM-ETH Binance 0/0 0.000375655 1928 opps 1.03124
+3	XEM-ETH Binance 0/0 0.000375655 1928 opps 0.969709
+0	GTO-ETH Binance 0/0 0.000311837 1928 opps 72.7294 *
+4	XEM-ETH Binance 0/0 0.000375655 1928 opps 1.33074 *
+5	GTO-ETH Binance 0/0 0.000311837 1928 opps 0.979727
+5	XEM-ETH Binance 0/0 0.000375655 1928 opps 0.75146
+0	STEEM-BTC Binance 0/0 0.000178833 1928 opps 38.3945 *
+0	IOTA-BTC Binance 0/0 3.627e-08 1928 opps 0
+4	NCASH-BTC Binance 0/2 1.46901e-06 1928 opps 0.559039
+1	IOTA-BTC Binance 0/0 3.627e-08 1928 opps inf *
+5	SALT-BTC Binance 1/2 0.000125637 1901 opps 1.92381 *
+4	SALT-BTC Binance 0/2 0.000125637 1928 opps 0.519803
+0	SALT-BTC Binance 4/7 0.000125637 1767 opps 28.0275 *
+5	IOTA-BTC Binance 0/0 3.627e-08 1928 opps 0.000494071
+4	IOTA-BTC Binance 0/0 3.627e-08 1928 opps 2024 *
+2	IOTA-BTC Binance 0/0 3.627e-08 1928 opps 1.11699e-315
+3	IOTA-BTC Binance 0/0 3.627e-08 1928 opps inf *
+3	SALT-BTC Binance 0/0 0.000125637 1928 opps 0.291462
+4	BRD-BTC Binance 0/0 5.72179e-05 1928 opps 0.861181
+1	ADX-BNB Binance 1/2 0.0240968 1903 opps 0.000148907
+2	SNM-BTC Binance 1/2 1.52594e-05 1880 opps 4.11188 *
+2	ADX-BNB Binance 5/19 0.0240968 1734 opps 2.80528 *
+3	ADX-BNB Binance 0/1 0.0240968 1928 opps 0.356471
+1	SNM-BTC Binance 0/0 1.52594e-05 1928 opps 0.302778
+4	ADX-BNB Binance 1/3 0.0240968 1891 opps 0.754246
+5	ADX-BNB Binance 0/0 0.0240968 1928 opps 1.32583 *
+1	BCPT-BTC Binance 1/6 2.00277e-05 1898 opps 0.211343
+2	INS-ETH Binance 0/0 0.00117627 1928 opps 1.36623 *
+2	BCPT-BTC Binance 5/7 2.00277e-05 1696 opps 2.78527 *
+1	INS-ETH Binance 0/4 0.00117627 1928 opps 0.00453222
+4	PIVX-BNB Binance 0/0 0.12704 1928 opps 0.800304
+0	INS-ETH Binance 0/0 0.00117627 1928 opps 220.642 *
+3	BRD-BTC Binance 0/0 5.72179e-05 1928 opps 0.628261
+3	INS-ETH Binance 0/0 0.00117627 1928 opps 0.731941
+5	BRD-BTC Binance 0/0 5.72179e-05 1928 opps 1.1612
+3	PIVX-BNB Binance 0/0 0.12704 1928 opps 0.589224
+5	ENJ-ETH Binance 0/0 0.000136351 1928 opps 0.689183
+0	NCASH-BTC Binance 2/8 1.46901e-06 1824 opps 0.327982
+4	ENJ-ETH Binance 0/0 0.000136351 1928 opps 1.45099 *
+2	NCASH-BTC Binance 4/9 1.46901e-06 1750 opps 3.34146 *
+3	ENJ-ETH Binance 0/0 0.000136351 1928 opps 0.870485
+3	BCPT-BTC Binance 0/0 2.00277e-05 1928 opps 0.359032
+2	ENJ-ETH Binance 0/0 0.000136351 1928 opps 1.14879
+1	PIVX-BNB Binance 0/2 0.12704 1928 opps 2.83117e-05
+1	ENJ-ETH Binance 0/1 0.000136351 1928 opps 0.032782
+4	BCPT-BTC Binance 0/0 2.00277e-05 1928 opps 0.563348
+0	ENJ-ETH Binance 0/0 0.000136351 1928 opps 30.5046 *
+0	NEO-BNB Binance 0/0 2.19638 1928 opps 555046 *
+1	ONT-BTC Binance 3/4 0.000481866 1839 opps 0.0120776
+5	TRIG-BTC Binance 0/0 4.1092e-05 1928 opps 1.14286
+4	TRIG-BTC Binance 0/1 4.1092e-05 1928 opps 0.874999
+3	TRIG-BTC Binance 0/0 4.1092e-05 1928 opps 0.478667
+2	TRIG-BTC Binance 3/5 4.1092e-05 1784 opps 2.08914 *
+1	TRIG-BTC Binance 2/14 4.1092e-05 1864 opps 0.107654
+0	TRIG-BTC Binance 2/3 4.1092e-05 1830 opps 9.28899 *
+5	NEO-BNB Binance 0/0 2.19638 1928 opps 1.11438
+4	NEO-BNB Binance 0/0 2.19638 1928 opps 0.897357
+3	NEO-BNB Binance 0/0 2.19638 1928 opps 0.641694
+2	NEO-BNB Binance 0/0 2.19638 1928 opps 1.55838 *
+1	NEO-BNB Binance 0/1 2.19638 1928 opps 1.80165e-06
+2	ONT-BTC Binance 4/5 0.000481866 1805 opps 3.40231 *
+5	XRP-BTC Binance 0/0 5.98487e-05 1928 opps 1.3777 *
+4	XRP-BTC Binance 0/0 5.98487e-05 1928 opps 0.725846
+3	XRP-BTC Binance 0/0 5.98487e-05 1928 opps 0.530073
+2	XRP-BTC Binance 0/0 5.98487e-05 1928 opps 1.88653 *
+1	XRP-BTC Binance 0/1 5.98487e-05 1928 opps 0.0798389
+0	XRP-BTC Binance 0/0 5.98487e-05 1928 opps 12.5252 *
+5	TRIG-ETH Binance 0/0 0.000702721 1928 opps 0.607284
+3	TRIG-ETH Binance 0/0 0.000702721 1928 opps 0.932258
+1	TRIG-ETH Binance 1/18 0.000702721 1891 opps 0.0059726
+0	TRIG-ETH Binance 0/0 0.000702721 1928 opps 167.431 *
+5	SYS-BTC Binance 1/3 2.09359e-05 1901 opps 1.64839 *
+5	BCH-EUR Coinbase 0/0 584.053 1928 opps 1.41154 *
+0	ADX-BTC Binance 2/15 4.49423e-05 1825 opps 10.7844 *
+5	XRB-BNB Binance 0/0 7.68e-05 1928 opps 0.000494071
+4	XRB-BNB Binance 0/0 7.68e-05 1928 opps 2024 *
+3	XRB-BNB Binance 0/0 7.68e-05 1928 opps inf *
+2	XRB-BNB Binance 0/0 7.68e-05 1928 opps 5.27519e-319
+1	XRB-BNB Binance 0/0 7.68e-05 1928 opps inf *
+0	XRB-BNB Binance 0/0 7.68e-05 1928 opps 0
+5	AE-BNB Binance 0/0 0.124701 1928 opps 1.30529 *
+4	AE-BNB Binance 0/0 0.124701 1928 opps 0.766113
+3	AE-BNB Binance 0/0 0.124701 1928 opps 0.572395
+1	AE-BNB Binance 0/5 0.124701 1928 opps 2.86842e-05
+3	SYS-BTC Binance 0/2 2.09359e-05 1928 opps 0.0704444
+4	BCH-EUR Coinbase 0/0 584.053 1928 opps 0.708444
+3	BCH-EUR Coinbase 0/0 584.053 1928 opps 0.524127
+2	BCH-EUR Coinbase 3/8 584.053 1794 opps 1.90794 *
+1	BCH-EUR Coinbase 0/0 584.053 1928 opps 6.25762e-09
+0	BCH-EUR Coinbase 3/9 584.053 1801 opps 1.59805e+08 *
+5	SUB-ETH Binance 0/0 0.000478569 1928 opps 0.887747
+4	SUB-ETH Binance 0/0 0.000478569 1928 opps 1.12645
+3	SUB-ETH Binance 0/0 0.000478569 1928 opps 0.687636
+2	SUB-ETH Binance 3/22 0.000478569 1768 opps 1.45426 *
+0	SUB-ETH Binance 0/2 0.000478569 1928 opps 95.9404 *
+3	ONT-BTC Binance 0/0 0.000481866 1928 opps 0.293918
+1	STORM-BTC Binance 0/6 1.99095e-06 1928 opps 2.22449 *
+1	FUN-ETH Binance 0/5 5.81469e-05 1928 opps 0.0807856
+0	FUN-ETH Binance 0/0 5.81469e-05 1928 opps 12.3784 *
+4	BCN-BTC Binance 0/1 3.75485e-07 1928 opps 0.853941
+3	BCN-BTC Binance 0/0 3.75485e-07 1928 opps 0.52459
+2	BCN-BTC Binance 3/4 3.75485e-07 1819 opps 1.90625 *
+1	BCN-BTC Binance 1/7 3.75485e-07 1903 opps 12.4571 *
+5	QTUM-BTC Binance 0/0 0.000980964 1928 opps 1.73267 *
+4	QTUM-BTC Binance 0/0 0.000980964 1928 opps 0.577143
+3	QTUM-BTC Binance 0/0 0.000980964 1928 opps 0.355793
+1	QTUM-BTC Binance 0/0 0.000980964 1928 opps 0.00480706
+4	STORM-BTC Binance 0/0 1.99095e-06 1928 opps 0.543209
+3	STORM-BTC Binance 0/0 1.99095e-06 1928 opps 0.319527
+2	FUN-ETH Binance 0/0 5.81469e-05 1928 opps 1.00736
+5	STORJ-ETH Binance 0/0 0.00105854 1928 opps 0.858526
+4	STORJ-ETH Binance 0/0 0.00105854 1928 opps 1.16479
+3	STORJ-ETH Binance 0/0 0.00105854 1928 opps 0.957977
+2	STORJ-ETH Binance 0/3 0.00105854 1928 opps 1.04387
+1	STORJ-ETH Binance 0/0 0.00105854 1928 opps 0.00420039
+0	STORJ-ETH Binance 0/1 0.00105854 1928 opps 238.073 *
+5	CND-ETH Binance 0/0 6.56375e-05 1928 opps 0.916667
+4	CND-ETH Binance 0/0 6.56375e-05 1928 opps 1.09091
+3	CND-ETH Binance 0/0 6.56375e-05 1928 opps 0.908629
+2	CND-ETH Binance 0/0 6.56375e-05 1928 opps 1.10056
+0	WPR-BTC Binance 3/4 4.85356e-06 1787 opps 1.09633
+4	AMB-ETH Binance 0/0 0.000564479 1928 opps 1.14722
+2	SYS-BTC Binance 2/23 2.09359e-05 1874 opps 14.1956 *
+0	SYS-BTC Binance 1/28 2.09359e-05 1901 opps 4.69266 *
+4	ENJ-BTC Binance 0/0 7.62863e-06 1928 opps 0.804604
+3	ENJ-BTC Binance 0/0 7.62863e-06 1928 opps 0.563419
+1	ENJ-BTC Binance 0/2 7.62863e-06 1928 opps 0.58681
+4	BAT-BTC Binance 0/1 3.73057e-05 1928 opps 0.658962
+3	BAT-BTC Binance 0/0 3.73057e-05 1928 opps 0.443942
+2	BAT-BTC Binance 1/3 3.73057e-05 1902 opps 2.25255 *
+1	BAT-BTC Binance 1/6 3.73057e-05 1892 opps 0.117838
+0	BAT-BTC Binance 2/4 3.73057e-05 1860 opps 8.48624 *
+5	AMB-ETH Binance 0/0 0.000564479 1928 opps 0.871671
+2	ADX-BTC Binance 2/13 4.49423e-05 1847 opps 2.85235 *
+3	AMB-ETH Binance 0/0 0.000564479 1928 opps 0.874189
+1	AMB-ETH Binance 0/2 0.000564479 1928 opps 0.0075945
+5	XZC-BNB Binance 0/0 1.19855 1928 opps 1.09757
+4	XZC-BNB Binance 0/0 1.19855 1928 opps 0.911104
+3	XZC-BNB Binance 0/0 1.19855 1928 opps 0.712418
+2	XZC-BNB Binance 0/0 1.19855 1928 opps 1.40367 *
+1	XZC-BNB Binance 1/2 1.19855 1897 opps 3.69492e-06
+0	XZC-BNB Binance 0/0 1.19855 1928 opps 270642 *
+5	FUN-ETH Binance 0/0 5.81469e-05 1928 opps 0.805559
+4	FUN-ETH Binance 0/0 5.81469e-05 1928 opps 1.24137 *
+3	FUN-ETH Binance 0/0 5.81469e-05 1928 opps 0.992698
+2	NULS-ETH Binance 0/0 0.00522668 1928 opps 1.1262
+5	GNT-BNB Binance 0/0 0.0192669 1928 opps 1.36406 *
+4	GNT-BNB Binance 0/0 0.0192669 1928 opps 0.733104
+3	GNT-BNB Binance 0/0 0.0192669 1928 opps 0.513268
+2	GNT-BNB Binance 1/2 0.0192669 1892 opps 1.9483 *
+1	GNT-BNB Binance 0/1 0.0192669 1928 opps 0.000198996
+5	BTS-BNB Binance 0/0 0.0117468 1928 opps 1.16867
+4	BTS-BNB Binance 0/0 0.0117468 1928 opps 0.855674
+3	BTS-BNB Binance 0/0 0.0117468 1928 opps 0.559889
+2	BTS-BNB Binance 0/1 0.0117468 1928 opps 1.78607 *
+0	BTS-BNB Binance 0/0 0.0117468 1928 opps 3211.01 *
+5	NULS-ETH Binance 0/0 0.00522668 1928 opps 0.834126
+3	NULS-ETH Binance 0/0 0.00522668 1928 opps 0.887943
+1	CDT-BTC Binance 0/3 2.86956e-06 1928 opps 1.60886 *
+1	NULS-ETH Binance 1/6 0.00522668 1874 opps 0.000811163
+0	NULS-ETH Binance 0/0 0.00522668 1928 opps 1232.8 *
+5	CTR-ETH Binance 0/0 0.0001639 1928 opps 0.999012
+4	CTR-ETH Binance 0/0 0.0001639 1928 opps 1.00099
+3	CTR-ETH Binance 0/0 0.0001639 1928 opps 1
+2	CTR-ETH Binance 0/0 0.0001639 1928 opps 1
+1	CTR-ETH Binance 0/0 0.0001639 1928 opps 0.0266016
+0	CTR-ETH Binance 0/0 0.0001639 1928 opps 37.5917 *
+5	GRS-ETH Binance 0/0 0.00162475 1928 opps 0.609643
+4	GRS-ETH Binance 1/5 0.00162475 1892 opps 1.6403 *
+1	GRS-ETH Binance 2/5 0.00162475 1877 opps 0.0030618
+1	KNC-ETH Binance 0/3 0.00185128 1928 opps 0.00231055
+0	BCN-ETH Binance 0/0 6.67417e-06 1928 opps 1.42202 *
+5	XMR-ETH Binance 0/0 0.317783 1928 opps 0.587306
+4	XMR-ETH Binance 0/0 0.317783 1928 opps 1.70269 *
+3	XMR-ETH Binance 0/0 0.317783 1928 opps 0.983607
+2	XMR-ETH Binance 0/0 0.317783 1928 opps 1.01667
+1	XMR-ETH Binance 0/0 0.317783 1928 opps 1.51231e-05
+0	XMR-ETH Binance 0/0 0.317783 1928 opps 66123.9 *
+5	KNC-ETH Binance 0/0 0.00185128 1928 opps 0.956825
+4	KNC-ETH Binance 0/1 0.00185128 1928 opps 1.04512
+3	KNC-ETH Binance 0/1 0.00185128 1928 opps 0.778807
+2	KNC-ETH Binance 1/21 0.00185128 1860 opps 1.28401 *
+4	BNB-USDT Binance 0/0 12.4538 1928 opps 0.765333
+5	WTC-ETH Binance 0/0 0.0132017 1928 opps 0.745384
+4	WTC-ETH Binance 0/1 0.0132017 1928 opps 1.34159 *
+3	WTC-ETH Binance 0/0 0.0132017 1928 opps 0.909418
+1	WTC-ETH Binance 3/10 0.0132017 1806 opps 0.000350201
+5	LINK-BTC Binance 0/0 3.74083e-05 1928 opps 0.933795
+3	LINK-BTC Binance 0/0 3.74083e-05 1928 opps 0.778405
+3	PPT-ETH Binance 0/0 0.0147119 1928 opps 0.887582
+1	PPT-ETH Binance 3/9 0.0147119 1842 opps 0.000368866
+5	CDT-BTC Binance 0/0 2.86956e-06 1928 opps 1.52367 *
+4	CDT-BTC Binance 0/1 2.86956e-06 1928 opps 0.65631
+3	CDT-BTC Binance 0/0 2.86956e-06 1928 opps 0.32358
+2	LTC-USDT Binance 1/5 72.7159 1882 opps 1.83526 *
+3	POA-BTC Binance 0/0 1.97474e-05 1928 opps 0.273598
+1	POA-BTC Binance 2/6 1.97474e-05 1825 opps 0.238773
+5	MTL-ETH Binance 0/0 0.00267343 1928 opps 0.783374
+4	MTL-ETH Binance 0/1 0.00267343 1928 opps 1.27653 *
+3	MTL-ETH Binance 0/0 0.00267343 1928 opps 0.890311
+2	MTL-ETH Binance 0/0 0.00267343 1928 opps 1.1232
+1	MTL-ETH Binance 0/2 0.00267343 1928 opps 0.00156272
+0	MTL-ETH Binance 0/0 0.00267343 1928 opps 639.908 *
+5	LTC-USDT Binance 0/0 72.7159 1928 opps 1.33405 *
+4	LTC-USDT Binance 0/0 72.7159 1928 opps 0.749595
+3	LTC-USDT Binance 0/0 72.7159 1928 opps 0.544882
+4	POA-BTC Binance 0/0 1.97474e-05 1928 opps 0.492691
+1	LTC-USDT Binance 0/0 72.7159 1928 opps 5.30543e-08
+0	LTC-USDT Binance 1/7 72.7159 1882 opps 1.88486e+07 *
+5	RCN-BNB Binance 0/0 0.00277229 1928 opps 1.25031 *
+4	RCN-BNB Binance 0/1 0.00277229 1928 opps 0.7998
+3	RCN-BNB Binance 0/0 0.00277229 1928 opps 0.510345
+2	RCN-BNB Binance 3/18 0.00277229 1818 opps 1.95946 *
+1	RCN-BNB Binance 1/3 0.00277229 1872 opps 0.001223
+0	RCN-BNB Binance 2/7 0.00277229 1863 opps 817.661 *
+5	ADX-BTC Binance 0/0 4.49423e-05 1928 opps 1.62102 *
+4	ADX-BTC Binance 1/2 4.49423e-05 1891 opps 0.616897
+3	ADX-BTC Binance 0/1 4.49423e-05 1928 opps 0.350589
+2	STRAT-BTC Binance 2/4 0.000316614 1865 opps 2.07817 *
+3	BNB-USDT Binance 0/0 12.4538 1928 opps 0.556659
+1	BNB-USDT Binance 0/0 12.4538 1928 opps 3.31055e-07
+5	WTC-BNB Binance 0/0 0.406024 1928 opps 1.11485
+4	WTC-BNB Binance 0/2 0.406024 1928 opps 0.896981
+3	WTC-BNB Binance 0/0 0.406024 1928 opps 0.607722
+2	WTC-BNB Binance 4/19 0.406024 1770 opps 1.64549 *
+1	WTC-BNB Binance 3/5 0.406024 1792 opps 1.01325e-05
+0	WTC-BNB Binance 2/7 0.406024 1849 opps 98692.7 *
+5	STRAT-BTC Binance 0/0 0.000316614 1928 opps 1.39004 *
+4	STRAT-BTC Binance 0/0 0.000316614 1928 opps 0.719403
+3	STRAT-BTC Binance 0/0 0.000316614 1928 opps 0.481192
+1	BCN-ETH Binance 1/6 6.67417e-06 1899 opps 0.703226
+1	STRAT-BTC Binance 0/0 0.000316614 1928 opps 0.0125179
+5	DLT-ETH Binance 0/0 0.000176002 1928 opps 0.96849
+4	DLT-ETH Binance 0/0 0.000176002 1928 opps 1.03253
+3	DLT-ETH Binance 0/0 0.000176002 1928 opps 0.743852
+2	DLT-ETH Binance 0/0 0.000176002 1928 opps 1.34435 *
+1	DLT-ETH Binance 0/0 0.000176002 1928 opps 0.0242897
+0	DLT-ETH Binance 0/0 0.000176002 1928 opps 41.1697 *
+5	QLC-BTC Binance 0/0 8.19402e-06 1928 opps 1.06928
+4	QLC-BTC Binance 0/0 8.19402e-06 1928 opps 0.935212
+3	QLC-BTC Binance 0/0 8.19402e-06 1928 opps 0.607796
+5	POA-BTC Binance 0/0 1.97474e-05 1928 opps 2.02967 *
+4	HCC-BTC Binance 0/0 1.8e-06 1928 opps 1.00099
+3	SYS-ETH Binance 0/2 0.000365382 1928 opps 0.163968
+2	SYS-ETH Binance 1/22 0.000365382 1901 opps 6.09874 *
+0	SYS-ETH Binance 0/26 0.000365382 1928 opps 84.6101 *
+4	GVT-BTC Binance 0/0 0.00107445 1928 opps 0.979767
+3	GVT-BTC Binance 0/0 0.00107445 1928 opps 0.590884
+1	GVT-BTC Binance 1/7 0.00107445 1903 opps 0.00462452
+5	HSR-ETH Binance 0/0 0.0118153 1928 opps 0.950559
+4	HSR-ETH Binance 0/0 0.0118153 1928 opps 1.05201
+3	HSR-ETH Binance 0/0 0.0118153 1928 opps 0.933083
+2	HSR-ETH Binance 0/0 0.0118153 1928 opps 1.07172
+1	HSR-ETH Binance 0/0 0.0118153 1928 opps 0.000384141
+0	HSR-ETH Binance 0/0 0.0118153 1928 opps 2603.21 *
+5	HCC-BTC Binance 0/0 1.8e-06 1928 opps 0.999012
+5	SYS-ETH Binance 1/3 0.000365382 1901 opps 0.883095
+3	HCC-BTC Binance 0/0 1.8e-06 1928 opps 1
+2	HCC-BTC Binance 0/0 1.8e-06 1928 opps 1
+1	HCC-BTC Binance 0/0 1.8e-06 1928 opps 2.42222 *
+0	HCC-BTC Binance 0/0 1.8e-06 1928 opps 0.412844
+5	DGD-ETH Binance 0/0 0.199558 1928 opps 1.02119
+4	DGD-ETH Binance 0/0 0.199558 1928 opps 0.979246
+3	DGD-ETH Binance 0/0 0.199558 1928 opps 0.838128
+1	DGD-ETH Binance 0/1 0.199558 1928 opps 2.20871e-05
+5	BTG-BTC Binance 0/0 0.00361922 1928 opps 1.17697
+4	BTG-BTC Binance 0/0 0.00361922 1928 opps 0.84964
+3	BTG-BTC Binance 0/0 0.00361922 1928 opps 0.623984
+1	BTG-BTC Binance 0/0 0.00361922 1928 opps 0.00125576
+1	LTC-USD Coinbase 0/0 72.7743 1928 opps 5.30285e-08
+5	ZRX-ETH Binance 0/0 0.00232249 1928 opps 0.794869
+3	ZRX-ETH Binance 0/0 0.00232249 1928 opps 0.981849
+2	ZRX-ETH Binance 0/0 0.00232249 1928 opps 1.01849
+0	ZRX-ETH Binance 0/0 0.00232249 1928 opps 578.67 *
+4	YOYOW-BTC Binance 0/1 6.42376e-06 1928 opps 0.486921
+3	YOYOW-BTC Binance 0/1 6.42376e-06 1928 opps 0.265306
+2	YOYOW-BTC Binance 3/16 6.42376e-06 1775 opps 3.76923 *
+1	YOYOW-BTC Binance 1/5 6.42376e-06 1881 opps 0.763573
+0	YOYOW-BTC Binance 4/6 6.42376e-06 1786 opps 1.30963 *
+5	LTC-USD Coinbase 0/0 72.7743 1928 opps 1.33732 *
+4	LTC-USD Coinbase 0/0 72.7743 1928 opps 0.747762
+3	LTC-USD Coinbase 0/0 72.7743 1928 opps 0.543982
+2	LTC-USD Coinbase 1/4 72.7743 1882 opps 1.83829 *
+5	GXS-BTC Binance 0/0 0.000321072 1928 opps 1.85335 *
+0	LTC-USD Coinbase 1/6 72.7743 1882 opps 1.88578e+07 *
+5	RLC-ETH Binance 0/0 0.00146136 1928 opps 0.838782
+4	RLC-ETH Binance 0/0 0.00146136 1928 opps 1.19221
+3	RLC-ETH Binance 0/0 0.00146136 1928 opps 0.888208
+2	RLC-ETH Binance 0/0 0.00146136 1928 opps 1.12586
+1	RLC-ETH Binance 1/2 0.00146136 1860 opps 0.0029904
+0	RLC-ETH Binance 0/0 0.00146136 1928 opps 334.404 *
+5	NULS-BNB Binance 0/0 0.160333 1928 opps 1.23698 *
+4	NULS-BNB Binance 1/2 0.160333 1900 opps 0.808422
+3	NULS-BNB Binance 0/0 0.160333 1928 opps 0.573198
+2	NULS-BNB Binance 1/2 0.160333 1899 opps 1.7446 *
+0	NULS-BNB Binance 1/2 0.160333 1899 opps 42752.3 *
+4	ADA-BTC Binance 0/0 1.87224e-05 1928 opps 0.632663
+5	XLM-BTC Binance 0/0 3.35949e-05 1928 opps 1.10672
+4	XLM-BTC Binance 0/0 3.35949e-05 1928 opps 0.903569
+3	XLM-BTC Binance 0/0 3.35949e-05 1928 opps 0.704926
+2	XLM-BTC Binance 0/0 3.35949e-05 1928 opps 1.41859 *
+1	XLM-BTC Binance 0/2 3.35949e-05 1928 opps 0.120977
+0	XLM-BTC Binance 0/0 3.35949e-05 1928 opps 8.26606 *
+5	ELC-BTC Binance 0/0 5.3e-07 1928 opps 0.999012
+4	ELC-BTC Binance 0/0 5.3e-07 1928 opps 1.00099
+3	ELC-BTC Binance 0/0 5.3e-07 1928 opps 1
+2	ELC-BTC Binance 0/0 5.3e-07 1928 opps 1
+1	ELC-BTC Binance 0/0 5.3e-07 1928 opps 8.22642 *
+0	ELC-BTC Binance 0/0 5.3e-07 1928 opps 0.12156
+5	ADA-BTC Binance 0/0 1.87224e-05 1928 opps 1.58062 *
+0	GXS-ETH Binance 0/1 0.0055678 1928 opps 1374.77 *
+3	ADA-BTC Binance 0/0 1.87224e-05 1928 opps 0.454301
+2	ADA-BTC Binance 0/1 1.87224e-05 1928 opps 2.20118 *
+1	ADA-BTC Binance 0/0 1.87224e-05 1928 opps 0.232533
+5	XVG-BTC Binance 0/0 2.92021e-06 1928 opps 1.41025 *
+4	XVG-BTC Binance 0/0 2.92021e-06 1928 opps 0.709092
+3	XVG-BTC Binance 0/0 2.92021e-06 1928 opps 0.463087
+5	TNT-BTC Binance 0/0 4.86511e-06 1928 opps 1.73421 *
+4	TNT-BTC Binance 0/1 4.86511e-06 1928 opps 0.576631
+3	TNT-BTC Binance 0/0 4.86511e-06 1928 opps 0.296296
+2	TNT-BTC Binance 2/5 4.86511e-06 1831 opps 3.375 *
+1	TNT-BTC Binance 0/1 4.86511e-06 1928 opps 0.964602
+0	TNT-BTC Binance 3/4 4.86511e-06 1806 opps 1.0367
+2	ADX-ETH Binance 0/28 0.000776372 1928 opps 1.51515 *
+4	GXS-BTC Binance 0/0 0.000321072 1928 opps 0.539563
+3	GXS-BTC Binance 0/0 0.000321072 1928 opps 0.359129
+2	GXS-BTC Binance 1/17 0.000321072 1880 opps 2.78452 *
+1	GXS-BTC Binance 0/0 0.000321072 1928 opps 0.0129839
+0	GXS-BTC Binance 1/3 0.000321072 1881 opps 77.0183 *
+5	VIA-BTC Binance 0/0 0.000150966 1928 opps 1.36575 *
+4	VIA-BTC Binance 0/0 0.000150966 1928 opps 0.732199
+3	VIA-BTC Binance 0/0 0.000150966 1928 opps 0.570764
+2	VIA-BTC Binance 0/0 0.000150966 1928 opps 1.75204 *
+1	VIA-BTC Binance 0/1 0.000150966 1928 opps 0.0270639
+0	VIA-BTC Binance 0/0 0.000150966 1928 opps 36.9495 *
+5	ADX-ETH Binance 0/0 0.000776372 1928 opps 0.867775
+1	ICX-BNB Binance 0/10 0.0906316 1928 opps 4.76399e-05
+0	ADX-ETH Binance 0/10 0.000776372 1928 opps 193.922 *
+5	ADA-ETH Binance 0/0 0.000332856 1928 opps 0.873333
+4	ADA-ETH Binance 0/0 0.000332856 1928 opps 1.14504
+3	ADA-ETH Binance 0/0 0.000332856 1928 opps 0.950562
+2	ADA-ETH Binance 0/0 0.000332856 1928 opps 1.05201
+1	ADA-ETH Binance 0/0 0.000332856 1928 opps 0.0129762
+0	ADA-ETH Binance 0/0 0.000332856 1928 opps 77.0642 *
+5	GXS-ETH Binance 0/0 0.0055678 1928 opps 1.00374
+4	GXS-ETH Binance 0/0 0.0055678 1928 opps 0.996273
+3	GXS-ETH Binance 0/0 0.0055678 1928 opps 0.707631
+2	GXS-ETH Binance 0/12 0.0055678 1928 opps 1.41317 *
+1	GXS-ETH Binance 0/0 0.0055678 1928 opps 0.000727394
+0	EDO-ETH Binance 0/0 0.00233255 1928 opps 435.78 *
+1	MCO-ETH Binance 2/4 0.0158101 1855 opps 0.000263763
+5	LRC-BTC Binance 0/1 3.22476e-05 1928 opps 2.24533 *
+4	LRC-BTC Binance 0/0 3.22476e-05 1928 opps 0.44537
+3	LRC-BTC Binance 0/0 3.22476e-05 1928 opps 0.24754
+5	YOYO-ETH Binance 0/0 1.225e-07 1928 opps 0.000494071
+4	YOYO-ETH Binance 0/0 1.225e-07 1928 opps 2024 *
+3	YOYO-ETH Binance 0/0 1.225e-07 1928 opps inf *
+2	YOYO-ETH Binance 0/0 1.225e-07 1928 opps 3.30721e-316
+1	YOYO-ETH Binance 0/0 1.225e-07 1928 opps inf *
+0	YOYO-ETH Binance 0/0 1.225e-07 1928 opps 0
+5	EDO-ETH Binance 0/0 0.00233255 1928 opps 0.661514
+3	EDO-ETH Binance 0/0 0.00233255 1928 opps 0.980474
+1	EDO-ETH Binance 1/2 0.00233255 1903 opps 0.00229474
+3	MCO-ETH Binance 0/0 0.0158101 1928 opps 0.998217
+5	ENG-BTC Binance 0/0 0.000159075 1928 opps 1.69007 *
+4	ENG-BTC Binance 0/0 0.000159075 1928 opps 0.591693
+3	ENG-BTC Binance 0/0 0.000159075 1928 opps 0.354645
+1	ENG-BTC Binance 0/10 0.000159075 1928 opps 0.0313669
+5	RPX-ETH Binance 0/0 6.50109e-05 1928 opps 1.27354 *
+4	RPX-ETH Binance 0/0 6.50109e-05 1928 opps 0.78521
+3	RPX-ETH Binance 0/0 6.50109e-05 1928 opps 0.554565
+2	RPX-ETH Binance 0/0 6.50109e-05 1928 opps 1.80321 *
+1	RPX-ETH Binance 0/0 6.50109e-05 1928 opps 0.0612618
+0	RPX-ETH Binance 0/0 6.50109e-05 1928 opps 16.3234 *
+5	XMR-BTC Binance 0/0 0.0174303 1928 opps 1.03618
+4	XMR-BTC Binance 0/0 0.0174303 1928 opps 0.965079
+1	ETC-EUR Coinbase 0/24 2.53523 1928 opps inf *
+4	CND-BTC Binance 0/0 3.77305e-06 1928 opps 0.594755
+3	CND-BTC Binance 0/0 3.77305e-06 1928 opps 0.364821
+1	CND-BTC Binance 0/0 3.77305e-06 1928 opps 1.23864 *
+5	LLT-BTC Binance 0/0 1.669e-05 1928 opps 0.999012
+4	LLT-BTC Binance 0/0 1.669e-05 1928 opps 1.00099
+3	LLT-BTC Binance 0/0 1.669e-05 1928 opps 1
+2	LLT-BTC Binance 0/0 1.669e-05 1928 opps 1
+1	LLT-BTC Binance 0/0 1.669e-05 1928 opps 0.261234
+0	LLT-BTC Binance 0/0 1.669e-05 1928 opps 3.82798 *
+5	ETC-EUR Coinbase 0/0 2.53523 1928 opps 0.258265
+4	ETC-EUR Coinbase 0/18 2.53523 1928 opps 3.87199 *
+3	ETC-EUR Coinbase 0/1 2.53523 1928 opps 0.779116
+3	XMR-BTC Binance 0/0 0.0174303 1928 opps 0.768421
+5	BTG-ETH Binance 0/0 0.0648711 1928 opps 0.65721
+4	BTG-ETH Binance 0/0 0.0648711 1928 opps 1.52158 *
+3	BTG-ETH Binance 0/0 0.0648711 1928 opps 0.991548
+2	BTG-ETH Binance 0/0 0.0648711 1928 opps 1.00852
+1	BTG-ETH Binance 0/0 0.0648711 1928 opps 7.0198e-05
+0	BTG-ETH Binance 0/0 0.0648711 1928 opps 14245.4 *
+5	IOST-ETH Binance 0/0 5.18427e-05 1928 opps 0.875664
+2	IOST-ETH Binance 0/0 5.18427e-05 1928 opps 1.21062 *
+1	IOST-ETH Binance 2/4 5.18427e-05 1872 opps 0.0795766
+0	IOST-ETH Binance 0/0 5.18427e-05 1928 opps 12.5665 *
+5	MCO-ETH Binance 0/0 0.0158101 1928 opps 0.70543
+4	MCO-ETH Binance 0/0 0.0158101 1928 opps 1.41758 *
+4	WAN-ETH Binance 0/0 0.00425863 1928 opps 1.10257
+5	KMD-BTC Binance 0/0 0.000209876 1928 opps 1.21603 *
+4	KMD-BTC Binance 0/0 0.000209876 1928 opps 0.82235
+3	KMD-BTC Binance 0/0 0.000209876 1928 opps 0.591956
+2	KMD-BTC Binance 0/0 0.000209876 1928 opps 1.68931 *
+1	KMD-BTC Binance 0/3 0.000209876 1928 opps 0.0228272
+0	KMD-BTC Binance 0/0 0.000209876 1928 opps 43.8073 *
+5	BCN-BNB Binance 0/0 0.000203398 1928 opps 0.940654
+4	BCN-BNB Binance 0/2 0.000203398 1928 opps 1.06309
+3	BCN-BNB Binance 0/0 0.000203398 1928 opps 0.8
+2	BCN-BNB Binance 1/7 0.000203398 1867 opps 1.25 *
+1	BCN-BNB Binance 2/6 0.000203398 1869 opps 0.0204695
+0	BCN-BNB Binance 1/4 0.000203398 1878 opps 48.8532 *
+5	WAN-ETH Binance 0/0 0.00425863 1928 opps 0.906975
+0	BNB-ETH Binance 0/0 0.0331567 1928 opps 6637.61 *
+3	WAN-ETH Binance 0/0 0.00425863 1928 opps 0.770357
+1	WAN-ETH Binance 1/6 0.00425863 1878 opps 0.00114827
+5	RPX-BNB Binance 0/0 0.00207704 1928 opps 1.42528 *
+4	RPX-BNB Binance 0/0 0.00207704 1928 opps 0.701615
+3	RPX-BNB Binance 0/0 0.00207704 1928 opps 0.45832
+2	RPX-BNB Binance 1/13 0.00207704 1901 opps 2.18188 *
+1	RPX-BNB Binance 0/1 0.00207704 1928 opps 0.0017659
+0	RPX-BNB Binance 1/6 0.00207704 1896 opps 566.284 *
+5	ICX-BNB Binance 0/0 0.0906316 1928 opps 1.35608 *
+4	ICX-BNB Binance 0/0 0.0906316 1928 opps 0.737421
+3	ICX-BNB Binance 0/0 0.0906316 1928 opps 0.500901
+2	ICX-BNB Binance 2/3 0.0906316 1864 opps 1.9964 *
+1	ETH-USDT Binance 0/0 387.05 1928 opps 9.55658e-09
+2	XMR-BTC Binance 0/0 0.0174303 1928 opps 1.30137 *
+1	XMR-BTC Binance 0/0 0.0174303 1928 opps 0.000270471
+0	XMR-BTC Binance 0/0 0.0174303 1928 opps 3697.25 *
+5	CDT-ETH Binance 0/0 4.90595e-05 1928 opps 0.814614
+3	CDT-ETH Binance 0/0 4.90595e-05 1928 opps 0.793745
+5	AION-ETH Binance 0/0 0.001969 1928 opps 0.887141
+1	AION-ETH Binance 2/3 0.001969 1836 opps 0.00245082
+0	AION-ETH Binance 0/0 0.001969 1928 opps 408.028 *
+5	ETH-USDT Binance 0/0 387.05 1928 opps 1.97453 *
+4	ETH-USDT Binance 0/0 387.05 1928 opps 0.50645
+3	ETH-USDT Binance 0/0 387.05 1928 opps 0.360792
+2	ETH-USDT Binance 1/10 387.05 1883 opps 2.77168 *
+4	NEBL-BTC Binance 0/0 0.000447602 1928 opps 0.638511
+0	ETH-USDT Binance 1/11 387.05 1882 opps 1.0464e+08 *
+5	BNT-BTC Binance 0/0 0.000323169 1928 opps 1.67807 *
+4	BNT-BTC Binance 0/0 0.000323169 1928 opps 0.595923
+3	BNT-BTC Binance 0/0 0.000323169 1928 opps 0.355214
+2	BNT-BTC Binance 0/0 0.000323169 1928 opps 2.8152 *
+1	BNT-BTC Binance 0/0 0.000323169 1928 opps 0.0155881
+0	BNT-BTC Binance 0/0 0.000323169 1928 opps 64.1514 *
+5	BNB-ETH Binance 0/0 0.0331567 1928 opps 0.680946
+4	BNB-ETH Binance 0/0 0.0331567 1928 opps 1.46854 *
+3	BNB-ETH Binance 0/0 0.0331567 1928 opps 0.986602
+2	BNB-ETH Binance 0/0 0.0331567 1928 opps 1.01358
+1	BNB-ETH Binance 0/0 0.0331567 1928 opps 0.000150657
+1	BCPT-ETH Binance 1/3 0.000347397 1899 opps 0.0118318
+4	AST-ETH Binance 2/3 0.0003173 1862 opps 1.19872
+2	AST-ETH Binance 3/5 0.0003173 1777 opps 1.2575 *
+1	AST-ETH Binance 1/11 0.0003173 1891 opps 0.0141604
+5	ETC-ETH Binance 0/0 0.0401793 1928 opps 0.703791
+4	ETC-ETH Binance 0/0 0.0401793 1928 opps 1.42088 *
+3	ETC-ETH Binance 0/0 0.0401793 1928 opps 0.978709
+2	ETC-ETH Binance 0/0 0.0401793 1928 opps 1.02175
+1	ETC-ETH Binance 0/3 0.0401793 1928 opps 0.000116143
+0	ETC-ETH Binance 0/0 0.0401793 1928 opps 8610.09 *
+5	BCPT-ETH Binance 0/0 0.000347397 1928 opps 0.955546
+4	BCPT-ETH Binance 0/1 0.000347397 1928 opps 1.04652
+3	BCPT-ETH Binance 0/0 0.000347397 1928 opps 0.786875
+2	BCPT-ETH Binance 1/10 0.000347397 1886 opps 1.27085 *
+5	AST-ETH Binance 0/0 0.0003173 1928 opps 0.834221
+0	BCPT-ETH Binance 0/1 0.000347397 1928 opps 84.5183 *
+5	ETC-BTC Coinbase 0/0 0.000432375 1928 opps 0.241383
+4	ETC-BTC Coinbase 0/19 0.000432375 1928 opps 4.14279 *
+3	ETC-BTC Coinbase 0/1 0.000432375 1928 opps 0.893939
+2	ETC-BTC Coinbase 0/0 0.000432375 1928 opps 1.11864
+1	ETC-BTC Coinbase 0/24 0.000432375 1928 opps inf *
+0	ETC-BTC Coinbase 0/0 0.000432375 1928 opps 0
+5	SNT-BTC Binance 0/0 8.30138e-06 1928 opps 1.53194 *
+4	SNT-BTC Binance 0/0 8.30138e-06 1928 opps 0.652768
+3	SNT-BTC Binance 0/0 8.30138e-06 1928 opps 0.401335
+1	SNT-BTC Binance 0/5 8.30138e-06 1928 opps 0.540943
+4	ICX-BTC Binance 0/0 0.000171332 1928 opps 0.587045
+2	QTUM-USDT Binance 3/4 6.63961 1797 opps 3.00843 *
+0	STORJ-BTC Binance 1/13 6.00596e-05 1875 opps 13.2339 *
+5	BTC-GBP Coinbase 0/0 5247.76 1928 opps 1.074
+4	BTC-GBP Coinbase 0/0 5247.76 1928 opps 0.931095
+3	BTC-GBP Coinbase 0/0 5247.76 1928 opps 0.758501
+2	BTC-GBP Coinbase 0/0 5247.76 1928 opps 1.31839 *
+1	BTC-GBP Coinbase 0/0 5247.76 1928 opps 6.98764e-10
+0	BTC-GBP Coinbase 0/0 5247.76 1928 opps 1.4311e+09 *
+5	MTH-BTC Binance 0/0 4.75823e-06 1928 opps 1.61581 *
+3	MTH-BTC Binance 0/0 4.75823e-06 1928 opps 0.36796
+1	MTH-BTC Binance 0/3 4.75823e-06 1928 opps 0.973214
+4	QTUM-USDT Binance 0/0 6.63961 1928 opps 0.536354
+3	QTUM-USDT Binance 0/0 6.63961 1928 opps 0.3324
+3	ICX-BTC Binance 0/0 0.000171332 1928 opps 0.31531
+1	QTUM-USDT Binance 0/6 6.63961 1928 opps 5.89189e-07
+0	QTUM-USDT Binance 3/7 6.63961 1807 opps 1.69725e+06 *
+5	WTC-BTC Binance 0/0 0.000759352 1928 opps 1.37073 *
+4	WTC-BTC Binance 1/2 0.000759352 1891 opps 0.729536
+3	WTC-BTC Binance 0/0 0.000759352 1928 opps 0.419514
+1	WTC-BTC Binance 2/9 0.000759352 1831 opps 0.00632526
+0	WTC-BTC Binance 4/5 0.000759352 1763 opps 158.096 *
+5	BNB-BTC Binance 0/1 0.00184242 1928 opps 1.21624 *
+4	BNB-BTC Binance 0/0 0.00184242 1928 opps 0.822209
+3	BNB-BTC Binance 0/0 0.00184242 1928 opps 0.579532
+2	BNB-BTC Binance 1/2 0.00184242 1886 opps 1.72553 *
+1	BNB-BTC Binance 0/0 0.00184242 1928 opps 0.00269802
+3	GRS-BTC Binance 1/2 8.80792e-05 1898 opps 0.691436
+4	REQ-BTC Binance 0/0 8.76991e-06 1928 opps 0.626422
+3	REQ-BTC Binance 0/0 8.76991e-06 1928 opps 0.356075
+1	REQ-BTC Binance 0/7 8.76991e-06 1928 opps 0.566234
+5	ICN-BTC Binance 0/0 8.23068e-05 1928 opps 1.38427 *
+3	ICN-BTC Binance 0/0 8.23068e-05 1928 opps 0.5398
+2	ICN-BTC Binance 1/15 8.23068e-05 1903 opps 1.85254 *
+1	ICN-BTC Binance 1/3 8.23068e-05 1900 opps 0.0644494
+0	ICN-BTC Binance 0/15 8.23068e-05 1928 opps 15.5161 *
+5	GTO-BTC Binance 0/0 1.79182e-05 1928 opps 1.81257 *
+4	GTO-BTC Binance 0/0 1.79182e-05 1928 opps 0.551704
+3	GTO-BTC Binance 0/0 1.79182e-05 1928 opps 0.336172
+1	GTO-BTC Binance 0/0 1.79182e-05 1928 opps 0.246328
+4	GRS-BTC Binance 1/5 8.80792e-05 1893 opps 0.937225
+5	REQ-BTC Binance 0/0 8.76991e-06 1928 opps 1.59637 *
+5	BCH-USDT Binance 0/0 677.548 1928 opps 1.4227 *
+4	BCH-USDT Binance 0/0 677.548 1928 opps 0.702888
+3	BCH-USDT Binance 0/0 677.548 1928 opps 0.524351
+2	BCH-USDT Binance 3/8 677.548 1794 opps 1.90712 *
+1	BCH-USDT Binance 0/0 677.548 1928 opps 5.34891e-09
+0	BCH-USDT Binance 2/7 677.548 1839 opps 1.86954e+08 *
+5	OMG-ETH Binance 0/0 0.0151897 1928 opps 0.866677
+4	OMG-ETH Binance 0/0 0.0151897 1928 opps 1.15383
+3	OMG-ETH Binance 0/0 0.0151897 1928 opps 0.954719
+2	OMG-ETH Binance 0/0 0.0151897 1928 opps 1.04743
+1	OMG-ETH Binance 0/0 0.0151897 1928 opps 0.000297611
+0	OMG-ETH Binance 0/0 0.0151897 1928 opps 3360.09 *
+1	QSP-BNB Binance 1/2 0.00444976 1897 opps 0.000894542
+2	ICX-BTC Binance 2/4 0.000171332 1863 opps 3.17149 *
+0	ICX-BTC Binance 1/4 0.000171332 1902 opps 33.8073 *
+5	VIB-ETH Binance 0/0 0.000147378 1928 opps 0.929292
+4	VIB-ETH Binance 0/0 0.000147378 1928 opps 1.07609
+3	VIB-ETH Binance 0/0 0.000147378 1928 opps 0.776471
+2	VIB-ETH Binance 0/0 0.000147378 1928 opps 1.28788 *
+1	VIB-ETH Binance 0/0 0.000147378 1928 opps 0.028534
+0	VIB-ETH Binance 0/0 0.000147378 1928 opps 35.0459 *
+5	QSP-BNB Binance 0/0 0.00444976 1928 opps 1.39939 *
+4	QSP-BNB Binance 0/0 0.00444976 1928 opps 0.714597
+3	QSP-BNB Binance 0/0 0.00444976 1928 opps 0.501816
+2	QSP-BNB Binance 2/3 0.00444976 1866 opps 1.99276 *
+1	STORJ-BTC Binance 0/0 6.00596e-05 1928 opps 0.0755633
+5	BTC-EUR Coinbase 0/0 5863.16 1928 opps 1.07581
+4	BTC-EUR Coinbase 0/0 5863.16 1928 opps 0.929536
+3	BTC-EUR Coinbase 0/0 5863.16 1928 opps 0.753713
+2	BTC-EUR Coinbase 0/0 5863.16 1928 opps 1.32677 *
+1	BTC-EUR Coinbase 0/0 5863.16 1928 opps 6.23886e-10
+0	BTC-EUR Coinbase 0/0 5863.16 1928 opps 1.60286e+09 *
+5	BNT-ETH Binance 0/0 0.00563123 1928 opps 0.913327
+4	BNT-ETH Binance 0/0 0.00563123 1928 opps 1.0949
+3	BNT-ETH Binance 0/0 0.00563123 1928 opps 0.895488
+2	BNT-ETH Binance 0/0 0.00563123 1928 opps 1.11671
+1	BNT-ETH Binance 0/0 0.00563123 1928 opps 0.000870607
+0	BNT-ETH Binance 0/0 0.00563123 1928 opps 1148.62 *
+3	GAS-BTC Binance 0/0 0.00131454 1928 opps 0.398739
+5	TNB-ETH Binance 0/0 4.48214e-05 1928 opps 1.06854
+4	TNB-ETH Binance 0/0 4.48214e-05 1928 opps 0.935853
+3	TNB-ETH Binance 0/0 4.48214e-05 1928 opps 0.666826
+2	TNB-ETH Binance 0/0 4.48214e-05 1928 opps 1.49964 *
+1	TNB-ETH Binance 1/4 4.48214e-05 1858 opps 0.102444
+0	TNB-ETH Binance 0/0 4.48214e-05 1928 opps 9.76147 *
+5	QLC-ETH Binance 0/0 0.00015016 1928 opps 0.608223
+4	QLC-ETH Binance 0/0 0.00015016 1928 opps 1.64414 *
+3	QLC-ETH Binance 0/0 0.00015016 1928 opps 0.907114
+2	QLC-ETH Binance 0/0 0.00015016 1928 opps 1.1024
+0	QLC-ETH Binance 0/0 0.00015016 1928 opps 30.367 *
+5	GAS-BTC Binance 0/0 0.00131454 1928 opps 1.38234 *
+4	GAS-BTC Binance 1/2 0.00131454 1894 opps 0.723412
+0	SYS-BNB Binance 1/29 0.0112006 1895 opps 2901.38 *
+2	GAS-BTC Binance 3/10 0.00131454 1835 opps 2.5079 *
+1	GAS-BTC Binance 3/8 0.00131454 1840 opps 0.00355628
+0	GAS-BTC Binance 1/8 0.00131454 1901 opps 281.193 *
+5	ELF-ETH Binance 0/0 0.00137258 1928 opps 0.801941
+4	ELF-ETH Binance 0/0 0.00137258 1928 opps 1.24697 *
+3	ELF-ETH Binance 0/0 0.00137258 1928 opps 0.974344
+2	ELF-ETH Binance 0/1 0.00137258 1928 opps 1.02633
+1	ELF-ETH Binance 0/9 0.00137258 1928 opps 0.00323682
+0	ELF-ETH Binance 0/0 0.00137258 1928 opps 308.945 *
+5	ETH-USD Coinbase 0/0 386.986 1928 opps 1.97904 *
+4	ETH-USD Coinbase 0/0 386.986 1928 opps 0.505296
+3	ETH-USD Coinbase 0/0 386.986 1928 opps 0.359915
+4	NEO-BTC Binance 0/0 0.00408046 1928 opps 0.728474
+3	NEBL-BTC Binance 0/0 0.000447602 1928 opps 0.380705
+2	NEBL-BTC Binance 2/5 0.000447602 1866 opps 2.62671 *
+1	NEBL-BTC Binance 1/6 0.000447602 1895 opps 0.0100461
+3	PPT-BTC Binance 0/0 0.000831413 1928 opps 0.415145
+1	PPT-BTC Binance 3/6 0.000831413 1830 opps 0.00661709
+5	ARN-ETH Binance 0/0 0.00123134 1928 opps 0.980318
+4	ARN-ETH Binance 0/0 0.00123134 1928 opps 1.02008
+3	ARN-ETH Binance 0/0 0.00123134 1928 opps 0.768054
+2	ARN-ETH Binance 0/0 0.00123134 1928 opps 1.30199 *
+1	ARN-ETH Binance 0/4 0.00123134 1928 opps 0.0034521
+0	ARN-ETH Binance 0/0 0.00123134 1928 opps 289.679 *
+5	NEO-BTC Binance 0/0 0.00408046 1928 opps 1.37273 *
+2	ETH-USD Coinbase 1/10 386.986 1883 opps 2.77843 *
+3	NEO-BTC Binance 0/0 0.00408046 1928 opps 0.463605
+1	NEO-BTC Binance 0/4 0.00408046 1928 opps 0.00111766
+5	HSR-BTC Binance 0/0 0.000738967 1928 opps 1.03214
+4	HSR-BTC Binance 0/0 0.000738967 1928 opps 0.968859
+3	HSR-BTC Binance 0/0 0.000738967 1928 opps 0.766094
+2	HSR-BTC Binance 0/0 0.000738967 1928 opps 1.30532 *
+1	HSR-BTC Binance 0/0 0.000738967 1928 opps 0.00689873
+0	HSR-BTC Binance 0/0 0.000738967 1928 opps 144.954 *
+5	SYS-BNB Binance 1/4 0.0112006 1902 opps 1.33271 *
+3	SYS-BNB Binance 1/3 0.0112006 1872 opps 0.102502
+2	SYS-BNB Binance 2/25 0.0112006 1847 opps 9.75595 *
+1	SYS-BNB Binance 1/7 0.0112006 1901 opps 0.000344664
+5	MCO-BNB Binance 0/0 0.484497 1928 opps 1.04006
+2	OST-ETH Binance 2/12 0.000130792 1864 opps 1.89312 *
+1	OST-ETH Binance 3/10 0.000130792 1822 opps 0.0337984
+0	OST-ETH Binance 1/2 0.000130792 1900 opps 29.5872 *
+5	WABI-BNB Binance 0/0 0.0218806 1928 opps 1.18085
+4	WABI-BNB Binance 0/4 0.0218806 1928 opps 0.846847
+3	WABI-BNB Binance 0/0 0.0218806 1928 opps 0.54524
+2	WABI-BNB Binance 6/8 0.0218806 1710 opps 1.83405 *
+5	ETH-EUR Coinbase 0/0 333.585 1928 opps 1.96697 *
+4	ETH-EUR Coinbase 0/0 333.585 1928 opps 0.508396
+3	ETH-EUR Coinbase 0/0 333.585 1928 opps 0.361154
+2	ETH-EUR Coinbase 1/10 333.585 1883 opps 2.7689 *
+1	ETH-EUR Coinbase 0/0 333.585 1928 opps 1.1174e-08
+0	ETH-EUR Coinbase 1/11 333.585 1901 opps 8.94931e+07 *
+3	OST-ETH Binance 0/1 0.000130792 1928 opps 0.528227
+4	MCO-BNB Binance 0/0 0.484497 1928 opps 0.96148
+3	MCO-BNB Binance 0/0 0.484497 1928 opps 0.656338
+5	BCPT-BNB Binance 0/0 0.0107594 1928 opps 1.45015 *
+4	BCPT-BNB Binance 0/1 0.0107594 1928 opps 0.689582
+3	BCPT-BNB Binance 0/0 0.0107594 1928 opps 0.412222
+2	BCPT-BNB Binance 4/20 0.0107594 1748 opps 2.42588 *
+1	BCPT-BNB Binance 2/3 0.0107594 1813 opps 0.000338509
+0	BCPT-BNB Binance 3/4 0.0107594 1795 opps 2954.13 *
+5	STORJ-BTC Binance 0/0 6.00596e-05 1928 opps 1.57024 *
+4	STORJ-BTC Binance 0/0 6.00596e-05 1928 opps 0.636844
+3	STORJ-BTC Binance 0/0 6.00596e-05 1928 opps 0.440674
+2	STORJ-BTC Binance 1/15 6.00596e-05 1895 opps 2.26925 *
+4	DLT-BNB Binance 0/0 0.00547206 1928 opps 0.698452
+1	ETH-USD Coinbase 0/0 386.986 1928 opps 9.55156e-09
+0	ETH-USD Coinbase 1/11 386.986 1901 opps 1.04695e+08 *
+5	LUN-BTC Binance 0/0 0.00083068 1928 opps 2.08557 *
+4	LUN-BTC Binance 0/0 0.00083068 1928 opps 0.479486
+3	LUN-BTC Binance 0/0 0.00083068 1928 opps 0.286393
+2	LUN-BTC Binance 2/4 0.00083068 1831 opps 3.4917 *
+1	LUN-BTC Binance 0/1 0.00083068 1928 opps 0.00507331
+0	LUN-BTC Binance 1/2 0.00083068 1879 opps 197.11 *
+5	WABI-ETH Binance 0/0 0.000707204 1928 opps 0.783673
+4	WABI-ETH Binance 0/5 0.000707204 1928 opps 1.27604 *
+3	WABI-ETH Binance 0/0 0.000707204 1928 opps 0.95828
+5	DLT-BNB Binance 0/0 0.00547206 1928 opps 1.43174 *
+5	BTS-BTC Binance 0/0 2.14386e-05 1928 opps 1.40619 *
+3	DLT-BNB Binance 0/0 0.00547206 1928 opps 0.46247
+2	DLT-BNB Binance 3/14 0.00547206 1795 opps 2.1623 *
+0	DLT-BNB Binance 2/9 0.00547206 1863 opps 1451.83 *
+5	LSK-BNB Binance 0/0 0.374707 1928 opps 0.990891
+3	LSK-BNB Binance 0/0 0.374707 1928 opps 0.6947
+2	LSK-BNB Binance 0/0 0.374707 1928 opps 1.43947 *
+5	DASH-ETH Binance 0/0 0.557381 1928 opps 0.540112
+3	DASH-ETH Binance 0/0 0.557381 1928 opps 0.990385
+2	DASH-ETH Binance 0/0 0.557381 1928 opps 1.00971
+0	DASH-ETH Binance 0/0 0.557381 1928 opps 118096 *
+5	OST-ETH Binance 1/6 0.000130792 1900 opps 0.889073
+4	OST-ETH Binance 1/6 0.000130792 1898 opps 1.12477
+2	DASH-BTC Binance 0/0 0.0309666 1928 opps 1.25927 *
+4	MANA-ETH Binance 0/2 0.000241819 1928 opps 1.32044 *
+3	MANA-ETH Binance 0/1 0.000241819 1928 opps 0.612978
+2	MANA-ETH Binance 2/11 0.000241819 1872 opps 1.63138 *
+1	MANA-ETH Binance 1/2 0.000241819 1903 opps 0.0159415
+0	MANA-ETH Binance 0/1 0.000241819 1928 opps 62.7294 *
+5	ARN-BTC Binance 0/0 7.19969e-05 1928 opps 1.83507 *
+4	ARN-BTC Binance 0/0 7.19969e-05 1928 opps 0.54494
+3	ARN-BTC Binance 0/0 7.19969e-05 1928 opps 0.323001
+2	ARN-BTC Binance 1/19 7.19969e-05 1896 opps 3.09597 *
+1	ARN-BTC Binance 0/5 7.19969e-05 1928 opps 0.0616342
+0	ARN-BTC Binance 1/16 7.19969e-05 1896 opps 16.2248 *
+5	DASH-BTC Binance 0/0 0.0309666 1928 opps 0.963148
+3	DASH-BTC Binance 0/0 0.0309666 1928 opps 0.79411
+5	MANA-ETH Binance 0/0 0.000241819 1928 opps 0.757324
+0	DASH-BTC Binance 0/0 0.0309666 1928 opps 6577.98 *
+5	AION-BTC Binance 0/0 0.00011427 1928 opps 1.64658 *
+2	AION-BTC Binance 3/4 0.00011427 1842 opps 3.15751 *
+1	AION-BTC Binance 2/3 0.00011427 1831 opps 0.0440404
+5	POWR-BNB Binance 0/0 0.0195873 1928 opps 1.26133 *
+4	POWR-BNB Binance 1/2 0.0195873 1898 opps 0.792812
+2	POWR-BNB Binance 3/10 0.0195873 1834 opps 2.05473 *
+1	POWR-BNB Binance 2/3 0.0195873 1856 opps 0.000183039
+0	POWR-BNB Binance 2/3 0.0195873 1858 opps 5463.3 *
+5	EDO-BTC Binance 0/0 0.000127657 1928 opps 1.16233
+4	EDO-BTC Binance 1/3 0.000127657 1899 opps 0.86034
+3	EDO-BTC Binance 0/1 0.000127657 1928 opps 0.652563
+5	BRD-BNB Binance 0/0 0.0312786 1928 opps 0.971032
+3	STEEM-ETH Binance 0/0 0.00315933 1928 opps 0.991265
+4	ETH-BTC Coinbase 0/0 0.0570572 1928 opps 0.545232
+3	ETH-BTC Coinbase 0/0 0.0570572 1928 opps 0.387358
+2	ETH-BTC Coinbase 0/0 0.0570572 1928 opps 2.58159 *
+1	ETH-BTC Coinbase 0/0 0.0570572 1928 opps 7.79964e-05
+0	ETH-BTC Coinbase 0/0 0.0570572 1928 opps 12821.1 *
+5	BCH-BNB Binance 0/0 54.4008 1928 opps 1.08487
+4	BCH-BNB Binance 0/0 54.4008 1928 opps 0.921773
+3	BCH-BNB Binance 0/0 54.4008 1928 opps 0.686849
+2	BCH-BNB Binance 0/0 54.4008 1928 opps 1.45592 *
+1	BCH-BNB Binance 0/0 54.4008 1928 opps 7.09866e-08
+0	BCH-BNB Binance 0/0 54.4008 1928 opps 1.40872e+07 *
+5	STEEM-ETH Binance 0/0 0.00315933 1928 opps 0.794277
+4	STEEM-ETH Binance 0/0 0.00315933 1928 opps 1.25901 *
+4	BRD-BNB Binance 0/0 0.0312786 1928 opps 1.02983
+2	STEEM-ETH Binance 0/0 0.00315933 1928 opps 1.00881
+0	STEEM-ETH Binance 0/0 0.00315933 1928 opps 689.22 *
+5	BCH-USD Coinbase 0/0 677.547 1928 opps 1.42642 *
+4	BCH-USD Coinbase 0/0 677.547 1928 opps 0.701054
+3	BCH-USD Coinbase 0/0 677.547 1928 opps 0.523466
+2	BCH-USD Coinbase 3/7 677.547 1794 opps 1.91035 *
+1	BCH-USD Coinbase 0/0 677.547 1928 opps 5.35475e-09
+0	BCH-USD Coinbase 2/7 677.547 1839 opps 1.8675e+08 *
+5	FUN-BTC Binance 0/0 3.27181e-06 1928 opps 1.45129 *
+4	FUN-BTC Binance 0/0 3.27181e-06 1928 opps 0.689042
+3	FUN-BTC Binance 0/0 3.27181e-06 1928 opps 0.481799
+1	FUN-BTC Binance 0/1 3.27181e-06 1928 opps 1.4485 *
+1	LTC-BNB Binance 0/0 5.83402 1928 opps 6.99839e-07
+3	ZEC-ETH Binance 0/0 0.447039 1928 opps 0.96254
+2	ZEC-ETH Binance 0/0 0.447039 1928 opps 1.03892
+1	ZEC-ETH Binance 0/0 0.447039 1928 opps 9.24316e-06
+0	ZEC-ETH Binance 0/0 0.447039 1928 opps 108188 *
+5	APPC-ETH Binance 0/0 0.000363691 1928 opps 1.00863
+3	APPC-ETH Binance 0/0 0.000363691 1928 opps 0.615726
+2	APPC-ETH Binance 0/12 0.000363691 1928 opps 1.6241 *
+1	APPC-ETH Binance 1/3 0.000363691 1902 opps 0.0115988
+0	APPC-ETH Binance 0/4 0.000363691 1928 opps 86.2156 *
+5	LTC-BNB Binance 0/0 5.83402 1928 opps 1.02269
+4	LTC-BNB Binance 0/0 5.83402 1928 opps 0.977813
+3	LTC-BNB Binance 0/0 5.83402 1928 opps 0.766129
+2	LTC-BNB Binance 0/0 5.83402 1928 opps 1.30526 *
+4	ZEC-ETH Binance 0/0 0.447039 1928 opps 1.35718 *
+0	LTC-BNB Binance 0/0 5.83402 1928 opps 1.4289e+06 *
+5	IOT-ETH Binance 0/0 0.00216689 1928 opps 0.742084
+4	IOT-ETH Binance 0/0 0.00216689 1928 opps 1.34756 *
+3	IOT-ETH Binance 0/0 0.00216689 1928 opps 0.980175
+2	IOT-ETH Binance 0/0 0.00216689 1928 opps 1.02023
+1	IOT-ETH Binance 0/0 0.00216689 1928 opps 0.00204215
+0	IOT-ETH Binance 0/0 0.00216689 1928 opps 489.679 *
+5	ZIL-ETH Binance 0/0 0.00014793 1928 opps 0.84207
+4	ZIL-ETH Binance 0/0 0.00014793 1928 opps 1.18755
+3	ZIL-ETH Binance 0/0 0.00014793 1928 opps 0.881024
+2	ZIL-ETH Binance 0/0 0.00014793 1928 opps 1.13504
+0	ZIL-ETH Binance 0/0 0.00014793 1928 opps 35.2523 *
+1	XZC-BTC Binance 0/1 0.00219094 1928 opps 0.00228751
+3	BRD-BNB Binance 0/0 0.0312786 1928 opps 0.768348
+2	BRD-BNB Binance 0/0 0.0312786 1928 opps 1.30149 *
+1	BRD-BNB Binance 0/4 0.0312786 1928 opps 0.000147447
+0	BRD-BNB Binance 0/0 0.0312786 1928 opps 6782.11 *
+4	NEO-USDT Binance 0/0 27.7092 1928 opps 0.675055
+3	NEO-USDT Binance 0/0 27.7092 1928 opps 0.440858
+2	NEO-USDT Binance 4/8 27.7092 1741 opps 2.26831 *
+1	NEO-USDT Binance 2/3 27.7092 1807 opps 1.36634e-07
+0	NEO-USDT Binance 4/5 27.7092 1742 opps 7.31881e+06 *
+5	XZC-BTC Binance 0/0 0.00219094 1928 opps 1.30538 *
+4	XZC-BTC Binance 0/0 0.00219094 1928 opps 0.76606
+3	XZC-BTC Binance 0/0 0.00219094 1928 opps 0.555592
+2	XZC-BTC Binance 0/0 0.00219094 1928 opps 1.79988 *
+5	ETH-BTC Coinbase 0/0 0.0570572 1928 opps 1.83408 *
+0	XZC-BTC Binance 0/0 0.00219094 1928 opps 437.156 *
+5	STORM-BNB Binance 0/0 0.00106172 1928 opps 1.47431 *
+4	STORM-BNB Binance 0/0 0.00106172 1928 opps 0.678282
+3	STORM-BNB Binance 0/0 0.00106172 1928 opps 0.450563
+1	STORM-BNB Binance 0/4 0.00106172 1928 opps 0.00357084
+5	SNT-ETH Binance 0/0 0.000145463 1928 opps 0.834857
+4	SNT-ETH Binance 0/0 0.000145463 1928 opps 1.19781
+3	SNT-ETH Binance 0/0 0.000145463 1928 opps 0.919176
+2	SNT-ETH Binance 0/0 0.000145463 1928 opps 1.08793
+1	SNT-ETH Binance 0/2 0.000145463 1928 opps 0.0300897
+0	SNT-ETH Binance 0/0 0.000145463 1928 opps 33.2339 *
+5	ZEC-ETH Binance 0/0 0.447039 1928 opps 0.736821
+4	XZC-ETH Binance 0/0 0.0394553 1928 opps 1.37174 *
+1	QSP-BTC Binance 1/3 8.29651e-06 1900 opps 0.550505
+4	TNB-BTC Binance 0/0 2.60035e-06 1928 opps 0.50106
+3	TNB-BTC Binance 0/0 2.60035e-06 1928 opps 0.288889
+1	TNB-BTC Binance 1/3 2.60035e-06 1858 opps 1.84746 *
+0	TNB-BTC Binance 2/3 2.60035e-06 1826 opps 0.541284
+5	POWR-BTC Binance 0/0 3.56362e-05 1928 opps 1.52688 *
+4	POWR-BTC Binance 1/2 3.56362e-05 1898 opps 0.654932
+3	POWR-BTC Binance 0/1 3.56362e-05 1928 opps 0.393387
+3	APPC-BTC Binance 0/0 2.12354e-05 1928 opps 0.26962
+2	APPC-BTC Binance 3/15 2.12354e-05 1815 opps 3.70893 *
+1	APPC-BTC Binance 1/6 2.12354e-05 1902 opps 0.207619
+0	APPC-BTC Binance 2/6 2.12354e-05 1840 opps 4.81651 *
+5	XZC-ETH Binance 0/0 0.0394553 1928 opps 0.729001
+3	QSP-BTC Binance 0/0 8.29651e-06 1928 opps 0.34231
+3	XZC-ETH Binance 0/0 0.0394553 1928 opps 1.0139
+2	XZC-ETH Binance 0/0 0.0394553 1928 opps 0.986291
+1	XZC-ETH Binance 0/0 0.0394553 1928 opps 0.00012756
+0	XZC-ETH Binance 0/0 0.0394553 1928 opps 7839.45 *
+5	LTC-ETH Binance 0/0 0.192083 1928 opps 0.690047
+4	LTC-ETH Binance 0/0 0.192083 1928 opps 1.44918 *
+3	LTC-ETH Binance 0/0 0.192083 1928 opps 0.987211
+2	LTC-ETH Binance 0/0 0.192083 1928 opps 1.01295
+1	LTC-ETH Binance 0/0 0.192083 1928 opps 2.41819e-05
+0	LTC-ETH Binance 0/0 0.192083 1928 opps 41353.2 *
+5	TRIG-BNB Binance 0/0 0.0218628 1928 opps 0.911025
+4	TRIG-BNB Binance 1/4 0.0218628 1902 opps 1.09767
+3	TRIG-BNB Binance 0/0 0.0218628 1928 opps 0.66713
+2	BCH-BTC Coinbase 0/0 0.09972 1928 opps 1.77916 *
+3	VIB-BTC Binance 0/0 8.563e-06 1928 opps 0.33768
+2	VIB-BTC Binance 1/14 8.563e-06 1860 opps 2.96138 *
+1	VIB-BTC Binance 0/0 8.563e-06 1928 opps 0.512338
+0	VIB-BTC Binance 1/7 8.563e-06 1860 opps 1.95183 *
+5	QTUM-ETH Binance 0/0 0.0169528 1928 opps 0.92994
+4	QTUM-ETH Binance 0/0 0.0169528 1928 opps 1.07534
+3	QTUM-ETH Binance 0/0 0.0169528 1928 opps 0.875421
+2	QTUM-ETH Binance 0/0 0.0169528 1928 opps 1.14231
+1	QTUM-ETH Binance 0/0 0.0169528 1928 opps 0.000267978
+0	QTUM-ETH Binance 0/0 0.0169528 1928 opps 3731.65 *
+5	BCH-BTC Coinbase 0/0 0.09972 1928 opps 1.31577 *
+4	BCH-BTC Coinbase 0/0 0.09972 1928 opps 0.76001
+3	BCH-BTC Coinbase 0/0 0.09972 1928 opps 0.562064
+2	TRIG-BNB Binance 3/5 0.0218628 1786 opps 1.49896 *
+1	BCH-BTC Coinbase 0/0 0.09972 1928 opps 4.37883e-05
+0	BCH-BTC Coinbase 0/0 0.09972 1928 opps 22837.2 *
+5	ONT-ETH Binance 0/0 0.00822856 1928 opps 0.862138
+3	ONT-ETH Binance 0/0 0.00822856 1928 opps 0.748898
+1	ONT-ETH Binance 3/7 0.00822856 1825 opps 0.000673879
+5	KMD-ETH Binance 0/0 0.0037842 1928 opps 0.681501
+4	KMD-ETH Binance 0/0 0.0037842 1928 opps 1.46735 *
+3	KMD-ETH Binance 0/0 0.0037842 1928 opps 0.973638
+2	KMD-ETH Binance 0/0 0.0037842 1928 opps 1.02708
+1	KMD-ETH Binance 0/6 0.0037842 1928 opps 0.00127336
+0	KMD-ETH Binance 0/0 0.0037842 1928 opps 785.321 *
+5	QSP-BTC Binance 0/0 8.29651e-06 1928 opps 1.71444 *
+2	BRD-ETH Binance 0/0 0.00103685 1928 opps 1.12437
+5	QLC-BNB Binance 0/0 0.00448829 1928 opps 0.893638
+4	QLC-BNB Binance 0/0 0.00448829 1928 opps 1.11902
+3	QLC-BNB Binance 0/0 0.00448829 1928 opps 0.705874
+2	QLC-BNB Binance 4/17 0.00448829 1750 opps 1.41668 *
+1	QLC-BNB Binance 1/2 0.00448829 1903 opps 0.000955931
+0	QLC-BNB Binance 2/5 0.00448829 1841 opps 1046.1 *
+5	WINGS-BTC Binance 0/0 2.72221e-05 1928 opps 1.39492 *
+4	WINGS-BTC Binance 0/0 2.72221e-05 1928 opps 0.716888
+3	WINGS-BTC Binance 0/0 2.72221e-05 1928 opps 0.48909
+1	WINGS-BTC Binance 0/0 2.72221e-05 1928 opps 0.153629
+5	BRD-ETH Binance 0/0 0.00103685 1928 opps 0.655915
+4	BRD-ETH Binance 0/0 0.00103685 1928 opps 1.52459 *
+3	BRD-ETH Binance 0/0 0.00103685 1928 opps 0.889391
+0	LSK-ETH Binance 0/0 0.0123879 1928 opps 2431.19 *
+1	BRD-ETH Binance 1/2 0.00103685 1867 opps 0.0052759
+0	BRD-ETH Binance 0/0 0.00103685 1928 opps 189.541 *
+5	VIA-BNB Binance 0/0 0.0829672 1928 opps 1.12539
+4	VIA-BNB Binance 0/0 0.0829672 1928 opps 0.888579
+3	VIA-BNB Binance 0/0 0.0829672 1928 opps 0.662208
+2	VIA-BNB Binance 2/12 0.0829672 1830 opps 1.5101 *
+1	VIA-BNB Binance 0/1 0.0829672 1928 opps 4.30405e-05
+5	MANA-BTC Binance 0/0 1.35127e-05 1928 opps 1.35794 *
+4	MANA-BTC Binance 0/1 1.35127e-05 1928 opps 0.736407
+3	MANA-BTC Binance 0/1 1.35127e-05 1928 opps 0.262049
+2	MANA-BTC Binance 1/10 1.35127e-05 1898 opps 3.81608 *
+0	MANA-BTC Binance 0/2 1.35127e-05 1928 opps 3.49312 *
+5	MDA-ETH Binance 0/0 0.00149742 1928 opps 0.58743
+1	TRIG-BNB Binance 3/17 0.0218628 1838 opps 0.000172879
+5	LINK-ETH Binance 0/0 0.00072017 1928 opps 0.557614
+4	LINK-ETH Binance 2/3 0.00072017 1860 opps 1.79336 *
+3	LINK-ETH Binance 0/0 0.00072017 1928 opps 1
+2	LINK-ETH Binance 0/0 0.00072017 1928 opps 1
+1	LINK-ETH Binance 4/5 0.00072017 1777 opps 0.00632985
+0	LINK-ETH Binance 0/0 0.00072017 1928 opps 157.982 *
+5	OST-BTC Binance 1/6 7.62881e-06 1900 opps 1.67713 *
+4	OST-BTC Binance 1/6 7.62881e-06 1898 opps 0.596258
+3	OST-BTC Binance 0/1 7.62881e-06 1928 opps 0.284105
+2	OST-BTC Binance 3/18 7.62881e-06 1805 opps 3.51982 *
+1	OST-BTC Binance 3/9 7.62881e-06 1822 opps 0.603878
+0	OST-BTC Binance 4/11 7.62881e-06 1773 opps 1.65596 *
+5	BTC-USDT Binance 0/0 6798.52 1928 opps 1.07893
+2	MDA-ETH Binance 0/0 0.00149742 1928 opps 1.35574 *
+1	MDA-ETH Binance 4/10 0.00149742 1756 opps 0.00322485
+0	MDA-ETH Binance 0/0 0.00149742 1928 opps 310.092 *
+5	SNM-ETH Binance 0/0 0.000255297 1928 opps 1.09018
+4	SNM-ETH Binance 0/0 0.000255297 1928 opps 0.917282
+3	SNM-ETH Binance 0/0 0.000255297 1928 opps 0.574975
+2	SNM-ETH Binance 0/0 0.000255297 1928 opps 1.7392 *
+1	SNM-ETH Binance 0/0 0.000255297 1928 opps 0.0169452
+0	SNM-ETH Binance 0/0 0.000255297 1928 opps 59.0138 *
+5	LSK-ETH Binance 0/0 0.0123879 1928 opps 0.677441
+3	LSK-ETH Binance 0/0 0.0123879 1928 opps 0.935385
+2	LSK-ETH Binance 0/0 0.0123879 1928 opps 1.06908
+1	POA-ETH Binance 1/3 0.000335968 1885 opps 0.0133293
+1	BAT-ETH Binance 1/8 0.000671091 1893 opps 0.00652792
+5	WAVES-ETH Binance 0/0 0.00652438 1928 opps 0.549076
+4	WAVES-ETH Binance 0/0 0.00652438 1928 opps 1.82124 *
+3	WAVES-ETH Binance 0/0 0.00652438 1928 opps 0.921462
+2	WAVES-ETH Binance 0/13 0.00652438 1928 opps 1.08523
+0	WAVES-ETH Binance 0/12 0.00652438 1928 opps 1275.92 *
+5	STEEM-BNB Binance 0/0 0.0967836 1928 opps 1.19158
+4	STEEM-BNB Binance 0/2 0.0967836 1928 opps 0.839223
+3	STEEM-BNB Binance 0/0 0.0967836 1928 opps 0.634141
+5	POA-ETH Binance 0/0 0.000335968 1928 opps 1.06673
+4	POA-ETH Binance 0/0 0.000335968 1928 opps 0.937442
+3	POA-ETH Binance 0/0 0.000335968 1928 opps 0.639618
+2	POA-ETH Binance 0/0 0.000335968 1928 opps 1.56343 *
+2	BAT-ETH Binance 0/0 0.000671091 1928 opps 1.1138
+0	POA-ETH Binance 0/0 0.000335968 1928 opps 75.0229 *
+5	AE-BTC Binance 0/0 0.000232681 1928 opps 1.63179 *
+4	AE-BTC Binance 0/0 0.000232681 1928 opps 0.612825
+3	AE-BTC Binance 0/0 0.000232681 1928 opps 0.365291
+5	AMB-BTC Binance 0/0 3.27705e-05 1928 opps 1.62956 *
+4	AMB-BTC Binance 0/0 3.27705e-05 1928 opps 0.613661
+3	AMB-BTC Binance 0/0 3.27705e-05 1928 opps 0.387047
+1	AMB-BTC Binance 0/2 3.27705e-05 1928 opps 0.135868
+5	NEBL-BNB Binance 0/0 0.239702 1928 opps 1.26813 *
+4	NEBL-BNB Binance 0/1 0.239702 1928 opps 0.788564
+3	NEBL-BNB Binance 0/0 0.239702 1928 opps 0.54627
+2	NEBL-BNB Binance 2/11 0.239702 1874 opps 1.8306 *
+1	NEBL-BNB Binance 0/7 0.239702 1928 opps 1.60708e-05
+3	MCO-BTC Binance 0/0 0.000885883 1928 opps 0.47838
+1	ZIL-BNB Binance 1/4 0.00457364 1898 opps 0.000825914
+0	ZIL-BNB Binance 0/0 0.00457364 1928 opps 1210.78 *
+5	TRX-ETH Binance 0/0 8.02817e-05 1928 opps 0.803256
+4	TRX-ETH Binance 0/0 8.02817e-05 1928 opps 1.24493 *
+3	TRX-ETH Binance 0/0 8.02817e-05 1928 opps 0.988317
+2	TRX-ETH Binance 0/0 8.02817e-05 1928 opps 1.01182
+1	TRX-ETH Binance 0/0 8.02817e-05 1928 opps 0.0547601
+0	TRX-ETH Binance 0/0 8.02817e-05 1928 opps 18.2615 *
+5	SALT-ETH Binance 0/0 0.00214298 1928 opps 1.01793
+3	SALT-ETH Binance 0/0 0.00214298 1928 opps 0.636501
+0	SALT-ETH Binance 0/0 0.00214298 1928 opps 503.67 *
+5	MCO-BTC Binance 0/0 0.000885883 1928 opps 1.27019 *
+4	MCO-BTC Binance 0/1 0.000885883 1928 opps 0.787285
+0	NEBL-BNB Binance 4/10 0.239702 1793 opps 62224.8 *
+5	INS-BTC Binance 0/0 6.88952e-05 1928 opps 1.69066 *
+4	INS-BTC Binance 0/0 6.88952e-05 1928 opps 0.591487
+3	INS-BTC Binance 0/0 6.88952e-05 1928 opps 0.28938
+2	INS-BTC Binance 0/1 6.88952e-05 1928 opps 3.45567 *
+1	INS-BTC Binance 0/0 6.88952e-05 1928 opps 0.0813433
+5	FUEL-ETH Binance 0/0 6.26916e-05 1928 opps 1.10454
+4	FUEL-ETH Binance 0/1 6.26916e-05 1928 opps 0.905356
+3	FUEL-ETH Binance 0/0 6.26916e-05 1928 opps 0.625028
+1	FUEL-ETH Binance 0/1 6.26916e-05 1928 opps 0.0637427
+5	BAT-ETH Binance 0/0 0.000671091 1928 opps 0.84557
+4	BAT-ETH Binance 0/1 0.000671091 1928 opps 1.18263
+3	BAT-ETH Binance 0/0 0.000671091 1928 opps 0.897825
+3	RDN*-BTC Binance 0/0 9.53135e-05 1928 opps 0.455855
+2	FUEL-BTC Binance 3/10 3.72676e-06 1784 opps 4.08523 *
+1	FUEL-BTC Binance 0/1 3.72676e-06 1928 opps 0
+0	FUEL-BTC Binance 3/8 3.72676e-06 1789 opps inf *
+5	IOT-BNB Binance 0/0 0.066496 1928 opps 1.10928
+4	IOT-BNB Binance 0/0 0.066496 1928 opps 0.901483
+3	IOT-BNB Binance 0/0 0.066496 1928 opps 0.681953
+2	IOT-BNB Binance 1/2 0.066496 1883 opps 1.46638 *
+5	MOD-ETH Binance 0/0 0.00257915 1928 opps 0.651099
+3	MOD-ETH Binance 0/0 0.00257915 1928 opps 0.970256
+2	MOD-ETH Binance 0/2 0.00257915 1928 opps 1.03066
+1	MOD-ETH Binance 2/6 0.00257915 1873 opps 0
+0	MOD-ETH Binance 0/0 0.00257915 1928 opps inf *
+4	RDN*-BTC Binance 0/2 9.53135e-05 1928 opps 0.764249
+3	FUEL-BTC Binance 0/0 3.72676e-06 1928 opps 0.244784
+2	RDN*-BTC Binance 1/7 9.53135e-05 1858 opps 2.19368 *
+1	RDN*-BTC Binance 0/9 9.53135e-05 1928 opps 0
+0	RDN*-BTC Binance 1/7 9.53135e-05 1858 opps inf *
+5	XRB-BTC Binance 0/0 0.000338974 1928 opps 0.958166
+4	XRB-BTC Binance 0/19 0.000338974 1928 opps 1.04366
+3	XRB-BTC Binance 0/1 0.000338974 1928 opps 0.95082
+2	XRB-BTC Binance 0/0 0.000338974 1928 opps 1.05172
+1	XRB-BTC Binance 0/24 0.000338974 1928 opps 0
+0	XRB-BTC Binance 0/0 0.000338974 1928 opps inf *
+5	CMT*-ETH Binance 0/0 0.000328184 1928 opps 0.771232
+3	CMT*-ETH Binance 0/0 0.000328184 1928 opps 0.958681
+1	CMT*-ETH Binance 1/4 0.000328184 1903 opps 0
+1	XEM-BTC Binance 0/0 2.12779e-05 1928 opps 0
+5	CHAT-BTC Binance 0/0 4.58923e-06 1928 opps 1.63426 *
+2	CHAT-BTC Binance 3/15 4.58923e-06 1833 opps 3.28214 *
+1	CHAT-BTC Binance 3/4 4.58923e-06 1830 opps 0
+0	CHAT-BTC Binance 2/14 4.58923e-06 1858 opps inf *
+5	OMG-BTC Binance 0/0 0.000876518 1928 opps 1.60525 *
+4	OMG-BTC Binance 0/0 0.000876518 1928 opps 0.622957
+3	OMG-BTC Binance 0/0 0.000876518 1928 opps 0.389286
+1	OMG-BTC Binance 0/0 0.000876518 1928 opps 0
+0	OMG-BTC Binance 0/0 0.000876518 1928 opps inf *
+5	XEM-BTC Binance 0/0 2.12779e-05 1928 opps 1.372 *
+4	XEM-BTC Binance 0/0 2.12779e-05 1928 opps 0.728863
+3	XEM-BTC Binance 0/0 2.12779e-05 1928 opps 0.502107
+2	XEM-BTC Binance 0/0 2.12779e-05 1928 opps 1.99161 *
+3	ZIL-BNB Binance 0/0 0.00457364 1928 opps 0.543273
+0	XEM-BTC Binance 0/0 2.12779e-05 1928 opps inf *
+5	XRB-ETH Binance 0/0 0.0047098 1928 opps 0.934925
+4	XRB-ETH Binance 0/20 0.0047098 1928 opps 1.0696
+3	XRB-ETH Binance 0/1 0.0047098 1928 opps 0.974468
+2	XRB-ETH Binance 0/0 0.0047098 1928 opps 1.0262
+1	XRB-ETH Binance 0/24 0.0047098 1928 opps 0
+0	XRB-ETH Binance 0/0 0.0047098 1928 opps inf *
+5	PIVX-ETH Binance 0/0 0.0041264 1928 opps 0.842394
+4	PIVX-ETH Binance 0/0 0.0041264 1928 opps 1.18709
+3	PIVX-ETH Binance 0/0 0.0041264 1928 opps 0.927273
+5	FUEL-BTC Binance 0/0 3.72676e-06 1928 opps 2.11519 *
+4	FUEL-BTC Binance 0/1 3.72676e-06 1928 opps 0.47277
+2	YOYOW-ETH Binance 4/7 0.00010861 1765 opps 1.59344 *
+5	LEND-ETH Binance 0/0 5.47073e-05 1928 opps 0.923587
+4	LEND-ETH Binance 0/0 5.47073e-05 1928 opps 1.08274
+3	LEND-ETH Binance 0/0 5.47073e-05 1928 opps 0.762751
+2	LEND-ETH Binance 0/0 5.47073e-05 1928 opps 1.31104 *
+1	LEND-ETH Binance 0/3 5.47073e-05 1928 opps 0.0732035
+0	LEND-ETH Binance 0/0 5.47073e-05 1928 opps 13.6606 *
+5	CLOAK-ETH Binance 0/0 0.00788147 1928 opps 0.813626
+2	CLOAK-ETH Binance 1/26 0.00788147 1897 opps 1.19599
+1	CLOAK-ETH Binance 2/4 0.00788147 1866 opps 0.000559046
+0	CLOAK-ETH Binance 0/2 0.00788147 1928 opps 1788.76 *
+5	YOYOW-ETH Binance 0/0 0.00010861 1928 opps 1.07753
+4	YOYOW-ETH Binance 0/1 0.00010861 1928 opps 0.928046
+3	YOYOW-ETH Binance 0/0 0.00010861 1928 opps 0.627573
+0	RLC-BTC Binance 0/1 8.46061e-05 1928 opps 18.6697 *
+1	YOYOW-ETH Binance 1/3 0.00010861 1881 opps 0.0427032
+5	STORM-ETH Binance 0/0 3.41307e-05 1928 opps 0.982757
+4	STORM-ETH Binance 0/0 3.41307e-05 1928 opps 1.01755
+3	STORM-ETH Binance 0/0 3.41307e-05 1928 opps 0.759134
+2	STORM-ETH Binance 0/0 3.41307e-05 1928 opps 1.31729 *
+1	STORM-ETH Binance 0/3 3.41307e-05 1928 opps 0.123443
+0	STORM-ETH Binance 0/0 3.41307e-05 1928 opps 8.10092 *
+5	GNT-BTC Binance 0/0 3.60712e-05 1928 opps 1.69654 *
+4	GNT-BTC Binance 0/0 3.60712e-05 1928 opps 0.589434
+3	GNT-BTC Binance 0/0 3.60712e-05 1928 opps 0.370506
+1	GNT-BTC Binance 0/3 3.60712e-05 1928 opps 0.123688
+5	OAX-ETH Binance 0/0 0.00065859 1928 opps 0.964961
+1	VIA-ETH Binance 0/2 0.00272827 1928 opps 0.0014906
+4	BTC-USDT Binance 0/0 6798.52 1928 opps 0.926845
+3	BTC-USDT Binance 0/0 6798.52 1928 opps 0.747711
+2	BTC-USDT Binance 0/0 6798.52 1928 opps 1.33741 *
+1	BTC-USDT Binance 0/0 6798.52 1928 opps 5.33404e-10
+0	BTC-USDT Binance 0/0 6798.52 1928 opps 1.87475e+09 *
+5	LEND-BTC Binance 0/1 3.17656e-06 1928 opps 1.7066 *
+4	LEND-BTC Binance 0/0 3.17656e-06 1928 opps 0.585959
+3	LEND-BTC Binance 0/0 3.17656e-06 1928 opps 0.336957
+1	LEND-BTC Binance 0/3 3.17656e-06 1928 opps 1.30931 *
+0	LEND-BTC Binance 1/3 3.17656e-06 1878 opps 0.763761
+5	VIA-ETH Binance 0/0 0.00272827 1928 opps 0.771063
+4	VIA-ETH Binance 0/0 0.00272827 1928 opps 1.29691 *
+3	VIA-ETH Binance 0/0 0.00272827 1928 opps 0.927616
+4	OAX-ETH Binance 0/2 0.00065859 1928 opps 1.03631
+0	VIA-ETH Binance 0/0 0.00272827 1928 opps 670.872 *
+5	CMT*-BTC Binance 0/0 1.87604e-05 1928 opps 1.41776 *
+3	CMT*-BTC Binance 0/0 1.87604e-05 1928 opps 0.39771
+2	CMT*-BTC Binance 2/3 1.87604e-05 1848 opps 2.51439 *
+1	CMT*-BTC Binance 2/5 1.87604e-05 1878 opps 0.263126
+5	MTH-ETH Binance 0/0 8.28933e-05 1928 opps 0.879674
+3	MTH-ETH Binance 0/0 8.28933e-05 1928 opps 0.873816
+1	MTH-ETH Binance 0/5 8.28933e-05 1928 opps 0.0543234
+5	RLC-BTC Binance 0/0 8.46061e-05 1928 opps 1.57288 *
+4	RLC-BTC Binance 0/0 8.46061e-05 1928 opps 0.635777
+3	RLC-BTC Binance 0/0 8.46061e-05 1928 opps 0.35469
+1	RLC-BTC Binance 0/5 8.46061e-05 1928 opps 0.0535627
+1	ONT-BNB Binance 2/3 0.253171 1866 opps 1.96043e-05
+1	GTO-BNB Binance 1/2 0.00967613 1857 opps 0.000399633
+0	GTO-BNB Binance 0/0 0.00967613 1928 opps 2502.29 *
+5	ICX-ETH Binance 0/0 0.00293246 1928 opps 0.905215
+4	ICX-ETH Binance 0/0 0.00293246 1928 opps 1.10471
+3	ICX-ETH Binance 0/0 0.00293246 1928 opps 0.801587
+2	ICX-ETH Binance 0/0 0.00293246 1928 opps 1.24752 *
+1	ICX-ETH Binance 1/5 0.00293246 1895 opps 0.00164902
+0	ICX-ETH Binance 0/0 0.00293246 1928 opps 606.422 *
+5	CHAT-ETH Binance 0/0 7.70613e-05 1928 opps 0.858213
+2	CHAT-ETH Binance 2/3 7.70613e-05 1859 opps 1.32492 *
+1	CHAT-ETH Binance 2/13 7.70613e-05 1855 opps 0.0616603
+5	ONT-BNB Binance 0/0 0.253171 1928 opps 1.29189 *
+3	ONT-BNB Binance 0/0 0.253171 1928 opps 0.46926
+2	GTO-BNB Binance 0/0 0.00967613 1928 opps 2.39939 *
+5	GVT-ETH Binance 0/0 0.0191492 1928 opps 0.563315
+4	GVT-ETH Binance 0/0 0.0191492 1928 opps 1.77521 *
+3	GVT-ETH Binance 0/0 0.0191492 1928 opps 1.00893
+1	GVT-ETH Binance 0/6 0.0191492 1928 opps 0.000254822
+5	DLT-BTC Binance 0/0 1.02757e-05 1928 opps 1.81229 *
+4	DLT-BTC Binance 0/0 1.02757e-05 1928 opps 0.551789
+3	DLT-BTC Binance 0/0 1.02757e-05 1928 opps 0.293873
+2	DLT-BTC Binance 2/5 1.02757e-05 1861 opps 3.40283 *
+1	DLT-BTC Binance 0/0 1.02757e-05 1928 opps 0.432111
+0	DLT-BTC Binance 3/6 1.02757e-05 1834 opps 2.31422 *
+5	ZIL-BNB Binance 0/0 0.00457364 1928 opps 1.26238 *
+4	ZIL-BNB Binance 0/0 0.00457364 1928 opps 0.792155
+4	NCASH-ETH Binance 0/2 2.52661e-05 1928 opps 1.04675
+3	OAX-ETH Binance 0/1 0.00065859 1928 opps 0.733226
+1	OAX-ETH Binance 0/2 0.00065859 1928 opps 0.00643258
+5	ICN-ETH Binance 0/0 0.0014765 1928 opps 0.771815
+3	ICN-ETH Binance 0/0 0.0014765 1928 opps 0.96119
+1	ICN-ETH Binance 1/3 0.0014765 1900 opps 0.00359439
+0	ICN-ETH Binance 0/0 0.0014765 1928 opps 278.211 *
+5	LTC-EUR Coinbase 0/0 62.7516 1928 opps 1.32799 *
+4	LTC-EUR Coinbase 0/0 62.7516 1928 opps 0.753015
+3	LTC-EUR Coinbase 0/0 62.7516 1928 opps 0.543041
+2	LTC-EUR Coinbase 2/4 62.7516 1829 opps 1.84148 *
+1	LTC-EUR Coinbase 0/0 62.7516 1928 opps 6.20376e-08
+0	LTC-EUR Coinbase 2/5 62.7516 1828 opps 1.61193e+07 *
+5	NCASH-ETH Binance 0/0 2.52661e-05 1928 opps 0.955336
+4	VIB-BTC Binance 0/0 8.563e-06 1928 opps 0.575538
+3	NCASH-ETH Binance 0/0 2.52661e-05 1928 opps 0.684988
+1	NCASH-ETH Binance 1/8 2.52661e-05 1903 opps 0.170446
+0	NCASH-ETH Binance 0/0 2.52661e-05 1928 opps 5.86697 *
+5	WAN-BNB Binance 0/0 0.132206 1928 opps 1.36179 *
+4	WAN-BNB Binance 0/0 0.132206 1928 opps 0.734329
+3	WAN-BNB Binance 0/0 0.132206 1928 opps 0.468019
+2	WAN-BNB Binance 4/10 0.132206 1808 opps 2.13666 *
+1	WAN-BNB Binance 1/6 0.132206 1894 opps 3.30804e-05
+0	WAN-BNB Binance 3/11 0.132206 1823 opps 30229.4 *
+5	GTO-BNB Binance 0/0 0.00967613 1928 opps 1.47419 *
+4	GTO-BNB Binance 0/0 0.00967613 1928 opps 0.678339
+3	GTO-BNB Binance 0/0 0.00967613 1928 opps 0.416773
+0	XLM-BNB Binance 0/0 0.0187822 1928 opps 5128.44 *
+2	BTC-CAD Coinbase 0/0 861.74 1928 opps 1
+1	BTC-CAD Coinbase 0/0 861.74 1928 opps 5.05953e-09
+0	BTC-CAD Coinbase 0/0 861.74 1928 opps 1.97647e+08 *
+5	DNT-ETH Binance 0/0 8.08164e-05 1928 opps 0.817849
+4	DNT-ETH Binance 1/6 8.08164e-05 1903 opps 1.22272 *
+3	DNT-ETH Binance 1/2 8.08164e-05 1903 opps 0.731162
+2	DNT-ETH Binance 1/10 8.08164e-05 1899 opps 1.36769 *
+1	DNT-ETH Binance 2/3 8.08164e-05 1847 opps 0.0472475
+0	DNT-ETH Binance 0/9 8.08164e-05 1928 opps 21.1651 *
+5	XLM-BNB Binance 0/0 0.0187822 1928 opps 0.933672
+4	XLM-BNB Binance 0/0 0.0187822 1928 opps 1.07104
+3	XLM-BNB Binance 0/0 0.0187822 1928 opps 0.752994
+2	XLM-BNB Binance 0/0 0.0187822 1928 opps 1.32803 *
+3	BTC-CAD Coinbase 0/0 861.74 1928 opps 1
+4	RCN-BTC Binance 0/0 5.21751e-06 1928 opps 0.646002
+3	RCN-BTC Binance 0/0 5.21751e-06 1928 opps 0.389595
+2	RCN-BTC Binance 2/9 5.21751e-06 1834 opps 2.56677 *
+1	RCN-BTC Binance 0/3 5.21751e-06 1928 opps 0.759582
+5	BAT-BNB Binance 0/0 0.0205031 1928 opps 1.26186 *
+4	BAT-BNB Binance 1/3 0.0205031 1888 opps 0.792484
+3	BAT-BNB Binance 0/0 0.0205031 1928 opps 0.479197
+2	BAT-BNB Binance 1/3 0.0205031 1893 opps 2.08682 *
+1	BAT-BNB Binance 1/5 0.0205031 1888 opps 0.000189318
+0	BAT-BNB Binance 0/1 0.0205031 1928 opps 5282.11 *
+4	SUB-BTC Binance 0/0 2.7109e-05 1928 opps 0.619091
+3	SUB-BTC Binance 0/0 2.7109e-05 1928 opps 0.385448
+2	SUB-BTC Binance 5/29 2.7109e-05 1764 opps 2.59438 *
+4	NAV-ETH Binance 0/1 0.000945604 1928 opps 1.23751 *
+4	EOS-BTC Binance 0/0 0.00102888 1928 opps 0.775214
+3	EOS-BTC Binance 0/0 0.00102888 1928 opps 0.499373
+2	EOS-BTC Binance 0/0 0.00102888 1928 opps 2.00251 *
+1	EOS-BTC Binance 0/0 0.00102888 1928 opps 0.00460499
+0	EOS-BTC Binance 0/0 0.00102888 1928 opps 217.156 *
+2	POE-BTC Binance 4/6 2.05588e-06 1787 opps 3.46875 *
+5	RDN*-BNB Binance 0/0 0.0512309 1928 opps 1.06457
+4	RDN*-BNB Binance 1/2 0.0512309 1881 opps 0.939347
+3	RDN*-BNB Binance 0/0 0.0512309 1928 opps 0.597765
+2	RDN*-BNB Binance 0/21 0.0512309 1928 opps 1.6729 *
+1	RDN*-BNB Binance 2/4 0.0512309 1823 opps 7.0198e-05
+0	RDN*-BNB Binance 1/4 0.0512309 1901 opps 14245.4 *
+5	NAV-ETH Binance 0/0 0.000945604 1928 opps 0.808072
+1	SUB-BTC Binance 1/2 2.7109e-05 1886 opps 0.185453
+3	NAV-ETH Binance 0/0 0.000945604 1928 opps 0.927778
+2	NAV-ETH Binance 0/0 0.000945604 1928 opps 1.07784
+1	NAV-ETH Binance 1/2 0.000945604 1902 opps 0.00440849
+0	NAV-ETH Binance 0/0 0.000945604 1928 opps 226.835 *
+5	VIBE-ETH Binance 0/0 0.000138071 1928 opps 0.856271
+4	VIBE-ETH Binance 0/0 0.000138071 1928 opps 1.16785
+3	VIBE-ETH Binance 0/0 0.000138071 1928 opps 0.862346
+2	VIBE-ETH Binance 0/0 0.000138071 1928 opps 1.15963
+1	VIBE-ETH Binance 0/1 0.000138071 1928 opps 0.0325373
+0	VIBE-ETH Binance 0/0 0.000138071 1928 opps 30.7339 *
+5	BTC-CAD Coinbase 0/0 861.74 1928 opps 0.999012
+4	BTC-CAD Coinbase 0/0 861.74 1928 opps 1.00099
+1	AMB-BNB Binance 1/4 0.0174883 1889 opps 0.000220202
+2	WINGS-ETH Binance 0/0 0.00048201 1928 opps 0.995221
+1	WINGS-ETH Binance 0/0 0.00048201 1928 opps 0.00853229
+0	WINGS-ETH Binance 0/0 0.00048201 1928 opps 117.202 *
+5	NEO-ETH Binance 0/0 0.0713462 1928 opps 0.746803
+4	NEO-ETH Binance 0/0 0.0713462 1928 opps 1.33904 *
+3	NEO-ETH Binance 0/0 0.0713462 1928 opps 0.996554
+2	NEO-ETH Binance 0/0 0.0713462 1928 opps 1.00346
+1	NEO-ETH Binance 0/0 0.0713462 1928 opps 6.22413e-05
+0	NEO-ETH Binance 0/0 0.0713462 1928 opps 16066.5 *
+5	AMB-BNB Binance 0/0 0.0174883 1928 opps 1.25679 *
+4	AMB-BNB Binance 0/0 0.0174883 1928 opps 0.795676
+3	AMB-BNB Binance 0/0 0.0174883 1928 opps 0.54549
+2	AMB-BNB Binance 2/4 0.0174883 1864 opps 1.83321 *
+3	WINGS-ETH Binance 0/0 0.00048201 1928 opps 1.0048
+0	AMB-BNB Binance 2/3 0.0174883 1863 opps 4541.28 *
+5	BLZ-BNB Binance 0/0 0.0174785 1928 opps 1.46809 *
+3	BLZ-BNB Binance 0/0 0.0174785 1928 opps 0.423542
+2	BLZ-BNB Binance 3/5 0.0174785 1842 opps 2.36104 *
+1	BLZ-BNB Binance 1/4 0.0174785 1903 opps 0.000206733
+5	EVX-BTC Binance 0/0 8.35253e-05 1928 opps 1.35532 *
+4	EVX-BTC Binance 0/6 8.35253e-05 1928 opps 0.737833
+3	EVX-BTC Binance 0/1 8.35253e-05 1928 opps 0.388076
+2	EVX-BTC Binance 2/10 8.35253e-05 1833 opps 2.57682 *
+1	EVX-BTC Binance 1/3 8.35253e-05 1903 opps 0.0562218
+5	TRX-BTC Binance 0/0 4.57992e-06 1928 opps 1.47514 *
+4	TRX-BTC Binance 0/0 4.57992e-06 1928 opps 0.677902
+4	BTM-ETH Binance 0/0 0.00431 1928 opps 1.00099
+0	SUB-BTC Binance 5/8 2.7109e-05 1752 opps 5.3922 *
+5	YOYOW-BNB Binance 0/0 0.00339109 1928 opps 1.6304 *
+4	YOYOW-BNB Binance 0/0 0.00339109 1928 opps 0.613345
+3	YOYOW-BNB Binance 0/0 0.00339109 1928 opps 0.386923
+2	YOYOW-BNB Binance 4/10 0.00339109 1806 opps 2.5845 *
+1	YOYOW-BNB Binance 1/2 0.00339109 1881 opps 0.00122748
+0	YOYOW-BNB Binance 2/5 0.00339109 1864 opps 814.679 *
+5	TNT-ETH Binance 0/0 8.27509e-05 1928 opps 0.927898
+4	TNT-ETH Binance 0/1 8.27509e-05 1928 opps 1.0777
+3	TNT-ETH Binance 0/0 8.27509e-05 1928 opps 0.718226
+2	TNT-ETH Binance 1/4 8.27509e-05 1894 opps 1.39232 *
+1	TNT-ETH Binance 0/1 8.27509e-05 1928 opps 0.054101
+5	BTM-ETH Binance 0/0 0.00431 1928 opps 0.999012
+5	EOS-BTC Binance 0/0 0.00102888 1928 opps 1.28997 *
+3	BTM-ETH Binance 0/0 0.00431 1928 opps 1
+2	BTM-ETH Binance 0/0 0.00431 1928 opps 1
+1	BTM-ETH Binance 0/0 0.00431 1928 opps 0.0010116
+0	BTM-ETH Binance 0/0 0.00431 1928 opps 988.532 *
+5	RPX-BTC Binance 0/0 3.9137e-06 1928 opps 1.72168 *
+4	RPX-BTC Binance 0/0 3.9137e-06 1928 opps 0.580828
+3	RPX-BTC Binance 0/0 3.9137e-06 1928 opps 0.344461
+2	RPX-BTC Binance 0/19 3.9137e-06 1928 opps 2.90308 *
+1	RPX-BTC Binance 0/0 3.9137e-06 1928 opps 1.09824
+0	RPX-BTC Binance 1/17 3.9137e-06 1889 opps 0.91055
+5	WINGS-ETH Binance 0/0 0.00048201 1928 opps 0.767305
+4	WINGS-ETH Binance 0/0 0.00048201 1928 opps 1.30326 *
+3	WAVES-BTC Binance 0/0 0.000363063 1928 opps 0.670009
+1	LRC-ETH Binance 0/2 0.000537639 1928 opps 0.00768688
+0	LRC-ETH Binance 0/0 0.000537639 1928 opps 130.092 *
+5	NULS-BTC Binance 0/0 0.000294667 1928 opps 1.50554 *
+3	NULS-BTC Binance 0/0 0.000294667 1928 opps 0.449425
+1	NULS-BTC Binance 1/6 0.000294667 1902 opps 0.0145043
+5	OST-BNB Binance 1/6 0.0040618 1900 opps 1.35026 *
+4	OST-BNB Binance 2/9 0.0040618 1867 opps 0.740597
+3	OST-BNB Binance 0/1 0.0040618 1928 opps 0.351497
+2	OST-BNB Binance 4/15 0.0040618 1807 opps 2.84498 *
+1	OST-BNB Binance 2/26 0.0040618 1873 opps 0.000971047
+0	OST-BNB Binance 4/5 0.0040618 1798 opps 1029.82 *
+5	WAVES-BTC Binance 0/0 0.000363063 1928 opps 0.985226
+4	WAVES-BTC Binance 0/0 0.000363063 1928 opps 1.015
+2	LRC-ETH Binance 0/0 0.000537639 1928 opps 1.74469 *
+1	WAVES-BTC Binance 0/3 0.000363063 1928 opps 0.0139833
+5	PIVX-BTC Binance 0/0 0.00023628 1928 opps 1.55114 *
+4	PIVX-BTC Binance 0/0 0.00023628 1928 opps 0.644688
+3	PIVX-BTC Binance 0/0 0.00023628 1928 opps 0.383762
+1	PIVX-BTC Binance 1/2 0.00023628 1898 opps 0.0175736
+5	SNGLS-ETH Binance 0/0 8.01561e-05 1928 opps 0.846964
+4	SNGLS-ETH Binance 0/2 8.01561e-05 1928 opps 1.18069
+3	SNGLS-ETH Binance 0/1 8.01561e-05 1928 opps 0.828947
+2	SNGLS-ETH Binance 1/40 8.01561e-05 1857 opps 1.20635 *
+1	SNGLS-ETH Binance 1/4 8.01561e-05 1900 opps 0.0578249
+0	SNGLS-ETH Binance 1/2 8.01561e-05 1858 opps 17.2936 *
+5	WAVES-BNB Binance 0/0 0.19801 1928 opps 0.805964
+4	WAVES-BNB Binance 0/0 0.19801 1928 opps 1.24075 *
+4	RCN-ETH Binance 0/0 8.90564e-05 1928 opps 1.21774 *
+5	BTS-ETH Binance 0/0 0.000382296 1928 opps 0.782178
+4	BTS-ETH Binance 0/0 0.000382296 1928 opps 1.27848 *
+3	BTS-ETH Binance 0/0 0.000382296 1928 opps 0.963496
+2	BTS-ETH Binance 0/0 0.000382296 1928 opps 1.03789
+1	BTS-ETH Binance 0/0 0.000382296 1928 opps 0.0108782
+0	BTS-ETH Binance 0/0 0.000382296 1928 opps 91.9266 *
+5	DNT-BTC Binance 0/0 4.57336e-06 1928 opps 1.484 *
+4	DNT-BTC Binance 1/6 4.57336e-06 1903 opps 0.673854
+3	DNT-BTC Binance 1/2 4.57336e-06 1903 opps 0.399481
+2	DNT-BTC Binance 3/15 4.57336e-06 1817 opps 2.50325 *
+1	DNT-BTC Binance 2/3 4.57336e-06 1847 opps 0.844961
+0	DNT-BTC Binance 2/15 4.57336e-06 1842 opps 1.18349
+5	RCN-ETH Binance 0/0 8.90564e-05 1928 opps 0.821196
+3	WAVES-BNB Binance 0/0 0.19801 1928 opps 0.938385
+3	RCN-ETH Binance 0/0 8.90564e-05 1928 opps 0.922619
+2	RCN-ETH Binance 1/2 8.90564e-05 1868 opps 1.08387
+1	RCN-ETH Binance 0/3 8.90564e-05 1928 opps 0.0421256
+5	POA-BNB Binance 0/0 0.0104639 1928 opps 1.62097 *
+4	POA-BNB Binance 0/0 0.0104639 1928 opps 0.616915
+3	POA-BNB Binance 0/0 0.0104639 1928 opps 0.389964
+2	POA-BNB Binance 2/11 0.0104639 1862 opps 2.56434 *
+1	POA-BNB Binance 2/3 0.0104639 1824 opps 0.000391031
+0	POA-BNB Binance 1/6 0.0104639 1890 opps 2557.34 *
+5	LRC-ETH Binance 0/0 0.000537639 1928 opps 1.16439
+4	LRC-ETH Binance 0/0 0.000537639 1928 opps 0.858822
+3	LRC-ETH Binance 0/0 0.000537639 1928 opps 0.573168
+5	WPR-ETH Binance 0/0 8.38663e-05 1928 opps 0.921056
+4	ARK-ETH Binance 0/0 0.00279756 1928 opps 1.14388
+3	ARK-ETH Binance 0/0 0.00279756 1928 opps 0.915162
+1	ARK-ETH Binance 0/1 0.00279756 1928 opps 0.00170312
+3	BLZ-BTC Binance 0/0 3.26236e-05 1928 opps 0.303185
+2	BLZ-BTC Binance 4/5 3.26236e-05 1781 opps 3.29831 *
+0	BLZ-BTC Binance 2/3 3.26236e-05 1857 opps 7.98394 *
+4	ZIL-BTC Binance 0/0 8.51794e-06 1928 opps 0.640708
+3	ZIL-BTC Binance 0/0 8.51794e-06 1928 opps 0.385704
+5	CND-BNB Binance 0/0 0.00202268 1928 opps 1.37963 *
+4	CND-BNB Binance 0/0 0.00202268 1928 opps 0.72483
+3	CND-BNB Binance 0/0 0.00202268 1928 opps 0.529263
+2	CND-BNB Binance 1/2 0.00202268 1891 opps 1.88942 *
+1	CND-BNB Binance 0/0 0.00202268 1928 opps 0.00198814
+5	ARK-ETH Binance 0/0 0.00279756 1928 opps 0.874215
+4	WPR-ETH Binance 0/0 8.38663e-05 1928 opps 1.08571
+3	WPR-ETH Binance 0/0 8.38663e-05 1928 opps 0.807815
+2	WPR-ETH Binance 1/12 8.38663e-05 1862 opps 1.23791 *
+1	WPR-ETH Binance 0/3 8.38663e-05 1928 opps 0.0507095
+0	WPR-ETH Binance 1/2 8.38663e-05 1873 opps 19.7202 *
+4	ARK-BTC Binance 0/0 0.000160684 1928 opps 0.61893
+3	ARK-BTC Binance 0/0 0.000160684 1928 opps 0.400161
+1	ARK-BTC Binance 0/0 0.000160684 1928 opps 0.0304682
+4	DGD-BTC Binance 0/0 0.0115343 1928 opps 0.522884
+3	DGD-BTC Binance 0/0 0.0115343 1928 opps 0.343525
+2	DGD-BTC Binance 1/4 0.0115343 1898 opps 2.91099 *
+1	DGD-BTC Binance 0/0 0.0115343 1928 opps 0.000395286
+4	AE-ETH Binance 0/0 0.00404609 1928 opps 1.13744
+2	WAVES-BNB Binance 1/8 0.19801 1892 opps 1.06566
+0	WAVES-BNB Binance 1/7 0.19801 1892 opps 44197.2 *
+4	WABI-BTC Binance 0/4 4.09942e-05 1928 opps 0.686542
+3	WABI-BTC Binance 0/0 4.09942e-05 1928 opps 0.416902
+2	WABI-BTC Binance 4/16 4.09942e-05 1764 opps 2.39865 *
+0	WABI-BTC Binance 4/7 4.09942e-05 1782 opps 8.24312 *
+5	ZEC-BTC Binance 0/0 0.024665 1928 opps 1.30238 *
+4	ZEC-BTC Binance 0/0 0.024665 1928 opps 0.767824
+3	ZEC-BTC Binance 0/0 0.024665 1928 opps 0.629531
+2	ZEC-BTC Binance 0/0 0.024665 1928 opps 1.58848 *
+1	ZEC-BTC Binance 0/0 0.024665 1928 opps 0.000166222
+0	ZEC-BTC Binance 0/0 0.024665 1928 opps 6016.06 *
+5	AE-ETH Binance 0/0 0.00404609 1928 opps 0.879166
+3	TRX-BTC Binance 0/0 4.57992e-06 1928 opps 0.41555
+3	AE-ETH Binance 0/0 0.00404609 1928 opps 0.920384
+1	AE-ETH Binance 0/0 0.00404609 1928 opps 0.000994526
+5	VIBE-BTC Binance 0/0 8.117e-06 1928 opps 1.62001 *
+4	VIBE-BTC Binance 0/0 8.117e-06 1928 opps 0.61728
+3	VIBE-BTC Binance 0/0 8.117e-06 1928 opps 0.341297
+2	VIBE-BTC Binance 2/3 8.117e-06 1835 opps 2.93 *
+1	VIBE-BTC Binance 0/1 8.117e-06 1928 opps 0.58681
+5	WPR-BTC Binance 0/0 4.85356e-06 1928 opps 1.70047 *
+4	WPR-BTC Binance 0/0 4.85356e-06 1928 opps 0.588072
+3	WPR-BTC Binance 0/0 4.85356e-06 1928 opps 0.372063
+2	WPR-BTC Binance 3/10 4.85356e-06 1792 opps 2.68772 *
+1	WPR-BTC Binance 0/1 4.85356e-06 1928 opps 0.912134
+4	CTR-BTC Binance 0/0 9.11e-06 1928 opps 1.00099
+0	AST-BTC Binance 5/6 1.80512e-05 1765 opps 3.93349 *
+5	STRAT-ETH Binance 0/0 0.00557349 1928 opps 0.764281
+4	STRAT-ETH Binance 0/0 0.00557349 1928 opps 1.30842 *
+3	STRAT-ETH Binance 0/0 0.00557349 1928 opps 0.973695
+2	STRAT-ETH Binance 0/0 0.00557349 1928 opps 1.02702
+1	STRAT-ETH Binance 0/1 0.00557349 1928 opps 0.000699503
+0	STRAT-ETH Binance 0/0 0.00557349 1928 opps 1429.59 *
+4	BCD-BTC Binance 2/5 0.00183056 1857 opps 0.177545
+3	BCD-BTC Binance 1/3 0.00183056 1897 opps 0.105863
+2	BCD-BTC Binance 5/8 0.00183056 1777 opps 9.44615 *
+1	BCD-BTC Binance 2/6 0.00183056 1861 opps 0.00207718
+0	BCD-BTC Binance 3/8 0.00183056 1820 opps 481.422 *
+5	CTR-BTC Binance 0/0 9.11e-06 1928 opps 0.999012
+1	AST-BTC Binance 2/14 1.80512e-05 1840 opps 0.254227
+3	CTR-BTC Binance 0/0 9.11e-06 1928 opps 1
+2	CTR-BTC Binance 0/0 9.11e-06 1928 opps 1
+1	CTR-BTC Binance 0/0 9.11e-06 1928 opps 0.478595
+0	CTR-BTC Binance 0/0 9.11e-06 1928 opps 2.08945 *
+5	GNT-ETH Binance 0/0 0.000621567 1928 opps 0.907934
+4	GNT-ETH Binance 0/0 0.000621567 1928 opps 1.1014
+3	GNT-ETH Binance 0/0 0.000621567 1928 opps 0.864274
+2	GNT-ETH Binance 0/0 0.000621567 1928 opps 1.15704
+1	GNT-ETH Binance 0/2 0.000621567 1928 opps 0.00691844
+0	GNT-ETH Binance 0/0 0.000621567 1928 opps 144.541 *
+5	NAV-BNB Binance 0/0 0.0290794 1928 opps 1.22722 *
+4	NAV-BNB Binance 0/0 0.0290794 1928 opps 0.814847
+3	NAV-BNB Binance 0/0 0.0290794 1928 opps 0.581635
+5	BCH-ETH Binance 0/0 1.78868 1928 opps 0.735353
+2	APPC-BNB Binance 1/7 0.0113508 1901 opps 2.82993 *
+1	APPC-BNB Binance 1/2 0.0113508 1872 opps 0.000331055
+0	APPC-BNB Binance 2/6 0.0113508 1860 opps 3020.64 *
+5	CLOAK-BTC Binance 0/0 0.000458909 1928 opps 1.51181 *
+2	CLOAK-BTC Binance 4/33 0.000458909 1743 opps 2.76733 *
+1	CLOAK-BTC Binance 2/4 0.000458909 1866 opps 0.0100646
+0	CLOAK-BTC Binance 3/5 0.000458909 1799 opps 99.3578 *
+5	QSP-ETH Binance 0/0 0.000143942 1928 opps 0.921302
+4	QSP-ETH Binance 0/0 0.000143942 1928 opps 1.08542
+3	QSP-ETH Binance 0/0 0.000143942 1928 opps 0.843243
+2	QSP-ETH Binance 0/0 0.000143942 1928 opps 1.1859
+1	QSP-ETH Binance 0/4 0.000143942 1928 opps 0.0306395
+0	QSP-ETH Binance 0/0 0.000143942 1928 opps 32.6376 *
+2	NAV-BNB Binance 1/2 0.0290794 1899 opps 1.71929 *
+4	BCH-ETH Binance 0/0 1.78868 1928 opps 1.35989 *
+3	BCH-ETH Binance 0/0 1.78868 1928 opps 0.983806
+2	BCH-ETH Binance 0/0 1.78868 1928 opps 1.01646
+1	BCH-ETH Binance 0/0 1.78868 1928 opps 2.43575e-06
+0	BCH-ETH Binance 0/0 1.78868 1928 opps 410550 *
+5	REQ-ETH Binance 0/0 0.000152616 1928 opps 0.865252
+4	REQ-ETH Binance 0/0 0.000152616 1928 opps 1.15573
+3	REQ-ETH Binance 0/0 0.000152616 1928 opps 0.887097
+1	REQ-ETH Binance 0/5 0.000152616 1928 opps 0.0316171
+5	AST-BTC Binance 0/0 1.80512e-05 1928 opps 1.51946 *
+4	AST-BTC Binance 1/3 1.80512e-05 1889 opps 0.658129
+2	AST-BTC Binance 5/7 1.80512e-05 1723 opps 2.78583 *
+5	CMT*-BNB Binance 0/0 0.0100737 1928 opps 1.15484
+3	IOTA-ETH Binance 0/0 7.475e-07 1928 opps inf *
+2	IOTA-ETH Binance 0/0 7.475e-07 1928 opps 5.41985e-317
+1	IOTA-ETH Binance 0/0 7.475e-07 1928 opps inf *
+0	IOTA-ETH Binance 0/0 7.475e-07 1928 opps 0
+5	QTUM-BNB Binance 0/0 0.523663 1928 opps 1.40217 *
+4	QTUM-BNB Binance 0/0 0.523663 1928 opps 0.713179
+3	QTUM-BNB Binance 0/0 0.523663 1928 opps 0.546426
+2	QTUM-BNB Binance 0/0 0.523663 1928 opps 1.83007 *
+1	QTUM-BNB Binance 0/0 0.523663 1928 opps 7.75111e-06
+0	QTUM-BNB Binance 0/0 0.523663 1928 opps 129014 *
+5	POE-ETH Binance 0/0 3.60753e-05 1928 opps 0.879388
+2	POE-ETH Binance 2/4 3.60753e-05 1876 opps 1.52743 *
+0	POE-ETH Binance 1/2 3.60753e-05 1884 opps 8.87156 *
+4	IOTA-ETH Binance 0/0 7.475e-07 1928 opps 2024 *
+3	CMT*-BNB Binance 0/0 0.0100737 1928 opps 0.592114
+2	CMT*-BNB Binance 2/3 0.0100737 1857 opps 1.68886 *
+0	CMT*-BNB Binance 2/4 0.0100737 1863 opps 2369.27 *
+5	AION-BNB Binance 0/0 0.0607529 1928 opps 1.3369 *
+1	AION-BNB Binance 2/3 0.0607529 1846 opps 7.09866e-05
+2	MTL-BTC Binance 2/3 0.000155743 1839 opps 2.75936 *
+1	MTL-BTC Binance 0/3 0.000155743 1928 opps 0.0284224
+5	IOT-BTC Binance 0/0 0.000123745 1928 opps 1.36193 *
+4	IOT-BTC Binance 0/0 0.000123745 1928 opps 0.734252
+3	IOT-BTC Binance 0/0 0.000123745 1928 opps 0.489957
+1	IOT-BTC Binance 0/1 0.000123745 1928 opps 0.0366387
+5	VIB-BTC Binance 0/0 8.563e-06 1928 opps 1.73751 *
+4	LTC-BTC Coinbase 0/0 0.010725 1928 opps 0.806971
+1	NAV-BNB Binance 1/5 0.0290794 1891 opps 0.000128198
+5	ETC-USD Coinbase 0/0 2.93785 1928 opps 0.26036
+4	ETC-USD Coinbase 0/18 2.93785 1928 opps 3.84084 *
+3	ETC-USD Coinbase 0/1 2.93785 1928 opps 0.771626
+2	ETC-USD Coinbase 1/3 2.93785 1882 opps 1.29596 *
+1	ETC-USD Coinbase 0/24 2.93785 1928 opps inf *
+5	RDN*-ETH Binance 0/0 0.00166559 1928 opps 0.707963
+4	RDN*-ETH Binance 1/2 0.00166559 1901 opps 1.4125 *
+3	RDN*-ETH Binance 0/0 0.00166559 1928 opps 0.886209
+2	RDN*-ETH Binance 0/0 0.00166559 1928 opps 1.1284
+1	RDN*-ETH Binance 1/5 0.00166559 1881 opps 0.0023956
+0	RDN*-ETH Binance 0/0 0.00166559 1928 opps 417.431 *
+5	LTC-BTC Coinbase 0/0 0.010725 1928 opps 1.2392 *
+3	APPC-BNB Binance 0/0 0.0113508 1928 opps 0.353365
+3	LTC-BTC Coinbase 0/0 0.010725 1928 opps 0.584574
+2	LTC-BTC Coinbase 0/0 0.010725 1928 opps 1.71065 *
+1	LTC-BTC Coinbase 0/0 0.010725 1928 opps 0.000433831
+0	LTC-BTC Coinbase 0/0 0.010725 1928 opps 2305.05 *
+5	ZRX-BTC Binance 0/0 0.000127805 1928 opps 1.40792 *
+3	ZRX-BTC Binance 0/0 0.000127805 1928 opps 0.499505
+5	OAX-BTC Binance 0/0 3.83156e-05 1928 opps 1.80319 *
+4	OAX-BTC Binance 0/2 3.83156e-05 1928 opps 0.554574
+3	OAX-BTC Binance 0/1 3.83156e-05 1928 opps 0.321515
+1	OAX-BTC Binance 0/2 3.83156e-05 1928 opps 0.11504
+0	OAX-BTC Binance 2/3 3.83156e-05 1861 opps 8.69266 *
+5	IOTA-ETH Binance 0/0 7.475e-07 1928 opps 0.000494071
+0	LSK-BTC Binance 0/0 0.000686612 1928 opps 136.399 *
+0	MOD-BTC Binance 0/0 0.000140286 1928 opps 25.344 *
+5	NAV-BTC Binance 0/0 5.40206e-05 1928 opps 1.48212 *
+4	NAV-BTC Binance 0/1 5.40206e-05 1928 opps 0.674709
+3	NAV-BTC Binance 0/0 5.40206e-05 1928 opps 0.40221
+1	NAV-BTC Binance 1/4 5.40206e-05 1892 opps 0.0798535
+5	XLM-ETH Binance 0/0 0.00062467 1928 opps 0.639999
+4	XLM-ETH Binance 0/0 0.00062467 1928 opps 1.5625 *
+3	XLM-ETH Binance 0/0 0.00062467 1928 opps 0.956078
+2	XLM-ETH Binance 0/0 0.00062467 1928 opps 1.04594
+0	XLM-ETH Binance 0/0 0.00062467 1928 opps 148.188 *
+5	LSK-BTC Binance 0/0 0.000686612 1928 opps 1.20241 *
+3	LSK-BTC Binance 0/0 0.000686612 1928 opps 0.5921
+2	LSK-BTC Binance 0/0 0.000686612 1928 opps 1.6889 *
+1	MOD-BTC Binance 1/3 0.000140286 1899 opps 0.039457
+5	ELF-BTC Binance 0/1 7.76584e-05 1928 opps 1.45537 *
+4	ELF-BTC Binance 0/0 7.76584e-05 1928 opps 0.68711
+3	ELF-BTC Binance 0/0 7.76584e-05 1928 opps 0.430987
+2	ELF-BTC Binance 4/6 7.76584e-05 1796 opps 2.32026 *
+1	ELF-BTC Binance 1/2 7.76584e-05 1897 opps 0.0580173
+5	SNGLS-BTC Binance 0/0 4.55795e-06 1928 opps 1.55296 *
+4	SNGLS-BTC Binance 0/2 4.55795e-06 1928 opps 0.643932
+3	SNGLS-BTC Binance 0/1 4.55795e-06 1928 opps 0.361728
+2	SNGLS-BTC Binance 2/46 4.55795e-06 1810 opps 2.76451 *
+1	SNGLS-BTC Binance 0/4 4.55795e-06 1928 opps 1.0381
+0	SNGLS-BTC Binance 2/5 4.55795e-06 1848 opps 0.963303
+5	POWR-ETH Binance 0/0 0.000636819 1928 opps 0.843852
+2	EOS-ETH Binance 0/0 0.0182603 1928 opps 1.00741
+1	TRX-BTC Binance 0/0 4.57992e-06 1928 opps 0.979775
+5	XRP-ETH Binance 0/0 0.00106515 1928 opps 0.764404
+4	XRP-ETH Binance 0/0 0.00106515 1928 opps 1.30821 *
+3	XRP-ETH Binance 0/0 0.00106515 1928 opps 0.95931
+2	XRP-ETH Binance 0/0 0.00106515 1928 opps 1.04242
+1	XRP-ETH Binance 0/0 0.00106515 1928 opps 0.00446264
+0	XRP-ETH Binance 0/0 0.00106515 1928 opps 224.083 *
+5	IOST-BTC Binance 0/0 2.95905e-06 1928 opps 1.6153 *
+2	IOST-BTC Binance 3/12 2.95905e-06 1782 opps 2.64481 *
+0	IOST-BTC Binance 2/12 2.95905e-06 1836 opps 0.706422
+5	EOS-ETH Binance 0/0 0.0182603 1928 opps 0.710849
+4	EOS-ETH Binance 0/0 0.0182603 1928 opps 1.40677 *
+3	EOS-ETH Binance 0/0 0.0182603 1928 opps 0.992644
+4	POWR-ETH Binance 1/2 0.000636819 1898 opps 1.18504
+1	EOS-ETH Binance 0/0 0.0182603 1928 opps 0.000257227
+0	EOS-ETH Binance 0/0 0.0182603 1928 opps 3887.61 *
+5	RLC-BNB Binance 0/0 0.0452105 1928 opps 1.2459 *
+4	RLC-BNB Binance 0/0 0.0452105 1928 opps 0.80263
+3	RLC-BNB Binance 0/0 0.0452105 1928 opps 0.565835
+2	RLC-BNB Binance 2/17 0.0452105 1866 opps 1.7673 *
+1	RLC-BNB Binance 1/2 0.0452105 1859 opps 8.63366e-05
+0	RLC-BNB Binance 2/10 0.0452105 1865 opps 11582.6 *
+5	MOD-BTC Binance 0/0 0.000140286 1928 opps 1.13852
+4	MOD-BTC Binance 0/0 0.000140286 1928 opps 0.878335
+3	MOD-BTC Binance 0/0 0.000140286 1928 opps 0.657388
+2	MOD-BTC Binance 0/0 0.000140286 1928 opps 1.52117 *
+0	XEM-BNB Binance 0/0 0.0115189 1928 opps 2977.06 *
+2	KNC-BTC Binance 2/24 0.000106508 1832 opps 2.75696 *
+1	KNC-BTC Binance 0/4 0.000106508 1928 opps 0.041327
+5	BTC-USD Coinbase 0/0 6798.72 1928 opps 1.07988
+4	BTC-USD Coinbase 0/0 6798.72 1928 opps 0.926026
+3	BTC-USD Coinbase 0/0 6798.72 1928 opps 0.747017
+2	BTC-USD Coinbase 0/0 6798.72 1928 opps 1.33866 *
+1	BTC-USD Coinbase 0/0 6798.72 1928 opps 5.33659e-10
+0	BTC-USD Coinbase 0/0 6798.72 1928 opps 1.87386e+09 *
+5	XEM-BNB Binance 0/0 0.0115189 1928 opps 1.11056
+4	XEM-BNB Binance 0/0 0.0115189 1928 opps 0.900445
+3	XEM-BNB Binance 0/0 0.0115189 1928 opps 0.689037
+2	XEM-BNB Binance 0/0 0.0115189 1928 opps 1.4513 *
+1	XEM-BNB Binance 0/3 0.0115189 1928 opps 0.000335901
+3	KNC-BTC Binance 0/1 0.000106508 1928 opps 0.362718
+5	NCASH-BNB Binance 0/0 0.000783527 1928 opps 1.42669 *
+4	NCASH-BNB Binance 1/3 0.000783527 1898 opps 0.700924
+3	NCASH-BNB Binance 0/1 0.000783527 1928 opps 0.454847
+2	NCASH-BNB Binance 1/2 0.000783527 1873 opps 2.19854 *
+1	NCASH-BNB Binance 1/3 0.000783527 1903 opps 0.00496583
+0	NCASH-BNB Binance 3/5 0.000783527 1829 opps 201.376 *
+5	BLZ-ETH Binance 0/0 0.000559407 1928 opps 0.980325
+3	BLZ-ETH Binance 0/0 0.000559407 1928 opps 0.698714
+2	BLZ-ETH Binance 0/7 0.000559407 1928 opps 1.4312 *
+1	BLZ-ETH Binance 1/2 0.000559407 1891 opps 0.00702433
+0	BLZ-ETH Binance 1/5 0.000559407 1892 opps 142.362 *
+5	APPC-BNB Binance 0/0 0.0113508 1928 opps 1.5438 *
+2	XVG-ETH Binance 0/0 5.13278e-05 1928 opps 1.00868
+0	POWR-ETH Binance 0/0 0.000636819 1928 opps 158.509 *
+5	NEBL-ETH Binance 0/0 0.00775643 1928 opps 0.843239
+4	NEBL-ETH Binance 0/0 0.00775643 1928 opps 1.1859
+3	NEBL-ETH Binance 0/0 0.00775643 1928 opps 0.96118
+1	NEBL-ETH Binance 0/7 0.00775643 1928 opps 0.000552528
+0	NEBL-ETH Binance 0/0 0.00775643 1928 opps 1809.86 *
+4	WAN-BTC Binance 0/0 0.00024985 1928 opps 0.587387
+3	WAN-BTC Binance 0/0 0.00024985 1928 opps 0.304221
+2	WAN-BTC Binance 5/6 0.00024985 1681 opps 3.28708 *
+0	WAN-BTC Binance 4/6 0.00024985 1744 opps 48.8303 *
+5	XVG-ETH Binance 0/0 5.13278e-05 1928 opps 0.768205
+4	XVG-ETH Binance 0/0 5.13278e-05 1928 opps 1.30174 *
+3	XVG-ETH Binance 0/0 5.13278e-05 1928 opps 0.991393
+0	CND-ETH Binance 0/0 6.56375e-05 1928 opps 14.5757 *
+1	XVG-ETH Binance 1/6 5.13278e-05 1887 opps 0.0820938
+0	XVG-ETH Binance 0/0 5.13278e-05 1928 opps 12.1812 *
+5	MDA-BTC Binance 0/0 7.90729e-05 1928 opps 0.997918
+2	MDA-BTC Binance 1/16 7.90729e-05 1887 opps 1.73281 *
+0	MDA-BTC Binance 1/16 7.90729e-05 1887 opps 17.0528 *
+5	ENG-ETH Binance 0/0 0.0027547 1928 opps 0.90832
+4	ENG-ETH Binance 0/0 0.0027547 1928 opps 1.10093
+3	ENG-ETH Binance 0/0 0.0027547 1928 opps 0.865352
+2	ENG-ETH Binance 0/0 0.0027547 1928 opps 1.1556
+1	ENG-ETH Binance 1/5 0.0027547 1867 opps 0.00174679
+0	ENG-ETH Binance 0/0 0.0027547 1928 opps 572.477 *
+4	KNC-BTC Binance 0/1 0.000106508 1928 opps 0.567083
 ```
