@@ -17,12 +17,14 @@ int main() {
     unsigned int good_deals{0u};
     unsigned int bad_deals{0u};
     double average_price{0u};
+    bool prospect{false};
 
     std::string str() const {
       std::stringstream out;
       out << strategy_id << '\t' << from_symbol << '-' << to_symbol << ' '
           << exchange << ' ' << average_price << ' ' << good_deals << " good "
-          << bad_deals << " bad " << opportunities_to_trade << " opportunities";
+          << bad_deals << " bad " << opportunities_to_trade << " opportunities"
+          << (prospect ? " *" : "");
 
       return out.str();
     }
@@ -34,7 +36,7 @@ int main() {
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
 
-    // Define the the buy strategies, eash strategy is a function that takes a
+    // Define the buy strategies, eash strategy is a function that takes a
     // pair of iterators that define a window into the prices: the analysis
     // window
     using iter = const std::vector<double>::const_iterator &;
@@ -81,8 +83,6 @@ int main() {
         strategy_summary &strategy = summary.emplace_back(
             strategy_summary{from_symbol, to_symbol, exchange, strategy_id});
 
-        ++strategy_id;
-
         strategy.average_price =
             std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
             prices.size();
@@ -106,6 +106,7 @@ int main() {
         auto future_price = std::next(current_price, sell_window);
 
         // Move windows along until we run out of prices
+        const double buy_threshold = 1.2;
         while (future_price < prices.cend()) {
 
           // The sell strategy: return the index of the first price to exceed
@@ -117,8 +118,7 @@ int main() {
           };
 
           // Test strategy
-          if (const double buy_threshold = 1.15;
-              buy_strategy(historic_price, current_price) > buy_threshold) {
+          if (buy_strategy(historic_price, current_price) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
@@ -144,6 +144,15 @@ int main() {
           // Track how many times we could have traded
           ++strategy.opportunities_to_trade;
         }
+
+        // Calculate prospects using the most recent prices
+        historic_price = std::prev(prices.cbegin(), analysis_window);
+        current_price = prices.cend();
+
+        if (buy_strategy(historic_price, current_price) > buy_threshold)
+          strategy.prospect = true;
+
+        ++strategy_id;
       }
     }
   }
