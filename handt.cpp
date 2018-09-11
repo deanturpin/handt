@@ -59,6 +59,14 @@ int main() {
          [](cont p) {
            return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
          }},
+        {"peppard",
+         [](cont p) {
+           return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
+         }},
+        {"pig",
+         [](cont p) {
+           return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
+         }},
 
         // Peak finders
         {"les",
@@ -92,6 +100,28 @@ int main() {
                       ? p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0)
                       : 0.0;
          }},
+
+        {"percy",
+         [](cont p) {
+           const auto max = std::max(p.front(), p.back());
+           const auto min = std::min(p.front(), p.back());
+
+           unsigned long threshold = 0;
+           for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+
+             const unsigned long test =
+                 max - (static_cast<unsigned long>(max) % mod);
+
+             if (test == 0)
+               break;
+
+             threshold = test;
+           }
+
+           return (min < threshold && max > threshold) ? p.back() / p.front()
+                                                       : 0.0;
+         }},
+
     };
 
     // Open prices
@@ -194,7 +224,12 @@ int main() {
                (b.bad_deals ? b.bad_deals : 1.0);
   });
 
-  // Print strategy report
+  // Print overview
+  std::stringstream totals;
+  totals << summary.size() << " pair/strategy combinations tested\n";
+  std::puts(totals.str().c_str());
+
+  // Print strategy reports
   for (const auto &s : summary)
     std::puts(s.str().c_str());
 }
