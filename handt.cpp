@@ -69,6 +69,29 @@ int main() {
          [](cont p) {
            return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
          }},
+
+        // Straddlers
+        {"brian",
+         [](cont p) {
+           const auto max = std::max(p.front(), p.back());
+           const auto min = std::min(p.front(), p.back());
+
+           unsigned long threshold = 0;
+           for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+
+             const unsigned long test =
+                 max - (static_cast<unsigned long>(max) % mod);
+
+             if (test == 0)
+               break;
+
+             threshold = test;
+           }
+
+           return (min < threshold && max > threshold)
+                      ? p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0)
+                      : 0.0;
+         }},
     };
 
     // Open prices
