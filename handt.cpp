@@ -101,8 +101,7 @@ int main() {
       // Straddlers
       {"brian",
        [](cont p) {
-         const auto max = std::max(p.front(), p.back());
-         const auto min = std::min(p.front(), p.back());
+         const auto &[min, max] = std::minmax(p.front(), p.back());
 
          unsigned long threshold = 0;
          for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
@@ -123,8 +122,7 @@ int main() {
 
       {"percy",
        [](cont p) {
-         const auto max = std::max(p.front(), p.back());
-         const auto min = std::min(p.front(), p.back());
+         const auto &[min, max] = std::minmax(p.front(), p.back());
 
          unsigned long threshold = 0;
          for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
@@ -145,8 +143,7 @@ int main() {
       // Straddling and spot is lower than previous max
       {"cheese",
        [](cont p) {
-         const auto max = std::max(p.front(), p.back());
-         const auto min = std::min(p.front(), p.back());
+         const auto &[min, max] = std::minmax(p.front(), p.back());
 
          unsigned long threshold = 0;
          for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
