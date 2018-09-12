@@ -24,7 +24,7 @@ while tokens:
         + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
         + "&extraParams=brightcoin.uk&e=" + exchange + "&tryConversion=false")
 
-    print(".", end="")
+    print(".", end="", flush=True)
 
     try:
         # Check the response is a good one
@@ -59,4 +59,4 @@ while tokens:
     except Exception as e:
         print("#", from_symbol, "generated exception: " + str(e))
 
-print("Got prices")
+print(" got prices")

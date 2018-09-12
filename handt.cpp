@@ -55,17 +55,40 @@ int main() {
          [](cont p) {
            return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
          }},
+
         {"ken",
          [](cont p) {
            return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
          }},
+
         {"peppard",
          [](cont p) {
            return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
          }},
+
         {"pig",
          [](cont p) {
            return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
+         }},
+
+        {"terry",
+         [](cont p) {
+           const auto filter_size = p.size() / 2;
+
+           return std::accumulate(p.cbegin(), std::prev(p.cend(), filter_size),
+                                  0.0) /
+                  std::accumulate(std::next(p.cbegin(), filter_size), p.cend(),
+                                  0.0);
+         }},
+
+        {"tibbs",
+         [](cont p) {
+           const auto filter_size = p.size() / 2;
+
+           return std::accumulate(std::next(p.cbegin(), filter_size), p.cend(),
+                                  0.0) /
+                  std::accumulate(p.cbegin(), std::prev(p.cend(), filter_size),
+                                  0.0);
          }},
 
         // Peak finders
@@ -73,6 +96,7 @@ int main() {
          [](cont p) {
            return p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
          }},
+
         {"nacho",
          [](cont p) {
            return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
