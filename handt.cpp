@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <filesystem>
 #include <fstream>
 #include <functional>
@@ -109,7 +110,9 @@ int main() {
 
       {"les",
        [](cont p) {
-         return p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
+         const auto val =
+             p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
+         return std::isinf(val) ? 0.0 : val;
        }},
 
       {"nacho",
