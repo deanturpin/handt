@@ -33,9 +33,6 @@ int main() {
     }
   };
 
-  // Create a container for all trades
-  static std::vector<strategy_summary> summary;
-
   // Define the buy strategies, eash strategy function takes a pair of
   // iterators that define a window into the prices: the analysis window
   using cont = const std::vector<double>;
@@ -142,8 +139,10 @@ int main() {
          return (min < threshold && max > threshold) ? p.back() / p.front()
                                                      : 0.0;
        }},
-
   };
+
+  // Create a container for all trades
+  static std::vector<strategy_summary> summary;
 
   // Get prices
   for (const auto &file : std::filesystem::directory_iterator("tmp")) {
