@@ -86,11 +86,13 @@ int main() {
        }},
 
       // Peak finders
+      // Current is higher than the previous max
       {"les",
        [](cont p) {
          return p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
        }},
 
+      // Current is lower than the previous max
       {"nacho",
        [](cont p) {
          return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
@@ -138,6 +140,30 @@ int main() {
 
          return (min < threshold && max > threshold) ? p.back() / p.front()
                                                      : 0.0;
+       }},
+
+      // Straddling and spot is lower than previous max
+      {"cheese",
+       [](cont p) {
+         const auto max = std::max(p.front(), p.back());
+         const auto min = std::min(p.front(), p.back());
+
+         unsigned long threshold = 0;
+         for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+
+           const unsigned long test =
+               max - (static_cast<unsigned long>(max) % mod);
+
+           if (test == 0)
+             break;
+
+           threshold = test;
+         }
+
+         return (min < threshold && max > threshold)
+                    ? *std::max_element(p.cbegin(), std::prev(p.cend())) /
+                          p.back()
+                    : 0.0;
        }},
   };
 
