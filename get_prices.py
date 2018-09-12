@@ -24,7 +24,6 @@ while tokens:
         + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
         + "&extraParams=brightcoin.uk&e=" + exchange + "&tryConversion=false")
 
-    print(url)
     try:
         # Check the response is a good one
         r = requests.get(url)
