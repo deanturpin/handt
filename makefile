@@ -3,7 +3,7 @@ all: tmp handt
 CXX = g++-8
 cflags = -std=c++17 --all-warnings --extra-warnings -pedantic-errors \
 	 -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
-	 -lstdc++fs
+	 -lstdc++fs -O3
 
 tmp/%.o: %.cpp
 	$(CXX) -o $@ $< $(cflags)

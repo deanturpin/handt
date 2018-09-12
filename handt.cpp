@@ -38,6 +38,34 @@ int main() {
   using cont = const std::vector<double>;
   using func = std::function<double(cont)>;
 
+  /* Strategy types
+   *
+   * SIMPLE
+   * first > last
+   * last > first
+   *
+   * AVERAGE and SPOT
+   * last > average
+   * last < average
+   * first > average
+   * first < average
+   *
+   * AVERAGE COMPARE
+   * first half average > last half average
+   * first half average < last half average
+   *
+   * PEAK/TROUGH DETECT
+   * spot > max
+   * spot < max
+   * front > max
+   * front < max
+   * spot > min
+   * spot < min
+   * front > min
+   * front < min
+   *
+   */
+
   const std::map<std::string, func> strategies{
 
       // First and last comparisons
@@ -96,6 +124,37 @@ int main() {
       {"nacho",
        [](cont p) {
          return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
+       }},
+
+      {"los",
+       [](cont p) {
+         return p.front() / *std::max_element(std::next(p.cbegin()), p.cend());
+       }},
+
+      {"notyo",
+       [](cont p) {
+         return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
+       }},
+
+      {"biro",
+       [](cont p) {
+         return p.back() / *std::min_element(p.cbegin(), std::prev(p.cend()));
+       }},
+
+      {"pencil",
+       [](cont p) {
+         return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
+       }},
+
+      {"quill",
+       [](cont p) {
+         const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
+         return min > 0.0 ? p.front() / min : 0.0;
+       }},
+
+      {"stick",
+       [](cont p) {
+         return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
        }},
 
       // Straddlers
@@ -252,7 +311,7 @@ int main() {
         }
 
         // Calculate prospects using the most recent prices
-        historic_price = std::prev(prices.cbegin(), analysis_window);
+        historic_price = std::prev(prices.cend(), analysis_window);
         current_price = prices.cend();
 
         if (strategy.trigger_ratio = buy({historic_price, current_price});
