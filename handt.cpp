@@ -95,32 +95,23 @@ int main() {
 
       {"terry",
        [](cont p) {
-         const auto filter_size = p.size() / 2;
-
-         return std::accumulate(p.cbegin(), std::prev(p.cend(), filter_size),
-                                0.0) /
-                std::accumulate(std::next(p.cbegin(), filter_size), p.cend(),
-                                0.0);
+         const auto filt = p.size() / 2;
+         return std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0) /
+                std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
        }},
 
       {"tibbs",
        [](cont p) {
-         const auto filter_size = p.size() / 2;
-
-         return std::accumulate(std::next(p.cbegin(), filter_size), p.cend(),
-                                0.0) /
-                std::accumulate(p.cbegin(), std::prev(p.cend(), filter_size),
-                                0.0);
+         const auto filt = p.size() / 2;
+         return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
+                std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0);
        }},
 
-      // Peak finders
-      // Current is higher than the previous max
       {"les",
        [](cont p) {
          return p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
        }},
 
-      // Current is lower than the previous max
       {"nacho",
        [](cont p) {
          return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
