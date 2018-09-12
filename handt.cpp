@@ -18,16 +18,16 @@ int main() {
     unsigned int opportunities_to_trade = 0u;
     unsigned int good_deals = 0u;
     unsigned int bad_deals = 0u;
-    double average_price = 0u;
+    double spot = 0u;
     bool current_prospect = false;
     double trigger_ratio = 0.0;
 
     std::string str() const {
       std::stringstream out;
       out << strategy_name << '\t' << from_symbol << '-' << to_symbol << ' '
-          << exchange << ' ' << good_deals << '/' << bad_deals << ' '
-          << average_price << ' ' << opportunities_to_trade << " opps "
-          << trigger_ratio << (current_prospect ? " *" : "");
+          << exchange << ' ' << good_deals << '/' << bad_deals << ' ' << spot
+          << ' ' << opportunities_to_trade << " opps " << trigger_ratio
+          << (current_prospect ? " *" : "");
 
       return out.str();
     }
@@ -238,9 +238,8 @@ int main() {
         strategy_summary &strategy = summary.emplace_back(
             strategy_summary{from_symbol, to_symbol, exchange, name});
 
-        strategy.average_price =
-            std::accumulate(prices.cbegin(), prices.cend(), 0.0) /
-            prices.size();
+        // Store the latest price
+        strategy.spot = prices.back();
 
         // Configure trading periods for back test
         const unsigned int analysis_window = 24;
