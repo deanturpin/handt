@@ -24,6 +24,8 @@ while tokens:
         + from_symbol + "&tsym=" + to_symbol + "&limit=" + str(total_prices)
         + "&extraParams=brightcoin.uk&e=" + exchange + "&tryConversion=false")
 
+    print(".", end="")
+
     try:
         # Check the response is a good one
         r = requests.get(url)
@@ -56,3 +58,5 @@ while tokens:
 
     except Exception as e:
         print("#", from_symbol, "generated exception: " + str(e))
+
+print("Got prices")
