@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <fstream>
 #include <functional>
+#include <iomanip>
 #include <iterator>
 #include <map>
 #include <numeric>
@@ -27,7 +28,8 @@ int main() {
       std::stringstream out;
       out << strategy_name << '|' << from_symbol << '-' << to_symbol << '|'
           << exchange << '|' << good_deals << '/' << bad_deals << '|' << spot
-          << '|' << opportunities_to_trade << '|' << trigger_ratio << '|'
+          << '|' << opportunities_to_trade << '|' << std::fixed
+          << std::setprecision(0) << 100.0 * trigger_ratio << " %|"
           << (current_prospect ? " *" : "");
 
       return out.str();
@@ -64,7 +66,6 @@ int main() {
    * spot < min
    * front > min
    * front < min
-   *
    */
 
   const std::map<std::string, func> strategies{
@@ -263,7 +264,7 @@ int main() {
         auto future_price = std::next(current_price, sell_window);
 
         // Move windows along until we run out of prices
-        const double buy_threshold = 1.2;
+        const double buy_threshold = 1.15;
         while (future_price < prices.cend()) {
 
           // The sell strategy: return the index of the first price to exceed
@@ -326,8 +327,7 @@ int main() {
   std::stringstream totals;
   totals << strategies.size() << " strategies defined, ";
   totals << summary.size() / strategies.size() << " pairs tested.\n\n";
-  totals
-      << "Strategy|Pair|Exchange|good/bad|spot|opportunites|ratio|BUY NOW!\n";
+  totals << "Strategy|Pair|Exchange|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
   totals << "---|---|---|---|---|---|---|---";
   std::puts(totals.str().c_str());
 
