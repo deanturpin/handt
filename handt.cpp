@@ -85,6 +85,20 @@ const std::map<std::string, func> strategies{
               std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0);
      }},
 
+    {"crash",
+     [](cont p) {
+       const auto filt = p.size() / 2;
+       return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
+              std::accumulate(p.cbegin(), p.cend(), 0.0);
+     }},
+
+    {"burn",
+     [](cont p) {
+       const auto filt = p.size() / 2;
+       return std::accumulate(p.cbegin(), p.cend(), 0.0) /
+              std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
+     }},
+
     {"les",
      [](cont p) {
        const auto val =
