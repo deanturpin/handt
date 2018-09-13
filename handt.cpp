@@ -25,9 +25,9 @@ int main() {
 
     std::string str() const {
       std::stringstream out;
-      out << strategy_name << '\t' << from_symbol << '-' << to_symbol << ' '
-          << exchange << ' ' << good_deals << '/' << bad_deals << ' ' << spot
-          << ' ' << opportunities_to_trade << " opps " << trigger_ratio
+      out << strategy_name << '|' << from_symbol << '-' << to_symbol << '|'
+          << exchange << '|' << good_deals << '/' << bad_deals << '|' << spot
+          << '|' << opportunities_to_trade << '|' << trigger_ratio << '|'
           << (current_prospect ? " *" : "");
 
       return out.str();
@@ -324,8 +324,11 @@ int main() {
 
   // Strategy and trade overview
   std::stringstream totals;
-  totals << strategies.size() << " strategies defined\n";
-  totals << summary.size() / strategies.size() << " pairs tested\n";
+  totals << strategies.size() << " strategies defined, ";
+  totals << summary.size() / strategies.size() << " pairs tested.\n\n";
+  totals
+      << "Strategy|Pair|Exchange|good/bad|spot|opportunites|ratio|BUY NOW!\n";
+  totals << "---|---|---|---|---|---|---|---\n";
   std::puts(totals.str().c_str());
 
   // Print strategy reports

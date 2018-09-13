@@ -18,9 +18,7 @@ handt: tmp/handt.o
 	./$^ | tee tmp/strategy.txt
 	cat template.md > $(readme)
 	echo Generated $(shell date) >> $(readme)
-	echo '```' >> $(readme)
 	cat tmp/strategy.txt >> $(readme)
-	echo '```' >> $(readme)
 
 # All intermediate files are stored in tmp, so just remove it
 clean:
