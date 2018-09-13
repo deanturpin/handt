@@ -75,7 +75,7 @@ int main() {
       {"oan", [](cont p) { return p.back() / p.front(); }},
 
       // Averages
-      {"dean",
+      {"quill",
        [](cont p) {
          return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
        }},
@@ -141,7 +141,7 @@ int main() {
          return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
        }},
 
-      {"quill",
+      {"dean",
        [](cont p) {
          const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
          return min > 0.0 ? p.front() / min : 0.0;
