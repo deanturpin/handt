@@ -14,8 +14,8 @@ using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 Generated Thu 13 Sep 15:44:34 BST 2018
 19 strategies defined, 322 pairs tested.
 
-Strategy|Pair|Exchange|good/bad|spot|opportunites|ratio|BUY NOW!
----|---|---|---|---|---|---|---
+|Strategy|Pair|Exchange|good/bad|spot|opportunites|ratio|BUY NOW!|
+|---|---|---|---|---|---|---|---|
 
 notyo|LINK-BTC|Binance|5/0|4.201e-05|1744|1.06864|
 quill|WAN-BTC|Binance|5/0|0.0001436|1681|0.998409|
