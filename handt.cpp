@@ -9,6 +9,191 @@
 #include <numeric>
 #include <vector>
 
+namespace handt {
+
+/* Strategy types
+ *
+ * SIMPLE
+ * first > last
+ * last > first
+ *
+ * AVERAGE and SPOT
+ * last > average
+ * last < average
+ * first > average
+ * first < average
+ *
+ * AVERAGE COMPARE
+ * first half average > last half average
+ * first half average < last half average
+ *
+ * PEAK/TROUGH DETECT
+ * spot > max
+ * spot < max
+ * front > max
+ * front < max
+ * spot > min
+ * spot < min
+ * front > min
+ * front < min
+ */
+
+// Define the buy strategies, eash strategy function takes a subset of
+// available prices - the analysis window - and returns
+// a threshold to determine where to buy or not
+using cont = const std::vector<double>;
+using func = std::function<double(cont)>;
+
+const std::map<std::string, func> strategies{
+
+    // First and last comparisons
+    {"nao", [](cont p) { return p.front() / p.back(); }},
+    {"oan", [](cont p) { return p.back() / p.front(); }},
+
+    // Averages
+    {"quill",
+     [](cont p) {
+       return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
+     }},
+
+    {"ken",
+     [](cont p) {
+       return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
+     }},
+
+    {"peppard",
+     [](cont p) {
+       return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
+     }},
+
+    {"pig",
+     [](cont p) {
+       return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
+     }},
+
+    {"terry",
+     [](cont p) {
+       const auto filt = p.size() / 2;
+       return std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0) /
+              std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
+     }},
+
+    {"tibbs",
+     [](cont p) {
+       const auto filt = p.size() / 2;
+       return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
+              std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0);
+     }},
+
+    {"les",
+     [](cont p) {
+       const auto val =
+           p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
+       return std::isinf(val) ? 0.0 : val;
+     }},
+
+    {"nacho",
+     [](cont p) {
+       return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
+     }},
+
+    {"los",
+     [](cont p) {
+       return p.front() / *std::max_element(std::next(p.cbegin()), p.cend());
+     }},
+
+    {"notyo",
+     [](cont p) {
+       return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
+     }},
+
+    {"biro",
+     [](cont p) {
+       return p.back() / *std::min_element(p.cbegin(), std::prev(p.cend()));
+     }},
+
+    {"pencil",
+     [](cont p) {
+       return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
+     }},
+
+    {"dean",
+     [](cont p) {
+       const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
+       return min > 0.0 ? p.front() / min : 0.0;
+     }},
+
+    {"stick",
+     [](cont p) {
+       return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
+     }},
+
+    // Straddlers
+    {"brian",
+     [](cont p) {
+       const auto &[min, max] = std::minmax(p.front(), p.back());
+
+       unsigned long threshold = 0;
+       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+
+         const unsigned long test =
+             max - (static_cast<unsigned long>(max) % mod);
+
+         if (test == 0)
+           break;
+
+         threshold = test;
+       }
+
+       return (min < threshold && max > threshold)
+                  ? p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0)
+                  : 0.0;
+     }},
+
+    {"percy",
+     [](cont p) {
+       const auto &[min, max] = std::minmax(p.front(), p.back());
+
+       unsigned long threshold = 0;
+       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+
+         const unsigned long test =
+             max - (static_cast<unsigned long>(max) % mod);
+
+         if (test == 0)
+           break;
+
+         threshold = test;
+       }
+
+       return (min < threshold && max > threshold) ? p.back() / p.front() : 0.0;
+     }},
+
+    // Straddling and spot is lower than previous max
+    {"cheese",
+     [](cont p) {
+       const auto &[min, max] = std::minmax(p.front(), p.back());
+
+       unsigned long threshold = 0;
+       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+
+         const unsigned long test =
+             max - (static_cast<unsigned long>(max) % mod);
+
+         if (test == 0)
+           break;
+
+         threshold = test;
+       }
+
+       return (min < threshold && max > threshold)
+                  ? *std::max_element(p.cbegin(), std::prev(p.cend())) /
+                        p.back()
+                  : 0.0;
+     }},
+};
+} // namespace handt
+
 int main() {
 
   // Structure to represent a trade
@@ -36,188 +221,6 @@ int main() {
     }
   };
 
-  // Define the buy strategies, eash strategy function takes a pair of
-  // iterators that define a window into the prices: the analysis window
-  using cont = const std::vector<double>;
-  using func = std::function<double(cont)>;
-
-  /* Strategy types
-   *
-   * SIMPLE
-   * first > last
-   * last > first
-   *
-   * AVERAGE and SPOT
-   * last > average
-   * last < average
-   * first > average
-   * first < average
-   *
-   * AVERAGE COMPARE
-   * first half average > last half average
-   * first half average < last half average
-   *
-   * PEAK/TROUGH DETECT
-   * spot > max
-   * spot < max
-   * front > max
-   * front < max
-   * spot > min
-   * spot < min
-   * front > min
-   * front < min
-   */
-
-  const std::map<std::string, func> strategies{
-
-      // First and last comparisons
-      {"nao", [](cont p) { return p.front() / p.back(); }},
-      {"oan", [](cont p) { return p.back() / p.front(); }},
-
-      // Averages
-      {"quill",
-       [](cont p) {
-         return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
-       }},
-
-      {"ken",
-       [](cont p) {
-         return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
-       }},
-
-      {"peppard",
-       [](cont p) {
-         return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
-       }},
-
-      {"pig",
-       [](cont p) {
-         return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
-       }},
-
-      {"terry",
-       [](cont p) {
-         const auto filt = p.size() / 2;
-         return std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0) /
-                std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
-       }},
-
-      {"tibbs",
-       [](cont p) {
-         const auto filt = p.size() / 2;
-         return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
-                std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0);
-       }},
-
-      {"les",
-       [](cont p) {
-         const auto val =
-             p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
-         return std::isinf(val) ? 0.0 : val;
-       }},
-
-      {"nacho",
-       [](cont p) {
-         return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
-       }},
-
-      {"los",
-       [](cont p) {
-         return p.front() / *std::max_element(std::next(p.cbegin()), p.cend());
-       }},
-
-      {"notyo",
-       [](cont p) {
-         return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
-       }},
-
-      {"biro",
-       [](cont p) {
-         return p.back() / *std::min_element(p.cbegin(), std::prev(p.cend()));
-       }},
-
-      {"pencil",
-       [](cont p) {
-         return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
-       }},
-
-      {"dean",
-       [](cont p) {
-         const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
-         return min > 0.0 ? p.front() / min : 0.0;
-       }},
-
-      {"stick",
-       [](cont p) {
-         return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
-       }},
-
-      // Straddlers
-      {"brian",
-       [](cont p) {
-         const auto &[min, max] = std::minmax(p.front(), p.back());
-
-         unsigned long threshold = 0;
-         for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
-
-           const unsigned long test =
-               max - (static_cast<unsigned long>(max) % mod);
-
-           if (test == 0)
-             break;
-
-           threshold = test;
-         }
-
-         return (min < threshold && max > threshold)
-                    ? p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0)
-                    : 0.0;
-       }},
-
-      {"percy",
-       [](cont p) {
-         const auto &[min, max] = std::minmax(p.front(), p.back());
-
-         unsigned long threshold = 0;
-         for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
-
-           const unsigned long test =
-               max - (static_cast<unsigned long>(max) % mod);
-
-           if (test == 0)
-             break;
-
-           threshold = test;
-         }
-
-         return (min < threshold && max > threshold) ? p.back() / p.front()
-                                                     : 0.0;
-       }},
-
-      // Straddling and spot is lower than previous max
-      {"cheese",
-       [](cont p) {
-         const auto &[min, max] = std::minmax(p.front(), p.back());
-
-         unsigned long threshold = 0;
-         for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
-
-           const unsigned long test =
-               max - (static_cast<unsigned long>(max) % mod);
-
-           if (test == 0)
-             break;
-
-           threshold = test;
-         }
-
-         return (min < threshold && max > threshold)
-                    ? *std::max_element(p.cbegin(), std::prev(p.cend())) /
-                          p.back()
-                    : 0.0;
-       }},
-  };
-
   // Create a container for all trades
   static std::vector<strategy_summary> summary;
 
@@ -236,7 +239,7 @@ int main() {
         !prices.empty()) {
 
       // Run strategies over the prices
-      for (const auto &[name, buy] : strategies) {
+      for (const auto &[name, buy] : handt::strategies) {
 
         // Create a new strategy summary, initialised with basic trade info
         strategy_summary &strategy = summary.emplace_back(
@@ -325,8 +328,8 @@ int main() {
 
   // Strategy and trade overview
   std::stringstream totals;
-  totals << strategies.size() << " strategies defined, ";
-  totals << summary.size() / strategies.size() << " pairs tested.\n\n";
+  totals << handt::strategies.size() << " strategies defined, ";
+  totals << summary.size() / handt::strategies.size() << " pairs tested.\n\n";
   totals << "Strategy|Pair|Exchange|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
   totals << "---|---|---|---|---|---|---|---";
   std::puts(totals.str().c_str());
