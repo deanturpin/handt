@@ -328,7 +328,7 @@ int main() {
   totals << summary.size() / strategies.size() << " pairs tested.\n\n";
   totals
       << "Strategy|Pair|Exchange|good/bad|spot|opportunites|ratio|BUY NOW!\n";
-  totals << "---|---|---|---|---|---|---|---\n";
+  totals << "---|---|---|---|---|---|---|---";
   std::puts(totals.str().c_str());
 
   // Print strategy reports
