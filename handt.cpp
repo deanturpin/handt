@@ -344,7 +344,7 @@ int main() {
   std::stringstream totals;
   totals << handt::strategies.size() << " strategies defined, ";
   totals << summary.size() / handt::strategies.size() << " pairs tested.\n\n";
-  totals << "Strategy|Pair|Exchange|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
+  totals << "Strat|Pair|Exchange|Good/Bad|Spot|Tests|Thresh|BUY NOW!\n";
   totals << "---|---|---|---|---|---|---|---";
   std::puts(totals.str().c_str());
 

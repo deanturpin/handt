@@ -11,10 +11,10 @@ using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Fri 14 Sep 18:44:59 BST 2018 -
+Generated Fri 14 Sep 18:50:02 BST 2018 -
 21 strategies defined, 322 pairs tested.
 
-Strategy|Pair|Exchange|Good/Bad|Spot|Tests|Threshold|BUY NOW!
+Strat|Pair|Exchange|Good/Bad|Spot|Tests|Thresh|BUY NOW!
 ---|---|---|---|---|---|---|---
 dean|ONT-BNB|Binance|8/0|0.1898|1673|107 %|
 dean|WAN-ETH|Binance|8/1|0.004134|1615|106 %|
