@@ -208,8 +208,8 @@ int main() {
       const std::string currency_pair = from_symbol + '-' + to_symbol;
 
       std::stringstream out;
-      out << strategy_name << "|[" << currency_pair << "](" << url() << ")|"
-          << threshold << '|' << good_deals << '/' << bad_deals << '|' << spot
+      out << strategy_name << ' ' << threshold << "|[" << currency_pair << "]("
+          << url() << ")|" << good_deals << '/' << bad_deals << '|' << spot
           << '|' << opportunities_to_trade << '|' << std::fixed
           << std::setprecision(0) << 100.0 * trigger_ratio << " %|"
           << (current_prospect ? " *" : "");
@@ -219,8 +219,8 @@ int main() {
     // Construct strategy table heading
     std::string heading() const {
       std::stringstream out;
-      out << "Strategy|%|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
-      out << "---|---|---|---|---|---|---|---";
+      out << "Strategy|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
+      out << "---|---|---|---|---|---|---";
       return out.str();
     }
 
