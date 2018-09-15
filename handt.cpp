@@ -208,10 +208,11 @@ int main() {
       const std::string currency_pair = from_symbol + '-' + to_symbol;
 
       std::stringstream out;
-      out << strategy_name << ' ' << threshold << "|[" << currency_pair << "]("
-          << url() << ")|" << good_deals << '/' << bad_deals << '|' << spot
-          << '|' << opportunities_to_trade << '|' << std::fixed
-          << std::setprecision(0) << 100.0 * trigger_ratio << " %|"
+      out << strategy_name << ' ' << -100.0 + threshold * 100.0 << " %|["
+          << currency_pair << "](" << url() << ")|" << good_deals << '/'
+          << bad_deals << '|' << spot << '|' << opportunities_to_trade << '|'
+          << std::fixed << std::setprecision(0)
+          << -100.0 + 100.0 * trigger_ratio << " %|"
           << (current_prospect ? " *" : "");
       return out.str();
     }
