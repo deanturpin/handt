@@ -18,7 +18,7 @@ handt: tmp/handt.o
 	./$^ > tmp/strategy.txt
 	cat template.md > $(readme)
 	echo Generated $(shell TZ=GMT date) - >> $(readme)
-	cat tmp/strategy.txt >> $(readme)
+	`head -2000 tmp/strategy.txt >> $(readme)`
 
 # All intermediate files are stored in tmp, so just remove it
 clean:
