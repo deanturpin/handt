@@ -15,7 +15,7 @@ tmp:
 # Generate documentation
 readme = readme.md
 handt: tmp/handt.o
-	./$^ | tee tmp/strategy.txt
+	./$^ > tmp/strategy.txt
 	cat template.md > $(readme)
 	echo Generated $(shell TZ=GMT date) - >> $(readme)
 	cat tmp/strategy.txt >> $(readme)
