@@ -230,7 +230,13 @@ int main() {
           << '|' << opportunities_to_trade << '|' << std::fixed
           << std::setprecision(0) << 100.0 * trigger_ratio << " %|"
           << (current_prospect ? " *" : "");
+      return out.str();
+    }
 
+    std::string heading() const {
+      std::stringstream out;
+      out << "Strat|Pair|Exchange|Good/Bad|Spot|Tests|Thr|BUY NOW!\n";
+      out << "---|---|---|---|---|---|---|---";
       return out.str();
     }
   };
@@ -344,11 +350,10 @@ int main() {
   std::stringstream totals;
   totals << handt::strategies.size() << " strategies defined, ";
   totals << summary.size() / handt::strategies.size() << " pairs tested.\n\n";
-  totals << "Strat|Pair|Exchange|Good/Bad|Spot|Tests|Thresh|BUY NOW!\n";
-  totals << "---|---|---|---|---|---|---|---";
   std::puts(totals.str().c_str());
 
   // Print strategy reports
+  std::puts(summary.front().heading().c_str());
   for (const auto &s : summary)
     std::puts(s.str().c_str());
 }
