@@ -250,6 +250,10 @@ int main() {
     // Get the trade details
     in >> from_symbol >> to_symbol >> exchange;
 
+    // Trim trailing asterisk
+    if (from_symbol.back() == '*')
+      from_symbol.pop_back();
+
     // Get the prices
     if (const std::vector<double> prices{std::istream_iterator<double>(in), {}};
         !prices.empty()) {
