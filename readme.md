@@ -11,7 +11,7 @@ using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Sat 15 Sep 18:05:30 GMT 2018 -
+Generated Sat 15 Sep 18:18:40 GMT 2018 -
 21 strategies defined, 35 pairs tested.
 
 

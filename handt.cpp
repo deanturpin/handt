@@ -278,47 +278,51 @@ int main() {
         //                       |-- trade window --|
 
         // Initialise the price markers to the start of historic price data
-        auto historic_price = prices.cbegin();
-        auto current_price = std::next(historic_price, analysis_window);
-        auto future_price = std::next(current_price, sell_window);
+        auto historic_price_index = prices.cbegin();
+        auto current_price_index =
+            std::next(historic_price_index, analysis_window);
+        auto future_price_index = std::next(current_price_index, sell_window);
 
         // Move windows along until we run out of prices
         const double buy_threshold = 1.15;
-        while (future_price < prices.cend()) {
+        while (future_price_index < prices.cend()) {
 
           // Test strategy
-          if (buy({historic_price, current_price}) > buy_threshold) {
+          if (buy({historic_price_index, current_price_index}) >
+              buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
             if (const auto sell_price_index =
-                    handt::sell(current_price, future_price);
-                sell_price_index != future_price) {
+                    handt::sell(current_price_index, future_price_index);
+                sell_price_index != future_price_index) {
               ++strategy.good_deals;
 
               // Move the analysis window so the next iteration starts at the
               // last sell price
-              historic_price = sell_price_index;
+              historic_price_index = sell_price_index;
             } else
               ++strategy.bad_deals;
           }
 
           // Nudge the analysis window along
-          std::advance(historic_price, 1);
+          std::advance(historic_price_index, 1);
 
           // Update upstream prices
-          current_price = std::next(historic_price, analysis_window);
-          future_price = std::next(current_price, sell_window);
+          current_price_index =
+              std::next(historic_price_index, analysis_window);
+          future_price_index = std::next(current_price_index, sell_window);
 
           // Track how many times we could have traded
           ++strategy.opportunities_to_trade;
         }
 
         // Calculate prospects using the most recent prices
-        historic_price = std::prev(prices.cend(), analysis_window);
-        current_price = prices.cend();
+        historic_price_index = std::prev(prices.cend(), analysis_window);
+        current_price_index = prices.cend();
 
-        if (strategy.trigger_ratio = buy({historic_price, current_price});
+        if (strategy.trigger_ratio =
+                buy({historic_price_index, current_price_index});
             strategy.trigger_ratio > buy_threshold)
           strategy.current_prospect = true;
       }
