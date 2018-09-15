@@ -11,33 +11,6 @@
 
 namespace handt {
 
-/* Strategy types
- *
- * SIMPLE
- * first > last
- * last > first
- *
- * AVERAGE and SPOT
- * last > average
- * last < average
- * first > average
- * first < average
- *
- * AVERAGE COMPARE
- * first half average > last half average
- * first half average < last half average
- *
- * PEAK/TROUGH DETECT
- * spot > max
- * spot < max
- * front > max
- * front < max
- * spot > min
- * spot < min
- * front > min
- * front < min
- */
-
 // Define the buy strategies, eash strategy function takes a subset of
 // available prices - the analysis window - and returns
 // a threshold to determine where to buy or not
@@ -211,10 +184,12 @@ const std::map<std::string, func> strategies{
 // the sell threshold or return the end iterator
 using iter = const std::vector<double>::const_iterator &;
 const auto sell = [](iter current, iter future) {
-  return std::find_if(current, future, [&current](const auto &p) {
-    return p > *current * 1.05;
-  });
+  return std::find_if(current, future,
+                      [spot = *current](const auto &future_price) {
+                        return future_price > spot * 1.05;
+                      });
 };
+
 } // namespace handt
 
 int main() {
@@ -247,7 +222,7 @@ int main() {
     // Construct strategy table heading
     std::string heading() const {
       std::stringstream out;
-      out << "Strat|Pair|Good/Bad|Spot|Tests|Thr|BUY NOW!\n";
+      out << "Strategy|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
       out << "---|---|---|---|---|---|---";
       return out.str();
     }
@@ -317,14 +292,14 @@ int main() {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
-            if (const auto sell_price =
+            if (const auto sell_price_index =
                     handt::sell(current_price, future_price);
-                sell_price != future_price) {
+                sell_price_index != future_price) {
               ++strategy.good_deals;
 
               // Move the analysis window so the next iteration starts at the
               // last sell price
-              historic_price = sell_price;
+              historic_price = sell_price_index;
             } else
               ++strategy.bad_deals;
           }
