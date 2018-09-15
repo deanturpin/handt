@@ -47,8 +47,8 @@ using func = std::function<double(cont)>;
 const std::map<std::string, func> strategies{
 
     // First and last comparisons
-    {"nao", [](cont p) { return p.front() / p.back(); }},
-    {"oan", [](cont p) { return p.back() / p.front(); }},
+    {"hustle", [](cont p) { return p.front() / p.back(); }},
+    {"forest", [](cont p) { return p.back() / p.front(); }},
 
     // Averages
     {"quill",
@@ -66,7 +66,7 @@ const std::map<std::string, func> strategies{
        return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
      }},
 
-    {"pig",
+    {"owl",
      [](cont p) {
        return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
      }},
@@ -99,7 +99,7 @@ const std::map<std::string, func> strategies{
               std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
      }},
 
-    {"les",
+    {"cadence",
      [](cont p) {
        const auto val =
            p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
@@ -116,7 +116,7 @@ const std::map<std::string, func> strategies{
        return p.front() / *std::max_element(std::next(p.cbegin()), p.cend());
      }},
 
-    {"notyo",
+    {"cricket",
      [](cont p) {
        return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
      }},
@@ -131,7 +131,7 @@ const std::map<std::string, func> strategies{
        return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
-    {"dean",
+    {"stride",
      [](cont p) {
        const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
        return min > 0.0 ? p.front() / min : 0.0;
