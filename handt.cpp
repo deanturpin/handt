@@ -284,7 +284,7 @@ int main() {
         auto future_price_index = std::next(current_price_index, sell_window);
 
         // Move windows along until we run out of prices
-        const double buy_threshold = 1.15;
+        const double buy_threshold = 1.1;
         while (future_price_index < prices.cend()) {
 
           // Test strategy
