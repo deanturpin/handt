@@ -174,6 +174,16 @@ const std::map<std::string, func> strategies{
                         p.back()
                   : 0.0;
      }},
+
+    {"robin",
+     [](cont p) {
+       unsigned int trend = 0;
+       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
+         if (*i < *std::next(i))
+           ++trend;
+
+       return trend > p.size() / 2 ? p.back() / p.front() : 0.0;
+     }},
 };
 
 // The sell strategy: return the index of the first price to exceed
