@@ -70,7 +70,7 @@ const std::map<std::string, func> strategies{
               std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
      }},
 
-    {"cadence",
+    {"cadiz",
      [](cont p) {
        const auto val =
            p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
