@@ -206,6 +206,15 @@ const std::map<std::string, func> strategies{
                   : 0.0;
      }},
 };
+
+// The sell strategy: return the index of the first price to exceed
+// the sell threshold or return the end iterator
+using iter = const std::vector<double>::const_iterator &;
+const auto sell = [](iter current, iter future) {
+  return std::find_if(current, future, [&current](const auto &p) {
+    return p > *current * 1.05;
+  });
+};
 } // namespace handt
 
 int main() {
@@ -303,22 +312,13 @@ int main() {
         const double buy_threshold = 1.15;
         while (future_price < prices.cend()) {
 
-          // The sell strategy: return the index of the first price to exceed
-          // the sell threshold or return the end iterator
-          using iter = const std::vector<double>::const_iterator &;
-          const auto sell_strategy = [](iter current, iter future) {
-            return std::find_if(current, future, [&current](const auto &p) {
-              return p > *current * 1.05;
-            });
-          };
-
           // Test strategy
           if (buy({historic_price, current_price}) > buy_threshold) {
 
             // Strategy triggered, so look ahead to see if it succeeded in the
             // defined trade window
             if (const auto sell_price =
-                    sell_strategy(current_price, future_price);
+                    handt::sell(current_price, future_price);
                 sell_price != future_price) {
               ++strategy.good_deals;
 
