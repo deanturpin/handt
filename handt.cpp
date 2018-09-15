@@ -189,7 +189,6 @@ const auto sell = [](iter current, iter future) {
                         return future_price > spot * 1.05;
                       });
 };
-
 } // namespace handt
 
 int main() {
@@ -212,7 +211,7 @@ int main() {
       const std::string currency_pair = from_symbol + '-' + to_symbol;
 
       std::stringstream out;
-      out << strategy_name << "|[" << url() << "](" << currency_pair << ")|"
+      out << strategy_name << "|[" << currency_pair << "](" << url() << ")|"
           << good_deals << '/' << bad_deals << '|' << spot << '|'
           << opportunities_to_trade << '|' << std::fixed << std::setprecision(0)
           << 100.0 * trigger_ratio << " %|" << (current_prospect ? " *" : "");
