@@ -223,6 +223,7 @@ int main() {
     bool current_prospect = false;
     double trigger_ratio = 0.0;
 
+    // Construct strategy summary
     std::string str() const {
       std::stringstream out;
       out << strategy_name << '|' << from_symbol << '-' << to_symbol << '|'
@@ -233,6 +234,7 @@ int main() {
       return out.str();
     }
 
+    // Construct strategy table heading
     std::string heading() const {
       std::stringstream out;
       out << "Strat|Pair|Exchange|Good/Bad|Spot|Tests|Thr|BUY NOW!\n";
