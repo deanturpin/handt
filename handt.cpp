@@ -11,19 +11,17 @@
 
 namespace handt {
 
-// Define the buy strategies, eash strategy function takes a subset of
-// available prices - the analysis window - and returns
-// a threshold to determine where to buy or not
+// Define the buy strategies: each strategy function takes a subset of
+// available prices - the analysis window - and returns a threshold to
+// determine whether to buy or not
 using cont = const std::vector<double>;
 using func = std::function<double(cont)>;
 
 const std::map<std::string, func> strategies{
 
-    // First and last comparisons
     {"hustle", [](cont p) { return p.front() / p.back(); }},
     {"forest", [](cont p) { return p.back() / p.front(); }},
 
-    // Averages
     {"quill",
      [](cont p) {
        return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
@@ -115,7 +113,6 @@ const std::map<std::string, func> strategies{
        return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
      }},
 
-    // Straddlers
     {"brian",
      [](cont p) {
        const auto &[min, max] = std::minmax(p.front(), p.back());
@@ -156,7 +153,6 @@ const std::map<std::string, func> strategies{
        return (min < threshold && max > threshold) ? p.back() / p.front() : 0.0;
      }},
 
-    // Straddling and spot is lower than previous max
     {"cheese",
      [](cont p) {
        const auto &[min, max] = std::minmax(p.front(), p.back());
