@@ -225,21 +225,32 @@ int main() {
 
     // Construct strategy summary
     std::string str() const {
+      const std::string currency_pair = from_symbol + '-' + to_symbol;
+
       std::stringstream out;
-      out << strategy_name << '|' << from_symbol << '-' << to_symbol << '|'
-          << exchange << '|' << good_deals << '/' << bad_deals << '|' << spot
-          << '|' << opportunities_to_trade << '|' << std::fixed
-          << std::setprecision(0) << 100.0 * trigger_ratio << " %|"
-          << (current_prospect ? " *" : "");
+      out << strategy_name << "|[" << url() << "](" << currency_pair << ")|"
+          << good_deals << '/' << bad_deals << '|' << spot << '|'
+          << opportunities_to_trade << '|' << std::fixed << std::setprecision(0)
+          << 100.0 * trigger_ratio << " %|" << (current_prospect ? " *" : "");
       return out.str();
     }
 
     // Construct strategy table heading
     std::string heading() const {
       std::stringstream out;
-      out << "Strat|Pair|Exchange|Good/Bad|Spot|Tests|Thr|BUY NOW!\n";
-      out << "---|---|---|---|---|---|---|---";
+      out << "Strat|Pair|Good/Bad|Spot|Tests|Thr|BUY NOW!\n";
+      out << "---|---|---|---|---|---|---";
       return out.str();
+    }
+
+    // Construct exchange URL
+    std::string url() const {
+      return exchange == std::string("Coinbase")
+                 ? "http://coinbase.com"
+                 : exchange == std::string("Binance")
+                       ? "https://www.binance.com/en/trade/" + from_symbol +
+                             '_' + to_symbol
+                       : "no_url";
     }
   };
 
