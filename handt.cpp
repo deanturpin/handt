@@ -257,8 +257,8 @@ int main() {
     if (const std::vector<double> prices{std::istream_iterator<double>(in), {}};
         !prices.empty()) {
 
-      // Run strategies over the prices
-      for (const auto &[name, buy] : handt::strategies) {
+      // Run strategies over the prices using different buy thresholds
+      for (const auto &[name, buy] : handt::strategies)
         for (const double &buy_threshold : {1.05, 1.10, 1.15, 1.20, 1.30}) {
 
           // Create a new strategy summary, initialised with basic trade info
@@ -330,7 +330,6 @@ int main() {
               strategy.trigger_ratio > buy_threshold)
             strategy.current_prospect = true;
         }
-      }
     }
   }
 
