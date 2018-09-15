@@ -195,6 +195,7 @@ int main() {
     std::string to_symbol = "undefined";
     std::string exchange = "undefined";
     std::string strategy_name = "undefined";
+    double threshold = 0.0;
     unsigned int opportunities_to_trade = 0u;
     unsigned int good_deals = 0u;
     unsigned int bad_deals = 0u;
@@ -208,17 +209,18 @@ int main() {
 
       std::stringstream out;
       out << strategy_name << "|[" << currency_pair << "](" << url() << ")|"
-          << good_deals << '/' << bad_deals << '|' << spot << '|'
-          << opportunities_to_trade << '|' << std::fixed << std::setprecision(0)
-          << 100.0 * trigger_ratio << " %|" << (current_prospect ? " *" : "");
+          << threshold << '|' << good_deals << '/' << bad_deals << '|' << spot
+          << '|' << opportunities_to_trade << '|' << std::fixed
+          << std::setprecision(0) << 100.0 * trigger_ratio << " %|"
+          << (current_prospect ? " *" : "");
       return out.str();
     }
 
     // Construct strategy table heading
     std::string heading() const {
       std::stringstream out;
-      out << "Strategy|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
-      out << "---|---|---|---|---|---|---";
+      out << "Strategy|%|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
+      out << "---|---|---|---|---|---|---|---";
       return out.str();
     }
 
@@ -256,75 +258,77 @@ int main() {
 
       // Run strategies over the prices
       for (const auto &[name, buy] : handt::strategies) {
+        for (const double &buy_threshold : {1.05, 1.10, 1.15, 1.20, 1.30}) {
 
-        // Create a new strategy summary, initialised with basic trade info
-        strategy_summary &strategy = summary.emplace_back(
-            strategy_summary{from_symbol, to_symbol, exchange, name});
+          // Create a new strategy summary, initialised with basic trade info
+          strategy_summary &strategy = summary.emplace_back(strategy_summary{
+              from_symbol, to_symbol, exchange, name, buy_threshold});
 
-        // Store the latest price
-        strategy.spot = prices.back();
+          // Store the latest price
+          strategy.spot = prices.back();
 
-        // Configure trading periods for back test
-        const unsigned int analysis_window = 24;
-        const unsigned int sell_window = analysis_window * 2;
+          // Configure trading periods for back test
+          const unsigned int analysis_window = 24;
+          const unsigned int sell_window = analysis_window * 2;
 
-        // Set up some indices into the prices. Historic price is the first
-        // price in the analysis window and the future price is the furthest
-        // price after the current price that we're prepared to trade. e.g.,
-        // 24-hour analysis window and 48-hour trade window
+          // Set up some indices into the prices. Historic price is the first
+          // price in the analysis window and the future price is the furthest
+          // price after the current price that we're prepared to trade. e.g.,
+          // 24-hour analysis window and 48-hour trade window
 
-        // |-- analysis window --|
-        // H--------------------NOW-----------------F
-        //                       |-- trade window --|
+          // |-- analysis window --|
+          // H--------------------NOW-----------------F
+          //                       |-- trade window --|
 
-        // Initialise the price markers to the start of historic price data
-        auto historic_price_index = prices.cbegin();
-        auto current_price_index =
-            std::next(historic_price_index, analysis_window);
-        auto future_price_index = std::next(current_price_index, sell_window);
+          // Initialise the price markers to the start of historic price data
+          auto historic_price_index = prices.cbegin();
+          auto current_price_index =
+              std::next(historic_price_index, analysis_window);
+          auto future_price_index = std::next(current_price_index, sell_window);
 
-        // Move windows along until we run out of prices
-        const double buy_threshold = 1.1;
-        while (future_price_index < prices.cend()) {
+          // Move windows along until we run out of prices
+          // const double buy_threshold = 1.1;
+          while (future_price_index < prices.cend()) {
 
-          // Test strategy
-          if (buy({historic_price_index, current_price_index}) >
-              buy_threshold) {
+            // Test strategy
+            if (buy({historic_price_index, current_price_index}) >
+                buy_threshold) {
 
-            // Strategy triggered, so look ahead to see if it succeeded in the
-            // defined trade window
-            if (const auto sell_price_index =
-                    handt::sell(current_price_index, future_price_index);
-                sell_price_index != future_price_index) {
-              ++strategy.good_deals;
+              // Strategy triggered, so look ahead to see if it succeeded in the
+              // defined trade window
+              if (const auto sell_price_index =
+                      handt::sell(current_price_index, future_price_index);
+                  sell_price_index != future_price_index) {
+                ++strategy.good_deals;
 
-              // Move the analysis window so the next iteration starts at the
-              // last sell price
-              historic_price_index = sell_price_index;
-            } else
-              ++strategy.bad_deals;
+                // Move the analysis window so the next iteration starts at the
+                // last sell price
+                historic_price_index = sell_price_index;
+              } else
+                ++strategy.bad_deals;
+            }
+
+            // Nudge the analysis window along
+            std::advance(historic_price_index, 1);
+
+            // Update upstream prices
+            current_price_index =
+                std::next(historic_price_index, analysis_window);
+            future_price_index = std::next(current_price_index, sell_window);
+
+            // Track how many times we could have traded
+            ++strategy.opportunities_to_trade;
           }
 
-          // Nudge the analysis window along
-          std::advance(historic_price_index, 1);
+          // Calculate prospects using the most recent prices
+          historic_price_index = std::prev(prices.cend(), analysis_window);
+          current_price_index = prices.cend();
 
-          // Update upstream prices
-          current_price_index =
-              std::next(historic_price_index, analysis_window);
-          future_price_index = std::next(current_price_index, sell_window);
-
-          // Track how many times we could have traded
-          ++strategy.opportunities_to_trade;
+          if (strategy.trigger_ratio =
+                  buy({historic_price_index, current_price_index});
+              strategy.trigger_ratio > buy_threshold)
+            strategy.current_prospect = true;
         }
-
-        // Calculate prospects using the most recent prices
-        historic_price_index = std::prev(prices.cend(), analysis_window);
-        current_price_index = prices.cend();
-
-        if (strategy.trigger_ratio =
-                buy({historic_price_index, current_price_index});
-            strategy.trigger_ratio > buy_threshold)
-          strategy.current_prospect = true;
       }
     }
   }
