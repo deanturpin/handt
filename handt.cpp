@@ -19,7 +19,7 @@ using func = std::function<double(cont)>;
 
 const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
-    {"persistant",
+    {"persistent",
      [](cont p) {
        static_cast<void>(p);
        return true;
