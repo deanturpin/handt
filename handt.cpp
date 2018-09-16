@@ -17,9 +17,13 @@ namespace handt {
 using cont = const std::vector<double>;
 using func = std::function<double(cont)>;
 
-const std::map<std::string, std::function<bool(cont)>> boolean_strategies{
+const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
-    {"always", [](cont p) { return true; }},
+    {"persistant",
+     [](cont p) {
+       static_cast<void>(p);
+       return true;
+     }},
 
     {"rising",
      [](cont p) {
@@ -31,7 +35,17 @@ const std::map<std::string, std::function<bool(cont)>> boolean_strategies{
        return trend > p.size() / 2;
      }},
 
-    {"straddle",
+    {"falling",
+     [](cont p) {
+       unsigned int trend = 0;
+       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
+         if (*i > *std::next(i))
+           ++trend;
+
+       return trend > p.size() / 2;
+     }},
+
+    {"straddling",
      [](cont p) {
        const auto &[min, max] = std::minmax(p.front(), p.back());
 
@@ -167,7 +181,8 @@ int main() {
     std::string from_symbol = "undefined";
     std::string to_symbol = "undefined";
     std::string exchange = "undefined";
-    std::string strategy_name = "undefined";
+    std::string primary = "undefined";
+    std::string secondary = "undefined";
     double threshold = 0.0;
     unsigned int opportunities_to_trade = 0u;
     unsigned int good_deals = 0u;
@@ -181,10 +196,10 @@ int main() {
       const std::string currency_pair = from_symbol + '-' + to_symbol;
 
       std::stringstream out;
-      out << strategy_name << ' ' << -100.0 + threshold * 100.0 << " %|["
-          << currency_pair << "](" << url() << ")|" << good_deals << '/'
-          << bad_deals << '|' << spot << '|' << opportunities_to_trade << '|'
-          << std::fixed << std::setprecision(0)
+      out << primary << ' ' << secondary << ' ' << -100.0 + threshold * 100.0
+          << " %|[" << currency_pair << "](" << url() << ")|" << good_deals
+          << '/' << bad_deals << '|' << spot << '|' << opportunities_to_trade
+          << '|' << std::fixed << std::setprecision(0)
           << -100.0 + 100.0 * trigger_ratio << " %|"
           << (current_prospect ? " *" : "");
       return out.str();
@@ -231,14 +246,15 @@ int main() {
         !prices.empty()) {
 
       // Run strategies over the prices using different buy thresholds
-      for (const auto &[name1, buy1] : handt::boolean_strategies)
-        for (const auto &[name, buy] : handt::strategies)
+      for (const auto &[primary, primary_buy] : handt::primary_strategies)
+        for (const auto &[secondary, secondary_buy] : handt::strategies)
           for (double buy_threshold = 1.02; buy_threshold < 1.20;
                buy_threshold += .01) {
 
             // Create a new strategy summary, initialised with basic trade info
-            strategy_summary &strategy = summary.emplace_back(strategy_summary{
-                from_symbol, to_symbol, exchange, name, buy_threshold});
+            strategy_summary &strategy = summary.emplace_back(
+                strategy_summary{from_symbol, to_symbol, exchange, primary,
+                                 secondary, buy_threshold});
 
             // Store the latest price
             strategy.spot = prices.back();
@@ -268,8 +284,8 @@ int main() {
             while (future_price_index < prices.cend()) {
 
               // Test strategy
-              if (buy1({historic_price_index, current_price_index}) &&
-                  buy({historic_price_index, current_price_index}) >
+              if (primary_buy({historic_price_index, current_price_index}) &&
+                  secondary_buy({historic_price_index, current_price_index}) >
                       buy_threshold) {
 
                 // Strategy triggered, so look ahead to see if it succeeded in
@@ -303,7 +319,8 @@ int main() {
             current_price_index = prices.cend();
 
             if (strategy.trigger_ratio =
-                    buy({historic_price_index, current_price_index});
+                    secondary_buy({historic_price_index, current_price_index});
+                primary_buy({historic_price_index, current_price_index}) &&
                 strategy.trigger_ratio > buy_threshold)
               strategy.current_prospect = true;
           }
@@ -320,7 +337,8 @@ int main() {
 
   // Strategy and trade overview
   std::stringstream totals;
-  totals << handt::strategies.size() << " strategies defined, ";
+  totals << handt::primary_strategies.size() << " primary strategies, ";
+  totals << handt::strategies.size() << " secondary strategies, ";
   totals << summary.size() / handt::strategies.size() << " pairs tested.\n\n";
   std::puts(totals.str().c_str());
 
