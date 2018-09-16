@@ -17,6 +17,41 @@ namespace handt {
 using cont = const std::vector<double>;
 using func = std::function<double(cont)>;
 
+const std::map<std::string, std::function<bool(cont)>> boolean_strategies{
+
+    {"always", [](cont p) { return true; }},
+
+    {"rising",
+     [](cont p) {
+       unsigned int trend = 0;
+       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
+         if (*i < *std::next(i))
+           ++trend;
+
+       return trend > p.size() / 2;
+     }},
+
+    {"straddle",
+     [](cont p) {
+       const auto &[min, max] = std::minmax(p.front(), p.back());
+
+       unsigned long threshold = 0;
+       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+
+         const unsigned long test =
+             max - (static_cast<unsigned long>(max) % mod);
+
+         if (test == 0)
+           break;
+
+         threshold = test;
+       }
+
+       return min < threshold && max > threshold;
+     }},
+
+};
+
 const std::map<std::string, func> strategies{
 
     {"hustle", [](cont p) { return p.front() / p.back(); }},
@@ -82,7 +117,7 @@ const std::map<std::string, func> strategies{
        return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
-    {"los",
+    {"robin",
      [](cont p) {
        return p.front() / *std::max_element(std::next(p.cbegin()), p.cend());
      }},
@@ -111,78 +146,6 @@ const std::map<std::string, func> strategies{
     {"stick",
      [](cont p) {
        return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
-     }},
-
-    {"brian",
-     [](cont p) {
-       const auto &[min, max] = std::minmax(p.front(), p.back());
-
-       unsigned long threshold = 0;
-       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
-
-         const unsigned long test =
-             max - (static_cast<unsigned long>(max) % mod);
-
-         if (test == 0)
-           break;
-
-         threshold = test;
-       }
-
-       return (min < threshold && max > threshold)
-                  ? p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0)
-                  : 0.0;
-     }},
-
-    {"percy",
-     [](cont p) {
-       const auto &[min, max] = std::minmax(p.front(), p.back());
-
-       unsigned long threshold = 0;
-       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
-
-         const unsigned long test =
-             max - (static_cast<unsigned long>(max) % mod);
-
-         if (test == 0)
-           break;
-
-         threshold = test;
-       }
-
-       return (min < threshold && max > threshold) ? p.back() / p.front() : 0.0;
-     }},
-
-    {"cheese",
-     [](cont p) {
-       const auto &[min, max] = std::minmax(p.front(), p.back());
-
-       unsigned long threshold = 0;
-       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
-
-         const unsigned long test =
-             max - (static_cast<unsigned long>(max) % mod);
-
-         if (test == 0)
-           break;
-
-         threshold = test;
-       }
-
-       return (min < threshold && max > threshold)
-                  ? *std::max_element(p.cbegin(), std::prev(p.cend())) /
-                        p.back()
-                  : 0.0;
-     }},
-
-    {"robin",
-     [](cont p) {
-       unsigned int trend = 0;
-       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
-         if (*i < *std::next(i))
-           ++trend;
-
-       return trend > p.size() / 2 ? p.back() / p.front() : 0.0;
      }},
 };
 
@@ -268,81 +231,82 @@ int main() {
         !prices.empty()) {
 
       // Run strategies over the prices using different buy thresholds
-      for (const auto &[name, buy] : handt::strategies)
-        for (const double &buy_threshold :
-             {1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08,
-              1.09, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16,
-              1.17, 1.18, 1.19, 1.20, 1.25, 1.30}) {
+      for (const auto &[name1, buy1] : handt::boolean_strategies)
+        for (const auto &[name, buy] : handt::strategies)
+          for (double buy_threshold = 1.02; buy_threshold < 1.20;
+               buy_threshold += .01) {
 
-          // Create a new strategy summary, initialised with basic trade info
-          strategy_summary &strategy = summary.emplace_back(strategy_summary{
-              from_symbol, to_symbol, exchange, name, buy_threshold});
+            // Create a new strategy summary, initialised with basic trade info
+            strategy_summary &strategy = summary.emplace_back(strategy_summary{
+                from_symbol, to_symbol, exchange, name, buy_threshold});
 
-          // Store the latest price
-          strategy.spot = prices.back();
+            // Store the latest price
+            strategy.spot = prices.back();
 
-          // Configure trading periods for back test
-          const unsigned int analysis_window = 24;
-          const unsigned int sell_window = analysis_window * 2;
+            // Configure trading periods for back test
+            const unsigned int analysis_window = 24;
+            const unsigned int sell_window = analysis_window * 2;
 
-          // Set up some indices into the prices. Historic price is the first
-          // price in the analysis window and the future price is the furthest
-          // price after the current price that we're prepared to trade. e.g.,
-          // 24-hour analysis window and 48-hour trade window
+            // Set up some indices into the prices. Historic price is the first
+            // price in the analysis window and the future price is the furthest
+            // price after the current price that we're prepared to trade. e.g.,
+            // 24-hour analysis window and 48-hour trade window
 
-          // |-- analysis window --|
-          // H--------------------NOW-----------------F
-          //                       |-- trade window --|
+            // |-- analysis window --|
+            // H--------------------NOW-----------------F
+            //                       |-- trade window --|
 
-          // Initialise the price markers to the start of historic price data
-          auto historic_price_index = prices.cbegin();
-          auto current_price_index =
-              std::next(historic_price_index, analysis_window);
-          auto future_price_index = std::next(current_price_index, sell_window);
+            // Initialise the price markers to the start of historic price data
+            auto historic_price_index = prices.cbegin();
+            auto current_price_index =
+                std::next(historic_price_index, analysis_window);
+            auto future_price_index =
+                std::next(current_price_index, sell_window);
 
-          // Move windows along until we run out of prices
-          // const double buy_threshold = 1.1;
-          while (future_price_index < prices.cend()) {
+            // Move windows along until we run out of prices
+            // const double buy_threshold = 1.1;
+            while (future_price_index < prices.cend()) {
 
-            // Test strategy
-            if (buy({historic_price_index, current_price_index}) >
-                buy_threshold) {
+              // Test strategy
+              if (buy1({historic_price_index, current_price_index}) &&
+                  buy({historic_price_index, current_price_index}) >
+                      buy_threshold) {
 
-              // Strategy triggered, so look ahead to see if it succeeded in the
-              // defined trade window
-              if (const auto sell_price_index =
-                      handt::sell(current_price_index, future_price_index);
-                  sell_price_index != future_price_index) {
-                ++strategy.good_deals;
+                // Strategy triggered, so look ahead to see if it succeeded in
+                // the defined trade window
+                if (const auto sell_price_index =
+                        handt::sell(current_price_index, future_price_index);
+                    sell_price_index != future_price_index) {
+                  ++strategy.good_deals;
 
-                // Move the analysis window so the next iteration starts at the
-                // last sell price
-                historic_price_index = sell_price_index;
-              } else
-                ++strategy.bad_deals;
+                  // Move the analysis window so the next iteration starts at
+                  // the last sell price
+                  historic_price_index = sell_price_index;
+                } else
+                  ++strategy.bad_deals;
+              }
+
+              // Nudge the analysis window along
+              std::advance(historic_price_index, 1);
+
+              // Update upstream prices
+              current_price_index =
+                  std::next(historic_price_index, analysis_window);
+              future_price_index = std::next(current_price_index, sell_window);
+
+              // Track how many times we could have traded
+              ++strategy.opportunities_to_trade;
             }
 
-            // Nudge the analysis window along
-            std::advance(historic_price_index, 1);
+            // Calculate prospects using the most recent prices
+            historic_price_index = std::prev(prices.cend(), analysis_window);
+            current_price_index = prices.cend();
 
-            // Update upstream prices
-            current_price_index =
-                std::next(historic_price_index, analysis_window);
-            future_price_index = std::next(current_price_index, sell_window);
-
-            // Track how many times we could have traded
-            ++strategy.opportunities_to_trade;
+            if (strategy.trigger_ratio =
+                    buy({historic_price_index, current_price_index});
+                strategy.trigger_ratio > buy_threshold)
+              strategy.current_prospect = true;
           }
-
-          // Calculate prospects using the most recent prices
-          historic_price_index = std::prev(prices.cend(), analysis_window);
-          current_price_index = prices.cend();
-
-          if (strategy.trigger_ratio =
-                  buy({historic_price_index, current_price_index});
-              strategy.trigger_ratio > buy_threshold)
-            strategy.current_prospect = true;
-        }
     }
   }
 
