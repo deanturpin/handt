@@ -68,7 +68,7 @@ struct strategy_summary {
 // Primary strategies are simple boolean tests: is it rising? Is it falling?
 const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
-    {"persistent",
+    {"crouching",
      [](cont p) {
        static_cast<void>(p);
        return true;
@@ -84,7 +84,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
        return trend > p.size() / 2;
      }},
 
-    {"falling",
+    {"hidden",
      [](cont p) {
        unsigned int trend = 0;
        for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
@@ -112,7 +112,6 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
        return min < threshold && max > threshold;
      }},
-
 };
 
 // Secondary strategies yield a threshold
@@ -227,12 +226,12 @@ const auto sell = [](iter current, iter future) {
 int main() {
 
   // Create a container for all trades
-  static std::vector<handt::strategy_summary> summary;
+  static std::vector<handt::strategy_summary> permutations;
 
   // Create a set of thresholds to use with each buy strategy
   const auto thresholds = []() {
     std::vector<double> thresh;
-    for (double t = 1.02; t < 1.20; t += .01)
+    for (auto t = 1.02; t < 1.20; t += .01)
       thresh.push_back(t);
     return thresh;
   }();
@@ -241,7 +240,7 @@ int main() {
   for (const auto &[primary, primary_buy] : handt::primary_strategies)
     for (const auto &[secondary, secondary_buy] : handt::strategies)
       for (const auto &t : thresholds)
-        summary.emplace_back(handt::strategy_summary());
+        permutations.emplace_back(handt::strategy_summary());
 
   // summary.emplace_back(handt::strategy_summary{
   //     from_symbol, to_symbol, exchange, primary_buy, secondary_buy, t});
@@ -351,19 +350,21 @@ int main() {
   }
 
   // Sort strategies by effectiveness
-  std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
-    return (a.good_deals ? a.good_deals : 1.0) /
-               (a.bad_deals ? a.bad_deals : 1.0) >
-           (b.good_deals ? b.good_deals : 1.0) /
-               (b.bad_deals ? b.bad_deals : 1.0);
-  });
+  std::sort(permutations.begin(), permutations.end(),
+            [](const auto &a, const auto &b) {
+              return (a.good_deals ? a.good_deals : 1.0) /
+                         (a.bad_deals ? a.bad_deals : 1.0) >
+                     (b.good_deals ? b.good_deals : 1.0) /
+                         (b.bad_deals ? b.bad_deals : 1.0);
+            });
 
   // Strategy and trade overview
   std::stringstream totals;
-  totals << handt::primary_strategies.size() << " primary strategies, ";
-  totals << handt::strategies.size() << " secondary strategies, ";
-  totals << thresholds.size() << " thresholds, ";
-  totals << summary.size() << " strategy-pair combinations tested.\n\n";
+  totals << trading_pairs.size() << " trading pairs, "
+         << handt::primary_strategies.size() << " primary strategies, "
+         << handt::strategies.size() << " secondary strategies, "
+         << thresholds.size() << " thresholds, (" << permutations.size()
+         << " strategy permutations.)\n\n";
   std::puts(totals.str().c_str());
 
   // Print strategy reports
