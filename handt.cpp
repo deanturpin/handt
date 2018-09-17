@@ -14,8 +14,18 @@ namespace handt {
 // Define the buy strategies: each strategy function takes a subset of
 // available prices - the analysis window - and returns a threshold to
 // determine whether to buy or not
-using cont = const std::vector<double>;
+using cont = const std::vector<double> &;
 using func = std::function<double(cont)>;
+
+// A complete strategy consists of a primary and secondary strategy and a buy
+// threshold
+struct strategy_combo {
+  using func1 = std::function<bool(cont)>;
+  using func2 = std::function<double(cont)>;
+  func1 primary;
+  func2 secondary;
+  double threshold = 0.0;
+};
 
 // Structure to represent a trade
 struct strategy_summary {
