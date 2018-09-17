@@ -198,19 +198,16 @@ int main() {
       std::stringstream out;
       out << primary << ' ' << secondary << ' ' << -100.0 + threshold * 100.0
           << " %|[" << currency_pair << "](" << url() << ")|" << good_deals
-          << '/' << bad_deals << '|' << spot << '|' << opportunities_to_trade
-          << '|' << std::fixed << std::setprecision(0)
-          << -100.0 + 100.0 * trigger_ratio << " %|"
+          << '/' << bad_deals << '|' << spot << '|' << std::fixed
+          << std::setprecision(0) << -100.0 + 100.0 * trigger_ratio << " %|"
           << (current_prospect ? " *" : "");
       return out.str();
     }
 
     // Construct strategy table heading
     std::string heading() const {
-      std::stringstream out;
-      out << "Strategy|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!\n";
-      out << "---|---|---|---|---|---|---";
-      return out.str();
+      return "Strategy|Pair|Good/Bad|Spot|Threshold|BUY NOW!\n"
+             "---|---|---|---|---|---";
     }
 
     // Construct exchange URL
