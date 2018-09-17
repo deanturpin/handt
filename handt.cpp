@@ -229,10 +229,22 @@ int main() {
   // Create a container for all trades
   static std::vector<handt::strategy_summary> summary;
 
-  // Create a set of buy thresholds to use with each strategy
-  std::vector<double> thresholds;
-  for (double t = 1.02; t < 1.20; t += .01)
-    thresholds.push_back(t);
+  // Create a set of thresholds to use with each buy strategy
+  const auto thresholds = []() {
+    std::vector<double> thresh;
+    for (double t = 1.02; t < 1.20; t += .01)
+      thresh.push_back(t);
+    return thresh;
+  }();
+
+  // Create a new strategy summary, initialised with basic trade info
+  for (const auto &[primary, primary_buy] : handt::primary_strategies)
+    for (const auto &[secondary, secondary_buy] : handt::strategies)
+      for (const auto &t : thresholds)
+        summary.emplace_back(handt::strategy_summary());
+
+  // summary.emplace_back(handt::strategy_summary{
+  //     from_symbol, to_symbol, exchange, primary_buy, secondary_buy, t});
 
   // Fetch all price files
   std::vector<std::string> trading_pairs;
@@ -254,13 +266,6 @@ int main() {
       from_symbol.pop_back();
 
     // Run strategies over the prices using different buy thresholds
-    // Create a new strategy summary, initialised with basic trade info
-    for (const auto &[primary, primary_buy] : handt::primary_strategies)
-      for (const auto &[secondary, secondary_buy] : handt::strategies)
-        for (const auto &t : thresholds)
-          summary.emplace_back(handt::strategy_summary{
-              from_symbol, to_symbol, exchange, primary_buy, secondary_buy, t});
-
     // Get the prices
     if (const std::vector<double> prices{std::istream_iterator<double>(in), {}};
         !prices.empty()) {
