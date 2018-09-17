@@ -26,7 +26,7 @@ struct strategy_combo {
   std::string name;
   func1 primary;
   func2 secondary;
-  double threshold = 0.0;
+  int threshold;
 };
 
 // Structure to represent a trade
@@ -238,22 +238,23 @@ const auto sell = [](iter current, iter future) {
 int main() {
 
   // Create a set of thresholds to use with each buy strategy
-  const auto thresholds = []() {
-    std::vector<double> thresh;
-    for (auto t = 1.02; t < 1.20; t += .01)
-      thresh.push_back(t);
-    return thresh;
-  }();
+  std::vector<int> thresholds(5);
+  std::iota(thresholds.begin(), thresholds.end(), 2);
 
-  // Create a new strategy summary, initialised with basic trade info
+  // Create and initialise a container of all strategy permuations
   static std::vector<handt::strategy_combo> permutations;
   permutations.reserve(handt::primary_strategies.size() *
                        handt::strategies.size() * thresholds.size());
+
+  // Populate with the strategy library
   for (const auto &[name1, buy1] : handt::primary_strategies)
     for (const auto &[name2, buy2] : handt::strategies)
       for (const auto &t : thresholds)
         permutations.push_back(
             {name1 + ' ' + name2 + ' ' + std::to_string(t), buy1, buy2, t});
+
+  for (const auto &s : permutations)
+    std::puts(s.name.c_str());
 
   // Fetch all price files
   std::vector<std::string> trading_pairs;
