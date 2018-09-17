@@ -11,6 +11,7 @@ using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
+<<<<<<< Updated upstream
 Generated Mon 17 Sep 09:44:13 GMT 2018 -
 4 primary strategies, 18 secondary strategies, 23184 pairs tested.
 
@@ -512,3 +513,11 @@ persistent tibbs 7 %|[XVG-BTC](https://www.binance.com/en/trade/XVG_BTC)|5/1|2.1
 rising nacho 4 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/1|0.01278|1 %|
 persistent stick 3 %|[SUB-BTC](https://www.binance.com/en/trade/SUB_BTC)|5/1|1.81e-05|0 %|
 rising nacho 3 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/1|0.01278|1 %|
+=======
+Generated Mon 17 Sep 08:14:47 GMT 2018 -
+4 primary strategies, 18 secondary strategies, 0 pairs tested.
+
+
+Strategy|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!
+---|---|---|---|---|---|---
+>>>>>>> Stashed changes
