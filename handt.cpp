@@ -20,7 +20,7 @@ using func = std::function<double(cont)>;
 // Primary strategies are simple boolean tests: is it rising? Is it falling?
 const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
-    {"persistent",
+    {"unrelenting",
      [](cont p) {
        static_cast<void>(p);
        return true;
@@ -36,7 +36,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
        return trend > p.size() / 2;
      }},
 
-    {"falling",
+    {"supine",
      [](cont p) {
        unsigned int trend = 0;
        for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
@@ -70,7 +70,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 // Secondary strategies yield a threshold
 const std::map<std::string, func> strategies{
 
-    {"hustle", [](cont p) { return p.front() / p.back(); }},
+    {"cipher", [](cont p) { return p.front() / p.back(); }},
     {"forest", [](cont p) { return p.back() / p.front(); }},
 
     {"quill",
@@ -143,7 +143,7 @@ const std::map<std::string, func> strategies{
        return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
      }},
 
-    {"biro",
+    {"peacock",
      [](cont p) {
        return p.back() / *std::min_element(p.cbegin(), std::prev(p.cend()));
      }},
@@ -153,7 +153,7 @@ const std::map<std::string, func> strategies{
        return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
-    {"stride",
+    {"brio",
      [](cont p) {
        const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
        return min > 0.0 ? p.front() / min : 0.0;
