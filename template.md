@@ -3,11 +3,11 @@
 **History is no indicator of future performance. Don't invest what you can't
 afford to lose.**
 
-*Have A Nice Day Trader* is an algorithmic trading platform. Prices are
-requested for all currency pairs traded by Binance and Coinbase over the last
-80 days. A library of strategies is back-tested over all pairs and the summary
-below is generated. The results are ordered by success. Prices are fetched
-using the [CryptoCompare API](https://min-api.cryptocompare.com/).
+Despite that... *Have A Nice Day Trader* is an algorithmic trading platform.
+Prices are requested for all currency pairs traded by Binance and Coinbase over
+the last 80 days. A library of strategies is back-tested over all pairs and the
+summary below is generated. The results are ordered by success. Prices are
+fetched using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
