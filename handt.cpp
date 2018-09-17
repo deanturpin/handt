@@ -208,7 +208,7 @@ int main() {
 
     // Construct strategy table heading
     std::string heading() const {
-      return "Strategy|Pair|Good/Bad|Spot|Threshold|BUY NOW!\n"
+      return "Strategy|Pair|Perf|Spot|Threshold|BUY NOW!\n"
              "---|---|---|---|---|---";
     }
 
