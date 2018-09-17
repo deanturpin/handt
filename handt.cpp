@@ -17,6 +17,7 @@ namespace handt {
 using cont = const std::vector<double>;
 using func = std::function<double(cont)>;
 
+// Primary strategies are simple boolean tests: is it rising? Is it falling?
 const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
     {"persistent",
@@ -66,6 +67,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
 };
 
+// Secondary strategies yield a threshold
 const std::map<std::string, func> strategies{
 
     {"hustle", [](cont p) { return p.front() / p.back(); }},
