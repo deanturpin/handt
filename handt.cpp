@@ -16,12 +16,14 @@ namespace handt {
 // determine whether to buy or not
 using cont = const std::vector<double> &;
 using func = std::function<double(cont)>;
+using func1 = std::function<bool(cont)>;
+using func2 = std::function<double(cont)>;
 
 // A complete strategy consists of a primary and secondary strategy and a buy
 // threshold
+
 struct strategy_combo {
-  using func1 = std::function<bool(cont)>;
-  using func2 = std::function<double(cont)>;
+  std::string name;
   func1 primary;
   func2 secondary;
   double threshold = 0.0;
@@ -235,9 +237,6 @@ const auto sell = [](iter current, iter future) {
 
 int main() {
 
-  // Create a container for all trades
-  static std::vector<handt::strategy_summary> permutations;
-
   // Create a set of thresholds to use with each buy strategy
   const auto thresholds = []() {
     std::vector<double> thresh;
@@ -247,13 +246,14 @@ int main() {
   }();
 
   // Create a new strategy summary, initialised with basic trade info
-  for (const auto &[primary, primary_buy] : handt::primary_strategies)
-    for (const auto &[secondary, secondary_buy] : handt::strategies)
+  static std::vector<handt::strategy_combo> permutations;
+  permutations.reserve(handt::primary_strategies.size() *
+                       handt::strategies.size() * thresholds.size());
+  for (const auto &[name1, buy1] : handt::primary_strategies)
+    for (const auto &[name2, buy2] : handt::strategies)
       for (const auto &t : thresholds)
-        permutations.emplace_back(handt::strategy_summary());
-
-  // summary.emplace_back(handt::strategy_summary{
-  //     from_symbol, to_symbol, exchange, primary_buy, secondary_buy, t});
+        permutations.push_back(
+            {name1 + ' ' + name2 + ' ' + std::to_string(t), buy1, buy2, t});
 
   // Fetch all price files
   std::vector<std::string> trading_pairs;
@@ -360,13 +360,13 @@ int main() {
   }
 
   // Sort strategies by effectiveness
-  std::sort(permutations.begin(), permutations.end(),
-            [](const auto &a, const auto &b) {
-              return (a.good_deals ? a.good_deals : 1.0) /
-                         (a.bad_deals ? a.bad_deals : 1.0) >
-                     (b.good_deals ? b.good_deals : 1.0) /
-                         (b.bad_deals ? b.bad_deals : 1.0);
-            });
+  // std::sort(permutations.begin(), permutations.end(),
+  //           [](const auto &a, const auto &b) {
+  //             return (a.good_deals ? a.good_deals : 1.0) /
+  //                        (a.bad_deals ? a.bad_deals : 1.0) >
+  //                    (b.good_deals ? b.good_deals : 1.0) /
+  //                        (b.bad_deals ? b.bad_deals : 1.0);
+  //           });
 
   // Strategy and trade overview
   std::stringstream totals;
