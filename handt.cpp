@@ -102,6 +102,13 @@ const auto minimum_bar_front = [](const auto p) {
 // threshold
 const std::map<std::string, func> secondary_strategies{
 
+    // Always succeed
+    {"lundehund",
+     [](cont p) {
+       static_cast<void>(p);
+       return 2.0;
+     }},
+
     {"norrbottenspets", [](cont p) { return p.front() / p.back(); }},
     {"jagdterrier", [](cont p) { return p.back() / p.front(); }},
 

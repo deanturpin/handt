@@ -11,8 +11,8 @@ fetched using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Tue 18 Sep 18:25:14 GMT 2018 -
-324 currency pairs, 4 primary strategies, 18 secondary strategies, 20 thresholds, (1,440 strategy permutations), 463,680 tests performed.
+Generated Tue 18 Sep 20:06:16 GMT 2018 -
+324 currency pairs, 4 primary strategies, 19 secondary strategies, 20 thresholds, (1,520 strategy permutations), 489,440 tests performed.
 
 Strategy|Pair|Good/Bad|Advice
 ---|---|---|---
