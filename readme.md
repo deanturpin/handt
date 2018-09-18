@@ -3,521 +3,338 @@
 **History is no indicator of future performance. Don't invest what you can't
 afford to lose.**
 
-*Have A Nice Day Trader* is an algorithmic trading platform. Prices are
-requested for all currency pairs traded by Binance and Coinbase over the last
-80 days. A library of strategies is back-tested over all pairs and the summary
-below is generated. The results are ordered by success. Prices are fetched
-using the [CryptoCompare API](https://min-api.cryptocompare.com/).
+Despite that... *Have A Nice Day Trader* is an algorithmic trading platform.
+Prices are requested for all currency pairs traded by Binance and Coinbase over
+the last 80 days. A library of strategies is back-tested over all pairs and the
+summary below is generated. The results are ordered by success. Prices are
+fetched using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
-<<<<<<< Updated upstream
-Generated Mon 17 Sep 09:44:13 GMT 2018 -
-4 primary strategies, 18 secondary strategies, 23184 pairs tested.
+Generated Tue 18 Sep 11:37:27 GMT 2018 -
+324 currency pairs, 4 primary strategies, 18 secondary strategies, 5 thresholds, (360 strategy permutations.)
 
-
-Strategy|Pair|Good/Bad|Spot|Threshold|BUY NOW!
----|---|---|---|---|---
-persistent forest 9 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|12/1|0.04418|-2 %|
-persistent forest 10 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|11/1|0.04418|-2 %|
-persistent nacho 16 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|10/1|0.04559|2 %|
-persistent nacho 16 %|[QSP-BNB](https://www.binance.com/en/trade/QSP_BNB)|9/1|0.003208|6 %|
-persistent nacho 15 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|9/0|3.61e-06|25 %| *
-persistent nacho 16 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|9/0|3.61e-06|25 %| *
-persistent pencil 2 %|[MTL-ETH](https://www.binance.com/en/trade/MTL_ETH)|9/1|0.00345|-1 %|
-rising biro 9 %|[TRIG-ETH](https://www.binance.com/en/trade/TRIG_ETH)|9/1|0.001|3 %|
-persistent hustle 10 %|[QSP-ETH](https://www.binance.com/en/trade/QSP_ETH)|9/0|0.0001454|-4 %|
-persistent cadiz 2 %|[RDN-ETH](https://www.binance.com/en/trade/RDN_ETH)|9/1|0.002086|0 %|
-persistent nacho 17 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|9/0|0.04559|2 %|
-persistent forest 11 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|9/1|0.04418|-2 %|
-falling stride 9 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|9/1|0.002579|3 %|
-falling hustle 10 %|[STEEM-BNB](https://www.binance.com/en/trade/STEEM_BNB)|9/1|0.07526|-4 %|
-falling hustle 8 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|8/1|0.002579|2 %|
-persistent hustle 9 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|8/1|0.002579|2 %|
-persistent terry 6 %|[CND-ETH](https://www.binance.com/en/trade/CND_ETH)|8/0|0.0001077|12 %| *
-persistent cadiz 3 %|[MDA-ETH](https://www.binance.com/en/trade/MDA_ETH)|8/1|0.002385|-5 %|
-persistent pencil 3 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|8/1|3.61e-06|0 %|
-persistent stride 16 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|8/0|0.182|1 %|
-persistent forest 13 %|[MDA-ETH](https://www.binance.com/en/trade/MDA_ETH)|8/0|0.002385|6 %|
-persistent stride 17 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|8/0|0.0005247|-1 %|
-persistent stride 15 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|8/0|0.182|1 %|
-persistent stick 3 %|[RLC-BNB](https://www.binance.com/en/trade/RLC_BNB)|8/1|0.03808|-1 %|
-falling nacho 14 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|8/1|0.04559|2 %|
-persistent cricket 16 %|[QLC-BNB](https://www.binance.com/en/trade/QLC_BNB)|8/1|0.00537|5 %|
-falling pencil 2 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|8/1|3.61e-06|0 %|
-falling hustle 10 %|[QSP-ETH](https://www.binance.com/en/trade/QSP_ETH)|8/0|0.0001454|-4 %|
-persistent stride 13 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|8/1|0.000183|-0 %|
-persistent nacho 17 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|8/0|0.0005247|3 %|
-persistent stride 12 %|[TNT-ETH](https://www.binance.com/en/trade/TNT_ETH)|8/1|0.000181|-0 %|
-persistent pencil 2 %|[PIVX-ETH](https://www.binance.com/en/trade/PIVX_ETH)|8/1|0.004348|-6 %|
-falling pencil 3 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|7/0|3.61e-06|0 %|
-falling pencil 2 %|[TRIG-ETH](https://www.binance.com/en/trade/TRIG_ETH)|7/0|0.001|-3 %|
-persistent stride 14 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|7/1|0.000183|-0 %|
-persistent biro 16 %|[WTC-BNB](https://www.binance.com/en/trade/WTC_BNB)|7/1|0.3438|11 %|
-falling cricket 4 %|[CND-BNB](https://www.binance.com/en/trade/CND_BNB)|7/1|0.002382|7 %| *
-persistent cricket 12 %|[ELF-BTC](https://www.binance.com/en/trade/ELF_BTC)|7/1|5.202e-05|6 %|
-falling robin 2 %|[LUN-ETH](https://www.binance.com/en/trade/LUN_ETH)|7/1|0.01335|-12 %|
-rising biro 12 %|[GVT-ETH](https://www.binance.com/en/trade/GVT_ETH)|7/1|0.04031|5 %|
-falling hustle 14 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|7/1|0.04559|-2 %|
-falling nacho 15 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|7/0|0.04559|2 %|
-falling robin 3 %|[OST-ETH](https://www.binance.com/en/trade/OST_ETH)|7/0|0.0001451|-10 %|
-persistent hustle 14 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|7/0|0.182|1 %|
-rising nacho 2 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|7/0|0.003205|3 %|
-persistent biro 10 %|[RDN-BTC](https://www.binance.com/en/trade/RDN_BTC)|7/1|6.971e-05|3 %|
-persistent nacho 17 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|7/0|3.61e-06|25 %| *
-rising stride 4 %|[ENJ-ETH](https://www.binance.com/en/trade/ENJ_ETH)|7/1|0.0001966|2 %|
-falling nacho 16 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|7/0|0.04559|2 %|
-falling forest 2 %|[LEND-ETH](https://www.binance.com/en/trade/LEND_ETH)|7/0|7.564e-05|47 %|
-falling nacho 17 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|7/0|0.0005247|3 %|
-persistent biro 15 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|7/0|0.04418|0 %|
-persistent nacho 14 %|[AION-ETH](https://www.binance.com/en/trade/AION_ETH)|7/1|0.00209|-0 %|
-persistent nacho 15 %|[AION-ETH](https://www.binance.com/en/trade/AION_ETH)|7/0|0.00209|-0 %|
-falling hustle 9 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|7/0|0.002579|2 %|
-persistent cadiz 4 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|7/1|0.000104|-1 %|
-persistent hustle 15 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|7/0|0.182|1 %|
-falling nacho 17 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|7/1|1.334e-05|5 %|
-rising nacho 3 %|[RCN-BTC](https://www.binance.com/en/trade/RCN_BTC)|7/1|3.71e-06|9 %|
-persistent nacho 16 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|7/1|0.182|3 %|
-persistent hustle 16 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|7/1|0.0005247|-10 %|
-rising forest 12 %|[GVT-ETH](https://www.binance.com/en/trade/GVT_ETH)|7/1|0.04031|5 %|
-falling tibbs 3 %|[CHAT-BTC](https://www.binance.com/en/trade/CHAT_BTC)|7/1|3.13e-06|3 %|
-persistent hustle 17 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|7/0|0.0005247|-10 %|
-persistent stick 4 %|[YOYOW-BNB](https://www.binance.com/en/trade/YOYOW_BNB)|7/0|0.002392|-1 %|
-persistent biro 12 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|7/1|0.1192|2 %|
-falling nacho 15 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|7/0|3.61e-06|25 %| *
-persistent hustle 19 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|6/1|0.003205|-9 %|
-falling hustle 15 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|6/0|0.182|1 %|
-persistent stride 17 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|6/1|0.000104|-0 %|
-persistent cadiz 3 %|[RDN-BTC](https://www.binance.com/en/trade/RDN_BTC)|6/0|6.971e-05|-2 %|
-falling cricket 6 %|[POWR-ETH](https://www.binance.com/en/trade/POWR_ETH)|6/1|0.0007092|22 %|
-persistent biro 14 %|[YOYOW-BNB](https://www.binance.com/en/trade/YOYOW_BNB)|6/1|0.002392|10 %|
-falling nacho 16 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|6/0|3.61e-06|25 %| *
-persistent stride 16 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|6/1|0.000104|-0 %|
-persistent biro 16 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/0|0.1192|2 %|
-rising biro 11 %|[ELF-ETH](https://www.binance.com/en/trade/ELF_ETH)|6/1|0.001557|5 %|
-rising cadiz 3 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|6/1|1.334e-05|-5 %|
-persistent stick 3 %|[XZC-BNB](https://www.binance.com/en/trade/XZC_BNB)|6/0|0.951|-3 %|
-persistent tibbs 5 %|[ONT-ETH](https://www.binance.com/en/trade/ONT_ETH)|6/1|0.00835|0 %|
-persistent pencil 3 %|[SUB-ETH](https://www.binance.com/en/trade/SUB_ETH)|6/1|0.0005407|-3 %|
-persistent nacho 17 %|[WABI-ETH](https://www.binance.com/en/trade/WABI_ETH)|6/1|0.00096|15 %|
-persistent cadiz 3 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|6/1|0.001351|-4 %|
-persistent robin 5 %|[WABI-BNB](https://www.binance.com/en/trade/WABI_BNB)|6/0|0.02117|2 %|
-persistent nacho 14 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/0|8.599e-05|3 %|
-rising tibbs 6 %|[ELF-ETH](https://www.binance.com/en/trade/ELF_ETH)|6/1|0.001557|2 %|
-falling stride 17 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|6/1|0.0005247|-1 %|
-persistent forest 13 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|6/1|0.0003429|8 %|
-persistent stride 16 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|6/1|3.03e-06|1 %|
-persistent biro 17 %|[WTC-BNB](https://www.binance.com/en/trade/WTC_BNB)|6/1|0.3438|11 %|
-persistent nacho 16 %|[WAN-ETH](https://www.binance.com/en/trade/WAN_ETH)|6/1|0.004473|3 %|
-persistent cadiz 2 %|[RDN-BTC](https://www.binance.com/en/trade/RDN_BTC)|6/1|6.971e-05|-2 %|
-persistent stride 17 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|6/1|3.03e-06|1 %|
-persistent biro 15 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/1|0.1192|2 %|
-persistent biro 14 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/1|0.1192|2 %|
-persistent biro 13 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/1|0.1192|2 %|
-rising nacho 3 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|6/0|0.003205|3 %|
-falling nacho 17 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|6/0|0.04559|2 %|
-persistent hustle 16 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|6/1|1.981e-05|-6 %|
-persistent tibbs 6 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|6/1|3.61e-06|-10 %|
-rising hustle 3 %|[ENJ-ETH](https://www.binance.com/en/trade/ENJ_ETH)|6/0|0.0001966|-2 %|
-rising hustle 2 %|[ENJ-ETH](https://www.binance.com/en/trade/ENJ_ETH)|6/0|0.0001966|-2 %|
-falling hustle 18 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|6/1|0.003205|-9 %|
-rising biro 16 %|[WTC-BNB](https://www.binance.com/en/trade/WTC_BNB)|6/0|0.3438|11 %|
-falling forest 3 %|[POWR-ETH](https://www.binance.com/en/trade/POWR_ETH)|6/0|0.0007092|11 %|
-falling hustle 19 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|6/1|0.003205|-9 %|
-persistent cricket 15 %|[YOYOW-BNB](https://www.binance.com/en/trade/YOYOW_BNB)|6/0|0.002392|15 %|
-falling stride 16 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|6/1|0.182|1 %|
-persistent cricket 14 %|[YOYOW-BNB](https://www.binance.com/en/trade/YOYOW_BNB)|6/0|0.002392|15 %| *
-persistent tibbs 5 %|[LSK-ETH](https://www.binance.com/en/trade/LSK_ETH)|6/0|0.01703|6 %| *
-persistent biro 16 %|[MDA-ETH](https://www.binance.com/en/trade/MDA_ETH)|6/1|0.002385|6 %|
-persistent stride 17 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|6/1|3.61e-06|17 %| *
-rising cadiz 2 %|[BCD-BTC](https://www.binance.com/en/trade/BCD_BTC)|6/0|0.000286|-3 %|
-persistent robin 4 %|[WABI-BTC](https://www.binance.com/en/trade/WABI_BTC)|6/0|3.228e-05|4 %| *
-rising tibbs 3 %|[LEND-BTC](https://www.binance.com/en/trade/LEND_BTC)|6/0|2.54e-06|19 %| *
-rising nacho 5 %|[WAVES-ETH](https://www.binance.com/en/trade/WAVES_ETH)|6/1|0.01034|-0 %|
-falling terry 4 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|6/1|0.01278|-2 %|
-falling stride 15 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|6/1|0.182|1 %|
-rising stick 3 %|[LINK-ETH](https://www.binance.com/en/trade/LINK_ETH)|6/1|0.001294|0 %|
-persistent stride 14 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/0|8.599e-05|2 %|
-persistent stride 14 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|6/1|7.15e-05|2 %|
-falling forest 4 %|[QLC-ETH](https://www.binance.com/en/trade/QLC_ETH)|6/0|0.0002527|0 %|
-persistent tibbs 5 %|[NULS-ETH](https://www.binance.com/en/trade/NULS_ETH)|6/0|0.005475|1 %|
-persistent forest 9 %|[RDN-BTC](https://www.binance.com/en/trade/RDN_BTC)|6/1|6.971e-05|1 %|
-falling stride 18 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|6/1|1.148e-05|0 %|
-rising nacho 4 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|6/0|0.003205|3 %|
-falling hustle 16 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|6/0|0.04559|-2 %|
-falling hustle 15 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|6/0|0.04559|-2 %|
-rising nacho 2 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|6/1|0.01278|1 %|
-persistent forest 12 %|[APPC-BTC](https://www.binance.com/en/trade/APPC_BTC)|6/1|1.353e-05|9 %|
-falling hustle 14 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|6/0|0.182|1 %|
-falling stride 11 %|[QSP-ETH](https://www.binance.com/en/trade/QSP_ETH)|6/0|0.0001454|-0 %|
-persistent stride 13 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/1|8.599e-05|2 %|
-straddling hustle 6 %|[BNB-USDT](https://www.binance.com/en/trade/BNB_USDT)|6/1|9.9|0 %|
-persistent stride 14 %|[BRD-BNB](https://www.binance.com/en/trade/BRD_BNB)|6/1|0.03248|3 %|
-persistent hustle 10 %|[GTO-ETH](https://www.binance.com/en/trade/GTO_ETH)|6/1|0.0002895|-2 %|
-falling stride 12 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/1|8.599e-05|2 %|
-falling stride 13 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/1|8.599e-05|2 %|
-persistent cricket 16 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/0|0.1192|3 %|
-falling hustle 16 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|6/0|1.981e-05|-6 %|
-rising hustle 3 %|[BLZ-ETH](https://www.binance.com/en/trade/BLZ_ETH)|6/1|0.000506|-2 %|
-persistent nacho 17 %|[QSP-BNB](https://www.binance.com/en/trade/QSP_BNB)|6/0|0.003208|6 %|
-falling nacho 15 %|[QSP-BTC](https://www.binance.com/en/trade/QSP_BTC)|6/1|4.87e-06|6 %|
-falling stride 14 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/0|8.599e-05|2 %|
-rising cricket 7 %|[LEND-BTC](https://www.binance.com/en/trade/LEND_BTC)|6/0|2.54e-06|47 %| *
-persistent tibbs 5 %|[VIB-BTC](https://www.binance.com/en/trade/VIB_BTC)|6/1|5.54e-06|8 %| *
-persistent hustle 15 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|6/1|0.04559|-2 %|
-persistent hustle 16 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|6/1|3.03e-06|-8 %|
-persistent forest 15 %|[MDA-ETH](https://www.binance.com/en/trade/MDA_ETH)|6/1|0.002385|6 %|
-falling nacho 12 %|[AMB-ETH](https://www.binance.com/en/trade/AMB_ETH)|6/1|0.0005898|0 %|
-persistent nacho 14 %|[GTO-BNB](https://www.binance.com/en/trade/GTO_BNB)|6/1|0.00633|7 %|
-falling hustle 10 %|[GTO-ETH](https://www.binance.com/en/trade/GTO_ETH)|6/1|0.0002895|-2 %|
-falling nacho 11 %|[AMB-ETH](https://www.binance.com/en/trade/AMB_ETH)|6/1|0.0005898|0 %|
-rising stick 2 %|[SUB-BTC](https://www.binance.com/en/trade/SUB_BTC)|6/1|1.81e-05|0 %|
-persistent hustle 12 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/1|8.599e-05|2 %|
-persistent hustle 16 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|6/0|0.04559|-2 %|
-falling hustle 16 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|6/1|0.0005247|-10 %|
-rising cricket 8 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|6/1|3.532e-05|16 %|
-falling biro 6 %|[MCO-ETH](https://www.binance.com/en/trade/MCO_ETH)|6/1|0.01972|2 %|
-falling robin 2 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|6/1|0.002579|0 %|
-rising cricket 9 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|6/1|3.532e-05|16 %|
-persistent tibbs 6 %|[SALT-BTC](https://www.binance.com/en/trade/SALT_BTC)|6/0|6.93e-05|2 %|
-persistent stick 3 %|[QLC-ETH](https://www.binance.com/en/trade/QLC_ETH)|6/1|0.0002527|-1 %|
-persistent forest 12 %|[POA-ETH](https://www.binance.com/en/trade/POA_ETH)|6/0|0.0003569|22 %| *
-persistent stride 18 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|6/1|1.148e-05|0 %|
-falling terry 7 %|[MTH-BTC](https://www.binance.com/en/trade/MTH_BTC)|6/0|3.48e-06|-4 %|
-falling hustle 13 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/1|8.599e-05|2 %|
-rising cricket 9 %|[MDA-ETH](https://www.binance.com/en/trade/MDA_ETH)|6/1|0.002385|12 %|
-rising cricket 10 %|[MDA-ETH](https://www.binance.com/en/trade/MDA_ETH)|6/0|0.002385|12 %|
-straddling terry 4 %|[BNB-USDT](https://www.binance.com/en/trade/BNB_USDT)|6/1|9.9|-1 %|
-persistent cricket 14 %|[POA-BTC](https://www.binance.com/en/trade/POA_BTC)|6/1|1.189e-05|23 %| *
-persistent hustle 13 %|[TRIG-ETH](https://www.binance.com/en/trade/TRIG_ETH)|6/1|0.001|2 %|
-falling tibbs 2 %|[QLC-BTC](https://www.binance.com/en/trade/QLC_BTC)|6/1|8.41e-06|0 %|
-persistent hustle 13 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/1|8.599e-05|2 %|
-falling nacho 16 %|[MTH-BTC](https://www.binance.com/en/trade/MTH_BTC)|6/0|3.48e-06|3 %|
-persistent hustle 14 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/0|8.599e-05|2 %|
-falling hustle 12 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/1|8.599e-05|2 %|
-falling nacho 14 %|[GTO-BNB](https://www.binance.com/en/trade/GTO_BNB)|6/1|0.00633|7 %|
-falling hustle 14 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/0|8.599e-05|2 %|
-straddling stride 7 %|[BNB-USDT](https://www.binance.com/en/trade/BNB_USDT)|6/1|9.9|1 %|
-persistent stride 17 %|[TNB-BTC](https://www.binance.com/en/trade/TNB_BTC)|6/1|1.41e-06|3 %|
-rising forest 10 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|6/1|0.0002948|12 %| *
-falling nacho 17 %|[MTH-BTC](https://www.binance.com/en/trade/MTH_BTC)|6/0|3.48e-06|3 %|
-falling hustle 17 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|6/0|0.0005247|-10 %|
-falling stride 16 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|6/1|1.981e-05|-1 %|
-falling stride 15 %|[QSP-BTC](https://www.binance.com/en/trade/QSP_BTC)|6/1|4.87e-06|-0 %|
-persistent hustle 17 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|6/0|0.04559|-2 %|
-rising cricket 6 %|[LEND-BTC](https://www.binance.com/en/trade/LEND_BTC)|6/1|2.54e-06|47 %| *
-persistent nacho 18 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|6/0|0.0005247|3 %|
-falling nacho 15 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|6/1|0.182|3 %|
-persistent hustle 15 %|[WAN-ETH](https://www.binance.com/en/trade/WAN_ETH)|6/1|0.004473|-6 %|
-falling stride 19 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|6/1|0.003205|0 %|
-persistent biro 16 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|6/0|0.0005247|11 %|
-falling nacho 16 %|[WAN-ETH](https://www.binance.com/en/trade/WAN_ETH)|6/1|0.004473|3 %|
-persistent hustle 17 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|6/1|3.03e-06|-8 %|
-persistent stride 17 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|6/0|0.182|1 %|
-rising forest 8 %|[POWR-BTC](https://www.binance.com/en/trade/POWR_BTC)|6/1|2.365e-05|11 %|
-rising forest 7 %|[POWR-BTC](https://www.binance.com/en/trade/POWR_BTC)|6/1|2.365e-05|11 %|
-persistent biro 15 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|6/0|0.0005247|11 %|
-persistent nacho 19 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|6/0|0.0005247|3 %|
-persistent forest 10 %|[REQ-ETH](https://www.binance.com/en/trade/REQ_ETH)|6/0|0.000175|6 %|
-persistent forest 14 %|[SUB-BTC](https://www.binance.com/en/trade/SUB_BTC)|6/1|1.81e-05|2 %|
-persistent pencil 3 %|[LEND-ETH](https://www.binance.com/en/trade/LEND_ETH)|6/1|7.564e-05|-32 %|
-persistent hustle 13 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|6/1|0.000183|-2 %|
-falling nacho 14 %|[ZRX-BTC](https://www.binance.com/en/trade/ZRX_BTC)|6/0|8.599e-05|3 %|
-persistent hustle 14 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|6/1|0.000183|-2 %|
-rising cadiz 2 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|6/1|1.334e-05|-5 %|
-persistent forest 13 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/0|0.1192|1 %|
-rising forest 6 %|[LEND-BTC](https://www.binance.com/en/trade/LEND_BTC)|6/0|2.54e-06|47 %| *
-persistent hustle 11 %|[QSP-ETH](https://www.binance.com/en/trade/QSP_ETH)|6/1|0.0001454|-4 %|
-persistent stride 13 %|[NCASH-ETH](https://www.binance.com/en/trade/NCASH_ETH)|6/1|2.55e-05|2 %|
-persistent forest 12 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/0|0.1192|1 %|
-falling nacho 16 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|6/0|0.182|3 %|
-persistent forest 14 %|[NULS-BNB](https://www.binance.com/en/trade/NULS_BNB)|6/0|0.1192|1 %|
-persistent cricket 13 %|[ICN-ETH](https://www.binance.com/en/trade/ICN_ETH)|6/0|0.001842|9 %|
-persistent cricket 12 %|[ICN-ETH](https://www.binance.com/en/trade/ICN_ETH)|6/1|0.001842|9 %|
-falling stride 12 %|[AMB-ETH](https://www.binance.com/en/trade/AMB_ETH)|6/1|0.0005898|1 %|
-rising stride 5 %|[ENJ-ETH](https://www.binance.com/en/trade/ENJ_ETH)|6/0|0.0001966|2 %|
-falling stride 18 %|[OST-BNB](https://www.binance.com/en/trade/OST_BNB)|6/1|0.003205|0 %|
-falling hustle 9 %|[STEEM-BNB](https://www.binance.com/en/trade/STEEM_BNB)|11/2|0.07526|-4 %|
-persistent hustle 19 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|5/1|1.148e-05|-7 %|
-persistent tibbs 5 %|[BTS-BNB](https://www.binance.com/en/trade/BTS_BNB)|5/0|0.01196|2 %|
-persistent robin 3 %|[OST-ETH](https://www.binance.com/en/trade/OST_ETH)|10/2|0.0001451|-10 %|
-falling cricket 10 %|[CHAT-BTC](https://www.binance.com/en/trade/CHAT_BTC)|5/0|3.13e-06|8 %|
-persistent pencil 4 %|[PIVX-BNB](https://www.binance.com/en/trade/PIVX_BNB)|5/1|0.09386|-5 %|
-falling nacho 18 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|5/1|1.334e-05|5 %|
-falling cricket 9 %|[BLZ-BTC](https://www.binance.com/en/trade/BLZ_BTC)|5/1|1.69e-05|7 %|
-falling stride 10 %|[QSP-ETH](https://www.binance.com/en/trade/QSP_ETH)|10/2|0.0001454|-0 %|
-persistent hustle 12 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|5/0|7.15e-05|-19 %|
-persistent hustle 11 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|5/0|7.15e-05|-19 %|
-falling nacho 12 %|[STEEM-BNB](https://www.binance.com/en/trade/STEEM_BNB)|5/1|0.07526|2 %|
-rising cadiz 2 %|[RLC-ETH](https://www.binance.com/en/trade/RLC_ETH)|5/1|0.001665|-2 %|
-persistent tibbs 7 %|[SYS-BNB](https://www.binance.com/en/trade/SYS_BNB)|5/1|0.00842|3 %|
-persistent hustle 10 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|5/1|7.15e-05|-19 %|
-persistent robin 4 %|[OST-ETH](https://www.binance.com/en/trade/OST_ETH)|5/0|0.0001451|-10 %|
-rising cricket 10 %|[REQ-ETH](https://www.binance.com/en/trade/REQ_ETH)|5/0|0.000175|6 %|
-persistent hustle 18 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|5/1|1.148e-05|-7 %|
-falling cricket 7 %|[VIBE-ETH](https://www.binance.com/en/trade/VIBE_ETH)|5/0|0.0004824|100 %|
-persistent cadiz 2 %|[XEM-BNB](https://www.binance.com/en/trade/XEM_BNB)|5/1|0.00907|-2 %|
-rising forest 7 %|[LEND-BTC](https://www.binance.com/en/trade/LEND_BTC)|5/1|2.54e-06|47 %| *
-falling cricket 8 %|[VIBE-ETH](https://www.binance.com/en/trade/VIBE_ETH)|5/0|0.0004824|100 %|
-falling cricket 9 %|[VIBE-ETH](https://www.binance.com/en/trade/VIBE_ETH)|5/0|0.0004824|100 %|
-rising stick 2 %|[RLC-BTC](https://www.binance.com/en/trade/RLC_BTC)|5/1|5.61e-05|1 %|
-rising terry 2 %|[AION-ETH](https://www.binance.com/en/trade/AION_ETH)|5/1|0.00209|-2 %|
-persistent cadiz 3 %|[KMD-BTC](https://www.binance.com/en/trade/KMD_BTC)|5/1|0.0001652|-1 %|
-persistent tibbs 7 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/0|0.001351|5 %|
-persistent pencil 4 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|5/0|0.182|-0 %|
-rising biro 11 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|5/0|3.532e-05|12 %|
-falling forest 4 %|[CHAT-BTC](https://www.binance.com/en/trade/CHAT_BTC)|5/1|3.13e-06|6 %|
-rising biro 10 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|5/1|3.532e-05|12 %|
-rising biro 9 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|5/1|3.532e-05|12 %|
-falling forest 3 %|[CHAT-BTC](https://www.binance.com/en/trade/CHAT_BTC)|5/1|3.13e-06|6 %|
-persistent cadiz 5 %|[MOD-ETH](https://www.binance.com/en/trade/MOD_ETH)|5/0|0.003258|-3 %|
-rising cadiz 2 %|[FUN-ETH](https://www.binance.com/en/trade/FUN_ETH)|5/1|7.473e-05|-1 %|
-falling biro 7 %|[FUEL-ETH](https://www.binance.com/en/trade/FUEL_ETH)|5/1|7.133e-05|34 %| *
-persistent tibbs 9 %|[BCD-ETH](https://www.binance.com/en/trade/BCD_ETH)|5/1|0.00861|-1 %|
-persistent tibbs 7 %|[GAS-BTC](https://www.binance.com/en/trade/GAS_BTC)|5/0|0.000814|-1 %|
-rising cricket 12 %|[ELF-BTC](https://www.binance.com/en/trade/ELF_BTC)|5/1|5.202e-05|6 %|
-rising biro 8 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|5/1|3.532e-05|12 %|
-falling hustle 17 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|5/1|1.334e-05|-6 %|
-falling stride 14 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|5/1|7.15e-05|2 %|
-falling hustle 18 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|5/0|1.334e-05|-6 %|
-persistent tibbs 5 %|[LEND-BTC](https://www.binance.com/en/trade/LEND_BTC)|5/0|2.54e-06|19 %| *
-falling hustle 10 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|5/1|7.15e-05|-19 %|
-falling pencil 2 %|[LINK-ETH](https://www.binance.com/en/trade/LINK_ETH)|5/1|0.001294|-5 %|
-persistent cadiz 2 %|[BTS-BTC](https://www.binance.com/en/trade/BTS_BTC)|5/0|1.797e-05|-2 %|
-persistent biro 16 %|[MCO-ETH](https://www.binance.com/en/trade/MCO_ETH)|5/1|0.01972|2 %|
-falling hustle 18 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|-10 %|
-rising biro 11 %|[NAV-BNB](https://www.binance.com/en/trade/NAV_BNB)|5/1|0.02599|12 %|
-persistent stride 11 %|[GTO-ETH](https://www.binance.com/en/trade/GTO_ETH)|5/0|0.0002895|2 %|
-persistent stride 11 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|1 %|
-persistent stride 12 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|1 %|
-persistent hustle 10 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|5/1|0.002579|2 %|
-rising biro 12 %|[NAV-BNB](https://www.binance.com/en/trade/NAV_BNB)|5/1|0.02599|12 %|
-persistent stride 13 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|1 %|
-persistent hustle 12 %|[BRD-BNB](https://www.binance.com/en/trade/BRD_BNB)|5/1|0.03248|2 %|
-falling stride 14 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/0|0.001351|1 %|
-persistent terry 10 %|[TRIG-BTC](https://www.binance.com/en/trade/TRIG_BTC)|5/0|3.36e-05|-2 %|
-falling hustle 12 %|[AMB-ETH](https://www.binance.com/en/trade/AMB_ETH)|5/1|0.0005898|-5 %|
-persistent biro 11 %|[REQ-ETH](https://www.binance.com/en/trade/REQ_ETH)|5/0|0.000175|8 %|
-persistent cadiz 4 %|[MOD-ETH](https://www.binance.com/en/trade/MOD_ETH)|5/1|0.003258|-3 %|
-persistent nacho 16 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|5/0|0.000104|1 %|
-rising biro 14 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/0|0.0002948|13 %|
-persistent stride 18 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|5/1|1.334e-05|3 %|
-rising cadiz 2 %|[YOYOW-ETH](https://www.binance.com/en/trade/YOYOW_ETH)|5/1|0.0001082|-6 %|
-falling cricket 11 %|[CHAT-ETH](https://www.binance.com/en/trade/CHAT_ETH)|5/1|9.318e-05|7 %|
-rising biro 7 %|[TRIG-ETH](https://www.binance.com/en/trade/TRIG_ETH)|10/2|0.001|3 %|
-persistent nacho 17 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|5/0|0.000104|1 %|
-falling nacho 12 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|3 %|
-persistent cricket 9 %|[OMG-BTC](https://www.binance.com/en/trade/OMG_BTC)|5/0|0.000514|1 %|
-persistent stride 11 %|[DASH-BTC](https://www.binance.com/en/trade/DASH_BTC)|5/1|0.03031|1 %|
-persistent hustle 14 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|5/1|0.000104|-7 %|
-persistent stride 19 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/1|0.0005247|-1 %|
-persistent cadiz 3 %|[POWR-BNB](https://www.binance.com/en/trade/POWR_BNB)|5/1|0.01541|-9 %|
-persistent biro 13 %|[SALT-ETH](https://www.binance.com/en/trade/SALT_ETH)|5/1|0.002055|3 %|
-falling hustle 12 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|-2 %|
-falling stride 11 %|[MTL-ETH](https://www.binance.com/en/trade/MTL_ETH)|5/1|0.00345|7 %|
-falling hustle 11 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|-2 %|
-persistent hustle 10 %|[DASH-BTC](https://www.binance.com/en/trade/DASH_BTC)|5/1|0.03031|-4 %|
-falling stride 18 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|5/0|1.334e-05|3 %|
-rising stride 6 %|[EVX-BTC](https://www.binance.com/en/trade/EVX_BTC)|5/0|6.151e-05|-0 %|
-falling hustle 15 %|[WAN-ETH](https://www.binance.com/en/trade/WAN_ETH)|5/1|0.004473|-6 %|
-rising terry 2 %|[NEBL-ETH](https://www.binance.com/en/trade/NEBL_ETH)|5/1|0.00875|-4 %|
-falling stride 17 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|5/1|0.04559|1 %|
-persistent tibbs 9 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|5/0|1.334e-05|7 %|
-persistent forest 8 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|5/1|3.532e-05|12 %| *
-persistent forest 9 %|[STORM-ETH](https://www.binance.com/en/trade/STORM_ETH)|5/1|3.532e-05|12 %| *
-persistent cricket 18 %|[WAN-ETH](https://www.binance.com/en/trade/WAN_ETH)|5/1|0.004473|9 %|
-rising biro 17 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|8 %|
-rising biro 16 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|8 %|
-falling stride 15 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/1|0.000183|-0 %|
-falling stride 14 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/1|0.000183|-0 %|
-falling stride 13 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/1|0.000183|-0 %|
-rising tibbs 4 %|[POA-BNB](https://www.binance.com/en/trade/POA_BNB)|5/0|0.00773|3 %|
-persistent nacho 18 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|5/1|0.04559|2 %|
-rising forest 8 %|[POA-BNB](https://www.binance.com/en/trade/POA_BNB)|5/0|0.00773|21 %|
-rising terry 3 %|[STRAT-BTC](https://www.binance.com/en/trade/STRAT_BTC)|5/1|0.0002149|0 %|
-persistent hustle 18 %|[BCPT-BTC](https://www.binance.com/en/trade/BCPT_BTC)|5/1|1.334e-05|-6 %|
-falling stride 11 %|[DASH-BTC](https://www.binance.com/en/trade/DASH_BTC)|5/1|0.03031|1 %|
-persistent stride 19 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|5/1|1.148e-05|0 %|
-persistent cadiz 6 %|[TRIG-ETH](https://www.binance.com/en/trade/TRIG_ETH)|5/1|0.001|-4 %|
-persistent cadiz 7 %|[TRIG-ETH](https://www.binance.com/en/trade/TRIG_ETH)|5/1|0.001|-4 %|
-persistent cadiz 8 %|[TRIG-ETH](https://www.binance.com/en/trade/TRIG_ETH)|5/1|0.001|-4 %|
-persistent hustle 18 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|5/0|3.03e-06|-8 %|
-persistent stick 4 %|[LINK-ETH](https://www.binance.com/en/trade/LINK_ETH)|5/0|0.001294|0 %|
-persistent hustle 19 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|5/0|3.03e-06|-8 %|
-falling hustle 11 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/1|0.01278|-4 %|
-persistent nacho 14 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/0|0.001351|4 %|
-persistent stride 18 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|5/1|0.04559|1 %|
-persistent nacho 19 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|5/0|0.04559|2 %|
-rising biro 15 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|8 %|
-persistent stride 19 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|5/0|0.04559|1 %|
-falling hustle 10 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|5/1|0.002579|2 %|
-persistent cricket 15 %|[POA-BTC](https://www.binance.com/en/trade/POA_BTC)|5/0|1.189e-05|23 %| *
-falling nacho 12 %|[IOT-BNB](https://www.binance.com/en/trade/IOT_BNB)|5/0|0.05771|2 %|
-rising cricket 10 %|[GRS-ETH](https://www.binance.com/en/trade/GRS_ETH)|5/0|0.002527|8 %|
-persistent nacho 11 %|[GTO-ETH](https://www.binance.com/en/trade/GTO_ETH)|5/0|0.0002895|5 %|
-persistent forest 12 %|[ONT-ETH](https://www.binance.com/en/trade/ONT_ETH)|5/1|0.00835|0 %|
-falling nacho 11 %|[DASH-BTC](https://www.binance.com/en/trade/DASH_BTC)|5/1|0.03031|1 %|
-rising forest 13 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/0|0.0002948|12 %|
-rising forest 11 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/1|0.0002948|12 %| *
-rising cricket 14 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/0|0.0002948|12 %|
-rising cricket 13 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/0|0.0002948|12 %|
-falling hustle 10 %|[DASH-BTC](https://www.binance.com/en/trade/DASH_BTC)|5/1|0.03031|-4 %|
-falling nacho 11 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/1|0.01278|1 %|
-rising cricket 11 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/1|0.0002948|12 %| *
-falling stride 11 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/1|0.01278|-1 %|
-rising stick 4 %|[LINK-ETH](https://www.binance.com/en/trade/LINK_ETH)|5/0|0.001294|0 %|
-rising forest 18 %|[WTC-ETH](https://www.binance.com/en/trade/WTC_ETH)|5/0|0.0157|11 %|
-rising cadiz 3 %|[WTC-BNB](https://www.binance.com/en/trade/WTC_BNB)|5/1|0.3438|-4 %|
-falling tibbs 2 %|[ICN-ETH](https://www.binance.com/en/trade/ICN_ETH)|5/0|0.001842|4 %|
-falling tibbs 3 %|[ICN-ETH](https://www.binance.com/en/trade/ICN_ETH)|5/0|0.001842|4 %|
-rising biro 17 %|[WTC-BNB](https://www.binance.com/en/trade/WTC_BNB)|5/0|0.3438|11 %|
-persistent hustle 17 %|[TNB-BTC](https://www.binance.com/en/trade/TNB_BTC)|5/1|1.41e-06|-5 %|
-falling stride 12 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/0|0.01278|-1 %|
-rising biro 15 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|11 %|
-persistent stride 12 %|[ARK-ETH](https://www.binance.com/en/trade/ARK_ETH)|5/1|0.003364|1 %|
-rising tibbs 7 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/0|0.001351|5 %|
-persistent nacho 16 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/0|0.000183|1 %|
-persistent nacho 15 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/1|0.000183|1 %|
-persistent terry 7 %|[PIVX-BTC](https://www.binance.com/en/trade/PIVX_BTC)|5/1|0.0001451|-4 %|
-persistent forest 12 %|[MTH-BTC](https://www.binance.com/en/trade/MTH_BTC)|5/1|3.48e-06|6 %|
-falling hustle 17 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|5/0|1.981e-05|-6 %|
-persistent tibbs 9 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/0|0.0003429|5 %|
-falling nacho 17 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|5/0|1.981e-05|1 %|
-rising forest 17 %|[WTC-ETH](https://www.binance.com/en/trade/WTC_ETH)|5/1|0.0157|11 %|
-persistent hustle 16 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|5/0|0.182|1 %|
-rising biro 16 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|11 %|
-rising forest 12 %|[ONT-ETH](https://www.binance.com/en/trade/ONT_ETH)|5/1|0.00835|0 %|
-falling nacho 18 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|5/0|1.981e-05|1 %|
-falling nacho 16 %|[QSP-BTC](https://www.binance.com/en/trade/QSP_BTC)|5/1|4.87e-06|6 %|
-persistent hustle 11 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|-2 %|
-persistent hustle 12 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|-2 %|
-falling stride 19 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|5/1|1.148e-05|0 %|
-falling terry 6 %|[CND-ETH](https://www.binance.com/en/trade/CND_ETH)|5/0|0.0001077|12 %|
-persistent nacho 12 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|3 %|
-persistent pencil 3 %|[GVT-ETH](https://www.binance.com/en/trade/GVT_ETH)|5/0|0.04031|-5 %|
-falling hustle 11 %|[LINK-BTC](https://www.binance.com/en/trade/LINK_BTC)|5/1|4.323e-05|-4 %|
-falling stride 17 %|[TNB-BTC](https://www.binance.com/en/trade/TNB_BTC)|5/1|1.41e-06|3 %|
-persistent stride 19 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|5/0|3.03e-06|1 %|
-rising biro 14 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|8 %|
-rising stride 6 %|[NULS-ETH](https://www.binance.com/en/trade/NULS_ETH)|5/1|0.005475|0 %|
-rising biro 13 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/0|0.0002948|13 %|
-rising biro 11 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/1|0.0002948|13 %| *
-persistent cadiz 6 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/0|0.001351|-4 %|
-persistent cadiz 5 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/0|0.001351|-4 %|
-persistent cadiz 4 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/1|0.001351|-4 %|
-falling hustle 11 %|[STEEM-BNB](https://www.binance.com/en/trade/STEEM_BNB)|5/1|0.07526|-4 %|
-rising cricket 13 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/1|0.001351|8 %|
-persistent cricket 13 %|[SALT-ETH](https://www.binance.com/en/trade/SALT_ETH)|5/1|0.002055|4 %|
-falling forest 4 %|[CND-ETH](https://www.binance.com/en/trade/CND_ETH)|5/0|0.0001077|-15 %|
-persistent pencil 3 %|[QSP-ETH](https://www.binance.com/en/trade/QSP_ETH)|5/0|0.0001454|-4 %|
-falling stride 11 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|1 %|
-falling stride 12 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|1 %|
-persistent stride 18 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|5/1|3.03e-06|1 %|
-persistent nacho 18 %|[WABI-ETH](https://www.binance.com/en/trade/WABI_ETH)|5/0|0.00096|15 %|
-falling stride 13 %|[ENJ-BTC](https://www.binance.com/en/trade/ENJ_BTC)|5/1|6.59e-06|1 %|
-rising cricket 12 %|[RLC-BTC](https://www.binance.com/en/trade/RLC_BTC)|5/1|5.61e-05|8 %|
-falling nacho 13 %|[LEND-ETH](https://www.binance.com/en/trade/LEND_ETH)|5/1|7.564e-05|1 %|
-rising hustle 2 %|[NULS-ETH](https://www.binance.com/en/trade/NULS_ETH)|5/0|0.005475|-2 %|
-persistent hustle 15 %|[QSP-BNB](https://www.binance.com/en/trade/QSP_BNB)|5/1|0.003208|-4 %|
-persistent hustle 16 %|[QSP-BNB](https://www.binance.com/en/trade/QSP_BNB)|5/1|0.003208|-4 %|
-falling tibbs 3 %|[POA-BTC](https://www.binance.com/en/trade/POA_BTC)|5/1|1.189e-05|4 %| *
-straddling hustle 7 %|[BNB-USDT](https://www.binance.com/en/trade/BNB_USDT)|5/1|9.9|0 %|
-persistent forest 13 %|[SALT-ETH](https://www.binance.com/en/trade/SALT_ETH)|5/0|0.002055|1 %|
-persistent nacho 17 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|5/1|0.182|3 %|
-falling hustle 17 %|[AION-BNB](https://www.binance.com/en/trade/AION_BNB)|5/0|0.04559|-2 %|
-persistent tibbs 10 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/0|0.0003429|5 %|
-falling cricket 8 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|5/1|0.000104|8 %|
-falling hustle 12 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|5/0|7.15e-05|-19 %|
-falling hustle 11 %|[CDT-ETH](https://www.binance.com/en/trade/CDT_ETH)|5/0|7.15e-05|-19 %|
-falling cricket 7 %|[POWR-ETH](https://www.binance.com/en/trade/POWR_ETH)|5/0|0.0007092|22 %|
-persistent hustle 12 %|[TNT-ETH](https://www.binance.com/en/trade/TNT_ETH)|5/1|0.000181|-44 %|
-rising stride 6 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|-1 %|
-rising nacho 7 %|[QLC-ETH](https://www.binance.com/en/trade/QLC_ETH)|5/1|0.0002527|4 %|
-persistent stride 14 %|[GVT-BTC](https://www.binance.com/en/trade/GVT_BTC)|5/0|0.001351|1 %|
-persistent stick 2 %|[DASH-ETH](https://www.binance.com/en/trade/DASH_ETH)|5/1|0.9062|-2 %|
-persistent hustle 15 %|[CND-BTC](https://www.binance.com/en/trade/CND_BTC)|5/1|3.61e-06|17 %| *
-falling terry 10 %|[TRIG-BTC](https://www.binance.com/en/trade/TRIG_BTC)|5/0|3.36e-05|-2 %|
-persistent tibbs 8 %|[CLOAK-ETH](https://www.binance.com/en/trade/CLOAK_ETH)|5/0|0.008877|5 %|
-persistent stick 3 %|[GVT-ETH](https://www.binance.com/en/trade/GVT_ETH)|5/1|0.04031|-0 %|
-rising stride 7 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|-1 %|
-persistent biro 16 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|5/0|0.04418|0 %|
-persistent forest 13 %|[NEBL-BTC](https://www.binance.com/en/trade/NEBL_BTC)|5/0|0.0002948|12 %|
-falling cricket 8 %|[POWR-ETH](https://www.binance.com/en/trade/POWR_ETH)|5/0|0.0007092|22 %|
-rising nacho 8 %|[QLC-ETH](https://www.binance.com/en/trade/QLC_ETH)|5/0|0.0002527|4 %|
-persistent biro 17 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|5/1|0.04418|0 %|
-rising stride 6 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|5/1|1.148e-05|0 %|
-persistent forest 11 %|[RLC-BTC](https://www.binance.com/en/trade/RLC_BTC)|5/1|5.61e-05|6 %|
-rising biro 10 %|[REQ-ETH](https://www.binance.com/en/trade/REQ_ETH)|5/0|0.000175|8 %|
-rising forest 13 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/0|0.0003429|8 %|
-falling cricket 5 %|[RPX-ETH](https://www.binance.com/en/trade/RPX_ETH)|5/1|5.102e-05|0 %|
-persistent stick 3 %|[MDA-BTC](https://www.binance.com/en/trade/MDA_BTC)|5/0|7.978e-05|-2 %|
-rising cricket 16 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|10 %|
-persistent tibbs 7 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|5/1|0.04418|-0 %|
-persistent cricket 19 %|[LINK-BTC](https://www.binance.com/en/trade/LINK_BTC)|5/0|4.323e-05|4 %|
-falling hustle 11 %|[QSP-ETH](https://www.binance.com/en/trade/QSP_ETH)|5/1|0.0001454|-4 %|
-rising cricket 17 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|10 %|
-rising stride 6 %|[BLZ-ETH](https://www.binance.com/en/trade/BLZ_ETH)|5/1|0.000506|-1 %|
-persistent cricket 18 %|[LINK-BTC](https://www.binance.com/en/trade/LINK_BTC)|5/0|4.323e-05|4 %|
-falling forest 4 %|[POWR-ETH](https://www.binance.com/en/trade/POWR_ETH)|5/0|0.0007092|11 %|
-rising forest 14 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|8 %|
-persistent tibbs 9 %|[RDN-BNB](https://www.binance.com/en/trade/RDN_BNB)|5/0|0.04418|-0 %|
-persistent cricket 17 %|[LINK-BTC](https://www.binance.com/en/trade/LINK_BTC)|5/1|4.323e-05|4 %|
-persistent cricket 16 %|[LINK-BTC](https://www.binance.com/en/trade/LINK_BTC)|5/1|4.323e-05|4 %|
-falling cricket 9 %|[QLC-ETH](https://www.binance.com/en/trade/QLC_ETH)|5/1|0.0002527|4 %|
-persistent forest 17 %|[WTC-ETH](https://www.binance.com/en/trade/WTC_ETH)|5/1|0.0157|11 %|
-falling nacho 18 %|[MTH-BTC](https://www.binance.com/en/trade/MTH_BTC)|5/0|3.48e-06|3 %|
-rising stride 8 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|-1 %|
-persistent cricket 14 %|[RLC-BTC](https://www.binance.com/en/trade/RLC_BTC)|5/1|5.61e-05|8 %|
-falling hustle 15 %|[QSP-BTC](https://www.binance.com/en/trade/QSP_BTC)|5/0|4.87e-06|-3 %|
-persistent stride 17 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|5/1|1.981e-05|-1 %|
-falling hustle 14 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/1|0.000183|-2 %|
-falling nacho 18 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|3 %|
-falling nacho 19 %|[WTC-BTC](https://www.binance.com/en/trade/WTC_BTC)|5/0|0.0005247|3 %|
-rising tibbs 2 %|[NAV-BNB](https://www.binance.com/en/trade/NAV_BNB)|5/1|0.02599|5 %|
-falling nacho 8 %|[XLM-BTC](https://www.binance.com/en/trade/XLM_BTC)|5/1|3.142e-05|2 %|
-rising tibbs 3 %|[NAV-BNB](https://www.binance.com/en/trade/NAV_BNB)|5/1|0.02599|5 %|
-falling nacho 11 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|5/0|0.002579|2 %|
-persistent cricket 12 %|[RLC-BTC](https://www.binance.com/en/trade/RLC_BTC)|5/0|5.61e-05|8 %|
-persistent nacho 17 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|5/1|1.981e-05|1 %|
-persistent nacho 18 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|5/0|1.981e-05|1 %|
-falling nacho 12 %|[TNT-ETH](https://www.binance.com/en/trade/TNT_ETH)|5/1|0.000181|-1 %|
-falling hustle 18 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|5/1|1.148e-05|-7 %|
-persistent cadiz 4 %|[RDN-BTC](https://www.binance.com/en/trade/RDN_BTC)|5/1|6.971e-05|-2 %|
-falling hustle 19 %|[AST-BTC](https://www.binance.com/en/trade/AST_BTC)|5/1|1.148e-05|-7 %|
-rising stride 5 %|[BRD-BTC](https://www.binance.com/en/trade/BRD_BTC)|5/1|4.991e-05|3 %|
-persistent nacho 19 %|[AION-BTC](https://www.binance.com/en/trade/AION_BTC)|5/1|6.98e-05|2 %|
-falling pencil 4 %|[ONT-BNB](https://www.binance.com/en/trade/ONT_BNB)|5/0|0.182|-0 %|
-persistent stick 2 %|[POWR-ETH](https://www.binance.com/en/trade/POWR_ETH)|5/1|0.0007092|-1 %|
-rising forest 10 %|[BRD-BTC](https://www.binance.com/en/trade/BRD_BTC)|5/1|4.991e-05|-2 %|
-persistent robin 5 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|5/1|0.000104|-7 %|
-persistent robin 4 %|[MTH-ETH](https://www.binance.com/en/trade/MTH_ETH)|5/1|0.000104|-7 %|
-persistent nacho 16 %|[CHAT-ETH](https://www.binance.com/en/trade/CHAT_ETH)|5/1|9.318e-05|1 %|
-falling hustle 16 %|[WPR-BTC](https://www.binance.com/en/trade/WPR_BTC)|5/1|3.03e-06|-8 %|
-persistent cadiz 3 %|[KMD-ETH](https://www.binance.com/en/trade/KMD_ETH)|5/1|0.004958|0 %|
-falling forest 5 %|[QLC-ETH](https://www.binance.com/en/trade/QLC_ETH)|5/0|0.0002527|0 %|
-falling biro 7 %|[CHAT-BTC](https://www.binance.com/en/trade/CHAT_BTC)|5/1|3.13e-06|6 %|
-persistent forest 18 %|[WTC-ETH](https://www.binance.com/en/trade/WTC_ETH)|5/0|0.0157|11 %|
-persistent stride 18 %|[AMB-BTC](https://www.binance.com/en/trade/AMB_BTC)|5/0|1.981e-05|-1 %|
-falling stride 12 %|[TNT-ETH](https://www.binance.com/en/trade/TNT_ETH)|5/1|0.000181|-0 %|
-rising tibbs 6 %|[ELF-BTC](https://www.binance.com/en/trade/ELF_BTC)|5/1|5.202e-05|3 %|
-persistent nacho 11 %|[ZRX-ETH](https://www.binance.com/en/trade/ZRX_ETH)|5/0|0.002579|2 %|
-persistent stick 4 %|[LINK-BTC](https://www.binance.com/en/trade/LINK_BTC)|5/1|4.323e-05|1 %|
-falling hustle 13 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/1|0.000183|-2 %|
-rising biro 11 %|[BCPT-ETH](https://www.binance.com/en/trade/BCPT_ETH)|5/1|0.0003981|10 %|
-persistent cricket 11 %|[RLC-BTC](https://www.binance.com/en/trade/RLC_BTC)|5/1|5.61e-05|8 %|
-persistent stride 14 %|[VIBE-ETH](https://www.binance.com/en/trade/VIBE_ETH)|5/0|0.0004824|2 %|
-rising cricket 15 %|[AST-ETH](https://www.binance.com/en/trade/AST_ETH)|5/1|0.0003429|10 %|
-persistent stride 15 %|[NULS-BTC](https://www.binance.com/en/trade/NULS_BTC)|5/1|0.000183|-0 %|
-falling nacho 14 %|[LSK-BTC](https://www.binance.com/en/trade/LSK_BTC)|5/0|0.0005666|2 %|
-persistent tibbs 7 %|[XVG-BTC](https://www.binance.com/en/trade/XVG_BTC)|5/1|2.11e-06|2 %|
-rising nacho 4 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/1|0.01278|1 %|
-persistent stick 3 %|[SUB-BTC](https://www.binance.com/en/trade/SUB_BTC)|5/1|1.81e-05|0 %|
-rising nacho 3 %|[AMB-BNB](https://www.binance.com/en/trade/AMB_BNB)|5/1|0.01278|1 %|
-=======
-Generated Mon 17 Sep 08:14:47 GMT 2018 -
-4 primary strategies, 18 secondary strategies, 0 pairs tested.
-
-
-Strategy|Pair|Good/Bad|Spot|Tests|Threshold|BUY NOW!
----|---|---|---|---|---|---
->>>>>>> Stashed changes
+crouching biro 2 QLC BNB	36 124
+crouching biro 2 APPC BNB	34 144
+crouching biro 2 OST BNB	34 163
+crouching biro 2 TRIG BNB	34 135
+crouching biro 2 BLZ BNB	35 158
+crouching biro 2 WTC BNB	34 143
+crouching biro 2 BCPT BNB	31 227
+crouching biro 2 POA BNB	33 254
+crouching biro 2 DLT BNB	33 182
+crouching biro 2 WABI BNB	33 173
+crouching biro 2 WAN BNB	32 214
+crouching biro 2 RLC BNB	31 187
+crouching biro 2 WAN BTC	31 173
+crouching biro 2 DLT ETH	28 171
+crouching biro 2 APPC ETH	27 189
+crouching biro 2 WABI ETH	29 219
+crouching biro 2 QLC BTC	28 162
+crouching biro 2 POA BTC	28 209
+crouching biro 2 AST BTC	28 156
+crouching biro 2 AMB BNB	33 193
+crouching biro 2 NULS ETH	27 214
+crouching biro 2 WINGS BTC	23 148
+crouching biro 2 CLOAK ETH	28 224
+crouching biro 2 AST ETH	28 189
+crouching biro 2 BRD BNB	28 178
+crouching biro 2 AION BNB	31 240
+crouching biro 2 QSP ETH	28 216
+crouching biro 2 VIB ETH	28 124
+crouching biro 2 OST BTC	29 141
+crouching biro 2 KMD ETH	29 178
+crouching biro 2 RDN* BNB	32 217
+crouching biro 2 WTC ETH	29 218
+crouching biro 2 APPC BTC	27 208
+crouching biro 2 CTR ETH	0 0
+crouching biro 2 MTL BTC	26 182
+crouching biro 2 BLZ ETH	30 242
+crouching biro 2 SNGLS ETH	28 138
+crouching biro 2 ZRX BTC	23 181
+crouching biro 2 CND BNB	28 268
+crouching biro 2 BAT BNB	27 329
+crouching biro 2 POE ETH	26 224
+crouching biro 2 CMT* BNB	28 255
+crouching biro 2 DNT ETH	28 141
+crouching biro 2 DNT BTC	28 109
+crouching biro 2 AMB ETH	30 171
+crouching biro 2 SALT ETH	30 198
+crouching biro 2 YOYOW BNB	30 150
+crouching biro 2 WAVES BNB	29 208
+crouching biro 2 WABI BTC	28 154
+crouching biro 2 SYS ETH	27 183
+crouching biro 2 WINGS ETH	26 206
+crouching biro 2 RCN ETH	26 177
+crouching biro 2 CMT* ETH	25 168
+crouching biro 2 BLZ BTC	27 277
+crouching biro 2 MOD ETH	27 204
+crouching biro 2 POA ETH	28 212
+crouching biro 2 SALT BTC	26 232
+crouching biro 2 WPR ETH	26 208
+crouching biro 2 CLOAK BTC	27 224
+crouching biro 2 OAX BTC	24 197
+crouching biro 2 BCN BTC	29 305
+crouching biro 2 ELF BTC	27 190
+crouching biro 2 GVT ETH	27 223
+crouching biro 2 NAV BNB	27 230
+crouching biro 2 TRIG ETH	25 211
+crouching biro 2 SUB ETH	27 300
+crouching biro 2 XRB BNB	0 0
+crouching biro 2 ADX BTC	20 164
+crouching biro 2 RCN BNB	29 249
+crouching biro 2 MTL ETH	27 306
+crouching biro 2 LINK ETH	26 225
+crouching biro 2 QSP BNB	30 270
+crouching biro 2 LEND ETH	25 213
+crouching biro 2 RLC ETH	25 202
+crouching biro 2 SYS BNB	29 280
+crouching biro 2 OAX ETH	25 243
+crouching biro 2 CND ETH	25 227
+crouching biro 2 WPR BTC	25 222
+crouching biro 2 WAN ETH	28 249
+crouching biro 2 CDT ETH	26 234
+crouching biro 2 AMB BTC	26 212
+crouching biro 2 AION ETH	26 215
+crouching biro 2 POWR ETH	23 231
+crouching biro 2 DLT BTC	25 273
+crouching biro 2 XZC BNB	23 255
+crouching biro 2 HCC BTC	0 0
+crouching biro 2 YOYOW BTC	22 211
+crouching biro 2 MCO BNB	28 284
+crouching biro 2 ELC BTC	0 0
+crouching biro 2 HSR BTC	11 95
+crouching biro 2 QLC ETH	26 275
+crouching biro 2 ELF ETH	24 243
+crouching biro 2 EDO ETH	23 233
+crouching biro 2 LLT BTC	0 0
+crouching biro 2 ZRX ETH	25 244
+crouching biro 2 PIVX ETH	25 246
+crouching biro 2 POE BTC	23 241
+crouching biro 2 MCO ETH	24 261
+crouching biro 2 NAV ETH	24 257
+crouching biro 2 YOYO ETH	0 0
+crouching biro 2 PIVX BNB	27 260
+crouching biro 2 ADX ETH	21 213
+crouching biro 2 VIA BNB	26 305
+crouching biro 2 SYS BTC	21 225
+crouching biro 2 VIBE BTC	25 268
+crouching biro 2 TNT ETH	25 276
+crouching biro 2 ICX BNB	26 302
+crouching biro 2 MTH ETH	26 233
+crouching biro 2 WTC BTC	26 236
+crouching biro 2 PIVX BTC	21 243
+crouching biro 2 BTS ETH	20 195
+crouching biro 2 POWR BNB	24 257
+crouching biro 2 GNT BNB	25 299
+crouching biro 2 BCD ETH	25 250
+crouching biro 2 REQ ETH	23 226
+crouching biro 2 STORM BNB	26 277
+crouching biro 2 LUN ETH	26 193
+crouching biro 2 BCN BNB	25 308
+crouching biro 2 GRS BTC	20 200
+crouching biro 2 XMR ETH	20 205
+crouching biro 2 ADX BNB	24 253
+crouching biro 2 EVX ETH	23 255
+crouching biro 2 LINK BTC	23 264
+crouching biro 2 PPT ETH	23 265
+crouching biro 2 GTO BTC	20 238
+crouching biro 2 IOTA BTC	0 0
+crouching biro 2 SNM ETH	24 214
+crouching biro 2 BCPT ETH	25 229
+crouching biro 2 OST ETH	25 236
+crouching biro 2 ENJ ETH	23 252
+crouching biro 2 RDN* ETH	23 201
+crouching biro 2 STRAT ETH	25 224
+crouching biro 2 GRS ETH	23 219
+crouching biro 2 SNT BTC	18 212
+crouching biro 2 YOYOW ETH	23 273
+crouching biro 2 BCPT BTC	23 289
+crouching biro 2 LUN BTC	22 240
+crouching biro 2 MTH BTC	24 274
+crouching biro 2 NULS BNB	25 297
+crouching biro 2 VIBE ETH	24 290
+crouching biro 2 FUEL BTC	24 288
+crouching biro 2 NCASH BTC	24 288
+crouching biro 2 VIA ETH	23 220
+crouching biro 2 ARK ETH	22 270
+crouching biro 2 LSK BNB	24 383
+crouching biro 2 CND BTC	22 264
+crouching biro 2 PPT BTC	21 254
+crouching biro 2 AE BNB	24 356
+crouching biro 2 TNT BTC	22 280
+crouching biro 2 TRIG BTC	22 260
+crouching biro 2 STRAT BTC	21 230
+crouching biro 2 CDT BTC	23 279
+crouching biro 2 RPX BNB	15 182
+crouching biro 2 BAT ETH	24 293
+crouching biro 2 FUEL ETH	23 279
+crouching biro 2 GTO BNB	24 320
+crouching biro 2 BTS BNB	22 381
+crouching biro 2 ICX BTC	22 300
+crouching biro 2 MDA BTC	17 124
+crouching biro 2 ENG BTC	21 261
+crouching biro 2 NCASH BNB	24 312
+crouching biro 2 SNGLS BTC	21 223
+crouching biro 2 VIB BTC	21 230
+crouching biro 2 NEBL BNB	26 388
+crouching biro 2 MANA BTC	22 262
+crouching biro 2 REQ BTC	20 254
+crouching biro 2 ZIL BNB	25 326
+crouching biro 2 NEO USDT	24 317
+crouching biro 2 MDA ETH	20 283
+crouching biro 2 ARK BTC	20 221
+crouching biro 2 ICN ETH	22 252
+crouching biro 2 NCASH ETH	21 334
+crouching biro 2 TNB ETH	21 295
+crouching biro 2 BCD BTC	20 283
+crouching biro 2 CHAT BTC	20 267
+crouching biro 2 LEND BTC	23 314
+crouching biro 2 STEEM BNB	23 323
+crouching biro 2 RCN BTC	22 226
+crouching biro 2 RLC BTC	21 263
+crouching biro 2 TNB BTC	21 286
+crouching biro 2 CMT* BTC	21 299
+crouching biro 2 QSP BTC	20 313
+crouching biro 2 XZC ETH	20 303
+crouching biro 2 ONT BNB	20 381
+crouching biro 2 INS ETH	20 296
+crouching biro 2 MCO BTC	20 271
+crouching biro 2 AION BTC	23 326
+crouching biro 2 CHAT ETH	21 304
+crouching biro 2 MANA ETH	20 335
+crouching biro 2 QTUM USDT	20 343
+crouching biro 2 GVT BTC	20 287
+crouching biro 2 RPX BTC	13 142
+crouching biro 2 IOT BNB	24 309
+crouching biro 2 SUB BTC	24 304
+crouching biro 2 ZIL ETH	19 302
+crouching biro 2 STORJ ETH	19 300
+crouching biro 2 IOT ETH	18 265
+crouching biro 2 XLM BNB	21 310
+crouching biro 2 NAV BTC	21 258
+crouching biro 2 RDN* BTC	20 295
+crouching biro 2 ZIL BTC	20 271
+crouching biro 2 BAT BTC	21 287
+crouching biro 2 MOD BTC	20 230
+crouching biro 2 ENJ BTC	20 281
+crouching biro 2 BTG ETH	20 296
+crouching biro 2 GTO ETH	19 328
+crouching biro 2 STORM BTC	19 330
+crouching biro 2 IOST BTC	19 340
+crouching biro 2 ETC EUR	6 97
+crouching biro 2 NEBL ETH	22 363
+crouching biro 2 EVX BTC	20 242
+crouching biro 2 HSR ETH	10 160
+crouching biro 2 SNT ETH	19 323
+crouching biro 2 SNM BTC	19 352
+crouching biro 2 DASH BTC	18 220
+crouching biro 2 NULS BTC	19 314
+crouching biro 2 IOST ETH	20 373
+crouching biro 2 KMD BTC	19 313
+crouching biro 2 ONT BTC	19 292
+crouching biro 2 ENG ETH	19 312
+crouching biro 2 NEBL BTC	18 382
+crouching biro 2 LRC ETH	18 326
+crouching biro 2 ARN BTC	18 322
+crouching biro 2 VIA BTC	16 305
+crouching biro 2 BTG BTC	14 288
+crouching biro 2 WAVES BTC	14 288
+crouching biro 2 XZC BTC	14 287
+crouching biro 2 GXS ETH	16 334
+crouching biro 2 XVG BTC	16 243
+crouching biro 2 NEO BNB	18 430
+crouching biro 2 STORJ BTC	14 314
+crouching biro 2 LTC EUR	16 361
+crouching biro 2 ARN ETH	17 389
+crouching biro 2 GNT BTC	16 251
+crouching biro 2 STORM ETH	18 361
+crouching biro 2 GAS BTC	18 228
+crouching biro 2 ONT ETH	17 325
+crouching biro 2 LRC BTC	17 307
+crouching biro 2 AE ETH	16 306
+crouching biro 2 KNC BTC	16 194
+crouching biro 2 XEM BNB	18 356
+crouching biro 2 NEO BTC	14 330
+crouching biro 2 BNB BTC	11 241
+crouching biro 2 TRX ETH	12 269
+crouching biro 2 DASH ETH	14 331
+crouching biro 2 ZEC BTC	14 290
+crouching biro 2 DGD ETH	13 308
+crouching biro 2 GXS BTC	13 281
+crouching biro 2 RPX ETH	11 191
+crouching biro 2 OMG BTC	15 273
+crouching biro 2 GNT ETH	18 330
+crouching biro 2 LSK BTC	16 224
+crouching biro 2 WAVES ETH	18 289
+crouching biro 2 POWR BTC	18 289
+crouching biro 2 XLM ETH	16 277
+crouching biro 2 KNC ETH	14 252
+crouching biro 2 BCN ETH	17 358
+crouching biro 2 BRD BTC	16 228
+crouching biro 2 LSK ETH	16 246
+crouching biro 2 BRD ETH	18 286
+crouching biro 2 ICN BTC	16 286
+crouching biro 2 BCH USDT	16 302
+crouching biro 2 BCH USD	16 305
+crouching biro 2 QTUM BNB	16 390
+crouching biro 2 IOT BTC	16 324
+crouching biro 2 OMG ETH	16 256
+crouching biro 2 STEEM ETH	17 336
+crouching biro 2 ICX ETH	16 389
+crouching biro 2 STEEM BTC	15 228
+crouching biro 2 AE BTC	15 365
+crouching biro 2 BCH EUR	15 339
+crouching biro 2 FUN BTC	14 436
+crouching biro 2 BNB ETH	14 285
+crouching biro 2 XVG ETH	15 351
+crouching biro 2 BNB USDT	14 362
+crouching biro 2 XMR BTC	14 324
+crouching biro 2 XLM BTC	13 338
+crouching biro 2 ADA BTC	12 290
+crouching biro 2 EDO BTC	13 346
+crouching biro 2 TRX BTC	12 301
+crouching biro 2 LTC USD	13 438
+crouching biro 2 EOS BTC	11 294
+crouching biro 2 ZEC ETH	13 349
+crouching biro 2 FUN ETH	14 377
+crouching biro 2 INS BTC	15 460
+crouching biro 2 BTS BTC	13 333
+crouching biro 2 BCH BNB	13 378
+crouching biro 2 XEM ETH	13 267
+crouching biro 2 ETH USDT	12 392
+crouching biro 2 ADA ETH	11 326
+crouching biro 2 EOS ETH	11 321
+crouching biro 2 DGD BTC	10 315
+crouching biro 2 XRP ETH	8 201
+crouching biro 2 LTC USDT	13 437
+crouching biro 2 BCH ETH	8 274
+crouching biro 2 ETH USD	11 439
+crouching biro 2 XEM BTC	9 314
+crouching biro 2 LTC ETH	8 369
+crouching biro 2 XRP BTC	8 167
+crouching biro 2 QTUM BTC	10 234
+crouching biro 2 NEO ETH	11 448
+crouching biro 2 BNT BTC	6 325
+crouching biro 2 BTM ETH	0 0
+crouching biro 2 BTC GBP	9 364
+crouching biro 2 ETC ETH	8 324
+crouching biro 2 BTC CAD	0 0
+crouching biro 2 ETH EUR	13 414
+crouching biro 2 LTC BNB	11 530
+crouching biro 2 QTUM ETH	7 377
+crouching biro 2 BTC USD	7 359
+crouching biro 2 BTC USDT	7 374
+crouching biro 2 CTR BTC	0 0
+crouching biro 2 ETC USD	6 78
+crouching biro 2 LTC BTC	6 298
+crouching biro 2 IOTA ETH	0 0
+crouching biro 2 BCH BTC	4 286
+crouching biro 2 ETH BTC	4 230
+crouching biro 2 XRB ETH	0 14
+crouching biro 2 ELF          >    †á      @       ê‘         @ 8   @ 	0 0
+crouching biro 2 BTC EUR	6 412
+crouching biro 2 ETC BTC	1 124
+crouching biro 2 BNT ETH	0 158
+crouching biro 2  	0 0
+crouching biro 2 XRB BTC	0 14
