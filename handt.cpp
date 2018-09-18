@@ -239,7 +239,7 @@ int main() {
       for (const auto &strat : permutations) {
 
         // Create a new strategy and add it to the summary for later
-        auto perf = performance.emplace_back(
+        auto &perf = performance.emplace_back(
             strategy_performance{strat.name, from_symbol, to_symbol, exchange});
 
         // Configure trading periods for back test
