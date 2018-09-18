@@ -184,14 +184,6 @@ const std::map<std::string, func> secondary_strategies{
      }},
 };
 
-// The sell strategy: return the index of the first price to exceed
-// the sell threshold or return the end iterator
-const auto sell = [](const auto &current, const auto &future) {
-  return std::find_if(current, future,
-                      [spot = *current](const auto &future_price) {
-                        return future_price > spot * 1.05;
-                      });
-};
 } // namespace handt
 
 int main() {
@@ -215,10 +207,22 @@ int main() {
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
              threshold});
 
+  // Define sell strategy: return the index of the first price to exceed
+  // the sell threshold or return the end iterator
+  const auto sell = [](const auto &current, const auto &future) {
+    return std::find_if(
+        current, future,
+        [spot = *current, threshold = 1.05](const auto &future_price) {
+          return future_price > spot * threshold;
+        });
+  };
+
+  // Fetch list of price files
   std::vector<std::string> currency_pairs;
   for (const auto &file : std::filesystem::directory_iterator("tmp"))
     currency_pairs.emplace_back(file.path());
 
+  // Structure to capture the results during a strategy back test
   struct strategy_performance {
     std::string name;
     std::string from_symbol;
@@ -242,6 +246,7 @@ int main() {
     // Get the prices and run the strategies over them
     const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
+    // Check read has succeeded and execute strategies
     if (!prices.empty())
       for (const auto &strat : permutations) {
 
@@ -282,7 +287,7 @@ int main() {
             // Strategy triggered, so look ahead to see if it succeeded in
             // the defined trade window
             if (const auto sell_price_index =
-                    handt::sell(current_price_index, future_price_index);
+                    sell(current_price_index, future_price_index);
                 sell_price_index != future_price_index) {
               ++perf.good_deals;
 
