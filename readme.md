@@ -11,7 +11,7 @@ fetched using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Tue 18 Sep 17:13:59 GMT 2018 -
+Generated Tue 18 Sep 18:25:14 GMT 2018 -
 324 currency pairs, 4 primary strategies, 18 secondary strategies, 20 thresholds, (1,440 strategy permutations), 463,680 tests performed.
 
 Strategy|Pair|Good/Bad|Advice
@@ -42,12 +42,13 @@ supine griffon 14|AION-BNB|8/1|
 supine norrbottenspets 10|QSP-ETH|8/0|
 leaping owl 2|BLZ-ETH|8/1|
 crouching ocelot 3|RLC-BNB|8/1|
-crouching tiger 12|TNT-ETH|8/1|BUY!
+crouching tiger 12|TNT-ETH|8/1|BUY! <!-- ****** -->
 crouching tiger 13|NULS-BTC|8/1|
+crouching badger 3|CND-ETH|8/0|
 crouching capybara 6|CND-ETH|8/0|
 crouching griffon 17|WTC-BTC|8/0|
 crouching tiger 17|WTC-BTC|8/0|
-supine xoloitzcuintli 8|MTH-BTC|8/1|BUY!
+supine xoloitzcuintli 8|MTH-BTC|8/1|BUY! <!-- ****** -->
 crouching norrbottenspets 9|ZRX-ETH|8/1|
 supine norrbottenspets 8|ZRX-ETH|8/1|
 crouching mink 3|CND-BTC|8/1|
@@ -97,13 +98,9 @@ supine griffon 15|CND-BTC|7/0|
 supine mink 3|CND-BTC|7/0|
 crouching affenpinscher 6|RDN*-BTC|6/0|
 crouching affenpinscher 7|RDN*-BTC|6/0|
-crouching basenji 6|RDN*-BTC|6/1|
-crouching basenji 7|RDN*-BTC|6/0|
 crouching caddisfly 2|RDN*-BTC|6/1|
 crouching caddisfly 3|RDN*-BTC|6/0|
 crouching jagdterrier 9|RDN*-BTC|6/1|
-leaping basenji 6|RDN*-BTC|6/1|
-leaping basenji 7|RDN*-BTC|6/0|
 crouching norrbottenspets 16|AMB-BTC|6/1|
 supine norrbottenspets 16|AMB-BTC|6/0|
 supine tiger 16|AMB-BTC|6/1|
@@ -113,7 +110,8 @@ leaping jagdterrier 12|POA-ETH|6/0|
 supine owl 7|STEEM-BNB|6/1|
 leaping griffon 5|WAVES-ETH|6/1|
 supine axolotl 7|FUEL-ETH|6/1|
-leaping basenji 7|GVT-ETH|6/1|
+crouching bandicoot 3|GVT-ETH|6/1|
+leaping bandicoot 3|GVT-ETH|6/1|
 supine xoloitzcuintli 6|GVT-ETH|6/1|
 crouching tiger 17|ONT-BNB|6/0|
 crouching xoloitzcuintli 10|ONT-BNB|6/0|
@@ -134,12 +132,11 @@ crouching mink 3|LEND-ETH|6/1|
 crouching owl 9|MTH-ETH|6/1|
 crouching owl 10|MTH-ETH|6/1|
 crouching owl 11|MTH-ETH|6/0|
-crouching tiger 16|MTH-ETH|6/1|BUY!
-crouching tiger 17|MTH-ETH|6/1|BUY!
+crouching tiger 16|MTH-ETH|6/1|BUY! <!-- ****** -->
+crouching tiger 17|MTH-ETH|6/1|BUY! <!-- ****** -->
 supine affenpinscher 2|APPC-ETH|6/1|
 crouching tiger 14|BRD-BNB|6/1|
 crouching caddisfly 3|POWR-BNB|6/1|
-crouching basenji 6|LSK-ETH|6/1|
 crouching tarantula 5|LSK-ETH|6/0|
 crouching affenpinscher 11|MDA-ETH|6/1|
 crouching axolotl 16|MDA-ETH|6/1|
@@ -183,11 +180,12 @@ crouching jagdterrier 10|REQ-ETH|6/0|
 crouching norrbottenspets 11|QSP-ETH|6/1|
 supine tiger 11|QSP-ETH|6/0|
 leaping norrbottenspets 3|BLZ-ETH|6/1|
-crouching basenji 5|POWR-ETH|6/0|
 supine cricket 6|POWR-ETH|6/1|
 supine jagdterrier 3|POWR-ETH|6/0|
+crouching bandicoot 3|ELF-BTC|6/0|
 crouching tarantula 6|ELF-BTC|6/1|
 leaping griffon 2|AMB-BNB|6/1|
+supine badger 2|AMB-BNB|6/1|
 supine capybara 4|AMB-BNB|6/1|
 supine xoloitzcuintli 5|AMB-BNB|6/1|
 leaping affenpinscher 6|TNT-ETH|6/1|
@@ -224,6 +222,7 @@ leaping cricket 14|POA-BTC|6/1|
 supine tarantula 2|QLC-BTC|6/1|
 crouching axolotl 17|WTC-BNB|6/1|
 leaping axolotl 16|WTC-BNB|6/0|
+straddling badger 2|BNB-USDT|6/1|
 straddling capybara 4|BNB-USDT|6/1|
 straddling norrbottenspets 6|BNB-USDT|6/1|
 straddling tiger 7|BNB-USDT|6/1|
@@ -235,6 +234,7 @@ supine norrbottenspets 10|GTO-ETH|6/1|
 leaping norrbottenspets 2|ENJ-ETH|6/0|
 leaping norrbottenspets 3|ENJ-ETH|6/0|
 leaping tiger 5|ENJ-ETH|6/0|
+crouching bandicoot 4|BCD-ETH|6/1|
 leaping affenpinscher 7|BCD-ETH|6/0|
 leaping caddisfly 2|BCPT-BTC|6/1|
 leaping caddisfly 3|BCPT-BTC|6/1|
@@ -249,12 +249,13 @@ crouching griffon 19|WTC-BTC|6/0|
 supine norrbottenspets 16|WTC-BTC|6/1|
 supine norrbottenspets 17|WTC-BTC|6/0|
 supine tiger 17|WTC-BTC|6/1|
-supine capybara 7|MTH-BTC|6/0|BUY!
-supine griffon 16|MTH-BTC|6/0|BUY!
-supine griffon 17|MTH-BTC|6/0|BUY!
+supine capybara 7|MTH-BTC|6/0|BUY! <!-- ****** -->
+supine griffon 16|MTH-BTC|6/0|BUY! <!-- ****** -->
+supine griffon 17|MTH-BTC|6/0|BUY! <!-- ****** -->
 crouching narwahl 5|WABI-BNB|6/0|
 crouching griffon 17|WABI-ETH|6/1|
 leaping axolotl 11|ELF-ETH|6/1|
+leaping bandicoot 3|ELF-ETH|6/1|
 leaping tarantula 6|ELF-ETH|6/1|
 crouching ocelot 3|QLC-ETH|6/1|
 supine jagdterrier 4|QLC-ETH|6/0|
@@ -309,6 +310,7 @@ crouching jagdterrier 15|POA-ETH|5/0|
 crouching jagdterrier 16|POA-ETH|5/1|
 leaping axolotl 15|POA-ETH|5/0|
 leaping axolotl 16|POA-ETH|5/0|
+leaping bandicoot 3|POA-ETH|5/0|
 leaping cricket 15|POA-ETH|5/0|
 leaping jagdterrier 14|POA-ETH|5/0|
 leaping jagdterrier 15|POA-ETH|5/0|
@@ -328,7 +330,6 @@ crouching ocelot 3|GVT-ETH|5/1|
 crouching tarantula 7|GVT-ETH|5/1|
 leaping affenpinscher 8|GVT-ETH|5/1|
 leaping griffon 6|GVT-ETH|5/1|
-supine basenji 3|GVT-ETH|5/0|
 supine cricket 8|GVT-ETH|5/0|
 crouching griffon 17|ONT-BNB|5/1|
 crouching mink 4|ONT-BNB|5/0|
@@ -354,29 +355,29 @@ leaping axolotl 11|STORM-ETH|5/0|
 leaping jagdterrier 8|STORM-ETH|5/1|
 leaping jagdterrier 9|STORM-ETH|5/1|
 leaping caddisfly 2|YOYOW-ETH|5/1|
+crouching bandicoot 4|CLOAK-ETH|5/0|
 crouching tarantula 8|CLOAK-ETH|5/0|
 crouching griffon 13|LEND-ETH|5/0|
 crouching xoloitzcuintli 8|LEND-ETH|5/1|
 supine griffon 13|LEND-ETH|5/1|
 crouching axolotl 12|RLC-BTC|5/1|
-crouching basenji 6|RLC-BTC|5/0|
 crouching cricket 11|RLC-BTC|5/1|
 crouching cricket 12|RLC-BTC|5/0|
 crouching cricket 14|RLC-BTC|5/1|
 crouching jagdterrier 11|RLC-BTC|5/1|
 leaping cricket 12|RLC-BTC|5/1|
 leaping ocelot 2|RLC-BTC|5/1|
-crouching griffon 16|MTH-ETH|5/0|BUY!
-crouching griffon 17|MTH-ETH|5/0|BUY!
+crouching griffon 16|MTH-ETH|5/0|BUY! <!-- ****** -->
+crouching griffon 17|MTH-ETH|5/0|BUY! <!-- ****** -->
 crouching narwahl 4|MTH-ETH|5/1|
 crouching narwahl 5|MTH-ETH|5/1|
-crouching norrbottenspets 14|MTH-ETH|5/1|BUY!
+crouching norrbottenspets 14|MTH-ETH|5/1|BUY! <!-- ****** -->
 crouching owl 12|MTH-ETH|5/0|
-crouching xoloitzcuintli 7|MTH-ETH|5/1|BUY!
+crouching xoloitzcuintli 7|MTH-ETH|5/1|BUY! <!-- ****** -->
 leaping griffon 5|MTH-ETH|5/0|
 leaping jagdterrier 12|MTH-ETH|5/1|
-supine cricket 8|MTH-ETH|5/1|BUY!
-supine xoloitzcuintli 7|MTH-ETH|5/1|BUY!
+supine cricket 8|MTH-ETH|5/1|BUY! <!-- ****** -->
+supine xoloitzcuintli 7|MTH-ETH|5/1|BUY! <!-- ****** -->
 crouching tarantula 5|LEND-BTC|5/0|
 crouching owl 10|NEO-USDT|5/1|
 supine owl 10|NEO-USDT|5/1|
@@ -390,7 +391,6 @@ crouching tiger 11|DASH-BTC|5/1|
 supine griffon 11|DASH-BTC|5/1|
 supine norrbottenspets 10|DASH-BTC|5/1|
 supine tiger 11|DASH-BTC|5/1|
-leaping basenji 5|MDA-ETH|5/0|
 leaping cricket 11|MDA-ETH|5/0|
 crouching ocelot 4|LINK-ETH|5/0|
 crouching xoloitzcuintli 8|LINK-ETH|5/1|
@@ -409,9 +409,7 @@ supine norrbottenspets 15|QSP-BTC|5/0|
 supine xoloitzcuintli 8|QSP-BTC|5/0|
 crouching caddisfly 3|KMD-ETH|5/1|
 crouching xoloitzcuintli 7|KMD-ETH|5/1|
-crouching basenji 8|ONT-ETH|5/1|
 crouching jagdterrier 12|ONT-ETH|5/1|
-leaping basenji 8|ONT-ETH|5/1|
 leaping jagdterrier 12|ONT-ETH|5/1|
 crouching griffon 15|MTL-BTC|5/1|
 supine griffon 15|MTL-BTC|5/1|
@@ -453,15 +451,9 @@ supine norrbottenspets 11|QSP-ETH|5/1|
 supine tiger 10|QSP-ETH|10/2|
 crouching tarantula 7|CLOAK-BTC|5/1|
 leaping tiger 6|BLZ-ETH|5/1|
-supine basenji 4|BLZ-ETH|5/1|
 leaping affenpinscher 6|NCASH-BNB|5/1|
 crouching caddisfly 2|XEM-BNB|5/1|
-crouching basenji 10|MDA-BTC|5/1|
-crouching basenji 11|MDA-BTC|5/0|
 crouching ocelot 3|MDA-BTC|5/0|
-leaping basenji 6|MDA-BTC|5/1|
-leaping basenji 7|MDA-BTC|5/1|
-leaping basenji 8|MDA-BTC|5/1|
 crouching griffon 20|WAN-BTC|5/1|
 crouching griffon 21|WAN-BTC|5/1|
 crouching norrbottenspets 20|WAN-BTC|5/0|
@@ -476,11 +468,11 @@ supine tiger 20|WAN-BTC|5/0|
 supine tiger 21|WAN-BTC|5/0|
 leaping capybara 2|NEBL-ETH|5/1|
 crouching ocelot 2|POWR-ETH|5/1|
-supine basenji 3|POWR-ETH|5/0|
 supine cricket 7|POWR-ETH|5/0|
 supine cricket 8|POWR-ETH|5/0|
 supine jagdterrier 4|POWR-ETH|5/0|
 supine axolotl 6|SNGLS-BTC|5/1|
+leaping bandicoot 3|ELF-BTC|5/0|
 leaping cricket 12|ELF-BTC|5/1|
 leaping tarantula 6|ELF-BTC|5/1|
 crouching griffon 12|LSK-BTC|5/1|
@@ -496,19 +488,27 @@ supine griffon 11|AMB-BNB|5/1|
 supine norrbottenspets 11|AMB-BNB|5/1|
 supine tiger 11|AMB-BNB|5/1|
 supine tiger 12|AMB-BNB|5/0|
-crouching griffon 13|TNT-ETH|5/0|BUY!
-crouching griffon 14|TNT-ETH|5/0|BUY!
-crouching norrbottenspets 12|TNT-ETH|5/1|BUY!
-supine griffon 12|TNT-ETH|5/1|BUY!
-supine tiger 12|TNT-ETH|5/1|BUY!
+crouching griffon 13|TNT-ETH|5/0|BUY! <!-- ****** -->
+crouching griffon 14|TNT-ETH|5/0|BUY! <!-- ****** -->
+crouching norrbottenspets 12|TNT-ETH|5/1|BUY! <!-- ****** -->
+supine griffon 12|TNT-ETH|5/1|BUY! <!-- ****** -->
+supine tiger 12|TNT-ETH|5/1|BUY! <!-- ****** -->
 crouching ocelot 4|SUB-BTC|5/0|
-leaping griffon 4|RCN-BTC|5/0|BUY!
-leaping griffon 5|RCN-BTC|5/1|BUY!
+leaping griffon 4|RCN-BTC|5/0|BUY! <!-- ****** -->
+leaping griffon 5|RCN-BTC|5/1|BUY! <!-- ****** -->
 leaping xoloitzcuintli 2|DNT-ETH|5/1|
 supine affenpinscher 2|DNT-ETH|5/1|
-crouching tiger 14|VIBE-ETH|5/0|BUY!
+crouching tiger 14|VIBE-ETH|5/0|BUY! <!-- ****** -->
 supine cricket 7|VIBE-ETH|5/0|
 supine cricket 8|VIBE-ETH|5/0|
 supine cricket 9|VIBE-ETH|5/0|
-supine griffon 14|VIBE-ETH|5/0|BUY!
+supine griffon 14|VIBE-ETH|5/0|BUY! <!-- ****** -->
 crouching axolotl 16|RDN*-BNB|5/0|
+crouching axolotl 17|RDN*-BNB|5/1|
+crouching bandicoot 4|RDN*-BNB|5/0|
+crouching tarantula 7|RDN*-BNB|5/1|
+crouching tarantula 9|RDN*-BNB|5/0|
+crouching affenpinscher 10|CND-BNB|5/0|
+crouching caddisfly 4|CND-BNB|5/1|
+supine cricket 9|BLZ-BTC|5/1|
+crouching tiger 12|ARK-ETH|5/1|
