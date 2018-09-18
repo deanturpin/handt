@@ -177,7 +177,7 @@ const std::map<std::string, func> strategies{
               std::accumulate(p.cbegin(), p.cend(), 0.0);
      }},
 
-    {"burn",
+    {"badger",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(p.cbegin(), p.cend(), 0.0) /
@@ -206,7 +206,7 @@ const std::map<std::string, func> strategies{
        return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
      }},
 
-    {"biro",
+    {"axolotl",
      [](cont p) {
        return p.back() / *std::min_element(p.cbegin(), std::prev(p.cend()));
      }},
@@ -242,7 +242,7 @@ auto sell(iter current, iter future) {
 int main() {
 
   // Create a set of thresholds to use with each buy strategy
-  std::vector<int> thresholds(10);
+  std::vector<int> thresholds(20);
   std::iota(thresholds.begin(), thresholds.end(), 2);
 
   // Create and initialise a container of all strategy permuations
@@ -332,7 +332,8 @@ int main() {
               // the last sell price
               historic_price_index = sell_price_index;
             } else
-              break; // ++perf.bad_deals;
+              // break;
+              ++perf.bad_deals;
           }
 
           // Nudge the analysis window along and update upstream prices
@@ -343,8 +344,8 @@ int main() {
         }
 
         // Only store the 100% successful strategies
-        if (perf.bad_deals == 0)
-          performance.emplace_back(perf);
+        // if (perf.bad_deals == 0)
+        performance.emplace_back(perf);
       }
     }
   }
@@ -375,15 +376,20 @@ int main() {
             */
 
   performance.sort([](const auto &a, const auto &b) {
+    return (a.successful_trades ? a.successful_trades : 1.0) /
+               (a.bad_deals ? a.bad_deals : 1.0) >
+           (b.successful_trades ? b.successful_trades : 1.0) /
+               (b.bad_deals ? b.bad_deals : 1.0);
+    //
     // const auto left =
-    //     a.successful_trades / double(a.bad_deals ? a.bad_deals : 0);
+    // a.successful_trades / double(a.bad_deals ? a.bad_deals : 0);
 
     // const auto right =
-    //     b.successful_trades / double(b.bad_deals ? b.bad_deals : 0);
+    // b.successful_trades / double(b.bad_deals ? b.bad_deals : 0);
 
     // return a.successful_trades > b.successful_trades && left > right;
-    //
-    return a.successful_trades > b.successful_trades;
+
+    // return a.successful_trades > b.successful_trades;
   });
 
   // Strategy and trade overview
