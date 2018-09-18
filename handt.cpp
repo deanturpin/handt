@@ -50,7 +50,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
      }},
 
     // Return positively if trending downwards
-    {"hidden",
+    {"supine",
      [](cont p) {
        unsigned int trend = 0;
        for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
@@ -85,7 +85,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 // threshold
 const std::map<std::string, func> secondary_strategies{
 
-    {"hustle", [](cont p) { return p.front() / p.back(); }},
+    {"cipher", [](cont p) { return p.front() / p.back(); }},
     {"forest", [](cont p) { return p.back() / p.front(); }},
 
     {"xoloitzcuintli",
