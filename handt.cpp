@@ -85,8 +85,8 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 // threshold
 const std::map<std::string, func> secondary_strategies{
 
-    {"cipher", [](cont p) { return p.front() / p.back(); }},
-    {"forest", [](cont p) { return p.back() / p.front(); }},
+    {"norrbottenspets", [](cont p) { return p.front() / p.back(); }},
+    {"jagdterrier", [](cont p) { return p.back() / p.front(); }},
 
     {"xoloitzcuintli",
      [](cont p) {
@@ -186,13 +186,12 @@ const std::map<std::string, func> secondary_strategies{
 
 // The sell strategy: return the index of the first price to exceed
 // the sell threshold or return the end iterator
-using iter = const std::vector<double>::const_iterator &;
-auto sell(iter current, iter future) {
+const auto sell = [](const auto &current, const auto &future) {
   return std::find_if(current, future,
                       [spot = *current](const auto &future_price) {
                         return future_price > spot * 1.05;
                       });
-}
+};
 } // namespace handt
 
 int main() {
