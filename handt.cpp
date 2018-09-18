@@ -5,6 +5,7 @@
 #include <functional>
 #include <iostream>
 #include <iterator>
+#include <list>
 #include <map>
 #include <numeric>
 #include <vector>
@@ -258,9 +259,6 @@ int main() {
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
              threshold});
 
-  // for (const auto &s : permutations)
-  //   std::puts(s.name.c_str());
-
   std::vector<std::string> currency_pairs;
   for (const auto &file : std::filesystem::directory_iterator("tmp"))
     currency_pairs.emplace_back(file.path());
@@ -275,79 +273,83 @@ int main() {
   };
 
   // We will report a summary of all strategies against all currency pairs
-  std::vector<strategy_performance> performance;
+  std::list<strategy_performance> performance;
 
   // Extract prices from each file
   for (const auto &file : currency_pairs) {
 
-    const auto &strat = permutations.front();
-    strategy_performance perf{strat.name};
-
     // Open prices and get the trade info
     std::ifstream in(file);
-    // handt::trade t;
-    in >> perf.from_symbol >> perf.to_symbol >> perf.exchange;
+    std::string from_symbol, to_symbol, exchange;
+    in >> from_symbol >> to_symbol >> exchange;
 
     // Get the prices and run the strategies over them
     const std::vector<double> prices{std::istream_iterator<double>(in), {}};
+
     if (!prices.empty()) {
+      for (const auto &strat : permutations) {
 
-      // Configure trading periods for back test
-      const unsigned int analysis_window = 24;
-      const unsigned int sell_window = analysis_window * 2;
+        strategy_performance perf{strat.name, from_symbol, to_symbol, exchange};
 
-      // Set up some indices into the prices. Historic price is the first
-      // price in the analysis window and the future price is the furthest
-      // price after the current price that we're prepared to trade. e.g.,
-      // 24-hour analysis window and 48-hour trade window
+        // Configure trading periods for back test
+        const unsigned int analysis_window = 24;
+        const unsigned int sell_window = analysis_window * 2;
 
-      // |-- analysis window --|
-      // H--------------------NOW-----------------F
-      //                       |-- trade window --|
+        // Set up some indices into the prices. Historic price is the first
+        // price in the analysis window and the future price is the furthest
+        // price after the current price that we're prepared to trade. e.g.,
+        // 24-hour analysis window and 48-hour trade window
 
-      // Initialise the price markers to the start of historic price data
-      auto historic_price_index = prices.cbegin();
-      auto current_price_index =
-          std::next(historic_price_index, analysis_window);
-      auto future_price_index = std::next(current_price_index, sell_window);
+        // |-- analysis window --|
+        // H--------------------NOW-----------------F
+        //                       |-- trade window --|
 
-      // Move windows along until we run out of prices
-      while (future_price_index < prices.cend()) {
+        // Initialise the price markers to the start of historic price data
+        auto historic_price_index = prices.cbegin();
+        auto current_price_index =
+            std::next(historic_price_index, analysis_window);
+        auto future_price_index = std::next(current_price_index, sell_window);
 
-        // Calculate the buy ratio
-        const double ratio = (100.0 + strat.threshold) / 100;
+        // Move windows along until we run out of prices
+        while (future_price_index < prices.cend()) {
 
-        // Test strategy
-        if (strat.primary({historic_price_index, current_price_index}) &&
-            strat.secondary({historic_price_index, current_price_index}) >
-                ratio) {
+          // Calculate the buy ratio
+          const double ratio = (100.0 + strat.threshold) / 100;
 
-          // Strategy triggered, so look ahead to see if it succeeded in
-          // the defined trade window
-          if (const auto sell_price_index =
-                  handt::sell(current_price_index, future_price_index);
-              sell_price_index != future_price_index) {
-            ++perf.successful_trades;
+          // Test strategy
+          if (strat.primary({historic_price_index, current_price_index}) &&
+              strat.secondary({historic_price_index, current_price_index}) >
+                  ratio) {
 
-            // Move the analysis window so the next iteration starts at
-            // the last sell price
-            historic_price_index = sell_price_index;
-          } else
-            ++perf.bad_deals;
+            // Strategy triggered, so look ahead to see if it succeeded in
+            // the defined trade window
+            if (const auto sell_price_index =
+                    handt::sell(current_price_index, future_price_index);
+                sell_price_index != future_price_index) {
+              ++perf.successful_trades;
+
+              // Move the analysis window so the next iteration starts at
+              // the last sell price
+              historic_price_index = sell_price_index;
+            } else
+              break; // ++perf.bad_deals;
+          }
+
+          // Nudge the analysis window along and update upstream prices
+          std::advance(historic_price_index, 1);
+          current_price_index =
+              std::next(historic_price_index, analysis_window);
+          future_price_index = std::next(current_price_index, sell_window);
         }
 
-        // Nudge the analysis window along and update upstream prices
-        std::advance(historic_price_index, 1);
-        current_price_index = std::next(historic_price_index, analysis_window);
-        future_price_index = std::next(current_price_index, sell_window);
+        // Only store the 100% successful strategies
+        if (perf.bad_deals == 0)
+          performance.emplace_back(perf);
       }
     }
-
-    // Only store the 100% successful strategies
-    // if (perf.bad_deals == 0)
-    performance.emplace_back(perf);
   }
 
+  /*
   // Sort strategies by effectiveness
   std::sort(performance.begin(), performance.end(),
             [](const auto &a, const auto &b) {
@@ -370,6 +372,19 @@ int main() {
               // a.successful_trades > b.successful_trades
               // ;
             });
+            */
+
+  performance.sort([](const auto &a, const auto &b) {
+    // const auto left =
+    //     a.successful_trades / double(a.bad_deals ? a.bad_deals : 0);
+
+    // const auto right =
+    //     b.successful_trades / double(b.bad_deals ? b.bad_deals : 0);
+
+    // return a.successful_trades > b.successful_trades && left > right;
+    //
+    return a.successful_trades > b.successful_trades;
+  });
 
   // Strategy and trade overview
   std::cout << currency_pairs.size() << " currency pairs, "
@@ -379,6 +394,7 @@ int main() {
             << " strategy permutations.)\n\n";
 
   // Print strategy reports
+  std::cout << performance.size() << " tests performed\n";
   // std::puts(summary.front().heading().c_str());
   for (const auto &s : performance)
     std::cout << s.name << ' ' << s.from_symbol << ' ' << s.to_symbol << '\t'
