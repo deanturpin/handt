@@ -82,21 +82,39 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 };
 
 // Strategy definition helper routines
-const auto mean_all = [](const std::vector<double> &p) {
+const auto mean = [](const std::vector<double> &p) {
   return std::accumulate(p.cbegin(), p.cend(), 0.0) / double(p.size());
 };
 
-const auto maximum = [](const auto &begin, const auto &end) {
-  return *std::max_element(begin, end);
+const auto maximum = [](const auto &p) {
+  return *std::max_element(p.cbegin(), p.cend());
 };
 
-const auto minimum = [](const auto &begin, const auto &end) {
-  return *std::min_element(begin, end);
+const auto minimum = [](const auto &p) {
+  return *std::min_element(p.cbegin(), p.cend());
 };
 
-const auto minimum_bar_front = [](const auto p) {
-  return minimum(std::next(p.cbegin()), p.cend());
+const auto not_front = [](const auto &p, const size_t len = 1) {
+  return std::vector<double>{std::next(p.cbegin(), len), p.cend()};
 };
+
+const auto back_end = [](const auto &p) {
+  const auto len = p.size() / 2;
+  return std::vector<double>{std::next(p.cbegin(), len), p.cend()};
+};
+
+const auto front_end = [](const auto &p) {
+  const auto len = p.size() / 2;
+  return std::vector<double>{p.cbegin(), std::prev(p.cend(), len)};
+};
+
+const auto not_back = [](const auto &p, const size_t len = 1) {
+  return std::vector<double>{p.cbegin(), std::prev(p.cend(), len)};
+};
+
+const auto front = [](const auto &p) { return p.front(); };
+
+const auto back = [](const auto &p) { return p.back(); };
 
 // Secondary strategies yield a threshold which is interpreted as a buy
 // threshold
@@ -109,82 +127,39 @@ const std::map<std::string, func> secondary_strategies{
        return 2.0;
      }},
 
-    {"norrbottenspets", [](cont p) { return p.front() / p.back(); }},
-    {"jagdterrier", [](cont p) { return p.back() / p.front(); }},
+    {"norrbottenspets", [](cont p) { return front(p) / back(p); }},
+    {"jagdterrier", [](cont p) { return back(p) / front(p); }},
 
-    {"xoloitzcuintli", [](cont p) { return mean_all(p) / p.back(); }},
+    {"xoloitzcuintli", [](cont p) { return mean(p) / back(p); }},
+    {"affenpinscher", [](cont p) { return back(p) / mean(p); }},
+    {"basenji", [](cont p) { return mean(p) / front(p); }},
+    {"owl", [](cont p) { return front(p) / mean(p); }},
 
-    {"affenpinscher", [](cont p) { return p.back() / mean_all(p); }},
-
-    {"basenji", [](cont p) { return mean_all(p) / p.front(); }},
-
-    {"owl", [](cont p) { return p.front() / mean_all(p); }},
-
-    {"capybara",
-     [](cont p) {
-       const auto filt = p.size() / 2;
-       return mean_all({p.cbegin(), std::prev(p.cend(), filt)}) /
-              mean_all({std::next(p.cbegin(), filt), p.cend()});
-     }},
-
+    {"capybara", [](cont p) { return mean(front_end(p)) / mean(back_end(p)); }},
     {"tarantula",
-     [](cont p) {
-       const auto filt = p.size() / 2;
-       return mean_all({std::next(p.cbegin(), filt), p.cend()}) /
-              mean_all({p.cbegin(), std::prev(p.cend(), filt)});
-     }},
-
-    {"bandicoot",
-     [](cont p) {
-       const auto filt = p.size() / 2;
-       return mean_all({std::next(p.cbegin(), filt), p.cend()}) /
-              mean_all({p.cbegin(), p.cend()});
-     }},
-
-    {"badger",
-     [](cont p) {
-       const auto filt = p.size() / 2;
-       return mean_all(p) / mean_all({std::next(p.cbegin(), filt), p.cend()});
-     }},
+     [](cont p) { return mean(back_end(p)) / mean(front_end(p)); }},
+    {"bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
+    {"badger", [](cont p) { return mean(p) / mean(back_end(p)); }},
 
     {"caddisfly",
      [](cont p) {
-       const auto val = p.back() / maximum(p.cbegin(), std::prev(p.cend()));
+       const auto val = back(p) / maximum(front_end(p));
        return std::isinf(val) ? 0.0 : val;
      }},
 
-    {"griffon",
-     [](cont p) {
-       return maximum(p.cbegin(), std::prev(p.cend())) / p.back();
-     }},
-
-    {"narwahl",
-     [](cont p) {
-       return p.front() / maximum(std::next(p.cbegin()), p.cend());
-     }},
-
-    {"cricket",
-     [](cont p) {
-       return maximum(std::next(p.cbegin()), p.cend()) / p.front();
-     }},
-
-    {"axolotl",
-     [](cont p) {
-       return p.back() / minimum(p.cbegin(), std::prev(p.cend()));
-     }},
-
-    {"mink",
-     [](cont p) {
-       return minimum(p.cbegin(), std::prev(p.cend())) / p.back();
-     }},
+    {"griffon", [](cont p) { return maximum(not_back(p)) / back(p); }},
+    {"narwahl", [](cont p) { return front(p) / maximum(p); }},
+    {"cricket", [](cont p) { return maximum(not_front(p)) / front(p); }},
+    {"axolotl", [](cont p) { return back(p) / minimum(not_back(p)); }},
+    {"mink", [](cont p) { return minimum(not_back(p)) / back(p); }},
 
     {"tiger",
      [](cont p) {
-       const auto min = minimum(std::next(p.cbegin()), p.cend());
-       return min > 0.0 ? p.front() / min : 0.0;
+       const auto min = minimum(not_front(p));
+       return min > 0.0 ? front(p) / min : 0.0;
      }},
 
-    {"ocelot", [](cont p) { return minimum_bar_front(p) / p.front(); }},
+    {"ocelot", [](cont p) { return minimum(not_front(p)) / p.front(); }},
 };
 
 } // namespace handt
