@@ -17,28 +17,28 @@ namespace handt {
 // determine whether to buy or not
 using cont = const std::vector<double> &;
 using func = std::function<double(cont)>;
-using func1 = std::function<bool(cont)>;
-using func2 = std::function<double(cont)>;
 
 // A complete strategy consists of a primary and secondary strategy and a buy
 // threshold
 
 struct strategy_combo {
   std::string name;
-  func1 primary;
-  func2 secondary;
+  std::function<bool(cont)> primary;
+  std::function<double(cont)> secondary;
   int threshold;
 };
 
-// Primary strategies are simple boolean tests: is it rising? Is it falling?
+// Primary strategies are simple boolean tests
 const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
+    // Always return positively
     {"crouching",
      [](cont p) {
        static_cast<void>(p);
        return true;
      }},
 
+    // Return positively if trending upwards
     {"leaping",
      [](cont p) {
        unsigned int trend = 0;
@@ -49,6 +49,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
        return trend > p.size() / 2;
      }},
 
+    // Return positively if trending downwards
     {"hidden",
      [](cont p) {
        unsigned int trend = 0;
@@ -59,6 +60,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
        return trend > p.size() / 2;
      }},
 
+    // Return positively if crossing a significant boundary
     {"straddling",
      [](cont p) {
        const auto &[min, max] = std::minmax(p.front(), p.back());
@@ -79,23 +81,24 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
      }},
 };
 
-// Secondary strategies yield a threshold
-const std::map<std::string, func> strategies{
+// Secondary strategies yield a threshold which is interpreted as a buy
+// threshold
+const std::map<std::string, func> secondary_strategies{
 
     {"hustle", [](cont p) { return p.front() / p.back(); }},
     {"forest", [](cont p) { return p.back() / p.front(); }},
 
-    {"quill",
+    {"xoloitzcuintli",
      [](cont p) {
        return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
      }},
 
-    {"ken",
+    {"affenpinscher",
      [](cont p) {
        return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
      }},
 
-    {"peppard",
+    {"basenji",
      [](cont p) {
        return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
      }},
@@ -119,7 +122,7 @@ const std::map<std::string, func> strategies{
               std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0);
      }},
 
-    {"crash",
+    {"bandicoot",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
@@ -140,7 +143,7 @@ const std::map<std::string, func> strategies{
        return std::isinf(val) ? 0.0 : val;
      }},
 
-    {"nacho",
+    {"griffon",
      [](cont p) {
        return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
@@ -197,12 +200,13 @@ int main() {
   // Create and initialise a container of all strategy permuations
   static std::vector<handt::strategy_combo> permutations;
   const auto total_permutations = handt::primary_strategies.size() *
-                                  handt::strategies.size() * thresholds.size();
+                                  handt::secondary_strategies.size() *
+                                  thresholds.size();
   permutations.reserve(total_permutations);
 
   // Populate with the strategy library
   for (const auto &[name1, buy1] : handt::primary_strategies)
-    for (const auto &[name2, buy2] : handt::strategies)
+    for (const auto &[name2, buy2] : handt::secondary_strategies)
       for (const auto &threshold : thresholds)
         permutations.push_back(
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
@@ -217,7 +221,7 @@ int main() {
     std::string from_symbol;
     std::string to_symbol;
     std::string exchange;
-    unsigned int successful_trades = 0;
+    unsigned int good_deals = 0;
     unsigned int bad_deals = 0;
   };
 
@@ -277,7 +281,7 @@ int main() {
             if (const auto sell_price_index =
                     handt::sell(current_price_index, future_price_index);
                 sell_price_index != future_price_index) {
-              ++perf.successful_trades;
+              ++perf.good_deals;
 
               // Move the analysis window so the next iteration starts at
               // the last sell price
@@ -298,9 +302,9 @@ int main() {
 
   // Sort strategies by performance
   performance.sort([](const auto &a, const auto &b) {
-    return (a.successful_trades ? a.successful_trades : 1.0) /
+    return (a.good_deals ? a.good_deals : 1.0) /
                (a.bad_deals ? a.bad_deals : 1.0) >
-           (b.successful_trades ? b.successful_trades : 1.0) /
+           (b.good_deals ? b.good_deals : 1.0) /
                (b.bad_deals ? b.bad_deals : 1.0);
   });
 
@@ -310,14 +314,16 @@ int main() {
   // Strategy and trade overview
   std::cout << currency_pairs.size() << " currency pairs, "
             << handt::primary_strategies.size() << " primary strategies, "
-            << handt::strategies.size() << " secondary strategies, "
+            << handt::secondary_strategies.size() << " secondary strategies, "
             << thresholds.size() << " thresholds, (" << permutations.size()
-            << " strategy permutations.)\n\n";
+            << " strategy permutations), " << performance.size()
+            << " tests performed.\n\n";
 
   // Print strategy reports
-  std::cout << performance.size() << " tests performed\n";
-  // std::puts(summary.front().heading().c_str());
+  std::cout << "Strategy|Pair|Good/Bad\n";
+  std::cout << "---|---|---\n";
+
   for (const auto &s : performance)
-    std::cout << s.name << ' ' << s.from_symbol << ' ' << s.to_symbol << '\t'
-              << s.successful_trades << ' ' << s.bad_deals << '\n';
+    std::cout << s.name << '|' << s.from_symbol << '-' << s.to_symbol << '|'
+              << s.good_deals << '/' << s.bad_deals << '\n';
 }
