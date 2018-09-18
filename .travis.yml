@@ -1,8 +1,9 @@
 language: python
-python: "3.5"
+python: "3.6"
 script:
   - make CXX=g++-8
   - cppcheck --enable=all .
+  - sloccount .
 
 deploy:
   provider: pages
@@ -21,3 +22,4 @@ matrix:
           packages:
             - g++-8
             - cppcheck
+            - sloccount

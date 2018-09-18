@@ -3,8 +3,9 @@
 #include <filesystem>
 #include <fstream>
 #include <functional>
-#include <iomanip>
+#include <iostream>
 #include <iterator>
+#include <list>
 #include <map>
 #include <numeric>
 #include <vector>
@@ -14,19 +15,31 @@ namespace handt {
 // Define the buy strategies: each strategy function takes a subset of
 // available prices - the analysis window - and returns a threshold to
 // determine whether to buy or not
-using cont = const std::vector<double>;
+using cont = const std::vector<double> &;
 using func = std::function<double(cont)>;
 
-// Primary strategies are simple boolean tests: is it rising? Is it falling?
+// A complete strategy consists of a primary and secondary strategy and a buy
+// threshold
+
+struct strategy_combo {
+  std::string name;
+  std::function<bool(cont)> primary;
+  std::function<double(cont)> secondary;
+  int threshold;
+};
+
+// Primary strategies are simple boolean tests
 const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
-    {"unrelenting",
+    // Always return positively
+    {"crouching",
      [](cont p) {
        static_cast<void>(p);
        return true;
      }},
 
-    {"rising",
+    // Return positively if trending upwards
+    {"leaping",
      [](cont p) {
        unsigned int trend = 0;
        for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
@@ -36,6 +49,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
        return trend > p.size() / 2;
      }},
 
+    // Return positively if trending downwards
     {"supine",
      [](cont p) {
        unsigned int trend = 0;
@@ -46,6 +60,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
        return trend > p.size() / 2;
      }},
 
+    // Return positively if crossing a significant boundary
     {"straddling",
      [](cont p) {
        const auto &[min, max] = std::minmax(p.front(), p.back());
@@ -64,26 +79,26 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
 
        return min < threshold && max > threshold;
      }},
-
 };
 
-// Secondary strategies yield a threshold
-const std::map<std::string, func> strategies{
+// Secondary strategies yield a threshold which is interpreted as a buy
+// threshold
+const std::map<std::string, func> secondary_strategies{
 
     {"cipher", [](cont p) { return p.front() / p.back(); }},
     {"forest", [](cont p) { return p.back() / p.front(); }},
 
-    {"quill",
+    {"xoloitzcuintli",
      [](cont p) {
        return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
      }},
 
-    {"ken",
+    {"affenpinscher",
      [](cont p) {
        return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
      }},
 
-    {"peppard",
+    {"basenji",
      [](cont p) {
        return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
      }},
@@ -93,47 +108,47 @@ const std::map<std::string, func> strategies{
        return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
      }},
 
-    {"terry",
+    {"capybara",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0) /
               std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
      }},
 
-    {"tibbs",
+    {"tarantula",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
               std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0);
      }},
 
-    {"crash",
+    {"bandicoot",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
               std::accumulate(p.cbegin(), p.cend(), 0.0);
      }},
 
-    {"burn",
+    {"badger",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(p.cbegin(), p.cend(), 0.0) /
               std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
      }},
 
-    {"cadiz",
+    {"caddisfly",
      [](cont p) {
        const auto val =
            p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
        return std::isinf(val) ? 0.0 : val;
      }},
 
-    {"nacho",
+    {"griffon",
      [](cont p) {
        return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
-    {"robin",
+    {"narwahl",
      [](cont p) {
        return p.front() / *std::max_element(std::next(p.cbegin()), p.cend());
      }},
@@ -143,23 +158,23 @@ const std::map<std::string, func> strategies{
        return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
      }},
 
-    {"peacock",
+    {"axolotl",
      [](cont p) {
        return p.back() / *std::min_element(p.cbegin(), std::prev(p.cend()));
      }},
 
-    {"pencil",
+    {"mink",
      [](cont p) {
        return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
-    {"brio",
+    {"tiger",
      [](cont p) {
        const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
        return min > 0.0 ? p.front() / min : 0.0;
      }},
 
-    {"stick",
+    {"ocelot",
      [](cont p) {
        return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
      }},
@@ -168,181 +183,147 @@ const std::map<std::string, func> strategies{
 // The sell strategy: return the index of the first price to exceed
 // the sell threshold or return the end iterator
 using iter = const std::vector<double>::const_iterator &;
-const auto sell = [](iter current, iter future) {
+auto sell(iter current, iter future) {
   return std::find_if(current, future,
                       [spot = *current](const auto &future_price) {
                         return future_price > spot * 1.05;
                       });
-};
+}
 } // namespace handt
 
 int main() {
 
-  // Structure to represent a trade
-  struct strategy_summary {
-    std::string from_symbol = "undefined";
-    std::string to_symbol = "undefined";
-    std::string exchange = "undefined";
-    std::string primary = "undefined";
-    std::string secondary = "undefined";
-    double threshold = 0.0;
-    unsigned int opportunities_to_trade = 0u;
-    unsigned int good_deals = 0u;
-    unsigned int bad_deals = 0u;
-    double spot = 0u;
-    bool current_prospect = false;
-    double trigger_ratio = 0.0;
+  // Create a set of thresholds to use with each buy strategy
+  std::vector<int> thresholds(5);
+  std::iota(thresholds.begin(), thresholds.end(), 2);
 
-    // Construct strategy summary
-    std::string str() const {
-      const std::string currency_pair = from_symbol + '-' + to_symbol;
+  // Create and initialise a container of all strategy permuations
+  static std::vector<handt::strategy_combo> permutations;
+  const auto total_permutations = handt::primary_strategies.size() *
+                                  handt::secondary_strategies.size() *
+                                  thresholds.size();
+  permutations.reserve(total_permutations);
 
-      std::stringstream out;
-      out << primary << ' ' << secondary << ' ' << -100.0 + threshold * 100.0
-          << " %|[" << currency_pair << "](" << url() << ")|" << good_deals
-          << '/' << bad_deals << '|' << spot << '|' << std::fixed
-          << std::setprecision(0) << -100.0 + 100.0 * trigger_ratio << " %|"
-          << (current_prospect ? " *" : "");
-      return out.str();
-    }
+  // Populate with the strategy library
+  for (const auto &[name1, buy1] : handt::primary_strategies)
+    for (const auto &[name2, buy2] : handt::secondary_strategies)
+      for (const auto &threshold : thresholds)
+        permutations.push_back(
+            {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
+             threshold});
 
-    // Construct strategy table heading
-    std::string heading() const {
-      return "Strategy|Pair|Perf|Spot|Threshold|BUY NOW!\n"
-             "---|---|---|---|---|---";
-    }
+  std::vector<std::string> currency_pairs;
+  for (const auto &file : std::filesystem::directory_iterator("tmp"))
+    currency_pairs.emplace_back(file.path());
 
-    // Construct exchange URL
-    std::string url() const {
-      return exchange == std::string("Coinbase")
-                 ? "http://coinbase.com"
-                 : exchange == std::string("Binance")
-                       ? "https://www.binance.com/en/trade/" + from_symbol +
-                             '_' + to_symbol
-                       : "no_url";
-    }
+  struct strategy_performance {
+    std::string name;
+    std::string from_symbol;
+    std::string to_symbol;
+    std::string exchange;
+    unsigned int good_deals = 0;
+    unsigned int bad_deals = 0;
   };
 
-  // Create a container for all trades
-  static std::vector<strategy_summary> summary;
+  // We will report a summary of all strategies against all currency pairs
+  std::list<strategy_performance> performance;
 
-  // Get prices
-  for (const auto &file : std::filesystem::directory_iterator("tmp")) {
+  // Extract prices from each file
+  for (const auto &file : currency_pairs) {
 
-    // Open prices
-    std::ifstream in(file.path());
+    // Open prices and get the trade info
+    std::ifstream in(file);
     std::string from_symbol, to_symbol, exchange;
-
-    // Get the trade details
     in >> from_symbol >> to_symbol >> exchange;
 
-    // Trim trailing asterisk
-    if (from_symbol.back() == '*')
-      from_symbol.pop_back();
+    // Get the prices and run the strategies over them
+    const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
-    // Get the prices
-    if (const std::vector<double> prices{std::istream_iterator<double>(in), {}};
-        !prices.empty()) {
+    if (!prices.empty())
+      for (const auto &strat : permutations) {
 
-      // Run strategies over the prices using different buy thresholds
-      for (const auto &[primary, primary_buy] : handt::primary_strategies)
-        for (const auto &[secondary, secondary_buy] : handt::strategies)
-          for (double buy_threshold = 1.02; buy_threshold < 1.20;
-               buy_threshold += .01) {
+        // Create a new strategy and add it to the summary for later
+        auto &perf = performance.emplace_back(
+            strategy_performance{strat.name, from_symbol, to_symbol, exchange});
 
-            // Create a new strategy summary, initialised with basic trade info
-            strategy_summary &strategy = summary.emplace_back(
-                strategy_summary{from_symbol, to_symbol, exchange, primary,
-                                 secondary, buy_threshold});
+        // Configure trading periods for back test
+        const unsigned int analysis_window = 24;
+        const unsigned int sell_window = analysis_window * 2;
 
-            // Store the latest price
-            strategy.spot = prices.back();
+        // Set up some indices into the prices. Historic price is the first
+        // price in the analysis window and the future price is the furthest
+        // price after the current price that we're prepared to trade. e.g.,
+        // 24-hour analysis window and 48-hour trade window
 
-            // Configure trading periods for back test
-            const unsigned int analysis_window = 24;
-            const unsigned int sell_window = analysis_window * 2;
+        // |-- analysis window --|
+        // H--------------------NOW-----------------F
+        //                       |-- trade window --|
 
-            // Set up some indices into the prices. Historic price is the first
-            // price in the analysis window and the future price is the furthest
-            // price after the current price that we're prepared to trade. e.g.,
-            // 24-hour analysis window and 48-hour trade window
+        // Initialise the price markers to the start of historic price data
+        auto historic_price_index = prices.cbegin();
+        auto current_price_index =
+            std::next(historic_price_index, analysis_window);
+        auto future_price_index = std::next(current_price_index, sell_window);
 
-            // |-- analysis window --|
-            // H--------------------NOW-----------------F
-            //                       |-- trade window --|
+        // Move windows along until we run out of prices
+        while (future_price_index < prices.cend()) {
 
-            // Initialise the price markers to the start of historic price data
-            auto historic_price_index = prices.cbegin();
-            auto current_price_index =
-                std::next(historic_price_index, analysis_window);
-            auto future_price_index =
-                std::next(current_price_index, sell_window);
+          // Calculate the buy ratio
+          const double ratio = (100.0 + strat.threshold) / 100;
 
-            // Move windows along until we run out of prices
-            // const double buy_threshold = 1.1;
-            while (future_price_index < prices.cend()) {
+          // Test strategy
+          if (strat.primary({historic_price_index, current_price_index}) &&
+              strat.secondary({historic_price_index, current_price_index}) >
+                  ratio) {
 
-              // Test strategy
-              if (primary_buy({historic_price_index, current_price_index}) &&
-                  secondary_buy({historic_price_index, current_price_index}) >
-                      buy_threshold) {
+            // Strategy triggered, so look ahead to see if it succeeded in
+            // the defined trade window
+            if (const auto sell_price_index =
+                    handt::sell(current_price_index, future_price_index);
+                sell_price_index != future_price_index) {
+              ++perf.good_deals;
 
-                // Strategy triggered, so look ahead to see if it succeeded in
-                // the defined trade window
-                if (const auto sell_price_index =
-                        handt::sell(current_price_index, future_price_index);
-                    sell_price_index != future_price_index) {
-                  ++strategy.good_deals;
-
-                  // Move the analysis window so the next iteration starts at
-                  // the last sell price
-                  historic_price_index = sell_price_index;
-                } else
-                  ++strategy.bad_deals;
-              }
-
-              // Nudge the analysis window along
-              std::advance(historic_price_index, 1);
-
-              // Update upstream prices
-              current_price_index =
-                  std::next(historic_price_index, analysis_window);
-              future_price_index = std::next(current_price_index, sell_window);
-
-              // Track how many times we could have traded
-              ++strategy.opportunities_to_trade;
-            }
-
-            // Calculate prospects using the most recent prices
-            historic_price_index = std::prev(prices.cend(), analysis_window);
-            current_price_index = prices.cend();
-
-            if (strategy.trigger_ratio =
-                    secondary_buy({historic_price_index, current_price_index});
-                primary_buy({historic_price_index, current_price_index}) &&
-                strategy.trigger_ratio > buy_threshold)
-              strategy.current_prospect = true;
+              // Move the analysis window so the next iteration starts at
+              // the last sell price
+              historic_price_index = sell_price_index;
+            } else
+              // break;
+              ++perf.bad_deals;
           }
-    }
+
+          // Nudge the analysis window along and update upstream prices
+          std::advance(historic_price_index, 1);
+          current_price_index =
+              std::next(historic_price_index, analysis_window);
+          future_price_index = std::next(current_price_index, sell_window);
+        }
+      }
   }
 
-  // Sort strategies by effectiveness
-  std::sort(summary.begin(), summary.end(), [](const auto &a, const auto &b) {
+  // Sort strategies by performance
+  performance.sort([](const auto &a, const auto &b) {
     return (a.good_deals ? a.good_deals : 1.0) /
                (a.bad_deals ? a.bad_deals : 1.0) >
            (b.good_deals ? b.good_deals : 1.0) /
                (b.bad_deals ? b.bad_deals : 1.0);
   });
 
+  // Pretty print numbers
+  std::cout.imbue(std::locale(""));
+
   // Strategy and trade overview
-  std::stringstream totals;
-  totals << handt::primary_strategies.size() << " primary strategies, ";
-  totals << handt::strategies.size() << " secondary strategies, ";
-  totals << summary.size() / handt::strategies.size() << " pairs tested.\n\n";
-  std::puts(totals.str().c_str());
+  std::cout << currency_pairs.size() << " currency pairs, "
+            << handt::primary_strategies.size() << " primary strategies, "
+            << handt::secondary_strategies.size() << " secondary strategies, "
+            << thresholds.size() << " thresholds, (" << permutations.size()
+            << " strategy permutations), " << performance.size()
+            << " tests performed.\n\n";
 
   // Print strategy reports
-  std::puts(summary.front().heading().c_str());
-  for (const auto &s : summary)
-    std::puts(s.str().c_str());
+  std::cout << "Strategy|Pair|Good/Bad\n";
+  std::cout << "---|---|---\n";
+
+  for (const auto &s : performance)
+    std::cout << s.name << '|' << s.from_symbol << '-' << s.to_symbol << '|'
+              << s.good_deals << '/' << s.bad_deals << '\n';
 }
