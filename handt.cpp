@@ -194,7 +194,7 @@ auto sell(iter current, iter future) {
 int main() {
 
   // Create a set of thresholds to use with each buy strategy
-  std::vector<int> thresholds(5);
+  std::vector<int> thresholds(20);
   std::iota(thresholds.begin(), thresholds.end(), 2);
 
   // Create and initialise a container of all strategy permuations
@@ -287,7 +287,6 @@ int main() {
               // the last sell price
               historic_price_index = sell_price_index;
             } else
-              // break;
               ++perf.bad_deals;
           }
 
