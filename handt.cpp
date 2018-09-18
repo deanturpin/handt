@@ -230,6 +230,7 @@ int main() {
     std::string exchange;
     unsigned int good_deals = 0;
     unsigned int bad_deals = 0;
+    bool buy = false;
   };
 
   // We will report a summary of all strategies against all currency pairs
@@ -273,11 +274,11 @@ int main() {
             std::next(historic_price_index, analysis_window);
         auto future_price_index = std::next(current_price_index, sell_window);
 
+        // Calculate the buy ratio
+        const double ratio = (100.0 + strat.threshold) / 100;
+
         // Move windows along until we run out of prices
         while (future_price_index < prices.cend()) {
-
-          // Calculate the buy ratio
-          const double ratio = (100.0 + strat.threshold) / 100;
 
           // Test strategy
           if (strat.primary({historic_price_index, current_price_index}) &&
@@ -304,6 +305,16 @@ int main() {
               std::next(historic_price_index, analysis_window);
           future_price_index = std::next(current_price_index, sell_window);
         }
+
+        // Calculate prospects using the most recent prices
+        historic_price_index = std::prev(prices.cend(), analysis_window);
+        current_price_index = prices.cend();
+
+        // Test the latest prices
+        if (strat.primary({historic_price_index, current_price_index}) &&
+            strat.secondary({historic_price_index, current_price_index}) >
+                ratio)
+          perf.buy = true;
       }
   }
 
@@ -315,7 +326,7 @@ int main() {
                (b.bad_deals ? b.bad_deals : 1.0);
   });
 
-  // Pretty print numbers
+  // Pretty print large numbers
   std::cout.imbue(std::locale(""));
 
   // Strategy and trade overview
@@ -326,11 +337,11 @@ int main() {
             << " strategy permutations), " << performance.size()
             << " tests performed.\n\n";
 
-  // Print strategy reports
-  std::cout << "Strategy|Pair|Good/Bad\n";
-  std::cout << "---|---|---\n";
-
+  // Report individual strategy performance
+  std::cout << "Strategy|Pair|Good/Bad|Advice\n";
+  std::cout << "---|---|---|---\n";
   for (const auto &s : performance)
     std::cout << s.name << '|' << s.from_symbol << '-' << s.to_symbol << '|'
-              << s.good_deals << '/' << s.bad_deals << '\n';
+              << s.good_deals << '/' << s.bad_deals << '|'
+              << (s.buy ? "BUY! <!-- ****** -->" : "") << '\n';
 }
