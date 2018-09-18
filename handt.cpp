@@ -90,7 +90,7 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
        return true;
      }},
 
-    {"rising",
+    {"leaping",
      [](cont p) {
        unsigned int trend = 0;
        for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
@@ -156,14 +156,14 @@ const std::map<std::string, func> strategies{
        return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
      }},
 
-    {"terry",
+    {"capybara",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(p.cbegin(), std::prev(p.cend(), filt), 0.0) /
               std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0);
      }},
 
-    {"tibbs",
+    {"tarantula",
      [](cont p) {
        const auto filt = p.size() / 2;
        return std::accumulate(std::next(p.cbegin(), filt), p.cend(), 0.0) /
@@ -216,13 +216,13 @@ const std::map<std::string, func> strategies{
        return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
-    {"stride",
+    {"tiger",
      [](cont p) {
        const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
        return min > 0.0 ? p.front() / min : 0.0;
      }},
 
-    {"stick",
+    {"ocelot",
      [](cont p) {
        return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
      }},
@@ -242,7 +242,7 @@ auto sell(iter current, iter future) {
 int main() {
 
   // Create a set of thresholds to use with each buy strategy
-  std::vector<int> thresholds(5);
+  std::vector<int> thresholds(10);
   std::iota(thresholds.begin(), thresholds.end(), 2);
 
   // Create and initialise a container of all strategy permuations
