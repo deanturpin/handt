@@ -81,9 +81,9 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
      }},
 };
 
-// Helper routines for the strategies
-const auto mean = [](const auto &begin, const auto &end) {
-  return std::accumulate(begin, end, 0.0) / double(std::distance(begin, end));
+// Strategy definition helper routines
+const auto mean_all = [](const std::vector<double> &p) {
+  return std::accumulate(p.cbegin(), p.cend(), 0.0) / double(p.size());
 };
 
 const auto maximum = [](const auto &begin, const auto &end) {
@@ -112,42 +112,39 @@ const std::map<std::string, func> secondary_strategies{
     {"norrbottenspets", [](cont p) { return p.front() / p.back(); }},
     {"jagdterrier", [](cont p) { return p.back() / p.front(); }},
 
-    {"xoloitzcuintli",
-     [](cont p) { return mean(p.cbegin(), p.cend()) / p.back(); }},
+    {"xoloitzcuintli", [](cont p) { return mean_all(p) / p.back(); }},
 
-    {"affenpinscher",
-     [](cont p) { return p.back() / mean(p.cbegin(), p.cend()); }},
+    {"affenpinscher", [](cont p) { return p.back() / mean_all(p); }},
 
-    {"basenji", [](cont p) { return mean(p.cbegin(), p.cend()) / p.size(); }},
+    {"basenji", [](cont p) { return mean_all(p) / p.front(); }},
 
-    {"owl", [](cont p) { return p.front() / mean(p.cbegin(), p.cend()); }},
+    {"owl", [](cont p) { return p.front() / mean_all(p); }},
 
     {"capybara",
      [](cont p) {
        const auto filt = p.size() / 2;
-       return mean(p.cbegin(), std::prev(p.cend(), filt)) /
-              mean(std::next(p.cbegin(), filt), p.cend());
+       return mean_all({p.cbegin(), std::prev(p.cend(), filt)}) /
+              mean_all({std::next(p.cbegin(), filt), p.cend()});
      }},
 
     {"tarantula",
      [](cont p) {
        const auto filt = p.size() / 2;
-       return mean(std::next(p.cbegin(), filt), p.cend()) /
-              mean(p.cbegin(), std::prev(p.cend(), filt));
+       return mean_all({std::next(p.cbegin(), filt), p.cend()}) /
+              mean_all({p.cbegin(), std::prev(p.cend(), filt)});
      }},
 
     {"bandicoot",
      [](cont p) {
        const auto filt = p.size() / 2;
-       return mean(std::next(p.cbegin(), filt), p.cend()) /
-              mean(p.cbegin(), p.cend());
+       return mean_all({std::next(p.cbegin(), filt), p.cend()}) /
+              mean_all({p.cbegin(), p.cend()});
      }},
 
     {"badger",
      [](cont p) {
        const auto filt = p.size() / 2;
-       return mean(p.cbegin(), p.cend()) /
-              mean(std::next(p.cbegin(), filt), p.cend());
+       return mean_all(p) / mean_all({std::next(p.cbegin(), filt), p.cend()});
      }},
 
     {"caddisfly",
