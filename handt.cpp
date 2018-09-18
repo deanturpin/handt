@@ -81,8 +81,21 @@ const std::map<std::string, std::function<bool(cont)>> primary_strategies{
      }},
 };
 
+// Helper routines for the strategies
 const auto mean = [](const auto &begin, const auto &end) {
   return std::accumulate(begin, end, 0.0) / double(std::distance(begin, end));
+};
+
+const auto maximum = [](const auto &begin, const auto &end) {
+  return *std::max_element(begin, end);
+};
+
+const auto minimum = [](const auto &begin, const auto &end) {
+  return *std::min_element(begin, end);
+};
+
+const auto minimum_bar_front = [](const auto p) {
+  return minimum(std::next(p.cbegin()), p.cend());
 };
 
 // Secondary strategies yield a threshold which is interpreted as a buy
@@ -132,46 +145,42 @@ const std::map<std::string, func> secondary_strategies{
 
     {"caddisfly",
      [](cont p) {
-       const auto val =
-           p.back() / *std::max_element(p.cbegin(), std::prev(p.cend()));
+       const auto val = p.back() / maximum(p.cbegin(), std::prev(p.cend()));
        return std::isinf(val) ? 0.0 : val;
      }},
 
     {"griffon",
      [](cont p) {
-       return *std::max_element(p.cbegin(), std::prev(p.cend())) / p.back();
+       return maximum(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
     {"narwahl",
      [](cont p) {
-       return p.front() / *std::max_element(std::next(p.cbegin()), p.cend());
+       return p.front() / maximum(std::next(p.cbegin()), p.cend());
      }},
 
     {"cricket",
      [](cont p) {
-       return *std::max_element(std::next(p.cbegin()), p.cend()) / p.front();
+       return maximum(std::next(p.cbegin()), p.cend()) / p.front();
      }},
 
     {"axolotl",
      [](cont p) {
-       return p.back() / *std::min_element(p.cbegin(), std::prev(p.cend()));
+       return p.back() / minimum(p.cbegin(), std::prev(p.cend()));
      }},
 
     {"mink",
      [](cont p) {
-       return *std::min_element(p.cbegin(), std::prev(p.cend())) / p.back();
+       return minimum(p.cbegin(), std::prev(p.cend())) / p.back();
      }},
 
     {"tiger",
      [](cont p) {
-       const auto min = *std::min_element(std::next(p.cbegin()), p.cend());
+       const auto min = minimum(std::next(p.cbegin()), p.cend());
        return min > 0.0 ? p.front() / min : 0.0;
      }},
 
-    {"ocelot",
-     [](cont p) {
-       return *std::min_element(std::next(p.cbegin()), p.cend()) / p.front();
-     }},
+    {"ocelot", [](cont p) { return minimum_bar_front(p) / p.front(); }},
 };
 
 } // namespace handt
