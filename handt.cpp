@@ -90,22 +90,26 @@ const std::map<std::string, func> secondary_strategies{
 
     {"xoloitzcuintli",
      [](cont p) {
-       return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.back();
+       return (std::accumulate(p.cbegin(), p.cend(), 0.0) / p.size()) /
+              p.back();
      }},
 
     {"affenpinscher",
      [](cont p) {
-       return p.back() / std::accumulate(p.cbegin(), p.cend(), 0.0);
+       return p.back() /
+              (std::accumulate(p.cbegin(), p.cend(), 0.0) / p.size());
      }},
 
     {"basenji",
      [](cont p) {
-       return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.front();
+       return (std::accumulate(p.cbegin(), p.cend(), 0.0) / p.size()) /
+              p.front();
      }},
 
     {"owl",
      [](cont p) {
-       return p.front() / std::accumulate(p.cbegin(), p.cend(), 0.0);
+       return p.front() /
+              (std::accumulate(p.cbegin(), p.cend(), 0.0) / p.size());
      }},
 
     {"capybara",
