@@ -313,7 +313,7 @@ int main() {
             << "* " << currency_pairs.size() << " currency pairs\n";
 
   // Report individual strategy performance
-  std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
+  std::cout << "\nStrategy|Pair|Good/Bad|Spot|Advice\n";
   std::cout << "---|---|---|---|---\n";
   for (const auto &s : performance) {
 
