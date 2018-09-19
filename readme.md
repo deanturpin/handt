@@ -5,7 +5,7 @@ afford to lose.**
 
 Having said that... *Have A Nice Day Trader* is an algorithmic trading
 platform.  Prices are requested for all currency pairs traded by Binance and
-Coinbase over the last 80 days. A library of strategies is back-tested over all
+Coinbase over the last 80 days. A library of strategies is backtested over all
 pairs and the summary below is generated. The results are ordered by success
 and the advice column is populated if the strategy has returned positively for
 the most recent 24-hours of prices.
@@ -15,8 +15,10 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Wed 19 Sep 13:55:06 GMT 2018 -
-324 currency pairs, 1,900 strategies,1,124,469,563 tests performed.
+Generated Wed 19 Sep 14:41:11 GMT 2018
+* 893,027,821 backtests evaluated
+* 324 currency pairs
+* 1,520 strategies
 
 Strategy|Pair|Good/Bad|Spot|Advice
 ---|---|---|---|---
@@ -156,7 +158,7 @@ crouching tiger 17|[MTH-ETH](https://binance.com/en/trade/MTH_ETH)|6/1|0.0001272
 leaping jagdterrier 7|[LEND-BTC](https://binance.com/en/trade/LEND_BTC)|6/1|2.07e-06|
 leaping munchkin 3|[LEND-BTC](https://binance.com/en/trade/LEND_BTC)|6/0|2.07e-06|
 leaping cricket 8|[LEND-BTC](https://binance.com/en/trade/LEND_BTC)|6/0|2.07e-06|
-supine affenpinscher 2|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|6/1|0.000474|[BUY!](https://binance.com/en/trade/APPC_ETH)
+supine affenpinscher 2|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|6/1|0.000474|BUY!
 crouching tiger 14|[BRD-BNB](https://binance.com/en/trade/BRD_BNB)|6/1|0.03519|
 crouching caddisfly 9|[BRD-ETH](https://binance.com/en/trade/BRD_ETH)|6/0|0.001602|
 crouching caddisfly 10|[QLC-BNB](https://binance.com/en/trade/QLC_BNB)|6/1|0.005489|
@@ -382,7 +384,7 @@ leaping griffon 5|[ICN-ETH](https://binance.com/en/trade/ICN_ETH)|5/0|0.001721|
 supine munchkin 2|[ICN-ETH](https://binance.com/en/trade/ICN_ETH)|5/0|0.001721|
 supine munchkin 3|[ICN-ETH](https://binance.com/en/trade/ICN_ETH)|5/0|0.001721|
 crouching xoloitzcuintli 7|[OAX-ETH](https://binance.com/en/trade/OAX_ETH)|5/1|0.001031|
-crouching axolotl 11|[OAX-ETH](https://binance.com/en/trade/OAX_ETH)|5/1|0.001031|[BUY!](https://binance.com/en/trade/OAX_ETH)
+crouching axolotl 11|[OAX-ETH](https://binance.com/en/trade/OAX_ETH)|5/1|0.001031|BUY!
 crouching munchkin 8|[CLOAK-ETH](https://binance.com/en/trade/CLOAK_ETH)|5/0|0.008941|
 crouching bandicoot 4|[CLOAK-ETH](https://binance.com/en/trade/CLOAK_ETH)|5/0|0.008941|
 crouching mink 3|[LEND-ETH](https://binance.com/en/trade/LEND_ETH)|5/1|6.2e-05|
@@ -418,7 +420,7 @@ leaping basenji 4|[LEND-BTC](https://binance.com/en/trade/LEND_BTC)|5/0|2.07e-06
 leaping cricket 9|[LEND-BTC](https://binance.com/en/trade/LEND_BTC)|5/0|2.07e-06|
 leaping cricket 10|[LEND-BTC](https://binance.com/en/trade/LEND_BTC)|5/1|2.07e-06|
 leaping caddisfly 4|[LEND-BTC](https://binance.com/en/trade/LEND_BTC)|5/1|2.07e-06|
-supine caddisfly 2|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|5/0|0.000474|[BUY!](https://binance.com/en/trade/APPC_ETH)
+supine caddisfly 2|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|5/0|0.000474|BUY!
 crouching sphynx 10|[NEO-USDT](https://binance.com/en/trade/NEO_USDT)|5/1|17.07|
 supine sphynx 10|[NEO-USDT](https://binance.com/en/trade/NEO_USDT)|5/1|17.07|
 crouching norrbottenspets 12|[BRD-BNB](https://binance.com/en/trade/BRD_BNB)|5/1|0.03519|
@@ -462,7 +464,7 @@ crouching tiger 18|[AION-BNB](https://binance.com/en/trade/AION_BNB)|5/1|0.04413
 crouching tiger 19|[AION-BNB](https://binance.com/en/trade/AION_BNB)|5/0|0.04413|
 supine norrbottenspets 17|[AION-BNB](https://binance.com/en/trade/AION_BNB)|5/0|0.04413|
 supine tiger 17|[AION-BNB](https://binance.com/en/trade/AION_BNB)|5/1|0.04413|
-crouching jagdterrier 11|[OAX-BTC](https://binance.com/en/trade/OAX_BTC)|5/1|3.299e-05|[BUY!](https://binance.com/en/trade/OAX_BTC)
+crouching jagdterrier 11|[OAX-BTC](https://binance.com/en/trade/OAX_BTC)|5/1|3.299e-05|BUY!
 leaping jagdterrier 11|[OAX-BTC](https://binance.com/en/trade/OAX_BTC)|5/1|3.299e-05|
 crouching affenpinscher 11|[NAV-BNB](https://binance.com/en/trade/NAV_BNB)|5/1|0.02731|
 leaping munchkin 2|[NAV-BNB](https://binance.com/en/trade/NAV_BNB)|5/1|0.02731|
@@ -514,5 +516,3 @@ crouching tiger 20|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408
 crouching tiger 21|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
 supine norrbottenspets 20|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
 supine sphynx 9|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
-supine griffon 20|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/1|0.0001408|
-supine griffon 21|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/1|0.0001408|
