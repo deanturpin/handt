@@ -311,17 +311,25 @@ int main() {
   std::cout << "---|---|---|---|---\n";
   for (const auto &s : performance) {
 
+    // Trim any trailing asterisk from symbol name
+    std::string_view from_symbol_trimmed = s.from_symbol;
+    if (from_symbol_trimmed.back() == '*')
+      from_symbol_trimmed.remove_suffix(1);
+
     // Construct exchange URL
-    const std::string url = (s.exchange == std::string("Coinbase")
-                                 ? "https://coinbase.com"
-                                 : s.exchange == std::string("Binance")
-                                       ? "https://www.binance.com/en/trade/" +
-                                             s.from_symbol + '_' + s.to_symbol
-                                       : "no_url");
+    const std::string url =
+        "https://" +
+        (s.exchange == std::string("Coinbase")
+             ? "coinbase.com"
+             : s.exchange == std::string("Binance")
+                   ? "binance.com/en/trade/" +
+                         std::string(from_symbol_trimmed) + '_' + s.to_symbol
+                   : "no_url");
 
     // Report strategy summary
-    std::cout << s.name << '|' << s.from_symbol << '-' << s.to_symbol << '|'
-              << s.good_deals << '/' << s.bad_deals << '|' << s.spot << '|'
-              << (s.buy ? "[BUY!](" + url + ")" : "") << '\n';
+    std::cout << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol
+              << "](" << url << ")|" << s.good_deals << '/' << s.bad_deals
+              << '|' << s.spot << '|' << (s.buy ? "[BUY!](" + url + ")" : "")
+              << '\n';
   }
 }
