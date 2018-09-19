@@ -312,7 +312,9 @@ int main() {
             << "* " << currency_pairs.size() << " currency pairs\n";
 
   // Report individual strategy performance
-  std::cout << "# Current prospects\n\n";
+  std::cout << "# Current prospects\n"
+            << "Based prices from the last 24 hours.\n\n";
+
   std::cout << "Strategy|Pair|Good/Bad|Spot\n";
   std::cout << "---|---|---|---\n";
   unsigned int buy_count = 0;
