@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <cmath>
 #include <filesystem>
 #include <fstream>
 #include <functional>
@@ -313,8 +312,8 @@ int main() {
             << "* " << currency_pairs.size() << " currency pairs\n";
 
   // Report individual strategy performance
-  std::cout << "# Buy now!\n\n";
-  std::cout << "\nStrategy|Pair|Good/Bad|Spot\n";
+  std::cout << "# Buy now!\n";
+  std::cout << "Strategy|Pair|Good/Bad|Spot\n";
   std::cout << "---|---|---|---\n";
   unsigned int buy_count = 0;
   for (const auto &s : performance)
@@ -346,8 +345,8 @@ int main() {
     }
 
   // Report individual strategy performance
-  std::cout << "# Top performers\n\n";
-  std::cout << "\nStrategy|Pair|Good/Bad|Spot|Advice\n";
+  std::cout << "\n# Top performers\n";
+  std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
   std::cout << "---|---|---|---|---\n";
   for (const auto &s : performance) {
 
