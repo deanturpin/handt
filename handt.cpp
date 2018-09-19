@@ -11,73 +11,64 @@
 
 namespace handt {
 
-// Define the buy strategies: each strategy function takes a subset of
-// available prices - the analysis window - and returns a threshold to
-// determine whether to buy or not
+// The container passed throughout
 using cont = const std::vector<double> &;
-using func = std::function<double(cont)>;
 
-// A complete strategy consists of a primary and secondary strategy and a buy
-// threshold
-struct strategy_combo {
-  std::string name;
-  std::function<bool(cont)> primary;
-  std::function<double(cont)> secondary;
-  int threshold;
-};
+// Function definitions for the strategy types
+using func1 = std::function<bool(cont)>;
+using func2 = std::function<double(cont)>;
 
 // Primary strategies are simple boolean tests
-const std::vector<std::pair<std::string, std::function<bool(cont)>>>
-    primary_strategies{
-        // Always return positively
-        {"crouching",
-         [](cont p) {
-           static_cast<void>(p);
-           return true;
-         }},
+const std::vector<std::pair<std::string, func1>> primary_strategies{
+    // Always return positively
+    {"crouching",
+     [](cont p) {
+       static_cast<void>(p);
+       return true;
+     }},
 
-        // Return positively if trending upwards
-        {"leaping",
-         [](cont p) {
-           unsigned int trend = 0;
-           for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
-             if (*i < *std::next(i))
-               ++trend;
+    // Return positively if trending upwards
+    {"leaping",
+     [](cont p) {
+       unsigned int trend = 0;
+       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
+         if (*i < *std::next(i))
+           ++trend;
 
-           return trend > p.size() / 2;
-         }},
+       return trend > p.size() / 2;
+     }},
 
-        // Return positively if trending downwards
-        {"supine",
-         [](cont p) {
-           unsigned int trend = 0;
-           for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
-             if (*i > *std::next(i))
-               ++trend;
+    // Return positively if trending downwards
+    {"supine",
+     [](cont p) {
+       unsigned int trend = 0;
+       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
+         if (*i > *std::next(i))
+           ++trend;
 
-           return trend > p.size() / 2;
-         }},
+       return trend > p.size() / 2;
+     }},
 
-        // Return positively if crossing a significant boundary
-        {"straddling",
-         [](cont p) {
-           const auto &[min, max] = std::minmax(p.front(), p.back());
+    // Return positively if crossing a significant boundary
+    {"straddling",
+     [](cont p) {
+       const auto &[min, max] = std::minmax(p.front(), p.back());
 
-           unsigned long threshold = 0;
-           for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+       unsigned long threshold = 0;
+       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
 
-             const unsigned long test =
-                 max - (static_cast<unsigned long>(max) % mod);
+         const unsigned long test =
+             max - (static_cast<unsigned long>(max) % mod);
 
-             if (test == 0)
-               break;
+         if (test == 0)
+           break;
 
-             threshold = test;
-           }
+         threshold = test;
+       }
 
-           return min < threshold && max > threshold;
-         }},
-    };
+       return min < threshold && max > threshold;
+     }},
+};
 
 // Strategy definition helper routines
 const auto mean = [](const std::vector<double> &p) {
@@ -113,7 +104,7 @@ const auto back = [](const auto &p) { return p.back(); };
 
 // Secondary strategies yield a threshold which is interpreted as a buy
 // threshold
-const std::vector<std::pair<std::string, func>> secondary_strategies{
+const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
     // Always succeed
     {"lundehund",
@@ -159,8 +150,17 @@ int main() {
   std::vector<int> thresholds(20);
   std::iota(thresholds.begin(), thresholds.end(), 2);
 
+  // A complete strategy consists of a primary and secondary strategy and a buy
+  // threshold
+  struct strategy_combo {
+    std::string name;
+    handt::func1 primary;
+    handt::func2 secondary;
+    int threshold;
+  };
+
   // Create and initialise a container of all strategy permuations
-  static std::vector<handt::strategy_combo> permutations;
+  std::vector<strategy_combo> permutations;
   const auto total_permutations = handt::primary_strategies.size() *
                                   handt::secondary_strategies.size() *
                                   thresholds.size();
