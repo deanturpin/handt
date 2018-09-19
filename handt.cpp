@@ -308,9 +308,9 @@ int main() {
   std::cout.imbue(std::locale(""));
 
   // Strategy and trade overview
-  std::cout << currency_pairs.size() << " currency pairs, "
-            << permutations.size() << " strategies - " << tests_performed
-            << " back tests evaluated.\n\n";
+  std::cout << tests_performed << " back tests evaluated.\n\n"
+            << currency_pairs.size() << " currency pairs, "
+            << permutations.size() << " strategies.\n\n";
 
   // Report individual strategy performance
   std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
