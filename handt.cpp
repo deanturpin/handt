@@ -346,8 +346,8 @@ int main() {
 
   // Report individual strategy performance
   std::cout << "\n# Top performers\n";
-  std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
-  std::cout << "---|---|---|---|---\n";
+  std::cout << "Strategy|Pair|Good/Bad|Spot\n";
+  std::cout << "---|---|---|---\n";
   for (const auto &s : performance) {
 
     // Trim any trailing asterisk from symbol name
@@ -368,6 +368,6 @@ int main() {
     // Report strategy summary
     std::cout << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol
               << "](" << url << ")|" << s.good_deals << '/' << s.bad_deals
-              << '|' << s.spot << '|' << (s.buy ? "BUY!" : "") << '\n';
+              << '|' << s.spot << '\n';
   }
 }
