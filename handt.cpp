@@ -198,6 +198,7 @@ int main() {
     double spot = 0.0;
     unsigned int good_deals = 0;
     unsigned int bad_deals = 0;
+    unsigned int opportunities = 0;
     bool buy = false;
   };
 
@@ -273,6 +274,9 @@ int main() {
           current_price_index =
               std::next(historic_price_index, analysis_window);
           future_price_index = std::next(current_price_index, sell_window);
+
+          // Record that this was an opportunity to trade
+          ++perf.opportunities;
         }
 
         // Calculate prospects using the most recent prices
@@ -295,16 +299,18 @@ int main() {
                (b.bad_deals ? b.bad_deals : 1.0);
   });
 
+  // Calculate total number of tests performed during back testing
+  const auto tests_performed = std::accumulate(
+      performance.cbegin(), performance.cend(), 0,
+      [](int sum, const auto &p) { return sum + p.opportunities; });
+
   // Pretty print large numbers
   std::cout.imbue(std::locale(""));
 
   // Strategy and trade overview
   std::cout << currency_pairs.size() << " currency pairs, "
-            << handt::primary_strategies.size() << " primary strategies, "
-            << handt::secondary_strategies.size() << " secondary strategies, "
-            << thresholds.size() << " thresholds, (" << permutations.size()
-            << " strategy permutations), " << performance.size()
-            << " tests performed.\n\n";
+            << permutations.size() << " strategies - " << tests_performed
+            << " back tests evaluated.\n\n";
 
   // Report individual strategy performance
   std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
