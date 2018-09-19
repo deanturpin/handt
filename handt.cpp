@@ -179,7 +179,7 @@ int main() {
   const auto sell = [](const auto &current, const auto &future) {
     return std::find_if(
         current, future,
-        [spot = *current, threshold = 1.08](const auto &future_price) {
+        [spot = *current, threshold = 1.05](const auto &future_price) {
           return future_price > spot * threshold;
         });
   };
