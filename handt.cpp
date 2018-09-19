@@ -127,39 +127,33 @@ const std::map<std::string, func> secondary_strategies{
        return 2.0;
      }},
 
+    // front/back
     {"norrbottenspets", [](cont p) { return front(p) / back(p); }},
     {"jagdterrier", [](cont p) { return back(p) / front(p); }},
 
+    // mean over front/back
     {"xoloitzcuintli", [](cont p) { return mean(p) / back(p); }},
-    {"affenpinscher", [](cont p) { return back(p) / mean(p); }},
     {"basenji", [](cont p) { return mean(p) / front(p); }},
     {"owl", [](cont p) { return front(p) / mean(p); }},
+    {"affenpinscher", [](cont p) { return back(p) / mean(p); }},
 
+    // partial means
     {"capybara", [](cont p) { return mean(front_end(p)) / mean(back_end(p)); }},
-    {"tarantula",
-     [](cont p) { return mean(back_end(p)) / mean(front_end(p)); }},
-    {"bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
+    {"munchkin", [](cont p) { return mean(back_end(p)) / mean(front_end(p)); }},
     {"badger", [](cont p) { return mean(p) / mean(back_end(p)); }},
+    {"bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
 
-    {"caddisfly",
-     [](cont p) {
-       const auto val = back(p) / maximum(front_end(p));
-       return std::isinf(val) ? 0.0 : val;
-     }},
-
-    {"griffon", [](cont p) { return maximum(not_back(p)) / back(p); }},
-    {"narwahl", [](cont p) { return front(p) / maximum(p); }},
-    {"cricket", [](cont p) { return maximum(not_front(p)) / front(p); }},
-    {"axolotl", [](cont p) { return back(p) / minimum(not_back(p)); }},
+    // min/max over back/front
     {"mink", [](cont p) { return minimum(not_back(p)) / back(p); }},
+    {"ocelot", [](cont p) { return minimum(not_front(p)) / front(p); }},
+    {"griffon", [](cont p) { return maximum(not_back(p)) / back(p); }},
+    {"cricket", [](cont p) { return maximum(not_front(p)) / front(p); }},
 
-    {"tiger",
-     [](cont p) {
-       const auto min = minimum(not_front(p));
-       return min > 0.0 ? front(p) / min : 0.0;
-     }},
-
-    {"ocelot", [](cont p) { return minimum(not_front(p)) / p.front(); }},
+    // back/front over min/max
+    {"axolotl", [](cont p) { return back(p) / minimum(not_back(p)); }},
+    {"tiger", [](cont p) { return front(p) / minimum(not_front(p)); }},
+    {"caddisfly", [](cont p) { return back(p) / maximum(front_end(p)); }},
+    {"narwahl", [](cont p) { return front(p) / maximum(not_front(p)); }},
 };
 
 } // namespace handt
