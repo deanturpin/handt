@@ -313,7 +313,7 @@ int main() {
 
   // Report individual strategy performance
   std::cout << "# Current prospects\n"
-               "Based prices from the last 24 hours.\n\n"
+               "Prospects based on prices from the last 24 hours.\n\n"
                "Strategy|Pair|Good/Bad|Spot\n"
                "---|---|---|---\n";
 
@@ -349,9 +349,8 @@ int main() {
   // Report individual strategy performance
   std::cout << R"(
 # Top performers
-The results are ordered by success and the advice column is
-populated if the strategy has returned positively for the most recent
- 24-hours of prices.
+The results are ordered by success which is measured using the proportion of
+good to bad trades.
 
 Strategy|Pair|Good/Bad|Spot
 ---|---|---|---
