@@ -308,11 +308,45 @@ int main() {
   std::cout.imbue(std::locale(""));
 
   // Strategy and trade overview
-  std::cout << "* " << tests_performed << " backtests run\n"
+  std::cout << "* " << tests_performed << " backtests\n"
             << "* " << permutations.size() << " strategies\n"
             << "* " << currency_pairs.size() << " currency pairs\n";
 
   // Report individual strategy performance
+  std::cout << "# Buy now!\n\n";
+  std::cout << "\nStrategy|Pair|Good/Bad|Spot\n";
+  std::cout << "---|---|---|---\n";
+  unsigned int buy_count = 0;
+  for (const auto &s : performance)
+    if (s.buy) {
+      // Trim any trailing asterisk from symbol name
+      std::string_view from_symbol_trimmed = s.from_symbol;
+      if (from_symbol_trimmed.back() == '*')
+        from_symbol_trimmed.remove_suffix(1);
+
+      // Construct exchange URL
+      const std::string url =
+          "https://" +
+          (s.exchange == std::string("Coinbase")
+               ? "coinbase.com"
+               : s.exchange == std::string("Binance")
+                     ? "binance.com/en/trade/" +
+                           std::string(from_symbol_trimmed) + '_' + s.to_symbol
+                     : "no_url");
+
+      // Report strategy summary
+      std::cout << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol
+                << "](" << url << ")|" << s.good_deals << '/' << s.bad_deals
+                << '|' << s.spot << '\n';
+
+      ++buy_count;
+
+      if (buy_count > 10)
+        break;
+    }
+
+  // Report individual strategy performance
+  std::cout << "# Top performers\n\n";
   std::cout << "\nStrategy|Pair|Good/Bad|Spot|Advice\n";
   std::cout << "---|---|---|---|---\n";
   for (const auto &s : performance) {

@@ -15,10 +15,28 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Wed 19 Sep 14:41:11 GMT 2018
-* 893,027,821 backtests evaluated
-* 324 currency pairs
+Generated Wed 19 Sep 16:57:51 GMT 2018
+* 893,027,821 backtests
 * 1,520 strategies
+* 324 currency pairs
+# Buy now!
+
+
+Strategy|Pair|Good/Bad|Spot
+---|---|---|---
+supine affenpinscher 2|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|6/1|0.000474
+crouching axolotl 11|[OAX-ETH](https://binance.com/en/trade/OAX_ETH)|5/1|0.001031
+supine caddisfly 2|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|5/0|0.000474
+crouching jagdterrier 11|[OAX-BTC](https://binance.com/en/trade/OAX_BTC)|5/1|3.299e-05
+crouching xoloitzcuintli 7|[CDT-ETH](https://binance.com/en/trade/CDT_ETH)|5/1|6.372e-05
+supine xoloitzcuintli 7|[CDT-ETH](https://binance.com/en/trade/CDT_ETH)|5/0|6.372e-05
+supine affenpinscher 3|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|4/0|0.000474
+supine griffon 17|[CDT-BTC](https://binance.com/en/trade/CDT_BTC)|4/1|2.1e-06
+crouching cricket 17|[CDT-ETH](https://binance.com/en/trade/CDT_ETH)|4/1|6.372e-05
+crouching narwahl 3|[FUEL-ETH](https://binance.com/en/trade/FUEL_ETH)|6/2|6.592e-05
+crouching jagdterrier 9|[OAX-ETH](https://binance.com/en/trade/OAX_ETH)|6/2|0.001031
+# Top performers
+
 
 Strategy|Pair|Good/Bad|Spot|Advice
 ---|---|---|---|---
@@ -498,21 +516,3 @@ supine norrbottenspets 11|[QSP-ETH](https://binance.com/en/trade/QSP_ETH)|5/1|0.
 supine tiger 10|[QSP-ETH](https://binance.com/en/trade/QSP_ETH)|10/2|0.0001652|
 crouching munchkin 7|[CLOAK-BTC](https://binance.com/en/trade/CLOAK_BTC)|5/1|0.0002943|
 crouching basenji 9|[APPC-BNB](https://binance.com/en/trade/APPC_BNB)|5/0|0.01031|
-crouching basenji 10|[APPC-BNB](https://binance.com/en/trade/APPC_BNB)|5/0|0.01031|
-leaping tiger 6|[BLZ-ETH](https://binance.com/en/trade/BLZ_ETH)|5/1|0.0005322|
-supine basenji 4|[BLZ-ETH](https://binance.com/en/trade/BLZ_ETH)|5/1|0.0005322|
-leaping affenpinscher 6|[NCASH-BNB](https://binance.com/en/trade/NCASH_BNB)|5/1|0.000592|
-crouching basenji 10|[MDA-BTC](https://binance.com/en/trade/MDA_BTC)|5/1|7.652e-05|
-crouching basenji 11|[MDA-BTC](https://binance.com/en/trade/MDA_BTC)|5/0|7.652e-05|
-crouching ocelot 3|[MDA-BTC](https://binance.com/en/trade/MDA_BTC)|5/0|7.652e-05|
-leaping basenji 6|[MDA-BTC](https://binance.com/en/trade/MDA_BTC)|5/1|7.652e-05|
-leaping basenji 7|[MDA-BTC](https://binance.com/en/trade/MDA_BTC)|5/1|7.652e-05|
-leaping basenji 8|[MDA-BTC](https://binance.com/en/trade/MDA_BTC)|5/1|7.652e-05|
-crouching norrbottenspets 20|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
-crouching sphynx 10|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/1|0.0001408|
-crouching griffon 20|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/1|0.0001408|
-crouching griffon 21|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/1|0.0001408|
-crouching tiger 20|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
-crouching tiger 21|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
-supine norrbottenspets 20|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
-supine sphynx 9|[WAN-BTC](https://binance.com/en/trade/WAN_BTC)|5/0|0.0001408|
