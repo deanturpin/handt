@@ -3,7 +3,7 @@ python: "3.6"
 script:
   - make CXX=g++-8
   - cppcheck --enable=all .
-  - sloccount .
+  - sloccount handt.cpp get_prices.py
 
 deploy:
   provider: pages
