@@ -313,10 +313,10 @@ int main() {
 
   // Report individual strategy performance
   std::cout << "# Current prospects\n"
-            << "Based prices from the last 24 hours.\n\n";
+               "Based prices from the last 24 hours.\n\n"
+               "Strategy|Pair|Good/Bad|Spot\n"
+               "---|---|---|---\n";
 
-  std::cout << "Strategy|Pair|Good/Bad|Spot\n";
-  std::cout << "---|---|---|---\n";
   unsigned int buy_count = 0;
   for (const auto &s : performance)
     if (s.buy) {
@@ -347,9 +347,16 @@ int main() {
     }
 
   // Report individual strategy performance
-  std::cout << "\n# Top performers\n\n";
-  std::cout << "Strategy|Pair|Good/Bad|Spot\n";
-  std::cout << "---|---|---|---\n";
+  std::cout << R"(
+# Top performers
+The results are ordered by success and the advice column is
+populated if the strategy has returned positively for the most recent
+ 24-hours of prices.
+
+Strategy|Pair|Good/Bad|Spot
+---|---|---|---
+)";
+
   for (const auto &s : performance) {
 
     // Trim any trailing asterisk from symbol name
