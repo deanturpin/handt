@@ -310,7 +310,15 @@ int main() {
   std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
   std::cout << "---|---|---|---|---\n";
   for (const auto &s : performance)
-    std::cout << s.name << '|' << s.from_symbol << '-' << s.to_symbol << '|'
-              << s.good_deals << '/' << s.bad_deals << '|' << s.spot << '|'
-              << (s.buy ? "BUY! <!-- ****** -->" : "") << '\n';
+    std::cout << s.name << '|' << '[' << s.from_symbol << ' ' << s.to_symbol <<
+
+        "]("
+              << (s.exchange == std::string("Coinbase")
+                      ? "https://coinbase.com"
+                      : s.exchange == std::string("Binance")
+                            ? "https://www.binance.com/en/trade/" +
+                                  s.from_symbol + '_' + s.to_symbol
+                            : "no_url")
+              << ')' << '|' << s.good_deals << '/' << s.bad_deals << '|'
+              << s.spot << '|' << (s.buy ? "BUY! <!-- ****** -->" : "") << '\n';
 }
