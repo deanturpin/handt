@@ -189,7 +189,7 @@ int main() {
   for (const auto &file : std::filesystem::directory_iterator("tmp"))
     currency_pairs.emplace_back(file.path());
 
-  // Structure to capture the results during a strategy back test
+  // Structure to capture the results during a strategy backtest
   struct strategy_performance {
     std::string name;
     std::string from_symbol;
@@ -225,7 +225,7 @@ int main() {
         auto &perf = performance.emplace_back(strategy_performance{
             strat.name, from_symbol, to_symbol, exchange, spot});
 
-        // Configure trading periods for back test
+        // Configure trading periods for backtest
         const unsigned int analysis_window = 24;
         const unsigned int sell_window = analysis_window * 2;
 
@@ -299,7 +299,7 @@ int main() {
                (b.bad_deals ? b.bad_deals : 1.0);
   });
 
-  // Calculate total number of tests performed during back testing
+  // Calculate total tests performed during backtesting
   const auto tests_performed = std::accumulate(
       performance.cbegin(), performance.cend(), 0,
       [](int sum, const auto &p) { return sum + p.opportunities; });
@@ -308,7 +308,7 @@ int main() {
   std::cout.imbue(std::locale(""));
 
   // Strategy and trade overview
-  std::cout << tests_performed << " back tests evaluated.\n\n"
+  std::cout << tests_performed << " backtests evaluated.\n\n"
             << currency_pairs.size() << " currency pairs, "
             << permutations.size() << " strategies.\n\n";
 
