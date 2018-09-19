@@ -102,8 +102,7 @@ const auto not_back = [](const auto &p) {
 const auto front = [](const auto &p) { return p.front(); };
 const auto back = [](const auto &p) { return p.back(); };
 
-// Secondary strategies yield a threshold which is interpreted as a buy
-// threshold
+// Secondary strategies yield a buy threshold
 const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
     // Always succeed
@@ -159,14 +158,15 @@ int main() {
     int threshold;
   };
 
-  // Create and initialise a container of all strategy permuations
+  // Create and initialise a container for all strategy and threshold
+  // permuations
   std::vector<strategy_combo> permutations;
   const auto total_permutations = handt::primary_strategies.size() *
                                   handt::secondary_strategies.size() *
                                   thresholds.size();
   permutations.reserve(total_permutations);
 
-  // Populate with the strategy library
+  // Populate with strategies from the handt library
   for (const auto &[name1, buy1] : handt::primary_strategies)
     for (const auto &[name2, buy2] : handt::secondary_strategies)
       for (const auto &threshold : thresholds)
@@ -174,8 +174,8 @@ int main() {
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
              threshold});
 
-  // Define sell strategy: return the index of the first price to exceed
-  // the sell threshold or return the end iterator
+  // The sell strategy returns positively if the expected yield is acheived
+  // within the trading window
   const auto sell = [](const auto &current, const auto &future) {
     return std::find_if(
         current, future,
@@ -201,7 +201,7 @@ int main() {
     bool buy = false;
   };
 
-  // We will report a summary of all strategies against all currency pairs
+  // Create container for final strategy report
   std::list<strategy_performance> performance;
 
   // Extract prices from each file
