@@ -179,7 +179,7 @@ int main() {
   const auto sell = [](const auto &current, const auto &future) {
     return std::find_if(
         current, future,
-        [spot = *current, threshold = 1.05](const auto &future_price) {
+        [spot = *current, threshold = 1.08](const auto &future_price) {
           return future_price > spot * threshold;
         });
   };
@@ -309,16 +309,19 @@ int main() {
   // Report individual strategy performance
   std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
   std::cout << "---|---|---|---|---\n";
-  for (const auto &s : performance)
-    std::cout << s.name << '|' << '[' << s.from_symbol << ' ' << s.to_symbol <<
+  for (const auto &s : performance) {
 
-        "]("
-              << (s.exchange == std::string("Coinbase")
-                      ? "https://coinbase.com"
-                      : s.exchange == std::string("Binance")
-                            ? "https://www.binance.com/en/trade/" +
-                                  s.from_symbol + '_' + s.to_symbol
-                            : "no_url")
-              << ')' << '|' << s.good_deals << '/' << s.bad_deals << '|'
-              << s.spot << '|' << (s.buy ? "BUY! <!-- ****** -->" : "") << '\n';
+    // Construct exchange URL
+    const std::string url = (s.exchange == std::string("Coinbase")
+                                 ? "https://coinbase.com"
+                                 : s.exchange == std::string("Binance")
+                                       ? "https://www.binance.com/en/trade/" +
+                                             s.from_symbol + '_' + s.to_symbol
+                                       : "no_url");
+
+    // Report strategy summary
+    std::cout << s.name << '|' << s.from_symbol << '-' << s.to_symbol << '|'
+              << s.good_deals << '/' << s.bad_deals << '|' << s.spot << '|'
+              << (s.buy ? "[BUY!](" + url + ")" : "") << '\n';
+  }
 }
