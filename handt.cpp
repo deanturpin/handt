@@ -119,7 +119,7 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     // mean over front/back
     {"xoloitzcuintli", [](cont p) { return mean(p) / back(p); }},
     {"basenji", [](cont p) { return mean(p) / front(p); }},
-    {"owl", [](cont p) { return front(p) / mean(p); }},
+    {"sphynx", [](cont p) { return front(p) / mean(p); }},
     {"affenpinscher", [](cont p) { return back(p) / mean(p); }},
 
     // partial means
