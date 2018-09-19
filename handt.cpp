@@ -6,7 +6,6 @@
 #include <iostream>
 #include <iterator>
 #include <list>
-#include <map>
 #include <numeric>
 #include <vector>
 
@@ -20,7 +19,6 @@ using func = std::function<double(cont)>;
 
 // A complete strategy consists of a primary and secondary strategy and a buy
 // threshold
-
 struct strategy_combo {
   std::string name;
   std::function<bool(cont)> primary;
@@ -29,57 +27,57 @@ struct strategy_combo {
 };
 
 // Primary strategies are simple boolean tests
-const std::map<std::string, std::function<bool(cont)>> primary_strategies{
+const std::vector<std::pair<std::string, std::function<bool(cont)>>>
+    primary_strategies{
+        // Always return positively
+        {"crouching",
+         [](cont p) {
+           static_cast<void>(p);
+           return true;
+         }},
 
-    // Always return positively
-    {"crouching",
-     [](cont p) {
-       static_cast<void>(p);
-       return true;
-     }},
+        // Return positively if trending upwards
+        {"leaping",
+         [](cont p) {
+           unsigned int trend = 0;
+           for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
+             if (*i < *std::next(i))
+               ++trend;
 
-    // Return positively if trending upwards
-    {"leaping",
-     [](cont p) {
-       unsigned int trend = 0;
-       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
-         if (*i < *std::next(i))
-           ++trend;
+           return trend > p.size() / 2;
+         }},
 
-       return trend > p.size() / 2;
-     }},
+        // Return positively if trending downwards
+        {"supine",
+         [](cont p) {
+           unsigned int trend = 0;
+           for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
+             if (*i > *std::next(i))
+               ++trend;
 
-    // Return positively if trending downwards
-    {"supine",
-     [](cont p) {
-       unsigned int trend = 0;
-       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
-         if (*i > *std::next(i))
-           ++trend;
+           return trend > p.size() / 2;
+         }},
 
-       return trend > p.size() / 2;
-     }},
+        // Return positively if crossing a significant boundary
+        {"straddling",
+         [](cont p) {
+           const auto &[min, max] = std::minmax(p.front(), p.back());
 
-    // Return positively if crossing a significant boundary
-    {"straddling",
-     [](cont p) {
-       const auto &[min, max] = std::minmax(p.front(), p.back());
+           unsigned long threshold = 0;
+           for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
 
-       unsigned long threshold = 0;
-       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
+             const unsigned long test =
+                 max - (static_cast<unsigned long>(max) % mod);
 
-         const unsigned long test =
-             max - (static_cast<unsigned long>(max) % mod);
+             if (test == 0)
+               break;
 
-         if (test == 0)
-           break;
+             threshold = test;
+           }
 
-         threshold = test;
-       }
-
-       return min < threshold && max > threshold;
-     }},
-};
+           return min < threshold && max > threshold;
+         }},
+    };
 
 // Strategy definition helper routines
 const auto mean = [](const std::vector<double> &p) {
@@ -94,31 +92,28 @@ const auto minimum = [](const auto &p) {
   return *std::min_element(p.cbegin(), p.cend());
 };
 
-const auto not_front = [](const auto &p, const size_t len = 1) {
-  return std::vector<double>{std::next(p.cbegin(), len), p.cend()};
+const auto not_front = [](const auto &p) {
+  return std::vector<double>{std::next(p.cbegin()), p.cend()};
 };
 
 const auto back_end = [](const auto &p) {
-  const auto len = p.size() / 2;
-  return std::vector<double>{std::next(p.cbegin(), len), p.cend()};
+  return std::vector<double>{std::next(p.cbegin(), p.size() / 2), p.cend()};
 };
 
 const auto front_end = [](const auto &p) {
-  const auto len = p.size() / 2;
-  return std::vector<double>{p.cbegin(), std::prev(p.cend(), len)};
+  return std::vector<double>{p.cbegin(), std::prev(p.cend(), p.size() / 2)};
 };
 
-const auto not_back = [](const auto &p, const size_t len = 1) {
-  return std::vector<double>{p.cbegin(), std::prev(p.cend(), len)};
+const auto not_back = [](const auto &p) {
+  return std::vector<double>{p.cbegin(), std::prev(p.cend())};
 };
 
 const auto front = [](const auto &p) { return p.front(); };
-
 const auto back = [](const auto &p) { return p.back(); };
 
 // Secondary strategies yield a threshold which is interpreted as a buy
 // threshold
-const std::map<std::string, func> secondary_strategies{
+const std::vector<std::pair<std::string, func>> secondary_strategies{
 
     // Always succeed
     {"lundehund",
@@ -200,6 +195,7 @@ int main() {
     std::string from_symbol;
     std::string to_symbol;
     std::string exchange;
+    double spot = 0.0;
     unsigned int good_deals = 0;
     unsigned int bad_deals = 0;
     bool buy = false;
@@ -224,8 +220,9 @@ int main() {
       for (const auto &strat : permutations) {
 
         // Create a new strategy and add it to the summary for later
-        auto &perf = performance.emplace_back(
-            strategy_performance{strat.name, from_symbol, to_symbol, exchange});
+        const auto spot = prices.back();
+        auto &perf = performance.emplace_back(strategy_performance{
+            strat.name, from_symbol, to_symbol, exchange, spot});
 
         // Configure trading periods for back test
         const unsigned int analysis_window = 24;
@@ -310,10 +307,10 @@ int main() {
             << " tests performed.\n\n";
 
   // Report individual strategy performance
-  std::cout << "Strategy|Pair|Good/Bad|Advice\n";
-  std::cout << "---|---|---|---\n";
+  std::cout << "Strategy|Pair|Good/Bad|Spot|Advice\n";
+  std::cout << "---|---|---|---|---\n";
   for (const auto &s : performance)
     std::cout << s.name << '|' << s.from_symbol << '-' << s.to_symbol << '|'
-              << s.good_deals << '/' << s.bad_deals << '|'
+              << s.good_deals << '/' << s.bad_deals << '|' << s.spot << '|'
               << (s.buy ? "BUY! <!-- ****** -->" : "") << '\n';
 }
