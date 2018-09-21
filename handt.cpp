@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <assert.h>
 #include <cmath>
 #include <filesystem>
 #include <fstream>
@@ -156,6 +157,20 @@ int main() {
     handt::func1 primary;
     handt::func2 secondary;
     int threshold;
+    using iter = const std::vector<double>::const_iterator &;
+    bool execute(iter historic_price_index, iter current_price_index) const {
+
+      // Calculate the buy ratio
+      const double ratio = (100.0 + threshold) / 100;
+
+      // Test the strategies
+      const auto prim = primary({historic_price_index, current_price_index});
+      const auto seco = secondary({historic_price_index, current_price_index});
+
+      // Check we haven't ended up with a huge number by inadvertantly dividing
+      // a double with a very similar double, and then return strategy success
+      return !std::isinf(seco) && prim && seco > ratio;
+    }
   };
 
   // Create and initialise a container for all strategy and threshold
@@ -200,6 +215,7 @@ int main() {
     unsigned int bad_deals = 0;
     unsigned int opportunities = 0;
     bool buy = false;
+    double threshold = 0.0;
   };
 
   // Create container for final strategy report
@@ -244,18 +260,11 @@ int main() {
             std::next(historic_price_index, analysis_window);
         auto future_price_index = std::next(current_price_index, sell_window);
 
-        // Calculate the buy ratio
-        const double ratio = (100.0 + strat.threshold) / 100;
-
         // Move windows along until we run out of prices
         while (future_price_index < prices.cend()) {
 
           // Test strategy
-          const auto prim =
-              strat.primary({historic_price_index, current_price_index});
-          const auto seco =
-              strat.secondary({historic_price_index, current_price_index});
-          if (prim && !std::isinf(seco) && seco > ratio) {
+          if (strat.execute(historic_price_index, current_price_index)) {
 
             // Strategy triggered, so look ahead to see if it succeeded in
             // the defined trade window
@@ -285,12 +294,7 @@ int main() {
         historic_price_index = std::prev(prices.cend(), analysis_window);
         current_price_index = prices.cend();
 
-        // Test the latest prices
-        const auto prim =
-            strat.primary({historic_price_index, current_price_index});
-        const auto seco =
-            strat.secondary({historic_price_index, current_price_index});
-        if (prim && !std::isinf(seco) && seco > ratio)
+        if (strat.execute(historic_price_index, current_price_index))
           perf.buy = true;
       }
   }
@@ -357,8 +361,8 @@ int main() {
 The results are ordered by success which is measured using the proportion of
 good to bad trades.
 
-Strategy|Pair|Good/Bad|Spot
----|---|---|---
+Strategy|Pair|Good/Bad|Spot|Threshold
+---|---|---|---|---
 )";
 
   for (const auto &s : performance) {
@@ -381,6 +385,6 @@ Strategy|Pair|Good/Bad|Spot
     // Report strategy summary
     std::cout << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol
               << "](" << url << ")|" << s.good_deals << '/' << s.bad_deals
-              << '|' << s.spot << '\n';
+              << '|' << s.spot << '|' << s.threshold << '\n';
   }
 }
