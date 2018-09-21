@@ -84,20 +84,12 @@ const auto minimum = [](const auto &p) {
   return *std::min_element(p.cbegin(), p.cend());
 };
 
-const auto not_front = [](const auto &p) {
-  return std::vector<double>{std::next(p.cbegin()), p.cend()};
-};
-
-const auto back_end = [](const auto &p) {
-  return std::vector<double>{std::next(p.cbegin(), p.size() / 2), p.cend()};
-};
-
 const auto front_end = [](const auto &p) {
   return std::vector<double>{p.cbegin(), std::prev(p.cend(), p.size() / 2)};
 };
 
-const auto not_back = [](const auto &p) {
-  return std::vector<double>{p.cbegin(), std::prev(p.cend())};
+const auto back_end = [](const auto &p) {
+  return std::vector<double>{std::next(p.cbegin(), p.size() / 2), p.cend()};
 };
 
 const auto front = [](const auto &p) { return p.front(); };
@@ -130,16 +122,16 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
 
     // min/max over back/front
-    {"mink", [](cont p) { return minimum(not_back(p)) / back(p); }},
-    {"ocelot", [](cont p) { return minimum(not_front(p)) / front(p); }},
-    {"griffon", [](cont p) { return maximum(not_back(p)) / back(p); }},
-    {"cricket", [](cont p) { return maximum(not_front(p)) / front(p); }},
+    {"mink", [](cont p) { return minimum(p) / back(p); }},
+    {"ocelot", [](cont p) { return minimum(p) / front(p); }},
+    {"griffon", [](cont p) { return maximum(p) / back(p); }},
+    {"cricket", [](cont p) { return maximum(p) / front(p); }},
 
     // back/front over min/max
-    {"axolotl", [](cont p) { return back(p) / minimum(not_back(p)); }},
-    {"tiger", [](cont p) { return front(p) / minimum(not_front(p)); }},
-    {"caddisfly", [](cont p) { return back(p) / maximum(front_end(p)); }},
-    {"narwahl", [](cont p) { return front(p) / maximum(not_front(p)); }},
+    {"axolotl", [](cont p) { return back(p) / minimum(p); }},
+    {"tiger", [](cont p) { return front(p) / minimum(p); }},
+    {"caddisfly", [](cont p) { return back(p) / maximum(p); }},
+    {"narwahl", [](cont p) { return front(p) / maximum(p); }},
 };
 
 } // namespace handt
