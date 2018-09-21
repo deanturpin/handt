@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <filesystem>
 #include <fstream>
 #include <functional>
@@ -250,9 +251,11 @@ int main() {
         while (future_price_index < prices.cend()) {
 
           // Test strategy
-          if (strat.primary({historic_price_index, current_price_index}) &&
-              strat.secondary({historic_price_index, current_price_index}) >
-                  ratio) {
+          const auto prim =
+              strat.primary({historic_price_index, current_price_index});
+          const auto seco =
+              strat.secondary({historic_price_index, current_price_index});
+          if (prim && !std::isinf(seco) && seco > ratio) {
 
             // Strategy triggered, so look ahead to see if it succeeded in
             // the defined trade window
@@ -283,9 +286,11 @@ int main() {
         current_price_index = prices.cend();
 
         // Test the latest prices
-        if (strat.primary({historic_price_index, current_price_index}) &&
-            strat.secondary({historic_price_index, current_price_index}) >
-                ratio)
+        const auto prim =
+            strat.primary({historic_price_index, current_price_index});
+        const auto seco =
+            strat.secondary({historic_price_index, current_price_index});
+        if (prim && !std::isinf(seco) && seco > ratio)
           perf.buy = true;
       }
   }
