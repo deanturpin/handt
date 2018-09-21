@@ -191,10 +191,12 @@ int main() {
 
   // The sell strategy returns positively if the expected yield is acheived
   // within the trading window
-  const auto sell = [](const auto &current, const auto &future) {
+  const double sell_threshold = 6;
+  const auto sell = [&sell_threshold](const auto &current, const auto &future) {
     return std::find_if(
         current, future,
-        [spot = *current, threshold = 1.06](const auto &future_price) {
+        [spot = *current, threshold = (100.0 + sell_threshold) /
+                                      100.0](const auto &future_price) {
           return future_price > spot * threshold;
         });
   };
@@ -320,7 +322,8 @@ int main() {
             << "* " << currency_pairs.size() << " currency pairs\n";
 
   // Report individual strategy performance
-  std::cout << "# Current prospects (5 % return)\n"
+  std::cout << "# Current prospects (" << sell_threshold
+            << " % return)\n"
                "Prospects based on prices from the last 24 hours.\n\n"
                "Strategy|Pair|Good/Bad|Spot\n"
                "---|---|---|---\n";
