@@ -162,7 +162,7 @@ int main() {
     bool execute(iter historic_price_index, iter current_price_index) const {
 
       // Calculate the buy ratio
-      const double ratio = (100.0 + threshold) / 100;
+      const double ratio = (100.0 + threshold) / 100.0;
 
       // Test the strategies
       const auto prim = primary({historic_price_index, current_price_index});
@@ -174,12 +174,11 @@ int main() {
     }
   };
 
-  // Create and initialise a container for all strategy and threshold
-  // permuations
-  std::vector<strategy_combo> permutations;
+  // Create and all strategy permutations up front
   const auto total_permutations = handt::primary_strategies.size() *
                                   handt::secondary_strategies.size() *
                                   thresholds.size();
+  std::vector<strategy_combo> permutations;
   permutations.reserve(total_permutations);
 
   // Populate with strategies from the handt library
@@ -195,7 +194,7 @@ int main() {
   const auto sell = [](const auto &current, const auto &future) {
     return std::find_if(
         current, future,
-        [spot = *current, threshold = 1.05](const auto &future_price) {
+        [spot = *current, threshold = 1.06](const auto &future_price) {
           return future_price > spot * threshold;
         });
   };
