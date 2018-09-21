@@ -215,7 +215,6 @@ int main() {
     unsigned int bad_deals = 0;
     unsigned int opportunities = 0;
     bool buy = false;
-    double threshold = 0.0;
   };
 
   // Create container for final strategy report
@@ -361,8 +360,8 @@ int main() {
 The results are ordered by success which is measured using the proportion of
 good to bad trades.
 
-Strategy|Pair|Good/Bad|Spot|Threshold
----|---|---|---|---
+Strategy|Pair|Good/Bad|Spot
+---|---|---|---
 )";
 
   for (const auto &s : performance) {
@@ -385,6 +384,6 @@ Strategy|Pair|Good/Bad|Spot|Threshold
     // Report strategy summary
     std::cout << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol
               << "](" << url << ")|" << s.good_deals << '/' << s.bad_deals
-              << '|' << s.spot << '|' << s.threshold << '\n';
+              << '|' << s.spot << '\n';
   }
 }
