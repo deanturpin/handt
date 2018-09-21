@@ -68,6 +68,20 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
 
        return min < threshold && max > threshold;
      }},
+
+    // Minimum comes before maximum
+    {"Startled",
+     [](cont p) {
+       const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
+       return min < max;
+     }},
+
+    // Maximum comes before minimum
+    {"Slouching",
+     [](cont p) {
+       const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
+       return max > min;
+     }},
 };
 
 // Strategy definition helper routines
