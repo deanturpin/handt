@@ -148,7 +148,7 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
 int main() {
 
   // Create a set of thresholds to use with each buy strategy
-  std::vector<int> thresholds(20);
+  std::vector<int> thresholds(25);
   std::iota(thresholds.begin(), thresholds.end(), 2);
 
   // A complete strategy consists of a primary and secondary strategy and a buy
