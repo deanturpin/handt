@@ -21,14 +21,14 @@ using func2 = std::function<double(cont)>;
 // Primary strategies are simple boolean tests
 const std::vector<std::pair<std::string, func1>> primary_strategies{
     // Always return positively
-    {"crouching",
+    {"Crouching",
      [](cont p) {
        static_cast<void>(p);
        return true;
      }},
 
     // Return positively if trending upwards
-    {"leaping",
+    {"Leaping",
      [](cont p) {
        unsigned int trend = 0;
        for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
@@ -39,7 +39,7 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
      }},
 
     // Return positively if trending downwards
-    {"supine",
+    {"Supine",
      [](cont p) {
        unsigned int trend = 0;
        for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
@@ -50,7 +50,7 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
      }},
 
     // Return positively if crossing a significant boundary
-    {"straddling",
+    {"Straddling",
      [](cont p) {
        const auto &[min, max] = std::minmax(p.front(), p.back());
 
@@ -98,39 +98,49 @@ const auto back = [](const auto &p) { return p.back(); };
 const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
     // Always succeed
-    {"lundehund",
+    {"Lundehund",
      [](cont p) {
        static_cast<void>(p);
        return 2.0;
      }},
 
     // front/back
-    {"norrbottenspets", [](cont p) { return front(p) / back(p); }},
-    {"jagdterrier", [](cont p) { return back(p) / front(p); }},
+    {"Norrbottenspets", [](cont p) { return front(p) / back(p); }},
+    {"Jagdterrier", [](cont p) { return back(p) / front(p); }},
 
     // mean over front/back
-    {"xoloitzcuintli", [](cont p) { return mean(p) / back(p); }},
-    {"basenji", [](cont p) { return mean(p) / front(p); }},
-    {"sphynx", [](cont p) { return front(p) / mean(p); }},
-    {"affenpinscher", [](cont p) { return back(p) / mean(p); }},
+    {"Xoloitzcuintli", [](cont p) { return mean(p) / back(p); }},
+    {"Basenji", [](cont p) { return mean(p) / front(p); }},
+    {"Sphynx", [](cont p) { return front(p) / mean(p); }},
+    {"Affenpinscher", [](cont p) { return back(p) / mean(p); }},
 
     // partial means
-    {"capybara", [](cont p) { return mean(front_end(p)) / mean(back_end(p)); }},
-    {"munchkin", [](cont p) { return mean(back_end(p)) / mean(front_end(p)); }},
-    {"badger", [](cont p) { return mean(p) / mean(back_end(p)); }},
-    {"bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
+    {"Capybara", [](cont p) { return mean(front_end(p)) / mean(back_end(p)); }},
+    {"Munchkin", [](cont p) { return mean(back_end(p)) / mean(front_end(p)); }},
+    {"Badger", [](cont p) { return mean(p) / mean(back_end(p)); }},
+    {"Bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
 
     // min/max over back/front
-    {"mink", [](cont p) { return minimum(p) / back(p); }},
-    {"ocelot", [](cont p) { return minimum(p) / front(p); }},
-    {"griffon", [](cont p) { return maximum(p) / back(p); }},
-    {"cricket", [](cont p) { return maximum(p) / front(p); }},
+    {"Mink", [](cont p) { return minimum(p) / back(p); }},
+    {"Ocelot", [](cont p) { return minimum(p) / front(p); }},
+    {"Griffon", [](cont p) { return maximum(p) / back(p); }},
+    {"Cricket", [](cont p) { return maximum(p) / front(p); }},
 
     // back/front over min/max
-    {"axolotl", [](cont p) { return back(p) / minimum(p); }},
-    {"tiger", [](cont p) { return front(p) / minimum(p); }},
-    {"caddisfly", [](cont p) { return back(p) / maximum(p); }},
-    {"narwahl", [](cont p) { return front(p) / maximum(p); }},
+    {"Axolotl", [](cont p) { return back(p) / minimum(p); }},
+    {"Shiba Inu", [](cont p) { return front(p) / minimum(p); }},
+    {"Lowchen", [](cont p) { return back(p) / maximum(p); }},
+    {"Narwahl", [](cont p) { return front(p) / maximum(p); }},
+
+    // min over max
+    {"Bichon Frise", [](cont p) { return minimum(p) / maximum(p); }},
+    {"Havanese", [](cont p) { return maximum(p) / minimum(p); }},
+
+    // min/max over mean
+    {"Shih Tzu", [](cont p) { return minimum(p) / mean(p); }},
+    {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
+    {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
+    {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
 };
 
 } // namespace handt
