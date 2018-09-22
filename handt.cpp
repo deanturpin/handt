@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <assert.h>
 #include <cmath>
 #include <filesystem>
 #include <fstream>
@@ -85,8 +86,9 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
 };
 
 // Strategy definition helper routines
-const auto mean = [](const std::vector<double> &p) {
-  return std::accumulate(p.cbegin(), p.cend(), 0.0) / double(p.size());
+const auto mean = [](const auto &p) {
+  return std::accumulate(p.cbegin(), p.cend(), 0.0) /
+         static_cast<double>(p.size());
 };
 
 const auto maximum = [](const auto &p) {
@@ -98,11 +100,11 @@ const auto minimum = [](const auto &p) {
 };
 
 const auto front_end = [](const auto &p) {
-  return std::vector<double>{p.cbegin(), std::prev(p.cend(), p.size() / 2)};
+  return decltype(p){p.cbegin(), std::prev(p.cend(), p.size() / 2)};
 };
 
 const auto back_end = [](const auto &p) {
-  return std::vector<double>{std::next(p.cbegin(), p.size() / 2), p.cend()};
+  return decltype(p){std::next(p.cbegin(), p.size() / 2), p.cend()};
 };
 
 const auto front = [](const auto &p) { return p.front(); };
@@ -118,39 +120,39 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
        return 2.0;
      }},
 
-    // front/back
+    // Front/back
     {"Norrbottenspets", [](cont p) { return front(p) / back(p); }},
     {"Jagdterrier", [](cont p) { return back(p) / front(p); }},
 
-    // mean over front/back
+    // Mean over front/back
     {"Xoloitzcuintli", [](cont p) { return mean(p) / back(p); }},
     {"Basenji", [](cont p) { return mean(p) / front(p); }},
     {"Sphynx", [](cont p) { return front(p) / mean(p); }},
     {"Affenpinscher", [](cont p) { return back(p) / mean(p); }},
 
-    // partial means
+    // Partial means
     {"Capybara", [](cont p) { return mean(front_end(p)) / mean(back_end(p)); }},
     {"Munchkin", [](cont p) { return mean(back_end(p)) / mean(front_end(p)); }},
     {"Badger", [](cont p) { return mean(p) / mean(back_end(p)); }},
     {"Bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
 
-    // min/max over back/front
+    // Min/max over back/front
     {"Mink", [](cont p) { return minimum(p) / back(p); }},
     {"Ocelot", [](cont p) { return minimum(p) / front(p); }},
     {"Griffon", [](cont p) { return maximum(p) / back(p); }},
     {"Cricket", [](cont p) { return maximum(p) / front(p); }},
 
-    // back/front over min/max
+    // Back/front over min/max
     {"Axolotl", [](cont p) { return back(p) / minimum(p); }},
     {"Shiba Inu", [](cont p) { return front(p) / minimum(p); }},
     {"Lowchen", [](cont p) { return back(p) / maximum(p); }},
     {"Narwahl", [](cont p) { return front(p) / maximum(p); }},
 
-    // min over max
+    // Min over max
     {"Bichon Frise", [](cont p) { return minimum(p) / maximum(p); }},
     {"Havanese", [](cont p) { return maximum(p) / minimum(p); }},
 
-    // min/max over mean
+    // Min/max over mean
     {"Shih Tzu", [](cont p) { return minimum(p) / mean(p); }},
     {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
     {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
@@ -160,6 +162,10 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
 } // namespace handt
 
 int main() {
+
+  // Unit test
+  assert(handt::maximum(std::vector<double>{3, 4, 5}) > 4.0);
+  assert(handt::minimum(std::vector<double>{3, 4, 5}) < 4.0);
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(25);
