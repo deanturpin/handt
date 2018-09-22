@@ -21,6 +21,7 @@ using func2 = std::function<double(cont)>;
 
 // Primary strategies are simple boolean tests
 const std::vector<std::pair<std::string, func1>> primary_strategies{
+
     // Always return positively
     {"Crouching", []([[maybe_unused]] cont p) { return true; }},
 
@@ -67,17 +68,17 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
      }},
 
     // Minimum comes before maximum
-    {"Startled",
+    {"Darting",
      [](cont p) {
        const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
-       return min < max;
+       return std::distance(p.cbegin(), min) < std::distance(p.cbegin(), max);
      }},
 
     // Maximum comes before minimum
     {"Slouching",
      [](cont p) {
        const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
-       return max > min;
+       return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
      }},
 };
 
