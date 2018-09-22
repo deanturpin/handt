@@ -333,7 +333,7 @@ int main() {
   // Strategy and trade overview
   std::cout << "* " << tests_performed << " backtests\n"
             << "* " << permutations.size() << " strategies\n"
-            << "* " << currency_pairs.size() << " currency pairs\n";
+            << "* " << currency_pairs.size() << " currency pairs\n\n";
 
   // Report individual strategy performance
   std::cout << "# Current prospects (" << sell_threshold
