@@ -22,11 +22,7 @@ using func2 = std::function<double(cont)>;
 // Primary strategies are simple boolean tests
 const std::vector<std::pair<std::string, func1>> primary_strategies{
     // Always return positively
-    {"Crouching",
-     [](cont p) {
-       static_cast<void>(p);
-       return true;
-     }},
+    {"Crouching", []([[maybe_unused]] cont p) { return true; }},
 
     // Return positively if trending upwards
     {"Leaping",
