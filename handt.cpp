@@ -205,7 +205,7 @@ int main() {
 
   // The sell strategy returns positively if the expected yield is acheived
   // within the trading window
-  const double sell_threshold = 6;
+  const double sell_threshold = 5;
   const auto sell = [&sell_threshold](const auto &current, const auto &future) {
     return std::find_if(
         current, future,
@@ -325,7 +325,7 @@ int main() {
   // Calculate total tests performed during backtesting
   const auto tests_performed = std::accumulate(
       performance.cbegin(), performance.cend(), 0,
-      [](int sum, const auto &p) { return sum + p.opportunities; });
+      [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
 
   // Pretty print large numbers
   std::cout.imbue(std::locale(""));
