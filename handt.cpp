@@ -178,12 +178,15 @@ int main() {
       const double ratio = (100.0 + threshold) / 100.0;
 
       // Test the strategies
-      const auto prim = primary({historic_price_index, current_price_index});
-      const auto seco = secondary({historic_price_index, current_price_index});
+      const auto primary_response =
+          primary({historic_price_index, current_price_index});
+      const auto secondary_response =
+          secondary({historic_price_index, current_price_index});
 
       // Check we haven't ended up with a huge number by inadvertantly dividing
       // a double with a very similar double, and then return strategy success
-      return !std::isinf(seco) && prim && seco > ratio;
+      return !std::isinf(secondary_response) && primary_response &&
+             secondary_response > ratio;
     }
   };
 
