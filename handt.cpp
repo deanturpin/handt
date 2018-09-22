@@ -324,7 +324,7 @@ int main() {
 
   // Calculate total tests performed during backtesting
   const auto tests_performed = std::accumulate(
-      performance.cbegin(), performance.cend(), 0,
+      performance.cbegin(), performance.cend(), 0ul,
       [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
 
   // Pretty print large numbers
