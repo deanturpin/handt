@@ -110,11 +110,7 @@ const auto back = [](const auto &p) { return p.back(); };
 const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
     // Always succeed
-    {"Lundehund",
-     [](cont p) {
-       static_cast<void>(p);
-       return 2.0;
-     }},
+    {"Lundehund", []([[maybe_unused]] cont p) { return 2.0; }},
 
     // Front/back
     {"Norrbottenspets", [](cont p) { return front(p) / back(p); }},
