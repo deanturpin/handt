@@ -318,9 +318,9 @@ int main() {
 
   // Sort strategies by performance
   performance.sort([](const auto &a, const auto &b) {
-    return (a.good_deals ? a.good_deals : 1.0) /
+    return static_cast<double>(a.good_deals ? a.good_deals : 1.0) /
                (a.bad_deals ? a.bad_deals : 1.0) >
-           (b.good_deals ? b.good_deals : 1.0) /
+           static_cast<double>(b.good_deals ? b.good_deals : 1.0) /
                (b.bad_deals ? b.bad_deals : 1.0);
   });
 
