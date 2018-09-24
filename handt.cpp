@@ -318,10 +318,12 @@ int main() {
 
   // Sort strategies by performance
   performance.sort([](const auto &a, const auto &b) {
-    return static_cast<double>(a.good_deals ? a.good_deals : 1.0) /
-               (a.bad_deals ? a.bad_deals : 1.0) >
-           static_cast<double>(b.good_deals ? b.good_deals : 1.0) /
-               (b.bad_deals ? b.bad_deals : 1.0);
+    // We don't want to divide by zero be also want zero denominators or
+    // numerators to sort nicely
+    return static_cast<double>(a.good_deals ? a.good_deals : .9) /
+               (a.bad_deals ? a.bad_deals : .9) >
+           static_cast<double>(b.good_deals ? b.good_deals : .9) /
+               (b.bad_deals ? b.bad_deals : .9);
   });
 
   // Calculate total tests performed during backtesting
@@ -335,7 +337,8 @@ int main() {
   // Strategy and trade overview
   std::cout << "* " << tests_performed << " backtests\n"
             << "* " << permutations.size() << " strategies\n"
-            << "* " << currency_pairs.size() << " currency pairs\n\n";
+            << "* " << currency_pairs.size() << " currency pairs\n"
+            << "* " << performance.size() << " strategy/pair combinations\n\n";
 
   // Report individual strategy performance
   std::cout << "# Current prospects (" << sell_threshold
