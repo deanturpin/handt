@@ -335,10 +335,10 @@ int main() {
   std::cout.imbue(std::locale(""));
 
   // Strategy and trade overview
-  std::cout << "* " << tests_performed << " backtests\n"
+  std::cout << "* " << currency_pairs.size() << " currency pairs\n"
             << "* " << permutations.size() << " strategies\n"
-            << "* " << currency_pairs.size() << " currency pairs\n"
-            << "* " << performance.size() << " strategy/pair combinations\n\n";
+            << "* " << performance.size() << " strategy/pair combinations\n"
+            << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
   std::cout << "# Current prospects (" << sell_threshold
