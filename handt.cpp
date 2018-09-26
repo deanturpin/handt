@@ -173,6 +173,23 @@ void assertions() {
   assert(back(std::list<double>{1, 2}) > 1.0);
   assert(back(std::list<int>{1, 2}) > 1);
   assert(mean(std::vector<double>{1, 2}) > 1.0);
+
+  // Strategies
+  assert(primary_strategies.front().first == "Crouching");
+  assert(primary_strategies.at(0).second(std::vector<double>{1, 2, 3, 4}) ==
+         true);
+  assert(primary_strategies.at(1).second(std::vector<double>{1, 2, 3, 4}) ==
+         true);
+  assert(primary_strategies.at(2).second(std::vector<double>{4, 3, 2, 1}) ==
+         true);
+
+  // Straddling
+  using cont2 = std::vector<double>;
+  const auto &prim = primary_strategies;
+  assert(prim.at(3).second(cont2{8, 9, 10, 11, 12}) == true);
+  assert(prim.at(3).second(cont2{10, 11, 12, 12}) == false);
+  assert(prim.at(3).second(cont2{87, 98, 99, 100}) == false);
+  assert(prim.at(3).second(cont2{87, 98, 99, 100, 101}) == true);
 }
 
 } // namespace handt
