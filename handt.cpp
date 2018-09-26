@@ -8,6 +8,7 @@
 #include <iterator>
 #include <list>
 #include <numeric>
+#include <type_traits>
 #include <vector>
 
 namespace handt {
@@ -23,7 +24,10 @@ using func2 = std::function<double(cont)>;
 const std::vector<std::pair<std::string, func1>> primary_strategies{
 
     // Always return positively
-    {"Crouching", []([[maybe_unused]] cont p) { return true; }},
+    {"Crouching", []([[maybe_unused]] cont p) constexpr {return true;
+} // namespace handt
+}
+,
 
     // Return positively if trending upwards
     {"Leaping",
@@ -75,12 +79,12 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
      }},
 
     // Maximum comes before minimum
-    {"Slouching",
-     [](cont p) {
+    {"Slouching", [](cont p) {
        const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
        return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
      }},
-};
+}
+;
 
 // Strategy definition helper routines
 const auto mean = [](const auto &p) {
@@ -180,6 +184,13 @@ void unit_test() {
   assert(back(ascending4) > 1);
   assert(mean(ascending4) > 1.0);
 
+  //   static_assert(std::is_floating_point<
+  // 		  std::result_of<back(std::vector<double>{1, 2,3, 4})>::value
+  // 		  >
+  // 		  );
+  //
+  //
+
   // Primary strategies
   using cont2 = std::vector<double>;
   const auto &prim = primary_strategies;
@@ -188,12 +199,22 @@ void unit_test() {
   assert(prim.front().first == "Crouching");
   assert(prim.at(0).second(cont2{1, 2, 3, 4, 5}) == true);
 
+  // constexpr auto blah = std::invoke_result<(std::vector<double>{1,
+  // 23}.front())>::value;
+
+  // std::cout << std::is_floating_point<
+  // // std::invoke_result<prim.front().second(ascending1)>::value
+  // (std::invoke_result<std::vector<double>{1, 23}.front()>::value)
+  // >
+  // << " static\n";
+
   // Trending updwards
-  assert(prim.at(1).second(cont2{1, 2, 3, 4, 5}) == true);
+  assert(prim.at(1).second(cont2{1, 2, 3, 4, 5}) == true && "trending upwards");
   assert(prim.at(1).second(cont2{5, 4, 3, 2, 1}) == false);
 
   // Trending downwards
-  assert(prim.at(2).second(cont2{1, 2, 3, 4, 5}) == false);
+  assert(prim.at(2).second(cont2{1, 2, 3, 4, 5}) == false &&
+         "trending downwards");
   assert(prim.at(2).second(cont2{5, 4, 3, 2, 1}) == true);
 
   // Straddling
