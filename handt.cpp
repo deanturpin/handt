@@ -156,7 +156,7 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
 };
 
-void assertions() {
+void unitest() {
 
   // Test
   const std::vector<double> ascending1{1, 2, 3, 4, 5};
@@ -209,6 +209,21 @@ void assertions() {
   // Slouching
   assert(prim.at(5).second(cont2{1, 2, 3, 4, 5}) == false);
   assert(prim.at(5).second(cont2{5, 4, 3, 2, 1}) == true);
+
+  // Secondary strategies
+  const auto &strat = secondary_strategies;
+  assert(strat.at(0).second(cont2{1, 2, 3, 4, 5}) > 1.0);
+  assert(strat.at(0).second(cont2{}) > 1.0);
+
+  // std::cout << strat.at(1).second(cont2{2.0, 2.0}) << " fob\n";
+
+  // Front over back
+  assert(strat.at(1).second(cont2{1, 2}) < 1.0);
+  assert(strat.at(1).second(cont2{2, 1}) > 1.0);
+  assert(strat.at(1).second(cont2{2, 2}) < 1.1);
+  assert(strat.at(2).second(cont2{1, 2}) > 1.0);
+  assert(strat.at(2).second(cont2{2, 1}) < 1.0);
+  assert(strat.at(2).second(cont2{2, 2}) < 1.1);
 }
 
 } // namespace handt
@@ -216,7 +231,7 @@ void assertions() {
 int main() {
 
   // Unit test
-  handt::assertions();
+  handt::unitest();
 
   return 0;
 
