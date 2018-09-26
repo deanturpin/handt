@@ -225,12 +225,19 @@ void unitest() {
   assert(std::isnan(strat.at(2).second(cont2{0.0, 0.0})));
 
   // Front/back over mean
-  const std::vector<double> test1{1.0, 2.0, 3.0, 0.0};
+  const std::vector<double> test1{1.0, 2.0, 4.0, 2.0};
   assert(mean(test1) > 1.0); // 8 / 4 = 2
-  std::cout << strat.at(3).second(test1) << " strat\n";
-  std::cout << strat.at(4).second(test1) << " strat\n";
-  std::cout << strat.at(5).second(test1) << " strat\n";
-  std::cout << strat.at(6).second(test1) << " strat\n";
+  assert(strat.at(3).second(test1) > 1.0);
+  assert(strat.at(4).second(test1) < 2.26);
+  assert(strat.at(5).second(test1) < .5);
+  assert(strat.at(6).second(test1) < .9);
+
+  const std::vector<double> test2{0.0, 0.0, 0.0, 0.0, 200.0, 0.0, 0.0};
+  assert(mean(test2) > 1.0); // 8 / 4 = 2
+  std::cout << strat.at(3).second(test2) << " strat\n";
+  std::cout << strat.at(4).second(test2) << " strat\n";
+  std::cout << strat.at(5).second(test2) << " strat\n";
+  std::cout << strat.at(6).second(test2) << " strat\n";
 }
 
 } // namespace handt
@@ -239,6 +246,8 @@ int main() {
 
   // Unit test
   handt::unitest();
+
+  return 0;
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(25);
