@@ -86,7 +86,6 @@ auto have_a_nice_day_trader() {
 
   // Create container for final strategy report
   const auto &pr = get_prices();
-  // std::cerr << pr.size() << " currency pairs\n";
 
   for (const auto &[from_symbol, to_symbol, exchange, prices] : pr) {
     std::cerr << from_symbol << ' ' << to_symbol << '\n';
