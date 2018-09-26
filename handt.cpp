@@ -184,13 +184,6 @@ void unit_test() {
   assert(back(ascending4) > 1);
   assert(mean(ascending4) > 1.0);
 
-  //   static_assert(std::is_floating_point<
-  // 		  std::result_of<back(std::vector<double>{1, 2,3, 4})>::value
-  // 		  >
-  // 		  );
-  //
-  //
-
   // Primary strategies
   using cont2 = std::vector<double>;
   const auto &prim = primary_strategies;
@@ -198,15 +191,6 @@ void unit_test() {
   // Always true
   assert(prim.front().first == "Crouching");
   assert(prim.at(0).second(cont2{1, 2, 3, 4, 5}) == true);
-
-  // constexpr auto blah = std::invoke_result<(std::vector<double>{1,
-  // 23}.front())>::value;
-
-  // std::cout << std::is_floating_point<
-  // // std::invoke_result<prim.front().second(ascending1)>::value
-  // (std::invoke_result<std::vector<double>{1, 23}.front()>::value)
-  // >
-  // << " static\n";
 
   // Trending updwards
   assert(prim.at(1).second(cont2{1, 2, 3, 4, 5}) == true && "trending upwards");
