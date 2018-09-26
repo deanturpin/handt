@@ -158,38 +158,57 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
 void assertions() {
 
+  // Test
+  const std::vector<double> ascending1{1, 2, 3, 4, 5};
+  const std::vector<double> ascending2{1, 2, 3, 4, 5, 6};
+  const std::vector<double> ascending3{1, 2, 3};
+  const std::vector<double> ascending4{1, 2};
+
   // Front/back end trim sizes
-  assert(handt::front_end(std::vector<double>{1, 2, 3, 4, 5}).size() == 2);
-  assert(handt::front_end(std::vector<double>{1, 2, 3, 4, 5, 6}).size() == 3);
-  assert(handt::back_end(std::vector<double>{1, 2, 3, 4, 5}).size() == 3);
-  assert(handt::back_end(std::vector<double>{1, 2, 3, 4, 5, 6}).size() == 3);
+  assert(handt::front_end(ascending1).size() == 2);
+  assert(handt::front_end(ascending2).size() == 3);
+  assert(handt::back_end(ascending1).size() == 3);
+  assert(handt::back_end(ascending2).size() == 3);
 
   // Min max
-  assert(maximum(std::vector<double>{3, 4, 5}) > 4.0);
-  assert(minimum(std::vector<double>{3, 4, 5}) < 4.0);
+  assert(maximum(ascending3) > 2.0);
+  assert(minimum(ascending3) < 2.0);
 
   // Front, back and mean (with some other containers)
-  assert(front(std::vector<double>{1, 2}) < 2.0);
-  assert(back(std::list<double>{1, 2}) > 1.0);
-  assert(back(std::list<int>{1, 2}) > 1);
-  assert(mean(std::vector<double>{1, 2}) > 1.0);
+  assert(front(ascending4) < 2.0);
+  assert(back(ascending4) > 1.0);
+  assert(back(ascending4) > 1);
+  assert(mean(ascending4) > 1.0);
 
-  // Strategies
-  assert(primary_strategies.front().first == "Crouching");
-  assert(primary_strategies.at(0).second(std::vector<double>{1, 2, 3, 4}) ==
-         true);
-  assert(primary_strategies.at(1).second(std::vector<double>{1, 2, 3, 4}) ==
-         true);
-  assert(primary_strategies.at(2).second(std::vector<double>{4, 3, 2, 1}) ==
-         true);
-
-  // Straddling
+  // Primary strategies
   using cont2 = std::vector<double>;
   const auto &prim = primary_strategies;
+
+  // Always true
+  assert(prim.front().first == "Crouching");
+  assert(prim.at(0).second(cont2{1, 2, 3, 4, 5}) == true);
+
+  // Trending updwards
+  assert(prim.at(1).second(cont2{1, 2, 3, 4, 5}) == true);
+  assert(prim.at(1).second(cont2{5, 4, 3, 2, 1}) == false);
+
+  // Trending downwards
+  assert(prim.at(2).second(cont2{1, 2, 3, 4, 5}) == false);
+  assert(prim.at(2).second(cont2{5, 4, 3, 2, 1}) == true);
+
+  // Straddling
   assert(prim.at(3).second(cont2{8, 9, 10, 11, 12}) == true);
   assert(prim.at(3).second(cont2{10, 11, 12, 12}) == false);
   assert(prim.at(3).second(cont2{87, 98, 99, 100}) == false);
   assert(prim.at(3).second(cont2{87, 98, 99, 100, 101}) == true);
+
+  // Darting
+  assert(prim.at(4).second(cont2{1, 2, 3, 4, 5}) == true);
+  assert(prim.at(4).second(cont2{5, 4, 3, 2, 1}) == false);
+
+  // Slouching
+  assert(prim.at(5).second(cont2{1, 2, 3, 4, 5}) == false);
+  assert(prim.at(5).second(cont2{5, 4, 3, 2, 1}) == true);
 }
 
 } // namespace handt
@@ -198,6 +217,8 @@ int main() {
 
   // Unit test
   handt::assertions();
+
+  return 0;
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(25);
