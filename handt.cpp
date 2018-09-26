@@ -7,9 +7,6 @@
 
 auto have_a_nice_day_trader() {
 
-  // Unit test
-  handt::unit_test();
-
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(10);
   std::iota(thresholds.begin(), thresholds.end(), 2);
@@ -89,7 +86,7 @@ auto have_a_nice_day_trader() {
 
   // Create container for final strategy report
   const auto &pr = get_prices();
-  std::cerr << pr.size() << " currency pairs\n";
+  // std::cerr << pr.size() << " currency pairs\n";
 
   for (const auto &[from_symbol, to_symbol, exchange, prices] : pr) {
     std::cerr << from_symbol << ' ' << to_symbol << '\n';
@@ -161,10 +158,9 @@ auto have_a_nice_day_trader() {
       }
   }
 
-  // Sort strategies by performance
+  // Sort strategies by performance - we don't want to divide by zero be also
+  // want zero denominators or numerators to sort nicely
   performance.sort([](const auto &a, const auto &b) {
-    // We don't want to divide by zero be also want zero denominators or
-    // numerators to sort nicely
     return static_cast<double>(a.good_deals ? a.good_deals : .9) /
                (a.bad_deals ? a.bad_deals : .9) >
            static_cast<double>(b.good_deals ? b.good_deals : .9) /
@@ -175,6 +171,11 @@ auto have_a_nice_day_trader() {
 }
 
 int main() {
+
+  // Unit test
+  handt::unit_test();
+
+  // Have a nice day (trader)
   const auto &performance = have_a_nice_day_trader();
   report_performance(performance);
 }
