@@ -240,7 +240,7 @@ void unit_test() {
 
 } // namespace handt
 
-int main() {
+auto have_a_nice_day_trader() {
 
   // Unit test
   handt::unit_test();
@@ -434,6 +434,13 @@ int main() {
                "Prospects based on prices from the last 24 hours.\n\n"
                "Strategy|Pair|Good/Bad|Spot\n"
                "---|---|---|---\n";
+
+  return performance;
+}
+
+int main() {
+
+  const auto &performance = have_a_nice_day_trader();
 
   unsigned int buy_count = 0;
   for (const auto &s : performance)
