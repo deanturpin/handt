@@ -156,7 +156,7 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
 };
 
-void unitest() {
+void unit_test() {
 
   // Test
   const std::vector<double> ascending1{1, 2, 3, 4, 5};
@@ -231,13 +231,6 @@ void unitest() {
   assert(strat.at(4).second(test1) < 2.26);
   assert(strat.at(5).second(test1) < .5);
   assert(strat.at(6).second(test1) < .9);
-
-  const std::vector<double> test2{0.0, 0.0, 0.0, 0.0, 200.0, 0.0, 0.0};
-  assert(mean(test2) > 1.0); // 8 / 4 = 2
-  std::cout << strat.at(3).second(test2) << " strat\n";
-  std::cout << strat.at(4).second(test2) << " strat\n";
-  std::cout << strat.at(5).second(test2) << " strat\n";
-  std::cout << strat.at(6).second(test2) << " strat\n";
 }
 
 } // namespace handt
@@ -245,9 +238,7 @@ void unitest() {
 int main() {
 
   // Unit test
-  handt::unitest();
-
-  return 0;
+  handt::unit_test();
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(25);
