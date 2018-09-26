@@ -4,11 +4,14 @@
 #include <filesystem>
 #include <fstream>
 #include <iterator>
+#include <tuple>
 #include <vector>
 
 auto get_prices(const std::string directory = "tmp") {
 
-  std::vector<std::vector<double>> prices;
+  std::vector<
+      std::tuple<std::string, std::string, std::string, std::vector<double>>>
+      prices;
 
   // Fetch list of price files
   std::vector<std::string> currency_pairs;
@@ -27,7 +30,7 @@ auto get_prices(const std::string directory = "tmp") {
     const std::vector<double> p{std::istream_iterator<double>(in), {}};
 
     if (!p.empty())
-      prices.emplace_back(p);
+      prices.push_back({from_symbol, to_symbol, exchange, p});
   }
 
   return prices;
