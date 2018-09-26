@@ -316,6 +316,8 @@ int main() {
     bool buy = false;
   };
 
+  static_assert(std::is_standard_layout<strategy_performance>::value);
+
   // Create container for final strategy report
   std::list<strategy_performance> performance;
 

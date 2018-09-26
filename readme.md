@@ -14,8 +14,4 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Wed 26 Sep 13:24:09 GMT 2018
-inf strat
-inf strat
-0 strat
-0 strat
+Generated Wed 26 Sep 16:02:17 GMT 2018
