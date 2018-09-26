@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 #include <cmath>
 #include <filesystem>
 #include <fstream>
@@ -96,12 +96,16 @@ const auto minimum = [](const auto &p) {
   return *std::min_element(p.cbegin(), p.cend());
 };
 
+// Front end size is rounded down by pushing the trim size upwards
 const auto front_end = [](const auto &p) {
-  return decltype(p){p.cbegin(), std::prev(p.cend(), p.size() / 2)};
+  const size_t trim = std::ceil(p.size() / 2.0);
+  return decltype(p){p.cbegin(), std::prev(p.cend(), trim)};
 };
 
+// Back end size is rounded up by pushing the trim size downwards
 const auto back_end = [](const auto &p) {
-  return decltype(p){std::next(p.cbegin(), p.size() / 2), p.cend()};
+  const size_t trim = std::floor(p.size() / 2.0);
+  return decltype(p){std::next(p.cbegin(), trim), p.cend()};
 };
 
 const auto front = [](const auto &p) { return p.front(); };
@@ -152,13 +156,31 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
 };
 
+void assertions() {
+
+  // Front/back end trim sizes
+  assert(handt::front_end(std::vector<double>{1, 2, 3, 4, 5}).size() == 2);
+  assert(handt::front_end(std::vector<double>{1, 2, 3, 4, 5, 6}).size() == 3);
+  assert(handt::back_end(std::vector<double>{1, 2, 3, 4, 5}).size() == 3);
+  assert(handt::back_end(std::vector<double>{1, 2, 3, 4, 5, 6}).size() == 3);
+
+  // Min max
+  assert(maximum(std::vector<double>{3, 4, 5}) > 4.0);
+  assert(minimum(std::vector<double>{3, 4, 5}) < 4.0);
+
+  // Front, back and mean (with some other containers)
+  assert(front(std::vector<double>{1, 2}) < 2.0);
+  assert(back(std::list<double>{1, 2}) > 1.0);
+  assert(back(std::list<int>{1, 2}) > 1);
+  assert(mean(std::vector<double>{1, 2}) > 1.0);
+}
+
 } // namespace handt
 
 int main() {
 
   // Unit test
-  assert(handt::maximum(std::vector<double>{3, 4, 5}) > 4.0);
-  assert(handt::minimum(std::vector<double>{3, 4, 5}) < 4.0);
+  handt::assertions();
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(25);
