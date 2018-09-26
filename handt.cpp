@@ -5,8 +5,7 @@
 #include <list>
 #include <type_traits>
 
-auto have_a_nice_day_trader() {
-
+const auto have_a_nice_day_trader = [](const auto &pr) {
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(10);
   std::iota(thresholds.begin(), thresholds.end(), 2);
@@ -82,10 +81,8 @@ auto have_a_nice_day_trader() {
         });
   };
 
-  // assert(get_prices("notafolder").empty());
-
   // Create container for final strategy report
-  const auto &pr = get_prices();
+  // const auto &pr = get_prices();
 
   for (const auto &[from_symbol, to_symbol, exchange, prices] : pr) {
     std::cerr << from_symbol << ' ' << to_symbol << '\n';
@@ -167,14 +164,13 @@ auto have_a_nice_day_trader() {
   });
 
   return performance;
-}
+};
 
 int main() {
 
   // Unit test
   handt::unit_test();
 
-  // Have a nice day (trader)
-  const auto &performance = have_a_nice_day_trader();
-  report_performance(performance);
+  // Fetch the latest prices and have a nice day (trader)
+  report_performance(have_a_nice_day_trader(get_prices()));
 }
