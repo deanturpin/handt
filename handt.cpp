@@ -216,21 +216,21 @@ void unitest() {
   assert(strat.at(0).second(cont2{}) > 1.0);
 
   // Front over back
-  assert(strat.at(1).second(cont2{1, 2}) < 1.0);
-  assert(strat.at(1).second(cont2{2, 1}) > 1.0);
-  assert(strat.at(1).second(cont2{2, 2}) < 1.1);
-  assert(strat.at(2).second(cont2{1, 2}) > 1.0);
-  assert(strat.at(2).second(cont2{2, 1}) < 1.0);
-  assert(std::isnan(strat.at(1).second(cont2{0, 0})));
-  assert(std::isnan(strat.at(2).second(cont2{0, 0})));
+  assert(strat.at(1).second(cont2{1.0, 2.0}) < 1.0);
+  assert(strat.at(1).second(cont2{2.0, 1.0}) > 1.0);
+  assert(strat.at(1).second(cont2{2.0, 2.0}) < 1.1);
+  assert(strat.at(2).second(cont2{1.0, 2.0}) > 1.0);
+  assert(strat.at(2).second(cont2{2.0, 1.0}) < 1.0);
+  assert(std::isnan(strat.at(1).second(cont2{0.0, 0.0})));
+  assert(std::isnan(strat.at(2).second(cont2{0.0, 0.0})));
 
   // Front/back over mean
-  // const std::vector<double> test1 {1.0,2.0,3.0,0.0};
-  // assert(mean(test1) > 1.0); // 8 / 4 = 2
-  // std::cout << strat.at(3).second(test1) << " strat\n";
-  // std::cout << strat.at(4).second(test1) << " strat\n";
-  // std::cout << strat.at(5).second(test1) << " strat\n";
-  // std::cout << strat.at(6).second(test1) << " strat\n";
+  const std::vector<double> test1{1.0, 2.0, 3.0, 0.0};
+  assert(mean(test1) > 1.0); // 8 / 4 = 2
+  std::cout << strat.at(3).second(test1) << " strat\n";
+  std::cout << strat.at(4).second(test1) << " strat\n";
+  std::cout << strat.at(5).second(test1) << " strat\n";
+  std::cout << strat.at(6).second(test1) << " strat\n";
 }
 
 } // namespace handt
@@ -239,8 +239,6 @@ int main() {
 
   // Unit test
   handt::unitest();
-
-  return 0;
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(25);
