@@ -1,9 +1,7 @@
 #include "handt.h"
+#include "prices.h"
 
-#include <filesystem>
-#include <fstream>
 #include <iostream>
-#include <iterator>
 #include <list>
 #include <type_traits>
 
@@ -58,23 +56,6 @@ auto have_a_nice_day_trader() {
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
              threshold});
 
-  // The sell strategy returns positively if the expected yield is acheived
-  // within the trading window
-  const double sell_threshold = 6;
-  const auto sell = [&sell_threshold](const auto &current, const auto &future) {
-    return std::find_if(
-        current, future,
-        [spot = *current, threshold = (100.0 + sell_threshold) /
-                                      100.0](const auto &future_price) {
-          return future_price > spot * threshold;
-        });
-  };
-
-  // Fetch list of price files
-  std::vector<std::string> currency_pairs;
-  for (const auto &file : std::filesystem::directory_iterator("tmp"))
-    currency_pairs.emplace_back(file.path());
-
   // Structure to capture the results during a strategy backtest
   struct strategy_performance {
     std::string name;
@@ -90,19 +71,57 @@ auto have_a_nice_day_trader() {
 
   static_assert(std::is_standard_layout<strategy_performance>::value);
 
-  // Create container for final strategy report
   std::list<strategy_performance> performance;
 
+  // The sell strategy returns positively if the expected yield is acheived
+  // within the trading window
+  // const double sell_threshold = 6;
+  // const auto sell = [&sell_threshold](const auto &current, const auto
+  // &future) {
+  //   return std::find_if(
+  //       current, future,
+  //       [spot = *current, threshold = (100.0 + sell_threshold) /
+  //                                     100.0](const auto &future_price) {
+  //         return future_price > spot * threshold;
+  //       });
+  // };
+
+  // Fetch list of price files
+  // std::vector<std::string> currency_pairs;
+  // for (const auto &file : std::filesystem::directory_iterator("tmp"))
+  //   currency_pairs.emplace_back(file.path());
+
+  // Structure to capture the results during a strategy backtest
+  // struct strategy_performance {
+  //   std::string name;
+  //   std::string from_symbol;
+  //   std::string to_symbol;
+  //   std::string exchange;
+  //   double spot = 0.0;
+  //   unsigned int good_deals = 0;
+  //   unsigned int bad_deals = 0;
+  //   unsigned int opportunities = 0;
+  //   bool buy = false;
+  // };
+
+  // static_assert(std::is_standard_layout<strategy_performance>::value);
+
+  // Create container for final strategy report
+  const auto &prices = get_prices();
+  std::cerr << prices.size() << " currency pairs\n";
+
+#if 0
+  {
   // Extract prices from each file
-  for (const auto &file : currency_pairs) {
+  // for (const auto &file : currency_pairs) {
 
-    // Open prices and get the trade info
-    std::ifstream in(file);
-    std::string from_symbol, to_symbol, exchange;
-    in >> from_symbol >> to_symbol >> exchange;
+  //   // Open prices and get the trade info
+  //   std::ifstream in(file);
+  //   std::string from_symbol, to_symbol, exchange;
+  //   in >> from_symbol >> to_symbol >> exchange;
 
-    // Get the prices and run the strategies over them
-    const std::vector<double> prices{std::istream_iterator<double>(in), {}};
+  //   // Get the prices and run the strategies over them
+  //   const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
     // Check read has succeeded and execute strategies
     if (!prices.empty())
@@ -182,25 +201,26 @@ auto have_a_nice_day_trader() {
   });
 
   // Calculate total tests performed during backtesting
-  const auto tests_performed = std::accumulate(
+  [[maybe_unused]] const auto tests_performed = std::accumulate(
       performance.cbegin(), performance.cend(), 0ul,
       [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
 
+#endif
   // Pretty print large numbers
   std::cout.imbue(std::locale(""));
 
   // Strategy and trade overview
-  std::cout << "* " << currency_pairs.size() << " currency pairs\n"
-            << "* " << permutations.size() << " strategies\n"
-            << "* " << performance.size() << " strategy/pair combinations\n"
-            << "* " << tests_performed << " backtests\n\n";
+  // std::cout << "* " << currency_pairs.size() << " currency pairs\n"
+  //           << "* " << permutations.size() << " strategies\n"
+  //           << "* " << performance.size() << " strategy/pair combinations\n"
+  //           << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
-  std::cout << "# Current prospects (" << sell_threshold
-            << " % return)\n"
-               "Prospects based on prices from the last 24 hours.\n\n"
-               "Strategy|Pair|Good/Bad|Spot\n"
-               "---|---|---|---\n";
+  // std::cout << "# Current prospects (" << sell_threshold
+  //           << " % return)\n"
+  //              "Prospects based on prices from the last 24 hours.\n\n"
+  //              "Strategy|Pair|Good/Bad|Spot\n"
+  //              "---|---|---|---\n";
 
   return performance;
 }
