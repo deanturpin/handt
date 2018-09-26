@@ -14,7 +14,7 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Wed 26 Sep 18:12:28 GMT 2018
+Generated Wed 26 Sep 18:17:03 GMT 2018
 * 4 currency pairs
 * 3,750 strategies
 * 7,500 strategy/pair combinations
