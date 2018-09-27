@@ -4,11 +4,11 @@
 
 #include <iostream>
 #include <list>
-#include <type_traits>
+#include <vector>
 
 const auto have_a_nice_day_trader = [](const auto &pr) {
   // Create a set of thresholds to use with each buy strategy
-  std::vector<int> thresholds(10);
+  std::vector<int> thresholds(22);
   std::iota(thresholds.begin(), thresholds.end(), 2);
 
   // A complete strategy consists of a primary and secondary strategy and a buy
