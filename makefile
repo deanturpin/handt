@@ -1,4 +1,4 @@
-all: tmp handt
+all: tmp tmp/haveanicedaytrader
 
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
@@ -6,7 +6,7 @@ cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
 	 -lstdc++fs -O3
 
 tmp/%.o: %.cpp
-	$(CXX) -o $@ $< $(cflags)
+	$(CXX) -o $@ $< $(cflags) -c
 
 tmp:
 	 mkdir $@
@@ -14,12 +14,12 @@ tmp:
 
 # Generate documentation
 readme = readme.md
-handt: tmp/handt.o
-	./$^ > tmp/strategy.txt
+tmp/haveanicedaytrader: tmp/prices.o tmp/handt.o tmp/report.o
+	$(CXX) -o $@ $^ -lstdc++fs
+	./$@ > tmp/strategy.txt
 	cat template.md > $(readme)
 	echo Generated $(shell TZ=GMT-1 date) >> $(readme)
 	`head -200 tmp/strategy.txt >> $(readme)`
-	cat $(readme)
 
 # All intermediate files are stored in tmp, so just remove it
 clean:
