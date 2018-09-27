@@ -1,4 +1,4 @@
-all: tmp haveanicedaytrader
+all: tmp tmp/haveanicedaytrader
 
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
@@ -14,7 +14,7 @@ tmp:
 
 # Generate documentation
 readme = readme.md
-haveanicedaytrader: tmp/prices.o tmp/handt.o
+tmp/haveanicedaytrader: tmp/prices.o tmp/handt.o
 	$(CXX) -o $@ $^ -lstdc++fs
 	./$@ > tmp/strategy.txt
 	cat template.md > $(readme)
