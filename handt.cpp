@@ -1,8 +1,6 @@
 #include "handt.h"
 #include "prices.h"
 #include "report.h"
-
-#include <iostream>
 #include <list>
 #include <vector>
 
@@ -67,11 +65,7 @@ const auto have_a_nice_day_trader = [](const auto &pr) {
         });
   };
 
-  // Create container for final strategy report
-  // const auto &pr = get_prices();
-
   for (const auto &[from_symbol, to_symbol, exchange, prices] : pr) {
-    std::cerr << from_symbol << ' ' << to_symbol << '\n';
 
     // Check read has succeeded and execute strategies
     if (!prices.empty())
