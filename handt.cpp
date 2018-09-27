@@ -2,6 +2,7 @@
 #include "prices.h"
 #include "report.h"
 
+#include <iostream>
 #include <list>
 #include <type_traits>
 
@@ -51,21 +52,6 @@ const auto have_a_nice_day_trader = [](const auto &pr) {
         permutations.push_back(
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
              threshold});
-
-  // Structure to capture the results during a strategy backtest
-  struct strategy_performance {
-    std::string name;
-    std::string from_symbol;
-    std::string to_symbol;
-    std::string exchange;
-    double spot = 0.0;
-    unsigned int good_deals = 0;
-    unsigned int bad_deals = 0;
-    unsigned int opportunities = 0;
-    bool buy = false;
-  };
-
-  static_assert(std::is_standard_layout<strategy_performance>::value);
 
   std::list<strategy_performance> performance;
 

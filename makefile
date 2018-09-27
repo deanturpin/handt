@@ -14,7 +14,7 @@ tmp:
 
 # Generate documentation
 readme = readme.md
-tmp/haveanicedaytrader: tmp/prices.o tmp/handt.o
+tmp/haveanicedaytrader: tmp/prices.o tmp/handt.o tmp/report.o
 	$(CXX) -o $@ $^ -lstdc++fs
 	./$@ > tmp/strategy.txt
 	cat template.md > $(readme)
