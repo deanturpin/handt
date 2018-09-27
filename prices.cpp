@@ -7,9 +7,7 @@
 
 return_type get_prices(const std::string directory) {
 
-  std::vector<
-      std::tuple<std::string, std::string, std::string, std::vector<double>>>
-      prices;
+  return_type prices;
 
   // Fetch list of price files
   std::vector<std::string> currency_pairs;

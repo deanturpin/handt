@@ -1,13 +1,9 @@
 #ifndef PRICES_H
 #define PRICES_H
 
-#include <filesystem>
-#include <fstream>
-#include <iterator>
-#include <list>
-#include <tuple>
-
 #include <string>
+#include <tuple>
+#include <vector>
 
 using return_type = std::vector<
     std::tuple<std::string, std::string, std::string, std::vector<double>>>;
