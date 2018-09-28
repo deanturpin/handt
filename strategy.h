@@ -100,13 +100,13 @@ const auto minimum = [](const auto &p) {
 
 // Front end size is rounded down by pushing the trim size upwards
 const auto front_end = [](const auto &p) {
-  const size_t trim = std::ceil(p.size() / 2.0);
+  const int trim = std::rint(std::ceil(p.size() / 2.0));
   return decltype(p){p.cbegin(), std::prev(p.cend(), trim)};
 };
 
 // Back end size is rounded up by pushing the trim size downwards
 const auto back_end = [](const auto &p) {
-  const size_t trim = std::floor(p.size() / 2.0);
+  const int trim = std::rint(std::floor(p.size() / 2.0));
   return decltype(p){std::next(p.cbegin(), trim), p.cend()};
 };
 

@@ -13,10 +13,10 @@ void unit_test() {
   const std::vector<double> ascending4{1, 2};
 
   // Front/back end trim sizes
-  assert(lft::front_end(ascending1).size() == 2);
-  assert(lft::front_end(ascending2).size() == 3);
-  assert(lft::back_end(ascending1).size() == 3);
-  assert(lft::back_end(ascending2).size() == 3);
+  assert(lft::front_end(ascending1).size() == 2 && "front end trimming fail");
+  assert(lft::front_end(ascending2).size() == 3 && "front end trimming fail");
+  assert(lft::back_end(ascending1).size() == 3 && "back end trimming fail");
+  assert(lft::back_end(ascending2).size() == 3 && "back end trimming fail");
 
   // Min max
   assert(lft::maximum(ascending3) > 2.0);
