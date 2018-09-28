@@ -14,7 +14,8 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Fri 28 Sep 11:46:31 GMT 2018
+Generated Fri 28 Sep 11:57:37 GMT 2018
+* 322 currency pairs
 * 1,062,600 strategy/pair combinations
 * 1,953,899,892 backtests
 
@@ -32,7 +33,7 @@ Crouching Pomeranian 13|[GAS-BTC](https://binance.com/en/trade/GAS_BTC)|4/0|0.00
 Crouching Pomeranian 14|[GAS-BTC](https://binance.com/en/trade/GAS_BTC)|4/0|0.001222
 Darting Munchkin 7|[GAS-BTC](https://binance.com/en/trade/GAS_BTC)|4/0|0.001222
 
-# 80 day backtest
+# 80-day backtest
 The results are ordered by success which is measured using the proportion of
 good to bad trades.
 
@@ -214,4 +215,3 @@ Supine Griffon 17|[AMB-BTC](https://binance.com/en/trade/AMB_BTC)|5/0|2.154e-05
 Supine Griffon 18|[AMB-BTC](https://binance.com/en/trade/AMB_BTC)|5/0|2.154e-05
 Supine Shiba Inu 17|[AMB-BTC](https://binance.com/en/trade/AMB_BTC)|5/0|2.154e-05
 Supine Havanese 17|[AMB-BTC](https://binance.com/en/trade/AMB_BTC)|5/0|2.154e-05
-Supine Havanese 18|[AMB-BTC](https://binance.com/en/trade/AMB_BTC)|5/0|2.154e-05

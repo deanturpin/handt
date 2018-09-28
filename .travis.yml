@@ -1,7 +1,7 @@
 language: python
 python: "3.6"
 script:
-  - make CXX=g++-8 -j $(nproc)
+  - make CXX=g++-8
   - cppcheck --enable=all .
   - sloccount *.h *.cpp get_prices.py
 
