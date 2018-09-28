@@ -8,6 +8,6 @@
 #include <string>
 
 static_assert(std::is_standard_layout<backtest_t>::value);
-std::string report_performance(const prices_t &, const std::list<backtest_t> &);
+std::string get_report(const prices_t &, const std::list<backtest_t> &);
 
 #endif
