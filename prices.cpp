@@ -5,6 +5,9 @@
 #include <tuple>
 #include <vector>
 
+// Take a directory name, read all the files and return a container of prices
+// for all coins
+
 prices_t get_prices(const std::string &directory) {
 
   prices_t prices;
@@ -23,10 +26,11 @@ prices_t get_prices(const std::string &directory) {
     in >> from_symbol >> to_symbol >> exchange;
 
     // Get the prices and run the strategies over them
-    const std::vector<double> p{std::istream_iterator<double>(in), {}};
+    const std::vector<double> latest{std::istream_iterator<double>(in), {}};
 
-    if (!p.empty())
-      prices.push_back({from_symbol, to_symbol, exchange, p});
+    // Only store prices if the parse was successful
+    if (!latest.empty())
+      prices.push_back({from_symbol, to_symbol, exchange, latest});
   }
 
   return prices;
