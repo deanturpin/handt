@@ -87,5 +87,7 @@ int main() {
   unit_test();
 
   // Fetch the latest prices and have a nice day (trader)
-  report_performance(have_a_nice_day_trader(get_prices()));
+  const auto &prices = get_prices();
+  const auto &performance = have_a_nice_day_trader(prices);
+  report_performance(performance);
 }
