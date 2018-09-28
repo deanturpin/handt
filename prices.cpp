@@ -5,9 +5,9 @@
 #include <tuple>
 #include <vector>
 
-return_type get_prices(const std::string &directory) {
+prices_t get_prices(const std::string &directory) {
 
-  return_type prices;
+  prices_t prices;
 
   // Fetch list of price files
   std::vector<std::string> currency_pairs;

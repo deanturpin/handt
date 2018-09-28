@@ -17,6 +17,6 @@ struct strategy_performance {
   bool buy = false;
 };
 
-std::list<strategy_performance> have_a_nice_day_trader(const return_type &pr);
+std::list<strategy_performance> have_a_nice_day_trader(const prices_t &pr);
 
 #endif

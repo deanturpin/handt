@@ -5,9 +5,9 @@
 #include <tuple>
 #include <vector>
 
-using return_type = std::vector<
+using prices_t = std::vector<
     std::tuple<std::string, std::string, std::string, std::vector<double>>>;
 
-return_type get_prices(const std::string &directory = "tmp");
+prices_t get_prices(const std::string &directory = "tmp");
 
 #endif

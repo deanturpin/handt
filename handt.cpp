@@ -8,7 +8,7 @@
 #include <numeric>
 #include <vector>
 
-std::list<strategy_performance> have_a_nice_day_trader(const return_type &pr) {
+std::list<strategy_performance> have_a_nice_day_trader(const prices_t &pr) {
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(22);

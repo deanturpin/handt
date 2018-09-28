@@ -5,7 +5,7 @@
 // Take a container of all backtests and produce a report as a string
 
 std::string
-report_performance(const return_type &prices,
+report_performance(const prices_t &prices,
                    const std::list<strategy_performance> &performance) {
 
   std::stringstream out;

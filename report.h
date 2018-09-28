@@ -8,7 +8,7 @@
 #include <string>
 
 static_assert(std::is_standard_layout<strategy_performance>::value);
-std::string report_performance(const return_type &,
+std::string report_performance(const prices_t &,
                                const std::list<strategy_performance> &);
 
 #endif
