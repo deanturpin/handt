@@ -1,10 +1,16 @@
 #include "handt.h"
 #include "prices.h"
 #include "report.h"
+#include "strategy.h"
+
+#include <algorithm>
+#include <cmath>
 #include <list>
+#include <numeric>
 #include <vector>
 
-const auto have_a_nice_day_trader = [](const auto &pr) {
+std::list<strategy_performance> have_a_nice_day_trader(const return_type &pr) {
+
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(22);
   std::iota(thresholds.begin(), thresholds.end(), 2);
@@ -144,13 +150,4 @@ const auto have_a_nice_day_trader = [](const auto &pr) {
   });
 
   return performance;
-};
-
-int main() {
-
-  // Unit test
-  handt::unit_test();
-
-  // Fetch the latest prices and have a nice day (trader)
-  report_performance(have_a_nice_day_trader(get_prices()));
 }
