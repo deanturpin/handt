@@ -9,43 +9,44 @@
 
 // Take a container of prices and run all strategies permutations
 
-std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
+// A complete strategy consists of a primary and secondary strategy and a buy
+// threshold
+struct strategy_t {
+  std::string name;
+  lft::func1 primary;
+  lft::func2 secondary;
+  int threshold;
+  using iter = const std::vector<double>::const_iterator &;
+  bool execute(iter historic_price_index, iter current_price_index) const {
+
+    // Calculate the buy ratio
+    const double ratio = (100.0 + threshold) / 100.0;
+
+    // Test the strategies
+    const auto primary_response =
+        primary({historic_price_index, current_price_index});
+    const auto secondary_response =
+        secondary({historic_price_index, current_price_index});
+
+    // Check we haven't ended up with a huge number (or NaN) by inadvertantly
+    // dividing a double with a very similar double (or zero), and then
+    // return strategy success
+    return !std::isinf(secondary_response) && !std::isnan(primary_response) &&
+           primary_response && secondary_response > ratio;
+  }
+};
+
+std::vector<strategy_t> get_strategies() {
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(22);
   std::iota(thresholds.begin(), thresholds.end(), 2);
 
-  // A complete strategy consists of a primary and secondary strategy and a buy
-  // threshold
-  struct strategy_t {
-    std::string name;
-    lft::func1 primary;
-    lft::func2 secondary;
-    int threshold;
-    using iter = const std::vector<double>::const_iterator &;
-    bool execute(iter historic_price_index, iter current_price_index) const {
-
-      // Calculate the buy ratio
-      const double ratio = (100.0 + threshold) / 100.0;
-
-      // Test the strategies
-      const auto primary_response =
-          primary({historic_price_index, current_price_index});
-      const auto secondary_response =
-          secondary({historic_price_index, current_price_index});
-
-      // Check we haven't ended up with a huge number (or NaN) by inadvertantly
-      // dividing a double with a very similar double (or zero), and then
-      // return strategy success
-      return !std::isinf(secondary_response) && !std::isnan(primary_response) &&
-             primary_response && secondary_response > ratio;
-    }
-  };
-
   // Create and all strategy permutations up front
   const auto total_permutations = lft::primary_strategies.size() *
                                   lft::secondary_strategies.size() *
                                   thresholds.size();
+
   std::vector<strategy_t> permutations;
   permutations.reserve(total_permutations);
 
@@ -56,6 +57,11 @@ std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
         permutations.push_back(
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
              threshold});
+
+  return permutations;
+}
+
+std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
 
   // The sell strategy returns positively if the expected yield is acheived
   // within the trading window
@@ -68,6 +74,8 @@ std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
           return future_price > spot * threshold;
         });
   };
+
+  const auto permutations = get_strategies();
 
   // Backtest each currency pair
   std::list<backtest_t> backtests;

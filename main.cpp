@@ -8,8 +8,10 @@ int main() {
 
   unit_test();
 
-  // Fetch the latest prices
+  // Get the latest prices
   const auto &prices = get_prices();
+
+  // Get the strategies
 
   // Run backtests
   const auto &backtests = have_a_nice_day_trader(prices);
