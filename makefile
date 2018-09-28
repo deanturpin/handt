@@ -3,10 +3,10 @@ all: tmp tmp/haveanicedaytrader
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
 	 -Werror -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
-	 -lstdc++fs -O3
+	 -O3
 
 tmp/%.o: %.cpp
-	$(CXX) -o $@ $< $(cflags) -c
+	$(CXX) -c -o $@ $< $(cflags)
 
 tmp:
 	 mkdir $@
