@@ -5,7 +5,8 @@
 // Take a container of all backtests and produce a report as a string
 
 std::string
-report_performance(const std::list<strategy_performance> &performance) {
+report_performance(const return_type &prices,
+                   const std::list<strategy_performance> &performance) {
 
   std::stringstream out;
 
@@ -16,6 +17,7 @@ report_performance(const std::list<strategy_performance> &performance) {
 
   // Pretty print large numbers
   out.imbue(std::locale(""));
+  out << "* " << prices.size() << " currency pairs\n";
   out << "* " << performance.size() << " strategy/pair combinations\n";
   out << "* " << tests_performed << " backtests\n\n";
 

@@ -15,7 +15,7 @@ int main() {
   const auto &performance = have_a_nice_day_trader(prices);
 
   // Generate report
-  const auto &report = report_performance(performance);
+  const auto &report = report_performance(prices, performance);
 
   std::puts(report.c_str());
 }
