@@ -14,15 +14,15 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Fri 28 Sep 14:49:58 GMT 2018
-Crouching Munchkin 7 - 5
-Darting Munchkin 7 - 5
-Crouching Munchkin 7 - 4
-Leaping Bandicoot 3 - 4
-Darting Munchkin 7 - 4
-Crouching Jagdterrier 9 - 7
-Darting Jagdterrier 9 - 7
-Crouching Jagdterrier 19 - 3
-Crouching Jagdterrier 20 - 3
-Crouching Affenpinscher 15 - 3
-Crouching Affenpinscher 16 - 3
+Generated Fri 28 Sep 15:07:47 GMT 2018
+Crouching-Munchkin-7 - 5/1 SALT BTC 
+Darting-Munchkin-7 - 5/1 SALT BTC 
+Crouching-Munchkin-7 - 4/1 SALT ETH 
+Leaping-Bandicoot-3 - 4/1 SALT ETH 
+Darting-Munchkin-7 - 4/1 SALT ETH 
+Crouching-Jagdterrier-9 - 7/2 SALT BTC 
+Darting-Jagdterrier-9 - 7/2 SALT BTC 
+Crouching-Jagdterrier-19 - 3/0 SALT ETH 
+Crouching-Jagdterrier-20 - 3/0 SALT ETH 
+Crouching-Affenpinscher-15 - 3/0 SALT ETH 
+Crouching-Affenpinscher-16 - 3/0 SALT ETH 

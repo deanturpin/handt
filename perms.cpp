@@ -20,7 +20,7 @@ std::vector<strategy_t> get_strategies() {
     for (const auto &[name2, buy2] : lft::secondary_strategies)
       for (const auto &threshold : thresholds)
         permutations.push_back(
-            {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
+            {name1 + '-' + name2 + '-' + std::to_string(threshold), buy1, buy2,
              threshold});
 
   return permutations;

@@ -2,12 +2,16 @@
 #define PRICES_H
 
 #include <string>
-#include <tuple>
 #include <vector>
 
-using prices_t = std::vector<
-    std::tuple<std::string, std::string, std::string, std::vector<double>>>;
+struct trade_t {
+  std::string from_symbol;
+  std::string to_symbol;
+  std::string exchange;
+  std::vector<double> prices;
+};
 
+using prices_t = std::vector<trade_t>;
 prices_t get_prices(const std::string &directory = "tmp");
 
 #endif
