@@ -1,67 +1,17 @@
 #include "handt.h"
+#include "perms.h"
 #include "prices.h"
 #include "strategy.h"
 #include <algorithm>
-#include <cmath>
 #include <list>
 #include <numeric>
 #include <vector>
 
 // Take a container of prices and run all strategies permutations
 
-// A complete strategy consists of a primary and secondary strategy and a buy
-// threshold
-struct strategy_t {
-  std::string name;
-  lft::func1 primary;
-  lft::func2 secondary;
-  int threshold;
-  using iter = const std::vector<double>::const_iterator &;
-  bool execute(iter historic_price_index, iter current_price_index) const {
-
-    // Calculate the buy ratio
-    const double ratio = (100.0 + threshold) / 100.0;
-
-    // Test the strategies
-    const auto primary_response =
-        primary({historic_price_index, current_price_index});
-    const auto secondary_response =
-        secondary({historic_price_index, current_price_index});
-
-    // Check we haven't ended up with a huge number (or NaN) by inadvertantly
-    // dividing a double with a very similar double (or zero), and then
-    // return strategy success
-    return !std::isinf(secondary_response) && !std::isnan(primary_response) &&
-           primary_response && secondary_response > ratio;
-  }
-};
-
-std::vector<strategy_t> get_strategies() {
-
-  // Create a set of thresholds to use with each buy strategy
-  std::vector<int> thresholds(22);
-  std::iota(thresholds.begin(), thresholds.end(), 2);
-
-  // Create and all strategy permutations up front
-  const auto total_permutations = lft::primary_strategies.size() *
-                                  lft::secondary_strategies.size() *
-                                  thresholds.size();
-
-  std::vector<strategy_t> permutations;
-  permutations.reserve(total_permutations);
-
-  // Populate with strategies from the handt library
-  for (const auto &[name1, buy1] : lft::primary_strategies)
-    for (const auto &[name2, buy2] : lft::secondary_strategies)
-      for (const auto &threshold : thresholds)
-        permutations.push_back(
-            {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
-             threshold});
-
-  return permutations;
-}
-
-std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
+std::list<backtest_t>
+have_a_nice_day_trader(const prices_t &prices,
+                       const std::vector<strategy_t> &permutations) {
 
   // The sell strategy returns positively if the expected yield is acheived
   // within the trading window
@@ -75,13 +25,11 @@ std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
         });
   };
 
-  const auto permutations = get_strategies();
-
   // Backtest each currency pair
   std::list<backtest_t> backtests;
   for (const auto &[from_symbol, to_symbol, exchange, latest] : prices) {
 
-    // Execute all strategy permutuation
+    // Execute all strategy permutation
     for (const auto &strat : permutations) {
 
       // Create a new strategy and add it to the summary for later

@@ -1,4 +1,5 @@
 #include "handt.h"
+#include "perms.h"
 #include "prices.h"
 #include "report.h"
 #include "strategy.h"
@@ -12,9 +13,10 @@ int main() {
   const auto &prices = get_prices();
 
   // Get the strategies
+  const auto &perms = get_strategies();
 
   // Run backtests
-  const auto &backtests = have_a_nice_day_trader(prices);
+  const auto &backtests = have_a_nice_day_trader(prices, perms);
 
   // Generate report
   const auto &report = report_performance(prices, backtests);

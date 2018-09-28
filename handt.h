@@ -1,6 +1,7 @@
 #ifndef HANDT_H
 #define HANDT_H
 
+#include "perms.h"
 #include "prices.h"
 #include <list>
 #include <string>
@@ -18,6 +19,7 @@ struct backtest_t {
   bool buy = false;
 };
 
-std::list<backtest_t> have_a_nice_day_trader(const prices_t &pr);
+std::list<backtest_t> have_a_nice_day_trader(const prices_t &,
+                                             const std::vector<strategy_t> &);
 
 #endif
