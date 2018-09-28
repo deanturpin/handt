@@ -1,7 +1,7 @@
 #ifndef REPORT_H
 #define REPORT_H
 
-#include "handt.h"
+#include "backtest.h"
 #include "prices.h"
 #include <list>
 #include <sstream>

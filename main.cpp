@@ -1,8 +1,9 @@
-#include "handt.h"
+#include "backtest.h"
 #include "perms.h"
 #include "prices.h"
 #include "report.h"
 #include "unit_test.h"
+#include <iostream>
 
 int main() {
 
@@ -15,10 +16,18 @@ int main() {
   const auto &perms = get_strategies();
 
   // Run backtests
-  const auto &backtests = have_a_nice_day_trader(prices, perms);
+  const auto &backtests = run_backtests(prices, perms);
 
-  // Generate report
-  const auto &report = get_report(prices, backtests);
+  // Generate report for deployment
+  // const auto &report = get_report(prices, backtests);
+  // std::puts(report.c_str());
 
-  std::puts(report.c_str());
+  // Generate detailed internal report
+  int iterations = 0;
+  for (const auto &b : backtests) {
+    std::cout << b.name << " - " << b.good_deals << '\n';
+    ++iterations;
+    if (iterations > 10)
+      break;
+  }
 }

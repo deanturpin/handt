@@ -1,4 +1,4 @@
-#include "handt.h"
+#include "backtest.h"
 #include "perms.h"
 #include "prices.h"
 #include "strategy.h"
@@ -10,8 +10,8 @@
 // Take a container of prices and run all strategies permutations
 
 std::list<backtest_t>
-have_a_nice_day_trader(const prices_t &prices,
-                       const std::vector<strategy_t> &permutations) {
+run_backtests(const prices_t &prices,
+              const std::vector<strategy_t> &permutations) {
 
   // The sell strategy returns positively if the expected yield is acheived
   // within the trading window
