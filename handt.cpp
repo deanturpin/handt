@@ -1,14 +1,15 @@
 #include "handt.h"
 #include "prices.h"
 #include "strategy.h"
-
 #include <algorithm>
 #include <cmath>
 #include <list>
 #include <numeric>
 #include <vector>
 
-std::list<strategy_performance> have_a_nice_day_trader(const prices_t &pr) {
+// Take a container of prices and run all strategies permutations
+
+std::list<strategy_performance> have_a_nice_day_trader(const prices_t &prices) {
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(22);
@@ -70,14 +71,14 @@ std::list<strategy_performance> have_a_nice_day_trader(const prices_t &pr) {
         });
   };
 
-  for (const auto &[from_symbol, to_symbol, exchange, prices] : pr) {
+  for (const auto &[from_symbol, to_symbol, exchange, latest] : prices) {
 
     // Check read has succeeded and execute strategies
-    if (!prices.empty())
+    if (!latest.empty())
       for (const auto &strat : permutations) {
 
         // Create a new strategy and add it to the summary for later
-        const auto spot = prices.back();
+        const auto spot = latest.back();
         auto &perf = performance.emplace_back(strategy_performance{
             strat.name, from_symbol, to_symbol, exchange, spot});
 
@@ -95,13 +96,13 @@ std::list<strategy_performance> have_a_nice_day_trader(const prices_t &pr) {
         //                       |-- trade window --|
 
         // Initialise the price markers to the start of historic price data
-        auto historic_price_index = prices.cbegin();
+        auto historic_price_index = latest.cbegin();
         auto current_price_index =
             std::next(historic_price_index, analysis_window);
         auto future_price_index = std::next(current_price_index, sell_window);
 
         // Move windows along until we run out of prices
-        while (future_price_index < prices.cend()) {
+        while (future_price_index < latest.cend()) {
 
           // Test strategy
           if (strat.execute(historic_price_index, current_price_index)) {
@@ -131,8 +132,8 @@ std::list<strategy_performance> have_a_nice_day_trader(const prices_t &pr) {
         }
 
         // Calculate prospects using the most recent prices
-        historic_price_index = std::prev(prices.cend(), analysis_window);
-        current_price_index = prices.cend();
+        historic_price_index = std::prev(latest.cend(), analysis_window);
+        current_price_index = latest.cend();
 
         if (strat.execute(historic_price_index, current_price_index))
           perf.buy = true;

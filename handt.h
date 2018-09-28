@@ -4,7 +4,7 @@
 #include "prices.h"
 #include <list>
 
-// Structure to capture the results during a strategy backtest
+// Structure to capture the results of a strategy backtest run
 struct strategy_performance {
   std::string name;
   std::string from_symbol;

@@ -2,11 +2,12 @@
 #define STRATEGY_H
 
 #include <algorithm>
-#include <cassert>
 #include <cmath>
 #include <functional>
 #include <numeric>
 #include <vector>
+
+// THE STRATEGIES
 
 namespace handt {
 

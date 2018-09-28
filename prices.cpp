@@ -25,7 +25,7 @@ prices_t get_prices(const std::string &directory) {
     std::string from_symbol, to_symbol, exchange;
     in >> from_symbol >> to_symbol >> exchange;
 
-    // Get the prices and run the strategies over them
+    // Get the latest prices and run the strategies over them
     const std::vector<double> latest{std::istream_iterator<double>(in), {}};
 
     // Only store prices if the parse was successful

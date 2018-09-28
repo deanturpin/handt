@@ -1,6 +1,9 @@
 #ifndef UNIT_TEST_H
 #define UNIT_TEST_H
 
+#include <cassert>
+#include <vector>
+
 void unit_test() {
 
   // Test
