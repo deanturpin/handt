@@ -2,6 +2,7 @@
 #define REPORT_H
 
 #include <list>
+#include <sstream>
 #include <string>
 
 // Structure to capture the results during a strategy backtest
@@ -18,6 +19,6 @@ struct strategy_performance {
 };
 
 static_assert(std::is_standard_layout<strategy_performance>::value);
-void report_performance(const std::list<strategy_performance> &);
+std::string report_performance(const std::list<strategy_performance> &);
 
 #endif

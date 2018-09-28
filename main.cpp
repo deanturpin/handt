@@ -8,8 +8,14 @@ int main() {
 
   unit_test();
 
-  // Fetch the latest prices and have a nice day (trader)
+  // Fetch the latest prices
   const auto &prices = get_prices();
+
+  // Run backtests
   const auto &performance = have_a_nice_day_trader(prices);
-  report_performance(performance);
+
+  // Generate report
+  const auto &report = report_performance(performance);
+
+  std::puts(report.c_str());
 }

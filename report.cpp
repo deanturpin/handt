@@ -1,9 +1,11 @@
 #include "report.h"
-#include <iostream>
 #include <numeric>
 #include <string>
 
-void report_performance(const std::list<strategy_performance> &performance) {
+std::string
+report_performance(const std::list<strategy_performance> &performance) {
+
+  std::stringstream out;
 
   // Calculate total tests performed during backtesting
   const auto tests_performed = std::accumulate(
@@ -11,15 +13,15 @@ void report_performance(const std::list<strategy_performance> &performance) {
       [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
 
   // Pretty print large numbers
-  std::cout.imbue(std::locale(""));
+  out.imbue(std::locale(""));
 
   // Strategy and trade overview
   // std::cout << "* " << currency_pairs.size() << " currency pairs\n"
   //           << "* " << permutations.size() << " strategies\n"
   //           << "* " << performance.size() << " strategy/pair combinations\n"
   //           << "* " << tests_performed << " backtests\n\n";
-  std::cout << "* " << performance.size() << " strategy/pair combinations\n";
-  std::cout << "* " << tests_performed << " backtests\n\n";
+  out << "* " << performance.size() << " strategy/pair combinations\n";
+  out << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
   // std::cout << "# Current prospects (" << sell_threshold
@@ -47,9 +49,9 @@ void report_performance(const std::list<strategy_performance> &performance) {
                      : "no_url");
 
       // Report strategy summary
-      std::cout << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol
-                << "](" << url << ")|" << s.good_deals << '/' << s.bad_deals
-                << '|' << s.spot << '\n';
+      out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
+          << url << ")|" << s.good_deals << '/' << s.bad_deals << '|' << s.spot
+          << '\n';
 
       ++buy_count;
 
@@ -58,7 +60,7 @@ void report_performance(const std::list<strategy_performance> &performance) {
     }
 
   // Report individual strategy performance
-  std::cout << R"(
+  out << R"(
 # Top performers
 The results are ordered by success which is measured using the proportion of
 good to bad trades.
@@ -85,8 +87,10 @@ Strategy|Pair|Good/Bad|Spot
                    : "no_url");
 
     // Report strategy summary
-    std::cout << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol
-              << "](" << url << ")|" << s.good_deals << '/' << s.bad_deals
-              << '|' << s.spot << '\n';
+    out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
+        << url << ")|" << s.good_deals << '/' << s.bad_deals << '|' << s.spot
+        << '\n';
   }
+
+  return out.str();
 }
