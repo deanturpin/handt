@@ -3,9 +3,10 @@
 
 #include "prices.h"
 #include <list>
+#include <string>
 
 // Structure to capture the results of a strategy backtest run
-struct strategy_performance {
+struct backtest_t {
   std::string name;
   std::string from_symbol;
   std::string to_symbol;
@@ -17,6 +18,6 @@ struct strategy_performance {
   bool buy = false;
 };
 
-std::list<strategy_performance> have_a_nice_day_trader(const prices_t &pr);
+std::list<backtest_t> have_a_nice_day_trader(const prices_t &pr);
 
 #endif

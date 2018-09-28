@@ -12,10 +12,10 @@ int main() {
   const auto &prices = get_prices();
 
   // Run backtests
-  const auto &performance = have_a_nice_day_trader(prices);
+  const auto &backtests = have_a_nice_day_trader(prices);
 
   // Generate report
-  const auto &report = report_performance(prices, performance);
+  const auto &report = report_performance(prices, backtests);
 
   std::puts(report.c_str());
 }

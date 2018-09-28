@@ -9,7 +9,7 @@
 
 // Take a container of prices and run all strategies permutations
 
-std::list<strategy_performance> have_a_nice_day_trader(const prices_t &prices) {
+std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(22);
@@ -57,7 +57,7 @@ std::list<strategy_performance> have_a_nice_day_trader(const prices_t &prices) {
             {name1 + ' ' + name2 + ' ' + std::to_string(threshold), buy1, buy2,
              threshold});
 
-  std::list<strategy_performance> performance;
+  std::list<backtest_t> performance;
 
   // The sell strategy returns positively if the expected yield is acheived
   // within the trading window
@@ -79,8 +79,8 @@ std::list<strategy_performance> have_a_nice_day_trader(const prices_t &prices) {
 
         // Create a new strategy and add it to the summary for later
         const auto spot = latest.back();
-        auto &perf = performance.emplace_back(strategy_performance{
-            strat.name, from_symbol, to_symbol, exchange, spot});
+        auto &perf = performance.emplace_back(
+            backtest_t{strat.name, from_symbol, to_symbol, exchange, spot});
 
         // Configure trading periods for backtest
         const unsigned int analysis_window = 24;
