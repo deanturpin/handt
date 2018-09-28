@@ -14,11 +14,12 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Fri 28 Sep 09:30:18 GMT 2018
+Generated Fri 28 Sep 10:12:09 GMT 2018
 * 16,500 strategy/pair combinations
 * 30,198,136 backtests
 
 # Current prospects
+
 Darting Griffon 3|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|15/77|7.29e-05
 Crouching Basenji 2|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|18/102|7.29e-05
 Darting Basenji 2|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|16/105|7.29e-05
@@ -214,4 +215,3 @@ Darting Pekingese 8|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05733
 Darting Pekingese 9|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05733
 Darting Pekingese 10|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05733
 Darting Pekingese 11|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05733
-Darting Pekingese 12|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05733

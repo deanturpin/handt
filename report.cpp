@@ -20,7 +20,7 @@ report_performance(const std::list<strategy_performance> &performance) {
   out << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
-  out << "# Current prospects\n";
+  out << "# Current prospects\n\n";
 
   unsigned int buy_count = 0;
   for (const auto &s : performance)
