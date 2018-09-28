@@ -7,9 +7,9 @@
 #include <numeric>
 #include <vector>
 
-// THE STRATEGIES
+// THE STRATEGIES - by Low Frequency Trader
 
-namespace handt {
+namespace lft {
 
 // The container passed throughout
 using cont = const std::vector<double> &;
@@ -23,7 +23,7 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
 
     // Always return positively
     {"Crouching", []([[maybe_unused]] cont p) constexpr {return true;
-} // namespace handt
+} // namespace lft
 }
 ,
 

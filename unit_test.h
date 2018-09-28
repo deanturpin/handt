@@ -13,24 +13,24 @@ void unit_test() {
   const std::vector<double> ascending4{1, 2};
 
   // Front/back end trim sizes
-  assert(handt::front_end(ascending1).size() == 2);
-  assert(handt::front_end(ascending2).size() == 3);
-  assert(handt::back_end(ascending1).size() == 3);
-  assert(handt::back_end(ascending2).size() == 3);
+  assert(lft::front_end(ascending1).size() == 2);
+  assert(lft::front_end(ascending2).size() == 3);
+  assert(lft::back_end(ascending1).size() == 3);
+  assert(lft::back_end(ascending2).size() == 3);
 
   // Min max
-  assert(handt::maximum(ascending3) > 2.0);
-  assert(handt::minimum(ascending3) < 2.0);
+  assert(lft::maximum(ascending3) > 2.0);
+  assert(lft::minimum(ascending3) < 2.0);
 
   // Front, back and mean (with some other containers)
-  assert(handt::front(ascending4) < 2.0);
-  assert(handt::back(ascending4) > 1.0);
-  assert(handt::back(ascending4) > 1);
-  assert(handt::mean(ascending4) > 1.0);
+  assert(lft::front(ascending4) < 2.0);
+  assert(lft::back(ascending4) > 1.0);
+  assert(lft::back(ascending4) > 1);
+  assert(lft::mean(ascending4) > 1.0);
 
   // Primary strategies
   using cont2 = std::vector<double>;
-  const auto &prim = handt::primary_strategies;
+  const auto &prim = lft::primary_strategies;
 
   // Always true
   assert(prim.front().first == "Crouching");
@@ -60,7 +60,7 @@ void unit_test() {
   assert(prim.at(5).second(cont2{5, 4, 3, 2, 1}) == true);
 
   // Secondary strategies
-  const auto &strat = handt::secondary_strategies;
+  const auto &strat = lft::secondary_strategies;
   assert(strat.at(0).second(cont2{1, 2, 3, 4, 5}) > 1.0);
   assert(strat.at(0).second(cont2{}) > 1.0);
 
@@ -75,7 +75,7 @@ void unit_test() {
 
   // Front/back over mean
   const std::vector<double> test1{1.0, 2.0, 4.0, 2.0};
-  assert(handt::mean(test1) > 1.0); // 8 / 4 = 2
+  assert(lft::mean(test1) > 1.0); // 8 / 4 = 2
   assert(strat.at(3).second(test1) > 1.0);
   assert(strat.at(4).second(test1) < 2.26);
   assert(strat.at(5).second(test1) < .5);
