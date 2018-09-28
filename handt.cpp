@@ -17,7 +17,7 @@ std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
 
   // A complete strategy consists of a primary and secondary strategy and a buy
   // threshold
-  struct strategy_combo {
+  struct strategy_t {
     std::string name;
     handt::func1 primary;
     handt::func2 secondary;
@@ -46,7 +46,7 @@ std::list<backtest_t> have_a_nice_day_trader(const prices_t &prices) {
   const auto total_permutations = handt::primary_strategies.size() *
                                   handt::secondary_strategies.size() *
                                   thresholds.size();
-  std::vector<strategy_combo> permutations;
+  std::vector<strategy_t> permutations;
   permutations.reserve(total_permutations);
 
   // Populate with strategies from the handt library
