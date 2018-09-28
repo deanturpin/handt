@@ -24,3 +24,6 @@ tmp/haveanicedaytrader: tmp/prices.o tmp/handt.o tmp/report.o tmp/main.o
 # All intermediate files are stored in tmp, so just remove it
 clean:
 	rm -rf tmp
+
+cleanobjects:
+	rm -rf tmp/*.o

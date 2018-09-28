@@ -2,6 +2,8 @@
 #include <numeric>
 #include <string>
 
+// Take a container of all backtests and produce a report as a string
+
 std::string
 report_performance(const std::list<strategy_performance> &performance) {
 
@@ -14,21 +16,11 @@ report_performance(const std::list<strategy_performance> &performance) {
 
   // Pretty print large numbers
   out.imbue(std::locale(""));
-
-  // Strategy and trade overview
-  // std::cout << "* " << currency_pairs.size() << " currency pairs\n"
-  //           << "* " << permutations.size() << " strategies\n"
-  //           << "* " << performance.size() << " strategy/pair combinations\n"
-  //           << "* " << tests_performed << " backtests\n\n";
   out << "* " << performance.size() << " strategy/pair combinations\n";
   out << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
-  // std::cout << "# Current prospects (" << sell_threshold
-  //           << " % return)\n"
-  //              "Prospects based on prices from the last 24 hours.\n\n"
-  //              "Strategy|Pair|Good/Bad|Spot\n"
-  //              "---|---|---|---\n";
+  out << "# Current prospects\n";
 
   unsigned int buy_count = 0;
   for (const auto &s : performance)
@@ -61,7 +53,7 @@ report_performance(const std::list<strategy_performance> &performance) {
 
   // Report individual strategy performance
   out << R"(
-# Top performers
+# 80 day backtest
 The results are ordered by success which is measured using the proportion of
 good to bad trades.
 

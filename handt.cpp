@@ -1,6 +1,5 @@
 #include "handt.h"
 #include "prices.h"
-#include "report.h"
 #include "strategy.h"
 
 #include <algorithm>
