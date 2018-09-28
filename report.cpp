@@ -53,7 +53,7 @@ report_performance(const std::list<strategy_performance> &performance) {
 
   // Report individual strategy performance
   out << R"(
-# 80 day backtest
+# 80-day backtest
 The results are ordered by success which is measured using the proportion of
 good to bad trades.
 

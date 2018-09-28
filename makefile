@@ -19,7 +19,8 @@ tmp/haveanicedaytrader: tmp/prices.o tmp/handt.o tmp/report.o tmp/main.o
 	./$@ > tmp/strategy.txt
 	cat template.md > $(readme)
 	echo Generated $(shell TZ=GMT-1 date) >> $(readme)
-	`head -200 tmp/strategy.txt >> $(readme)`
+	head -200 tmp/strategy.txt >> $(readme)
+	head -60 readme.md
 
 # All intermediate files are stored in tmp, so just remove it
 clean:

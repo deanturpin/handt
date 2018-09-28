@@ -5,7 +5,7 @@
 #include <tuple>
 #include <vector>
 
-return_type get_prices(const std::string directory) {
+return_type get_prices(const std::string &directory) {
 
   return_type prices;
 
