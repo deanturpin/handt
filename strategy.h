@@ -157,7 +157,6 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
 };
-
-} // namespace handt
+}
 
 #endif
