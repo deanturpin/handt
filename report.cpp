@@ -43,8 +43,8 @@ std::string get_report(const prices_t &prices,
 
       // Report strategy summary
       out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
-          << url << ")|" << s.good_deals << '/' << s.bad_deals << '|' << s.spot
-          << '\n';
+          << url << ")|" << s.good_deals.size() << '/' << s.bad_deals.size()
+          << '|' << s.spot << '\n';
 
       ++buy_count;
 
@@ -81,8 +81,8 @@ Strategy|Pair|Good/Bad|Spot
 
     // Report strategy summary
     out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
-        << url << ")|" << s.good_deals << '/' << s.bad_deals << '|' << s.spot
-        << '\n';
+        << url << ")|" << s.good_deals.size() << '/' << s.bad_deals.size()
+        << '|' << s.spot << '\n';
   }
 
   return out.str();

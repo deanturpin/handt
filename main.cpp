@@ -26,8 +26,9 @@ int main() {
   // Generate detailed internal report
   int iterations = 0;
   for (const auto &b : backtests) {
-    std::cout << b.name << " - " << b.good_deals << '/' << b.bad_deals << ' '
-              << b.from_symbol << ' ' << b.to_symbol << ' ' << '\n';
+    std::cout << b.name << " - " << b.good_deals.size() << '/'
+              << b.bad_deals.size() << ' ' << b.from_symbol << ' '
+              << b.to_symbol << ' ' << '\n';
 
     // Look up the prices for this backtest
     const auto it = std::find_if(

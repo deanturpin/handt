@@ -14,15 +14,15 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Fri 28 Sep 15:07:47 GMT 2018
+Generated Sat 29 Sep 09:29:14 GMT 2018
+Crouching-Havanese-15 - 5/1 IOT BNB 
+Slouching-Pomeranian-6 - 5/1 IOT ETH 
 Crouching-Munchkin-7 - 5/1 SALT BTC 
 Darting-Munchkin-7 - 5/1 SALT BTC 
-Crouching-Munchkin-7 - 4/1 SALT ETH 
-Leaping-Bandicoot-3 - 4/1 SALT ETH 
-Darting-Munchkin-7 - 4/1 SALT ETH 
-Crouching-Jagdterrier-9 - 7/2 SALT BTC 
-Darting-Jagdterrier-9 - 7/2 SALT BTC 
-Crouching-Jagdterrier-19 - 3/0 SALT ETH 
-Crouching-Jagdterrier-20 - 3/0 SALT ETH 
-Crouching-Affenpinscher-15 - 3/0 SALT ETH 
-Crouching-Affenpinscher-16 - 3/0 SALT ETH 
+Crouching-Shiba Inu-15 - 4/0 IOT BNB 
+Slouching-Shiba Inu-15 - 4/0 IOT BNB 
+Crouching-Griffon-15 - 4/1 IOT BNB 
+Crouching-Pekingese-9 - 4/1 IOT BNB 
+Supine-Shiba Inu-13 - 4/1 IOT BNB 
+Supine-Havanese-13 - 4/1 IOT BNB 
+Slouching-Griffon-15 - 4/1 IOT BNB 

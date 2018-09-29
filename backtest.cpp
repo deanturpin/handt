@@ -1,7 +1,6 @@
 #include "backtest.h"
 #include "perms.h"
 #include "prices.h"
-#include "strategy.h"
 #include <algorithm>
 #include <list>
 #include <numeric>
@@ -67,13 +66,13 @@ run_backtests(const prices_t &prices,
           if (const auto sell_price_index =
                   sell(current_price_index, future_price_index);
               sell_price_index != future_price_index) {
-            ++backtest.good_deals;
+            backtest.good_deals.push_back({0, 0});
 
             // Move the analysis window so the next iteration starts at
             // the last sell price
             historic_price_index = sell_price_index;
           } else
-            ++backtest.bad_deals;
+            backtest.bad_deals.push_back({0, 0});
         }
 
         // Nudge the analysis window along and update upstream prices
@@ -97,10 +96,10 @@ run_backtests(const prices_t &prices,
   // Sort strategies by performance - we don't want to divide by zero be also
   // want zero denominators or numerators to sort nicely
   backtests.sort([](const auto &a, const auto &b) {
-    return static_cast<double>(a.good_deals ? a.good_deals : .9) /
-               (a.bad_deals ? a.bad_deals : .9) >
-           static_cast<double>(b.good_deals ? b.good_deals : .9) /
-               (b.bad_deals ? b.bad_deals : .9);
+    return static_cast<double>(a.good_deals.size() ? a.good_deals.size() : .9) /
+               (a.bad_deals.size() ? a.bad_deals.size() : .9) >
+           static_cast<double>(b.good_deals.size() ? b.good_deals.size() : .9) /
+               (b.bad_deals.size() ? b.bad_deals.size() : .9);
   });
 
   return backtests;
