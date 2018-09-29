@@ -66,7 +66,13 @@ run_backtests(const prices_t &prices,
           if (const auto sell_price_index =
                   sell(current_price_index, future_price_index);
               sell_price_index != future_price_index) {
-            backtest.good_deals.push_back({0, 0});
+
+            const int buy_index =
+                std::distance(latest.cbegin(), current_price_index);
+            const int sell_index =
+                std::distance(latest.cbegin(), sell_price_index);
+
+            backtest.good_deals.push_back({buy_index, sell_index});
 
             // Move the analysis window so the next iteration starts at
             // the last sell price

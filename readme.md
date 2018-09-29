@@ -14,15 +14,15 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Sat 29 Sep 09:29:14 GMT 2018
-Crouching-Havanese-15 - 5/1 IOT BNB 
-Slouching-Pomeranian-6 - 5/1 IOT ETH 
-Crouching-Munchkin-7 - 5/1 SALT BTC 
-Darting-Munchkin-7 - 5/1 SALT BTC 
-Crouching-Shiba Inu-15 - 4/0 IOT BNB 
-Slouching-Shiba Inu-15 - 4/0 IOT BNB 
-Crouching-Griffon-15 - 4/1 IOT BNB 
-Crouching-Pekingese-9 - 4/1 IOT BNB 
-Supine-Shiba Inu-13 - 4/1 IOT BNB 
-Supine-Havanese-13 - 4/1 IOT BNB 
-Slouching-Griffon-15 - 4/1 IOT BNB 
+Generated Sat 29 Sep 19:24:47 GMT 2018
+Supine-Norrbottenspets-16 AMB BTC - 614/627/13 748/771/23 879/901/22 1428/1429/1 1503/1522/19 1581/1591/10  - 0
+Crouching-Norrbottenspets-16 AMB BTC - 614/627/13 748/771/23 879/901/22 1428/1429/1 1503/1522/19 1581/1591/10  - 1
+Supine-Shiba Inu-16 AMB BTC - 614/627/13 748/771/23 879/901/22 1428/1429/1 1503/1522/19 1581/1591/10  - 1
+Slouching-Norrbottenspets-16 AMB BTC - 614/627/13 748/771/23 879/901/22 1428/1429/1 1503/1522/19 1581/1591/10  - 1
+Darting-Norrbottenspets-4 AMB BNB - 502/534/32 897/916/19 988/994/6 1255/1287/32 1652/1688/36 1759/1768/9  - 1
+Crouching-Norrbottenspets-17 AMB BTC - 614/627/13 879/901/22 1429/1454/25 1504/1522/18 1581/1591/10  - 0
+Crouching-Xoloitzcuintli-11 AMB BTC - 614/627/13 878/901/23 1423/1445/22 1504/1522/18 1581/1591/10  - 0
+Crouching-Griffon-18 AMB BTC - 614/627/13 879/901/22 1423/1445/22 1504/1522/18 1581/1591/10  - 0
+Crouching-Havanese-18 AMB BTC - 614/627/13 879/901/22 1423/1445/22 1504/1522/18 1581/1591/10  - 0
+Crouching-Pekingese-11 AMB BTC - 614/627/13 878/901/23 1423/1445/22 1504/1522/18 1581/1591/10  - 0
+Supine-Norrbottenspets-17 AMB BTC - 614/627/13 879/901/22 1429/1454/25 1504/1522/18 1581/1591/10  - 0

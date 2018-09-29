@@ -26,9 +26,15 @@ int main() {
   // Generate detailed internal report
   int iterations = 0;
   for (const auto &b : backtests) {
-    std::cout << b.name << " - " << b.good_deals.size() << '/'
-              << b.bad_deals.size() << ' ' << b.from_symbol << ' '
-              << b.to_symbol << ' ' << '\n';
+    std::cout << b.name << ' ' << b.from_symbol << ' ' << b.to_symbol << " - ";
+
+    for (const auto &[start, end] : b.good_deals) {
+      const int diff = end - start;
+      assert(diff < 48 && "trade too long");
+      std::cout << start << '/' << end << '/' << diff << ' ';
+    }
+
+    std::cout << " - " << b.bad_deals.size() << '\n';
 
     // Look up the prices for this backtest
     const auto it = std::find_if(
