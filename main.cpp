@@ -24,6 +24,6 @@ int main() {
   std::puts(report.c_str());
 
   // Generate detailed report of analysis
-  // const auto &detailed_report = get_detailed_report(prices, backtests);
-  // std::fputs(detailed_report.c_str(), stderr);
+  const auto &detailed_report = get_detailed_report(prices, backtests);
+  std::fputs(detailed_report.c_str(), stderr);
 }

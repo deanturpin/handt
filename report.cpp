@@ -1,5 +1,4 @@
 #include "report.h"
-#include <cassert>
 #include <fstream>
 #include <numeric>
 #include <string>
@@ -103,13 +102,10 @@ std::string get_detailed_report(const prices_t &prices,
   for (const auto &b : backtests) {
     report << b.name << ' ' << b.from_symbol << ' ' << b.to_symbol << " - ";
 
-    for (const auto &[start, end] : b.good_deals) {
-      const int diff = end - start;
-      assert(diff < 48 && "trade too long");
-      report << start << '/' << end << '/' << diff << ' ';
-    }
+    for (const auto &[start, end] : b.good_deals)
+      report << start << '/' << end << '/' << end - start << ' ';
 
-    report << " - " << b.bad_deals.size() << '\n';
+    report << " - " << b.good_deals.size() << '/' << b.bad_deals.size() << '\n';
 
     // Look up the prices for this backtest
     const auto it = std::find_if(
@@ -119,7 +115,9 @@ std::string get_detailed_report(const prices_t &prices,
         });
 
     if (it != prices.cend()) {
-      const std::string file_name = "tmp/" + b.name + ".csv";
+      const std::string file_name = "analysis/" + b.name + '-' + b.from_symbol +
+                                    '-' + b.to_symbol + ".csv";
+
       std::ofstream out(file_name);
       for (const auto &p : it->prices)
         out << p << ", \n";

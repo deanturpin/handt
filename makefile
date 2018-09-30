@@ -1,4 +1,4 @@
-all: tmp tmp/haveanicedaytrader
+all: tmp analysis tmp/haveanicedaytrader
 
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
@@ -9,8 +9,11 @@ tmp/%.o: %.cpp
 	$(CXX) -c -o $@ $< $(cflags)
 
 tmp:
-	 mkdir $@
+	 mkdir -p $@
 	./get_prices.py
+
+analysis:
+	 mkdir -p $@
 
 # Generate documentation
 readme = readme.md
