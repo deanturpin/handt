@@ -20,5 +20,6 @@ int main() {
   // Generate report
   const auto &report = get_report(prices, backtests);
 
+  // Print report
   std::puts(report.c_str());
 }
