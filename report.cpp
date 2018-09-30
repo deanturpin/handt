@@ -21,7 +21,10 @@ std::string get_report(const prices_t &prices,
   out << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
-  out << "# Current prospects\n\n";
+  out << "# Current prospects\n\n"
+      << "Prospects based on prices from the last 24 hours.\n\n"
+      << "Strategy|Pair|Good/Bad|Spot\n"
+      << "---|---|---|---\n";
 
   unsigned int buy_count = 0;
   for (const auto &s : performance)

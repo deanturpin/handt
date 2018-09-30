@@ -14,13 +14,17 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Sun 30 Sep 14:23:50 GMT 2018
+Generated Sun 30 Sep 14:32:07 GMT 2018
 * 8 currency pairs
 * 26,400 strategy/pair combinations
 * 48,611,881 backtests
 
 # Current prospects
 
+Prospects based on prices from the last 24 hours.
+
+Strategy|Pair|Good/Bad|Spot
+---|---|---|---
 Supine Griffon 2|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|25/180|0.002053
 Supine Norrbottenspets 2|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|21/162|0.002053
 Supine Lundehund 2|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|25/206|0.002053
@@ -211,7 +215,3 @@ Darting Capybara 3|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
 Darting Griffon 8|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
 Darting Cricket 22|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
 Darting Axolotl 15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
-Darting Shiba Inu 9|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
-Darting Shiba Inu 10|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
-Darting Havanese 15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
-Darting Havanese 16|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|2/0|0.05742
