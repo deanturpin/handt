@@ -19,6 +19,8 @@ int main() {
 
   // Generate report for deployment
   const auto &report = get_report(prices, backtests);
+
+  // Print report
   std::puts(report.c_str());
 
   // Generate detailed report of analysis
