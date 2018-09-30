@@ -1,5 +1,5 @@
-#ifndef HANDT_H
-#define HANDT_H
+#ifndef BACKTEST_H
+#define BACKTEST_H
 
 #include "perms.h"
 #include "prices.h"
@@ -13,13 +13,13 @@ struct backtest_t {
   std::string to_symbol;
   std::string exchange;
   double spot = 0.0;
-  unsigned int good_deals = 0;
-  unsigned int bad_deals = 0;
+  std::vector<std::pair<int, int>> good_deals{};
+  std::vector<std::pair<int, int>> bad_deals{};
   unsigned int opportunities = 0;
   bool buy = false;
 };
 
-std::list<backtest_t> have_a_nice_day_trader(const prices_t &,
-                                             const std::vector<strategy_t> &);
+std::list<backtest_t> run_backtests(const prices_t &,
+                                    const std::vector<strategy_t> &);
 
 #endif

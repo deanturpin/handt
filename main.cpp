@@ -1,4 +1,4 @@
-#include "handt.h"
+#include "backtest.h"
 #include "perms.h"
 #include "prices.h"
 #include "report.h"
@@ -15,11 +15,15 @@ int main() {
   const auto &perms = get_strategies();
 
   // Run backtests
-  const auto &backtests = have_a_nice_day_trader(prices, perms);
+  const auto &backtests = run_backtests(prices, perms);
 
-  // Generate report
+  // Generate report for deployment
   const auto &report = get_report(prices, backtests);
 
   // Print report
   std::puts(report.c_str());
+
+  // Generate detailed report of analysis
+  // const auto &detailed_report = get_detailed_report(prices, backtests);
+  // std::fputs(detailed_report.c_str(), stderr);
 }
