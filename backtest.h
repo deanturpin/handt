@@ -19,7 +19,7 @@ struct backtest_t {
   bool buy = false;
 };
 
-std::vector<backtest_t> run_backtests(const prices_t &,
+std::vector<backtest_t> run_backtests(const std::vector<trade_t> &,
                                       const std::vector<strategy_t> &);
 
 #endif

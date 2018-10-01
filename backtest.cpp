@@ -1,14 +1,14 @@
 #include "backtest.h"
 #include "perms.h"
 #include "prices.h"
-#include <algorithm>
 #include <numeric>
+#include <parallel/algorithm>
 #include <vector>
 
-// Take a container of prices and run all strategies permutations
+// Take a container of prices and run all strategy permutations over them
 
 std::vector<backtest_t>
-run_backtests(const prices_t &prices,
+run_backtests(const std::vector<trade_t> &prices,
               const std::vector<strategy_t> &permutations) {
 
   // The sell strategy returns positively if the expected yield is acheived
@@ -98,15 +98,17 @@ run_backtests(const prices_t &prices,
     }
   }
 
-  stable_sort(
-      backtests.begin(), backtests.end(), [](const auto &a, const auto &b) {
-        return static_cast<double>(a.good_deals.size() ? a.good_deals.size()
-                                                       : .9) /
-                   (a.bad_deals.size() ? a.bad_deals.size() : .9) >
-               static_cast<double>(b.good_deals.size() ? b.good_deals.size()
-                                                       : .9) /
-                   (b.bad_deals.size() ? b.bad_deals.size() : .9);
-      });
+  stable_sort(backtests.begin(), backtests.end(),
+              [](const auto &a, const auto &b) {
+                const unsigned int agd = a.good_deals.size();
+                const unsigned int bgd = b.good_deals.size();
+
+                const unsigned int abd = a.bad_deals.size();
+                const unsigned int bbd = b.bad_deals.size();
+
+                return static_cast<double>(agd ? agd : .9) / (abd ? abd : .9) >
+                       static_cast<double>(bgd ? bgd : .9) / (bbd ? bbd : .9);
+              });
 
   return backtests;
 }

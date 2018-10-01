@@ -6,8 +6,9 @@
 #include <string>
 #include <vector>
 
-// A complete strategy consists of a primary and secondary strategy and a buy
-// threshold
+// Generate strategy permutations: a complete strategy consists of a primary
+// and secondary strategy and a buy threshold
+
 struct strategy_t {
   std::string name;
   lft::func1 primary;

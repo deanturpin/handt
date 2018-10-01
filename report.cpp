@@ -4,7 +4,7 @@
 
 // Take a container of all backtests and produce a report as a string
 
-std::string get_report(const prices_t &prices,
+std::string get_report(const std::vector<trade_t> &prices,
                        const std::vector<backtest_t> &backtests) {
 
   std::stringstream out;

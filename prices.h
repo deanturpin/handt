@@ -11,7 +11,6 @@ struct trade_t {
   std::vector<double> prices;
 };
 
-using prices_t = std::vector<trade_t>;
-prices_t get_prices(const std::string &directory = "tmp");
+std::vector<trade_t> get_prices();
 
 #endif
