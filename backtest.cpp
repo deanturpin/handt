@@ -1,8 +1,8 @@
 #include "backtest.h"
 #include "perms.h"
 #include "trade.h"
+#include <algorithm>
 #include <numeric>
-#include <parallel/algorithm>
 #include <vector>
 
 // Take a container of prices and run all strategy permutations over them
