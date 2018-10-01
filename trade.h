@@ -1,5 +1,5 @@
-#ifndef PRICES_H
-#define PRICES_H
+#ifndef TRADE_H
+#define TRADE_H
 
 #include <string>
 #include <vector>
@@ -11,6 +11,6 @@ struct trade_t {
   std::vector<double> prices;
 };
 
-std::vector<trade_t> get_prices();
+std::vector<trade_t> get_trades();
 
 #endif

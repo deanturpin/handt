@@ -2,7 +2,7 @@
 #define REPORT_H
 
 #include "backtest.h"
-#include "prices.h"
+#include "trade.h"
 #include <string>
 #include <vector>
 

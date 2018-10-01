@@ -17,7 +17,7 @@ analysis:
 
 # Generate documentation
 readme = readme.md
-tmp/haveanicedaytrader: tmp/prices.o tmp/backtest.o tmp/report.o \
+tmp/haveanicedaytrader: tmp/trade.o tmp/backtest.o tmp/report.o \
 	tmp/main.o tmp/perms.o tmp/detailed_report.o
 	$(CXX) -o $@ $^ -lstdc++fs
 	cat template.md > $(readme)

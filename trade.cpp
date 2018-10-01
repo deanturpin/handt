@@ -1,4 +1,4 @@
-#include "prices.h"
+#include "trade.h"
 #include <filesystem>
 #include <fstream>
 #include <iterator>
@@ -7,9 +7,9 @@
 // Take a directory name, read all the files and return a container of prices
 // for all coins
 
-std::vector<trade_t> get_prices() {
+std::vector<trade_t> get_trades() {
 
-  std::vector<trade_t> prices;
+  std::vector<trade_t> trades;
 
   // Fetch list of price files
   std::vector<std::string> currency_pairs;
@@ -25,12 +25,12 @@ std::vector<trade_t> get_prices() {
     in >> from_symbol >> to_symbol >> exchange;
 
     // Get the latest prices and run the strategies over them
-    const std::vector<double> latest{std::istream_iterator<double>(in), {}};
+    const std::vector<double> prices{std::istream_iterator<double>(in), {}};
 
     // Only store prices if the parse was successful
-    if (!latest.empty())
-      prices.push_back({from_symbol, to_symbol, exchange, latest});
+    if (!prices.empty())
+      trades.push_back({from_symbol, to_symbol, exchange, prices});
   }
 
-  return prices;
+  return trades;
 }

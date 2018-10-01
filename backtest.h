@@ -2,7 +2,7 @@
 #define BACKTEST_H
 
 #include "perms.h"
-#include "prices.h"
+#include "trade.h"
 #include <string>
 #include <vector>
 
