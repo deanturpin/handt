@@ -1,4 +1,5 @@
 #include "report.h"
+#include "strategy.h"
 #include <numeric>
 #include <sstream>
 #include <string>
@@ -6,6 +7,7 @@
 // Take a container of all backtests and produce a report as a string
 
 std::string get_report(const std::vector<trade_t> &prices,
+                       const std::vector<strategy_t> &strategies,
                        const std::vector<backtest_t> &backtests) {
 
   std::stringstream out;
@@ -18,6 +20,7 @@ std::string get_report(const std::vector<trade_t> &prices,
   // Pretty print large numbers
   out.imbue(std::locale(""));
   out << "* " << prices.size() << " currency pairs\n";
+  out << "* " << strategies.size() << " strategies\n";
   out << "* " << backtests.size() << " strategy/pair combinations\n";
   out << "* " << tests_performed << " backtests\n\n";
 

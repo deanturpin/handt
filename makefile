@@ -15,11 +15,14 @@ tmp:
 analysis:
 	 mkdir -p $@
 
+objects:
+	make -j $(shell nproc) tmp/trade.o tmp/backtest.o tmp/report.o \
+	tmp/main.o tmp/perms.o tmp/detailed_report.o
+
 # Generate documentation
 readme = readme.md
-tmp/haveanicedaytrader: tmp/trade.o tmp/backtest.o tmp/report.o \
-	tmp/main.o tmp/perms.o tmp/detailed_report.o
-	$(CXX) -o $@ $^ -lstdc++fs
+tmp/haveanicedaytrader: objects
+	$(CXX) -o $@ tmp/*.o -lstdc++fs
 	cat template.md > $(readme)
 	echo Generated $(shell TZ=GMT-1 date) >> $(readme)
 	./$@ | head -100 >> $(readme)

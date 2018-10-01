@@ -13,13 +13,13 @@ int main() {
   const auto &trades = get_trades();
 
   // Get the strategies
-  const auto &perms = get_strategies();
+  const auto &strategies = get_strategies();
 
   // Run backtests
-  const auto &backtests = run_backtests(trades, perms);
+  const auto &backtests = run_backtests(trades, strategies);
 
   // Generate report for deployment
-  const auto &report = get_report(trades, backtests);
+  const auto &report = get_report(trades, strategies, backtests);
 
   // Print report
   std::puts(report.c_str());
