@@ -24,7 +24,6 @@ readme = readme.md
 tmp/haveanicedaytrader: objects
 	$(CXX) -o $@ tmp/*.o -lstdc++fs
 	cat template.md > $(readme)
-	echo Generated $(shell TZ=GMT-1 date) >> $(readme)
 	./$@ | head -100 >> $(readme)
 	head -60 readme.md
 

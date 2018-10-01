@@ -4,6 +4,7 @@
 #include "report.h"
 #include "trade.h"
 #include "unit_test.h"
+#include <chrono>
 #include <iostream>
 
 int main() {
@@ -25,10 +26,21 @@ int main() {
   // Generate detailed report of analysis
   const auto &detailed_report = get_detailed_report(trades, backtests);
 
+  // Create printable timestamp
+  const std::time_t end_time =
+      std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+  const auto generated_timestamp = std::ctime(&end_time);
+
+  // Calculate total backtest performed
+  const auto total_backtests = std::accumulate(
+      backtests.cbegin(), backtests.cend(), 0ul,
+      [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
+
   std::cout.imbue(std::locale(""));
-  std::cout << "* " << trades.size() << " currency pairs\n"
+  std::cout << "Generated " << generated_timestamp << '\n'
+            << "* " << trades.size() << " currency pairs\n"
             << "* " << strategies.size() << " strategies\n"
-            << "* " << backtests.size() << " backtests\n\n"
+            << "* " << total_backtests << " backtests\n\n"
             << report << '\n'
             << detailed_report << '\n';
 }
