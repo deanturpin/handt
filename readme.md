@@ -14,7 +14,7 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Mon 1 Oct 08:39:18 GMT 2018
+Generated Mon 1 Oct 09:27:08 GMT 2018
 * 2 currency pairs
 * 6,600 strategy/pair combinations
 * 11,792,094 backtests
@@ -24,17 +24,17 @@ Prospects based on prices from the last 24 hours.
 
 Strategy|Pair|Good/Bad|Spot|Last (days)
 ---|---|---|---|---
-Leaping-Lundehund-2|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-3|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-4|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-5|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-6|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-7|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-8|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-9|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-10|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-11|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
-Leaping-Lundehund-12|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|
+Leaping-Lundehund-2|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-3|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-4|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-5|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-6|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-7|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-8|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-9|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-10|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-11|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
+Leaping-Lundehund-12|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|14/59|7.41e-05|4
 
 # 80-day backtest
 The results are ordered by success which is measured using the proportion of
