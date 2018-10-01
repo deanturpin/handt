@@ -14,7 +14,7 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Mon 1 Oct 11:02:53 GMT 2018
+Generated Mon 1 Oct 11:05:43 GMT 2018
 * 3 currency pairs
 * 9,900 strategy/pair combinations
 * 17,934,202 backtests

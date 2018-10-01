@@ -3,8 +3,8 @@
 
 #include "backtest.h"
 #include "prices.h"
-#include <sstream>
 #include <string>
+#include <vector>
 
 static_assert(std::is_standard_layout<backtest_t>::value);
 std::string get_report(const std::vector<trade_t> &,

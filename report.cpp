@@ -1,5 +1,6 @@
 #include "report.h"
 #include <numeric>
+#include <sstream>
 #include <string>
 
 // Take a container of all backtests and produce a report as a string
