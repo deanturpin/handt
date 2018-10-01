@@ -4,6 +4,7 @@
 #include "report.h"
 #include "trade.h"
 #include "unit_test.h"
+#include <iostream>
 
 int main() {
 
@@ -21,10 +22,13 @@ int main() {
   // Generate report for deployment
   const auto &report = get_report(trades, strategies, backtests);
 
-  // Print report
-  std::puts(report.c_str());
-
   // Generate detailed report of analysis
   const auto &detailed_report = get_detailed_report(trades, backtests);
-  std::fputs(detailed_report.c_str(), stderr);
+
+  std::cout.imbue(std::locale(""));
+  std::cout << "* " << trades.size() << " currency pairs\n"
+            << "* " << strategies.size() << " strategies\n"
+            << "* " << backtests.size() << " backtests\n\n"
+            << report << '\n'
+            << detailed_report << '\n';
 }

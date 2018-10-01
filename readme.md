@@ -14,11 +14,10 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Mon 1 Oct 15:37:13 GMT 2018
+Generated Mon 1 Oct 15:47:56 GMT 2018
 * 4 currency pairs
 * 3,300 strategies
-* 13,200 strategy/pair combinations
-* 24,133,660 backtests
+* 13,200 backtests
 
 # Current prospects
 Prospects based on prices from the last 24 hours.
@@ -115,3 +114,4 @@ Leaping-Havanese-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.4974
 Darting-Jagdterrier-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.4974
 Darting-Cricket-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.4974
 Darting-Axolotl-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.4974
+Darting-Havanese-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.4974

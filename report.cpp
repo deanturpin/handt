@@ -6,23 +6,12 @@
 
 // Take a container of all backtests and produce a report as a string
 
-std::string get_report(const std::vector<trade_t> &prices,
-                       const std::vector<strategy_t> &strategies,
-                       const std::vector<backtest_t> &backtests) {
+std::string
+get_report(const std::vector<trade_t> &prices,
+           [[maybe_unused]] const std::vector<strategy_t> &strategies,
+           const std::vector<backtest_t> &backtests) {
 
   std::stringstream out;
-
-  // Calculate total tests performed during backtesting
-  const auto tests_performed = std::accumulate(
-      backtests.cbegin(), backtests.cend(), 0ul,
-      [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
-
-  // Pretty print large numbers
-  out.imbue(std::locale(""));
-  out << "* " << prices.size() << " currency pairs\n";
-  out << "* " << strategies.size() << " strategies\n";
-  out << "* " << backtests.size() << " strategy/pair combinations\n";
-  out << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
   out << "# Current prospects\n"
