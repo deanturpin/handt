@@ -6,9 +6,8 @@
 #include <string>
 #include <vector>
 
-static_assert(std::is_standard_layout<backtest_t>::value);
 std::string get_report(const std::vector<trade_t> &,
-                       const std::vector<strategy_t> &,
-                       const std::vector<backtest_t> &);
+                       const std::vector<backtest_t> &, const unsigned int &,
+                       const bool &);
 
 #endif

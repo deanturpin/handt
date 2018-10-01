@@ -21,7 +21,8 @@ int main() {
   const auto &backtests = run_backtests(trades, strategies);
 
   // Generate report for deployment
-  const auto &report = get_report(trades, strategies, backtests);
+  const auto &prospects_report = get_report(trades, backtests, 10, true);
+  const auto &backtest_report = get_report(trades, backtests, 20, false);
 
   // Generate detailed report of analysis
   const auto &detailed_report = get_detailed_report(trades, backtests);
@@ -41,6 +42,9 @@ int main() {
             << "* " << trades.size() << " currency pairs\n"
             << "* " << strategies.size() << " strategies\n"
             << "* " << total_backtests << " backtests\n\n"
-            << report << '\n'
+            << "# Current prospects\n"
+            << prospects_report << '\n'
+            << "# 80-day backtest\n"
+            << backtest_report << '\n'
             << detailed_report << '\n';
 }

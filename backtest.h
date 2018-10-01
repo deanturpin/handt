@@ -22,4 +22,6 @@ struct backtest_t {
 std::vector<backtest_t> run_backtests(const std::vector<trade_t> &,
                                       const std::vector<strategy_t> &);
 
+static_assert(std::is_standard_layout<backtest_t>::value);
+
 #endif
