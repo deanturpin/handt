@@ -3,7 +3,7 @@ python: "3.6"
 script:
   - make CXX=g++-8
   - cppcheck --enable=all .
-  - echo "'''" $(sloccount *.h *.cpp get_prices.py) "'''" >> readme.md
+  - echo -e "\n'''" $(sloccount *.h *.cpp get_prices.py) "'''" >> readme.md
 
 deploy:
   provider: pages
