@@ -2,13 +2,12 @@
 #include "perms.h"
 #include "prices.h"
 #include <algorithm>
-#include <list>
 #include <numeric>
 #include <vector>
 
 // Take a container of prices and run all strategies permutations
 
-std::list<backtest_t>
+std::vector<backtest_t>
 run_backtests(const prices_t &prices,
               const std::vector<strategy_t> &permutations) {
 
@@ -25,7 +24,7 @@ run_backtests(const prices_t &prices,
   };
 
   // Backtest each currency pair
-  std::list<backtest_t> backtests;
+  std::vector<backtest_t> backtests;
   for (const auto &[from_symbol, to_symbol, exchange, latest] : prices) {
 
     // Execute all strategy permutation
@@ -99,14 +98,15 @@ run_backtests(const prices_t &prices,
     }
   }
 
-  // Sort strategies by performance - we don't want to divide by zero be also
-  // want zero denominators or numerators to sort nicely
-  backtests.sort([](const auto &a, const auto &b) {
-    return static_cast<double>(a.good_deals.size() ? a.good_deals.size() : .9) /
-               (a.bad_deals.size() ? a.bad_deals.size() : .9) >
-           static_cast<double>(b.good_deals.size() ? b.good_deals.size() : .9) /
-               (b.bad_deals.size() ? b.bad_deals.size() : .9);
-  });
+  stable_sort(
+      backtests.begin(), backtests.end(), [](const auto &a, const auto &b) {
+        return static_cast<double>(a.good_deals.size() ? a.good_deals.size()
+                                                       : .9) /
+                   (a.bad_deals.size() ? a.bad_deals.size() : .9) >
+               static_cast<double>(b.good_deals.size() ? b.good_deals.size()
+                                                       : .9) /
+                   (b.bad_deals.size() ? b.bad_deals.size() : .9);
+      });
 
   return backtests;
 }

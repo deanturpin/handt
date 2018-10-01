@@ -3,8 +3,8 @@
 
 #include "perms.h"
 #include "prices.h"
-#include <list>
 #include <string>
+#include <vector>
 
 // Structure to capture the results of a strategy backtest run
 struct backtest_t {
@@ -19,7 +19,7 @@ struct backtest_t {
   bool buy = false;
 };
 
-std::list<backtest_t> run_backtests(const prices_t &,
-                                    const std::vector<strategy_t> &);
+std::vector<backtest_t> run_backtests(const prices_t &,
+                                      const std::vector<strategy_t> &);
 
 #endif

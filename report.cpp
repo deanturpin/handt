@@ -5,19 +5,19 @@
 // Take a container of all backtests and produce a report as a string
 
 std::string get_report(const prices_t &prices,
-                       const std::list<backtest_t> &performance) {
+                       const std::vector<backtest_t> &backtests) {
 
   std::stringstream out;
 
   // Calculate total tests performed during backtesting
   const auto tests_performed = std::accumulate(
-      performance.cbegin(), performance.cend(), 0ul,
+      backtests.cbegin(), backtests.cend(), 0ul,
       [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
 
   // Pretty print large numbers
   out.imbue(std::locale(""));
   out << "* " << prices.size() << " currency pairs\n";
-  out << "* " << performance.size() << " strategy/pair combinations\n";
+  out << "* " << backtests.size() << " strategy/pair combinations\n";
   out << "* " << tests_performed << " backtests\n\n";
 
   // Report individual strategy performance
@@ -27,7 +27,7 @@ std::string get_report(const prices_t &prices,
       << "---|---|---|---|---\n";
 
   unsigned int buy_count = 0;
-  for (const auto &s : performance)
+  for (const auto &s : backtests)
     if (s.buy) {
       // Trim any trailing asterisk from symbol name
       std::string_view from_symbol_trimmed = s.from_symbol;
@@ -67,7 +67,7 @@ Strategy|Pair|Good/Bad|Spot
 ---|---|---|---
 )";
 
-  for (const auto &s : performance) {
+  for (const auto &s : backtests) {
 
     // Trim any trailing asterisk from symbol name
     std::string_view from_symbol_trimmed = s.from_symbol;
@@ -92,46 +92,3 @@ Strategy|Pair|Good/Bad|Spot
 
   return out.str();
 }
-
-// Generate detailed internal report
-// std::string get_detailed_report(const prices_t &prices,
-//                                 const std::list<backtest_t> &backtests) {
-//
-//   std::stringstream report;
-//
-//   int iterations = 0;
-//   for (const auto &b : backtests) {
-//     report << b.name << ' ' << b.from_symbol << ' ' << b.to_symbol << " - ";
-//
-//     for (const auto &[start, end] : b.good_deals)
-//       report << start << '/' << end << '/' << end - start << ' ';
-//
-//     report << " - " << b.good_deals.size() << '/' << b.bad_deals.size() <<
-//     '\n';
-//
-//     // Look up the prices for this backtest
-//     const auto it = std::find_if(
-//         prices.cbegin(), prices.cend(),
-//         [from_symbol = b.from_symbol, to_symbol = b.to_symbol](const auto p)
-//         {
-//           return p.from_symbol == from_symbol && p.to_symbol == to_symbol;
-//         });
-//
-//     if (it != prices.cend()) {
-//       const std::string file_name = "analysis/" + b.name + '-' +
-//       b.from_symbol +
-//                                     '-' + b.to_symbol + ".csv";
-//
-//       std::ofstream out(file_name);
-//       for (const auto &p : it->prices)
-//         out << p << ", \n";
-//     }
-//
-//     // In lieu of for_each_n :(
-//     ++iterations;
-//     if (iterations > 10)
-//       break;
-//   }
-//
-//   return report.str();
-// }

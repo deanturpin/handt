@@ -3,10 +3,10 @@
 
 #include "backtest.h"
 #include "prices.h"
-#include <list>
 #include <string>
+#include <vector>
 
 std::string get_detailed_report(const prices_t &,
-                                const std::list<backtest_t> &);
+                                const std::vector<backtest_t> &);
 
 #endif

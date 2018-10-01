@@ -5,7 +5,7 @@
 
 // Generate detailed internal report
 std::string get_detailed_report(const prices_t &prices,
-                                const std::list<backtest_t> &backtests) {
+                                const std::vector<backtest_t> &backtests) {
 
   std::stringstream report;
 

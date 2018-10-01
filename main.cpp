@@ -1,4 +1,5 @@
 #include "backtest.h"
+#include "detailed_report.h"
 #include "perms.h"
 #include "prices.h"
 #include "report.h"
