@@ -14,10 +14,10 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Mon 1 Oct 08:35:53 GMT 2018
-* 3 currency pairs
-* 9,900 strategy/pair combinations
-* 17,934,601 backtests
+Generated Mon 1 Oct 08:39:18 GMT 2018
+* 2 currency pairs
+* 6,600 strategy/pair combinations
+* 11,792,094 backtests
 
 # Current prospects
 Prospects based on prices from the last 24 hours.
@@ -75,7 +75,6 @@ Darting-Havanese-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/0|0.0021
 Darting-Havanese-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/0|0.002132
 Darting-Pomeranian-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/0|0.002132
 Darting-Pomeranian-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/0|0.002132
-Crouching-Havanese-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/0|0.5031
 Crouching-Jagdterrier-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/0|7.41e-05
 Crouching-Jagdterrier-19|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/0|7.41e-05
 Crouching-Affenpinscher-15|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/0|7.41e-05
@@ -103,17 +102,6 @@ Darting-Affenpinscher-14|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/1|0
 Darting-Axolotl-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/1|0.002132
 Darting-Pomeranian-13|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/1|0.002132
 Darting-Pomeranian-14|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|3/1|0.002132
-Crouching-Jagdterrier-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Crouching-Cricket-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Crouching-Axolotl-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Leaping-Jagdterrier-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Leaping-Cricket-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Leaping-Axolotl-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Leaping-Havanese-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Darting-Jagdterrier-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Darting-Cricket-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Darting-Axolotl-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
-Darting-Havanese-9|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|3/1|0.5031
 Crouching-Jagdterrier-17|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
 Crouching-Affenpinscher-13|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
 Crouching-Affenpinscher-14|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
@@ -127,91 +115,3 @@ Darting-Affenpinscher-13|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7
 Darting-Affenpinscher-14|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
 Darting-Munchkin-9|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
 Darting-Cricket-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
-Darting-Cricket-19|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
-Darting-Axolotl-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
-Darting-Axolotl-19|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
-Darting-Pomeranian-13|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
-Darting-Pomeranian-14|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|3/1|7.41e-05
-Leaping-Pomeranian-8|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|5/2|0.002132
-Crouching-Affenpinscher-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Crouching-Affenpinscher-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Crouching-Affenpinscher-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Crouching-Pomeranian-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Crouching-Pomeranian-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Crouching-Pomeranian-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Leaping-Griffon-8|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Leaping-Griffon-9|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Leaping-Pomeranian-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Darting-Affenpinscher-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Darting-Affenpinscher-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Darting-Affenpinscher-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Darting-Pomeranian-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Darting-Pomeranian-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Darting-Pomeranian-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/0|0.002132
-Crouching-Jagdterrier-10|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Jagdterrier-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Affenpinscher-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Munchkin-6|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Munchkin-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Bandicoot-3|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Cricket-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Cricket-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Axolotl-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Axolotl-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Havanese-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Pomeranian-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Jagdterrier-10|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Jagdterrier-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Affenpinscher-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Munchkin-6|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Munchkin-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Bandicoot-3|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Cricket-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Cricket-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Axolotl-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Axolotl-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Havanese-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Havanese-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Leaping-Pomeranian-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Jagdterrier-10|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Jagdterrier-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Affenpinscher-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Munchkin-6|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Munchkin-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Bandicoot-3|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Cricket-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Cricket-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Axolotl-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Axolotl-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Havanese-11|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Havanese-12|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Darting-Pomeranian-7|[XMR-ETH](https://binance.com/en/trade/XMR_ETH)|2/0|0.5031
-Crouching-Affenpinscher-17|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Crouching-Affenpinscher-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Crouching-Pomeranian-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Darting-Affenpinscher-17|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Darting-Affenpinscher-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Darting-Shiba Inu-10|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Darting-Pomeranian-17|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Darting-Pomeranian-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|2/0|7.41e-05
-Crouching-Cricket-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Crouching-Cricket-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Crouching-Cricket-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Crouching-Cricket-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Jagdterrier-13|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Cricket-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Cricket-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Cricket-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Cricket-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Axolotl-13|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Havanese-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Havanese-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Havanese-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Havanese-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Pomeranian-9|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Pomeranian-10|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Leaping-Pomeranian-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|2/1|0.002132
-Darting-Cricket-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Darting-Cricket-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Darting-Cricket-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132
-Darting-Cricket-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/2|0.002132

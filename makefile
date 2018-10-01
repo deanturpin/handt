@@ -20,15 +20,14 @@ readme = readme.md
 tmp/haveanicedaytrader: tmp/prices.o tmp/backtest.o tmp/report.o \
 	tmp/main.o tmp/perms.o tmp/detailed_report.o
 	$(CXX) -o $@ $^ -lstdc++fs
-	./$@ > tmp/strategy.txt
 	cat template.md > $(readme)
 	echo Generated $(shell TZ=GMT-1 date) >> $(readme)
-	head -200 tmp/strategy.txt >> $(readme)
+	./$@ | head -100 >> $(readme)
 	head -60 readme.md
 
-# All intermediate files are stored in tmp, so just remove it
+# All intermediate files are stored in tmp and analysis, so just remove them
 clean:
-	rm -rf tmp
+	rm -rf tmp analysis
 
 cleanobjects:
 	rm -rf tmp/*.o
