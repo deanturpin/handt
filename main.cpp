@@ -45,6 +45,5 @@ int main() {
             << "# Current prospects\n"
             << prospects_report << '\n'
             << "# 80-day backtest\n"
-            << backtest_report << '\n'
-            << detailed_report << '\n';
+            << backtest_report << '\n';
 }
