@@ -13,8 +13,8 @@ struct backtest_t {
   std::string to_symbol;
   std::string exchange;
   double spot = 0.0;
-  const strategy_t &strategy;
-  const std::vector<double> &prices;
+  strategy_t strategy{};
+  // const std::vector<double> &prices;
 
   std::vector<std::pair<int, int>> good_deals{};
   std::vector<std::pair<int, int>> bad_deals{};

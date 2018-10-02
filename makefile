@@ -22,7 +22,7 @@ objects:
 # Generate documentation
 readme = readme.md
 tmp/haveanicedaytrader: objects
-	$(CXX) -o $@ tmp/*.o -lstdc++fs
+	$(CXX) -o $@ tmp/*.o -lstdc++fs -lpthread
 	cat template.md > $(readme)
 	./$@ | head -100 >> $(readme)
 	head -60 readme.md
