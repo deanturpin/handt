@@ -6,8 +6,6 @@
 #include <numeric>
 #include <vector>
 
-#include <iostream>
-
 // Take a container of prices and run all strategy permutations over them
 
 std::vector<backtest_t>
@@ -17,8 +15,7 @@ run_backtests(const std::vector<trade_t> &trades,
   // The sell strategy returns positively if the expected yield is acheived
   // within the trading window
   const double sell_threshold = 6;
-  [[maybe_unused]] const auto sell = [&sell_threshold](const auto &current,
-                                                       const auto &future) {
+  const auto sell = [&sell_threshold](const auto &current, const auto &future) {
     return std::find_if(
         current, future,
         [spot = *current, threshold = (100.0 + sell_threshold) /
@@ -41,15 +38,8 @@ run_backtests(const std::vector<trade_t> &trades,
     }
   }
 
-  std::cerr << backtests.size() << " strategy/pair combos\n";
-  std::cerr << permutations.size() << " perms\n";
-  std::cerr << trades.size() << " currency pairs\n";
-
-  for_each_par(
+  parallel::for_each(
       backtests.begin(), backtests.end(), [&sell, &trades](auto &backtest) {
-        // std::cerr << backtest.from_symbol << ' ' << backtest.to_symbol <<
-        // '\n';
-
         // Configure trading periods for backtest
         const unsigned int analysis_window = 24;
         const unsigned int sell_window = analysis_window * 2;
@@ -130,8 +120,6 @@ run_backtests(const std::vector<trade_t> &trades,
           backtest.buy = true;
       });
 
-  std::cerr << "backtests complete\n";
-
   std::sort(backtests.begin(), backtests.end(),
             [](const auto &a, const auto &b) {
               const unsigned int agd = a.good_deals.size();
@@ -143,8 +131,6 @@ run_backtests(const std::vector<trade_t> &trades,
               return static_cast<double>(agd ? agd : .9) / (abd ? abd : .9) >
                      static_cast<double>(bgd ? bgd : .9) / (bbd ? bbd : .9);
             });
-
-  std::cerr << "sort complete\n";
 
   return backtests;
 }
