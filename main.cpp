@@ -29,8 +29,8 @@ int main() {
   const auto &detailed_report = get_detailed_report(trades, backtests);
 
   // Create printable timestamp
-  const std::time_t end_time =
-      std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+  using namespace std::chrono;
+  const auto end_time = system_clock::to_time_t(system_clock::now());
   const auto generated_timestamp = std::ctime(&end_time);
 
   // Calculate total backtests performed
