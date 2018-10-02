@@ -38,6 +38,7 @@ run_backtests(const std::vector<trade_t> &trades,
     }
   }
 
+  // Execute trades
   parallel::for_each(
       backtests.begin(), backtests.end(), [&sell, &trades](auto &backtest) {
         // Configure trading periods for backtest
@@ -52,7 +53,6 @@ run_backtests(const std::vector<trade_t> &trades,
         // |-- analysis window --|
         // H--------------------NOW-----------------F
         //                       |-- trade window --|
-        //
 
         // Find some prices for our trade
         const auto it = find_if(
@@ -63,61 +63,62 @@ run_backtests(const std::vector<trade_t> &trades,
                      t.exchange == exchange;
             });
 
-        if (it == trades.cend())
-          return;
+        // If we've found some prices set up reference
+        if (it != trades.cend()) {
 
-        const auto &prices = it->prices;
+          const auto &prices = it->prices;
 
-        // Initialise the price markers to the start of historic price data
-        auto historic_price_index = prices.cbegin();
-        auto current_price_index =
-            std::next(historic_price_index, analysis_window);
-        auto future_price_index = std::next(current_price_index, sell_window);
+          // Initialise the price markers to the start of historic price data
+          auto historic_price_index = prices.cbegin();
+          auto current_price_index =
+              std::next(historic_price_index, analysis_window);
+          auto future_price_index = std::next(current_price_index, sell_window);
 
-        // Move windows along until we run out of prices
-        while (future_price_index < prices.cend()) {
+          // Move windows along until we run out of prices
+          while (future_price_index < prices.cend()) {
 
-          // Test strategy
-          if (backtest.strategy.execute(historic_price_index,
-                                        current_price_index)) {
+            // Test strategy
+            if (backtest.strategy.execute(historic_price_index,
+                                          current_price_index)) {
 
-            // Strategy triggered, so look ahead to see if it succeeded in
-            // the defined trade window
-            if (const auto sell_price_index =
-                    sell(current_price_index, future_price_index);
-                sell_price_index != future_price_index) {
+              // Strategy triggered, so look ahead to see if it succeeded in
+              // the defined trade window
+              if (const auto sell_price_index =
+                      sell(current_price_index, future_price_index);
+                  sell_price_index != future_price_index) {
 
-              const int buy_index =
-                  std::distance(prices.cbegin(), current_price_index);
-              const int sell_index =
-                  std::distance(prices.cbegin(), sell_price_index);
+                const int buy_index =
+                    std::distance(prices.cbegin(), current_price_index);
+                const int sell_index =
+                    std::distance(prices.cbegin(), sell_price_index);
 
-              backtest.good_deals.push_back({buy_index, sell_index});
+                backtest.good_deals.push_back({buy_index, sell_index});
 
-              // Move the analysis window so the next iteration starts at
-              // the last sell price
-              historic_price_index = sell_price_index;
-            } else
-              backtest.bad_deals.push_back({0, 0});
+                // Move the analysis window so the next iteration starts at
+                // the last sell price
+                historic_price_index = sell_price_index;
+              } else
+                backtest.bad_deals.push_back({0, 0});
+            }
+
+            // Nudge the analysis window along and update upstream prices
+            std::advance(historic_price_index, 1);
+            current_price_index =
+                std::next(historic_price_index, analysis_window);
+            future_price_index = std::next(current_price_index, sell_window);
+
+            // Record that this was an opportunity to trade
+            ++backtest.opportunities;
           }
 
-          // Nudge the analysis window along and update upstream prices
-          std::advance(historic_price_index, 1);
-          current_price_index =
-              std::next(historic_price_index, analysis_window);
-          future_price_index = std::next(current_price_index, sell_window);
+          // Calculate prospects using the most recent prices
+          historic_price_index = std::prev(prices.cend(), analysis_window);
+          current_price_index = prices.cend();
 
-          // Record that this was an opportunity to trade
-          ++backtest.opportunities;
+          if (backtest.strategy.execute(historic_price_index,
+                                        current_price_index))
+            backtest.buy = true;
         }
-
-        // Calculate prospects using the most recent prices
-        historic_price_index = std::prev(prices.cend(), analysis_window);
-        current_price_index = prices.cend();
-
-        if (backtest.strategy.execute(historic_price_index,
-                                      current_price_index))
-          backtest.buy = true;
       });
 
   // Sort backtests by success
