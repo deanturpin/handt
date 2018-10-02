@@ -2,6 +2,7 @@
 #define PARALLEL_H
 
 #include <algorithm>
+#include <cmath>
 #include <thread>
 #include <vector>
 
@@ -33,6 +34,7 @@ void for_each(Iterator begin, Iterator end, Functor func) {
     back = std::min(std::next(front, elements_per_thread), end);
   }
 
+  // Wait for all threads to finish
   for (auto &thr : threads)
     if (thr.joinable())
       thr.join();

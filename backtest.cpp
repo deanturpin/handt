@@ -120,17 +120,17 @@ run_backtests(const std::vector<trade_t> &trades,
           backtest.buy = true;
       });
 
-  std::sort(backtests.begin(), backtests.end(),
-            [](const auto &a, const auto &b) {
-              const unsigned int agd = a.good_deals.size();
-              const unsigned int bgd = b.good_deals.size();
+  // Sort backtests by success
+  std::stable_sort(
+      backtests.begin(), backtests.end(), [](const auto &a, const auto &b) {
+        const unsigned int agd = a.good_deals.size();
+        const unsigned int bgd = b.good_deals.size();
+        const unsigned int abd = a.bad_deals.size();
+        const unsigned int bbd = b.bad_deals.size();
 
-              const unsigned int abd = a.bad_deals.size();
-              const unsigned int bbd = b.bad_deals.size();
-
-              return static_cast<double>(agd ? agd : .9) / (abd ? abd : .9) >
-                     static_cast<double>(bgd ? bgd : .9) / (bbd ? bbd : .9);
-            });
+        return static_cast<double>(agd ? agd : .9) / (abd ? abd : .9) >
+               static_cast<double>(bgd ? bgd : .9) / (bbd ? bbd : .9);
+      });
 
   return backtests;
 }
