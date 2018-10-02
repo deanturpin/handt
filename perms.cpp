@@ -5,7 +5,7 @@ std::vector<strategy_t> get_strategies() {
 
   // Create a set of thresholds to use with each buy strategy
   std::vector<int> thresholds(22);
-  std::iota(thresholds.begin(), thresholds.end(), 2);
+  std::iota(thresholds.begin(), thresholds.end(), 1);
 
   // Create and all strategy permutations up front
   const auto total_permutations = lft::primary_strategies.size() *

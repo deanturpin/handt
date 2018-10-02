@@ -14,51 +14,52 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Tue Oct  2 09:25:45 2018
+Generated Tue Oct  2 16:26:52 2018
 
-* 6 currency pairs
+* 4 threads
+* 322 currency pairs
 * 3,300 strategies
-* 35,572,088 backtests
+* 1,937,571,518 backtests
 
 # Current prospects
 
 Strategy|Pair|Good/Bad|Spot|Last (days)
 ---|---|---|---|---
-Leaping-Griffon-4|[IOT-BTC](https://binance.com/en/trade/IOT_BTC)|3/0|8.964e-05|23
-Darting-Affenpinscher-2|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|15/83|0.002222|5
-Crouching-Affenpinscher-2|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|15/90|0.002222|5
-Crouching-Jagdterrier-4|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|13/90|0.002222|9
-Darting-Jagdterrier-4|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|13/90|0.002222|9
-Crouching-Cricket-7|[IOT-BTC](https://binance.com/en/trade/IOT_BTC)|7/49|8.964e-05|19
-Leaping-Griffon-3|[IOT-BTC](https://binance.com/en/trade/IOT_BTC)|3/22|8.964e-05|12
-Crouching-Jagdterrier-3|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|15/112|0.002222|9
-Darting-Jagdterrier-3|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|15/112|0.002222|9
-Crouching-Munchkin-2|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|12/97|0.002222|9
-Darting-Munchkin-2|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|12/97|0.002222|9
+Darting-Munchkin-6|[QSP-BTC](https://binance.com/en/trade/QSP_BTC)|5/0|5.79e-06|6
+Darting-Bandicoot-3|[QSP-BTC](https://binance.com/en/trade/QSP_BTC)|5/0|5.79e-06|6
+Crouching-Bandicoot-3|[QSP-BTC](https://binance.com/en/trade/QSP_BTC)|5/0|5.79e-06|6
+Crouching-Munchkin-6|[QSP-BTC](https://binance.com/en/trade/QSP_BTC)|5/0|5.79e-06|6
+Leaping-Basenji-4|[SUB-BTC](https://binance.com/en/trade/SUB_BTC)|9/2|2.159e-05|19
+Darting-Havanese-11|[FUN-BTC](https://binance.com/en/trade/FUN_BTC)|4/0|2.46e-06|12
+Darting-Basenji-5|[FUN-BTC](https://binance.com/en/trade/FUN_BTC)|4/1|2.46e-06|12
+Crouching-Griffon-11|[FUN-BTC](https://binance.com/en/trade/FUN_BTC)|4/1|2.46e-06|13
+Crouching-Basenji-5|[FUN-BTC](https://binance.com/en/trade/FUN_BTC)|4/1|2.46e-06|12
+Crouching-Cricket-18|[FUN-BTC](https://binance.com/en/trade/FUN_BTC)|3/0|2.46e-06|12
+Darting-Pomeranian-8|[FUN-BTC](https://binance.com/en/trade/FUN_BTC)|3/0|2.46e-06|12
 
 # 80-day backtest
 
 Strategy|Pair|Good/Bad|Spot|Last (days)
 ---|---|---|---|---
-Crouching-Havanese-15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|5/1|0.05727|35
-Crouching-Munchkin-7|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|5/1|7.76e-05|9
-Darting-Munchkin-7|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|5/1|7.76e-05|9
-Crouching-Shiba Inu-15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/0|0.05727|51
-Slouching-Shiba Inu-15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/0|0.05727|51
-Crouching-Griffon-15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/1|0.05727|51
-Crouching-Pekingese-9|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/1|0.05727|34
-Supine-Shiba Inu-13|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/1|0.05727|33
-Supine-Havanese-13|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/1|0.05727|33
-Slouching-Griffon-15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/1|0.05727|51
-Slouching-Havanese-15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|4/1|0.05727|51
-Crouching-Munchkin-7|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.002222|9
-Leaping-Bandicoot-3|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.002222|9
-Darting-Munchkin-7|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.002222|9
-Crouching-Jagdterrier-9|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|7/2|7.76e-05|9
-Darting-Jagdterrier-9|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|7/2|7.76e-05|9
-Crouching-Norrbottenspets-15|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|3/0|0.05727|51
-Crouching-Havanese-16|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|3/0|0.05727|35
-Crouching-Havanese-17|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|3/0|0.05727|35
-Crouching-Havanese-18|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|3/0|0.05727|35
-Crouching-Pekingese-10|[IOT-BNB](https://binance.com/en/trade/IOT_BNB)|3/0|0.05727|34
+Supine-Pomeranian-6|[ZRX-ETH](https://binance.com/en/trade/ZRX_ETH)|10/0|0.002799|7
+Supine-Havanese-11|[ZRX-ETH](https://binance.com/en/trade/ZRX_ETH)|9/0|0.002799|7
+Crouching-Pomeranian-9|[QLC-ETH](https://binance.com/en/trade/QLC_ETH)|10/1|0.0002372|10
+Crouching-Havanese-17|[CDT-ETH](https://binance.com/en/trade/CDT_ETH)|9/1|6.979e-05|2
+Crouching-Havanese-16|[ONT-BNB](https://binance.com/en/trade/ONT_BNB)|9/1|0.199|26
+Crouching-Pekingese-10|[ONT-BNB](https://binance.com/en/trade/ONT_BNB)|8/0|0.199|26
+Supine-Capybara-5|[APPC-ETH](https://binance.com/en/trade/APPC_ETH)|8/0|0.0005289|4
+Supine-Griffon-16|[MTH-BTC](https://binance.com/en/trade/MTH_BTC)|8/0|4.66e-06|2
+Supine-Pekingese-7|[RCN-ETH](https://binance.com/en/trade/RCN_ETH)|8/1|0.0001213|6
+Supine-Havanese-14|[ZRX-BTC](https://binance.com/en/trade/ZRX_BTC)|8/1|9.645e-05|7
+Leaping-Havanese-9|[TRIG-ETH](https://binance.com/en/trade/TRIG_ETH)|8/1|0.001124|6
+Leaping-Axolotl-9|[TRIG-ETH](https://binance.com/en/trade/TRIG_ETH)|8/1|0.001124|6
+Supine-Xoloitzcuintli-8|[MTH-BTC](https://binance.com/en/trade/MTH_BTC)|8/1|4.66e-06|12
+Crouching-Havanese-14|[GVT-BTC](https://binance.com/en/trade/GVT_BTC)|8/1|0.00149|10
+Crouching-Pekingese-11|[CND-BTC](https://binance.com/en/trade/CND_BTC)|7/0|3.34e-06|14
+Darting-Pomeranian-6|[RDN*-BTC](https://binance.com/en/trade/RDN_BTC)|7/0|7.287e-05|11
+Supine-Havanese-12|[ZRX-ETH](https://binance.com/en/trade/ZRX_ETH)|7/0|0.002799|7
+Supine-Griffon-15|[MTH-ETH](https://binance.com/en/trade/MTH_ETH)|7/0|0.0001354|2
+Supine-Griffon-16|[MTH-ETH](https://binance.com/en/trade/MTH_ETH)|7/0|0.0001354|2
+Crouching-Havanese-15|[LSK-BTC](https://binance.com/en/trade/LSK_BTC)|7/0|0.0005003|20
+Supine-Griffon-17|[MTH-ETH](https://binance.com/en/trade/MTH_ETH)|7/0|0.0001354|2
 
