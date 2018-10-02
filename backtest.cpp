@@ -12,18 +12,6 @@ std::vector<backtest_t>
 run_backtests(const std::vector<trade_t> &trades,
               const std::vector<strategy_t> &permutations) {
 
-  // The sell strategy returns positively if the expected yield is acheived
-  // within the trading window
-  const double sell_threshold = 6;
-  const auto sell = [&sell_threshold](const auto &current, const auto &future) {
-    return std::find_if(
-        current, future,
-        [spot = *current, threshold = (100.0 + sell_threshold) /
-                                      100.0](const auto &future_price) {
-          return future_price > spot * threshold;
-        });
-  };
-
   // Backtest each currency pair
   std::vector<backtest_t> backtests;
   for (const auto &[from_symbol, to_symbol, exchange, prices] : trades) {
@@ -40,7 +28,20 @@ run_backtests(const std::vector<trade_t> &trades,
 
   // Execute trades
   parallel::for_each(
-      backtests.begin(), backtests.end(), [&sell, &trades](auto &backtest) {
+      backtests.begin(), backtests.end(), [&trades](auto &backtest) {
+        // The sell strategy returns positively if the expected yield is
+        // acheived within the trading window
+        const double sell_threshold = 6;
+        const auto sell = [&sell_threshold](const auto &current,
+                                            const auto &future) {
+          return std::find_if(
+              current, future,
+              [spot = *current, threshold = (100.0 + sell_threshold) /
+                                            100.0](const auto &future_price) {
+                return future_price > spot * threshold;
+              });
+        };
+
         // Configure trading periods for backtest
         const unsigned int analysis_window = 24;
         const unsigned int sell_window = analysis_window * 2;
@@ -63,32 +64,29 @@ run_backtests(const std::vector<trade_t> &trades,
                      t.exchange == exchange;
             });
 
-        // If we've found some prices set up reference
+        // If we've found our trade set up a reference to the prices
         if (it != trades.cend()) {
 
           const auto &prices = it->prices;
 
           // Initialise the price markers to the start of historic price data
-          auto historic_price_index = prices.cbegin();
-          auto current_price_index =
-              std::next(historic_price_index, analysis_window);
-          auto future_price_index = std::next(current_price_index, sell_window);
+          auto historic_pi = prices.cbegin();
+          auto current_pi = std::next(historic_pi, analysis_window);
+          auto future_pi = std::next(current_pi, sell_window);
 
           // Move windows along until we run out of prices
-          while (future_price_index < prices.cend()) {
+          while (future_pi < prices.cend()) {
 
             // Test strategy
-            if (backtest.strategy.execute(historic_price_index,
-                                          current_price_index)) {
+            if (backtest.strategy.execute(historic_pi, current_pi)) {
 
               // Strategy triggered, so look ahead to see if it succeeded in
               // the defined trade window
-              if (const auto sell_price_index =
-                      sell(current_price_index, future_price_index);
-                  sell_price_index != future_price_index) {
+              if (const auto sell_price_index = sell(current_pi, future_pi);
+                  sell_price_index != future_pi) {
 
                 const int buy_index =
-                    std::distance(prices.cbegin(), current_price_index);
+                    std::distance(prices.cbegin(), current_pi);
                 const int sell_index =
                     std::distance(prices.cbegin(), sell_price_index);
 
@@ -96,27 +94,32 @@ run_backtests(const std::vector<trade_t> &trades,
 
                 // Move the analysis window so the next iteration starts at
                 // the last sell price
-                historic_price_index = sell_price_index;
-              } else
-                backtest.bad_deals.push_back({0, 0});
+                historic_pi = sell_price_index;
+              } else {
+
+                // Strategy failed to return within the trade window
+                const int buy_index =
+                    std::distance(prices.cbegin(), current_pi);
+                const int sell_index =
+                    std::distance(prices.cbegin(), future_pi);
+                backtest.bad_deals.push_back({buy_index, sell_index});
+              }
             }
 
             // Nudge the analysis window along and update upstream prices
-            std::advance(historic_price_index, 1);
-            current_price_index =
-                std::next(historic_price_index, analysis_window);
-            future_price_index = std::next(current_price_index, sell_window);
+            std::advance(historic_pi, 1);
+            current_pi = std::next(historic_pi, analysis_window);
+            future_pi = std::next(current_pi, sell_window);
 
             // Record that this was an opportunity to trade
             ++backtest.opportunities;
           }
 
           // Calculate prospects using the most recent prices
-          historic_price_index = std::prev(prices.cend(), analysis_window);
-          current_price_index = prices.cend();
+          historic_pi = std::prev(prices.cend(), analysis_window);
+          current_pi = prices.cend();
 
-          if (backtest.strategy.execute(historic_price_index,
-                                        current_price_index))
+          if (backtest.strategy.execute(historic_pi, current_pi))
             backtest.buy = true;
         }
       });
