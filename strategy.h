@@ -7,6 +7,8 @@
 #include <numeric>
 #include <vector>
 
+#include <iostream>
+
 // THE STRATEGIES - by Low Frequency Trader
 
 namespace lft {
@@ -22,8 +24,9 @@ using func2 = std::function<double(cont)>;
 const std::vector<std::pair<std::string, func1>> primary_strategies{
 
     // Always return positively
-    {"Crouching", []([[maybe_unused]] cont p) constexpr {return true;
+    {"Indifferent", []([[maybe_unused]] cont p) constexpr {return true;
 } // namespace lft
+,
 }
 ,
 
@@ -156,6 +159,15 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
     {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
+
+    {"Dachshund",
+     [](cont p) {
+       std::vector<double> diffs;
+       std::adjacent_difference(p.cbegin(), p.cend(),
+                                std::back_inserter(diffs));
+
+       return mean(diffs) / mean(p);
+     }},
 };
 }
 

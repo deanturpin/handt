@@ -33,7 +33,7 @@ void unit_test() {
   const auto &prim = lft::primary_strategies;
 
   // Always true
-  assert(prim.front().first == "Crouching");
+  assert(prim.front().first == "Indifferent");
   assert(prim.at(0).second(cont2{1, 2, 3, 4, 5}) == true);
 
   // Trending updwards
