@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-std::string get_detailed_report(const std::vector<trade_t> &,
-                                const std::vector<backtest_t> &);
+void get_detailed_report(const std::vector<trade_t> &,
+                         const std::vector<backtest_t> &);
 
 #endif

@@ -4,19 +4,11 @@
 #include <string>
 
 // Generate detailed internal report
-std::string get_detailed_report(const std::vector<trade_t> &prices,
-                                const std::vector<backtest_t> &backtests) {
-
-  std::stringstream report;
+void get_detailed_report(const std::vector<trade_t> &prices,
+                         const std::vector<backtest_t> &backtests) {
 
   int iterations = 0;
   for (const auto &b : backtests) {
-    report << b.name << ' ' << b.from_symbol << ' ' << b.to_symbol << " - ";
-
-    for (const auto &[start, end] : b.good_deals)
-      report << start << '/' << end << '/' << end - start << ' ';
-
-    report << " - " << b.good_deals.size() << '/' << b.bad_deals.size() << '\n';
 
     // Look up the prices for this backtest
     const auto it = std::find_if(
@@ -39,6 +31,4 @@ std::string get_detailed_report(const std::vector<trade_t> &prices,
     if (iterations > 10)
       break;
   }
-
-  return report.str();
 }

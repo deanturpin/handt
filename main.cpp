@@ -26,7 +26,7 @@ int main() {
   const auto &prospects_report = get_report(trades, backtests, 10, true);
 
   // Generate detailed report for offline analysis
-  const auto &detailed_report = get_detailed_report(trades, backtests);
+  get_detailed_report(trades, backtests);
 
   // Create printable timestamp
   using namespace std::chrono;
