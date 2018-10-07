@@ -15,31 +15,31 @@ int main() {
 
   unit_test();
 
-  // Get latest prices for all currency pairs
+  std::cerr << "Get latest prices for all currency pairs\n";
   const auto &trades = get_trades();
 
-  // Get all strategy permutations
+  std::cerr << "Get all strategy permutations\n";
   const auto &strategies = get_strategies();
 
-  // Run backtests
+  std::cerr << "Run backtests\n";
   const auto &backtests = run_backtests(trades, strategies);
 
-  // Generate reports for deployment
+  std::cerr << "Generate reports for deployment\n";
   const auto &prospects_report = get_report(trades, backtests, 10, true);
   const auto &backtest_report = get_report(trades, backtests, 80, false);
 
-  // Generate detailed report for offline analysis
+  std::cerr << "Generate detailed report for offline analysis";
   get_detailed_report(trades, backtests);
 
-  // Generate summary of all strategy performance
+  std::cerr << "Generate summary of all strategy performance";
   const auto &strategy_report = get_strategy_report(backtests);
 
-  // Create printable timestamp
+  std::cerr << "Create printable timestamp\n";
   using namespace std::chrono;
   const auto end_time = system_clock::to_time_t(system_clock::now());
   const auto generated_timestamp = std::ctime(&end_time);
 
-  // Calculate total backtests performed
+  std::cerr << "Calculate total backtests performed\n";
   const auto total_backtests = std::accumulate(
       backtests.cbegin(), backtests.cend(), 0ul,
       [](unsigned int sum, const auto &p) { return sum + p.opportunities; });
