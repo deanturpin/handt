@@ -17,7 +17,7 @@ analysis:
 
 objects:
 	make -j $(shell nproc) tmp/trade.o tmp/backtest.o tmp/report.o \
-	tmp/main.o tmp/perms.o tmp/detailed_report.o
+	tmp/main.o tmp/perms.o tmp/detailed_report.o tmp/strategy_report.o
 
 # Generate documentation
 readme = readme.md

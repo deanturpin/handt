@@ -14,8 +14,7 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-4 workers
-Generated Sun Oct  7 15:43:22 2018
+Generated Sun Oct  7 15:49:20 2018
 
 * 4 threads
 * 3 currency pairs
