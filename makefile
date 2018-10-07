@@ -17,15 +17,15 @@ analysis:
 
 objects:
 	make -j $(shell nproc) tmp/trade.o tmp/backtest.o tmp/report.o \
-	tmp/main.o tmp/perms.o tmp/detailed_report.o
+	tmp/main.o tmp/perms.o tmp/detailed_report.o tmp/strategy_report.o
 
 # Generate documentation
 readme = readme.md
 tmp/haveanicedaytrader: objects
 	$(CXX) -o $@ tmp/*.o -lstdc++fs -lpthread
 	cat template.md > $(readme)
-	./$@ | head -100 >> $(readme)
-	head -60 readme.md
+	./$@ >> $(readme)
+	tail -60 readme.md
 
 # All intermediate files are stored in tmp and analysis, so just remove them
 clean:

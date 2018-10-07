@@ -3,10 +3,13 @@
 #include "parallel.h"
 #include "perms.h"
 #include "report.h"
+#include "strategy_report.h"
 #include "trade.h"
 #include "unit_test.h"
 #include <chrono>
+#include <iomanip>
 #include <iostream>
+#include <sstream>
 
 int main() {
 
@@ -28,6 +31,9 @@ int main() {
   // Generate detailed report for offline analysis
   get_detailed_report(trades, backtests);
 
+  // Generate summary of all strategy performance
+  const auto &strategy_report = get_strategy_report(backtests);
+
   // Create printable timestamp
   using namespace std::chrono;
   const auto end_time = system_clock::to_time_t(system_clock::now());
@@ -47,5 +53,7 @@ int main() {
             << "# Current prospects\n"
             << prospects_report << '\n'
             << "# 80-day backtest\n"
-            << backtest_report << '\n';
+            << backtest_report << '\n'
+            << "# Strategy performance summary\n"
+            << strategy_report << '\n';
 }
