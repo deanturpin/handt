@@ -1,181 +1,39 @@
 #ifndef STRATEGY_H
 #define STRATEGY_H
 
-#include <algorithm>
+#include "lft.h"
 #include <cmath>
-#include <functional>
-#include <numeric>
+#include <string>
 #include <vector>
 
-// THE STRATEGIES - by Low Frequency Trader
+// Generate strategy permutations: a complete strategy consists of a primary
+// and secondary strategy and a buy threshold
 
-namespace lft {
+struct strategy_t {
+  std::string name;
+  lft::func1 primary;
+  lft::func2 secondary;
+  int threshold;
+  using iter = const std::vector<double>::const_iterator &;
+  bool execute(iter historic_price_index, iter current_price_index) const {
 
-// The container passed throughout
-using cont = const std::vector<double> &;
+    // Calculate the buy ratio
+    const double ratio = (100.0 + threshold) / 100.0;
 
-// Function definitions for the strategy types
-using func1 = std::function<bool(cont)>;
-using func2 = std::function<double(cont)>;
+    // Test the strategies
+    const auto primary_response =
+        primary({historic_price_index, current_price_index});
+    const auto secondary_response =
+        secondary({historic_price_index, current_price_index});
 
-// Strategy definition helper routines
-const auto mean = [](const auto &p) {
-  return std::accumulate(p.cbegin(), p.cend(), 0.0) /
-         static_cast<double>(p.size());
+    // Check we haven't ended up with a huge number (or NaN) by inadvertantly
+    // dividing a double with a very similar double (or zero), and then
+    // return strategy success
+    return !std::isinf(secondary_response) && !std::isnan(primary_response) &&
+           primary_response && secondary_response > ratio;
+  }
 };
 
-const auto maximum = [](const auto &p) {
-  return *std::max_element(p.cbegin(), p.cend());
-};
-
-const auto minimum = [](const auto &p) {
-  return *std::min_element(p.cbegin(), p.cend());
-};
-
-// Front end size is rounded down by pushing the trim size upwards
-const auto front_end = [](const auto &p) {
-  const int trim = std::rint(std::ceil(p.size() / 2.0));
-  return decltype(p){p.cbegin(), std::prev(p.cend(), trim)};
-};
-
-// Back end size is rounded up by pushing the trim size downwards
-const auto back_end = [](const auto &p) {
-  const int trim = std::rint(std::floor(p.size() / 2.0));
-  return decltype(p){std::next(p.cbegin(), trim), p.cend()};
-};
-
-const auto front = [](const auto &p) { return p.front(); };
-const auto back = [](const auto &p) { return p.back(); };
-
-// Primary strategies are simple boolean tests
-const std::vector<std::pair<std::string, func1>> primary_strategies{
-
-    // Always return positively
-    {"Indifferent", []([[maybe_unused]] cont p) constexpr {return true;
-} // namespace lft
-,
-}
-,
-
-    // Return positively if trending upwards
-    {"Leaping",
-     [](cont p) {
-       unsigned int trend = 0;
-       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
-         if (*i < *std::next(i))
-           ++trend;
-
-       return trend > p.size() / 2;
-     }},
-
-    // Return positively if trending downwards
-    {"Supine",
-     [](cont p) {
-       unsigned int trend = 0;
-       for (auto i = p.cbegin(); i != std::prev(p.cend()); ++i)
-         if (*i > *std::next(i))
-           ++trend;
-
-       return trend > p.size() / 2;
-     }},
-
-    // Return positively if crossing a significant boundary
-    {"Straddling",
-     [](cont p) {
-       const auto &[min, max] = std::minmax(p.front(), p.back());
-
-       unsigned long threshold = 0;
-       for (const unsigned long &mod : {1, 10, 100, 1000, 10000}) {
-
-         const unsigned long test =
-             max - (static_cast<unsigned long>(max) % mod);
-
-         if (test == 0)
-           break;
-
-         threshold = test;
-       }
-
-       return min < threshold && max > threshold;
-     }},
-
-    // Minimum comes before maximum
-    {"Darting",
-     [](cont p) {
-       const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
-       return std::distance(p.cbegin(), min) < std::distance(p.cbegin(), max);
-     }},
-
-    // Maximum comes before minimum
-    {"Slouching",
-     [](cont p) {
-       const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
-       return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
-     }},
-
-    {"Vociferous",
-     [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       return mean(diffs) / mean(p) > 1.02;
-     }},
-
-    {"Quiescent", [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       return mean(diffs) / mean(p) <= 1.02;
-     }},
-}
-;
-
-// Secondary strategies yield a buy threshold
-const std::vector<std::pair<std::string, func2>> secondary_strategies{
-
-    // Always succeed
-    {"Lundehund", []([[maybe_unused]] cont p) { return 2.0; }},
-
-    // Front/back
-    {"Norrbottenspets", [](cont p) { return front(p) / back(p); }},
-    {"Jagdterrier", [](cont p) { return back(p) / front(p); }},
-
-    // Mean over front/back
-    {"Xoloitzcuintli", [](cont p) { return mean(p) / back(p); }},
-    {"Basenji", [](cont p) { return mean(p) / front(p); }},
-    {"Sphynx", [](cont p) { return front(p) / mean(p); }},
-    {"Affenpinscher", [](cont p) { return back(p) / mean(p); }},
-
-    // Partial means
-    {"Capybara", [](cont p) { return mean(front_end(p)) / mean(back_end(p)); }},
-    {"Munchkin", [](cont p) { return mean(back_end(p)) / mean(front_end(p)); }},
-    {"Badger", [](cont p) { return mean(p) / mean(back_end(p)); }},
-    {"Bandicoot", [](cont p) { return mean(back_end(p)) / mean(p); }},
-
-    // Min/max over back/front
-    {"Mink", [](cont p) { return minimum(p) / back(p); }},
-    {"Ocelot", [](cont p) { return minimum(p) / front(p); }},
-    {"Griffon", [](cont p) { return maximum(p) / back(p); }},
-    {"Cricket", [](cont p) { return maximum(p) / front(p); }},
-
-    // Back/front over min/max
-    {"Axolotl", [](cont p) { return back(p) / minimum(p); }},
-    {"Shiba Inu", [](cont p) { return front(p) / minimum(p); }},
-    {"Lowchen", [](cont p) { return back(p) / maximum(p); }},
-    {"Narwahl", [](cont p) { return front(p) / maximum(p); }},
-
-    // Min over max
-    {"Bichon Frise", [](cont p) { return minimum(p) / maximum(p); }},
-    {"Havanese", [](cont p) { return maximum(p) / minimum(p); }},
-
-    // Min/max over mean
-    {"Shih Tzu", [](cont p) { return minimum(p) / mean(p); }},
-    {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
-    {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
-    {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
-};
-}
+std::vector<strategy_t> get_strategies();
 
 #endif

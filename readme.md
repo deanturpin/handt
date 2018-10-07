@@ -14,12 +14,12 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
-Generated Sun Oct  7 20:35:22 2018
+Generated Sun Oct  7 20:48:17 2018
 
 * 4 threads
-* 2 currency pairs
-* 3,432 strategies
-* 12,145,561 backtests
+* 3 currency pairs
+* 4,400 strategies
+* 23,696,073 backtests
 
 # Current prospects
 
@@ -35,7 +35,7 @@ Slouching-Cricket-1|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|24/210|0.0
 Slouching-Cricket-1|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|24/214|9.32e-05|4
 Slouching-Capybara-1|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|24/234|0.00272|4
 Indifferent-Capybara-1|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|24/236|0.00272|4
-Supine-Pekingese-3|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|18/178|9.32e-05|4
+Quiescent-Capybara-1|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|24/236|0.00272|4
 
 # 80-day backtest
 
@@ -43,9 +43,11 @@ Strategy|Pair|Good/Bad|Spot|Last (days)
 ---|---|---|---|---
 Indifferent-Munchkin-7|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|6/1|9.32e-05|2
 Darting-Munchkin-7|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|6/1|9.32e-05|2
+Quiescent-Munchkin-7|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|6/1|9.32e-05|2
 Indifferent-Munchkin-7|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|5/1|0.00272|2
 Leaping-Bandicoot-3|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|5/1|0.00272|3
 Darting-Munchkin-7|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|5/1|0.00272|2
+Quiescent-Munchkin-7|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|5/1|0.00272|2
 Indifferent-Jagdterrier-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
 Indifferent-Jagdterrier-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
 Indifferent-Affenpinscher-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
@@ -62,9 +64,67 @@ Leaping-Munchkin-8|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272
 Darting-Jagdterrier-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
 Darting-Jagdterrier-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
 Darting-Affenpinscher-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Affenpinscher-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Munchkin-8|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Cricket-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Cricket-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Axolotl-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Axolotl-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Havanese-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Havanese-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Pomeranian-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Darting-Pomeranian-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Jagdterrier-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Jagdterrier-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Affenpinscher-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Affenpinscher-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Munchkin-8|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Cricket-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Cricket-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Axolotl-19|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Axolotl-20|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Pomeranian-15|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Quiescent-Pomeranian-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/0|0.00272|2
+Indifferent-Jagdterrier-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Indifferent-Jagdterrier-19|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Indifferent-Affenpinscher-15|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Indifferent-Munchkin-8|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Indifferent-Bandicoot-4|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Darting-Jagdterrier-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Darting-Jagdterrier-19|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Darting-Affenpinscher-15|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Darting-Munchkin-8|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Darting-Bandicoot-4|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Darting-Pomeranian-15|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Quiescent-Jagdterrier-18|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Quiescent-Jagdterrier-19|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Quiescent-Affenpinscher-15|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Quiescent-Munchkin-8|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Quiescent-Bandicoot-4|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|4/0|9.32e-05|2
+Indifferent-Jagdterrier-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Indifferent-Jagdterrier-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Indifferent-Jagdterrier-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Indifferent-Affenpinscher-13|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Indifferent-Affenpinscher-14|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Indifferent-Axolotl-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Jagdterrier-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Jagdterrier-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Jagdterrier-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Affenpinscher-13|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Affenpinscher-14|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Axolotl-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Pomeranian-13|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Darting-Pomeranian-14|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Quiescent-Jagdterrier-16|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Quiescent-Jagdterrier-17|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Quiescent-Jagdterrier-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Quiescent-Affenpinscher-13|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Quiescent-Affenpinscher-14|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Quiescent-Axolotl-18|[SALT-ETH](https://binance.com/en/trade/SALT_ETH)|4/1|0.00272|2
+Indifferent-Jagdterrier-9|[SALT-BTC](https://binance.com/en/trade/SALT_BTC)|8/2|9.32e-05|3
 
 # Strategy performance summary
-156 strategies
+200 strategies
 ```
 Indifferent-Mink 0/0
 Indifferent-Ocelot 0/0
@@ -73,7 +133,6 @@ Indifferent-Narwahl 0/0
 Indifferent-Bichon Frise 0/0
 Indifferent-Shih Tzu 0/0
 Indifferent-Papillon 0/0
-Indifferent-Dachshund 0/0
 Leaping-Mink 0/0
 Leaping-Ocelot 0/0
 Leaping-Lowchen 0/0
@@ -81,7 +140,6 @@ Leaping-Narwahl 0/0
 Leaping-Bichon Frise 0/0
 Leaping-Shih Tzu 0/0
 Leaping-Papillon 0/0
-Leaping-Dachshund 0/0
 Supine-Mink 0/0
 Supine-Ocelot 0/0
 Supine-Lowchen 0/0
@@ -89,7 +147,6 @@ Supine-Narwahl 0/0
 Supine-Bichon Frise 0/0
 Supine-Shih Tzu 0/0
 Supine-Papillon 0/0
-Supine-Dachshund 0/0
 Straddling-Lundehund 0/0
 Straddling-Norrbottenspets 0/0
 Straddling-Jagdterrier 0/0
@@ -115,7 +172,6 @@ Straddling-Shih Tzu 0/0
 Straddling-Pomeranian 0/0
 Straddling-Pekingese 0/0
 Straddling-Papillon 0/0
-Straddling-Dachshund 0/0
 Darting-Mink 0/0
 Darting-Ocelot 0/0
 Darting-Lowchen 0/0
@@ -123,7 +179,6 @@ Darting-Narwahl 0/0
 Darting-Bichon Frise 0/0
 Darting-Shih Tzu 0/0
 Darting-Papillon 0/0
-Darting-Dachshund 0/0
 Slouching-Mink 0/0
 Slouching-Ocelot 0/0
 Slouching-Lowchen 0/0
@@ -131,95 +186,145 @@ Slouching-Narwahl 0/0
 Slouching-Bichon Frise 0/0
 Slouching-Shih Tzu 0/0
 Slouching-Papillon 0/0
-Slouching-Dachshund 0/0
-Supine-Bandicoot 15/39
-Slouching-Basenji 40/111
-Leaping-Munchkin 168/481
-Leaping-Affenpinscher 157/450
-Supine-Munchkin 37/113
-Leaping-Bandicoot 70/227
+Vociferous-Lundehund 0/0
+Vociferous-Norrbottenspets 0/0
+Vociferous-Jagdterrier 0/0
+Vociferous-Xoloitzcuintli 0/0
+Vociferous-Basenji 0/0
+Vociferous-Sphynx 0/0
+Vociferous-Affenpinscher 0/0
+Vociferous-Capybara 0/0
+Vociferous-Munchkin 0/0
+Vociferous-Badger 0/0
+Vociferous-Bandicoot 0/0
+Vociferous-Mink 0/0
+Vociferous-Ocelot 0/0
+Vociferous-Griffon 0/0
+Vociferous-Cricket 0/0
+Vociferous-Axolotl 0/0
+Vociferous-Shiba Inu 0/0
+Vociferous-Lowchen 0/0
+Vociferous-Narwahl 0/0
+Vociferous-Bichon Frise 0/0
+Vociferous-Havanese 0/0
+Vociferous-Shih Tzu 0/0
+Vociferous-Pomeranian 0/0
+Vociferous-Pekingese 0/0
+Vociferous-Papillon 0/0
+Quiescent-Mink 0/0
+Quiescent-Ocelot 0/0
+Quiescent-Lowchen 0/0
+Quiescent-Narwahl 0/0
+Quiescent-Bichon Frise 0/0
+Quiescent-Shih Tzu 0/0
+Quiescent-Papillon 0/0
+Supine-Bandicoot 17/45
+Supine-Munchkin 46/139
+Slouching-Basenji 46/141
+Slouching-Munchkin 8/25
 Slouching-Bandicoot 0/3
-Slouching-Munchkin 5/17
-Darting-Affenpinscher 233/800
-Leaping-Sphynx 17/59
-Supine-Basenji 46/170
-Supine-Jagdterrier 44/166
-Darting-Sphynx 32/121
-Indifferent-Affenpinscher 233/885
-Leaping-Jagdterrier 237/902
-Slouching-Jagdterrier 13/50
-Leaping-Pomeranian 209/811
-Darting-Munchkin 216/862
-Indifferent-Munchkin 216/876
-Darting-Bandicoot 91/394
-Supine-Affenpinscher 33/143
-Leaping-Axolotl 257/1120
-Indifferent-Bandicoot 91/397
-Leaping-Basenji 141/622
-Leaping-Cricket 284/1303
-Darting-Jagdterrier 326/1519
-Indifferent-Jagdterrier 326/1532
-Slouching-Affenpinscher 19/91
-Leaping-Shiba Inu 65/313
-Supine-Sphynx 255/1273
-Darting-Capybara 6/30
-Leaping-Pekingese 158/819
-Leaping-Havanese 306/1598
-Darting-Norrbottenspets 23/121
-Leaping-Griffon 100/548
-Leaping-Norrbottenspets 15/83
-Supine-Axolotl 146/811
+Leaping-Munchkin 203/685
+Leaping-Affenpinscher 190/706
+Leaping-Bandicoot 84/315
+Darting-Sphynx 40/152
+Supine-Affenpinscher 40/165
+Supine-Jagdterrier 52/228
+Darting-Affenpinscher 271/1198
+Supine-Basenji 52/232
+Leaping-Pomeranian 252/1179
+Leaping-Jagdterrier 301/1419
+Darting-Munchkin 257/1221
+Indifferent-Munchkin 257/1238
+Quiescent-Munchkin 257/1238
+Indifferent-Affenpinscher 271/1311
+Quiescent-Affenpinscher 271/1311
+Darting-Bandicoot 107/518
+Indifferent-Bandicoot 107/521
+Quiescent-Bandicoot 107/521
+Darting-Norrbottenspets 32/157
+Leaping-Sphynx 17/85
+Darting-Capybara 7/35
+Leaping-Basenji 173/868
+Slouching-Affenpinscher 25/126
+Leaping-Xoloitzcuintli 14/71
+Leaping-Axolotl 332/1744
+Leaping-Cricket 363/1923
+Slouching-Jagdterrier 19/101
+Leaping-Griffon 128/698
+Darting-Xoloitzcuintli 38/210
 Darting-Badger 0/5
-Darting-Xoloitzcuintli 30/170
-Supine-Cricket 189/1079
-Darting-Basenji 198/1136
-Indifferent-Basenji 204/1187
-Supine-Xoloitzcuintli 253/1485
-Supine-Norrbottenspets 449/2735
-Slouching-Sphynx 276/1780
-Supine-Badger 94/610
-Slouching-Xoloitzcuintli 282/1867
-Indifferent-Sphynx 276/1834
-Darting-Cricket 382/2544
-Leaping-Xoloitzcuintli 9/60
-Supine-Shiba Inu 487/3287
-Darting-Axolotl 353/2384
-Supine-Capybara 208/1410
-Indifferent-Xoloitzcuintli 285/1956
-Darting-Pomeranian 270/1879
-Indifferent-Cricket 446/3209
-Indifferent-Badger 105/763
-Slouching-Badger 105/763
-Leaping-Lundehund 594/4378
-Slouching-Cricket 191/1420
-Slouching-Norrbottenspets 486/3624
-Supine-Pekingese 273/2039
-Indifferent-Norrbottenspets 487/3666
-Supine-Griffon 497/3785
-Supine-Pomeranian 285/2209
-Indifferent-Axolotl 392/3042
-Darting-Griffon 173/1358
-Slouching-Capybara 232/1851
-Indifferent-Capybara 232/1859
-Darting-Shiba Inu 119/975
-Supine-Havanese 526/4436
-Indifferent-Pomeranian 450/3835
-Slouching-Axolotl 142/1218
-Slouching-Shiba Inu 526/4614
-Darting-Pekingese 214/1940
-Indifferent-Shiba Inu 535/4989
-Slouching-Griffon 542/5070
-Slouching-Pekingese 296/2770
-Darting-Havanese 393/3733
-Indifferent-Pekingese 387/3689
-Leaping-Badger 2/20
-Leaping-Capybara 7/71
-Supine-Lundehund 968/9834
-Slouching-Pomeranian 301/3067
-Indifferent-Griffon 568/5936
-Indifferent-Havanese 708/7605
-Slouching-Havanese 553/6172
-Slouching-Lundehund 1144/16060
-Darting-Lundehund 792/11726
-Indifferent-Lundehund 1188/22220
+Supine-Sphynx 276/1543
+Leaping-Shiba Inu 82/465
+Leaping-Pekingese 200/1146
+Supine-Axolotl 176/1037
+Darting-Jagdterrier 398/2381
+Leaping-Havanese 393/2387
+Indifferent-Jagdterrier 398/2425
+Quiescent-Jagdterrier 398/2425
+Supine-Cricket 215/1338
+Supine-Xoloitzcuintli 271/1729
+Darting-Basenji 241/1570
+Indifferent-Basenji 247/1643
+Quiescent-Basenji 247/1643
+Supine-Norrbottenspets 487/3310
+Supine-Badger 98/668
+Slouching-Sphynx 304/2195
+Supine-Capybara 221/1612
+Slouching-Xoloitzcuintli 307/2256
+Leaping-Norrbottenspets 16/119
+Indifferent-Sphynx 305/2276
+Quiescent-Sphynx 305/2276
+Indifferent-Xoloitzcuintli 312/2367
+Quiescent-Xoloitzcuintli 312/2367
+Supine-Shiba Inu 539/4101
+Indifferent-Badger 114/873
+Slouching-Badger 114/873
+Quiescent-Badger 114/873
+Darting-Cricket 474/3788
+Darting-Axolotl 441/3572
+Darting-Griffon 215/1757
+Darting-Pomeranian 318/2606
+Slouching-Cricket 229/1880
+Supine-Pekingese 303/2531
+Slouching-Norrbottenspets 531/4490
+Supine-Griffon 546/4618
+Indifferent-Norrbottenspets 536/4563
+Quiescent-Norrbottenspets 536/4563
+Darting-Shiba Inu 154/1323
+Supine-Pomeranian 312/2714
+Indifferent-Cricket 544/4765
+Quiescent-Cricket 544/4765
+Slouching-Capybara 255/2275
+Indifferent-Capybara 255/2284
+Quiescent-Capybara 255/2284
+Leaping-Lundehund 880/7942
+Supine-Havanese 587/5587
+Indifferent-Axolotl 483/4605
+Quiescent-Axolotl 483/4605
+Slouching-Axolotl 173/1659
+Slouching-Shiba Inu 589/5960
+Darting-Pekingese 263/2678
+Indifferent-Pomeranian 507/5370
+Quiescent-Pomeranian 507/5370
+Slouching-Griffon 607/6503
+Slouching-Pekingese 330/3572
+Indifferent-Shiba Inu 605/6605
+Quiescent-Shiba Inu 605/6605
+Leaping-Badger 3/33
+Darting-Havanese 490/5420
+Indifferent-Pekingese 446/5086
+Quiescent-Pekingese 446/5086
+Leaping-Capybara 9/103
+Slouching-Pomeranian 335/3979
+Indifferent-Griffon 641/7693
+Quiescent-Griffon 641/7693
+Supine-Lundehund 1232/15972
+Slouching-Havanese 626/8193
+Indifferent-Havanese 825/11018
+Quiescent-Havanese 825/11018
+Slouching-Lundehund 1496/27280
+Darting-Lundehund 1122/20768
+Indifferent-Lundehund 1584/41140
+Quiescent-Lundehund 1584/41140
 ```
+

@@ -1,6 +1,5 @@
 #include "backtest.h"
 #include "parallel.h"
-#include "perms.h"
 #include "trade.h"
 #include <algorithm>
 #include <numeric>

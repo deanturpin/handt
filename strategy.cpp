@@ -1,5 +1,5 @@
-#include "perms.h"
 #include "strategy.h"
+#include "lft.h"
 
 std::vector<strategy_t> get_strategies() {
 
@@ -12,16 +12,16 @@ std::vector<strategy_t> get_strategies() {
                                   lft::secondary_strategies.size() *
                                   thresholds.size();
 
-  std::vector<strategy_t> permutations;
-  permutations.reserve(total_permutations);
+  std::vector<strategy_t> strategies;
+  strategies.reserve(total_permutations);
 
   // Populate with strategies from the handt library
   for (const auto &[name1, buy1] : lft::primary_strategies)
     for (const auto &[name2, buy2] : lft::secondary_strategies)
       for (const auto &threshold : thresholds)
-        permutations.push_back(
+        strategies.push_back(
             {name1 + '-' + name2 + '-' + std::to_string(threshold), buy1, buy2,
              threshold});
 
-  return permutations;
+  return strategies;
 }

@@ -1,7 +1,7 @@
 #ifndef BACKTEST_H
 #define BACKTEST_H
 
-#include "perms.h"
+#include "strategy.h"
 #include "trade.h"
 #include <string>
 #include <vector>

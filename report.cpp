@@ -1,5 +1,4 @@
 #include "report.h"
-#include "strategy.h"
 #include <numeric>
 #include <sstream>
 #include <string>
