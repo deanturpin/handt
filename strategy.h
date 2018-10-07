@@ -7,8 +7,6 @@
 #include <numeric>
 #include <vector>
 
-#include <iostream>
-
 // THE STRATEGIES - by Low Frequency Trader
 
 namespace lft {
@@ -19,6 +17,35 @@ using cont = const std::vector<double> &;
 // Function definitions for the strategy types
 using func1 = std::function<bool(cont)>;
 using func2 = std::function<double(cont)>;
+
+// Strategy definition helper routines
+const auto mean = [](const auto &p) {
+  return std::accumulate(p.cbegin(), p.cend(), 0.0) /
+         static_cast<double>(p.size());
+};
+
+const auto maximum = [](const auto &p) {
+  return *std::max_element(p.cbegin(), p.cend());
+};
+
+const auto minimum = [](const auto &p) {
+  return *std::min_element(p.cbegin(), p.cend());
+};
+
+// Front end size is rounded down by pushing the trim size upwards
+const auto front_end = [](const auto &p) {
+  const int trim = std::rint(std::ceil(p.size() / 2.0));
+  return decltype(p){p.cbegin(), std::prev(p.cend(), trim)};
+};
+
+// Back end size is rounded up by pushing the trim size downwards
+const auto back_end = [](const auto &p) {
+  const int trim = std::rint(std::floor(p.size() / 2.0));
+  return decltype(p){std::next(p.cbegin(), trim), p.cend()};
+};
+
+const auto front = [](const auto &p) { return p.front(); };
+const auto back = [](const auto &p) { return p.back(); };
 
 // Primary strategies are simple boolean tests
 const std::vector<std::pair<std::string, func1>> primary_strategies{
@@ -80,41 +107,30 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
      }},
 
     // Maximum comes before minimum
-    {"Slouching", [](cont p) {
+    {"Slouching",
+     [](cont p) {
        const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
        return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
      }},
+
+    {"Vociferous",
+     [](cont p) {
+       std::vector<double> diffs;
+       std::adjacent_difference(p.cbegin(), p.cend(),
+                                std::back_inserter(diffs));
+
+       return mean(diffs) / mean(p) > 1.02;
+     }},
+
+    {"Quiescent", [](cont p) {
+       std::vector<double> diffs;
+       std::adjacent_difference(p.cbegin(), p.cend(),
+                                std::back_inserter(diffs));
+
+       return mean(diffs) / mean(p) <= 1.02;
+     }},
 }
 ;
-
-// Strategy definition helper routines
-const auto mean = [](const auto &p) {
-  return std::accumulate(p.cbegin(), p.cend(), 0.0) /
-         static_cast<double>(p.size());
-};
-
-const auto maximum = [](const auto &p) {
-  return *std::max_element(p.cbegin(), p.cend());
-};
-
-const auto minimum = [](const auto &p) {
-  return *std::min_element(p.cbegin(), p.cend());
-};
-
-// Front end size is rounded down by pushing the trim size upwards
-const auto front_end = [](const auto &p) {
-  const int trim = std::rint(std::ceil(p.size() / 2.0));
-  return decltype(p){p.cbegin(), std::prev(p.cend(), trim)};
-};
-
-// Back end size is rounded up by pushing the trim size downwards
-const auto back_end = [](const auto &p) {
-  const int trim = std::rint(std::floor(p.size() / 2.0));
-  return decltype(p){std::next(p.cbegin(), trim), p.cend()};
-};
-
-const auto front = [](const auto &p) { return p.front(); };
-const auto back = [](const auto &p) { return p.back(); };
 
 // Secondary strategies yield a buy threshold
 const std::vector<std::pair<std::string, func2>> secondary_strategies{
@@ -159,15 +175,6 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
     {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
-
-    {"Dachshund",
-     [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       return mean(diffs) / mean(p);
-     }},
 };
 }
 

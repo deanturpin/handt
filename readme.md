@@ -223,4 +223,3 @@ Slouching-Lundehund 1144/16060
 Darting-Lundehund 792/11726
 Indifferent-Lundehund 1188/22220
 ```
-
