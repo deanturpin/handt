@@ -1,4 +1,4 @@
-all: tmp analysis tmp/haveanicedaytrader tmp/coins.txt
+all: tmp analysis tmp/haveanicedaytrader
 
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
@@ -9,7 +9,8 @@ tmp/%.o: %.cpp
 	$(CXX) -c -o $@ $< $(cflags)
 
 tmp:
-	 mkdir -p $@
+	mkdir -p $@
+	./get_coins.py > tmp/coins.txt
 	./get_prices.py
 
 tmp/coins.txt: tmp
