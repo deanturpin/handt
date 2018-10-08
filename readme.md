@@ -12,25 +12,3 @@ Prices are fetched using the [CryptoCompare API](https://min-api.cryptocompare.c
 
 ---
 
-Generated Mon Oct  8 21:26:39 2018
-
-* 4 threads
-* 0 currency pairs
-* 3,120 strategies
-* 0 backtests
-
-# Current prospects
-
-Strategy|Pair|Good/Bad|Spot|Last (days)
----|---|---|---|---
-
-# 80-day backtest
-
-Strategy|Pair|Good/Bad|Spot|Last (days)
----|---|---|---|---
-
-# Overall strategy performance
-0 strategies
-```
-```
-
