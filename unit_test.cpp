@@ -69,6 +69,16 @@ void unit_test() {
              100, 99,  100, 101, 100, 99,  100, 101, 100, 99,
          }) == false);
 
+  assert(prim.at(7).second(cont2{100, 100, 100, 100, 100}) == true);
+  assert(prim.at(7).second(cont2{
+             10, 15, 10, 5,  10, 15, 10, 5,  10, 15,
+             10, 5,  10, 15, 10, 5,  10, 15, 10, 5,
+         }) == false);
+  assert(prim.at(7).second(cont2{
+             100, 101, 100, 99,  100, 101, 100, 99,  100, 101,
+             100, 99,  100, 101, 100, 99,  100, 101, 100, 99,
+         }) == true);
+
   // Secondary strategies
   const auto &strat = lft::secondary_strategies;
   assert(strat.at(0).second(cont2{1, 2, 3, 4, 5}) > 1.0);

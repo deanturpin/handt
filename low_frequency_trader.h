@@ -48,6 +48,7 @@ const auto front = [](const auto &p) { return p.front(); };
 const auto back = [](const auto &p) { return p.back(); };
 
 // Primary strategies are simple boolean tests
+const double volatile_threshold = .02;
 const std::vector<std::pair<std::string, func1>> primary_strategies{
 
     // Always return positively
@@ -113,7 +114,8 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
        return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
      }},
 
-    {"Vociferous", [](cont p) {
+    {"Capricious",
+     [](cont p) {
        std::vector<double> diffs;
        std::adjacent_difference(p.cbegin(), p.cend(),
                                 std::back_inserter(diffs));
@@ -126,7 +128,23 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
        for (auto &d : diffs)
          d = std::fabs(d);
 
-       return mean(diffs) / mean(p) > .02;
+       return mean(diffs) / mean(p) > volatile_threshold;
+     }},
+
+    {"Quiescent", [](cont p) {
+       std::vector<double> diffs;
+       std::adjacent_difference(p.cbegin(), p.cend(),
+                                std::back_inserter(diffs));
+
+       // Pop the front
+       diffs.front() = diffs.back();
+       diffs.pop_back();
+
+       // Use the magnitude
+       for (auto &d : diffs)
+         d = std::fabs(d);
+
+       return mean(diffs) / mean(p) <= volatile_threshold;
      }},
 }
 ;
