@@ -114,9 +114,9 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
        return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
      }},
 
-    {"Capricious",
-     [](cont p) {
+    {"Capricious", [](cont p) {
        std::vector<double> diffs;
+       diffs.reserve(p.size() - 1);
        std::adjacent_difference(p.cbegin(), p.cend(),
                                 std::back_inserter(diffs));
 
@@ -129,22 +129,6 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
          d = std::fabs(d);
 
        return mean(diffs) / mean(p) > volatile_threshold;
-     }},
-
-    {"Quiescent", [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       // Pop the front
-       diffs.front() = diffs.back();
-       diffs.pop_back();
-
-       // Use the magnitude
-       for (auto &d : diffs)
-         d = std::fabs(d);
-
-       return mean(diffs) / mean(p) <= volatile_threshold;
      }},
 }
 ;
@@ -192,23 +176,6 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
     {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
-
-    {"Spaniel",
-     [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       // Pop the front
-       diffs.front() = diffs.back();
-       diffs.pop_back();
-
-       // Use the magnitude
-       for (auto &d : diffs)
-         d = std::fabs(d);
-
-       return 1.0 + (mean(diffs) / mean(p));
-     }},
 };
 }
 
