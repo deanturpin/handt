@@ -2,6 +2,7 @@
 #include "parallel.h"
 #include "trade.h"
 #include <algorithm>
+#include <iostream>
 #include <numeric>
 #include <vector>
 
@@ -123,7 +124,7 @@ run_backtests(const std::vector<trade_t> &trades,
         }
       });
 
-  // Sort backtests by success
+  std::cerr << "Sort backtests by success\n";
   std::stable_sort(backtests.begin(), backtests.end(),
                    [](const auto &a, const auto &b) {
                      const double agd = a.good_deals.size();
