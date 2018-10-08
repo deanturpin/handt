@@ -14,3 +14,25 @@ API](https://min-api.cryptocompare.com/).
 
 ---
 
+Generated Mon Oct  8 11:20:15 2018
+
+* 4 threads
+* 0 currency pairs
+* 2,625 strategies
+* 0 backtests
+
+# Current prospects
+
+Strategy|Pair|Good/Bad|Spot|Last (days)
+---|---|---|---|---
+
+# 80-day backtest
+
+Strategy|Pair|Good/Bad|Spot|Last (days)
+---|---|---|---|---
+
+# Overall strategy performance
+0 strategies
+```
+```
+

@@ -1,7 +1,7 @@
 #ifndef STRATEGY_H
 #define STRATEGY_H
 
-#include "lft.h"
+#include "low_frequency_trader.h"
 #include <cmath>
 #include <string>
 #include <vector>

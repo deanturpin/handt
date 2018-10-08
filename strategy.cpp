@@ -1,5 +1,4 @@
 #include "strategy.h"
-#include "lft.h"
 
 std::vector<strategy_t> get_strategies() {
 

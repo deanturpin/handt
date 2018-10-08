@@ -113,21 +113,20 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
        return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
      }},
 
-    {"Vociferous",
-     [](cont p) {
+    {"Vociferous", [](cont p) {
        std::vector<double> diffs;
        std::adjacent_difference(p.cbegin(), p.cend(),
                                 std::back_inserter(diffs));
 
-       return mean(diffs) / mean(p) > 1.02;
-     }},
+       // Pop the front
+       diffs.front() = diffs.back();
+       diffs.pop_back();
 
-    {"Quiescent", [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
+       // Use the magnitude
+       for (auto &d : diffs)
+         d = std::fabs(d);
 
-       return mean(diffs) / mean(p) <= 1.02;
+       return mean(diffs) / mean(p) > .02;
      }},
 }
 ;
