@@ -26,7 +26,7 @@ tmp/haveanicedaytrader: objects
 	$(CXX) -o $@ tmp/*.o -lstdc++fs -lpthread
 	cat template.md > $(readme)
 	./$@ >> $(readme)
-	tail -60 readme.md
+	head -60 readme.md
 
 # All intermediate files are stored in tmp and analysis, so just remove them
 clean:
