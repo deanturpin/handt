@@ -26,7 +26,7 @@ int main() {
 
   std::cerr << "Generate reports for deployment\n";
   const auto &prospects_report = get_report(trades, backtests, 10, true);
-  const auto &backtest_report = get_report(trades, backtests, 80, false);
+  const auto &backtest_report = get_report(trades, backtests, 150, false);
 
   std::cerr << "Generate detailed report for offline analysis";
   get_detailed_report(trades, backtests);
