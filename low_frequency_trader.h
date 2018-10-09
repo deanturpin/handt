@@ -51,6 +51,9 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
 
     // Always return positively
     {"Indifferent", []([[maybe_unused]] cont p) constexpr {return true;
+
+// What are you doing clang format?!
+
 } // namespace lft
 ,
 }
@@ -118,6 +121,8 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
     // Always succeed
     {"Lundehund", []([[maybe_unused]] cont p) constexpr {return 2.0;
+
+// clang format gone bad
 }
 }
 ,
