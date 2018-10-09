@@ -12,12 +12,12 @@ Prices are fetched using the [CryptoCompare API](https://min-api.cryptocompare.c
 
 ---
 
-Generated Tue Oct  9 15:19:38 2018
+Generated Tue Oct  9 17:28:44 2018
 
 * 4 threads
 * 3 currency pairs
-* 2,625 strategies
-* 14,779,728 backtests
+* 2,250 strategies
+* 12,618,492 backtests
 
 # Current prospects
 
@@ -95,38 +95,6 @@ Supine-Pekingese-7|[SBD*-BTC](https://no_url)|2/0|0.000143|20
 Supine-Pekingese-8|[SBD*-BTC](https://no_url)|2/0|0.000143|19
 Darting-Jagdterrier-11|[SBD*-BTC](https://no_url)|2/0|0.000143|20
 Darting-Jagdterrier-12|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-3|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-4|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-5|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-6|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-7|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-8|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-9|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-10|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-11|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Jagdterrier-12|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Basenji-3|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Basenji-4|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Basenji-5|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Affenpinscher-3|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Affenpinscher-4|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Affenpinscher-5|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Affenpinscher-6|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Munchkin-3|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Munchkin-4|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-3|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-4|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-5|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-6|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-7|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-8|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-9|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-10|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-11|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Axolotl-12|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Shiba Inu-3|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Shiba Inu-4|[SBD*-BTC](https://no_url)|2/0|0.000143|20
-Capricious-Pekingese-5|[SBD*-BTC](https://no_url)|2/0|0.000143|20
 Indifferent-Munchkin-8|[ETH-USD](https://no_url)|2/0|229.13|26
 Straddling-Xoloitzcuintli-11|[ETH-USD](https://no_url)|2/0|229.13|30
 Straddling-Capybara-10|[ETH-USD](https://no_url)|2/0|229.13|30
@@ -166,9 +134,6 @@ Darting-Axolotl-13|[SBD*-BTC](https://no_url)|2/1|0.000143|20
 Darting-Havanese-12|[SBD*-BTC](https://no_url)|2/1|0.000143|20
 Darting-Havanese-13|[SBD*-BTC](https://no_url)|2/1|0.000143|20
 Darting-Pomeranian-9|[SBD*-BTC](https://no_url)|2/1|0.000143|20
-Capricious-Cricket-11|[SBD*-BTC](https://no_url)|2/1|0.000143|20
-Capricious-Cricket-12|[SBD*-BTC](https://no_url)|2/1|0.000143|20
-Capricious-Cricket-13|[SBD*-BTC](https://no_url)|2/1|0.000143|20
 Indifferent-Basenji-7|[ETH-USD](https://no_url)|2/1|229.13|25
 Indifferent-Basenji-9|[ETH-USD](https://no_url)|2/1|229.13|25
 Leaping-Xoloitzcuintli-3|[ETH-USD](https://no_url)|2/1|229.13|19
@@ -340,18 +305,46 @@ Indifferent-Cricket-15|[SBD*-BTC](https://no_url)|1/0|0.000143|20
 Indifferent-Cricket-16|[SBD*-BTC](https://no_url)|1/0|0.000143|20
 Indifferent-Cricket-17|[SBD*-BTC](https://no_url)|1/0|0.000143|20
 Indifferent-Axolotl-14|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Indifferent-Axolotl-15|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Indifferent-Axolotl-16|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Indifferent-Axolotl-17|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Indifferent-Pekingese-9|[SBD*-BTC](https://no_url)|1/0|0.000143|19
+Supine-Norrbottenspets-12|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Norrbottenspets-13|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Norrbottenspets-14|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Norrbottenspets-15|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Norrbottenspets-16|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Norrbottenspets-17|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Jagdterrier-3|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Jagdterrier-4|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Jagdterrier-5|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Jagdterrier-6|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Jagdterrier-7|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Jagdterrier-8|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Jagdterrier-9|[SBD*-BTC](https://no_url)|1/0|0.000143|19
+Supine-Xoloitzcuintli-7|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Xoloitzcuintli-8|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Basenji-3|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Basenji-4|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Basenji-5|[SBD*-BTC](https://no_url)|1/0|0.000143|19
+Supine-Basenji-6|[SBD*-BTC](https://no_url)|1/0|0.000143|19
+Supine-Basenji-7|[SBD*-BTC](https://no_url)|1/0|0.000143|19
+Supine-Sphynx-7|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Sphynx-8|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Sphynx-9|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Sphynx-10|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Sphynx-11|[SBD*-BTC](https://no_url)|1/0|0.000143|77
+Supine-Affenpinscher-3|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Affenpinscher-4|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Munchkin-3|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Munchkin-4|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Munchkin-5|[SBD*-BTC](https://no_url)|1/0|0.000143|20
+Supine-Munchkin-6|[SBD*-BTC](https://no_url)|1/0|0.000143|20
 
 # Overall strategy performance
-175 strategies
+150 strategies
 ```
-Capricious-Jagdterrier 25/0
-Capricious-Axolotl 25/0
-Capricious-Affenpinscher 16/0
-Capricious-Munchkin 8/1
-Capricious-Shiba Inu 9/4
 Straddling-Bandicoot 2/0
-Capricious-Bandicoot 2/0
-Capricious-Cricket 26/20
 Supine-Bandicoot 1/0
 Indifferent-Mink 0/0
 Indifferent-Ocelot 0/0
@@ -400,21 +393,8 @@ Slouching-Narwahl 0/0
 Slouching-Bichon Frise 0/0
 Slouching-Shih Tzu 0/0
 Slouching-Papillon 0/0
-Capricious-Lundehund 30/30
-Capricious-Mink 0/0
-Capricious-Ocelot 0/0
-Capricious-Lowchen 0/0
-Capricious-Narwahl 0/0
-Capricious-Bichon Frise 0/0
-Capricious-Shih Tzu 0/0
-Capricious-Papillon 0/0
-Capricious-Badger 0/1
-Capricious-Havanese 26/30
-Capricious-Pekingese 10/12
-Capricious-Pomeranian 17/23
 Leaping-Xoloitzcuintli 5/7
 Straddling-Badger 9/14
-Capricious-Basenji 8/14
 Leaping-Bandicoot 4/7
 Supine-Munchkin 5/9
 Indifferent-Bandicoot 7/14
@@ -429,7 +409,6 @@ Darting-Norrbottenspets 3/9
 Leaping-Norrbottenspets 8/25
 Supine-Basenji 5/16
 Straddling-Xoloitzcuintli 43/138
-Capricious-Sphynx 0/3
 Straddling-Pekingese 51/171
 Darting-Sphynx 4/14
 Straddling-Axolotl 28/98
@@ -445,12 +424,10 @@ Leaping-Sphynx 2/10
 Leaping-Basenji 26/135
 Straddling-Cricket 24/131
 Leaping-Pomeranian 28/153
-Capricious-Capybara 0/5
 Straddling-Norrbottenspets 53/300
 Straddling-Havanese 79/464
 Leaping-Munchkin 20/119
 Supine-Cricket 26/155
-Capricious-Griffon 11/66
 Leaping-Pekingese 30/188
 Leaping-Shiba Inu 19/123
 Straddling-Shiba Inu 57/380
@@ -509,8 +486,6 @@ Slouching-Griffon 217/3793
 Indifferent-Shiba Inu 225/4027
 Indifferent-Griffon 224/4128
 Slouching-Shiba Inu 214/3983
-Capricious-Xoloitzcuintli 0/17
-Capricious-Norrbottenspets 0/18
 Darting-Havanese 141/3206
 Slouching-Havanese 229/5258
 Indifferent-Havanese 275/7273
