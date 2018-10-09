@@ -2,6 +2,7 @@ language: python
 python: "3.6"
 script:
   - make CXX=g++-8
+  - gprof tmp/haveanicedaytrader  | head
   - echo -e "\n```" $(sloccount *.h *.cpp *.py) "```" >> readme.md
   - cppcheck --enable=all .
 
@@ -22,3 +23,4 @@ matrix:
             - g++-8
             - cppcheck
             - sloccount
+            - gprof
