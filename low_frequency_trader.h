@@ -108,27 +108,9 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
      }},
 
     // Maximum comes before minimum
-    {"Slouching",
-     [](cont p) {
+    {"Slouching", [](cont p) {
        const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
        return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
-     }},
-
-    {"Capricious", [](cont p) {
-       std::vector<double> diffs;
-       diffs.reserve(p.size() - 1);
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       // Pop the front
-       diffs.front() = diffs.back();
-       diffs.pop_back();
-
-       // Use the magnitude
-       for (auto &d : diffs)
-         d = std::fabs(d);
-
-       return mean(diffs) / mean(p) > volatile_threshold;
      }},
 }
 ;
