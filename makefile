@@ -38,3 +38,6 @@ clean:
 
 cleanobjects:
 	rm -rf tmp/*.o
+
+profile: all
+	gprof tmp/haveanicedaytrader  | head -13
