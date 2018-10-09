@@ -2,7 +2,6 @@
 #include "parallel.h"
 #include "trade.h"
 #include <algorithm>
-#include <iostream>
 #include <numeric>
 #include <vector>
 
@@ -31,15 +30,11 @@ run_backtests(const std::vector<trade_t> &trades,
       backtests.begin(), backtests.end(), [&trades](auto &backtest) {
         // The sell strategy returns positively if the expected yield is
         // acheived within the trading window
-        const double sell_threshold = 6;
-        const auto sell = [&sell_threshold](const auto &current,
-                                            const auto &future) {
-          return std::find_if(
-              current, future,
-              [spot = *current, threshold = (100.0 + sell_threshold) /
-                                            100.0](const auto &future_price) {
-                return future_price > spot * threshold;
-              });
+        const auto sell = [](const auto &current, const auto &future) {
+          return std::find_if(current, future,
+                              [spot = *current](const auto &future_price) {
+                                return future_price > spot * 1.06;
+                              });
         };
 
         // Configure trading periods for backtest
@@ -124,7 +119,6 @@ run_backtests(const std::vector<trade_t> &trades,
         }
       });
 
-  std::cerr << "Sort backtests by success\n";
   std::stable_sort(backtests.begin(), backtests.end(),
                    [](const auto &a, const auto &b) {
                      const double agd = a.good_deals.size();

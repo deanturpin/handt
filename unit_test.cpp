@@ -30,6 +30,7 @@ void unit_test() {
   // Primary strategies
   using cont2 = std::vector<double>;
   const auto &prim = lft::primary_strategies;
+  assert(prim.size() == 6);
 
   // Always true
   assert(prim.front().first == "Indifferent");
@@ -58,29 +59,9 @@ void unit_test() {
   assert(prim.at(5).second(cont2{1, 2, 3, 4, 5}) == false);
   assert(prim.at(5).second(cont2{5, 4, 3, 2, 1}) == true);
 
-  // Activity
-  assert(prim.at(6).second(cont2{100, 100, 100, 100, 100}) == false);
-  assert(prim.at(6).second(cont2{
-             10, 15, 10, 5,  10, 15, 10, 5,  10, 15,
-             10, 5,  10, 15, 10, 5,  10, 15, 10, 5,
-         }) == true);
-  assert(prim.at(6).second(cont2{
-             100, 101, 100, 99,  100, 101, 100, 99,  100, 101,
-             100, 99,  100, 101, 100, 99,  100, 101, 100, 99,
-         }) == false);
-
-  assert(prim.at(7).second(cont2{100, 100, 100, 100, 100}) == true);
-  assert(prim.at(7).second(cont2{
-             10, 15, 10, 5,  10, 15, 10, 5,  10, 15,
-             10, 5,  10, 15, 10, 5,  10, 15, 10, 5,
-         }) == false);
-  assert(prim.at(7).second(cont2{
-             100, 101, 100, 99,  100, 101, 100, 99,  100, 101,
-             100, 99,  100, 101, 100, 99,  100, 101, 100, 99,
-         }) == true);
-
   // Secondary strategies
   const auto &strat = lft::secondary_strategies;
+  assert(strat.size() == 25);
   assert(strat.at(0).second(cont2{1, 2, 3, 4, 5}) > 1.0);
   assert(strat.at(0).second(cont2{}) > 1.0);
 

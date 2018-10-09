@@ -17,6 +17,7 @@ std::string get_report(const std::vector<trade_t> &prices,
   unsigned int entries = 0;
   for (const auto &s : backtests)
     if (!prospects_only || s.buy) {
+
       // Trim any trailing asterisk from symbol name
       std::string_view from_symbol_trimmed = s.from_symbol;
       if (from_symbol_trimmed.back() == '*')
@@ -30,7 +31,11 @@ std::string get_report(const std::vector<trade_t> &prices,
                : s.exchange == std::string("Binance")
                      ? "binance.com/en/trade/" +
                            std::string(from_symbol_trimmed) + '_' + s.to_symbol
-                     : "no_url");
+
+                     : s.exchange == std::string("Poloniex")
+                           ? "poloniex.com/exchange#" + s.from_symbol + '_' +
+                                 s.to_symbol
+                           : "no_url");
 
       // Report strategy summary
       out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("

@@ -20,8 +20,7 @@ using func2 = std::function<double(cont)>;
 
 // Strategy definition helper routines
 const auto mean = [](const auto &p) {
-  return std::accumulate(p.cbegin(), p.cend(), 0.0) /
-         static_cast<double>(p.size());
+  return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.size();
 };
 
 const auto maximum = [](const auto &p) {
@@ -48,11 +47,13 @@ const auto front = [](const auto &p) { return p.front(); };
 const auto back = [](const auto &p) { return p.back(); };
 
 // Primary strategies are simple boolean tests
-const double volatile_threshold = .02;
 const std::vector<std::pair<std::string, func1>> primary_strategies{
 
     // Always return positively
     {"Indifferent", []([[maybe_unused]] cont p) constexpr {return true;
+
+// What are you doing clang format?!
+
 } // namespace lft
 ,
 }
@@ -108,43 +109,9 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
      }},
 
     // Maximum comes before minimum
-    {"Slouching",
-     [](cont p) {
+    {"Slouching", [](cont p) {
        const auto &[min, max] = std::minmax_element(p.cbegin(), p.cend());
        return std::distance(p.cbegin(), min) > std::distance(p.cbegin(), max);
-     }},
-
-    {"Capricious",
-     [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       // Pop the front
-       diffs.front() = diffs.back();
-       diffs.pop_back();
-
-       // Use the magnitude
-       for (auto &d : diffs)
-         d = std::fabs(d);
-
-       return mean(diffs) / mean(p) > volatile_threshold;
-     }},
-
-    {"Quiescent", [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       // Pop the front
-       diffs.front() = diffs.back();
-       diffs.pop_back();
-
-       // Use the magnitude
-       for (auto &d : diffs)
-         d = std::fabs(d);
-
-       return mean(diffs) / mean(p) <= volatile_threshold;
      }},
 }
 ;
@@ -153,7 +120,12 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
 const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
     // Always succeed
-    {"Lundehund", []([[maybe_unused]] cont p) { return 2.0; }},
+    {"Lundehund", []([[maybe_unused]] cont p) constexpr {return 2.0;
+
+// clang format gone bad
+}
+}
+,
 
     // Front/back
     {"Norrbottenspets", [](cont p) { return front(p) / back(p); }},
@@ -192,24 +164,8 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
     {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
-
-    {"Spaniel",
-     [](cont p) {
-       std::vector<double> diffs;
-       std::adjacent_difference(p.cbegin(), p.cend(),
-                                std::back_inserter(diffs));
-
-       // Pop the front
-       diffs.front() = diffs.back();
-       diffs.pop_back();
-
-       // Use the magnitude
-       for (auto &d : diffs)
-         d = std::fabs(d);
-
-       return 1.0 + (mean(diffs) / mean(p));
-     }},
-};
+}
+;
 }
 
 #endif

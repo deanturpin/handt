@@ -4,8 +4,9 @@
 afford to lose.**
 
 Having said that... *Have A Nice Day Trader* is an algorithmic trading platform
-that uses patterns in historic prices to influence future trades. Prices are requested for all currency pairs traded by Binance and Coinbase over the last 80 days. A library of strategies is backtested over all pairs and the
-summary below is generated.
+that uses patterns in historic prices to influence future trades. 80 days of
+prices are requested for hundreds of currency pairs, then a library of
+strategies is backtested over them and a summary is generated.
 
 Prices are fetched using the [CryptoCompare API](https://min-api.cryptocompare.com/). See [references](refs.md). 
 
