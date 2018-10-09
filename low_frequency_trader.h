@@ -20,8 +20,7 @@ using func2 = std::function<double(cont)>;
 
 // Strategy definition helper routines
 const auto mean = [](const auto &p) {
-  return std::accumulate(p.cbegin(), p.cend(), 0.0) /
-         static_cast<double>(p.size());
+  return std::accumulate(p.cbegin(), p.cend(), 0.0) / p.size();
 };
 
 const auto maximum = [](const auto &p) {
@@ -48,7 +47,6 @@ const auto front = [](const auto &p) { return p.front(); };
 const auto back = [](const auto &p) { return p.back(); };
 
 // Primary strategies are simple boolean tests
-const double volatile_threshold = .02;
 const std::vector<std::pair<std::string, func1>> primary_strategies{
 
     // Always return positively
@@ -119,7 +117,10 @@ const std::vector<std::pair<std::string, func1>> primary_strategies{
 const std::vector<std::pair<std::string, func2>> secondary_strategies{
 
     // Always succeed
-    {"Lundehund", []([[maybe_unused]] cont p) { return 2.0; }},
+    {"Lundehund", []([[maybe_unused]] cont p) constexpr {return 2.0;
+}
+}
+,
 
     // Front/back
     {"Norrbottenspets", [](cont p) { return front(p) / back(p); }},
@@ -158,7 +159,8 @@ const std::vector<std::pair<std::string, func2>> secondary_strategies{
     {"Pomeranian", [](cont p) { return maximum(p) / mean(p); }},
     {"Pekingese", [](cont p) { return mean(p) / minimum(p); }},
     {"Papillon", [](cont p) { return mean(p) / maximum(p); }},
-};
+}
+;
 }
 
 #endif
