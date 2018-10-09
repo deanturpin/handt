@@ -12,7 +12,7 @@ Prices are fetched using the [CryptoCompare API](https://min-api.cryptocompare.c
 
 ---
 
-Generated Tue Oct  9 15:18:17 2018
+Generated Tue Oct  9 15:19:38 2018
 
 * 4 threads
 * 3 currency pairs
