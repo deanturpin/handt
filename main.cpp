@@ -25,7 +25,7 @@ int main() {
   const auto &backtests = run_backtests(trades, strategies);
 
   // Generate reports for deployment
-  const auto &backtest_report = get_report(trades, backtests, 300, false);
+  const auto &backtest_report = get_report(trades, backtests, 50, false);
   const auto &prospects_report = get_report(trades, backtests, 10, true);
 
   // Generate detailed report for offline analysis

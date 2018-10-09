@@ -33,8 +33,8 @@ std::string get_report(const std::vector<trade_t> &prices,
                            std::string(from_symbol_trimmed) + '_' + s.to_symbol
 
                      : s.exchange == std::string("Poloniex")
-                           ? "https://poloniex.com/exchange#" + s.from_symbol +
-                                 '_' + s.to_symbol
+                           ? "poloniex.com/exchange#" + s.from_symbol + '_' +
+                                 s.to_symbol
                            : "no_url");
 
       // Report strategy summary
