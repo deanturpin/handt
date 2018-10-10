@@ -40,4 +40,5 @@ cleanobjects:
 	rm -rf tmp/*.o
 
 profile: all
-	gprof tmp/haveanicedaytrader  | head -13
+	gprof tmp/haveanicedaytrader  | head
+	gprof -l tmp/haveanicedaytrader  | head
