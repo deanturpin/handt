@@ -1,10 +1,10 @@
 #include "report.h"
+#include <iomanip>
 #include <numeric>
 #include <sstream>
 #include <string>
 
 // Take a container of all backtests and produce a report as a string
-//
 static std::string construct_exchange_url(const std::string &from_symbol,
                                           const std::string &to_symbol,
                                           const std::string &exchange) {
@@ -14,17 +14,17 @@ static std::string construct_exchange_url(const std::string &from_symbol,
   if (from_symbol_trimmed.back() == '*')
     from_symbol_trimmed.remove_suffix(1);
 
-  return "https://" +
-         (exchange == std::string("Coinbase")
-              ? "coinbase.com"
-              : exchange == std::string("Binance")
-                    ? "binance.com/en/trade/" +
-                          std::string(from_symbol_trimmed) + '_' + to_symbol
+  if (exchange == std::string("Coinbase"))
+    return "https://coinbase.com";
 
-                    : exchange == std::string("Poloniex")
-                          ? "poloniex.com/exchange#" + to_symbol + '_' +
-                                from_symbol
-                          : "no_url");
+  if (exchange == std::string("Binance"))
+    return "https://binance.com/en/trade/" + std::string(from_symbol_trimmed) +
+           '_' + to_symbol;
+
+  if (exchange == std::string("Poloniex"))
+    return "https://poloniex.com/exchange#" + to_symbol + '_' + from_symbol;
+
+  return exchange;
 }
 
 std::string get_report(const std::vector<trade_t> &prices,
