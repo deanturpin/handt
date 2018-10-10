@@ -26,6 +26,9 @@ static std::string construct_exchange_url(const std::string &from_symbol,
   if (exchange == std::string("Poloniex"))
     return "https://poloniex.com/exchange#" + to_symbol + '_' + from_symbol;
 
+  if (exchange == std::string("Kraken"))
+    return "https://www.kraken.com/charts";
+
   return "http://lmgtfy.com/?q=" + exchange;
 }
 
