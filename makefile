@@ -3,7 +3,7 @@ all: tmp analysis tmp/haveanicedaytrader
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
 	 -Werror -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
-	 -g -pg -O3
+	 -pg -O3
 
 tmp/%.o: %.cpp
 	$(CXX) -c -o $@ $< $(cflags)
@@ -25,7 +25,7 @@ objects:
 	tmp/unit_test.o
 
 # Generate documentation
-readme = readme.md
+readme = tmp/readme.md
 tmp/haveanicedaytrader: objects
 	$(CXX) -o $@ tmp/*.o -lstdc++fs -lpthread -pg
 	cat template.md > $(readme)
