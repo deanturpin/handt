@@ -1,11 +1,11 @@
 #include "backtest.h"
 #include "detailed_report.h"
+#include "low_frequency_trader.h"
 #include "parallel.h"
 #include "report.h"
 #include "strategy.h"
 #include "strategy_report.h"
 #include "trade.h"
-#include "unit_test.h"
 #include <chrono>
 #include <iomanip>
 #include <iostream>
@@ -16,7 +16,7 @@
 
 int main() {
 
-  unit_test();
+  lft_unit_test();
 
   // Get latest prices for all currency pairs
   const auto &trades = get_trades();

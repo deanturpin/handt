@@ -12,4 +12,6 @@ using func2 = std::function<double(cont)>;
 std::vector<std::pair<std::string, func1>> get_primary_strategies();
 std::vector<std::pair<std::string, func2>> get_secondary_strategies();
 
+void lft_unit_test();
+
 #endif
