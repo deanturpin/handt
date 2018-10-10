@@ -9,7 +9,10 @@
 #include <chrono>
 #include <iomanip>
 #include <iostream>
+#include <numeric>
 #include <sstream>
+
+// Project entry point - get prices, run strategies, present results
 
 int main() {
 
