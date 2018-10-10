@@ -11,7 +11,7 @@ std::vector<trade_t> get_trades() {
 
   std::vector<trade_t> trades;
 
-  // Fetch list of price files
+  // Fetch list of price files (check the file extension)
   std::vector<std::string> currency_pairs;
   for (const auto &file : std::filesystem::directory_iterator("tmp"))
     if (std::string(file.path()).find(".csv") != std::string::npos)

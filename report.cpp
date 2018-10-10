@@ -2,6 +2,9 @@
 #include <numeric>
 #include <sstream>
 #include <string>
+#include <string_view>
+
+// Parse backtest results and generate strategy performance report
 
 // Take a container of all backtests and produce a report as a string
 static std::string construct_exchange_url(const std::string &from_symbol,

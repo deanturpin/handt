@@ -3,6 +3,8 @@
 #include <sstream>
 #include <string_view>
 
+// Generate a summary of all strategies over all currency pairs
+
 std::string get_strategy_report(const std::vector<backtest_t> &backtests) {
 
   std::stringstream report;

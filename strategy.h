@@ -11,8 +11,8 @@
 
 struct strategy_t {
   std::string name;
-  lft::func1 primary;
-  lft::func2 secondary;
+  func1 primary;
+  func2 secondary;
   int threshold;
   using iter = const std::vector<double>::const_iterator &;
   bool execute(iter historic_price_index, iter current_price_index) const {

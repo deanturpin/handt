@@ -3,7 +3,8 @@
 #include <sstream>
 #include <string>
 
-// Generate detailed internal report
+// Generate detailed internal reports to verify recommended trades
+
 void get_detailed_report(const std::vector<trade_t> &prices,
                          const std::vector<backtest_t> &backtests) {
 
