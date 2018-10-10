@@ -39,6 +39,6 @@ clean:
 cleanobjects:
 	rm -rf tmp/*.o
 
-profile: all
+profile:
 	gprof tmp/haveanicedaytrader  | head
 	gprof -l tmp/haveanicedaytrader  | head
