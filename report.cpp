@@ -4,6 +4,28 @@
 #include <string>
 
 // Take a container of all backtests and produce a report as a string
+//
+static std::string construct_exchange_url(const std::string &from_symbol,
+                                          const std::string &to_symbol,
+                                          const std::string &exchange) {
+
+  // Trim any trailing asterisk from symbol name
+  std::string_view from_symbol_trimmed = from_symbol;
+  if (from_symbol_trimmed.back() == '*')
+    from_symbol_trimmed.remove_suffix(1);
+
+  return "https://" +
+         (exchange == std::string("Coinbase")
+              ? "coinbase.com"
+              : exchange == std::string("Binance")
+                    ? "binance.com/en/trade/" +
+                          std::string(from_symbol_trimmed) + '_' + to_symbol
+
+                    : exchange == std::string("Poloniex")
+                          ? "poloniex.com/exchange#" + to_symbol + '_' +
+                                from_symbol
+                          : "no_url");
+}
 
 std::string get_report(const std::vector<trade_t> &prices,
                        const std::vector<backtest_t> &backtests,
@@ -18,24 +40,9 @@ std::string get_report(const std::vector<trade_t> &prices,
   for (const auto &s : backtests)
     if (!prospects_only || s.buy) {
 
-      // Trim any trailing asterisk from symbol name
-      std::string_view from_symbol_trimmed = s.from_symbol;
-      if (from_symbol_trimmed.back() == '*')
-        from_symbol_trimmed.remove_suffix(1);
-
       // Construct exchange URL
-      const std::string url =
-          "https://" +
-          (s.exchange == std::string("Coinbase")
-               ? "coinbase.com"
-               : s.exchange == std::string("Binance")
-                     ? "binance.com/en/trade/" +
-                           std::string(from_symbol_trimmed) + '_' + s.to_symbol
-
-                     : s.exchange == std::string("Poloniex")
-                           ? "poloniex.com/exchange#" + s.from_symbol + '_' +
-                                 s.to_symbol
-                           : "no_url");
+      const auto url =
+          construct_exchange_url(s.from_symbol, s.to_symbol, s.exchange);
 
       // Report strategy summary
       out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
