@@ -12,90 +12,92 @@ Prices are fetched using the [CryptoCompare API](https://min-api.cryptocompare.c
 
 ---
 
-Generated Tue Oct  9 22:37:09 2018
+Generated Wed Oct 10 09:24:18 2018
 
 * 4 threads
-* 3 currency pairs
+* 87 currency pairs
 * 2,250 strategies
-* 12,618,492 backtests
+* 365,994,601 backtests
 
 # Current prospects
 
 Strategy|Pair|Good/Bad|Spot|Last (days)
 ---|---|---|---|---
-Darting-Shiba Inu-4|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|5/40|0.000143|12
-Indifferent-Shiba Inu-4|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|17/210|0.000143|12
-Darting-Griffon-3|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|10/146|0.000143|13
-Darting-Shiba Inu-3|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|5/78|0.000143|13
-Darting-Havanese-5|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|10/156|0.000143|13
-Darting-Havanese-4|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|12/214|0.000143|12
-Indifferent-Shiba Inu-3|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|17/305|0.000143|12
-Indifferent-Havanese-5|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|15/308|0.000143|13
-Indifferent-Pomeranian-3|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|13/292|0.000143|12
-Darting-Pomeranian-3|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|7/158|0.000143|13
-Darting-Havanese-6|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|6/137|0.000143|13
+Indifferent-Norrbottenspets-3|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Norrbottenspets-4|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Norrbottenspets-5|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Norrbottenspets-6|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Norrbottenspets-7|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Xoloitzcuintli-3|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Shiba Inu-3|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Shiba Inu-4|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Shiba Inu-5|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Shiba Inu-6|[ADA-CAD](Kraken)|3/0|0.1009|2
+Indifferent-Shiba Inu-7|[ADA-CAD](Kraken)|3/0|0.1009|2
 
 # 80-day backtest
 
 Strategy|Pair|Good/Bad|Spot|Last (days)
 ---|---|---|---|---
-Straddling-Havanese-14|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|4/1|229.13|21
-Straddling-Havanese-15|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|4/1|229.13|21
-Straddling-Pekingese-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|4/1|229.13|21
-Indifferent-Jagdterrier-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Indifferent-Cricket-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Indifferent-Axolotl-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Leaping-Jagdterrier-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Leaping-Affenpinscher-6|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|18
-Leaping-Cricket-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Leaping-Axolotl-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Straddling-Capybara-9|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|21
-Straddling-Havanese-16|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|25
-Straddling-Havanese-17|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|25
-Darting-Jagdterrier-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Darting-Cricket-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Darting-Axolotl-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Darting-Havanese-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/0|229.13|17
-Supine-Pomeranian-6|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|3/1|0.000143|20
-Indifferent-Affenpinscher-6|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|18
-Leaping-Basenji-6|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|20
-Leaping-Havanese-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|17
-Leaping-Pomeranian-6|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|18
-Leaping-Pekingese-6|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|20
-Straddling-Norrbottenspets-14|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|21
-Straddling-Xoloitzcuintli-10|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|21
-Straddling-Griffon-14|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|21
-Straddling-Griffon-15|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|21
-Straddling-Shiba Inu-14|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|21
-Straddling-Shiba Inu-15|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|21
-Darting-Affenpinscher-6|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|18
-Darting-Pomeranian-6|[ETH-USD](https://poloniex.com/exchange#ETH_USD)|3/1|229.13|18
-Indifferent-Affenpinscher-5|[ETH-BTC](https://poloniex.com/exchange#ETH_BTC)|2/0|0.03444|18
-Indifferent-Havanese-14|[ETH-BTC](https://poloniex.com/exchange#ETH_BTC)|2/0|0.03444|25
-Indifferent-Havanese-15|[ETH-BTC](https://poloniex.com/exchange#ETH_BTC)|2/0|0.03444|25
-Darting-Affenpinscher-5|[ETH-BTC](https://poloniex.com/exchange#ETH_BTC)|2/0|0.03444|18
-Darting-Pomeranian-5|[ETH-BTC](https://poloniex.com/exchange#ETH_BTC)|2/0|0.03444|18
-Indifferent-Jagdterrier-11|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Indifferent-Jagdterrier-12|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Indifferent-Pomeranian-9|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Indifferent-Pomeranian-10|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Indifferent-Pomeranian-11|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Indifferent-Pekingese-7|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Indifferent-Pekingese-8|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|19
-Supine-Havanese-12|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Supine-Havanese-13|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Supine-Havanese-14|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Supine-Havanese-15|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Supine-Havanese-16|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Supine-Havanese-17|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Supine-Pomeranian-7|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
-Supine-Pomeranian-8|[SBD*-BTC](https://poloniex.com/exchange#SBD*_BTC)|2/0|0.000143|20
+Indifferent-Shiba Inu-14|[XLM-EUR](Kraken)|9/0|0.209|14
+Slouching-Shiba Inu-14|[XLM-EUR](Kraken)|9/0|0.209|14
+Slouching-Havanese-15|[XLM-EUR](Kraken)|9/0|0.209|14
+Slouching-Griffon-15|[XRP-CAD](Kraken)|9/1|0.5915|3
+Supine-Shiba Inu-13|[XLM-USD](Kraken)|9/1|0.239|14
+Slouching-Havanese-15|[XLM-USD](Kraken)|9/1|0.239|14
+Indifferent-Shiba Inu-13|[XLM-EUR](Kraken)|9/1|0.209|14
+Supine-Shiba Inu-13|[XLM-EUR](Kraken)|9/1|0.209|14
+Supine-Havanese-13|[XLM-EUR](Kraken)|9/1|0.209|14
+Slouching-Shiba Inu-13|[XLM-EUR](Kraken)|9/1|0.209|14
+Slouching-Havanese-14|[XLM-EUR](Kraken)|9/1|0.209|14
+Indifferent-Griffon-15|[XLM-EUR](Kraken)|8/0|0.209|15
+Supine-Havanese-14|[XLM-EUR](Kraken)|8/0|0.209|14
+Supine-Havanese-15|[XLM-EUR](Kraken)|8/0|0.209|14
+Slouching-Griffon-15|[XLM-EUR](Kraken)|8/0|0.209|15
+Indifferent-Havanese-17|[ZEC-JPY](Kraken)|8/0|13698.8|13
+Slouching-Griffon-16|[XRP-CAD](Kraken)|8/1|0.5915|3
+Indifferent-Griffon-15|[XLM-USD](Kraken)|8/1|0.239|15
+Indifferent-Havanese-17|[XLM-USD](Kraken)|8/1|0.239|15
+Supine-Havanese-15|[XLM-USD](Kraken)|8/1|0.239|14
+Slouching-Griffon-15|[XLM-USD](Kraken)|8/1|0.239|15
+Slouching-Havanese-16|[XLM-USD](Kraken)|8/1|0.239|15
+Leaping-Basenji-8|[MLN-ETH](Kraken)|8/1|0.04355|26
+Leaping-Basenji-9|[MLN-ETH](Kraken)|8/1|0.04355|26
+Indifferent-Norrbottenspets-13|[XLM-EUR](Kraken)|8/1|0.209|15
+Indifferent-Griffon-14|[XLM-EUR](Kraken)|8/1|0.209|15
+Slouching-Norrbottenspets-13|[XLM-EUR](Kraken)|8/1|0.209|15
+Slouching-Griffon-14|[XLM-EUR](Kraken)|8/1|0.209|15
+Indifferent-Havanese-14|[DOGE-BTC](Kraken)|8/1|8.6e-07|20
+Indifferent-Pekingese-8|[DOGE-BTC](Kraken)|8/1|8.6e-07|20
+Indifferent-Griffon-16|[ZEC-JPY](Kraken)|8/1|13698.8|13
+Slouching-Pekingese-11|[XRP-CAD](Kraken)|7/0|0.5915|3
+Indifferent-Sphynx-9|[XLM-USD](Kraken)|7/0|0.239|14
+Slouching-Sphynx-9|[XLM-USD](Kraken)|7/0|0.239|14
+Slouching-Pomeranian-9|[XLM-USD](Kraken)|7/0|0.239|14
+Indifferent-Pomeranian-16|[MLN-ETH](Kraken)|7/0|0.04355|35
+Indifferent-Griffon-16|[XLM-EUR](Kraken)|7/0|0.209|15
+Indifferent-Shiba Inu-16|[XLM-EUR](Kraken)|7/0|0.209|15
+Indifferent-Havanese-17|[XLM-EUR](Kraken)|7/0|0.209|15
+Indifferent-Pekingese-9|[XLM-EUR](Kraken)|7/0|0.209|15
+Indifferent-Pekingese-10|[XLM-EUR](Kraken)|7/0|0.209|15
+Supine-Griffon-14|[XLM-EUR](Kraken)|7/0|0.209|15
+Supine-Griffon-15|[XLM-EUR](Kraken)|7/0|0.209|15
+Slouching-Griffon-16|[XLM-EUR](Kraken)|7/0|0.209|15
+Slouching-Shiba Inu-16|[XLM-EUR](Kraken)|7/0|0.209|15
+Slouching-Havanese-16|[XLM-EUR](Kraken)|7/0|0.209|15
+Indifferent-Havanese-16|[DOGE-BTC](Kraken)|7/0|8.6e-07|29
+Indifferent-Griffon-17|[ZEC-JPY](Kraken)|7/0|13698.8|14
+Slouching-Pekingese-11|[ZEC-JPY](Kraken)|7/0|13698.8|13
+Slouching-Pekingese-12|[ZEC-JPY](Kraken)|7/0|13698.8|13
+Slouching-Griffon-17|[XRP-CAD](Kraken)|7/1|0.5915|3
 
 # Overall strategy performance
 150 strategies
 ```
-Straddling-Bandicoot 2/0
-Supine-Bandicoot 1/0
+Darting-Badger 15/4
+Supine-Bandicoot 43/12
+Darting-Capybara 62/48
+Slouching-Bandicoot 13/11
 Indifferent-Mink 0/0
 Indifferent-Ocelot 0/0
 Indifferent-Lowchen 0/0
@@ -103,7 +105,6 @@ Indifferent-Narwahl 0/0
 Indifferent-Bichon Frise 0/0
 Indifferent-Shih Tzu 0/0
 Indifferent-Papillon 0/0
-Leaping-Badger 0/0
 Leaping-Mink 0/0
 Leaping-Ocelot 0/0
 Leaping-Lowchen 0/0
@@ -125,8 +126,6 @@ Straddling-Narwahl 0/0
 Straddling-Bichon Frise 0/0
 Straddling-Shih Tzu 0/0
 Straddling-Papillon 0/0
-Darting-Capybara 0/0
-Darting-Badger 0/0
 Darting-Mink 0/0
 Darting-Ocelot 0/0
 Darting-Lowchen 0/0
@@ -134,8 +133,6 @@ Darting-Narwahl 0/0
 Darting-Bichon Frise 0/0
 Darting-Shih Tzu 0/0
 Darting-Papillon 0/0
-Slouching-Munchkin 0/0
-Slouching-Bandicoot 0/0
 Slouching-Mink 0/0
 Slouching-Ocelot 0/0
 Slouching-Lowchen 0/0
@@ -143,106 +140,109 @@ Slouching-Narwahl 0/0
 Slouching-Bichon Frise 0/0
 Slouching-Shih Tzu 0/0
 Slouching-Papillon 0/0
-Leaping-Xoloitzcuintli 5/7
-Straddling-Badger 9/14
-Leaping-Bandicoot 4/7
-Supine-Munchkin 5/9
-Indifferent-Bandicoot 7/14
-Darting-Bandicoot 7/14
-Straddling-Affenpinscher 10/20
-Straddling-Basenji 12/26
-Straddling-Munchkin 10/22
-Straddling-Sphynx 29/81
-Straddling-Pomeranian 37/104
-Leaping-Affenpinscher 24/71
-Darting-Norrbottenspets 3/9
-Leaping-Norrbottenspets 8/25
-Supine-Basenji 5/16
-Straddling-Xoloitzcuintli 43/138
-Straddling-Pekingese 51/171
-Darting-Sphynx 4/14
-Straddling-Axolotl 28/98
-Straddling-Jagdterrier 22/87
-Leaping-Griffon 20/80
-Slouching-Affenpinscher 3/12
-Darting-Affenpinscher 53/229
-Straddling-Capybara 28/123
-Indifferent-Affenpinscher 53/239
-Supine-Affenpinscher 5/23
-Straddling-Griffon 69/329
-Leaping-Sphynx 2/10
-Leaping-Basenji 26/135
-Straddling-Cricket 24/131
-Leaping-Pomeranian 28/153
-Straddling-Norrbottenspets 53/300
-Straddling-Havanese 79/464
-Leaping-Munchkin 20/119
-Supine-Cricket 26/155
-Leaping-Pekingese 30/188
-Leaping-Shiba Inu 19/123
-Straddling-Shiba Inu 57/380
-Darting-Shiba Inu 45/307
-Supine-Jagdterrier 7/49
-Darting-Basenji 44/326
-Slouching-Jagdterrier 2/15
-Indifferent-Basenji 44/333
-Supine-Sphynx 70/543
-Supine-Axolotl 27/211
-Darting-Griffon 49/407
-Leaping-Jagdterrier 52/448
-Supine-Badger 14/121
-Supine-Pomeranian 79/687
-Slouching-Sphynx 86/763
-Slouching-Basenji 0/8
-Indifferent-Sphynx 86/769
-Indifferent-Munchkin 31/289
-Darting-Munchkin 31/289
-Supine-Xoloitzcuintli 80/748
-Darting-Jagdterrier 100/941
-Indifferent-Jagdterrier 100/951
-Slouching-Axolotl 34/324
-Indifferent-Badger 15/143
-Slouching-Badger 15/143
-Leaping-Capybara 0/9
-Darting-Xoloitzcuintli 0/9
-Slouching-Xoloitzcuintli 90/931
-Indifferent-Xoloitzcuintli 90/939
-Slouching-Cricket 35/367
-Leaping-Cricket 62/652
-Leaping-Axolotl 58/612
-Supine-Pekingese 88/941
-Darting-Pomeranian 62/692
-Straddling-Lundehund 105/1215
-Supine-Capybara 58/691
-Indifferent-Pomeranian 125/1549
-Leaping-Havanese 71/943
-Indifferent-Capybara 65/864
-Slouching-Capybara 65/864
-Slouching-Pomeranian 92/1225
-Supine-Norrbottenspets 152/2057
-Darting-Pekingese 47/642
-Slouching-Pekingese 93/1308
-Darting-Cricket 135/1929
-Supine-Griffon 167/2417
-Darting-Axolotl 118/1708
-Indifferent-Pekingese 115/1677
-Indifferent-Cricket 139/2154
-Indifferent-Norrbottenspets 182/2852
-Supine-Shiba Inu 163/2555
-Slouching-Norrbottenspets 181/2848
-Indifferent-Axolotl 121/1955
-Supine-Havanese 182/2994
-Slouching-Griffon 217/3793
-Indifferent-Shiba Inu 225/4027
-Indifferent-Griffon 224/4128
-Slouching-Shiba Inu 214/3983
-Darting-Havanese 141/3206
-Slouching-Havanese 229/5258
-Indifferent-Havanese 275/7273
-Leaping-Lundehund 165/7350
-Darting-Lundehund 435/21915
-Supine-Lundehund 330/16980
-Slouching-Lundehund 585/34935
-Indifferent-Lundehund 615/53430
+Leaping-Badger 31/34
+Darting-Xoloitzcuintli 207/293
+Supine-Munchkin 201/312
+Supine-Affenpinscher 175/280
+Darting-Norrbottenspets 205/336
+Slouching-Munchkin 55/96
+Slouching-Basenji 145/275
+Slouching-Affenpinscher 139/306
+Darting-Sphynx 160/377
+Supine-Jagdterrier 292/776
+Slouching-Jagdterrier 120/329
+Supine-Basenji 179/511
+Leaping-Bandicoot 250/727
+Leaping-Capybara 89/308
+Straddling-Bandicoot 168/636
+Supine-Badger 414/1804
+Straddling-Affenpinscher 405/1891
+Leaping-Basenji 941/4451
+Leaping-Affenpinscher 891/4250
+Supine-Axolotl 863/4134
+Supine-Sphynx 1640/8050
+Supine-Cricket 880/4350
+Slouching-Cricket 1496/7560
+Indifferent-Badger 643/3259
+Slouching-Badger 643/3262
+Straddling-Basenji 373/1912
+Darting-Shiba Inu 1420/7316
+Supine-Xoloitzcuintli 1861/9589
+Leaping-Griffon 654/3550
+Darting-Affenpinscher 1878/10258
+Indifferent-Basenji 1746/9565
+Leaping-Sphynx 93/510
+Indifferent-Affenpinscher 1900/10442
+Darting-Basenji 1719/9477
+Darting-Griffon 1706/9476
+Leaping-Xoloitzcuintli 85/483
+Slouching-Axolotl 1533/8890
+Leaping-Munchkin 792/4608
+Straddling-Sphynx 629/3672
+Leaping-Shiba Inu 530/3106
+Straddling-Xoloitzcuintli 808/4759
+Indifferent-Xoloitzcuintli 3163/18666
+Slouching-Xoloitzcuintli 3122/18517
+Straddling-Munchkin 359/2133
+Supine-Pomeranian 1909/11370
+Darting-Bandicoot 543/3262
+Indifferent-Bandicoot 543/3267
+Indifferent-Sphynx 2628/16243
+Slouching-Sphynx 2598/16173
+Straddling-Badger 174/1090
+Leaping-Norrbottenspets 140/881
+Supine-Capybara 1472/9373
+Straddling-Pomeranian 981/6317
+Leaping-Pekingese 1053/6786
+Supine-Pekingese 2108/14018
+Leaping-Pomeranian 1120/7849
+Darting-Munchkin 1522/10839
+Indifferent-Munchkin 1522/10898
+Straddling-Pekingese 1044/7635
+Straddling-Capybara 600/4496
+Straddling-Jagdterrier 660/4968
+Leaping-Jagdterrier 1707/12990
+Indifferent-Capybara 2330/17782
+Slouching-Capybara 2328/17772
+Supine-Norrbottenspets 3572/27857
+Slouching-Pomeranian 2906/23460
+Slouching-Pekingese 3354/27524
+Darting-Pekingese 1952/16336
+Straddling-Norrbottenspets 1325/11146
+Indifferent-Pomeranian 4210/35458
+Straddling-Axolotl 764/6479
+Indifferent-Pekingese 4330/37108
+Indifferent-Jagdterrier 3023/26359
+Supine-Griffon 3968/34662
+Darting-Jagdterrier 2997/26211
+Straddling-Cricket 766/6748
+Straddling-Griffon 1462/13088
+Leaping-Cricket 2057/18726
+Leaping-Axolotl 1907/17387
+Supine-Shiba Inu 3932/35936
+Indifferent-Norrbottenspets 5666/51830
+Straddling-Shiba Inu 1444/13250
+Slouching-Norrbottenspets 5621/51693
+Darting-Pomeranian 2224/21119
+Supine-Havanese 4331/45776
+Indifferent-Griffon 6888/73890
+Straddling-Havanese 1848/20082
+Slouching-Griffon 6448/70280
+Leaping-Havanese 2308/26020
+Indifferent-Axolotl 4041/45921
+Indifferent-Shiba Inu 6581/75699
+Slouching-Shiba Inu 6327/72980
+Indifferent-Cricket 4265/49306
+Darting-Axolotl 3599/41895
+Darting-Cricket 3836/47390
+Slouching-Havanese 6803/96656
+Indifferent-Havanese 8469/136136
+Darting-Havanese 4260/71888
+Straddling-Lundehund 2850/65055
+Leaping-Lundehund 4695/116985
+Supine-Lundehund 8235/207900
+Slouching-Lundehund 14580/531135
+Indifferent-Lundehund 16035/1678230
+Darting-Lundehund 10065/1259670
 ```
 
