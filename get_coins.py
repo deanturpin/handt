@@ -11,7 +11,7 @@ try:
     exchanges = r.json();
 
     for exchange in exchanges:
-        if exchange == "Coinbase" or exchange == "Kraken":
+        if exchange == "Coinbase" or exchange == "Binance":
             for from_symbol in exchanges[exchange]:
                 for to_symbol in exchanges[exchange][from_symbol]:
                     print(from_symbol, "\t", to_symbol, "\t", exchange)
