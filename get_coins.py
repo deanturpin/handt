@@ -8,9 +8,6 @@ from collections import deque
 f = open("exchanges.txt")
 exchange_names = deque(f.read().split())
 
-for ex in exchange_names:
-    print(ex)
-
 try:
     url = "https://min-api.cryptocompare.com/data/all/exchanges"
 
