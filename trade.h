@@ -9,8 +9,6 @@ struct trade_t {
   std::string to_symbol;
   std::string exchange;
   std::vector<double> prices;
-
-  double mean_variance();
 };
 
 std::vector<trade_t> get_trades();
