@@ -3,6 +3,13 @@
 import sys
 import json
 import requests
+from collections import deque
+
+f = open("exchanges.txt")
+exchange_names = deque(f.read().split())
+
+for ex in exchange_names:
+    print(ex)
 
 try:
     url = "https://min-api.cryptocompare.com/data/all/exchanges"
@@ -11,7 +18,7 @@ try:
     exchanges = r.json();
 
     for exchange in exchanges:
-        if exchange == "Coinbase" or exchange == "Binance":
+        if exchange in exchange_names:
             for from_symbol in exchanges[exchange]:
                 for to_symbol in exchanges[exchange][from_symbol]:
                     print(from_symbol, "\t", to_symbol, "\t", exchange)
