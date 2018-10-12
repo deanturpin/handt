@@ -110,10 +110,9 @@ run_backtests(const std::vector<trade_t> &trades,
             ++backtest.opportunities;
           }
 
-          // Calculate prospects using the most recent prices
+          // Calculate current prospects using the most recent prices
           historic_pi = std::prev(prices.cend(), analysis_window);
           current_pi = prices.cend();
-
           if (backtest.strategy.execute(historic_pi, current_pi))
             backtest.buy = true;
         }

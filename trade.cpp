@@ -1,11 +1,32 @@
 #include "trade.h"
+#include <algorithm>
+#include <cmath>
 #include <filesystem>
 #include <fstream>
 #include <iterator>
+#include <numeric>
 #include <vector>
 
 // Take a directory name, read all the files and return a container of prices
 // for all coins
+
+double trade_t::mean_variance() {
+
+  // Calculate the diffs
+  std::vector<double> d(prices.size());
+  std::adjacent_difference(prices.begin(), prices.end(), d.data());
+
+  // Pop the large first value off the front
+  d.front() = d.back();
+  d.pop_back();
+
+  // Absolute diffs
+  std::for_each(d.begin(), d.end(),
+                [](auto &element) { element = std::fabs(element); });
+
+  return d.size() > 0 ? std::accumulate(d.cbegin(), d.cend(), 0.0) / d.size()
+                      : 0.0;
+}
 
 std::vector<trade_t> get_trades() {
 

@@ -36,7 +36,8 @@ const auto front = [](const auto &p) { return p.front(); };
 const auto back = [](const auto &p) { return p.back(); };
 
 // Diffs between values
-const auto diffs = [](const auto &p) {
+auto diffs(const std::vector<double> &p) {
+
   // Calculate the diffs
   std::vector<double> d(p.size());
   std::adjacent_difference(p.begin(), p.end(), d.data());
@@ -46,7 +47,7 @@ const auto diffs = [](const auto &p) {
   d.pop_back();
 
   return d;
-};
+}
 
 // Primary strategies are simple boolean tests
 const std::map<std::string, func1> primary_strategies{

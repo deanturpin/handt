@@ -48,17 +48,15 @@ std::string get_strategy_report(const std::vector<backtest_t> &backtests) {
                             (bgd > 0.0 ? bgd : .9) / (bbd > 0.0 ? bbd : .9);
                    });
 
-  report << strategy_performance.size() << " strategies\n";
-  report << "```\n";
+  report << strategy_performance.size() << " strategies\n\n";
   unsigned int entries = 0;
   for (const auto &[name, performance] : strategy_performance) {
-    report << name << ' ' << performance.good << '/' << performance.bad << '\n';
+    report << name << '|' << performance.good << '/' << performance.bad << '\n';
 
     ++entries;
-    // if (entries > 30)
-    //   break;
+    if (entries > 200)
+      break;
   }
 
-  report << "```\n";
   return report.str();
 }

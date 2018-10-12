@@ -7,9 +7,9 @@
 // Parse backtest results and generate strategy performance report
 
 // Take a container of all backtests and produce a report as a string
-static std::string construct_exchange_url(const std::string &from_symbol,
-                                          const std::string &to_symbol,
-                                          const std::string &exchange) {
+std::string construct_exchange_url(const std::string &from_symbol,
+                                   const std::string &to_symbol,
+                                   const std::string &exchange) {
 
   // Trim any trailing asterisk from symbol name
   std::string_view from_symbol_trimmed = from_symbol;
