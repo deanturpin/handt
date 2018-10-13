@@ -29,6 +29,7 @@ readme = tmp/readme.md
 tmp/haveanicedaytrader: objects
 	$(CXX) -o $@ tmp/*.o -lstdc++fs -lpthread -pg --coverage
 	cat template.md > $(readme)
+	echo Exchanges\: $(shell cat exchanges.txt) >> $(readme)
 	echo '```' >> $(readme)
 	git log --pretty=oneline --abbrev-commit -n 1 >> $(readme)
 	echo '```' >> $(readme)
