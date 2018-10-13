@@ -72,18 +72,17 @@ std::string get_report(const std::vector<trade_t> &prices,
       const auto url =
           construct_exchange_url(s.from_symbol, s.to_symbol, s.exchange);
 
-      // Find the original prices for this backtest
-      const auto it =
-          std::find_if(prices.cbegin(), prices.cend(),
-                       [exchange = s.exchange, from_symbol = s.from_symbol,
-                        to_symbol = s.to_symbol](const auto &p) {
-                         return p.exchange == exchange &&
-                                p.from_symbol == from_symbol &&
-                                p.to_symbol == to_symbol;
-                       });
-
       // Calculate mean variance
-      const auto mv = it == prices.cend() ? 0.0 : mean_variance(it->prices);
+      const double mv = [exchange = s.exchange, from_symbol = s.from_symbol,
+                         to_symbol = s.to_symbol, &prices]() {
+        // Find the original prices for this backtest
+        const auto it =
+            std::find_if(prices.cbegin(), prices.cend(), [&](const auto &p) {
+              return p.exchange == exchange && p.from_symbol == from_symbol &&
+                     p.to_symbol == to_symbol;
+            });
+        return it == prices.cend() ? 0.0 : mean_variance(it->prices);
+      }();
 
       // Report strategy summary
       out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
