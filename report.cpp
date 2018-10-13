@@ -47,8 +47,8 @@ std::string get_report(const std::vector<trade_t> &prices,
                        const bool &prospects_only) {
 
   std::stringstream out;
-  out << "\nStrategy|Pair|Exchange|Perf|Spot|Last (days)|Variance %\n"
-      << "---|---|---|---|---|---\n";
+  out << "\nStrategy|Pair|Exchange|Perf|Spot|Variance %\n"
+      << "---|---|---|---|---\n";
 
   unsigned int entries = 0;
   for (const auto &s : backtests)
@@ -70,16 +70,11 @@ std::string get_report(const std::vector<trade_t> &prices,
       // Calculate some general stats about the current currency
       const double mv = it == prices.cend() ? 0.0 : mean_variance(it->prices);
       const double spot = it == prices.cend() ? 0.0 : it->prices.back();
-      const unsigned long days_since_last_trade =
-          it == prices.cend()
-              ? 0ul
-              : (it->prices.size() - s.good_deals.back().first) / 24;
 
       // Report strategy summary
       out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
           << url << ")|" << s.exchange << '|' << s.good_deals.size() << '/'
-          << s.bad_deals.size() << '|' << spot << '|' << days_since_last_trade
-          << '|' << mv << '\n';
+          << s.bad_deals.size() << '|' << spot << '|' << mv << '\n';
 
       ++entries;
 
