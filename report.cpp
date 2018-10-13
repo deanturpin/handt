@@ -47,7 +47,7 @@ std::string get_report(const std::vector<trade_t> &prices,
                        const bool &prospects_only) {
 
   std::stringstream out;
-  out << "\nStrategy|Pair|Good/Bad|Spot|Last (days)|Variance %\n"
+  out << "\nStrategy|Pair|Exchange|Good/Bad|Spot|Last (days)|Variance %\n"
       << "---|---|---|---|---|---\n";
 
   unsigned int entries = 0;
@@ -77,8 +77,9 @@ std::string get_report(const std::vector<trade_t> &prices,
 
       // Report strategy summary
       out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
-          << url << ")|" << s.good_deals.size() << '/' << s.bad_deals.size()
-          << '|' << spot << '|' << days_since_last_trade << '|' << mv << '\n';
+          << url << ")|" << s.exchange << '|' << s.good_deals.size() << '/'
+          << s.bad_deals.size() << '|' << spot << '|' << days_since_last_trade
+          << '|' << mv << '\n';
 
       ++entries;
 
