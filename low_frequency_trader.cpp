@@ -23,21 +23,20 @@ const auto minimum = [](const auto &p) constexpr {
 // Front end size is rounded down by pushing the trim size upwards
 const auto front_end = [](const auto &p) {
   const int trim = std::rint(std::ceil(p.size() / 2.0));
-  return decltype(p){p.cbegin(), std::prev(p.cend(), trim)};
+  return std::vector<double>{p.cbegin(), std::prev(p.cend(), trim)};
 };
 
 // Back end size is rounded up by pushing the trim size downwards
 const auto back_end = [](const auto &p) {
   const int trim = std::rint(std::floor(p.size() / 2.0));
-  return decltype(p){std::next(p.cbegin(), trim), p.cend()};
+  return std::vector<double>{std::next(p.cbegin(), trim), p.cend()};
 };
 
 const auto front = [](const auto &p) { return p.front(); };
 const auto back = [](const auto &p) { return p.back(); };
 
 // Diffs between values
-auto diffs(const std::vector<double> &p) {
-
+const auto diffs = [](const std::vector<double> &p) {
   // Calculate the diffs
   std::vector<double> d(p.size());
   std::adjacent_difference(p.begin(), p.end(), d.data());
@@ -47,7 +46,7 @@ auto diffs(const std::vector<double> &p) {
   d.pop_back();
 
   return d;
-}
+};
 
 // Primary strategies are simple boolean tests
 const std::map<std::string, func1> primary_strategies{

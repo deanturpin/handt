@@ -10,6 +10,7 @@ namespace parallel {
 
 const auto thread_count = std::thread::hardware_concurrency();
 
+// Parallel implementation of std::for_each
 template <typename Iterator, typename Functor>
 void for_each(Iterator begin, Iterator end, Functor func) {
 
@@ -17,13 +18,14 @@ void for_each(Iterator begin, Iterator end, Functor func) {
   const unsigned long calculations_per_thread =
       std::ceil(1.0 * calculations / thread_count);
 
+  // A worker thread needs a pair of iterators into the container
   struct worker_t {
     Iterator a{};
     Iterator b{};
   };
 
+  // Divide the container by the number of worker threads
   std::vector<worker_t> workers;
-
   const std::function<void(Iterator, Iterator, int)> populate =
       [&workers, &begin, &end, &calculations_per_thread,
        &populate](const Iterator a, const Iterator b, const int n) {
@@ -31,7 +33,6 @@ void for_each(Iterator begin, Iterator end, Functor func) {
           return;
 
         workers.push_back({a, b});
-
         populate(a, b, n - 1);
       };
 
