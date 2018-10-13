@@ -12,7 +12,6 @@ struct backtest_t {
   std::string from_symbol;
   std::string to_symbol;
   std::string exchange;
-  double spot = 0.0;
   strategy_t strategy;
 
   std::vector<std::pair<int, int>> good_deals{};

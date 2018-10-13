@@ -19,9 +19,8 @@ run_backtests(const std::vector<trade_t> &trades,
     for (const auto &strategy : permutations) {
 
       // Create a new strategy and add it to the summary for later
-      const auto spot = prices.back();
       backtests.emplace_back(backtest_t{strategy.name, from_symbol, to_symbol,
-                                        exchange, spot, strategy});
+                                        exchange, strategy});
     }
   }
 

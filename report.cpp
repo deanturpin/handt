@@ -72,24 +72,28 @@ std::string get_report(const std::vector<trade_t> &prices,
       const auto url =
           construct_exchange_url(s.from_symbol, s.to_symbol, s.exchange);
 
-      // Calculate mean variance
-      const double mv = [exchange = s.exchange, from_symbol = s.from_symbol,
-                         to_symbol = s.to_symbol, &prices]() {
-        // Find the original prices for this backtest
-        const auto it =
-            std::find_if(prices.cbegin(), prices.cend(), [&](const auto &p) {
-              return p.exchange == exchange && p.from_symbol == from_symbol &&
-                     p.to_symbol == to_symbol;
-            });
-        return it == prices.cend() ? 0.0 : mean_variance(it->prices);
-      }();
+      // Find the original prices for this backtest
+      const auto it =
+          std::find_if(prices.cbegin(), prices.cend(),
+                       [exchange = s.exchange, from_symbol = s.from_symbol,
+                        to_symbol = s.to_symbol](const auto &p) {
+                         return p.exchange == exchange &&
+                                p.from_symbol == from_symbol &&
+                                p.to_symbol == to_symbol;
+                       });
+
+      // Calculate some general stats about the current currency
+      const double mv = it == prices.cend() ? 0.0 : mean_variance(it->prices);
+      const double spot = it == prices.cend() ? 0.0 : it->prices.back();
+      const unsigned long days_since_last_trade =
+          it == prices.cend()
+              ? 0ul
+              : (it->prices.size() - s.good_deals.back().first) / 24;
 
       // Report strategy summary
       out << s.name << '|' << "[" << s.from_symbol << '-' << s.to_symbol << "]("
           << url << ")|" << s.good_deals.size() << '/' << s.bad_deals.size()
-          << '|' << s.spot << '|'
-          << (prices.back().prices.size() - s.good_deals.back().first) / 24
-          << '|' << mv << '\n';
+          << '|' << spot << '|' << days_since_last_trade << '|' << mv << '\n';
 
       ++entries;
 
