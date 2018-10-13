@@ -47,7 +47,7 @@ std::string get_report(const std::vector<trade_t> &prices,
                        const bool &prospects_only) {
 
   std::stringstream out;
-  out << "\nStrategy|Pair|Exchange|Good/Bad|Spot|Last (days)|Variance %\n"
+  out << "\nStrategy|Pair|Exchange|Perf|Spot|Last (days)|Variance %\n"
       << "---|---|---|---|---|---\n";
 
   unsigned int entries = 0;
