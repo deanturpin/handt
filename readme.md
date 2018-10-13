@@ -9,7 +9,8 @@ for hundreds of currency pairs, then a library of strategies is backtested over
 them and a summary is generated.
 
 Prices are fetched using the [CryptoCompare
-API](https://min-api.cryptocompare.com/). See [references](refs.md). 
+API](https://min-api.cryptocompare.com/).  See the entry point in
+[main.cpp](main.cpp).
 
 - [Gambler's fallacy](https://en.wikipedia.org/wiki/Gambler%27s_fallacy)
 - [Gestalt psychology](https://en.wikipedia.org/wiki/Gestalt_psychology)
