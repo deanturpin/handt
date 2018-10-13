@@ -3,7 +3,6 @@ python: "3.6"
 script:
   - make CXX=g++-8 all profile && mv tmp/readme.md .
   - cppcheck --enable=all .
-  - echo -e "\n```" $(sloccount *.h *.cpp *.py) "```" >> readme.md
 
 deploy:
   provider: pages
