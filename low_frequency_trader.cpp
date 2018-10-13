@@ -202,57 +202,43 @@ void lft_unit_test() {
   assert(mean(ascending4) > 1.0);
 
   // Primary strategies
+  const auto &primary = primary_strategies;
   // using cont2 = std::vector<double>;
-  const auto &prim = primary_strategies;
-  assert(prim.size() == 6);
-
-  // Always true
-  // assert(prim.front().first == "Indifferent");
-  // assert(prim.at(0).second(cont2{1, 2, 3, 4, 5}) == true);
-
-  // // Trending updwards
-  // assert(prim.at(1).second(cont2{1, 2, 3, 4, 5}) == true && "trending
-  // upwards"); assert(prim.at(1).second(cont2{5, 4, 3, 2, 1}) == false);
-
-  // // Trending downwards
-  // assert(prim.at(2).second(cont2{1, 2, 3, 4, 5}) == false &&
-  //        "trending downwards");
-  // assert(prim.at(2).second(cont2{5, 4, 3, 2, 1}) == true);
-
-  // // Straddling
-  // assert(prim.at(3).second(cont2{8, 9, 10, 11, 12}) == true);
-  // assert(prim.at(3).second(cont2{10, 11, 12, 12}) == false);
-  // assert(prim.at(3).second(cont2{87, 98, 99, 100}) == false);
-  // assert(prim.at(3).second(cont2{87, 98, 99, 100, 101}) == true);
-
-  // // Darting
-  // assert(prim.at(4).second(cont2{1, 2, 3, 4, 5}) == true);
-  // assert(prim.at(4).second(cont2{5, 4, 3, 2, 1}) == false);
-
-  // // Slouching
-  // assert(prim.at(5).second(cont2{1, 2, 3, 4, 5}) == false);
-  // assert(prim.at(5).second(cont2{5, 4, 3, 2, 1}) == true);
+  assert(primary.size() == 6);
+  // assert(primary["Indifferent"](ascending1) == true);
+  // assert(primary["Leaping"].second(cont2{1, 2, 3, 4, 5}) == true);
+  // assert(primary["Leaping"].second(cont2{5, 4, 3, 2, 1}) == false);
+  // assert(primary["Supine"].second(cont2{1, 2, 3, 4, 5}) == false);
+  // assert(primary["Supine"].second(cont2{5, 4, 3, 2, 1}) == true);
+  // assert(primary["Straddling"].second(cont2{8, 9, 10, 11, 12}) == true);
+  // assert(primary["Straddling"].second(cont2{10, 11, 12, 12}) == false);
+  // assert(primary["Straddling"].second(cont2{87, 98, 99, 100}) == false);
+  // assert(primary["Straddling"].second(cont2{87, 98, 99, 100, 101}) == true);
+  // assert(primary["Darting"].second(cont2{1, 2, 3, 4, 5}) == true);
+  // assert(primary["Darting"].second(cont2{5, 4, 3, 2, 1}) == false);
+  // assert(primary["Slouching"].second(cont2{1, 2, 3, 4, 5}) == false);
+  // assert(primary["Slouching"].second(cont2{5, 4, 3, 2, 1}) == true);
 
   // Secondary strategies
-  const auto &strat = secondary_strategies;
-  assert(strat.size() == 25);
-  // assert(strat.at(0).second(cont2{1, 2, 3, 4, 5}) > 1.0);
-  // assert(strat.at(0).second(cont2{}) > 1.0);
+  const auto &secondary = get_secondary_strategies();
+  assert(secondary.size() == 25);
+  // assert(secondary["Lundehund"].second(cont2{1, 2, 3, 4, 5}) > 1.0);
+  // assert(secondary["Lundehund"].second(cont2{}) > 1.0);
 
-  // // Front over back
-  // assert(strat.at(1).second(cont2{1.0, 2.0}) < 1.0);
-  // assert(strat.at(1).second(cont2{2.0, 1.0}) > 1.0);
-  // assert(strat.at(1).second(cont2{2.0, 2.0}) < 1.1);
-  // assert(strat.at(2).second(cont2{1.0, 2.0}) > 1.0);
-  // assert(strat.at(2).second(cont2{2.0, 1.0}) < 1.0);
-  // assert(std::isnan(strat.at(1).second(cont2{0.0, 0.0})));
-  // assert(std::isnan(strat.at(2).second(cont2{0.0, 0.0})));
+  // Front over back
+  // assert(secondary.at(1).second(cont2{1.0, 2.0}) < 1.0);
+  // assert(secondary.at(1).second(cont2{2.0, 1.0}) > 1.0);
+  // assert(secondary.at(1).second(cont2{2.0, 2.0}) < 1.1);
+  // assert(secondary.at(2).second(cont2{1.0, 2.0}) > 1.0);
+  // assert(secondary.at(2).second(cont2{2.0, 1.0}) < 1.0);
+  // assert(std::isnan(secondary.at(1).second(cont2{0.0, 0.0})));
+  // assert(std::isnan(secondary.at(2).second(cont2{0.0, 0.0})));
 
   // // Front/back over mean
   // const std::vector<double> test1{1.0, 2.0, 4.0, 2.0};
   // assert(mean(test1) > 1.0); // 8 / 4 = 2
-  // assert(strat.at(3).second(test1) > 1.0);
-  // assert(strat.at(4).second(test1) < 2.26);
-  // assert(strat.at(5).second(test1) < .5);
-  // assert(strat.at(6).second(test1) < .9);
+  // assert(secondary.at(3).second(test1) > 1.0);
+  // assert(secondary.at(4).second(test1) < 2.26);
+  // assert(secondary.at(5).second(test1) < .5);
+  // assert(secondary.at(6).second(test1) < .9);
 }
