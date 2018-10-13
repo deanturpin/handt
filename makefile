@@ -33,6 +33,7 @@ tmp/haveanicedaytrader: objects
 	git log --pretty=oneline --abbrev-commit -n 1 >> $(readme)
 	echo '```' >> $(readme)
 	./$@ >> $(readme)
+	echo '# sloccount' >> $(readme)
 	echo '```' >> $(readme)
 	sloccount *.h *.cpp *.py >> $(readme)
 	echo '```' >> $(readme)
