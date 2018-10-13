@@ -3,7 +3,6 @@
 
 #include "backtest.h"
 #include "trade.h"
-#include <string>
 #include <vector>
 
 void get_detailed_report(const std::vector<trade_t> &,

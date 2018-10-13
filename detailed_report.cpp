@@ -1,6 +1,5 @@
 #include "detailed_report.h"
 #include <fstream>
-#include <sstream>
 #include <string>
 
 // Generate detailed internal reports to verify recommended trades

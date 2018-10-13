@@ -1,6 +1,5 @@
 #include "backtest.h"
 #include "detailed_report.h"
-#include "low_frequency_trader.h"
 #include "parallel.h"
 #include "report.h"
 #include "strategy.h"
