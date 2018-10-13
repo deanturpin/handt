@@ -3,7 +3,7 @@ all: tmp analysis tmp/haveanicedaytrader
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
 	 -Werror -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
-	 -g -pg -Ofast
+	 -g -pg -O3
 
 tmp/%.o: %.cpp
 	$(CXX) -c -o $@ $< $(cflags)
