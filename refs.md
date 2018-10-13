@@ -1,5 +1,0 @@
-- https://en.wikipedia.org/wiki/Gambler%27s_fallacy
-- https://en.wikipedia.org/wiki/Gestalt_psychology
-- https://en.wikipedia.org/wiki/Oscar%27s_grind
-- https://en.wikipedia.org/wiki/Faulty_generalization
-- See [all exchanges](https://min-api.cryptocompare.com/data/all/exchanges)
