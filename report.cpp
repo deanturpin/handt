@@ -29,32 +29,18 @@ double mean_variance(const std::vector<double> &prices) {
              : 0.0;
 }
 
-// Take a container of all backtests and produce a report as a string
-std::string construct_exchange_url(const std::string &from_symbol,
-                                   const std::string &to_symbol,
-                                   const std::string &exchange) {
+std::string construct_exchange_url(const std::string &from_symbol) {
 
   // Trim any trailing asterisk from symbol name
   std::string_view from_symbol_trimmed = from_symbol;
   if (from_symbol_trimmed.back() == '*')
     from_symbol_trimmed.remove_suffix(1);
 
-  if (exchange == std::string("Coinbase"))
-    return "https://coinbase.com";
-
-  if (exchange == std::string("Binance"))
-    return "https://binance.com/en/trade/" + std::string(from_symbol_trimmed) +
-           '_' + to_symbol;
-
-  if (exchange == std::string("Poloniex"))
-    return "https://poloniex.com/exchange#" + to_symbol + '_' + from_symbol;
-
-  if (exchange == std::string("Kraken"))
-    return "https://www.kraken.com/charts";
-
-  return "http://lmgtfy.com/?q=" + exchange;
+  return "https://www.cryptocompare.com/coins/" +
+         std::string(from_symbol_trimmed);
 }
 
+// Take a container of all backtests and produce a report as a string
 std::string get_report(const std::vector<trade_t> &prices,
                        const std::vector<backtest_t> &backtests,
                        const unsigned int &max_entries,
@@ -69,8 +55,7 @@ std::string get_report(const std::vector<trade_t> &prices,
     if (!prospects_only || s.buy) {
 
       // Construct exchange URL
-      const auto url =
-          construct_exchange_url(s.from_symbol, s.to_symbol, s.exchange);
+      const auto url = construct_exchange_url(s.from_symbol);
 
       // Find the original prices for this backtest
       const auto it =
