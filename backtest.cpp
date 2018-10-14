@@ -38,7 +38,7 @@ run_backtests(const std::vector<trade_t> &trades,
 
         // Configure trading periods for backtest
         const unsigned int analysis_window = 24;
-        const unsigned int sell_window = analysis_window * 2;
+        const unsigned int sell_window = analysis_window * 3;
 
         // Set up some indices into the prices. Historic price is the first
         // price in the analysis window and the future price is the furthest
