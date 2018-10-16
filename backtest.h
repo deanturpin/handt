@@ -8,16 +8,16 @@
 
 // Structure to capture the results of a strategy backtest run
 struct backtest_t {
-  std::string name;
-  std::string from_symbol;
-  std::string to_symbol;
-  std::string exchange;
+  std::string name{};
+  std::string from_symbol{};
+  std::string to_symbol{};
+  std::string exchange{};
   strategy_t strategy;
 
   std::vector<std::pair<int, int>> good_deals{};
   std::vector<std::pair<int, int>> bad_deals{};
-  unsigned int opportunities = 0;
-  bool buy = false;
+  unsigned int opportunities{};
+  bool buy{false};
 };
 
 std::vector<backtest_t> run_backtests(const std::vector<trade_t> &,

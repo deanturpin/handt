@@ -1,4 +1,5 @@
 #include "report.h"
+#include <memory>
 #include <numeric>
 #include <sstream>
 #include <string>
@@ -9,22 +10,23 @@
 double mean_variance(const std::vector<double> &prices) {
 
   // Calculate the diffs
-  std::vector<double> d(prices.size());
-  std::adjacent_difference(prices.begin(), prices.end(), d.data());
+  auto d = std::make_unique<std::vector<double>>(prices.size());
+  std::adjacent_difference(prices.begin(), prices.end(), d->data());
 
   // Pop the large first value off the front
-  d.front() = d.back();
-  d.pop_back();
+  d->front() = d->back();
+  d->pop_back();
 
   const auto average =
       std::accumulate(prices.cbegin(), prices.cend(), 0.0) / prices.size();
 
   // Absolute diffs
-  std::for_each(d.begin(), d.end(),
+  std::for_each(d->begin(), d->end(),
                 [](auto &element) { element = std::fabs(element); });
 
-  return d.size() > 0
-             ? 100.0 * (std::accumulate(d.cbegin(), d.cend(), 0.0) / d.size()) /
+  return d->size() > 0
+             ? 100.0 *
+                   (std::accumulate(d->cbegin(), d->cend(), 0.0) / d->size()) /
                    average
              : 0.0;
 }

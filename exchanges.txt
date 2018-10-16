@@ -1,2 +1,2 @@
 Coinbase
-Poloniex
+Binance
