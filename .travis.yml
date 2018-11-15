@@ -1,18 +1,9 @@
-language: cpp
-
+language: python
 python: "3.6"
 script:
-  - make CXX=g++-8 all profile && mv tmp/readme.md .
+  - make CXX=g++-8 && mv tmp/readme.md .
+  - echo -e "\n```" $(sloccount *.h *.cpp *.py) "```" >> readme.md
   - cppcheck --enable=all .
-
-matrix:
-  include:
-    os: linux
-      apt:
-        sources: ubuntu-toolchain-r-test
-        packages:
-          - g++-8
-          - cppcheck
 
 deploy:
   provider: pages
@@ -20,3 +11,14 @@ deploy:
   skip-cleanup: true
   on:
     branch: master
+
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources: ubuntu-toolchain-r-test
+          packages:
+            - g++-8
+            - cppcheck
+            - sloccount
