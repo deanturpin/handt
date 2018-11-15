@@ -11,10 +11,12 @@ deploy:
   on:
     branch: master
 
-os: linux
-  apt:
-    sources: ubuntu-toolchain-r-test
-    packages:
-      - g++-8
-      - cppcheck
-      - sloccount
+matrix:
+  include:
+    os: linux
+      apt:
+        sources: ubuntu-toolchain-r-test
+        packages:
+          - g++-8
+          - cppcheck
+          - sloccount
