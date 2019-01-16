@@ -8,7 +8,7 @@ that uses patterns in historic prices to influence future trades. 80 days of
 prices are requested for hundreds of currency pairs, then a library of
 strategies is backtested over them and a summary is generated.
 
-Prices are fetched using the [CryptoCompare API](https://min-api.cryptocompare.com/). See [references](refs.md). 
+Prices are fetched using the [CryptoCompare API](https://min-api.cryptocompare.com/).
 
 ---
 
