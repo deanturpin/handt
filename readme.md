@@ -10,10 +10,11 @@ a summary is generated.
 
 Prices are fetched using the [CryptoCompare
 API](https://min-api.cryptocompare.com/). See the entry point in
-[main.cpp](main.cpp).
+[main.cpp](https://github.com/deanturpin/handt/blob/master/main.cpp).
 
 - [Gambler's fallacy](https://en.wikipedia.org/wiki/Gambler%27s_fallacy)
 - [Gestalt psychology](https://en.wikipedia.org/wiki/Gestalt_psychology)
 - [Oscar's grind](https://en.wikipedia.org/wiki/Oscar%27s_grind)
 - [Faulty generalisation](https://en.wikipedia.org/wiki/Faulty_generalization)
 - See [all exchanges](https://min-api.cryptocompare.com/data/all/exchanges)
+
