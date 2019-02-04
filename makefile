@@ -21,7 +21,7 @@ prices: tmp tmp/coins.txt
 analysis:
 	 mkdir -p $@
 
-objects:
+objects: tmp
 	make -j $(shell nproc) tmp/trade.o tmp/backtest.o tmp/report.o \
 	tmp/main.o tmp/strategy.o tmp/detailed_report.o tmp/strategy_report.o \
 	tmp/low_frequency_trader.o
