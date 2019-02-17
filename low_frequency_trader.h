@@ -7,8 +7,8 @@
 #include <vector>
 
 using cont = const std::vector<double> &;
-using func1 = const std::function<bool(cont)>;
-using func2 = const std::function<double(cont)>;
+using func1 = std::function<bool(cont)>;
+using func2 = std::function<double(cont)>;
 
 std::map<std::string, func1> get_primary_strategies();
 std::map<std::string, func2> get_secondary_strategies();

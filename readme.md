@@ -19,5 +19,5 @@ API](https://min-api.cryptocompare.com/). See the entry point in
 exchanges](https://min-api.cryptocompare.com/data/all/exchanges). The
 strategies are defined in the
 [low_frequency_trader.cpp](low_frequency_trader.cpp), the permutations and
-thresholds are generated in [strategy.cpp](strategy.cpp);
+thresholds are generated in [strategy.cpp](strategy.cpp).
 
