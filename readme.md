@@ -17,6 +17,7 @@ Prices are fetched using the [CryptoCompare
 API](https://min-api.cryptocompare.com/). See the entry point in
 [main.cpp](https://github.com/deanturpin/handt/blob/master/main.cpp) and [all
 exchanges](https://min-api.cryptocompare.com/data/all/exchanges). The
-strategies are defined in the [Low Frequency Trader
-module](low_frequency_trader.cpp).
+strategies are defined in the
+[low_frequency_trader.cpp](low_frequency_trader.cpp), the permutations and
+thresholds are generated in [strategy.cpp](strategy.cpp);
 
