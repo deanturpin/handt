@@ -70,7 +70,7 @@ std::string get_report(const std::vector<trade_t> &prices,
                        });
 
       // Calculate some general stats about the current currency
-      const double mv   = it == prices.cend() ? 0.0 : mean_variance(it->prices);
+      const double mv = it == prices.cend() ? 0.0 : mean_variance(it->prices);
       const double spot = it == prices.cend() ? 0.0 : it->prices.back();
 
       // Report strategy summary
