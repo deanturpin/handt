@@ -21,10 +21,8 @@ struct strategy_t {
     const double ratio = (100.0 + threshold) / 100.0;
 
     // Test the strategies
-    const auto primary_response =
-        primary({historic_price_index, current_price_index});
-    const auto secondary_response =
-        secondary({historic_price_index, current_price_index});
+    const auto primary_response = primary({historic_price_index, current_price_index});
+    const auto secondary_response = secondary({historic_price_index, current_price_index});
 
     // Check we haven't ended up with a huge number (or NaN) by inadvertantly
     // dividing a double with a very similar double (or zero), and then
