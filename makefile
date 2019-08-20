@@ -1,9 +1,9 @@
 all: prices analysis tmp/haveanicedaytrader
 
-CXX = g++-8
-cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
+CXX = g++-9
+cflags = --std=c++2a --all-warnings --extra-warnings --pedantic-errors \
 	 -Werror -Wshadow -Wfloat-equal -Weffc++ -Wdelete-non-virtual-dtor \
-	 -O1 -mtune=native
+	 -O1
 
 tmp/%.o: %.cpp
 	$(CXX) -c -o $@ $< $(cflags)
