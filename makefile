@@ -1,4 +1,5 @@
-all: prices analysis tmp/haveanicedaytrader
+all: objects
+trades: prices analysis tmp/haveanicedaytrader
 
 CXX = g++-8
 cflags = --std=c++17 --all-warnings --extra-warnings --pedantic-errors \
